@@ -37,20 +37,24 @@
     .book-header {
       background: #f6f8fa;
       border-bottom: 1px solid #e1e4e8;
-      padding: 1rem 0;
-      position: sticky;
+      padding: 0.5rem 0;
+      position: fixed;
       top: 0;
+      left: 0;
+      right: 0;
       z-index: 100;
+      height: 50px;
     }
     
     .book-header-content {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      height: 100%;
     }
     
     .book-title {
-      font-size: 1.5rem;
+      font-size: 1.125rem;
       font-weight: 600;
       text-decoration: none;
       color: #24292e;
@@ -79,21 +83,32 @@
     
     /* Mobile menu */
     .mobile-menu-toggle {
-      display: none;
       background: none;
       border: 1px solid #e1e4e8;
-      padding: 0.5rem;
+      padding: 0.25rem 0.5rem;
       border-radius: 4px;
       cursor: pointer;
+      font-size: 1.25rem;
+      line-height: 1;
+      color: #586069;
+    }
+    
+    .mobile-menu-toggle:hover {
+      background-color: #e1e4e8;
+      color: #24292e;
+    }
+    
+    .header-spacer {
+      width: 40px;
     }
     
     /* Sidebar */
     .book-sidebar {
       position: fixed;
       left: -280px;
-      top: 0;
+      top: 50px;
       width: 280px;
-      height: 100vh;
+      height: calc(100vh - 50px);
       background: #f6f8fa;
       border-right: 1px solid #e1e4e8;
       padding: 1rem;
@@ -215,6 +230,7 @@
     /* Content wrapper for desktop layout */
     .book-content-wrapper {
       display: block;
+      margin-top: 50px; /* Header height */
     }
     
     @media (min-width: 769px) {
@@ -222,17 +238,21 @@
         display: none;
       }
       
+      .mobile-menu-toggle {
+        display: none;
+      }
+      
       .book-content-wrapper {
         display: flex;
-        min-height: calc(100vh - 140px);
+        min-height: calc(100vh - 50px);
       }
       
       .book-sidebar {
-        position: static;
+        position: fixed;
         left: 0;
+        top: 50px;
         width: 280px;
-        height: auto;
-        min-height: calc(100vh - 140px);
+        height: calc(100vh - 50px);
         padding: 1rem;
         border-right: 1px solid #e1e4e8;
         background: #f6f8fa;
@@ -241,10 +261,10 @@
       }
       
       .book-main {
-        margin-left: 0;
+        margin-left: 280px;
         flex-grow: 1;
         padding: 2rem;
-        max-width: calc(100% - 280px);
+        width: calc(100% - 280px);
       }
       
       .book-sidebar-overlay {
@@ -342,15 +362,13 @@
   <header class="book-header">
     <div class="container">
       <div class="book-header-content">
-        <a href="{{ '/' | relative_url }}" class="book-title">{{ site.title | escape }}</a>
-        
-        <nav class="book-nav tablet-up">
-          {% include navigation.html %}
-        </nav>
-        
-        <button class="mobile-menu-toggle mobile-only" aria-label="メニューを開く">
+        <button class="mobile-menu-toggle" aria-label="メニューを開く">
           ☰
         </button>
+        
+        <a href="{{ '/' | relative_url }}" class="book-title">{{ site.title | escape }}</a>
+        
+        <div class="header-spacer"></div>
       </div>
     </div>
   </header>
