@@ -1,0 +1,36 @@
+{% comment %}
+ページナビゲーション - 前のページ・次のページへのリンク
+{% endcomment %}
+
+{% assign chapters = site.pages | where_exp: "page", "page.path contains 'src/chapter-'" | sort: "path" %}
+{% assign current_chapter = page.path | replace: "/index.md", "" | split: "/" | last %}
+
+{% if current_chapter contains "chapter-" %}
+  {% assign current_num = current_chapter | replace: "chapter-", "" | plus: 0 %}
+  
+  <nav class="page-navigation" aria-label="ページナビゲーション">
+    <div class="nav-links">
+      {% if current_num > 1 %}
+        {% assign prev_num = current_num | minus: 1 %}
+        <a href="{{ '/src/chapter-' | append: prev_num | append: '/index.html' | relative_url }}" class="nav-link nav-prev">
+          ← 第{{ prev_num }}章
+        </a>
+      {% elsif current_num == 1 %}
+        <a href="{{ '/src/introduction/prerequisites.html' | relative_url }}" class="nav-link nav-prev">
+          ← 前提知識
+        </a>
+      {% endif %}
+
+      {% if current_num < 12 %}
+        {% assign next_num = current_num | plus: 1 %}
+        <a href="{{ '/src/chapter-' | append: next_num | append: '/index.html' | relative_url }}" class="nav-link nav-next">
+          第{{ next_num }}章 →
+        </a>
+      {% elsif current_num == 12 %}
+        <a href="{{ '/src/appendices/index.html' | relative_url }}" class="nav-link nav-next">
+          付録 →
+        </a>
+      {% endif %}
+    </div>
+  </nav>
+{% endif %}
