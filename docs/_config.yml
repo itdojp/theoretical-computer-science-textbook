@@ -4,12 +4,15 @@ author: "ITDO Inc."
 version: "1.0.0"
 lang: "ja"
 
+# GitHub Pages設定
+url: "https://itdojp.github.io"
+baseurl: "/theoretical-computer-science-textbook"
+
 # Jekyll設定
 markdown: kramdown
 highlighter: rouge
-theme: minima
 
-# プラグイン
+# GitHub Pages対応プラグイン
 plugins:
   - jekyll-feed
   - jekyll-sitemap
@@ -22,15 +25,17 @@ exclude:
   - package-lock.json
   - scripts/
   - tests/
-  - "*.md"
-  - "README.md"
+  - templates/
+  - book-config.json
+  - mobile-config.json
 
 # 日本語対応
 kramdown:
   input: GFM
   syntax_highlighter: rouge
-  
-# GitHub Pages設定
+  syntax_highlighter_opts:
+    line_numbers: false
 
+# リポジトリ情報
 repository: "itdojp/theoretical-computer-science-textbook"
 
