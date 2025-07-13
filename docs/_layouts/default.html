@@ -182,6 +182,8 @@
     .nav-links {
       display: flex;
       justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
     }
     
     .nav-link {
@@ -191,11 +193,19 @@
       border-radius: 6px;
       text-decoration: none;
       color: #586069;
+      display: inline-block;
+      min-width: 120px;
+      text-align: center;
     }
     
     .nav-link:hover {
       background: #e1e4e8;
       color: #24292e;
+    }
+    
+    .nav-spacer {
+      min-width: 120px;
+      height: 1px;
     }
     
     /* Footer */

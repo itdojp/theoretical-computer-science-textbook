@@ -2,34 +2,126 @@
 ページナビゲーション - 前のページ・次のページへのリンク
 {% endcomment %}
 
-{% assign chapters = site.pages | where_exp: "page", "page.path contains 'src/chapter-'" | sort: "path" %}
-{% assign current_chapter = page.path | replace: "/index.md", "" | split: "/" | last %}
+{% assign current_path = page.path %}
+{% assign prev_link = "" %}
+{% assign prev_title = "" %}
+{% assign next_link = "" %}
+{% assign next_title = "" %}
 
-{% if current_chapter contains "chapter-" %}
-  {% assign current_num = current_chapter | replace: "chapter-", "" | plus: 0 %}
+{% comment %} メインページの場合 {% endcomment %}
+{% if current_path == "index.md" %}
+  {% assign next_link = "/src/introduction/purpose.html" %}
+  {% assign next_title = "本書の目的と構成 →" %}
+
+{% comment %} 導入部分のナビゲーション {% endcomment %}
+{% elsif current_path contains "src/introduction/purpose.md" %}
+  {% assign prev_link = "/index.html" %}
+  {% assign prev_title = "← ホーム" %}
+  {% assign next_link = "/src/introduction/learning-guide.html" %}
+  {% assign next_title = "学習の進め方 →" %}
+
+{% elsif current_path contains "src/introduction/learning-guide.md" %}
+  {% assign prev_link = "/src/introduction/purpose.html" %}
+  {% assign prev_title = "← 本書の目的と構成" %}
+  {% assign next_link = "/src/introduction/prerequisites.html" %}
+  {% assign next_title = "前提知識 →" %}
+
+{% elsif current_path contains "src/introduction/prerequisites.md" %}
+  {% assign prev_link = "/src/introduction/learning-guide.html" %}
+  {% assign prev_title = "← 学習の進め方" %}
+  {% assign next_link = "/src/chapter-1/index.html" %}
+  {% assign next_title = "第1章 →" %}
+
+{% comment %} 章のナビゲーション {% endcomment %}
+{% elsif current_path contains "src/chapter-" %}
+  {% assign current_chapter = current_path | split: "/" | last | replace: "index.md", "" %}
+  {% assign current_chapter = current_path | split: "/" %}
+  {% for part in current_chapter %}
+    {% if part contains "chapter-" %}
+      {% assign current_num = part | replace: "chapter-", "" | plus: 0 %}
+      {% break %}
+    {% endif %}
+  {% endfor %}
   
+  {% if current_num == 1 %}
+    {% assign prev_link = "/src/introduction/prerequisites.html" %}
+    {% assign prev_title = "← 前提知識" %}
+  {% elsif current_num > 1 %}
+    {% assign prev_num = current_num | minus: 1 %}
+    {% assign prev_link = "/src/chapter-" | append: prev_num | append: "/index.html" %}
+    {% assign prev_title = "← 第" | append: prev_num | append: "章" %}
+  {% endif %}
+  
+  {% if current_num < 12 %}
+    {% assign next_num = current_num | plus: 1 %}
+    {% assign next_link = "/src/chapter-" | append: next_num | append: "/index.html" %}
+    {% assign next_title = "第" | append: next_num | append: "章 →" %}
+  {% elsif current_num == 12 %}
+    {% assign next_link = "/src/appendices/index.html" %}
+    {% assign next_title = "付録 →" %}
+  {% endif %}
+
+{% comment %} 付録のナビゲーション {% endcomment %}
+{% elsif current_path contains "src/appendices/index.md" %}
+  {% assign prev_link = "/src/chapter-12/index.html" %}
+  {% assign prev_title = "← 第12章" %}
+  {% assign next_link = "/src/appendices/a.html" %}
+  {% assign next_title = "付録A →" %}
+
+{% elsif current_path contains "src/appendices/a.md" %}
+  {% assign prev_link = "/src/appendices/index.html" %}
+  {% assign prev_title = "← 付録一覧" %}
+  {% assign next_link = "/src/appendices/b.html" %}
+  {% assign next_title = "付録B →" %}
+
+{% elsif current_path contains "src/appendices/b.md" %}
+  {% assign prev_link = "/src/appendices/a.html" %}
+  {% assign prev_title = "← 付録A" %}
+  {% assign next_link = "/src/appendices/c.html" %}
+  {% assign next_title = "付録C →" %}
+
+{% elsif current_path contains "src/appendices/c.md" %}
+  {% assign prev_link = "/src/appendices/b.html" %}
+  {% assign prev_title = "← 付録B" %}
+  {% assign next_link = "/src/appendices/d.html" %}
+  {% assign next_title = "付録D →" %}
+
+{% elsif current_path contains "src/appendices/d.md" %}
+  {% assign prev_link = "/src/appendices/c.html" %}
+  {% assign prev_title = "← 付録C" %}
+  {% assign next_link = "/src/appendices/e.html" %}
+  {% assign next_title = "付録E →" %}
+
+{% elsif current_path contains "src/appendices/e.md" %}
+  {% assign prev_link = "/src/appendices/d.html" %}
+  {% assign prev_title = "← 付録D" %}
+  {% assign next_link = "/src/appendices/f.html" %}
+  {% assign next_title = "付録F →" %}
+
+{% elsif current_path contains "src/appendices/f.md" %}
+  {% assign prev_link = "/src/appendices/e.html" %}
+  {% assign prev_title = "← 付録E" %}
+
+{% endif %}
+
+{% comment %} ナビゲーションリンクの表示 {% endcomment %}
+{% if prev_link != "" or next_link != "" %}
   <nav class="page-navigation" aria-label="ページナビゲーション">
     <div class="nav-links">
-      {% if current_num > 1 %}
-        {% assign prev_num = current_num | minus: 1 %}
-        <a href="{{ '/src/chapter-' | append: prev_num | append: '/index.html' | relative_url }}" class="nav-link nav-prev">
-          ← 第{{ prev_num }}章
+      {% if prev_link != "" %}
+        <a href="{{ prev_link | relative_url }}" class="nav-link nav-prev">
+          {{ prev_title }}
         </a>
-      {% elsif current_num == 1 %}
-        <a href="{{ '/src/introduction/prerequisites.html' | relative_url }}" class="nav-link nav-prev">
-          ← 前提知識
-        </a>
+      {% else %}
+        <div class="nav-spacer"></div>
       {% endif %}
-
-      {% if current_num < 12 %}
-        {% assign next_num = current_num | plus: 1 %}
-        <a href="{{ '/src/chapter-' | append: next_num | append: '/index.html' | relative_url }}" class="nav-link nav-next">
-          第{{ next_num }}章 →
+      
+      {% if next_link != "" %}
+        <a href="{{ next_link | relative_url }}" class="nav-link nav-next">
+          {{ next_title }}
         </a>
-      {% elsif current_num == 12 %}
-        <a href="{{ '/src/appendices/index.html' | relative_url }}" class="nav-link nav-next">
-          付録 →
-        </a>
+      {% else %}
+        <div class="nav-spacer"></div>
       {% endif %}
     </div>
   </nav>
