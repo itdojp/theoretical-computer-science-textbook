@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'ja' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <title>{% if page.title %}{{ page.title | escape }} - {% endif %}{{ site.title | escape }}</title>
+  <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+  
+  <!-- Mobile optimizations -->
+  <meta name="theme-color" content="#3b82f6">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="{{ site.title | escape }}">
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="{{ '/assets/css/mobile-responsive.css' | relative_url }}" as="style">
+  <link rel="preload" href="{{ '/assets/js/mobile-navigation.js' | relative_url }}" as="script">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="{{ '/assets/css/mobile-responsive.css' | relative_url }}">
+  {% if site.custom_css %}
+    <link rel="stylesheet" href="{{ site.custom_css | relative_url }}">
+  {% endif %}
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="{{ '/favicon.ico' | relative_url }}">
+  
+  <!-- RSS feed -->
+  {% feed_meta %}
+  
+  <!-- SEO tags -->
+  {% seo %}
+</head>
+<body class="book-layout">
+  <header class="book-header">
+    <div class="container">
+      <div class="book-header-content">
+        <a href="{{ '/' | relative_url }}" class="book-title">{{ site.title | escape }}</a>
+        
+        <nav class="book-nav tablet-up">
+          {% include navigation.html %}
+        </nav>
+        
+        <button class="mobile-menu-toggle mobile-only" aria-label="メニューを開く">
+          ☰
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="book-sidebar-overlay"></div>
+  
+  <aside class="book-sidebar" aria-label="サイドナビゲーション">
+    {% include sidebar.html %}
+  </aside>
+
+  <main class="book-main">
+    <div class="container">
+      <div class="book-content">
+        {{ content }}
+        
+        {% include page-navigation.html %}
+      </div>
+    </div>
+  </main>
+
+  <footer class="book-footer">
+    <div class="container">
+      <div class="text-center text-secondary text-sm">
+        <p>&copy; {{ 'now' | date: '%Y' }} {{ site.author | escape }}. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="{{ '/assets/js/mobile-navigation.js' | relative_url }}" defer></script>
+  {% if site.custom_js %}
+    <script src="{{ site.custom_js | relative_url }}" defer></script>
+  {% endif %}
+</body>
+</html>
