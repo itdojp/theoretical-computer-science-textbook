@@ -1,0 +1,59 @@
+{
+  "name": "theoretical-computer-science-textbook",
+  "version": "1.0.0",
+  "description": "理論計算機科学教科書 - 数学的基礎から最新研究まで包括的にカバーする体系的学習リソース",
+  "main": "index.js",
+  "scripts": {
+    "dev": "bundle exec jekyll serve --source docs --livereload --open-url",
+    "build": "bundle exec jekyll build --source docs --destination docs/_site",
+    "build:production": "JEKYLL_ENV=production bundle exec jekyll build --source docs --destination docs/_site",
+    "test": "npm run lint && npm run spellcheck",
+    "lint": "markdownlint docs/**/*.md --ignore docs/_site --config .markdownlint.json",
+    "lint:fix": "markdownlint docs/**/*.md --ignore docs/_site --config .markdownlint.json --fix",
+    "spellcheck": "cspell \"docs/**/*.md\" --config cspell.json",
+    "check-links": "markdown-link-check docs/**/*.md --config .markdown-link-check.json",
+    "serve": "bundle exec jekyll serve --source docs",
+    "serve:incremental": "bundle exec jekyll serve --source docs --incremental",
+    "serve:drafts": "bundle exec jekyll serve --source docs --drafts",
+    "clean": "bundle exec jekyll clean --source docs",
+    "install:deps": "bundle install && npm install",
+    "setup": "npm run install:deps && npm run build",
+    "preview": "npm run build && npm run serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/itdojp/theoretical-computer-science-textbook.git"
+  },
+  "keywords": [
+    "theoretical-computer-science",
+    "textbook",
+    "algorithms",
+    "complexity-theory",
+    "computational-theory",
+    "mathematics",
+    "education",
+    "japanese",
+    "jekyll",
+    "github-pages"
+  ],
+  "author": "ITDO Inc.",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/itdojp/theoretical-computer-science-textbook/issues"
+  },
+  "homepage": "https://itdojp.github.io/theoretical-computer-science-textbook/",
+  "devDependencies": {
+    "markdownlint-cli": "^0.37.0",
+    "cspell": "^7.3.7",
+    "markdown-link-check": "^3.11.2"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "ruby": ">=3.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
