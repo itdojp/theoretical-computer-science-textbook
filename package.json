@@ -8,20 +8,20 @@
     "node": ">=18.0.0"
   },
   "scripts": {
-    "start": "jekyll serve --livereload",
-    "build": "jekyll build",
+    "start": "bundle exec jekyll serve --livereload",
+    "build": "bundle exec jekyll build",
     "build:gh-pages": "bundle exec jekyll build",
     "preview": "npm run build && npx http-server _site -p 8080 --silent",
     "deploy": "gh-pages -d _site",
     "clean": "rm -rf _site .jekyll-cache",
     "test": "npm run lint && npm run check-links",
-    "lint": "markdownlint 'src/**/*.md' --ignore node_modules",
-    "lint:light": "markdownlint 'src/**/*.md' --ignore node_modules",
-    "check-links": "markdown-link-check src/**/*.md",
+    "lint": "markdownlint 'docs/src/**/*.md' --ignore node_modules",
+    "lint:light": "markdownlint 'docs/src/**/*.md' --ignore node_modules",
+    "spellcheck": "echo 'Spellcheck placeholder - no actual spell checker configured'",
+    "check-links": "markdown-link-check docs/src/**/*.md",
     "help": "echo 'Available commands:\n  npm start - Start development server\n  npm run build - Build the book\n  npm run preview - Local preview\n  npm run deploy - Deploy to GitHub Pages'"
   },
   "dependencies": {
-    "jekyll": "^4.0.0"
   },
   "devDependencies": {
     "markdownlint-cli": "^0.37.0",
