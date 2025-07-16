@@ -46,6 +46,7 @@ jobs:
       run: npm run build
       env:
         JEKYLL_ENV: production
+        PAGES_REPO_NWO: itdojp/theoretical-computer-science-textbook
         
     - name: Test built site
       run: |
