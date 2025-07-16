@@ -50,5 +50,5 @@ jobs:
         
     - name: Test built site
       run: |
-        ls -la docs/_site/
-        test -f docs/_site/index.html
+        ls -la _site/
+        test -f _site/index.html
