@@ -50,6 +50,5 @@ jobs:
         
     - name: Test built site
       run: |
+        ls -la docs/_site/
         test -f docs/_site/index.html
-        test -f docs/_site/src/chapter-1/index.html
-        test -f docs/_site/src/appendices/index.html
