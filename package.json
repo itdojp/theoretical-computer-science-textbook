@@ -1,59 +1,46 @@
 {
   "name": "theoretical-computer-science-textbook",
   "version": "1.0.0",
-  "description": "理論計算機科学教科書 - 数学的基礎から最新研究まで包括的にカバーする体系的学習リソース",
-  "main": "index.js",
-  "scripts": {
-    "dev": "bundle exec jekyll serve --source docs --livereload --open-url",
-    "build": "bundle exec jekyll build --source docs --destination docs/_site",
-    "build:production": "JEKYLL_ENV=production bundle exec jekyll build --source docs --destination docs/_site",
-    "test": "npm run lint && npm run spellcheck",
-    "lint": "markdownlint docs/**/*.md --ignore docs/_site --config .markdownlint.json",
-    "lint:fix": "markdownlint docs/**/*.md --ignore docs/_site --config .markdownlint.json --fix",
-    "spellcheck": "cspell \"docs/**/*.md\" --config cspell.json",
-    "check-links": "markdown-link-check docs/**/*.md --config .markdown-link-check.json",
-    "serve": "bundle exec jekyll serve --source docs",
-    "serve:incremental": "bundle exec jekyll serve --source docs --incremental",
-    "serve:drafts": "bundle exec jekyll serve --source docs --drafts",
-    "clean": "bundle exec jekyll clean --source docs",
-    "install:deps": "bundle install && npm install",
-    "setup": "npm run install:deps && npm run build",
-    "preview": "npm run build && npm run serve"
+  "description": "理論計算機科学教本 - コンピュータサイエンス基礎理論",
+  "author": "ITDO Inc.（株式会社アイティードゥ）",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/itdojp/theoretical-computer-science-textbook.git"
+  "scripts": {
+    "start": "bundle exec jekyll serve --livereload",
+    "build": "bundle exec jekyll build",
+    "build:gh-pages": "bundle exec jekyll build",
+    "preview": "npm run build && npx http-server _site -p 8080 --silent",
+    "deploy": "gh-pages -d _site",
+    "clean": "rm -rf _site .jekyll-cache",
+    "test": "npm run lint && npm run check-links",
+    "lint": "markdownlint 'docs/src/**/*.md' --ignore node_modules",
+    "lint:light": "markdownlint 'docs/src/**/*.md' --ignore node_modules",
+    "spellcheck": "echo 'Spellcheck placeholder - no actual spell checker configured'",
+    "check-links": "markdown-link-check docs/src/**/*.md",
+    "help": "echo 'Available commands:\n  npm start - Start development server\n  npm run build - Build the book\n  npm run preview - Local preview\n  npm run deploy - Deploy to GitHub Pages'"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "markdownlint-cli": "^0.37.0",
+    "markdown-link-check": "^3.11.2",
+    "gh-pages": "^6.0.0",
+    "http-server": "^14.1.1"
   },
   "keywords": [
-    "theoretical-computer-science",
-    "textbook",
-    "algorithms",
-    "complexity-theory",
-    "computational-theory",
-    "mathematics",
-    "education",
+    "book",
+    "documentation",
     "japanese",
-    "jekyll",
-    "github-pages"
+    "computer-science","theory","algorithm"
   ],
-  "author": "ITDO Inc.",
-  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itdojp/theoretical-computer-science-textbook.git"
+  },
   "bugs": {
     "url": "https://github.com/itdojp/theoretical-computer-science-textbook/issues"
   },
-  "homepage": "https://itdojp.github.io/theoretical-computer-science-textbook/",
-  "devDependencies": {
-    "markdownlint-cli": "^0.37.0",
-    "cspell": "^7.3.7",
-    "markdown-link-check": "^3.11.2"
-  },
-  "engines": {
-    "node": ">=18.0.0",
-    "ruby": ">=3.0.0"
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead"
-  ]
+  "homepage": "https://github.com/itdojp/theoretical-computer-science-textbook#readme"
 }

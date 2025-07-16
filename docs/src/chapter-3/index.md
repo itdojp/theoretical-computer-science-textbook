@@ -114,6 +114,72 @@ graph TD
 - L² = {00, 011, 110, 1111}
 - L* = {ε, 0, 11, 00, 011, 110, 1111, ...}
 
+### 3.1.4 形式言語の実用的応用
+
+**計算機科学における形式言語の応用**：
+
+1. **プログラミング言語の設計**：
+   - **字句解析**：正規表現によるトークン識別
+   - **構文解析**：文脈自由文法による構文構造の解析
+   - **意味解析**：属性文法による型検査と意味規則
+
+2. **文字列処理と検索**：
+   - **正規表現エンジン**：パターンマッチングとテキスト処理
+   - **データベース検索**：クエリ言語の解析
+   - **バイオインフォマティクス**：DNA配列のパターン検索
+
+3. **ネットワークとセキュリティ**：
+   - **プロトコル仕様**：通信プロトコルの状態遷移
+   - **ファイアウォール**：パケットフィルタリングルール
+   - **ウイルス検出**：マルウェアの署名パターン
+
+**具体例：メールアドレスの検証**
+```python
+# 正規表現による形式検証
+import re
+
+def validate_email(email):
+    # 簡略化されたメールアドレスのパターン
+    pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+    return bool(re.match(pattern, email))
+
+# 対応する形式言語
+# L_email = {文字列 w | w は有効なメールアドレス形式}
+# 
+# この言語は以下の形式で表現できる：
+# L_email = L_local @ L_domain . L_tld
+# 
+# ここで：
+# - L_local: ローカル部分の文字列集合
+# - L_domain: ドメイン部分の文字列集合  
+# - L_tld: トップレベルドメインの文字列集合
+```
+
+**プログラミング言語での字句解析例**：
+```python
+# Python風の字句解析器の概念
+class Token:
+    def __init__(self, type, value, line, column):
+        self.type = type
+        self.value = value
+        self.line = line
+        self.column = column
+
+# 各トークンに対応する正規表現
+token_patterns = {
+    'NUMBER': r'\d+(\.\d+)?',           # 数値
+    'IDENTIFIER': r'[a-zA-Z_][a-zA-Z0-9_]*',  # 識別子
+    'KEYWORD': r'(if|else|while|for|def|return)',  # キーワード
+    'OPERATOR': r'[+\-*/=<>!]+',        # 演算子
+    'DELIMITER': r'[(){}[\],;:]',       # 区切り文字
+    'WHITESPACE': r'\s+',               # 空白
+    'COMMENT': r'#.*',                  # コメント
+}
+
+# 対応する形式言語
+# L_program = (L_number ∪ L_identifier ∪ L_keyword ∪ L_operator ∪ L_delimiter ∪ L_whitespace ∪ L_comment)*
+```
+
 ## 3.2 有限オートマトン
 
 ```mermaid
