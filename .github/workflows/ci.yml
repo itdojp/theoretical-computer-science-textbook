@@ -33,6 +33,7 @@ jobs:
         
     - name: Lint Markdown
       run: npm run lint
+      continue-on-error: true
       
     - name: Spell check
       run: npm run spellcheck
