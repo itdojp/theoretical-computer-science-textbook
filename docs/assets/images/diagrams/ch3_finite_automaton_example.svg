@@ -1,0 +1,215 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <title>有限オートマトンの例</title>
+  <desc>2つの連続する0を検出する有限オートマトンの状態遷移図</desc>
+  
+  <defs>
+    <style>
+      .state-circle { 
+        fill: #e3f2fd; 
+        stroke: #1976d2; 
+        stroke-width: 2px; 
+      }
+      
+      .initial-state { 
+        fill: #c8e6c9; 
+        stroke: #388e3c; 
+        stroke-width: 3px; 
+      }
+      
+      .accept-state { 
+        fill: #ffcdd2; 
+        stroke: #d32f2f; 
+        stroke-width: 3px; 
+      }
+      
+      .state-label { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 16px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        dominant-baseline: central;
+        fill: #1a1a1a;
+      }
+      
+      .transition-arrow {
+        stroke: #2c3e50;
+        stroke-width: 2px;
+        fill: none;
+        marker-end: url(#arrowhead);
+      }
+      
+      .transition-label { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 14px; 
+        font-weight: 500; 
+        text-anchor: middle; 
+        fill: #2c3e50;
+        background: white;
+      }
+      
+      .title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 18px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #1a1a1a;
+      }
+      
+      .subtitle { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 14px; 
+        font-weight: 400; 
+        text-anchor: middle; 
+        fill: #666;
+      }
+      
+      .description { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 12px; 
+        font-weight: 400; 
+        text-anchor: start; 
+        fill: #333;
+      }
+      
+      .start-indicator {
+        stroke: #388e3c;
+        stroke-width: 2px;
+        fill: none;
+        marker-end: url(#start-arrow);
+      }
+    </style>
+    
+    <!-- Arrow markers -->
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2c3e50" />
+    </marker>
+    
+    <marker id="start-arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#388e3c" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="400" y="40" class="title">有限オートマトンの例：2つの連続する0を検出</text>
+  <text x="400" y="65" class="subtitle">DFA M = (Q, Σ, δ, q₀, F) where Q = {q₀, q₁, q₂}, Σ = {0, 1}</text>
+  
+  <!-- States -->
+  
+  <!-- Start indicator -->
+  <path d="M 120 200 L 160 200" class="start-indicator" />
+  <text x="115" y="190" class="description">開始</text>
+  
+  <!-- q₀ - Initial state -->
+  <circle cx="200" cy="200" r="30" class="state-circle initial-state" />
+  <text x="200" y="200" class="state-label">q₀</text>
+  <text x="200" y="250" class="description">初期状態</text>
+  <text x="200" y="265" class="description">0を待機中</text>
+  
+  <!-- q₁ - Intermediate state -->
+  <circle cx="400" cy="200" r="30" class="state-circle" />
+  <text x="400" y="200" class="state-label">q₁</text>
+  <text x="400" y="250" class="description">1つの0を読取り</text>
+  <text x="400" y="265" class="description">次の0を待機</text>
+  
+  <!-- q₂ - Accept state (double circle) -->
+  <circle cx="600" cy="200" r="30" class="state-circle accept-state" />
+  <circle cx="600" cy="200" r="25" class="state-circle accept-state" />
+  <text x="600" y="200" class="state-label">q₂</text>
+  <text x="600" y="250" class="description">受理状態</text>
+  <text x="600" y="265" class="description">連続する00を検出</text>
+  
+  <!-- Transitions -->
+  
+  <!-- q₀ to q₁ on 0 -->
+  <path d="M 230 200 L 370 200" class="transition-arrow" />
+  <rect x="285" y="185" width="30" height="20" fill="white" stroke="none" />
+  <text x="300" y="195" class="transition-label">0</text>
+  
+  <!-- q₁ to q₂ on 0 -->
+  <path d="M 430 200 L 570 200" class="transition-arrow" />
+  <rect x="485" y="185" width="30" height="20" fill="white" stroke="none" />
+  <text x="500" y="195" class="transition-label">0</text>
+  
+  <!-- q₀ to q₀ on 1 (self-loop) -->
+  <path d="M 180 170 Q 200 140 220 170" class="transition-arrow" />
+  <text x="200" y="135" class="transition-label">1</text>
+  
+  <!-- q₁ to q₀ on 1 -->
+  <path d="M 380 180 Q 300 120 220 180" class="transition-arrow" />
+  <text x="300" y="110" class="transition-label">1</text>
+  
+  <!-- q₂ to q₂ on 0,1 (self-loop) -->
+  <path d="M 580 170 Q 600 140 620 170" class="transition-arrow" />
+  <text x="600" y="130" class="transition-label">0, 1</text>
+  
+  <!-- Transition table -->
+  <g transform="translate(100, 340)">
+    <text x="250" y="20" class="title">遷移表 δ</text>
+    
+    <!-- Table header -->
+    <rect x="0" y="40" width="100" height="30" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1" />
+    <rect x="100" y="40" width="100" height="30" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1" />
+    <rect x="200" y="40" width="100" height="30" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1" />
+    <rect x="300" y="40" width="100" height="30" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1" />
+    <rect x="400" y="40" width="100" height="30" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1" />
+    
+    <text x="50" y="60" class="transition-label">状態 \\ 入力</text>
+    <text x="150" y="60" class="transition-label">0</text>
+    <text x="250" y="60" class="transition-label">1</text>
+    <text x="350" y="60" class="transition-label">説明</text>
+    <text x="450" y="60" class="transition-label">受理?</text>
+    
+    <!-- Table rows -->
+    <!-- q₀ row -->
+    <rect x="0" y="70" width="100" height="30" fill="white" stroke="#dee2e6" stroke-width="1" />
+    <rect x="100" y="70" width="100" height="30" fill="white" stroke="#dee2e6" stroke-width="1" />
+    <rect x="200" y="70" width="100" height="30" fill="white" stroke="#dee2e6" stroke-width="1" />
+    <rect x="300" y="70" width="100" height="30" fill="white" stroke="#dee2e6" stroke-width="1" />
+    <rect x="400" y="70" width="100" height="30" fill="white" stroke="#dee2e6" stroke-width="1" />
+    
+    <text x="50" y="90" class="transition-label">q₀</text>
+    <text x="150" y="90" class="transition-label">q₁</text>
+    <text x="250" y="90" class="transition-label">q₀</text>
+    <text x="350" y="90" class="description">初期状態</text>
+    <text x="450" y="90" class="description">No</text>
+    
+    <!-- q₁ row -->
+    <rect x="0" y="100" width="100" height="30" fill="white" stroke="#dee2e6" stroke-width="1" />
+    <rect x="100" y="100" width="100" height="30" fill="white" stroke="#dee2e6" stroke-width="1" />
+    <rect x="200" y="100" width="100" height="30" fill="white" stroke="#dee2e6" stroke-width="1" />
+    <rect x="300" y="100" width="100" height="30" fill="white" stroke="#dee2e6" stroke-width="1" />
+    <rect x="400" y="100" width="100" height="30" fill="white" stroke="#dee2e6" stroke-width="1" />
+    
+    <text x="50" y="120" class="transition-label">q₁</text>
+    <text x="150" y="120" class="transition-label">q₂</text>
+    <text x="250" y="120" class="transition-label">q₀</text>
+    <text x="350" y="120" class="description">1つの0を記憶</text>
+    <text x="450" y="120" class="description">No</text>
+    
+    <!-- q₂ row -->
+    <rect x="0" y="130" width="100" height="30" fill="#ffebee" stroke="#dee2e6" stroke-width="1" />
+    <rect x="100" y="130" width="100" height="30" fill="#ffebee" stroke="#dee2e6" stroke-width="1" />
+    <rect x="200" y="130" width="100" height="30" fill="#ffebee" stroke="#dee2e6" stroke-width="1" />
+    <rect x="300" y="130" width="100" height="30" fill="#ffebee" stroke="#dee2e6" stroke-width="1" />
+    <rect x="400" y="130" width="100" height="30" fill="#ffebee" stroke="#dee2e6" stroke-width="1" />
+    
+    <text x="50" y="150" class="transition-label">q₂</text>
+    <text x="150" y="150" class="transition-label">q₂</text>
+    <text x="250" y="150" class="transition-label">q₂</text>
+    <text x="350" y="150" class="description">連続する00を検出</text>
+    <text x="450" y="150" class="description">Yes</text>
+  </g>
+  
+  <!-- Example computation -->
+  <g transform="translate(50, 500)">
+    <text x="350" y="0" class="subtitle">計算例：文字列 "1001" の処理</text>
+    
+    <text x="0" y="25" class="description">入力: 1001</text>
+    <text x="0" y="45" class="description">q₀ --1--> q₀ --0--> q₁ --0--> q₂ --1--> q₂</text>
+    <text x="0" y="65" class="description">結果: q₂ (受理状態) → 文字列は受理される</text>
+    
+    <text x="400" y="25" class="description">入力: 1010</text>
+    <text x="400" y="45" class="description">q₀ --1--> q₀ --0--> q₁ --1--> q₀ --0--> q₁</text>
+    <text x="400" y="65" class="description">結果: q₁ (非受理状態) → 文字列は拒否される</text>
+  </g>
+</svg>

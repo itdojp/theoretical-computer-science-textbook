@@ -243,19 +243,7 @@ M = ({q₀, q₁}, {0, 1}, δ, q₀, {q₀}) where:
 - δ(q₀, 0) = q₁, δ(q₀, 1) = q₀
 - δ(q₁, 0) = q₀, δ(q₁, 1) = q₁
 
-```mermaid
-stateDiagram-v2
-    [*] --> q0
-    q0 --> q1 : 0
-    q0 --> q0 : 1
-    q1 --> q0 : 0
-    q1 --> q1 : 1
-    
-    q0 --> [*]
-    
-    note right of q0 : 偶数個の0を読んだ状態<br/>（受理状態）
-    note right of q1 : 奇数個の0を読んだ状態
-```
+![偶数個の0を認識するDFA](../../assets/images/diagrams/ch3_even_zeros_automaton.svg)
 
 状態の意味：
 - q₀：これまでに読んだ0の個数が偶数（受理状態）

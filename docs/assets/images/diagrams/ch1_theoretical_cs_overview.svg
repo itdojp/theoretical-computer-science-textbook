@@ -1,0 +1,203 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <title>理論計算機科学の体系と相互関連</title>
+  <desc>12章の構成と各章間の関連性を示した概念図</desc>
+  
+  <defs>
+    <style>
+      .foundation { fill: #e3f2fd; stroke: #1976d2; stroke-width: 2px; }
+      .core { fill: #fff3e0; stroke: #f57c00; stroke-width: 2px; }
+      .algorithm { fill: #e8f5e9; stroke: #388e3c; stroke-width: 2px; }
+      .applied { fill: #f3e5f5; stroke: #7b1fa2; stroke-width: 2px; }
+      
+      .chapter-box { 
+        rx: 8px; 
+        ry: 8px; 
+        font-family: Inter, Helvetica, sans-serif;
+      }
+      
+      .chapter-title { 
+        font-size: 14px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        dominant-baseline: central;
+        fill: #1a1a1a;
+      }
+      
+      .chapter-subtitle { 
+        font-size: 12px; 
+        font-weight: 400; 
+        text-anchor: middle; 
+        dominant-baseline: central;
+        fill: #4a4a4a;
+      }
+      
+      .layer-title {
+        font-size: 16px;
+        font-weight: 600;
+        text-anchor: middle;
+        fill: #2c3e50;
+      }
+      
+      .direct-arrow { stroke: #2c3e50; stroke-width: 2px; fill: none; marker-end: url(#arrowhead); }
+      .strong-arrow { stroke: #e74c3c; stroke-width: 3px; fill: none; marker-end: url(#strong-arrowhead); }
+      .support-arrow { stroke: #95a5a6; stroke-width: 1.5px; stroke-dasharray: 5,5; fill: none; marker-end: url(#support-arrowhead); }
+    </style>
+    
+    <!-- Arrow markers -->
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2c3e50" />
+    </marker>
+    
+    <marker id="strong-arrowhead" markerWidth="12" markerHeight="8" refX="11" refY="4" orient="auto">
+      <polygon points="0 0, 12 4, 0 8" fill="#e74c3c" />
+    </marker>
+    
+    <marker id="support-arrowhead" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#95a5a6" />
+    </marker>
+  </defs>
+  
+  <!-- Layer Labels -->
+  <text x="100" y="50" class="layer-title">基礎理論層</text>
+  <text x="300" y="50" class="layer-title">中核理論層</text>
+  <text x="500" y="50" class="layer-title">アルゴリズム層</text>
+  <text x="700" y="50" class="layer-title">応用理論層</text>
+  
+  <!-- Foundation Layer (Ch1-3) -->
+  <g class="foundation-layer">
+    <!-- Chapter 1 -->
+    <rect x="40" y="80" width="120" height="80" class="chapter-box foundation" />
+    <text x="100" y="105" class="chapter-title">第1章: 数学的基礎</text>
+    <text x="100" y="125" class="chapter-subtitle">・集合論</text>
+    <text x="100" y="140" class="chapter-subtitle">・論理学</text>
+    <text x="100" y="155" class="chapter-subtitle">・証明技法</text>
+    
+    <!-- Chapter 2 -->
+    <rect x="40" y="180" width="120" height="80" class="chapter-box foundation" />
+    <text x="100" y="205" class="chapter-title">第2章: 計算理論の基礎</text>
+    <text x="100" y="225" class="chapter-subtitle">・チューリング機械</text>
+    <text x="100" y="240" class="chapter-subtitle">・計算可能性</text>
+    <text x="100" y="255" class="chapter-subtitle">・Church-Turingの提唱</text>
+    
+    <!-- Chapter 3 -->
+    <rect x="40" y="280" width="120" height="80" class="chapter-box foundation" />
+    <text x="100" y="305" class="chapter-title">第3章: 形式言語とオートマトン</text>
+    <text x="100" y="325" class="chapter-subtitle">・有限オートマトン</text>
+    <text x="100" y="340" class="chapter-subtitle">・正規言語</text>
+    <text x="100" y="355" class="chapter-subtitle">・文脈自由言語</text>
+  </g>
+  
+  <!-- Core Layer (Ch4-5) -->
+  <g class="core-layer">
+    <!-- Chapter 4 -->
+    <rect x="240" y="130" width="120" height="80" class="chapter-box core" />
+    <text x="300" y="155" class="chapter-title">第4章: 計算可能性</text>
+    <text x="300" y="175" class="chapter-subtitle">・決定可能性</text>
+    <text x="300" y="190" class="chapter-subtitle">・停止問題</text>
+    <text x="300" y="205" class="chapter-subtitle">・Riceの定理</text>
+    
+    <!-- Chapter 5 -->
+    <rect x="240" y="230" width="120" height="80" class="chapter-box core" />
+    <text x="300" y="255" class="chapter-title">第5章: 計算複雑性理論</text>
+    <text x="300" y="275" class="chapter-subtitle">・P vs NP問題</text>
+    <text x="300" y="290" class="chapter-subtitle">・NP完全性</text>
+    <text x="300" y="305" class="chapter-subtitle">・複雑性クラス</text>
+  </g>
+  
+  <!-- Algorithm Layer (Ch6-8) -->
+  <g class="algorithm-layer">
+    <!-- Chapter 6 -->
+    <rect x="440" y="80" width="120" height="80" class="chapter-box algorithm" />
+    <text x="500" y="105" class="chapter-title">第6章: アルゴリズム</text>
+    <text x="500" y="125" class="chapter-subtitle">・設計手法</text>
+    <text x="500" y="140" class="chapter-subtitle">・動的計画法</text>
+    <text x="500" y="155" class="chapter-subtitle">・近似アルゴリズム</text>
+    
+    <!-- Chapter 7 -->
+    <rect x="440" y="180" width="120" height="80" class="chapter-box algorithm" />
+    <text x="500" y="205" class="chapter-title">第7章: データ構造</text>
+    <text x="500" y="225" class="chapter-subtitle">・基本構造</text>
+    <text x="500" y="240" class="chapter-subtitle">・木とグラフ</text>
+    <text x="500" y="255" class="chapter-subtitle">・高度な構造</text>
+    
+    <!-- Chapter 8 -->
+    <rect x="440" y="280" width="120" height="80" class="chapter-box algorithm" />
+    <text x="500" y="305" class="chapter-title">第8章: グラフ理論</text>
+    <text x="500" y="325" class="chapter-subtitle">・基本アルゴリズム</text>
+    <text x="500" y="340" class="chapter-subtitle">・最短路・最大流</text>
+    <text x="500" y="355" class="chapter-subtitle">・NP困難問題</text>
+  </g>
+  
+  <!-- Applied Layer (Ch9-12) -->
+  <g class="applied-layer">
+    <!-- Chapter 9 -->
+    <rect x="640" y="80" width="120" height="80" class="chapter-box applied" />
+    <text x="700" y="105" class="chapter-title">第9章: 論理学・形式的手法</text>
+    <text x="700" y="125" class="chapter-subtitle">・命題・述語論理</text>
+    <text x="700" y="140" class="chapter-subtitle">・プログラム検証</text>
+    <text x="700" y="155" class="chapter-subtitle">・モデル検査</text>
+    
+    <!-- Chapter 10 -->
+    <rect x="640" y="180" width="120" height="80" class="chapter-box applied" />
+    <text x="700" y="205" class="chapter-title">第10章: 情報理論</text>
+    <text x="700" y="225" class="chapter-subtitle">・エントロピー</text>
+    <text x="700" y="240" class="chapter-subtitle">・符号化</text>
+    <text x="700" y="255" class="chapter-subtitle">・通信路容量</text>
+    
+    <!-- Chapter 11 -->
+    <rect x="640" y="280" width="120" height="80" class="chapter-box applied" />
+    <text x="700" y="305" class="chapter-title">第11章: 暗号理論</text>
+    <text x="700" y="325" class="chapter-subtitle">・公開鍵暗号</text>
+    <text x="700" y="340" class="chapter-subtitle">・電子署名</text>
+    <text x="700" y="355" class="chapter-subtitle">・ゼロ知識証明</text>
+    
+    <!-- Chapter 12 -->
+    <rect x="640" y="380" width="120" height="80" class="chapter-box applied" />
+    <text x="700" y="405" class="chapter-title">第12章: 並行計算</text>
+    <text x="700" y="425" class="chapter-subtitle">・並行モデル</text>
+    <text x="700" y="440" class="chapter-subtitle">・分散アルゴリズム</text>
+    <text x="700" y="455" class="chapter-subtitle">・同期問題</text>
+  </g>
+  
+  <!-- Connections -->
+  <!-- Foundation connections (support arrows) -->
+  <path d="M 160 120 L 240 170" class="support-arrow" />
+  <path d="M 160 145 L 240 320" class="support-arrow" />
+  <path d="M 160 220 L 240 320" class="direct-arrow" />
+  
+  <!-- Foundation to Core (strong arrows) -->
+  <path d="M 160 220 L 240 170" class="strong-arrow" />
+  <path d="M 160 320 L 240 170" class="strong-arrow" />
+  <path d="M 160 220 L 240 270" class="strong-arrow" />
+  <path d="M 160 170 L 240 270" class="strong-arrow" />
+  
+  <!-- Core to Algorithm (strong arrows) -->
+  <path d="M 360 270 L 440 120" class="strong-arrow" />
+  <path d="M 160 120 L 440 120" class="support-arrow" />
+  <path d="M 560 120 L 560 180" class="direct-arrow" />
+  <path d="M 560 160 L 440 320" class="direct-arrow" />
+  <path d="M 560 220 L 440 320" class="direct-arrow" />
+  <path d="M 360 270 L 440 320" class="direct-arrow" />
+  
+  <!-- To Applied Layer -->
+  <path d="M 160 320 L 640 120" class="direct-arrow" />
+  <path d="M 360 170 L 640 120" class="direct-arrow" />
+  <path d="M 160 120 L 640 220" class="support-arrow" />
+  <path d="M 560 120 L 640 220" class="direct-arrow" />
+  <path d="M 360 270 L 640 320" class="strong-arrow" />
+  <path d="M 760 220 L 640 320" class="direct-arrow" />
+  <path d="M 160 220 L 640 420" class="direct-arrow" />
+  <path d="M 560 320 L 640 420" class="direct-arrow" />
+  <path d="M 760 120 L 640 420" class="direct-arrow" />
+  
+  <!-- Legend -->
+  <g transform="translate(40, 480)">
+    <text x="0" y="0" class="layer-title">凡例</text>
+    <path d="M 0 20 L 40 20" class="direct-arrow" />
+    <text x="50" y="25" class="chapter-subtitle">直接的な前提知識の関係</text>
+    <path d="M 0 40 L 40 40" class="strong-arrow" />
+    <text x="50" y="45" class="chapter-subtitle">強い理論的発展の関係</text>
+    <path d="M 0 60 L 40 60" class="support-arrow" />
+    <text x="50" y="65" class="chapter-subtitle">補助的な関連・応用</text>
+  </g>
+</svg>

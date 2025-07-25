@@ -1,0 +1,167 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <title>チューリング機械の構成要素</title>
+  <desc>チューリング機械の形式的定義と各構成要素の説明図</desc>
+  
+  <defs>
+    <style>
+      .component-box { 
+        fill: #e3f2fd; 
+        stroke: #1976d2; 
+        stroke-width: 2px; 
+        rx: 8px; 
+        ry: 8px; 
+      }
+      
+      .formal-def-box {
+        fill: #fff3e0;
+        stroke: #f57c00;
+        stroke-width: 3px;
+        rx: 12px;
+        ry: 12px;
+      }
+      
+      .title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 18px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #1a1a1a;
+      }
+      
+      .subtitle { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 16px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #2c3e50;
+      }
+      
+      .component-title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 14px; 
+        font-weight: 600; 
+        text-anchor: start; 
+        fill: #1976d2;
+      }
+      
+      .component-desc { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 12px; 
+        font-weight: 400; 
+        text-anchor: start; 
+        fill: #333;
+      }
+      
+      .formal-notation {
+        font-family: Courier, monospace;
+        font-size: 14px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #f57c00;
+      }
+      
+      .connection-line {
+        stroke: #6c757d;
+        stroke-width: 2px;
+        stroke-dasharray: 5,5;
+        fill: none;
+      }
+    </style>
+  </defs>
+  
+  <!-- Main Title -->
+  <text x="400" y="30" class="title">チューリング機械の構成要素</text>
+  
+  <!-- Formal Definition Box -->
+  <rect x="250" y="50" width="300" height="60" class="formal-def-box" />
+  <text x="400" y="75" class="formal-notation">M = (Q, Σ, Γ, δ, q₀, qaccept, qreject)</text>
+  <text x="400" y="95" class="subtitle">形式的定義</text>
+  
+  <!-- Component Boxes -->
+  
+  <!-- Q: States -->
+  <rect x="40" y="150" width="200" height="80" class="component-box" />
+  <text x="50" y="175" class="component-title">Q: 状態の有限集合</text>
+  <text x="50" y="195" class="component-desc">{q₀, q₁, q₂, ..., qaccept, qreject}</text>
+  <text x="50" y="210" class="component-desc">・有限個の状態</text>
+  <text x="50" y="225" class="component-desc">・受理・拒否状態を含む</text>
+  
+  <!-- Σ: Input Alphabet -->
+  <rect x="280" y="150" width="200" height="80" class="component-box" />
+  <text x="290" y="175" class="component-title">Σ: 入力アルファベット</text>
+  <text x="290" y="195" class="component-desc">{0, 1} または {a, b, c}</text>
+  <text x="290" y="210" class="component-desc">・入力に使用する記号</text>
+  <text x="290" y="225" class="component-desc">・空白記号は含まない</text>
+  
+  <!-- Γ: Tape Alphabet -->
+  <rect x="520" y="150" width="200" height="80" class="component-box" />
+  <text x="530" y="175" class="component-title">Γ: テープアルファベット</text>
+  <text x="530" y="195" class="component-desc">Σ ∪ {␣} ∪ {補助記号}</text>
+  <text x="530" y="210" class="component-desc">・テープ上の全記号</text>
+  <text x="530" y="225" class="component-desc">・空白記号を含む</text>
+  
+  <!-- δ: Transition Function -->
+  <rect x="40" y="270" width="280" height="80" class="component-box" />
+  <text x="50" y="295" class="component-title">δ: 遷移関数</text>
+  <text x="50" y="315" class="component-desc">Q × Γ → Q × Γ × {L, R}</text>
+  <text x="50" y="330" class="component-desc">・現在状態と読み取り記号から</text>
+  <text x="50" y="345" class="component-desc">・次状態、書込み記号、移動方向を決定</text>
+  
+  <!-- q₀: Initial State -->
+  <rect x="360" y="270" width="180" height="80" class="component-box" />
+  <text x="370" y="295" class="component-title">q₀: 初期状態</text>
+  <text x="370" y="315" class="component-desc">計算開始時の状態</text>
+  <text x="370" y="330" class="component-desc">・Q の一つの元</text>
+  <text x="370" y="345" class="component-desc">・計算の開始点</text>
+  
+  <!-- Accept/Reject States -->
+  <rect x="580" y="270" width="180" height="80" class="component-box" />
+  <text x="590" y="295" class="component-title">qaccept, qreject</text>
+  <text x="590" y="315" class="component-desc">受理状態・拒否状態</text>
+  <text x="590" y="330" class="component-desc">・計算の終了状態</text>
+  <text x="590" y="345" class="component-desc">・入力の受理/拒否を決定</text>
+  
+  <!-- Computation Example -->
+  <rect x="60" y="380" width="680" height="160" style="fill: #f8f9fa; stroke: #6c757d; stroke-width: 2px; rx: 8px;" />
+  <text x="400" y="405" class="subtitle">計算の例：文字列 "101" の処理</text>
+  
+  <!-- Tape representation -->
+  <g transform="translate(120, 430)">
+    <!-- Tape cells -->
+    <rect x="0" y="0" width="40" height="30" style="fill: white; stroke: #333; stroke-width: 1px;" />
+    <rect x="40" y="0" width="40" height="30" style="fill: white; stroke: #333; stroke-width: 1px;" />
+    <rect x="80" y="0" width="40" height="30" style="fill: white; stroke: #333; stroke-width: 1px;" />
+    <rect x="120" y="0" width="40" height="30" style="fill: white; stroke: #333; stroke-width: 1px;" />
+    <rect x="160" y="0" width="40" height="30" style="fill: white; stroke: #333; stroke-width: 1px;" />
+    
+    <!-- Tape content -->
+    <text x="20" y="20" class="component-desc" text-anchor="middle">1</text>
+    <text x="60" y="20" class="component-desc" text-anchor="middle">0</text>
+    <text x="100" y="20" class="component-desc" text-anchor="middle">1</text>
+    <text x="140" y="20" class="component-desc" text-anchor="middle">␣</text>
+    <text x="180" y="20" class="component-desc" text-anchor="middle">␣</text>
+    
+    <!-- Read/Write head -->
+    <polygon points="15,40 25,40 20,50" style="fill: #e74c3c;" />
+    <text x="20" y="65" class="component-desc" text-anchor="middle">読み書きヘッド</text>
+  </g>
+  
+  <!-- Control unit -->
+  <g transform="translate(400, 430)">
+    <rect x="0" y="0" width="120" height="50" style="fill: #d4edda; stroke: #28a745; stroke-width: 2px; rx: 8px;" />
+    <text x="60" y="20" class="component-title" text-anchor="middle">制御部</text>
+    <text x="60" y="35" class="component-desc" text-anchor="middle">現在状態: q₁</text>
+  </g>
+  
+  <!-- Transition example -->
+  <text x="120" y="500" class="component-desc">遷移例: δ(q₁, 1) = (q₂, 0, R)</text>
+  <text x="120" y="515" class="component-desc">「状態q₁で記号1を読むと、0を書いてq₂に遷移し右に移動」</text>
+  
+  <!-- Connection lines from formal definition to components -->
+  <path d="M 300 110 L 140 150" class="connection-line" />
+  <path d="M 380 110 L 380 150" class="connection-line" />
+  <path d="M 460 110 L 620 150" class="connection-line" />
+  <path d="M 350 110 L 180 270" class="connection-line" />
+  <path d="M 400 110 L 450 270" class="connection-line" />
+  <path d="M 450 110 L 670 270" class="connection-line" />
+</svg>

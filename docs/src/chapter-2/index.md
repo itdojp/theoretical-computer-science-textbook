@@ -31,54 +31,7 @@ chapter: 2
 
 ### 2.1.2 チューリング機械の形式的定義
 
-```mermaid
-graph TD
-    subgraph "チューリング機械の構成要素"
-        subgraph "形式的定義: M = (Q, Σ, Γ, δ, q₀, qaccept, qreject)"
-            States["Q: 状態の有限集合<br/>{q₀, q₁, q₂, ..., qaccept, qreject}"]
-            InputAlphabet["Σ: 入力アルファベット<br/>{0, 1} または {a, b, c}"]
-            TapeAlphabet["Γ: テープアルファベット<br/>Σ ∪ {␣} ∪ {補助記号}"]
-            Transition["δ: 遷移関数<br/>Q × Γ → Q × Γ × {L, R}"]
-            
-            Initial["q₀: 初期状態<br/>計算開始時の状態"]
-            Accept["qaccept: 受理状態<br/>入力を受理"]
-            Reject["qreject: 拒否状態<br/>入力を拒否"]
-        end
-        
-        subgraph "遷移規則の例"
-            Rule1["δ(q₁, 0) = (q₂, 1, R)<br/>状態q₁で0を読む→<br/>状態q₂、1を書く、右へ"]
-            Rule2["δ(q₂, ␣) = (qaccept, ␣, L)<br/>状態q₂で空白を読む→<br/>受理状態、空白のまま、左へ"]
-        end
-        
-        subgraph "チューリング機械の動作原理"
-            CurrentState["現在の状態 q"]
-            ReadSymbol["読取り記号 a"]
-            LookupRule["遷移規則を参照<br/>δ(q, a) = (r, b, X)"]
-            NewState["新しい状態 r"]
-            WriteSymbol["書込み記号 b"]
-            MoveHead["ヘッド移動 X"]
-            
-            CurrentState --> LookupRule
-            ReadSymbol --> LookupRule
-            LookupRule --> NewState
-            LookupRule --> WriteSymbol
-            LookupRule --> MoveHead
-        end
-        
-        subgraph "計算の終了条件"
-            AcceptCondition["受理条件<br/>qaccept に到達"]
-            RejectCondition["拒否条件<br/>qreject に到達"]
-            InfiniteLoop["無限ループ<br/>停止しない計算"]
-        end
-    end
-    
-    style States fill:#e3f2fd
-    style Transition fill:#fff3e0
-    style Rule1 fill:#e8f5e8
-    style LookupRule fill:#f3e5f5
-    style AcceptCondition fill:#e8f5e8
-    style RejectCondition fill:#ffebee
-```
+![チューリング機械の構成要素](../../assets/images/diagrams/ch2_turing_machine_components.svg)
 
 **定義 2.1** **チューリング機械**は7つ組 M = (Q, Σ, Γ, δ, q₀, qaccept, qreject) である。ここで：
 
