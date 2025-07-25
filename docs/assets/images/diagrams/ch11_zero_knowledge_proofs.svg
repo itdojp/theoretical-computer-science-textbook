@@ -1,0 +1,311 @@
+<svg viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg">
+  <title>ゼロ知識証明の概念と応用</title>
+  <desc>ゼロ知識性の定義、グラフ同型問題、Σプロトコル</desc>
+  
+  <defs>
+    <style>
+      .zk-definition { fill: #e3f2fd; stroke: #1976d2; stroke-width: 2px; }
+      .protocol-box { fill: #e8f5e9; stroke: #388e3c; stroke-width: 2px; }
+      .sigma-protocol { fill: #fff3e0; stroke: #ff9800; stroke-width: 2px; }
+      .application-box { fill: #f3e5f5; stroke: #9c27b0; stroke-width: 2px; }
+      .security-box { fill: #ffebee; stroke: #f44336; stroke-width: 2px; }
+      
+      .concept-box { 
+        rx: 4px; 
+        ry: 4px; 
+        font-family: Inter, Helvetica, sans-serif;
+      }
+      
+      .title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 18px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #1a1a1a;
+      }
+      
+      .subtitle { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 14px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #2c3e50;
+      }
+      
+      .section-title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 12px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #333;
+      }
+      
+      .description { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 11px; 
+        font-weight: 400; 
+        text-anchor: start; 
+        fill: #666;
+      }
+      
+      .formula { 
+        font-family: Courier, monospace;
+        font-size: 11px; 
+        font-weight: 500; 
+        text-anchor: middle; 
+        fill: #333;
+      }
+      
+      .step-text { 
+        font-family: Courier, monospace;
+        font-size: 10px; 
+        font-weight: 400; 
+        text-anchor: start; 
+        fill: #555;
+      }
+      
+      .arrow {
+        stroke: #2c3e50;
+        stroke-width: 2px;
+        fill: none;
+        marker-end: url(#arrowhead);
+      }
+      
+      .protocol-arrow {
+        stroke: #4caf50;
+        stroke-width: 2px;
+        fill: none;
+        marker-end: url(#protocol-arrowhead);
+      }
+      
+      .equivalence-arrow {
+        stroke: #ff9800;
+        stroke-width: 2px;
+        stroke-dasharray: 6,3;
+        fill: none;
+        marker-end: url(#equiv-arrowhead);
+      }
+    </style>
+    
+    <!-- Arrow markers -->
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2c3e50" />
+    </marker>
+    
+    <marker id="protocol-arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4caf50" />
+    </marker>
+    
+    <marker id="equiv-arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ff9800" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="600" y="30" class="title">ゼロ知識証明の概念と応用</text>
+  
+  <!-- Zero Knowledge Definition -->
+  <g id="zk-definition">
+    <text x="200" y="70" class="subtitle">ゼロ知識性の定義</text>
+    
+    <!-- Real Interaction -->
+    <rect x="50" y="90" width="180" height="80" class="concept-box zk-definition" />
+    <text x="140" y="110" class="section-title">実際の対話</text>
+    <text x="60" y="130" class="description">証明者 P ↔ 検証者 V*</text>
+    <text x="140" y="150" class="formula">View_V*(P,V*)(x)</text>
+    <text x="60" y="165" class="description">検証者の観測結果</text>
+    
+    <!-- Simulator -->
+    <rect x="260" y="90" width="180" height="80" class="concept-box zk-definition" />
+    <text x="350" y="110" class="section-title">シミュレータ S</text>
+    <text x="270" y="130" class="description">秘密情報なしで</text>
+    <text x="270" y="145" class="description">同じ分布を生成</text>
+    <text x="350" y="160" class="formula">S(x)</text>
+    
+    <!-- Indistinguishability -->
+    <rect x="155" y="190" width="180" height="60" class="concept-box security-box" />
+    <text x="245" y="210" class="section-title">計算論的識別不能</text>
+    <text x="245" y="230" class="formula">Real ≈c Simulated</text>
+    <text x="245" y="245" class="section-title">→ ゼロ知識</text>
+    
+    <!-- Arrows -->
+    <path d="M 140 170 L 200 190" class="equivalence-arrow" />
+    <path d="M 350 170 L 290 190" class="equivalence-arrow" />
+  </g>
+  
+  <!-- Graph Isomorphism Protocol -->
+  <g id="graph-isomorphism">
+    <text x="750" y="70" class="subtitle">グラフ同型のゼロ知識証明</text>
+    
+    <!-- Setup -->
+    <rect x="550" y="90" width="140" height="60" class="concept-box protocol-box" />
+    <text x="620" y="110" class="section-title">設定</text>
+    <text x="620" y="130" class="formula">G₀ ≅ G₁</text>
+    <text x="560" y="145" class="description">同型写像 φ は秘密</text>
+    
+    <!-- Step 1: Prover commits -->
+    <rect x="720" y="90" width="160" height="60" class="concept-box protocol-box" />
+    <text x="800" y="105" class="section-title">1. P: コミット</text>
+    <text x="730" y="125" class="step-text">π をランダム選択</text>
+    <text x="730" y="140" class="step-text">H = π(G₀) を送信</text>
+    
+    <!-- Step 2: Verifier challenges -->
+    <rect x="550" y="170" width="140" height="60" class="concept-box protocol-box" />
+    <text x="620" y="185" class="section-title">2. V: チャレンジ</text>
+    <text x="620" y="205" class="formula">b ∈ {0,1}</text>
+    <text x="560" y="220" class="description">を送信</text>
+    
+    <!-- Step 3: Prover responds -->
+    <rect x="720" y="170" width="160" height="60" class="concept-box protocol-box" />
+    <text x="800" y="185" class="section-title">3. P: レスポンス</text>
+    <text x="730" y="205" class="step-text">H ≅ Gb の同型写像</text>
+    <text x="730" y="220" class="step-text">σ を送信</text>
+    
+    <!-- Step 4: Verification -->
+    <rect x="635" y="250" width="140" height="50" class="concept-box protocol-box" />
+    <text x="705" y="270" class="section-title">4. V: 検証</text>
+    <text x="705" y="285" class="formula">σ(Gb) = H</text>
+    
+    <!-- Protocol arrows -->
+    <path d="M 690 120 L 720 120" class="protocol-arrow" />
+    <path d="M 620 170 L 620 170" class="protocol-arrow" />
+    <path d="M 720 200 L 690 200" class="protocol-arrow" />
+    <path d="M 705 230 L 705 250" class="protocol-arrow" />
+  </g>
+  
+  <!-- Sigma Protocol Structure -->
+  <g id="sigma-protocol">
+    <text x="200" y="340" class="subtitle">Σプロトコル（3ラウンド構造）</text>
+    
+    <!-- Commitment -->
+    <rect x="50" y="360" width="120" height="60" class="concept-box sigma-protocol" />
+    <text x="110" y="380" class="section-title">コミット</text>
+    <text x="110" y="395" class="formula">a = Com(w; r)</text>
+    <text x="60" y="410" class="description">証明者が最初の</text>
+    <text x="60" y="420" class="description">メッセージを送信</text>
+    
+    <!-- Challenge -->
+    <rect x="190" y="360" width="120" height="60" class="concept-box sigma-protocol" />
+    <text x="250" y="380" class="section-title">チャレンジ</text>
+    <text x="250" y="395" class="formula">c ← {0,1}ᵏ</text>
+    <text x="200" y="410" class="description">検証者がランダム</text>
+    <text x="200" y="420" class="description">チャレンジを送信</text>
+    
+    <!-- Response -->
+    <rect x="330" y="360" width="120" height="60" class="concept-box sigma-protocol" />
+    <text x="390" y="380" class="section-title">レスポンス</text>
+    <text x="390" y="395" class="formula">z = Resp(w, r, c)</text>
+    <text x="340" y="410" class="description">証明者が秘密を</text>
+    <text x="340" y="420" class="description">使って応答生成</text>
+    
+    <!-- Properties -->
+    <rect x="50" y="440" width="400" height="80" class="concept-box sigma-protocol" />
+    <text x="250" y="460" class="section-title">Σプロトコルの性質</text>
+    <text x="60" y="480" class="description">• 完全性: 正直な証明者は検証に成功</text>
+    <text x="60" y="495" class="description">• 特殊健全性: 2つのレスポンスから秘密を抽出可能</text>
+    <text x="60" y="510" class="description">• 正直検証者ゼロ知識: シミュレータが存在</text>
+    
+    <!-- Protocol arrows -->
+    <path d="M 170 390 L 190 390" class="protocol-arrow" />
+    <path d="M 310 390 L 330 390" class="protocol-arrow" />
+    <path d="M 250 420 L 250 440" class="arrow" />
+  </g>
+  
+  <!-- Applications -->
+  <g id="applications">
+    <text x="750" y="340" class="subtitle">ゼロ知識証明の応用</text>
+    
+    <!-- Authentication -->
+    <rect x="550" y="360" width="150" height="70" class="concept-box application-box" />
+    <text x="625" y="380" class="section-title">認証プロトコル</text>
+    <text x="560" y="400" class="description">• パスワードなし認証</text>
+    <text x="560" y="415" class="description">• 生体認証</text>
+    <text x="560" y="430" class="description">• デジタル身分証明</text>
+    
+    <!-- Blockchain -->
+    <rect x="720" y="360" width="150" height="70" class="concept-box application-box" />
+    <text x="795" y="380" class="section-title">ブロックチェーン</text>
+    <text x="730" y="400" class="description">• プライベート取引</text>
+    <text x="730" y="415" class="description">• zk-SNARKs</text>
+    <text x="730" y="430" class="description">• zk-STARKs</text>
+    
+    <!-- Electronic Voting -->
+    <rect x="890" y="360" width="150" height="70" class="concept-box application-box" />
+    <text x="965" y="380" class="section-title">電子投票</text>
+    <text x="900" y="400" class="description">• 投票内容の秘匿</text>
+    <text x="900" y="415" class="description">• 資格証明</text>
+    <text x="900" y="430" class="description">• 検証可能性</text>
+    
+    <!-- Privacy-Preserving -->
+    <rect x="550" y="450" width="200" height="70" class="concept-box application-box" />
+    <text x="650" y="470" class="section-title">プライバシー保護計算</text>
+    <text x="560" y="490" class="description">• プライベート情報検索</text>
+    <text x="560" y="505" class="description">• 匿名認証情報</text>
+    
+    <!-- Post-Quantum -->
+    <rect x="770" y="450" width="200" height="70" class="concept-box application-box" />
+    <text x="870" y="470" class="section-title">耐量子暗号への応用</text>
+    <text x="780" y="490" class="description">• 格子ベースzk証明</text>
+    <text x="780" y="505" class="description">• 量子計算機に対する安全性</text>
+  </g>
+  
+  <!-- Technical Details -->
+  <rect x="100" y="550" width="1000" height="300" style="fill: #f8f9fa; stroke: #6c757d; stroke-width: 2px; rx: 4px;" />
+  <text x="600" y="580" class="title">ゼロ知識証明の技術的詳細</text>
+  
+  <!-- Knowledge Extractor -->
+  <rect x="120" y="600" width="250" height="100" class="concept-box zk-definition" />
+  <text x="245" y="620" class="section-title">知識抽出器</text>
+  <text x="130" y="640" class="description">• 特殊健全性から構成</text>
+  <text x="130" y="655" class="description">• 2つの受諾する会話から秘密を抽出</text>
+  <text x="130" y="670" class="description">• (a, c, z₁) と (a, c', z₂) で c ≠ c'</text>
+  <text x="130" y="685" class="description">• 証明者が実際に秘密を知っていることを保証</text>
+  
+  <!-- Simulator Construction -->
+  <rect x="390" y="600" width="250" height="100" class="concept-box zk-definition" />
+  <text x="515" y="620" class="section-title">シミュレータ構成</text>
+  <text x="400" y="640" class="description">• チャレンジ c を先に選択</text>
+  <text x="400" y="655" class="description">• z をランダムに選択</text>
+  <text x="400" y="670" class="description">• a = Com⁻¹(z, c) を逆算</text>
+  <text x="400" y="685" class="description">• 実際の証明と識別不能な分布を生成</text>
+  
+  <!-- Security Parameters -->
+  <rect x="660" y="600" width="200" height="100" class="concept-box security-box" />
+  <text x="760" y="620" class="section-title">セキュリティパラメータ</text>
+  <text x="670" y="640" class="description">• 健全性エラー確率: 2⁻ᵏ</text>
+  <text x="670" y="655" class="description">• 並列合成で増幅</text>
+  <text x="670" y="670" class="description">• k回繰り返しで (1/2)ᵏ</text>
+  <text x="670" y="685" class="description">• 実用的には k ≥ 80</text>
+  
+  <!-- Non-Interactive ZK -->
+  <rect x="880" y="600" width="200" height="100" class="concept-box sigma-protocol" />
+  <text x="980" y="620" class="section-title">非対話ゼロ知識</text>
+  <text x="890" y="640" class="description">• Fiat-Shamir変換</text>
+  <text x="890" y="655" class="description">• c = H(a, x) でチャレンジ</text>
+  <text x="890" y="670" class="description">• Random Oracle Model</text>
+  <text x="890" y="685" class="description">• 効率的な実装が可能</text>
+  
+  <!-- Advanced Constructions -->
+  <rect x="120" y="720" width="350" height="100" class="concept-box application-box" />
+  <text x="295" y="740" class="section-title">高度な構成法</text>
+  <text x="130" y="760" class="description">• zk-SNARKs: 簡潔で検証効率的</text>
+  <text x="130" y="775" class="description">• zk-STARKs: 耐量子性とtrusted setupなし</text>
+  <text x="130" y="790" class="description">• Bulletproofs: 範囲証明に特化</text>
+  <text x="130" y="805" class="description">• Groth16: 最も効率的なzk-SNARK</text>
+  
+  <!-- Implementation Considerations -->
+  <rect x="490" y="720" width="350" height="100" class="concept-box protocol-box" />
+  <text x="665" y="740" class="section-title">実装上の考慮事項</text>
+  <text x="500" y="760" class="description">• 証明生成時間 vs 検証時間のトレードオフ</text>
+  <text x="500" y="775" class="description">• 証明サイズ vs 計算量のトレードオフ</text>
+  <text x="500" y="790" class="description">• Trusted setupの必要性と回避方法</text>
+  <text x="500" y="805" class="description">• 量子計算機に対する安全性の確保</text>
+  
+  <!-- Future Directions -->
+  <rect x="860" y="720" width="220" height="100" class="concept-box security-box" />
+  <text x="970" y="740" class="section-title">将来の発展方向</text>
+  <text x="870" y="760" class="description">• 効率性の更なる向上</text>
+  <text x="870" y="775" class="description">• 汎用計算への対応</text>
+  <text x="870" y="790" class="description">• プライバシー保護AI</text>
+  <text x="870" y="805" class="description">• 分散システムへの統合</text>
+</svg>

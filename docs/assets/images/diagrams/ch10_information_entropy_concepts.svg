@@ -1,0 +1,191 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <title>情報量とエントロピーの概念</title>
+  <desc>自己情報量とShannonエントロピーの定義と性質</desc>
+  
+  <defs>
+    <style>
+      .self-info { fill: #e3f2fd; stroke: #1976d2; stroke-width: 2px; }
+      .entropy-box { fill: #e8f5e9; stroke: #388e3c; stroke-width: 2px; }
+      .properties-box { fill: #fff3e0; stroke: #ff9800; stroke-width: 2px; }
+      .example-box { fill: #f3e5f5; stroke: #9c27b0; stroke-width: 2px; }
+      
+      .concept-box { 
+        rx: 4px; 
+        ry: 4px; 
+        font-family: Inter, Helvetica, sans-serif;
+      }
+      
+      .title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 18px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #1a1a1a;
+      }
+      
+      .subtitle { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 14px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #2c3e50;
+      }
+      
+      .formula { 
+        font-family: Courier, monospace;
+        font-size: 14px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        dominant-baseline: central;
+        fill: #333;
+      }
+      
+      .property-text { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 11px; 
+        font-weight: 400; 
+        text-anchor: start; 
+        fill: #666;
+      }
+      
+      .example-text { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 10px; 
+        font-weight: 400; 
+        text-anchor: start; 
+        fill: #555;
+      }
+      
+      .arrow {
+        stroke: #2c3e50;
+        stroke-width: 2px;
+        fill: none;
+        marker-end: url(#arrowhead);
+      }
+    </style>
+    
+    <!-- Arrow marker -->
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2c3e50" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="600" y="30" class="title">情報量とエントロピーの概念</text>
+  
+  <!-- Self Information Section -->
+  <g id="self-information">
+    <text x="300" y="70" class="subtitle">自己情報量（Self Information）</text>
+    
+    <!-- Definition -->
+    <rect x="100" y="90" width="400" height="80" class="concept-box self-info" />
+    <text x="300" y="115" class="subtitle">定義</text>
+    <text x="300" y="140" class="formula">I(p) = -log₂ p</text>
+    <text x="300" y="160" class="property-text">確率 p の事象が起こったときの情報量（単位：bit）</text>
+    
+    <!-- Properties -->
+    <rect x="100" y="190" width="400" height="120" class="concept-box properties-box" />
+    <text x="300" y="215" class="subtitle">性質</text>
+    <text x="120" y="235" class="property-text">• p = 1 なら I(p) = 0（確実な事象は情報量0）</text>
+    <text x="120" y="250" class="property-text">• p が小さいほど I(p) が大きい（稀な事象ほど情報価値高）</text>
+    <text x="120" y="265" class="property-text">• 独立事象は加法的：I(p₁ · p₂) = I(p₁) + I(p₂)</text>
+    <text x="120" y="280" class="property-text">• 単調減少関数：p₁ < p₂ なら I(p₁) > I(p₂)</text>
+    <text x="120" y="295" class="property-text">• I(1/2) = 1 bit（コイン投げの情報量）</text>
+    
+    <!-- Examples -->
+    <rect x="100" y="330" width="400" height="100" class="concept-box example-box" />
+    <text x="300" y="355" class="subtitle">具体例</text>
+    <text x="120" y="375" class="example-text">確率 1/8 の事象：I(1/8) = -log₂(1/8) = 3 bits</text>
+    <text x="120" y="390" class="example-text">確率 1/2 の事象：I(1/2) = -log₂(1/2) = 1 bit</text>
+    <text x="120" y="405" class="example-text">確率 1/4 の事象：I(1/4) = -log₂(1/4) = 2 bits</text>
+    <text x="120" y="420" class="example-text">確率 1 の事象：I(1) = -log₂(1) = 0 bits</text>
+  </g>
+  
+  <!-- Shannon Entropy Section -->
+  <g id="shannon-entropy">
+    <text x="850" y="70" class="subtitle">Shannon エントロピー</text>
+    
+    <!-- Definition -->
+    <rect x="650" y="90" width="400" height="100" class="concept-box entropy-box" />
+    <text x="850" y="115" class="subtitle">定義</text>
+    <text x="850" y="140" class="formula">H(X) = -∑ p(x) log₂ p(x)</text>
+    <text x="850" y="160" class="formula">= E[I(X)]</text>
+    <text x="850" y="180" class="property-text">確率変数Xの平均情報量（単位：bit）</text>
+    
+    <!-- Binary Entropy Function -->
+    <rect x="650" y="210" width="400" height="80" class="concept-box entropy-box" />
+    <text x="850" y="235" class="subtitle">二値エントロピー関数</text>
+    <text x="850" y="260" class="formula">h(p) = -p log₂ p - (1-p) log₂(1-p)</text>
+    <text x="850" y="280" class="property-text">二値確率分布 (p, 1-p) のエントロピー</text>
+    
+    <!-- Properties -->
+    <rect x="650" y="310" width="400" height="120" class="concept-box properties-box" />
+    <text x="850" y="335" class="subtitle">エントロピーの性質</text>
+    <text x="670" y="355" class="property-text">• H(X) ≥ 0（非負性）</text>
+    <text x="670" y="370" class="property-text">• H(X) ≤ log₂|X|（最大値は一様分布で達成）</text>
+    <text x="670" y="385" class="property-text">• 決定論的な場合 H(X) = 0</text>
+    <text x="670" y="400" class="property-text">• 凹関数（Jensen不等式適用可能）</text>
+    <text x="670" y="415" class="property-text">• データ処理不等式：H(Y) ≤ H(X) if Y = f(X)</text>
+  </g>
+  
+  <!-- Connection arrow -->
+  <path d="M 500 200 L 650 200" class="arrow" />
+  <text x="575" y="195" class="property-text">期待値</text>
+  
+  <!-- Practical Examples -->
+  <rect x="100" y="460" width="1000" height="300" style="fill: #f8f9fa; stroke: #6c757d; stroke-width: 2px; rx: 4px;" />
+  <text x="600" y="490" class="title">エントロピーの計算例と応用</text>
+  
+  <!-- Example 1: Fair Coin -->
+  <g id="fair-coin-example">
+    <rect x="120" y="510" width="280" height="100" class="concept-box example-box" />
+    <text x="260" y="535" class="subtitle">例1：公平なコイン</text>
+    <text x="130" y="555" class="example-text">確率分布：P(H) = 1/2, P(T) = 1/2</text>
+    <text x="130" y="570" class="example-text">H(X) = -(1/2)log₂(1/2) - (1/2)log₂(1/2)</text>
+    <text x="130" y="585" class="example-text">     = 1/2 + 1/2 = 1 bit</text>
+    <text x="130" y="600" class="example-text">→ 最大エントロピー（最も不確実）</text>
+  </g>
+  
+  <!-- Example 2: Biased Coin -->
+  <g id="biased-coin-example">
+    <rect x="420" y="510" width="280" height="100" class="concept-box example-box" />
+    <text x="560" y="535" class="subtitle">例2：偏ったコイン</text>
+    <text x="430" y="555" class="example-text">確率分布：P(H) = 0.9, P(T) = 0.1</text>
+    <text x="430" y="570" class="example-text">H(X) = -0.9·log₂(0.9) - 0.1·log₂(0.1)</text>
+    <text x="430" y="585" class="example-text">     ≈ 0.469 bit</text>
+    <text x="430" y="600" class="example-text">→ 低エントロピー（予測しやすい）</text>
+  </g>
+  
+  <!-- Example 3: Four-sided Die -->
+  <g id="die-example">
+    <rect x="720" y="510" width="280" height="100" class="concept-box example-box" />
+    <text x="860" y="535" class="subtitle">例3：4面サイコロ</text>
+    <text x="730" y="555" class="example-text">確率分布：各面 1/4</text>
+    <text x="730" y="570" class="example-text">H(X) = -4 × (1/4)log₂(1/4)</text>
+    <text x="730" y="585" class="example-text">     = -4 × (1/4) × (-2) = 2 bits</text>
+    <text x="730" y="600" class="example-text">→ 4つの等確率選択肢</text>
+  </g>
+  
+  <!-- Applications -->
+  <g id="applications">
+    <text x="600" y="640" class="subtitle">エントロピーの応用</text>
+    
+    <rect x="120" y="660" width="350" height="80" class="concept-box entropy-box" />
+    <text x="295" y="685" class="subtitle">データ圧縮</text>
+    <text x="130" y="705" class="property-text">• エントロピーは理論的圧縮限界を与える</text>
+    <text x="130" y="720" class="property-text">• Huffman符号、算術符号の基礎理論</text>
+    <text x="130" y="735" class="property-text">• 平均符号長 ≥ エントロピー</text>
+    
+    <rect x="500" y="660" width="350" height="80" class="concept-box entropy-box" />
+    <text x="675" y="685" class="subtitle">機械学習</text>
+    <text x="510" y="705" class="property-text">• 決定木の分岐基準（情報利得）</text>
+    <text x="510" y="720" class="property-text">• クラス分類の不確実性測定</text>
+    <text x="510" y="735" class="property-text">• 特徴選択の指標</text>
+    
+    <rect x="870" y="660" width="220" height="80" class="concept-box entropy-box" />
+    <text x="980" y="685" class="subtitle">暗号理論</text>
+    <text x="880" y="705" class="property-text">• 鍵の無作為性評価</text>
+    <text x="880" y="720" class="property-text">• 情報漏洩の定量化</text>
+    <text x="880" y="735" class="property-text">• 完全秘匿性の条件</text>
+  </g>
+</svg>

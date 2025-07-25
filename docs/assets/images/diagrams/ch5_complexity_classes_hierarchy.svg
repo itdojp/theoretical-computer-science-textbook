@@ -1,0 +1,192 @@
+<svg viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg">
+  <title>計算複雑性クラスの包含関係</title>
+  <desc>L, P, NP, PSPACE, EXPTIMEなど主要な複雑性クラスの階層構造</desc>
+  
+  <defs>
+    <style>
+      .complexity-l { fill: #e1f5fe; stroke: #0277bd; stroke-width: 2px; }
+      .complexity-p { fill: #f3e5f5; stroke: #7b1fa2; stroke-width: 2px; }
+      .complexity-np { fill: #fff3e0; stroke: #f57c00; stroke-width: 2px; }
+      .complexity-pspace { fill: #e8f5e9; stroke: #388e3c; stroke-width: 2px; }
+      .complexity-exp { fill: #ffebee; stroke: #d32f2f; stroke-width: 2px; }
+      
+      .complexity-box { 
+        rx: 4px; 
+        ry: 4px; 
+        font-family: Inter, Helvetica, sans-serif;
+      }
+      
+      .title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 18px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #1a1a1a;
+      }
+      
+      .class-name { 
+        font-family: Courier, monospace;
+        font-size: 16px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        dominant-baseline: central;
+        fill: #333;
+      }
+      
+      .class-desc { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 11px; 
+        font-weight: 400; 
+        text-anchor: middle; 
+        dominant-baseline: central;
+        fill: #666;
+      }
+      
+      .inclusion-arrow {
+        stroke: #2c3e50;
+        stroke-width: 3px;
+        fill: none;
+        marker-end: url(#inclusion-arrowhead);
+      }
+      
+      .uncertain-arrow {
+        stroke: #666;
+        stroke-width: 2px;
+        stroke-dasharray: 8,4;
+        fill: none;
+        marker-end: url(#uncertain-arrowhead);
+      }
+      
+      .properties-text {
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 12px;
+        font-weight: 400;
+        text-anchor: start;
+        fill: #555;
+      }
+    </style>
+    
+    <!-- Arrow markers -->
+    <marker id="inclusion-arrowhead" markerWidth="12" markerHeight="8" refX="11" refY="4" orient="auto">
+      <polygon points="0 0, 12 4, 0 8" fill="#2c3e50" />
+    </marker>
+    
+    <marker id="uncertain-arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="600" y="30" class="title">計算複雑性クラスの包含関係</text>
+  
+  <!-- Main hierarchy -->
+  <g id="main-hierarchy">
+    <!-- L (Logarithmic Space) -->
+    <rect x="50" y="100" width="120" height="80" class="complexity-box complexity-l" />
+    <text x="110" y="125" class="class-name">L</text>
+    <text x="110" y="145" class="class-desc">対数空間</text>
+    <text x="110" y="160" class="class-desc">DSPACE(log n)</text>
+    
+    <!-- NL (Nondeterministic L) -->
+    <rect x="50" y="220" width="120" height="80" class="complexity-box complexity-l" />
+    <text x="110" y="245" class="class-name">NL</text>
+    <text x="110" y="265" class="class-desc">非決定性対数空間</text>
+    <text x="110" y="280" class="class-desc">NSPACE(log n)</text>
+    
+    <!-- P (Polynomial Time) -->
+    <rect x="250" y="160" width="120" height="80" class="complexity-box complexity-p" />
+    <text x="310" y="185" class="class-name">P</text>
+    <text x="310" y="205" class="class-desc">多項式時間</text>
+    <text x="310" y="220" class="class-desc">∪ₖ TIME(nᵏ)</text>
+    
+    <!-- BPP (Bounded-error Probabilistic P) -->
+    <rect x="250" y="280" width="120" height="80" class="complexity-box complexity-p" />
+    <text x="310" y="305" class="class-name">BPP</text>
+    <text x="310" y="325" class="class-desc">確率的多項式時間</text>
+    <text x="310" y="340" class="class-desc">誤り確率 ≤ 1/3</text>
+    
+    <!-- NP (Nondeterministic P) -->
+    <rect x="450" y="120" width="120" height="80" class="complexity-box complexity-np" />
+    <text x="510" y="145" class="class-name">NP</text>
+    <text x="510" y="165" class="class-desc">非決定性多項式時間</text>
+    <text x="510" y="180" class="class-desc">NTIME(nᵏ)</text>
+    
+    <!-- coNP (Complement of NP) -->
+    <rect x="450" y="240" width="120" height="80" class="complexity-box complexity-np" />
+    <text x="510" y="265" class="class-name">coNP</text>
+    <text x="510" y="285" class="class-desc">補NP</text>
+    <text x="510" y="300" class="class-desc">NP の補集合</text>
+    
+    <!-- PSPACE (Polynomial Space) -->
+    <rect x="650" y="180" width="120" height="80" class="complexity-box complexity-pspace" />
+    <text x="710" y="205" class="class-name">PSPACE</text>
+    <text x="710" y="225" class="class-desc">多項式空間</text>
+    <text x="710" y="240" class="class-desc">∪ₖ SPACE(nᵏ)</text>
+    
+    <!-- EXPTIME (Exponential Time) -->
+    <rect x="850" y="180" width="120" height="80" class="complexity-box complexity-exp" />
+    <text x="910" y="205" class="class-name">EXPTIME</text>
+    <text x="910" y="225" class="class-desc">指数時間</text>
+    <text x="910" y="240" class="class-desc">∪ₖ TIME(2^(nᵏ))</text>
+  </g>
+  
+  <!-- Inclusion arrows -->
+  <path d="M 170 140 L 250 200" class="inclusion-arrow" />
+  <path d="M 170 260 L 250 200" class="inclusion-arrow" />
+  <path d="M 370 200 L 450 160" class="inclusion-arrow" />
+  <path d="M 370 320 L 650 220" class="inclusion-arrow" />
+  <path d="M 570 160 L 650 200" class="inclusion-arrow" />
+  <path d="M 570 280 L 650 240" class="inclusion-arrow" />
+  <path d="M 770 220 L 850 220" class="inclusion-arrow" />
+  
+  <!-- Uncertain relationships -->
+  <path d="M 510 200 Q 530 220 510 240" class="uncertain-arrow" />
+  
+  <!-- Arrow labels -->
+  <text x="200" y="165" class="class-desc">⊆</text>
+  <text x="200" y="235" class="class-desc">⊆</text>
+  <text x="400" y="175" class="class-desc">⊆</text>
+  <text x="600" y="185" class="class-desc">⊆</text>
+  <text x="600" y="245" class="class-desc">⊆</text>
+  <text x="800" y="235" class="class-desc">⊆</text>
+  <text x="540" y="225" class="class-desc">?</text>
+  
+  <!-- Known facts section -->
+  <rect x="100" y="400" width="400" height="200" style="fill: #f0f8ff; stroke: #4682b4; stroke-width: 2px; rx: 4px;" />
+  <text x="300" y="430" class="title">確実に知られていること</text>
+  
+  <text x="120" y="460" class="properties-text">• L ⊆ NL ⊆ P ⊆ NP ⊆ PSPACE ⊆ EXPTIME（定義より）</text>
+  <text x="120" y="480" class="properties-text">• P ⊊ EXPTIME（時間階層定理）</text>
+  <text x="120" y="500" class="properties-text">• PSPACE = NPSPACE（Savitchの定理）</text>
+  <text x="120" y="520" class="properties-text">• L ≠ PSPACE（空間階層定理）</text>
+  <text x="120" y="540" class="properties-text">• NL ⊆ P（到達可能性はPで解ける）</text>
+  <text x="120" y="560" class="properties-text">• BPP ⊆ PSPACE（脱乱択化）</text>
+  
+  <!-- Open problems section -->
+  <rect x="550" y="400" width="400" height="200" style="fill: #fff3e0; stroke: #ff9800; stroke-width: 2px; rx: 4px;" />
+  <text x="750" y="430" class="title">未解決問題</text>
+  
+  <text x="570" y="460" class="properties-text">• P vs NP（ミレニアム問題）</text>
+  <text x="570" y="480" class="properties-text">• NP vs coNP</text>
+  <text x="570" y="500" class="properties-text">• NP vs PSPACE</text>
+  <text x="570" y="520" class="properties-text">• L vs P</text>
+  <text x="570" y="540" class="properties-text">• P vs BPP</text>
+  <text x="570" y="560" class="properties-text">• BPP vs NP</text>
+  
+  <!-- Implications section -->
+  <rect x="100" y="650" width="850" height="200" style="fill: #e8f5e9; stroke: #4caf50; stroke-width: 2px; rx: 4px;" />
+  <text x="525" y="680" class="title">P = NP の含意</text>
+  
+  <text x="120" y="710" class="properties-text">もし P = NP なら：</text>
+  <text x="140" y="730" class="properties-text">• RSA暗号などの公開鍵暗号が破られる</text>
+  <text x="140" y="750" class="properties-text">• すべての最適化問題が効率的に解ける</text>
+  <text x="140" y="770" class="properties-text">• 数学的証明の発見が自動化される</text>
+  
+  <text x="500" y="710" class="properties-text">もし P ≠ NP なら：</text>
+  <text x="520" y="730" class="properties-text">• 現在の暗号が安全に使える</text>
+  <text x="520" y="750" class="properties-text">• 一部の問題は本質的に困難</text>
+  <text x="520" y="770" class="properties-text">• 創造性には計算的限界がある</text>
+  
+  <text x="120" y="810" class="properties-text">現在の予想：P ≠ NP（理論計算機科学者の98%以上が支持）</text>
+  <text x="120" y="830" class="properties-text">根拠：40年以上の研究でNP完全問題の効率的解法が見つからない</text>
+</svg>

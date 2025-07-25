@@ -1,0 +1,291 @@
+<svg viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg">
+  <title>並行計算モデルの基本概念</title>
+  <desc>並行性vs並列性、実行モデル、通信パラダイム、並行システムの問題</desc>
+  
+  <defs>
+    <style>
+      .concurrency-box { fill: #e3f2fd; stroke: #1976d2; stroke-width: 2px; }
+      .execution-box { fill: #e8f5e9; stroke: #388e3c; stroke-width: 2px; }
+      .communication-box { fill: #fff3e0; stroke: #ff9800; stroke-width: 2px; }
+      .problem-box { fill: #ffebee; stroke: #f44336; stroke-width: 2px; }
+      .solution-box { fill: #f3e5f5; stroke: #9c27b0; stroke-width: 2px; }
+      
+      .concept-box { 
+        rx: 4px; 
+        ry: 4px; 
+        font-family: Inter, Helvetica, sans-serif;
+      }
+      
+      .title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 18px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #1a1a1a;
+      }
+      
+      .subtitle { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 14px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #2c3e50;
+      }
+      
+      .section-title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 12px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #333;
+      }
+      
+      .description { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 11px; 
+        font-weight: 400; 
+        text-anchor: start; 
+        fill: #666;
+      }
+      
+      .process-text { 
+        font-family: Courier, monospace;
+        font-size: 10px; 
+        font-weight: 400; 
+        text-anchor: middle; 
+        fill: #555;
+      }
+      
+      .arrow {
+        stroke: #2c3e50;
+        stroke-width: 2px;
+        fill: none;
+        marker-end: url(#arrowhead);
+      }
+      
+      .parallel-arrow {
+        stroke: #4caf50;
+        stroke-width: 2px;
+        fill: none;
+        marker-end: url(#parallel-arrowhead);
+      }
+      
+      .communication-arrow {
+        stroke: #ff9800;
+        stroke-width: 2px;
+        stroke-dasharray: 6,3;
+        fill: none;
+        marker-end: url(#comm-arrowhead);
+      }
+    </style>
+    
+    <!-- Arrow markers -->
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2c3e50" />
+    </marker>
+    
+    <marker id="parallel-arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4caf50" />
+    </marker>
+    
+    <marker id="comm-arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ff9800" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="600" y="30" class="title">並行計算モデルの基本概念</text>
+  
+  <!-- Concurrency vs Parallelism -->
+  <g id="concurrency-parallelism">
+    <text x="200" y="70" class="subtitle">並行性 vs 並列性</text>
+    
+    <!-- Concurrency -->
+    <rect x="50" y="90" width="150" height="100" class="concept-box concurrency-box" />
+    <text x="125" y="110" class="section-title">並行性</text>
+    <text x="125" y="125" class="section-title">(Concurrency)</text>
+    <text x="60" y="145" class="description">• 論理的な同時性</text>
+    <text x="60" y="160" class="description">• 単一CPUでも可能</text>
+    <text x="60" y="175" class="description">• インターリーブ実行</text>
+    <text x="60" y="190" class="description">• 非決定性あり</text>
+    
+    <!-- Parallelism -->
+    <rect x="220" y="90" width="150" height="100" class="concept-box concurrency-box" />
+    <text x="295" y="110" class="section-title">並列性</text>
+    <text x="295" y="125" class="section-title">(Parallelism)</text>
+    <text x="230" y="145" class="description">• 物理的な同時実行</text>
+    <text x="230" y="160" class="description">• 複数CPU/コア</text>
+    <text x="230" y="175" class="description">• 真の並列実行</text>
+    <text x="230" y="190" class="description">• 性能向上が目的</text>
+    
+    <!-- Both Combined -->
+    <rect x="135" y="210" width="150" height="60" class="concept-box concurrency-box" />
+    <text x="210" y="230" class="section-title">両方の組み合わせ</text>
+    <text x="145" y="250" class="description">• マルチコアでの並行実行</text>
+    <text x="145" y="265" class="description">• 分散システム</text>
+    
+    <!-- Arrows -->
+    <path d="M 175 190 L 175 210" class="arrow" />
+    <path d="M 245 190 L 245 210" class="arrow" />
+  </g>
+  
+  <!-- Execution Models -->
+  <g id="execution-models">
+    <text x="650" y="70" class="subtitle">実行モデルの比較</text>
+    
+    <!-- Sequential Execution -->
+    <rect x="450" y="90" width="120" height="80" class="concept-box execution-box" />
+    <text x="510" y="110" class="section-title">逐次実行</text>
+    <text x="510" y="130" class="process-text">A1 → A2 → A3</text>
+    <text x="510" y="145" class="process-text">B1 → B2 → B3</text>
+    <text x="460" y="165" class="description">決定的順序</text>
+    
+    <!-- Interleaved Execution -->
+    <rect x="590" y="90" width="140" height="80" class="concept-box execution-box" />
+    <text x="660" y="110" class="section-title">インターリーブ実行</text>
+    <text x="660" y="125" class="process-text">A1→B1→A2→B2</text>
+    <text x="660" y="140" class="process-text">または</text>
+    <text x="660" y="155" class="process-text">B1→A1→B2→A2</text>
+    <text x="600" y="165" class="description">非決定的順序</text>
+    
+    <!-- Parallel Execution -->
+    <rect x="750" y="90" width="120" height="80" class="concept-box execution-box" />
+    <text x="810" y="110" class="section-title">並列実行</text>
+    <text x="810" y="130" class="process-text">A1 || B1</text>
+    <text x="810" y="145" class="process-text">A2 || B2</text>
+    <text x="760" y="165" class="description">同時実行</text>
+    
+    <!-- Arrows -->
+    <path d="M 570 130 L 590 130" class="arrow" />
+    <path d="M 730 130 L 750 130" class="parallel-arrow" />
+  </g>
+  
+  <!-- Communication Paradigms -->
+  <g id="communication-paradigms">
+    <text x="250" y="330" class="subtitle">通信パラダイム</text>
+    
+    <!-- Shared Memory -->
+    <rect x="50" y="350" width="150" height="100" class="concept-box communication-box" />
+    <text x="125" y="375" class="section-title">共有メモリ</text>
+    <text x="60" y="395" class="description">• 共通変数アクセス</text>
+    <text x="60" y="410" class="description">• 同期プリミティブ</text>
+    <text x="60" y="425" class="description">• 競合状態の問題</text>
+    <text x="60" y="440" class="description">• ロック機構必要</text>
+    
+    <!-- Message Passing -->
+    <rect x="220" y="350" width="150" height="100" class="concept-box communication-box" />
+    <text x="295" y="375" class="section-title">メッセージパッシング</text>
+    <text x="230" y="395" class="description">• send/receive操作</text>
+    <text x="230" y="410" class="description">• チャネル通信</text>
+    <text x="230" y="425" class="description">• デッドロック問題</text>
+    <text x="230" y="440" class="description">• 順序保証が課題</text>
+    
+    <!-- Actor Model -->
+    <rect x="390" y="350" width="150" height="100" class="concept-box communication-box" />
+    <text x="465" y="375" class="section-title">アクターモデル</text>
+    <text x="400" y="395" class="description">• 独立したアクター</text>
+    <text x="400" y="410" class="description">• 非同期メッセージ</text>
+    <text x="400" y="425" class="description">• 局所状態のみ</text>
+    <text x="400" y="440" class="description">• 高い拡張性</text>
+    
+    <!-- Communication arrows -->
+    <path d="M 200 400 L 220 400" class="communication-arrow" />
+    <path d="M 370 400 L 390 400" class="communication-arrow" />
+  </g>
+  
+  <!-- Synchronization Mechanisms -->
+  <g id="synchronization">
+    <text x="750" y="330" class="subtitle">同期メカニズム</text>
+    
+    <!-- Locks -->
+    <rect x="600" y="350" width="120" height="80" class="concept-box solution-box" />
+    <text x="660" y="375" class="section-title">ロック機構</text>
+    <text x="610" y="395" class="description">• mutual exclusion</text>
+    <text x="610" y="410" class="description">• semaphore</text>
+    <text x="610" y="425" class="description">• monitor</text>
+    
+    <!-- Atomic Operations -->
+    <rect x="740" y="350" width="120" height="80" class="concept-box solution-box" />
+    <text x="800" y="375" class="section-title">原子的操作</text>
+    <text x="750" y="395" class="description">• compare-and-swap</text>
+    <text x="750" y="410" class="description">• test-and-set</text>
+    <text x="750" y="425" class="description">• fetch-and-add</text>
+    
+    <!-- Barriers -->
+    <rect x="880" y="350" width="120" height="80" class="concept-box solution-box" />
+    <text x="940" y="375" class="section-title">バリア同期</text>
+    <text x="890" y="395" class="description">• 全プロセス待機</text>
+    <text x="890" y="410" class="description">• フェーズ同期</text>
+    <text x="890" y="425" class="description">• 集合的操作</text>
+  </g>
+  
+  <!-- Problems in Concurrent Systems -->
+  <rect x="100" y="480" width="1000" height="380" style="fill: #f8f9fa; stroke: #6c757d; stroke-width: 2px; rx: 4px;" />
+  <text x="600" y="510" class="title">並行システムの問題と解決策</text>
+  
+  <!-- Race Conditions -->
+  <rect x="120" y="530" width="200" height="100" class="concept-box problem-box" />
+  <text x="220" y="555" class="section-title">競合状態 (Race Condition)</text>
+  <text x="130" y="575" class="description">• 共有データへの非同期アクセス</text>
+  <text x="130" y="590" class="description">• 実行順序に依存した結果</text>
+  <text x="130" y="605" class="description">• 再現困難なバグ</text>
+  <text x="130" y="620" class="description">→ 原子的操作やロックで解決</text>
+  
+  <!-- Deadlock -->
+  <rect x="340" y="530" width="200" height="100" class="concept-box problem-box" />
+  <text x="440" y="555" class="section-title">デッドロック</text>
+  <text x="350" y="575" class="description">• 相互に待機状態</text>
+  <text x="350" y="590" class="description">• 循環的な資源依存</text>
+  <text x="350" y="605" class="description">• システム完全停止</text>
+  <text x="350" y="620" class="description">→ 資源順序付けで予防</text>
+  
+  <!-- Livelock -->
+  <rect x="560" y="530" width="200" height="100" class="concept-box problem-box" />
+  <text x="660" y="555" class="section-title">ライブロック</text>
+  <text x="570" y="575" class="description">• 動いているが進行しない</text>
+  <text x="570" y="590" class="description">• お互いに譲り合う状況</text>
+  <text x="570" y="605" class="description">• CPU使用率は高い</text>
+  <text x="570" y="620" class="description">→ ランダム待機で回避</text>
+  
+  <!-- Starvation -->
+  <rect x="780" y="530" width="200" height="100" class="concept-box problem-box" />
+  <text x="880" y="555" class="section-title">飢餓状態</text>
+  <text x="790" y="575" class="description">• 特定プロセスが永続的に待機</text>
+  <text x="790" y="590" class="description">• 優先度が常に低い</text>
+  <text x="790" y="605" class="description">• 公平性の欠如</text>
+  <text x="790" y="620" class="description">→ 公平なスケジューリング</text>
+  
+  <!-- Deadlock Prevention Techniques -->
+  <rect x="120" y="650" width="250" height="100" class="concept-box solution-box" />
+  <text x="245" y="675" class="section-title">デッドロック予防技法</text>
+  <text x="130" y="695" class="description">• 資源順序付け (Resource ordering)</text>
+  <text x="130" y="710" class="description">• タイムスタンプによる順序付け</text>
+  <text x="130" y="725" class="description">• wait-die, wound-wait方式</text>
+  <text x="130" y="740" class="description">• 2段階ロッキング (2PL)</text>
+  
+  <!-- Lock-Free Programming -->
+  <rect x="390" y="650" width="250" height="100" class="concept-box solution-box" />
+  <text x="515" y="675" class="section-title">ロックフリープログラミング</text>
+  <text x="400" y="695" class="description">• Compare-and-Swap (CAS) 操作</text>
+  <text x="400" y="710" class="description">• ABA問題への対処</text>
+  <text x="400" y="725" class="description">• メモリ順序制約 (memory ordering)</text>
+  <text x="400" y="740" class="description">• 進行保証 (progress guarantee)</text>
+  
+  <!-- Distributed Consensus -->
+  <rect x="660" y="650" width="250" height="100" class="concept-box solution-box" />
+  <text x="785" y="675" class="section-title">分散合意問題</text>
+  <text x="670" y="695" class="description">• Byzantine fault tolerance</text>
+  <text x="670" y="710" class="description">• Raftアルゴリズム</text>
+  <text x="670" y="725" class="description">• PBFTアルゴリズム</text>
+  <text x="670" y="740" class="description">• CAP定理の制約</text>
+  
+  <!-- Performance Considerations -->
+  <rect x="120" y="770" width="860" height="80" class="concept-box execution-box" />
+  <text x="550" y="795" class="section-title">性能上の考慮事項</text>
+  <text x="130" y="815" class="description">• スケーラビリティ: Amdahlの法則により並列化の限界が存在</text>
+  <text x="130" y="830" class="description">• 負荷分散: ワークロードを均等に分散させる必要性</text>
+  <text x="130" y="845" class="description">• 通信オーバーヘッド: プロセス間通信のコストを最小化</text>
+  <text x="500" y="815" class="description">• キャッシュ一貫性: 共有メモリでのキャッシュ問題</text>
+  <text x="500" y="830" class="description">• フォルスシェアリング: 不要なキャッシュ無効化</text>
+  <text x="500" y="845" class="description">• コンテキストスイッチ: プロセス切り替えのオーバーヘッド</text>
+</svg>

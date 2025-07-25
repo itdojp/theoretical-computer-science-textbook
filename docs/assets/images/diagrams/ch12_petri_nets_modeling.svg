@@ -1,0 +1,268 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <title>Petriネットによる並行システムモデリング</title>
+  <desc>基本要素、相互排除の例、性質解析</desc>
+  
+  <defs>
+    <style>
+      .place-circle { fill: #e8f5e9; stroke: #4caf50; stroke-width: 2px; }
+      .transition-rect { fill: #e3f2fd; stroke: #1976d2; stroke-width: 2px; }
+      .token { fill: #333; stroke: none; }
+      .analysis-box { fill: #fff3e0; stroke: #ff9800; stroke-width: 2px; }
+      .property-box { fill: #f3e5f5; stroke: #9c27b0; stroke-width: 2px; }
+      
+      .concept-box { 
+        rx: 4px; 
+        ry: 4px; 
+        font-family: Inter, Helvetica, sans-serif;
+      }
+      
+      .title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 18px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #1a1a1a;
+      }
+      
+      .subtitle { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 14px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #2c3e50;
+      }
+      
+      .element-title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 12px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #333;
+      }
+      
+      .description { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 11px; 
+        font-weight: 400; 
+        text-anchor: start; 
+        fill: #666;
+      }
+      
+      .label-text { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 10px; 
+        font-weight: 500; 
+        text-anchor: middle; 
+        fill: #555;
+      }
+      
+      .formula { 
+        font-family: Courier, monospace;
+        font-size: 11px; 
+        font-weight: 500; 
+        text-anchor: start; 
+        fill: #333;
+      }
+      
+      .arc {
+        stroke: #2c3e50;
+        stroke-width: 2px;
+        fill: none;
+        marker-end: url(#arrowhead);
+      }
+      
+      .bidirectional-arc {
+        stroke: #666;
+        stroke-width: 1px;
+        fill: none;
+      }
+    </style>
+    
+    <!-- Arrow marker -->
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#2c3e50" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="600" y="30" class="title">Petriネットによる並行システムモデリング</text>
+  
+  <!-- Basic Elements -->
+  <g id="basic-elements">
+    <text x="200" y="70" class="subtitle">基本要素</text>
+    
+    <!-- Places -->
+    <g id="places">
+      <circle cx="100" cy="110" r="25" class="place-circle" />
+      <text x="100" y="145" class="element-title">プレース (○)</text>
+      <text x="50" y="165" class="description">• 状態や条件を表す</text>
+      <text x="50" y="180" class="description">• トークンを保持</text>
+      <text x="50" y="195" class="description">• 例：リソース、状態</text>
+    </g>
+    
+    <!-- Transitions -->
+    <g id="transitions">
+      <rect x="225" y="85" width="50" height="30" class="transition-rect" />
+      <text x="250" y="145" class="element-title">トランジション (□)</text>
+      <text x="200" y="165" class="description">• イベントやアクションを表す</text>
+      <text x="200" y="180" class="description">• 発火により状態変化</text>
+      <text x="200" y="195" class="description">• 例：プロセス実行、操作</text>
+    </g>
+    
+    <!-- Arcs -->
+    <g id="arcs">
+      <path d="M 125 110 L 200 100" class="arc" />
+      <text x="350" y="110" class="element-title">アーク (→)</text>
+      <text x="300" y="130" class="description">• プレースとトランジションを接続</text>
+      <text x="300" y="145" class="description">• 重みを持つ</text>
+      <text x="300" y="160" class="description">• トークンフロー</text>
+    </g>
+    
+    <!-- Tokens -->
+    <g id="tokens">
+      <circle cx="450" cy="110" r="25" class="place-circle" />
+      <circle cx="450" cy="110" r="5" class="token" />
+      <circle cx="460" cy="105" r="3" class="token" />
+      <circle cx="440" cy="105" r="3" class="token" />
+      <text x="450" y="145" class="element-title">トークン (●)</text>
+      <text x="400" y="165" class="description">• プレース内のリソース数</text>
+      <text x="400" y="180" class="description">• システムの現在状態</text>
+      <text x="400" y="195" class="description">• マーキング M(p)</text>
+    </g>
+  </g>
+  
+  <!-- Mutual Exclusion Example -->
+  <g id="mutual-exclusion">
+    <text x="800" y="70" class="subtitle">相互排除の例</text>
+    
+    <!-- Process 1 waiting -->
+    <circle cx="650" cy="120" r="20" class="place-circle" />
+    <circle cx="650" cy="120" r="4" class="token" />
+    <text x="650" y="150" class="label-text">プロセス1</text>
+    <text x="650" y="165" class="label-text">待機</text>
+    
+    <!-- Process 2 waiting -->
+    <circle cx="950" cy="120" r="20" class="place-circle" />
+    <circle cx="950" cy="120" r="4" class="token" />
+    <text x="950" y="150" class="label-text">プロセス2</text>
+    <text x="950" y="165" class="label-text">待機</text>
+    
+    <!-- Shared Resource -->
+    <circle cx="800" cy="190" r="20" class="place-circle" />
+    <circle cx="800" cy="190" r="4" class="token" />
+    <text x="800" y="220" class="label-text">共有リソース</text>
+    
+    <!-- Transitions -->
+    <rect x="720" y="135" width="30" height="20" class="transition-rect" />
+    <text x="735" y="170" class="label-text">取得1</text>
+    
+    <rect x="850" y="135" width="30" height="20" class="transition-rect" />
+    <text x="865" y="170" class="label-text">取得2</text>
+    
+    <!-- Critical sections -->
+    <circle cx="650" cy="260" r="20" class="place-circle" />
+    <text x="650" y="290" class="label-text">クリティカル1</text>
+    
+    <circle cx="950" cy="260" r="20" class="place-circle" />
+    <text x="950" y="290" class="label-text">クリティカル2</text>
+    
+    <!-- Release transitions -->
+    <rect x="635" y="320" width="30" height="20" class="transition-rect" />
+    <text x="650" y="355" class="label-text">解放1</text>
+    
+    <rect x="935" y="320" width="30" height="20" class="transition-rect" />
+    <text x="950" y="355" class="label-text">解放2</text>
+    
+    <!-- Arcs for mutual exclusion -->
+    <path d="M 670 120 L 720 145" class="arc" />
+    <path d="M 750 145 L 780 190" class="arc" />
+    <path d="M 750 155 L 650 240" class="arc" />
+    
+    <path d="M 930 120 L 880 145" class="arc" />
+    <path d="M 850 145 L 820 190" class="arc" />
+    <path d="M 850 155 L 950 240" class="arc" />
+    
+    <path d="M 650 280 L 650 320" class="arc" />
+    <path d="M 650 340 L 650 140" class="arc" />
+    <path d="M 635 330 L 780 200" class="arc" />
+    
+    <path d="M 950 280 L 950 320" class="arc" />
+    <path d="M 950 340 L 950 140" class="arc" />
+    <path d="M 935 330 L 820 200" class="arc" />
+  </g>
+  
+  <!-- Properties Analysis -->
+  <rect x="100" y="400" width="1000" height="360" style="fill: #f8f9fa; stroke: #6c757d; stroke-width: 2px; rx: 4px;" />
+  <text x="600" y="430" class="title">Petriネットの性質解析</text>
+  
+  <!-- Structural Properties -->
+  <rect x="120" y="450" width="250" height="120" class="concept-box property-box" />
+  <text x="245" y="475" class="subtitle">構造的性質</text>
+  <text x="130" y="495" class="description">• 有界性 (Boundedness)</text>
+  <text x="140" y="510" class="formula">∀M ∈ R(N, M₀), ∀p ∈ P, M(p) ≤ k</text>
+  <text x="130" y="525" class="description">• 安全性 (Safety): 1-有界性</text>
+  <text x="130" y="540" class="description">• 活性 (Liveness)</text>
+  <text x="140" y="555" class="description">全ての到達可能マーキングから</text>
+  <text x="140" y="565" class="description">各トランジションが発火可能</text>
+  
+  <!-- Invariants -->
+  <rect x="390" y="450" width="250" height="120" class="concept-box analysis-box" />
+  <text x="515" y="475" class="subtitle">不変量</text>
+  <text x="400" y="495" class="description">• P-不変量 (Place Invariant)</text>
+  <text x="410" y="510" class="formula">Y^T · C = 0 を満たすベクトル Y</text>
+  <text x="400" y="525" class="description">• T-不変量 (Transition Invariant)</text>
+  <text x="410" y="540" class="formula">C · X = 0 を満たすベクトル X</text>
+  <text x="400" y="555" class="description">C: 接続行列</text>
+  <text x="400" y="565" class="description">→ 保存される量を表現</text>
+  
+  <!-- Reachability Analysis -->
+  <rect x="660" y="450" width="220" height="120" class="concept-box analysis-box" />
+  <text x="770" y="475" class="subtitle">到達可能性解析</text>
+  <text x="670" y="495" class="description">• 可達木 (Reachability Tree)</text>
+  <text x="680" y="510" class="description">到達可能マーキングを木構造で表現</text>
+  <text x="680" y="525" class="description">無限の場合は ω を使用</text>
+  <text x="670" y="540" class="description">• 状態方程式</text>
+  <text x="680" y="555" class="formula">M = M₀ + C · σ</text>
+  <text x="680" y="565" class="description">σ: 発火回数ベクトル</text>
+  
+  <!-- Analysis Methods -->
+  <rect x="900" y="450" width="180" height="120" class="concept-box property-box" />
+  <text x="990" y="475" class="subtitle">解析手法</text>
+  <text x="910" y="495" class="description">• 線形代数的手法</text>
+  <text x="910" y="510" class="description">• グラフ理論的手法</text>
+  <text x="910" y="525" class="description">• モデル検査</text>
+  <text x="910" y="540" class="description">• シミュレーション</text>
+  <text x="910" y="555" class="description">• 時間ペトリネット</text>
+  <text x="910" y="565" class="description">  で時間制約を扱う</text>
+  
+  <!-- Advanced Extensions -->
+  <rect x="120" y="590" width="300" height="100" class="concept-box analysis-box" />
+  <text x="270" y="615" class="subtitle">Petriネットの拡張</text>
+  <text x="130" y="635" class="description">• 色付きPetriネット (Colored Petri Nets)</text>
+  <text x="140" y="650" class="description">データ値を扱える高水準表現</text>
+  <text x="130" y="665" class="description">• 階層Petriネット (Hierarchical Petri Nets)</text>
+  <text x="140" y="680" class="description">大規模システムの構造化モデル</text>
+  
+  <!-- Applications -->
+  <rect x="440" y="590" width="300" height="100" class="concept-box property-box" />
+  <text x="590" y="615" class="subtitle">実用的応用</text>
+  <text x="450" y="635" class="description">• プロトコル検証</text>
+  <text x="450" y="650" class="description">• ワークフロー管理</text>
+  <text x="450" y="665" class="description">• 生産システムの設計</text>
+  <text x="450" y="680" class="description">• リアルタイムシステム</text>
+  
+  <!-- Complexity Issues -->
+  <rect x="760" y="590" width="320" height="100" class="concept-box analysis-box" />
+  <text x="920" y="615" class="subtitle">計算複雑性の問題</text>
+  <text x="770" y="635" class="description">• 到達可能性問題: EXPSPACE完全</text>
+  <text x="770" y="650" class="description">• 有界性問題: EXPSPACE完全</text>
+  <text x="770" y="665" class="description">• 活性問題: 決定不能</text>
+  <text x="770" y="680" class="description">→ 実用的には近似解析やモデル検査を使用</text>
+  
+  <!-- Firing Rule Example -->
+  <g id="firing-rule">
+    <text x="270" y="720" class="subtitle">発火規則の例</text>
+    <text x="130" y="740" class="description">発火条件: 入力プレースに十分なトークンが存在</text>
+    <text x="130" y="755" class="description">発火効果: 入力プレースからトークン除去、出力プレースに追加</text>
+  </g>
+</svg>

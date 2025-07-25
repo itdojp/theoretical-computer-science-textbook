@@ -1,0 +1,251 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <title>RSA暗号の詳細な仕組み</title>
+  <desc>鍵生成、暗号化・復号、数学的基礎、実装上の注意</desc>
+  
+  <defs>
+    <style>
+      .key-generation { fill: #e3f2fd; stroke: #1976d2; stroke-width: 2px; }
+      .encryption-box { fill: #e8f5e9; stroke: #388e3c; stroke-width: 2px; }
+      .math-foundation { fill: #fff3e0; stroke: #ff9800; stroke-width: 2px; }
+      .security-box { fill: #f3e5f5; stroke: #9c27b0; stroke-width: 2px; }
+      .warning-box { fill: #ffebee; stroke: #f44336; stroke-width: 2px; }
+      
+      .step-box { 
+        rx: 4px; 
+        ry: 4px; 
+        font-family: Inter, Helvetica, sans-serif;
+      }
+      
+      .title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 18px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #1a1a1a;
+      }
+      
+      .subtitle { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 14px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #2c3e50;
+      }
+      
+      .step-title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 12px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #333;
+      }
+      
+      .step-description { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 11px; 
+        font-weight: 400; 
+        text-anchor: start; 
+        fill: #666;
+      }
+      
+      .formula { 
+        font-family: Courier, monospace;
+        font-size: 11px; 
+        font-weight: 500; 
+        text-anchor: middle; 
+        fill: #333;
+      }
+      
+      .example-text { 
+        font-family: Courier, monospace;
+        font-size: 10px; 
+        font-weight: 400; 
+        text-anchor: start; 
+        fill: #555;
+      }
+      
+      .arrow {
+        stroke: #2c3e50;
+        stroke-width: 2px;
+        fill: none;
+        marker-end: url(#arrowhead);
+      }
+      
+      .process-arrow {
+        stroke: #4caf50;
+        stroke-width: 2px;
+        fill: none;
+        marker-end: url(#process-arrowhead);
+      }
+    </style>
+    
+    <!-- Arrow markers -->
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2c3e50" />
+    </marker>
+    
+    <marker id="process-arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4caf50" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="600" y="30" class="title">RSA暗号の詳細な仕組み</text>
+  
+  <!-- Key Generation Process -->
+  <g id="key-generation">
+    <text x="200" y="70" class="subtitle">鍵生成プロセス</text>
+    
+    <!-- Step 1: Prime Selection -->
+    <rect x="50" y="90" width="120" height="80" class="step-box key-generation" />
+    <text x="110" y="110" class="step-title">ステップ1</text>
+    <text x="110" y="125" class="step-title">素数の選択</text>
+    <text x="60" y="145" class="step-description">大きな素数</text>
+    <text x="60" y="160" class="example-text">p = 61, q = 53</text>
+    
+    <!-- Step 2: n calculation -->
+    <rect x="190" y="90" width="120" height="80" class="step-box key-generation" />
+    <text x="250" y="110" class="step-title">ステップ2</text>
+    <text x="250" y="125" class="step-title">n の計算</text>
+    <text x="250" y="145" class="formula">n = p × q</text>
+    <text x="200" y="160" class="example-text">n = 61 × 53 = 3233</text>
+    
+    <!-- Step 3: Euler's totient -->
+    <rect x="330" y="90" width="120" height="80" class="step-box key-generation" />
+    <text x="390" y="110" class="step-title">ステップ3</text>
+    <text x="390" y="125" class="step-title">φ(n) の計算</text>
+    <text x="390" y="145" class="formula">φ(n) = (p-1)(q-1)</text>
+    <text x="340" y="160" class="example-text">φ(3233) = 60×52 = 3120</text>
+    
+    <!-- Step 4: Choose e -->
+    <rect x="470" y="90" width="120" height="80" class="step-box key-generation" />
+    <text x="530" y="110" class="step-title">ステップ4</text>
+    <text x="530" y="125" class="step-title">e の選択</text>
+    <text x="480" y="145" class="step-description">gcd(e, φ(n)) = 1</text>
+    <text x="480" y="160" class="example-text">e = 17 (例)</text>
+    
+    <!-- Step 5: Calculate d -->
+    <rect x="610" y="90" width="140" height="80" class="step-box key-generation" />
+    <text x="680" y="110" class="step-title">ステップ5</text>
+    <text x="680" y="125" class="step-title">d の計算</text>
+    <text x="680" y="145" class="formula">ed ≡ 1 (mod φ(n))</text>
+    <text x="620" y="160" class="example-text">17×d ≡ 1 (mod 3120)</text>
+    <text x="620" y="170" class="example-text">d = 2753</text>
+    
+    <!-- Final Keys -->
+    <rect x="200" y="190" width="300" height="40" style="fill: #fff3e0; stroke: #ff9800; stroke-width: 2px; rx: 4px;" />
+    <text x="350" y="210" class="step-title">公開鍵: (n=3233, e=17)　秘密鍵: d=2753</text>
+    
+    <!-- Arrows for key generation -->
+    <path d="M 170 130 L 190 130" class="arrow" />
+    <path d="M 310 130 L 330 130" class="arrow" />
+    <path d="M 450 130 L 470 130" class="arrow" />
+    <path d="M 590 130 L 610 130" class="arrow" />
+    <path d="M 520 170 L 350 190" class="arrow" />
+  </g>
+  
+  <!-- Encryption and Decryption -->
+  <g id="encryption-decryption">
+    <text x="950" y="70" class="subtitle">暗号化・復号の例</text>
+    
+    <!-- Message -->
+    <rect x="800" y="90" width="100" height="40" class="step-box encryption-box" />
+    <text x="850" y="115" class="step-title">平文 m = 123</text>
+    
+    <!-- Encryption -->
+    <rect x="800" y="150" width="200" height="60" class="step-box encryption-box" />
+    <text x="900" y="170" class="step-title">暗号化</text>
+    <text x="900" y="185" class="formula">c = m^e mod n</text>
+    <text x="810" y="200" class="example-text">c = 123^17 mod 3233 = 855</text>
+    
+    <!-- Decryption -->
+    <rect x="800" y="230" width="200" height="60" class="step-box encryption-box" />
+    <text x="900" y="250" class="step-title">復号</text>
+    <text x="900" y="265" class="formula">m = c^d mod n</text>
+    <text x="810" y="280" class="example-text">m = 855^2753 mod 3233 = 123</text>
+    
+    <!-- Arrows for encryption -->
+    <path d="M 850 130 L 850 150" class="process-arrow" />
+    <path d="M 900 210 L 900 230" class="process-arrow" />
+  </g>
+  
+  <!-- Mathematical Foundation -->
+  <g id="mathematical-foundation">
+    <text x="300" y="340" class="subtitle">数学的基礎</text>
+    
+    <!-- Euler's Theorem -->
+    <rect x="50" y="360" width="250" height="100" class="step-box math-foundation" />
+    <text x="175" y="380" class="step-title">Eulerの定理</text>
+    <text x="60" y="400" class="step-description">gcd(a, n) = 1 なら</text>
+    <text x="175" y="420" class="formula">a^φ(n) ≡ 1 (mod n)</text>
+    <text x="60" y="440" class="step-description">これによりRSAの正当性が保証される</text>
+    
+    <!-- Correctness Proof -->
+    <rect x="320" y="360" width="280" height="100" class="step-box math-foundation" />
+    <text x="460" y="380" class="step-title">正当性の証明</text>
+    <text x="330" y="400" class="formula">c^d = (m^e)^d = m^ed</text>
+    <text x="330" y="415" class="formula">= m^(1+kφ(n)) = m·(m^φ(n))^k</text>
+    <text x="330" y="430" class="formula">≡ m·1^k ≡ m (mod n)</text>
+    <text x="330" y="450" class="step-description">∵ Eulerの定理より m^φ(n) ≡ 1</text>
+    
+    <!-- Security Foundation -->
+    <rect x="620" y="360" width="250" height="100" class="step-box security-box" />
+    <text x="745" y="380" class="step-title">安全性の根拠</text>
+    <text x="630" y="400" class="step-description">• 素因数分解困難性</text>
+    <text x="630" y="415" class="step-description">• n = pq の p, q を求めるのは困難</text>
+    <text x="630" y="430" class="step-description">• RSA仮定: e乗根を求めるのは困難</text>
+    <text x="630" y="445" class="step-description">• 強RSA仮定: 任意のeに対して困難</text>
+  </g>
+  
+  <!-- Implementation Considerations -->
+  <rect x="100" y="490" width="1000" height="280" style="fill: #f8f9fa; stroke: #6c757d; stroke-width: 2px; rx: 4px;" />
+  <text x="600" y="520" class="title">実装上の重要な考慮事項</text>
+  
+  <!-- Padding Schemes -->
+  <rect x="120" y="540" width="200" height="100" class="step-box security-box" />
+  <text x="220" y="560" class="step-title">パディング方式</text>
+  <text x="130" y="580" class="step-description">• OAEP (最適非対称暗号化パディング)</text>
+  <text x="130" y="595" class="step-description">• PSS (確率的署名方式)</text>
+  <text x="130" y="610" class="step-description">• 平文をランダム化して安全性向上</text>
+  <text x="130" y="625" class="step-description">• 決定論的暗号化を回避</text>
+  
+  <!-- Key Size Recommendations -->
+  <rect x="340" y="540" width="200" height="100" class="step-box key-generation" />
+  <text x="440" y="560" class="step-title">鍵サイズ推奨</text>
+  <text x="350" y="580" class="step-description">• 現在: 2048 bit 以上推奨</text>
+  <text x="350" y="595" class="step-description">• 将来: 3072 bit 以上</text>
+  <text x="350" y="610" class="step-description">• 量子計算機対策: 4096 bit+</text>
+  <text x="350" y="625" class="step-description">• NIST推奨に従う</text>
+  
+  <!-- Performance Considerations -->
+  <rect x="560" y="540" width="200" height="100" class="step-box math-foundation" />
+  <text x="660" y="560" class="step-title">性能上の考慮</text>
+  <text x="570" y="580" class="step-description">• 公開指数 e は小さく (65537)</text>
+  <text x="570" y="595" class="step-description">• 暗号化は高速、復号は低速</text>
+  <text x="570" y="610" class="step-description">• ハイブリッド暗号で対称鍵と併用</text>
+  <text x="570" y="625" class="step-description">• 中国人の剰余定理で高速化</text>
+  
+  <!-- Known Attacks -->
+  <rect x="780" y="540" width="200" height="100" class="step-box warning-box" />
+  <text x="880" y="560" class="step-title">既知の攻撃</text>
+  <text x="790" y="580" class="step-description">• 小さい e の攻撃</text>
+  <text x="790" y="595" class="step-description">• 共通剰余数攻撃</text>
+  <text x="790" y="610" class="step-description">• タイミング攻撃</text>
+  <text x="790" y="625" class="step-description">• 冪乗攻撃、格子攻撃</text>
+  
+  <!-- Security Assumptions -->
+  <rect x="120" y="660" width="400" height="100" class="step-box security-box" />
+  <text x="320" y="680" class="step-title">セキュリティ仮定</text>
+  <text x="130" y="700" class="step-description">• RSA仮定: RSA関数の逆計算困難性</text>
+  <text x="130" y="715" class="step-description">• 強RSA仮定: 任意の指数に対する困難性</text>
+  <text x="130" y="730" class="step-description">• 素因数分解問題の困難性</text>
+  <text x="130" y="745" class="step-description">• P ≠ NP の仮定に依存</text>
+  
+  <!-- Quantum Resistance -->
+  <rect x="540" y="660" width="440" height="100" class="step-box warning-box" />
+  <text x="760" y="680" class="step-title">量子計算機への対応</text>
+  <text x="550" y="700" class="step-description">• Shorのアルゴリズムにより素因数分解が多項式時間で可能</text>
+  <text x="550" y="715" class="step-description">• 量子コンピュータが実用化されればRSAは破綻</text>
+  <text x="550" y="730" class="step-description">• 格子暗号、符号ベース暗号等への移行が必要</text>
+  <text x="550" y="745" class="step-description">• NIST耐量子暗号標準化プロジェクト進行中</text>
+</svg>

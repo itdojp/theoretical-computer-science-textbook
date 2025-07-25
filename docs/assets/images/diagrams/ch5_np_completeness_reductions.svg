@@ -1,0 +1,197 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <title>NP完全性と還元の連鎖</title>
+  <desc>SAT, 3-SAT, VERTEX-COVER, CLIQUE, INDEPENDENT-SETの還元関係</desc>
+  
+  <defs>
+    <style>
+      .np-complete { fill: #ffcdd2; stroke: #d32f2f; stroke-width: 3px; }
+      .np-hard { fill: #f8bbd9; stroke: #c2185b; stroke-width: 2px; }
+      .problem-box { 
+        rx: 4px; 
+        ry: 4px; 
+        font-family: Inter, Helvetica, sans-serif;
+      }
+      
+      .title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 18px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #1a1a1a;
+      }
+      
+      .subtitle { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 14px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #2c3e50;
+      }
+      
+      .problem-name { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 14px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        dominant-baseline: central;
+        fill: #333;
+      }
+      
+      .problem-desc { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 10px; 
+        font-weight: 400; 
+        text-anchor: middle; 
+        dominant-baseline: central;
+        fill: #666;
+      }
+      
+      .reduction-arrow {
+        stroke: #e74c3c;
+        stroke-width: 3px;
+        fill: none;
+        marker-end: url(#reduction-arrowhead);
+      }
+      
+      .concept-text {
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 12px;
+        font-weight: 400;
+        text-anchor: start;
+        fill: #555;
+      }
+      
+      .formula {
+        font-family: Courier, monospace;
+        font-size: 11px;
+        font-weight: 500;
+        text-anchor: start;
+        fill: #333;
+      }
+    </style>
+    
+    <!-- Arrow marker -->
+    <marker id="reduction-arrowhead" markerWidth="12" markerHeight="8" refX="11" refY="4" orient="auto">
+      <polygon points="0 0, 12 4, 0 8" fill="#e74c3c" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="600" y="30" class="title">NP完全性と還元の連鎖</text>
+  
+  <!-- Central SAT problem -->
+  <g id="sat-problem">
+    <rect x="500" y="80" width="200" height="80" class="problem-box np-complete" />
+    <text x="600" y="105" class="problem-name">SAT（充足可能性問題）</text>
+    <text x="600" y="125" class="problem-desc">論理式が満足可能か？</text>
+    <text x="600" y="140" class="problem-desc">Cook-Levinの定理</text>
+    <text x="600" y="155" class="problem-desc">最初のNP完全問題</text>
+  </g>
+  
+  <!-- 3-SAT -->
+  <g id="3sat-problem">
+    <rect x="300" y="220" width="180" height="80" class="problem-box np-complete" />
+    <text x="390" y="245" class="problem-name">3-SAT</text>
+    <text x="390" y="265" class="problem-desc">各節が高々3リテラル</text>
+    <text x="390" y="280" class="problem-desc">(x₁ ∨ ¬x₂ ∨ x₃) ∧ ...</text>
+  </g>
+  
+  <!-- VERTEX-COVER -->
+  <g id="vertex-cover-problem">
+    <rect x="100" y="360" width="180" height="80" class="problem-box np-complete" />
+    <text x="190" y="385" class="problem-name">VERTEX-COVER</text>
+    <text x="190" y="405" class="problem-desc">頂点被覆問題</text>
+    <text x="190" y="420" class="problem-desc">k個以下の頂点で全辺を被覆</text>
+  </g>
+  
+  <!-- CLIQUE -->
+  <g id="clique-problem">
+    <rect x="320" y="360" width="180" height="80" class="problem-box np-complete" />
+    <text x="410" y="385" class="problem-name">CLIQUE</text>
+    <text x="410" y="405" class="problem-desc">クリーク問題</text>
+    <text x="410" y="420" class="problem-desc">k個の頂点の完全部分グラフ</text>
+  </g>
+  
+  <!-- INDEPENDENT-SET -->
+  <g id="independent-set-problem">
+    <rect x="540" y="360" width="180" height="80" class="problem-box np-complete" />
+    <text x="630" y="385" class="problem-name">INDEPENDENT-SET</text>
+    <text x="630" y="405" class="problem-desc">独立集合問題</text>
+    <text x="630" y="420" class="problem-desc">互いに隣接しないk個の頂点</text>
+  </g>
+  
+  <!-- HAMILTONIAN-PATH -->
+  <g id="hamiltonian-problem">
+    <rect x="760" y="360" width="180" height="80" class="problem-box np-complete" />
+    <text x="850" y="385" class="problem-name">HAMILTONIAN-PATH</text>
+    <text x="850" y="405" class="problem-desc">ハミルトン路問題</text>
+    <text x="850" y="420" class="problem-desc">全頂点を一度ずつ通る路</text>
+  </g>
+  
+  <!-- TSP (NP-hard) -->
+  <g id="tsp-problem">
+    <rect x="980" y="220" width="180" height="80" class="problem-box np-hard" />
+    <text x="1070" y="245" class="problem-name">TSP（最適化版）</text>
+    <text x="1070" y="265" class="problem-desc">巡回セールスマン問題</text>
+    <text x="1070" y="280" class="problem-desc">最短の巡回路を求める</text>
+    <text x="1070" y="295" class="problem-desc">NP困難（NPに属さない）</text>
+  </g>
+  
+  <!-- Reduction arrows -->
+  <path d="M 560 160 L 420 220" class="reduction-arrow" />
+  <path d="M 350 300 L 230 360" class="reduction-arrow" />
+  <path d="M 390 300 L 390 360" class="reduction-arrow" />
+  <path d="M 430 300 L 590 360" class="reduction-arrow" />
+  <path d="M 600 300 L 820 360" class="reduction-arrow" />
+  <path d="M 850 360 L 1030 300" class="reduction-arrow" />
+  
+  <!-- Bidirectional arrows between equivalent problems -->
+  <path d="M 280 400 L 320 400" class="reduction-arrow" />
+  <path d="M 320 420 L 280 420" class="reduction-arrow" />
+  <path d="M 500 400 L 540 400" class="reduction-arrow" />
+  <path d="M 540 420 L 500 420" class="reduction-arrow" />
+  
+  <!-- Reduction labels -->
+  <text x="480" y="185" class="problem-desc">≤ₚ</text>
+  <text x="270" y="335" class="problem-desc">≤ₚ</text>
+  <text x="390" y="335" class="problem-desc">≤ₚ</text>
+  <text x="480" y="335" class="problem-desc">≤ₚ</text>
+  <text x="680" y="335" class="problem-desc">≤ₚ</text>
+  <text x="900" y="335" class="problem-desc">≤ₚ</text>
+  
+  <!-- Equivalence labels -->
+  <text x="300" y="450" class="problem-desc">相互還元可能</text>
+  <text x="520" y="450" class="problem-desc">相互還元可能</text>
+  
+  <!-- Concepts explanation -->
+  <rect x="100" y="500" width="1000" height="260" style="fill: #f8f9fa; stroke: #6c757d; stroke-width: 2px; rx: 4px;" />
+  <text x="600" y="530" class="title">NP完全性の重要概念</text>
+  
+  <!-- NP-Complete definition -->
+  <rect x="120" y="550" width="350" height="100" style="fill: #ffcdd2; stroke: #d32f2f; stroke-width: 1px; rx: 4px;" />
+  <text x="295" y="570" class="subtitle">NP完全問題 L</text>
+  <text x="140" y="590" class="concept-text">1. L ∈ NP（解の検証が多項式時間）</text>
+  <text x="140" y="610" class="concept-text">2. ∀A ∈ NP: A ≤ₚ L（全NP問題がLに還元）</text>
+  <text x="140" y="630" class="concept-text">3. Lが多項式時間で解けるなら P = NP</text>
+  
+  <!-- NP-Hard definition -->
+  <rect x="500" y="550" width="350" height="100" style="fill: #f8bbd9; stroke: #c2185b; stroke-width: 1px; rx: 4px;" />
+  <text x="675" y="570" class="subtitle">NP困難問題 L</text>
+  <text x="520" y="590" class="concept-text">1. ∀A ∈ NP: A ≤₪ L（全NP問題がLに還元）</text>
+  <text x="520" y="610" class="concept-text">2. 必ずしも L ∈ NP ではない</text>
+  <text x="520" y="630" class="concept-text">3. 最適化問題などが該当</text>
+  
+  <!-- Polynomial reduction definition -->
+  <rect x="120" y="670" width="500" height="80" style="fill: #e3f2fd; stroke: #1976d2; stroke-width: 1px; rx: 4px;" />
+  <text x="370" y="690" class="subtitle">多項式時間還元 A ≤ₚ B</text>
+  <text x="140" y="710" class="concept-text">1. Aの各インスタンス x を Bのインスタンス f(x) に変換</text>
+  <text x="140" y="730" class="concept-text">2. 変換は多項式時間で計算可能</text>
+  <text x="140" y="745" class="concept-text">3. x ∈ A ⟺ f(x) ∈ B（答えが保存される）</text>
+  
+  <!-- Cook-Levin theorem -->
+  <rect x="650" y="670" width="420" height="80" style="fill: #fff3e0; stroke: #ff9800; stroke-width: 1px; rx: 4px;" />
+  <text x="860" y="690" class="subtitle">Cook-Levinの定理</text>
+  <text x="670" y="710" class="concept-text">SATは最初のNP完全問題である</text>
+  <text x="670" y="730" class="concept-text">証明：任意のNP問題の計算をブール式に符号化</text>
+  <text x="670" y="745" class="concept-text">→ 全NP問題がSATに還元可能</text>
+</svg>

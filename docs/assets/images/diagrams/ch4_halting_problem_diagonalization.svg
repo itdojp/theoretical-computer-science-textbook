@@ -1,0 +1,210 @@
+<svg viewBox="0 0 900 700" xmlns="http://www.w3.org/2000/svg">
+  <title>停止問題の対角化論法</title>
+  <desc>停止問題が決定不能であることの対角化論法による証明</desc>
+  
+  <defs>
+    <style>
+      .input-box { 
+        fill: #e8f5e9; 
+        stroke: #4caf50; 
+        stroke-width: 2px; 
+        rx: 4px; 
+        ry: 4px; 
+      }
+      
+      .machine-box { 
+        fill: #e3f2fd; 
+        stroke: #2196f3; 
+        stroke-width: 2px; 
+        rx: 4px; 
+        ry: 4px; 
+      }
+      
+      .decision-box { 
+        fill: #fff3e0; 
+        stroke: #ff9800; 
+        stroke-width: 2px; 
+        rx: 8px; 
+        ry: 8px; 
+      }
+      
+      .output-box { 
+        fill: #f3e5f5; 
+        stroke: #9c27b0; 
+        stroke-width: 2px; 
+        rx: 4px; 
+        ry: 4px; 
+      }
+      
+      .contradiction-box { 
+        fill: #ffebee; 
+        stroke: #f44336; 
+        stroke-width: 3px; 
+        rx: 4px; 
+        ry: 4px; 
+      }
+      
+      .title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 18px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #1a1a1a;
+      }
+      
+      .subtitle { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 14px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #2c3e50;
+      }
+      
+      .node-label { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 12px; 
+        font-weight: 500; 
+        text-anchor: middle; 
+        dominant-baseline: central;
+        fill: #333;
+      }
+      
+      .arrow {
+        stroke: #2c3e50;
+        stroke-width: 2px;
+        fill: none;
+        marker-end: url(#arrowhead);
+      }
+      
+      .contradiction-arrow {
+        stroke: #f44336;
+        stroke-width: 3px;
+        stroke-dasharray: 8,4;
+        fill: none;
+        marker-end: url(#contradiction-arrowhead);
+      }
+      
+      .edge-label {
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 11px;
+        font-weight: 500;
+        text-anchor: middle;
+        fill: #666;
+      }
+    </style>
+    
+    <!-- Arrow markers -->
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2c3e50" />
+    </marker>
+    
+    <marker id="contradiction-arrowhead" markerWidth="12" markerHeight="8" refX="11" refY="4" orient="auto">
+      <polygon points="0 0, 12 4, 0 8" fill="#f44336" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="450" y="30" class="title">停止問題の対角化論法</text>
+  
+  <!-- First part: Hypothetical halting machine H -->
+  <g id="halting-machine-section">
+    <text x="220" y="70" class="subtitle">仮想的な停止判定機械 H の動作</text>
+    
+    <!-- Input -->
+    <rect x="50" y="90" width="120" height="50" class="input-box" />
+    <text x="110" y="110" class="node-label">入力: ⟨M, w⟩</text>
+    <text x="110" y="125" class="node-label">（機械と文字列）</text>
+    
+    <!-- Machine H -->
+    <rect x="220" y="90" width="120" height="50" class="machine-box" />
+    <text x="280" y="110" class="node-label">停止判定機械</text>
+    <text x="280" y="125" class="node-label">H</text>
+    
+    <!-- Decision diamond -->
+    <polygon points="410,95 460,115 410,135 360,115" class="decision-box" />
+    <text x="410" y="110" class="node-label">M は w で</text>
+    <text x="410" y="125" class="node-label">停止？</text>
+    
+    <!-- Outputs -->
+    <rect x="500" y="70" width="80" height="40" class="output-box" />
+    <text x="540" y="95" class="node-label">accept</text>
+    
+    <rect x="500" y="130" width="80" height="40" class="output-box" />
+    <text x="540" y="155" class="node-label">reject</text>
+    
+    <!-- Arrows for H -->
+    <path d="M 170 115 L 220 115" class="arrow" />
+    <path d="M 340 115 L 360 115" class="arrow" />
+    <path d="M 460 115 L 500 90" class="arrow" />
+    <path d="M 460 115 L 500 150" class="arrow" />
+    
+    <!-- Labels for H outputs -->
+    <text x="480" y="105" class="edge-label">停止する</text>
+    <text x="480" y="140" class="edge-label">停止しない</text>
+  </g>
+  
+  <!-- Second part: Diagonalization machine D -->
+  <g id="diagonalization-section">
+    <text x="220" y="220" class="subtitle">対角化機械 D の構成</text>
+    
+    <!-- Input for D -->
+    <rect x="50" y="240" width="120" height="50" class="input-box" />
+    <text x="110" y="260" class="node-label">入力: ⟨D⟩</text>
+    <text x="110" y="275" class="node-label">（自分自身）</text>
+    
+    <!-- Machine D -->
+    <rect x="220" y="240" width="120" height="50" class="machine-box" />
+    <text x="280" y="260" class="node-label">対角化機械</text>
+    <text x="280" y="275" class="node-label">D</text>
+    
+    <!-- Decision using H -->
+    <polygon points="410,245 480,265 410,285 340,265" class="decision-box" />
+    <text x="410" y="255" class="node-label">H(⟨D, ⟨D⟩⟩)</text>
+    <text x="410" y="270" class="node-label">の結果は？</text>
+    
+    <!-- D's outputs (contradictory) -->
+    <rect x="520" y="220" width="100" height="40" class="contradiction-box" />
+    <text x="570" y="245" class="node-label">無限ループ</text>
+    
+    <rect x="520" y="280" width="100" height="40" class="contradiction-box" />
+    <text x="570" y="305" class="node-label">accept</text>
+    
+    <!-- Arrows for D -->
+    <path d="M 170 265 L 220 265" class="arrow" />
+    <path d="M 340 265 L 340 265" class="arrow" />
+    <path d="M 480 265 L 520 240" class="arrow" />
+    <path d="M 480 265 L 520 300" class="arrow" />
+    
+    <!-- Labels for D outputs -->
+    <text x="500" y="255" class="edge-label">accept</text>
+    <text x="500" y="275" class="edge-label">（停止する）</text>
+    <text x="500" y="295" class="edge-label">reject</text>
+    <text x="500" y="315" class="edge-label">（停止しない）</text>
+  </g>
+  
+  <!-- Contradiction arrows -->
+  <path d="M 570 280 Q 450 320 410 285" class="contradiction-arrow" />
+  <path d="M 570 260 Q 450 210 410 245" class="contradiction-arrow" />
+  
+  <!-- Contradiction labels -->
+  <text x="500" y="340" class="edge-label" fill="#f44336">矛盾！</text>
+  <text x="500" y="200" class="edge-label" fill="#f44336">矛盾！</text>
+  
+  <!-- Explanation box -->
+  <rect x="80" y="380" width="740" height="280" style="fill: #f8f9fa; stroke: #6c757d; stroke-width: 2px; rx: 4px;" />
+  <text x="450" y="410" class="subtitle">対角化論法の論理</text>
+  
+  <text x="100" y="440" class="node-label" text-anchor="start">1. 仮定：停止問題を解く機械 H が存在する</text>
+  <text x="120" y="460" class="edge-label" text-anchor="start">・H は任意の機械 M と入力 w に対して、M が w で停止するかを正しく判定</text>
+  
+  <text x="100" y="490" class="node-label" text-anchor="start">2. 対角化機械 D の構成：</text>
+  <text x="120" y="510" class="edge-label" text-anchor="start">・入力として自分自身の記述 ⟨D⟩ を受け取る</text>
+  <text x="120" y="530" class="edge-label" text-anchor="start">・H(⟨D, ⟨D⟩⟩) = accept なら無限ループ</text>
+  <text x="120" y="550" class="edge-label" text-anchor="start">・H(⟨D, ⟨D⟩⟩) = reject なら accept</text>
+  
+  <text x="100" y="580" class="node-label" text-anchor="start">3. 矛盾の導出：</text>
+  <text x="120" y="600" class="edge-label" text-anchor="start">・D が ⟨D⟩ で停止 → H は accept → D は無限ループ（矛盾）</text>
+  <text x="120" y="620" class="edge-label" text-anchor="start">・D が ⟨D⟩ で停止しない → H は reject → D は accept（矛盾）</text>
+  
+  <text x="100" y="650" class="node-label" text-anchor="start" fill="#f44336">結論：停止問題を解く機械 H は存在しない（停止問題は決定不能）</text>
+</svg>
