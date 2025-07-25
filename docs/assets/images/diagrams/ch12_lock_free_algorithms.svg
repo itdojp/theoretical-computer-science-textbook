@@ -1,0 +1,298 @@
+<svg viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg">
+  <title>並行データ構造の設計手法</title>
+  <desc>ロックベース vs ロックフリー、CASによるロックフリースタック</desc>
+  
+  <defs>
+    <style>
+      .lock-based { fill: #ffebee; stroke: #f44336; stroke-width: 2px; }
+      .lock-free { fill: #e8f5e9; stroke: #4caf50; stroke-width: 2px; }
+      .wait-free { fill: #e3f2fd; stroke: #1976d2; stroke-width: 2px; }
+      .cas-operation { fill: #fff3e0; stroke: #ff9800; stroke-width: 2px; }
+      .memory-box { fill: #f3e5f5; stroke: #9c27b0; stroke-width: 2px; }
+      
+      .concept-box { 
+        rx: 4px; 
+        ry: 4px; 
+        font-family: Inter, Helvetica, sans-serif;
+      }
+      
+      .title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 18px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #1a1a1a;
+      }
+      
+      .subtitle { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 14px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #2c3e50;
+      }
+      
+      .method-title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 12px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #333;
+      }
+      
+      .description { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 11px; 
+        font-weight: 400; 
+        text-anchor: start; 
+        fill: #666;
+      }
+      
+      .code-text { 
+        font-family: Courier, monospace;
+        font-size: 10px; 
+        font-weight: 400; 
+        text-anchor: start; 
+        fill: #555;
+      }
+      
+      .step-text { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 10px; 
+        font-weight: 500; 
+        text-anchor: start; 
+        fill: #333;
+      }
+      
+      .arrow {
+        stroke: #2c3e50;
+        stroke-width: 2px;
+        fill: none;
+        marker-end: url(#arrowhead);
+      }
+      
+      .process-arrow {
+        stroke: #4caf50;
+        stroke-width: 2px;
+        fill: none;
+        marker-end: url(#process-arrowhead);
+      }
+      
+      .failure-arrow {
+        stroke: #f44336;
+        stroke-width: 2px;
+        stroke-dasharray: 6,3;
+        fill: none;
+        marker-end: url(#failure-arrowhead);
+      }
+    </style>
+    
+    <!-- Arrow markers -->
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2c3e50" />
+    </marker>
+    
+    <marker id="process-arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4caf50" />
+    </marker>
+    
+    <marker id="failure-arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#f44336" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="600" y="30" class="title">並行データ構造の設計手法</text>
+  
+  <!-- Comparison of Approaches -->
+  <g id="approach-comparison">
+    <text x="300" y="70" class="subtitle">ロックベース vs ロックフリー</text>
+    
+    <!-- Lock-Based -->
+    <rect x="50" y="90" width="200" height="120" class="concept-box lock-based" />
+    <text x="150" y="115" class="method-title">ロックベース</text>
+    <text x="60" y="135" class="description">• 排他制御により安全性確保</text>
+    <text x="60" y="150" class="description">• デッドロック、優先度逆転</text>
+    <text x="60" y="165" class="description">• コンテキストスイッチ</text>
+    <text x="60" y="180" class="description">  オーバーヘッド</text>
+    <text x="60" y="195" class="description">• 実装が比較的簡単</text>
+    
+    <!-- Lock-Free -->
+    <rect x="270" y="90" width="200" height="120" class="concept-box lock-free" />
+    <text x="370" y="115" class="method-title">ロックフリー</text>
+    <text x="280" y="135" class="description">• CAS等の原子的操作</text>
+    <text x="280" y="150" class="description">• システム全体の進行保証</text>
+    <text x="280" y="165" class="description">• ABA問題への対処必要</text>
+    <text x="280" y="180" class="description">• スケーラビリティが高い</text>
+    <text x="280" y="195" class="description">• 実装が複雑</text>
+    
+    <!-- Wait-Free -->
+    <rect x="490" y="90" width="200" height="120" class="concept-box wait-free" />
+    <text x="590" y="115" class="method-title">ウェイトフリー</text>
+    <text x="500" y="135" class="description">• 全プロセスの進行保証</text>
+    <text x="500" y="150" class="description">• 最も強い進行保証</text>
+    <text x="500" y="165" class="description">• 実装が非常に複雑</text>
+    <text x="500" y="180" class="description">• 実用的でない場合多い</text>
+    <text x="500" y="195" class="description">• 理論的に重要</text>
+  </g>
+  
+  <!-- Progress Guarantees -->
+  <g id="progress-guarantees">
+    <text x="900" y="70" class="subtitle">進行保証の強さ</text>
+    
+    <rect x="750" y="90" width="150" height="40" class="concept-box lock-based" />
+    <text x="825" y="115" class="method-title">ブロッキング</text>
+    
+    <rect x="750" y="140" width="150" height="40" class="concept-box lock-free" />
+    <text x="825" y="165" class="method-title">ロックフリー</text>
+    
+    <rect x="750" y="190" width="150" height="40" class="concept-box wait-free" />
+    <text x="825" y="215" class="method-title">ウェイトフリー</text>
+    
+    <!-- Arrows showing hierarchy -->
+    <path d="M 825 130 L 825 140" class="arrow" />
+    <path d="M 825 180 L 825 190" class="arrow" />
+    
+    <text x="920" y="115" class="description">個別スレッドは</text>
+    <text x="920" y="125" class="description">停止可能</text>
+    
+    <text x="920" y="155" class="description">システム全体は</text>
+    <text x="920" y="165" class="description">進行する</text>
+    
+    <text x="920" y="205" class="description">すべてのスレッドが</text>
+    <text x="920" y="215" class="description">進行する</text>
+  </g>
+  
+  <!-- Lock-Free Stack Implementation -->
+  <rect x="100" y="260" width="1000" height="400" style="fill: #f8f9fa; stroke: #6c757d; stroke-width: 2px; rx: 4px;" />
+  <text x="600" y="290" class="title">CASによるロックフリースタック</text>
+  
+  <!-- Initial State -->
+  <g id="initial-state">
+    <text x="200" y="320" class="subtitle">初期状態</text>
+    
+    <!-- Stack structure -->
+    <rect x="120" y="330" width="60" height="30" class="concept-box memory-box" />
+    <text x="150" y="350" class="step-text">Top</text>
+    
+    <rect x="200" y="330" width="60" height="30" class="concept-box memory-box" />
+    <text x="230" y="350" class="step-text">Node1</text>
+    
+    <rect x="280" y="330" width="60" height="30" class="concept-box memory-box" />
+    <text x="310" y="350" class="step-text">Node2</text>
+    
+    <rect x="360" y="330" width="60" height="30" class="concept-box memory-box" />
+    <text x="390" y="350" class="step-text">null</text>
+    
+    <!-- Arrows -->
+    <path d="M 180 345 L 200 345" class="arrow" />
+    <path d="M 260 345 L 280 345" class="arrow" />
+    <path d="M 340 345 L 360 345" class="arrow" />
+  </g>
+  
+  <!-- Push Operation -->
+  <g id="push-operation">
+    <text x="600" y="320" class="subtitle">Push操作</text>
+    
+    <!-- Step 1 -->
+    <rect x="520" y="340" width="160" height="50" class="concept-box cas-operation" />
+    <text x="600" y="360" class="method-title">1. Topを読み取り</text>
+    <text x="530" y="380" class="code-text">t = Top を読み取り</text>
+    
+    <!-- Step 2 -->
+    <rect x="520" y="400" width="160" height="50" class="concept-box cas-operation" />
+    <text x="600" y="420" class="method-title">2. 新ノード設定</text>
+    <text x="530" y="440" class="code-text">NewNode.next = t</text>
+    
+    <!-- Step 3 -->
+    <rect x="520" y="460" width="160" height="60" class="concept-box cas-operation" />
+    <text x="600" y="480" class="method-title">3. CAS操作</text>
+    <text x="530" y="500" class="code-text">CAS(&Top, t, NewNode)</text>
+    <text x="530" y="515" class="step-text">成功ならNewNodeが新Top</text>
+    
+    <!-- Arrows -->
+    <path d="M 600 390 L 600 400" class="process-arrow" />
+    <path d="M 600 450 L 600 460" class="process-arrow" />
+  </g>
+  
+  <!-- Pop Operation -->
+  <g id="pop-operation">
+    <text x="850" y="320" class="subtitle">Pop操作</text>
+    
+    <!-- Step 1 -->
+    <rect x="750" y="340" width="160" height="50" class="concept-box cas-operation" />
+    <text x="830" y="360" class="method-title">1. Topを読み取り</text>
+    <text x="760" y="380" class="code-text">t = Top を読み取り</text>
+    
+    <!-- Step 2 -->
+    <rect x="750" y="400" width="160" height="50" class="concept-box cas-operation" />
+    <text x="830" y="420" class="method-title">2. 空チェック</text>
+    <text x="760" y="440" class="code-text">t == null なら null返却</text>
+    
+    <!-- Step 3 -->
+    <rect x="750" y="460" width="160" height="60" class="concept-box cas-operation" />
+    <text x="830" y="480" class="method-title">3. CAS操作</text>
+    <text x="760" y="500" class="code-text">CAS(&Top, t, t.next)</text>
+    <text x="760" y="515" class="step-text">成功なら t を返却</text>
+    
+    <!-- Arrows -->
+    <path d="M 830 390 L 830 400" class="process-arrow" />
+    <path d="M 830 450 L 830 460" class="process-arrow" />
+  </g>
+  
+  <!-- CAS Details -->
+  <g id="cas-details">
+    <text x="300" y="420" class="subtitle">CAS操作の詳細</text>
+    
+    <rect x="120" y="440" width="200" height="80" class="concept-box cas-operation" />
+    <text x="220" y="460" class="method-title">Compare-And-Swap</text>
+    <text x="130" y="480" class="code-text">bool CAS(addr, expected, new)</text>
+    <text x="130" y="495" class="code-text">  if (*addr == expected)</text>
+    <text x="130" y="510" class="code-text">    *addr = new; return true</text>
+    <text x="140" y="520" class="code-text">  else return false</text>
+    
+    <rect x="120" y="540" width="200" height="60" class="concept-box memory-box" />
+    <text x="220" y="560" class="method-title">原子性保証</text>
+    <text x="130" y="580" class="description">• ハードウェアによる原子的実行</text>
+    <text x="130" y="595" class="description">• 他のプロセッサから見て瞬時</text>
+  </g>
+  
+  <!-- ABA Problem -->
+  <rect x="100" y="680" width="1000" height="180" style="fill: #fff3e0; stroke: #ff9800; stroke-width: 2px; rx: 4px;" />
+  <text x="600" y="710" class="title">ABA問題とその対策</text>
+  
+  <!-- ABA Problem Description -->
+  <rect x="120" y="730" width="250" height="100" class="concept-box lock-based" />
+  <text x="245" y="750" class="method-title">ABA問題</text>
+  <text x="130" y="770" class="description">1. プロセス1: A を読み取り</text>
+  <text x="130" y="785" class="description">2. プロセス2: A → B → A に変更</text>
+  <text x="130" y="800" class="description">3. プロセス1: CAS(A, A, C) が成功</text>
+  <text x="130" y="815" class="description">→ 中間のBを見逃してしまう</text>
+  
+  <!-- Solutions -->
+  <rect x="390" y="730" width="200" height="100" class="concept-box lock-free" />
+  <text x="490" y="750" class="method-title">対策1: タグ付きポインタ</text>
+  <text x="400" y="770" class="description">• ポインタに版数を付加</text>
+  <text x="400" y="785" class="description">• struct { ptr, version }</text>
+  <text x="400" y="800" class="description">• 変更のたびに版数をインクリ</text>
+  <text x="400" y="815" class="description">• 64bit環境で実用的</text>
+  
+  <rect x="610" y="730" width="200" height="100" class="concept-box lock-free" />
+  <text x="710" y="750" class="method-title">対策2: Hazard Pointers</text>
+  <text x="620" y="770" class="description">• 使用中ポインタを保護</text>
+  <text x="620" y="785" class="description">• 他スレッドに削除禁止を通知</text>
+  <text x="620" y="800" class="description">• メモリ管理が複雑</text>
+  <text x="620" y="815" class="description">• IBM等で実用化</text>
+  
+  <rect x="830" y="730" width="200" height="100" class="concept-box wait-free" />
+  <text x="930" y="750" class="method-title">対策3: RCU</text>
+  <text x="840" y="770" class="description">• Read-Copy-Update</text>
+  <text x="840" y="785" class="description">• 読み取り優先の設計</text>
+  <text x="840" y="800" class="description">• Linuxカーネルで使用</text>
+  <text x="840" y="815" class="description">• 高いread性能</text>
+  
+  <!-- Performance Characteristics -->
+  <text x="120" y="855" class="method-title">性能特性の比較:</text>
+  <text x="280" y="855" class="description">ロックベース: 低スループット、予測可能な遅延　　</text>
+  <text x="630" y="855" class="description">ロックフリー: 高スループット、コンテンション時の不安定性</text>
+</svg>

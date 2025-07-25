@@ -1,0 +1,215 @@
+<svg viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg">
+  <title>Hoare論理の推論規則体系</title>
+  <desc>代入、順次実行、条件分岐、ループの推論規則と例</desc>
+  
+  <defs>
+    <style>
+      .basic-rule { fill: #e3f2fd; stroke: #1976d2; stroke-width: 2px; }
+      .loop-rule { fill: #e8f5e9; stroke: #388e3c; stroke-width: 2px; }
+      .example-box { fill: #fff3e0; stroke: #ff9800; stroke-width: 2px; }
+      .structural-rule { fill: #f3e5f5; stroke: #9c27b0; stroke-width: 2px; }
+      
+      .rule-box { 
+        rx: 4px; 
+        ry: 4px; 
+        font-family: Inter, Helvetica, sans-serif;
+      }
+      
+      .title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 18px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #1a1a1a;
+      }
+      
+      .subtitle { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 14px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #2c3e50;
+      }
+      
+      .rule-name { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 13px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #333;
+      }
+      
+      .formula { 
+        font-family: Courier, monospace;
+        font-size: 11px; 
+        font-weight: 500; 
+        text-anchor: middle; 
+        dominant-baseline: central;
+        fill: #333;
+      }
+      
+      .example-text { 
+        font-family: Courier, monospace;
+        font-size: 10px; 
+        font-weight: 400; 
+        text-anchor: middle; 
+        fill: #666;
+      }
+      
+      .description { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 10px; 
+        font-weight: 400; 
+        text-anchor: start; 
+        fill: #666;
+      }
+      
+      .inference-line {
+        stroke: #333;
+        stroke-width: 2px;
+        fill: none;
+      }
+    </style>
+  </defs>
+  
+  <!-- Title -->
+  <text x="600" y="30" class="title">Hoare論理の推論規則体系</text>
+  
+  <!-- Basic Rules Section -->
+  <text x="300" y="70" class="subtitle">基本規則</text>
+  
+  <!-- Assignment Rule -->
+  <g id="assignment-rule">
+    <rect x="50" y="90" width="200" height="80" class="rule-box basic-rule" />
+    <text x="150" y="110" class="rule-name">代入規則</text>
+    <text x="150" y="130" class="formula">{P[e/x]} x := e {P}</text>
+    <line x1="70" y1="140" x2="230" y2="140" class="inference-line" />
+    <text x="60" y="160" class="description">事前条件で代入後の値を</text>
+    <text x="60" y="170" class="description">代入前の変数に置換</text>
+  </g>
+  
+  <!-- Sequence Rule -->
+  <g id="sequence-rule">
+    <rect x="270" y="90" width="200" height="80" class="rule-box basic-rule" />
+    <text x="370" y="110" class="rule-name">順次実行規則</text>
+    <text x="370" y="125" class="formula">{P} S₁ {Q}, {Q} S₂ {R}</text>
+    <line x1="290" y1="135" x2="450" y2="135" class="inference-line" />
+    <text x="370" y="150" class="formula">{P} S₁; S₂ {R}</text>
+    <text x="280" y="165" class="description">中間条件Qを通じて合成</text>
+  </g>
+  
+  <!-- Conditional Rule -->
+  <g id="conditional-rule">
+    <rect x="490" y="90" width="220" height="80" class="rule-box basic-rule" />
+    <text x="600" y="110" class="rule-name">条件分岐規則</text>
+    <text x="600" y="125" class="formula">{P∧B} S₁ {Q}, {P∧¬B} S₂ {Q}</text>
+    <line x1="510" y1="135" x2="690" y2="135" class="inference-line" />
+    <text x="600" y="150" class="formula">{P} if B then S₁ else S₂ {Q}</text>
+    <text x="500" y="165" class="description">条件により分岐を適切に処理</text>
+  </g>
+  
+  <!-- Examples for Basic Rules -->
+  <g id="basic-examples">
+    <!-- Assignment Example -->
+    <rect x="50" y="190" width="200" height="80" class="rule-box example-box" />
+    <text x="150" y="210" class="rule-name">代入の例</text>
+    <text x="150" y="225" class="example-text">{x = 5}</text>
+    <text x="150" y="240" class="example-text">y := x + 1</text>
+    <text x="150" y="255" class="example-text">{y = 6}</text>
+    
+    <!-- Sequence Example -->
+    <rect x="270" y="190" width="200" height="80" class="rule-box example-box" />
+    <text x="370" y="210" class="rule-name">順次実行の例</text>
+    <text x="370" y="225" class="example-text">{x = 0}</text>
+    <text x="370" y="240" class="example-text">x := x+1; x := x*2</text>
+    <text x="370" y="255" class="example-text">{x = 2}</text>
+    
+    <!-- Conditional Example -->
+    <rect x="490" y="190" width="220" height="80" class="rule-box example-box" />
+    <text x="600" y="210" class="rule-name">条件分岐の例</text>
+    <text x="600" y="225" class="example-text">{x ≥ 0}</text>
+    <text x="600" y="240" class="example-text">if x>0 then y:=1 else y:=0</text>
+    <text x="600" y="255" class="example-text">{y ≥ 0}</text>
+  </g>
+  
+  <!-- Loop Rules Section -->
+  <text x="300" y="320" class="subtitle">ループ規則</text>
+  
+  <!-- While Loop Rule -->
+  <g id="while-rule">
+    <rect x="50" y="340" width="300" height="100" class="rule-box loop-rule" />
+    <text x="200" y="360" class="rule-name">ループ規則</text>
+    <text x="200" y="380" class="formula">{I ∧ B} S {I}</text>
+    <line x1="70" y1="390" x2="330" y2="390" class="inference-line" />
+    <text x="200" y="410" class="formula">{I} while B do S {I ∧ ¬B}</text>
+    <text x="60" y="430" class="description">I: ループ不変条件（Invariant）</text>
+  </g>
+  
+  <!-- Loop Invariant Explanation -->
+  <g id="invariant-explanation">
+    <rect x="370" y="340" width="280" height="100" class="rule-box loop-rule" />
+    <text x="510" y="360" class="rule-name">ループ不変条件 I</text>
+    <text x="380" y="380" class="description">• ループ開始前に成立</text>
+    <text x="380" y="395" class="description">• 各反復で保持される</text>
+    <text x="380" y="410" class="description">• 終了後も成立</text>
+    <text x="380" y="425" class="description">• 終了条件と合わせて事後条件を導出</text>
+  </g>
+  
+  <!-- Loop Example -->
+  <g id="loop-example">
+    <rect x="50" y="460" width="600" height="100" class="rule-box example-box" />
+    <text x="350" y="480" class="rule-name">ループの例：0からn-1までの和</text>
+    <text x="350" y="500" class="example-text">{n ≥ 0 ∧ i = 0 ∧ sum = 0}</text>
+    <text x="350" y="515" class="example-text">while i < n do (sum := sum + i; i := i + 1)</text>
+    <text x="350" y="530" class="example-text">{sum = 0 + 1 + ... + (n-1)}</text>
+    <text x="60" y="550" class="description">不変条件: sum = 0 + 1 + ... + (i-1) ∧ 0 ≤ i ≤ n</text>
+  </g>
+  
+  <!-- Structural Rules Section -->
+  <text x="300" y="600" class="subtitle">構造規則</text>
+  
+  <!-- Consequence Rule -->
+  <g id="consequence-rule">
+    <rect x="50" y="620" width="250" height="80" class="rule-box structural-rule" />
+    <text x="175" y="640" class="rule-name">論理的帰結規則</text>
+    <text x="175" y="655" class="formula">P' ⇒ P, {P} S {Q}, Q ⇒ Q'</text>
+    <line x1="70" y1="665" x2="280" y2="665" class="inference-line" />
+    <text x="175" y="680" class="formula">{P'} S {Q'}</text>
+    <text x="60" y="695" class="description">より強い事前条件、より弱い事後条件</text>
+  </g>
+  
+  <!-- Conjunction Rule -->
+  <g id="conjunction-rule">
+    <rect x="320" y="620" width="250" height="80" class="rule-box structural-rule" />
+    <text x="445" y="640" class="rule-name">連言規則</text>
+    <text x="445" y="655" class="formula">{P₁} S {Q₁}, {P₂} S {Q₂}</text>
+    <line x1="340" y1="665" x2="550" y2="665" class="inference-line" />
+    <text x="445" y="680" class="formula">{P₁ ∧ P₂} S {Q₁ ∧ Q₂}</text>
+    <text x="330" y="695" class="description">複数の性質を同時に証明</text>
+  </g>
+  
+  <!-- Existential Quantification Rule -->
+  <g id="existential-rule">
+    <rect x="590" y="620" width="250" height="80" class="rule-box structural-rule" />
+    <text x="715" y="640" class="rule-name">存在量化規則</text>
+    <text x="715" y="655" class="formula">{P} S {Q}</text>
+    <line x1="610" y1="665" x2="820" y2="665" class="inference-line" />
+    <text x="715" y="680" class="formula">{∃x.P} S {∃x.Q}</text>
+    <text x="600" y="695" class="description">xがSで変更されない場合</text>
+  </g>
+  
+  <!-- Practical Applications -->
+  <rect x="100" y="730" width="1000" height="140" style="fill: #f0f8ff; stroke: #4682b4; stroke-width: 2px; rx: 4px;" />
+  <text x="600" y="760" class="title">Hoare論理の実用的応用</text>
+  
+  <text x="120" y="785" class="subtitle">プログラム検証への応用</text>
+  <text x="140" y="805" class="description">• 事前条件・事後条件仕様に基づくプログラム正当性の証明</text>
+  <text x="140" y="820" class="description">• ループ不変条件の発見と維持による複雑な制御構造の解析</text>
+  <text x="140" y="835" class="description">• 配列境界チェック、ヌルポインタ回避等の安全性検証</text>
+  
+  <text x="600" y="785" class="subtitle">形式検証ツール</text>
+  <text x="620" y="805" class="description">• Dafny: Microsoft Research</text>
+  <text x="620" y="820" class="description">• SPARK: AdaCore (Ada言語)</text>
+  <text x="620" y="835" class="description">• Infer: Meta (Facebook)</text>
+  <text x="620" y="850" class="description">• CBMC: 有界モデル検査</text>
+</svg>

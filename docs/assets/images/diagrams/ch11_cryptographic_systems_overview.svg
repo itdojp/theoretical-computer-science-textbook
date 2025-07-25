@@ -1,0 +1,284 @@
+<svg viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg">
+  <title>暗号システムの分類と安全性</title>
+  <desc>対称鍵暗号、公開鍵暗号、安全性の分類、攻撃モデル</desc>
+  
+  <defs>
+    <style>
+      .symmetric-key { fill: #e8f5e9; stroke: #4caf50; stroke-width: 2px; }
+      .public-key { fill: #e3f2fd; stroke: #2196f3; stroke-width: 2px; }
+      .security-box { fill: #fff3e0; stroke: #ff9800; stroke-width: 2px; }
+      .attack-box { fill: #f3e5f5; stroke: #9c27b0; stroke-width: 2px; }
+      .problem-box { fill: #ffebee; stroke: #f44336; stroke-width: 2px; }
+      
+      .concept-box { 
+        rx: 4px; 
+        ry: 4px; 
+        font-family: Inter, Helvetica, sans-serif;
+      }
+      
+      .title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 18px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #1a1a1a;
+      }
+      
+      .subtitle { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 14px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #2c3e50;
+      }
+      
+      .section-title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 13px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #333;
+      }
+      
+      .description { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 11px; 
+        font-weight: 400; 
+        text-anchor: start; 
+        fill: #666;
+      }
+      
+      .formula { 
+        font-family: Courier, monospace;
+        font-size: 11px; 
+        font-weight: 500; 
+        text-anchor: middle; 
+        fill: #333;
+      }
+      
+      .arrow {
+        stroke: #2c3e50;
+        stroke-width: 2px;
+        fill: none;
+        marker-end: url(#arrowhead);
+      }
+      
+      .problem-arrow {
+        stroke: #f44336;
+        stroke-width: 2px;
+        stroke-dasharray: 6,3;
+        fill: none;
+        marker-end: url(#problem-arrowhead);
+      }
+    </style>
+    
+    <!-- Arrow markers -->
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2c3e50" />
+    </marker>
+    
+    <marker id="problem-arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#f44336" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="600" y="30" class="title">暗号システムの分類と安全性</text>
+  
+  <!-- Symmetric Key Cryptography Section -->
+  <g id="symmetric-key-section">
+    <text x="300" y="70" class="subtitle">対称鍵暗号</text>
+    
+    <!-- Symmetric Key Process -->
+    <rect x="50" y="90" width="500" height="140" class="concept-box symmetric-key" />
+    <text x="300" y="115" class="section-title">共通鍵による暗号化・復号</text>
+    
+    <!-- Alice -->
+    <rect x="70" y="130" width="80" height="40" style="fill: #c8e6c9; stroke: #4caf50; stroke-width: 1px;" />
+    <text x="110" y="145" class="description">Alice</text>
+    <text x="110" y="160" class="description">秘密鍵 k</text>
+    
+    <!-- Encryption -->
+    <rect x="170" y="130" width="100" height="40" style="fill: white; stroke: #4caf50; stroke-width: 1px;" />
+    <text x="220" y="145" class="description">暗号化</text>
+    <text x="220" y="160" class="formula">c = E_k(m)</text>
+    
+    <!-- Channel -->
+    <rect x="290" y="130" width="80" height="40" style="fill: #e0e0e0; stroke: #666; stroke-width: 1px;" />
+    <text x="330" y="145" class="description">通信路</text>
+    <text x="330" y="160" class="description">暗号文 c</text>
+    
+    <!-- Decryption -->
+    <rect x="390" y="130" width="100" height="40" style="fill: white; stroke: #4caf50; stroke-width: 1px;" />
+    <text x="440" y="145" class="description">復号</text>
+    <text x="440" y="160" class="formula">m = D_k(c)</text>
+    
+    <!-- Bob -->
+    <rect x="510" y="130" width="80" height="40" style="fill: #c8e6c9; stroke: #4caf50; stroke-width: 1px;" />
+    <text x="550" y="145" class="description">Bob</text>
+    <text x="550" y="160" class="description">秘密鍵 k</text>
+    
+    <!-- Key Distribution Problem -->
+    <rect x="150" y="190" width="200" height="30" class="concept-box problem-box" />
+    <text x="250" y="210" class="section-title">鍵配送問題</text>
+    
+    <!-- Arrows -->
+    <path d="M 150 150 L 170 150" class="arrow" />
+    <path d="M 270 150 L 290 150" class="arrow" />
+    <path d="M 370 150 L 390 150" class="arrow" />
+    <path d="M 490 150 L 510 150" class="arrow" />
+    
+    <!-- Problem arrow -->
+    <path d="M 250 190 L 250 175" class="problem-arrow" />
+  </g>
+  
+  <!-- Public Key Cryptography Section -->
+  <g id="public-key-section">
+    <text x="900" y="70" class="subtitle">公開鍵暗号</text>
+    
+    <!-- Public Key Process -->
+    <rect x="650" y="90" width="500" height="140" class="concept-box public-key" />
+    <text x="900" y="115" class="section-title">公開鍵・秘密鍵ペアによる暗号化</text>
+    
+    <!-- Alice -->
+    <rect x="670" y="130" width="80" height="40" style="fill: #bbdefb; stroke: #2196f3; stroke-width: 1px;" />
+    <text x="710" y="145" class="description">Alice</text>
+    <text x="710" y="160" class="description">平文 m</text>
+    
+    <!-- Encryption with Bob's public key -->
+    <rect x="770" y="130" width="100" height="40" style="fill: white; stroke: #2196f3; stroke-width: 1px;" />
+    <text x="820" y="145" class="description">暗号化</text>
+    <text x="820" y="160" class="formula">c = E_pk(m)</text>
+    
+    <!-- Channel -->
+    <rect x="890" y="130" width="80" height="40" style="fill: #e0e0e0; stroke: #666; stroke-width: 1px;" />
+    <text x="930" y="145" class="description">通信路</text>
+    <text x="930" y="160" class="description">暗号文 c</text>
+    
+    <!-- Decryption -->
+    <rect x="990" y="130" width="100" height="40" style="fill: white; stroke: #2196f3; stroke-width: 1px;" />
+    <text x="1040" y="145" class="description">復号</text>
+    <text x="1040" y="160" class="formula">m = D_sk(c)</text>
+    
+    <!-- Bob -->
+    <rect x="1110" y="130" width="80" height="40" style="fill: #bbdefb; stroke: #2196f3; stroke-width: 1px;" />
+    <text x="1150" y="145" class="description">Bob</text>
+    <text x="1150" y="155" class="description">公開鍵 pk</text>
+    <text x="1150" y="165" class="description">秘密鍵 sk</text>
+    
+    <!-- No Key Distribution Problem -->
+    <rect x="850" y="190" width="200" height="30" style="fill: #c8e6c9; stroke: #4caf50; stroke-width: 2px;" />
+    <text x="950" y="210" class="section-title">鍵配送不要</text>
+    
+    <!-- Arrows -->
+    <path d="M 750 150 L 770 150" class="arrow" />
+    <path d="M 870 150 L 890 150" class="arrow" />
+    <path d="M 970 150 L 990 150" class="arrow" />
+    <path d="M 1090 150 L 1110 150" class="arrow" />
+    
+    <!-- Solution arrow -->
+    <path d="M 950 190 L 950 175" style="stroke: #4caf50; stroke-width: 2px; fill: none; marker-end: url(#arrowhead);" />
+  </g>
+  
+  <!-- Security Classifications -->
+  <g id="security-section">
+    <text x="300" y="290" class="subtitle">安全性の分類</text>
+    
+    <!-- Information-Theoretic Security -->
+    <rect x="50" y="310" width="250" height="120" class="concept-box security-box" />
+    <text x="175" y="330" class="section-title">情報理論的安全性</text>
+    <text x="65" y="350" class="description">• 完全秘匿性（Perfect Secrecy）</text>
+    <text x="65" y="365" class="description">• 計算量無制限の敵に対しても安全</text>
+    <text x="65" y="380" class="description">• 条件：|K| ≥ |P|（鍵空間 ≥ 平文空間）</text>
+    <text x="65" y="395" class="description">• 例：ワンタイムパッド</text>
+    <text x="175" y="415" class="formula">Pr[M=m|C=c] = Pr[M=m]</text>
+    
+    <!-- Computational Security -->
+    <rect x="320" y="310" width="250" height="120" class="concept-box security-box" />
+    <text x="445" y="330" class="section-title">計算論的安全性</text>
+    <text x="335" y="350" class="description">• 多項式時間の敵に対してのみ安全</text>
+    <text x="335" y="365" class="description">• 実用的な安全性レベル</text>
+    <text x="335" y="380" class="description">• 優位性が無視できる程度に小さい</text>
+    <text x="335" y="395" class="description">• 例：AES、RSA、ECC</text>
+    <text x="445" y="415" class="formula">Adv < negl(n)</text>
+    
+    <!-- Computational Assumptions -->
+    <rect x="590" y="310" width="260" height="120" class="concept-box security-box" />
+    <text x="720" y="330" class="section-title">計算量仮定</text>
+    <text x="605" y="350" class="description">• 一方向関数の存在</text>
+    <text x="605" y="365" class="description">• 素因数分解困難性（RSA）</text>
+    <text x="605" y="380" class="description">• 離散対数困難性（DLP、ECDLP）</text>
+    <text x="605" y="395" class="description">• 格子問題の困難性</text>
+    <text x="720" y="415" class="formula">P ≠ NP を含意</text>
+  </g>
+  
+  <!-- Attack Models -->
+  <g id="attack-section">
+    <text x="950" y="290" class="subtitle">攻撃モデル</text>
+    
+    <!-- Known Plaintext Attack -->
+    <rect x="870" y="310" width="160" height="80" class="concept-box attack-box" />
+    <text x="950" y="330" class="section-title">既知平文攻撃</text>
+    <text x="950" y="345" class="section-title">(KPA)</text>
+    <text x="885" y="365" class="description">平文と暗号文の</text>
+    <text x="885" y="380" class="description">ペアを観察</text>
+    
+    <!-- Chosen Plaintext Attack -->
+    <rect x="870" y="410" width="160" height="80" class="concept-box attack-box" />
+    <text x="950" y="430" class="section-title">選択平文攻撃</text>
+    <text x="950" y="445" class="section-title">(CPA)</text>
+    <text x="885" y="465" class="description">攻撃者が暗号化</text>
+    <text x="885" y="480" class="description">機能を利用可能</text>
+    
+    <!-- Chosen Ciphertext Attack -->
+    <rect x="870" y="510" width="160" height="80" class="concept-box attack-box" />
+    <text x="950" y="530" class="section-title">選択暗号文攻撃</text>
+    <text x="950" y="545" class="section-title">(CCA)</text>
+    <text x="885" y="565" class="description">攻撃者が復号</text>
+    <text x="885" y="580" class="description">機能も利用可能</text>
+  </g>
+  
+  <!-- Cryptographic Primitives -->
+  <rect x="100" y="630" width="1000" height="200" style="fill: #f8f9fa; stroke: #6c757d; stroke-width: 2px; rx: 4px;" />
+  <text x="600" y="660" class="title">暗号プリミティブの分類</text>
+  
+  <!-- Symmetric Primitives -->
+  <rect x="120" y="680" width="250" height="120" class="concept-box symmetric-key" />
+  <text x="245" y="700" class="section-title">対称鍵プリミティブ</text>
+  <text x="135" y="720" class="description">• ストリーム暗号</text>
+  <text x="135" y="735" class="description">  - RC4, ChaCha20</text>
+  <text x="135" y="750" class="description">• ブロック暗号</text>
+  <text x="135" y="765" class="description">  - AES, DES</text>
+  <text x="135" y="780" class="description">• メッセージ認証コード（MAC）</text>
+  <text x="135" y="795" class="description">  - HMAC, CMAC</text>
+  
+  <!-- Asymmetric Primitives -->
+  <rect x="390" y="680" width="250" height="120" class="concept-box public-key" />
+  <text x="515" y="700" class="section-title">非対称鍵プリミティブ</text>
+  <text x="405" y="720" class="description">• 公開鍵暗号</text>
+  <text x="405" y="735" class="description">  - RSA, ElGamal, ECC</text>
+  <text x="405" y="750" class="description">• デジタル署名</text>
+  <text x="405" y="765" class="description">  - RSA署名, DSA, ECDSA</text>
+  <text x="405" y="780" class="description">• 鍵交換プロトコル</text>
+  <text x="405" y="795" class="description">  - Diffie-Hellman, ECDH</text>
+  
+  <!-- Hash Functions -->
+  <rect x="660" y="680" width="200" height="120" class="concept-box security-box" />
+  <text x="760" y="700" class="section-title">ハッシュ関数</text>
+  <text x="675" y="720" class="description">• 暗号学的ハッシュ</text>
+  <text x="675" y="735" class="description">  - SHA-2, SHA-3</text>
+  <text x="675" y="750" class="description">• 性質</text>
+  <text x="675" y="765" class="description">  - 衝突耐性</text>
+  <text x="675" y="780" class="description">  - 原像耐性</text>
+  <text x="675" y="795" class="description">  - 第二原像耐性</text>
+  
+  <!-- Advanced Cryptography -->
+  <rect x="880" y="680" width="200" height="120" class="concept-box attack-box" />
+  <text x="980" y="700" class="section-title">高度な暗号</text>
+  <text x="895" y="720" class="description">• ゼロ知識証明</text>
+  <text x="895" y="735" class="description">• 準同型暗号</text>
+  <text x="895" y="750" class="description">• マルチパーティ計算</text>
+  <text x="895" y="765" class="description">• 閾値暗号</text>
+  <text x="895" y="780" class="description">• 属性ベース暗号</text>
+  <text x="895" y="795" class="description">• 完全前方秘匿性</text>
+</svg>
