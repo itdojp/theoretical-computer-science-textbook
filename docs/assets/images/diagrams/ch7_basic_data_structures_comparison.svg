@@ -1,0 +1,241 @@
+<svg viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg">
+  <title>基本データ構造の比較</title>
+  <desc>配列と連結リストの構造と特性の比較</desc>
+  
+  <defs>
+    <style>
+      .array-box { 
+        fill: #e3f2fd; 
+        stroke: #1976d2; 
+        stroke-width: 2px; 
+        rx: 4px; 
+        ry: 4px; 
+      }
+      
+      .list-node { 
+        fill: #e8f5e9; 
+        stroke: #4caf50; 
+        stroke-width: 2px; 
+        rx: 4px; 
+        ry: 4px; 
+      }
+      
+      .properties-box { 
+        fill: #fff3e0; 
+        stroke: #ff9800; 
+        stroke-width: 2px; 
+        rx: 4px; 
+        ry: 4px; 
+      }
+      
+      .title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 18px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #1a1a1a;
+      }
+      
+      .subtitle { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 16px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #2c3e50;
+      }
+      
+      .data-label { 
+        font-family: Courier, monospace;
+        font-size: 14px; 
+        font-weight: 500; 
+        text-anchor: middle; 
+        dominant-baseline: central;
+        fill: #333;
+      }
+      
+      .index-label { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 11px; 
+        font-weight: 400; 
+        text-anchor: middle; 
+        fill: #666;
+      }
+      
+      .property-text { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 12px; 
+        font-weight: 400; 
+        text-anchor: start; 
+        fill: #555;
+      }
+      
+      .arrow {
+        stroke: #4caf50;
+        stroke-width: 2px;
+        fill: none;
+        marker-end: url(#arrowhead);
+      }
+      
+      .pointer-line {
+        stroke: #666;
+        stroke-width: 1px;
+        stroke-dasharray: 3,3;
+        fill: none;
+      }
+    </style>
+    
+    <!-- Arrow marker -->
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4caf50" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="600" y="30" class="title">基本データ構造の比較</text>
+  
+  <!-- Array Section -->
+  <g id="array-section">
+    <text x="300" y="80" class="subtitle">配列（Array）</text>
+    
+    <!-- Memory representation -->
+    <text x="120" y="110" class="index-label">メモリ上の連続領域</text>
+    
+    <!-- Array cells -->
+    <rect x="100" y="130" width="60" height="40" class="array-box" />
+    <text x="130" y="145" class="index-label">[0]</text>
+    <text x="130" y="160" class="data-label">42</text>
+    
+    <rect x="160" y="130" width="60" height="40" class="array-box" />
+    <text x="190" y="145" class="index-label">[1]</text>
+    <text x="190" y="160" class="data-label">17</text>
+    
+    <rect x="220" y="130" width="60" height="40" class="array-box" />
+    <text x="250" y="145" class="index-label">[2]</text>
+    <text x="250" y="160" class="data-label">93</text>
+    
+    <rect x="280" y="130" width="60" height="40" class="array-box" />
+    <text x="310" y="145" class="index-label">[3]</text>
+    <text x="310" y="160" class="data-label">65</text>
+    
+    <!-- Memory addresses -->
+    <text x="130" y="190" class="index-label">0x1000</text>
+    <text x="190" y="190" class="index-label">0x1004</text>
+    <text x="250" y="190" class="index-label">0x1008</text>
+    <text x="310" y="190" class="index-label">0x100C</text>
+    
+    <!-- Array properties -->
+    <rect x="80" y="220" width="280" height="120" class="properties-box" />
+    <text x="220" y="245" class="subtitle">配列の特徴</text>
+    <text x="100" y="270" class="property-text">• O(1) ランダムアクセス</text>
+    <text x="100" y="290" class="property-text">• キャッシュ効率が高い</text>
+    <text x="100" y="310" class="property-text">• 固定サイズ（静的配列の場合）</text>
+    <text x="100" y="330" class="property-text">• 挿入・削除が高コスト O(n)</text>
+  </g>
+  
+  <!-- Linked List Section -->
+  <g id="linkedlist-section">
+    <text x="800" y="80" class="subtitle">連結リスト（Linked List）</text>
+    
+    <!-- List nodes -->
+    <g id="node1">
+      <rect x="600" y="130" width="120" height="50" class="list-node" />
+      <rect x="605" y="135" width="70" height="20" fill="white" stroke="#666" stroke-width="1px" />
+      <rect x="680" y="135" width="35" height="20" fill="white" stroke="#666" stroke-width="1px" />
+      <text x="640" y="147" class="data-label">data: 42</text>
+      <text x="697" y="147" class="index-label">next</text>
+      <text x="610" y="170" class="index-label">Node 1</text>
+    </g>
+    
+    <g id="node2">
+      <rect x="760" y="130" width="120" height="50" class="list-node" />
+      <rect x="765" y="135" width="70" height="20" fill="white" stroke="#666" stroke-width="1px" />
+      <rect x="840" y="135" width="35" height="20" fill="white" stroke="#666" stroke-width="1px" />
+      <text x="800" y="147" class="data-label">data: 17</text>
+      <text x="857" y="147" class="index-label">next</text>
+      <text x="770" y="170" class="index-label">Node 2</text>
+    </g>
+    
+    <g id="node3">
+      <rect x="600" y="210" width="120" height="50" class="list-node" />
+      <rect x="605" y="215" width="70" height="20" fill="white" stroke="#666" stroke-width="1px" />
+      <rect x="680" y="215" width="35" height="20" fill="white" stroke="#666" stroke-width="1px" />
+      <text x="640" y="227" class="data-label">data: 93</text>
+      <text x="697" y="227" class="index-label">next</text>
+      <text x="610" y="250" class="index-label">Node 3</text>
+    </g>
+    
+    <g id="node4">
+      <rect x="760" y="210" width="120" height="50" class="list-node" />
+      <rect x="765" y="215" width="70" height="20" fill="white" stroke="#666" stroke-width="1px" />
+      <rect x="840" y="215" width="35" height="20" fill="white" stroke="#666" stroke-width="1px" />
+      <text x="800" y="227" class="data-label">data: 65</text>
+      <text x="850" y="227" class="index-label">null</text>
+      <text x="770" y="250" class="index-label">Node 4</text>
+    </g>
+    
+    <!-- Pointer arrows -->
+    <path d="M 715 145 Q 740 145 760 155" class="arrow" />
+    <path d="M 875 155 Q 900 155 900 210 Q 900 235 720 235" class="arrow" />
+    <path d="M 715 225 Q 740 225 760 225" class="arrow" />
+    
+    <!-- List properties -->
+    <rect x="580" y="290" width="320" height="120" class="properties-box" />
+    <text x="740" y="315" class="subtitle">連結リストの特徴</text>
+    <text x="600" y="340" class="property-text">• 先頭への O(1) 挿入・削除</text>
+    <text x="600" y="360" class="property-text">• 動的サイズ（メモリ効率）</text>
+    <text x="600" y="380" class="property-text">• メモリオーバーヘッド（ポインタ）</text>
+    <text x="600" y="400" class="property-text">• O(n) 順次アクセスのみ</text>
+  </g>
+  
+  <!-- Performance Comparison Table -->
+  <rect x="100" y="460" width="1000" height="200" style="fill: #f8f9fa; stroke: #6c757d; stroke-width: 2px; rx: 4px;" />
+  <text x="600" y="490" class="title">操作の時間複雑度比較</text>
+  
+  <!-- Table headers -->
+  <rect x="150" y="510" width="150" height="30" fill="#e9ecef" stroke="#6c757d" stroke-width="1px" />
+  <rect x="300" y="510" width="150" height="30" fill="#e9ecef" stroke="#6c757d" stroke-width="1px" />
+  <rect x="450" y="510" width="150" height="30" fill="#e9ecef" stroke="#6c757d" stroke-width="1px" />
+  <rect x="600" y="510" width="150" height="30" fill="#e9ecef" stroke="#6c757d" stroke-width="1px" />
+  <rect x="750" y="510" width="150" height="30" fill="#e9ecef" stroke="#6c757d" stroke-width="1px" />
+  <rect x="900" y="510" width="150" height="30" fill="#e9ecef" stroke="#6c757d" stroke-width="1px" />
+  
+  <text x="225" y="530" class="data-label">操作</text>
+  <text x="375" y="530" class="data-label">配列（アクセス）</text>
+  <text x="525" y="530" class="data-label">配列（挿入）</text>
+  <text x="675" y="530" class="data-label">配列（削除）</text>
+  <text x="825" y="530" class="data-label">連結リスト（探索）</text>
+  <text x="975" y="530" class="data-label">連結リスト（挿入）</text>
+  
+  <!-- Table rows -->
+  <rect x="150" y="540" width="150" height="30" fill="white" stroke="#6c757d" stroke-width="1px" />
+  <rect x="300" y="540" width="150" height="30" fill="#d4edda" stroke="#6c757d" stroke-width="1px" />
+  <rect x="450" y="540" width="150" height="30" fill="#f8d7da" stroke="#6c757d" stroke-width="1px" />
+  <rect x="600" y="540" width="150" height="30" fill="#f8d7da" stroke="#6c757d" stroke-width="1px" />
+  <rect x="750" y="540" width="150" height="30" fill="#f8d7da" stroke="#6c757d" stroke-width="1px" />
+  <rect x="900" y="540" width="150" height="30" fill="#d4edda" stroke="#6c757d" stroke-width="1px" />
+  
+  <text x="225" y="560" class="data-label">最良の場合</text>
+  <text x="375" y="560" class="data-label">O(1)</text>
+  <text x="525" y="560" class="data-label">O(n)</text>
+  <text x="675" y="560" class="data-label">O(n)</text>
+  <text x="825" y="560" class="data-label">O(n)</text>
+  <text x="975" y="560" class="data-label">O(1)</text>
+  
+  <rect x="150" y="570" width="150" height="30" fill="white" stroke="#6c757d" stroke-width="1px" />
+  <rect x="300" y="570" width="150" height="30" fill="#d4edda" stroke="#6c757d" stroke-width="1px" />
+  <rect x="450" y="570" width="150" height="30" fill="#f8d7da" stroke="#6c757d" stroke-width="1px" />
+  <rect x="600" y="570" width="150" height="30" fill="#f8d7da" stroke="#6c757d" stroke-width="1px" />
+  <rect x="750" y="570" width="150" height="30" fill="#f8d7da" stroke="#6c757d" stroke-width="1px" />
+  <rect x="900" y="570" width="150" height="30" fill="#d4edda" stroke="#6c757d" stroke-width="1px" />
+  
+  <text x="225" y="590" class="data-label">平均の場合</text>
+  <text x="375" y="590" class="data-label">O(1)</text>
+  <text x="525" y="590" class="data-label">O(n)</text>
+  <text x="675" y="590" class="data-label">O(n)</text>
+  <text x="825" y="590" class="data-label">O(n)</text>
+  <text x="975" y="590" class="data-label">O(1)</text>
+  
+  <!-- Legend -->
+  <text x="150" y="630" class="property-text">🟢 効率的（O(1)）　🔴 非効率（O(n)）</text>
+  <text x="600" y="630" class="property-text">用途：配列は頻繁なアクセス、連結リストは頻繁な挿入・削除に適している</text>
+</svg>

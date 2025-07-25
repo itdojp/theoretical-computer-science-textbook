@@ -1,0 +1,241 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <title>主要な時間複雑度クラス</title>
+  <desc>アルゴリズムの時間複雑度クラスとその例</desc>
+  
+  <defs>
+    <style>
+      .excellent { fill: #e8f5e8; stroke: #4caf50; stroke-width: 2px; }
+      .good { fill: #e3f2fd; stroke: #2196f3; stroke-width: 2px; }
+      .acceptable { fill: #fff3e0; stroke: #ff9800; stroke-width: 2px; }
+      .slow { fill: #f3e5f5; stroke: #9c27b0; stroke-width: 2px; }
+      .bad { fill: #ffe0b2; stroke: #ff5722; stroke-width: 2px; }
+      .worse { fill: #ffccbc; stroke: #ff5722; stroke-width: 2px; }
+      .terrible { fill: #ffcdd2; stroke: #f44336; stroke-width: 2px; }
+      .impossible { fill: #ef9a9a; stroke: #d32f2f; stroke-width: 2px; }
+      
+      .complexity-box { 
+        rx: 4px; 
+        ry: 4px; 
+        font-family: Inter, Helvetica, sans-serif;
+      }
+      
+      .example-box { 
+        fill: #f8f9fa; 
+        stroke: #6c757d; 
+        stroke-width: 1px; 
+        stroke-dasharray: 4,2;
+        rx: 4px; 
+        ry: 4px; 
+      }
+      
+      .title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 18px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #1a1a1a;
+      }
+      
+      .complexity-label { 
+        font-family: Courier, monospace;
+        font-size: 14px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        dominant-baseline: central;
+        fill: #333;
+      }
+      
+      .complexity-desc { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 11px; 
+        font-weight: 400; 
+        text-anchor: middle; 
+        dominant-baseline: central;
+        fill: #666;
+      }
+      
+      .example-text { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 10px; 
+        font-weight: 400; 
+        text-anchor: middle; 
+        dominant-baseline: central;
+        fill: #555;
+      }
+      
+      .arrow {
+        stroke: #2c3e50;
+        stroke-width: 2px;
+        fill: none;
+        marker-end: url(#arrowhead);
+      }
+      
+      .example-line {
+        stroke: #95a5a6;
+        stroke-width: 1px;
+        stroke-dasharray: 3,3;
+        fill: none;
+      }
+    </style>
+    
+    <!-- Arrow marker -->
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2c3e50" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="600" y="30" class="title">主要な時間複雑度クラス（効率性の順序）</text>
+  
+  <!-- Complexity classes - horizontal flow -->
+  
+  <!-- O(1) - Constant -->
+  <rect x="50" y="80" width="120" height="60" class="complexity-box excellent" />
+  <text x="110" y="100" class="complexity-label">O(1)</text>
+  <text x="110" y="120" class="complexity-desc">定数時間</text>
+  
+  <!-- O(log n) - Logarithmic -->
+  <rect x="200" y="80" width="120" height="60" class="complexity-box good" />
+  <text x="260" y="100" class="complexity-label">O(log n)</text>
+  <text x="260" y="120" class="complexity-desc">対数時間</text>
+  
+  <!-- O(n) - Linear -->
+  <rect x="350" y="80" width="120" height="60" class="complexity-box acceptable" />
+  <text x="410" y="100" class="complexity-label">O(n)</text>
+  <text x="410" y="120" class="complexity-desc">線形時間</text>
+  
+  <!-- O(n log n) - Linearithmic -->
+  <rect x="500" y="80" width="120" height="60" class="complexity-box slow" />
+  <text x="560" y="100" class="complexity-label">O(n log n)</text>
+  <text x="560" y="120" class="complexity-desc">線形対数時間</text>
+  
+  <!-- O(n²) - Quadratic -->
+  <rect x="650" y="80" width="120" height="60" class="complexity-box bad" />
+  <text x="710" y="100" class="complexity-label">O(n²)</text>
+  <text x="710" y="120" class="complexity-desc">2乗時間</text>
+  
+  <!-- O(n³) - Cubic -->
+  <rect x="800" y="80" width="120" height="60" class="complexity-box worse" />
+  <text x="860" y="100" class="complexity-label">O(n³)</text>
+  <text x="860" y="120" class="complexity-desc">3乗時間</text>
+  
+  <!-- O(2ⁿ) - Exponential -->
+  <rect x="950" y="80" width="120" height="60" class="complexity-box terrible" />
+  <text x="1010" y="100" class="complexity-label">O(2ⁿ)</text>
+  <text x="1010" y="120" class="complexity-desc">指数時間</text>
+  
+  <!-- O(n!) - Factorial -->
+  <rect x="350" y="180" width="120" height="60" class="complexity-box impossible" />
+  <text x="410" y="200" class="complexity-label">O(n!)</text>
+  <text x="410" y="220" class="complexity-desc">階乗時間</text>
+  
+  <!-- Flow arrows -->
+  <path d="M 170 110 L 200 110" class="arrow" />
+  <path d="M 320 110 L 350 110" class="arrow" />
+  <path d="M 470 110 L 500 110" class="arrow" />
+  <path d="M 620 110 L 650 110" class="arrow" />
+  <path d="M 770 110 L 800 110" class="arrow" />
+  <path d="M 920 110 L 950 110" class="arrow" />
+  
+  <!-- Branch to factorial -->
+  <path d="M 860 140 Q 860 160 470 200" class="arrow" />
+  
+  <!-- Example boxes -->
+  
+  <!-- O(1) examples -->
+  <rect x="50" y="280" width="120" height="80" class="example-box" />
+  <text x="110" y="300" class="example-text">例:</text>
+  <text x="110" y="315" class="example-text">配列の要素アクセス</text>
+  <text x="110" y="330" class="example-text">ハッシュ表検索</text>
+  <text x="110" y="345" class="example-text">基本演算</text>
+  
+  <!-- O(log n) examples -->
+  <rect x="200" y="280" width="120" height="80" class="example-box" />
+  <text x="260" y="300" class="example-text">例:</text>
+  <text x="260" y="315" class="example-text">二分探索</text>
+  <text x="260" y="330" class="example-text">平衡木の操作</text>
+  <text x="260" y="345" class="example-text">分割統治の分割</text>
+  
+  <!-- O(n) examples -->
+  <rect x="350" y="280" width="120" height="80" class="example-box" />
+  <text x="410" y="300" class="example-text">例:</text>
+  <text x="410" y="315" class="example-text">線形探索</text>
+  <text x="410" y="330" class="example-text">配列の合計</text>
+  <text x="410" y="345" class="example-text">単純なループ</text>
+  
+  <!-- O(n log n) examples -->
+  <rect x="500" y="280" width="120" height="80" class="example-box" />
+  <text x="560" y="300" class="example-text">例:</text>
+  <text x="560" y="315" class="example-text">マージソート</text>
+  <text x="560" y="330" class="example-text">ヒープソート</text>
+  <text x="560" y="345" class="example-text">効率的なソート</text>
+  
+  <!-- O(n²) examples -->
+  <rect x="650" y="280" width="120" height="80" class="example-box" />
+  <text x="710" y="300" class="example-text">例:</text>
+  <text x="710" y="315" class="example-text">選択ソート</text>
+  <text x="710" y="330" class="example-text">バブルソート</text>
+  <text x="710" y="345" class="example-text">入れ子ループ</text>
+  
+  <!-- O(n³) examples -->
+  <rect x="800" y="280" width="120" height="80" class="example-box" />
+  <text x="860" y="300" class="example-text">例:</text>
+  <text x="860" y="315" class="example-text">行列乗算（素朴）</text>
+  <text x="860" y="330" class="example-text">フロイド-ワーシャル法</text>
+  <text x="860" y="345" class="example-text">3重ループ</text>
+  
+  <!-- O(2ⁿ) examples -->
+  <rect x="950" y="280" width="120" height="80" class="example-box" />
+  <text x="1010" y="300" class="example-text">例:</text>
+  <text x="1010" y="315" class="example-text">部分集合生成</text>
+  <text x="1010" y="330" class="example-text">ハノイの塔</text>
+  <text x="1010" y="345" class="example-text">動的計画法（素朴）</text>
+  
+  <!-- O(n!) examples -->
+  <rect x="350" y="390" width="120" height="80" class="example-box" />
+  <text x="410" y="410" class="example-text">例:</text>
+  <text x="410" y="425" class="example-text">巡回セールスマン</text>
+  <text x="410" y="440" class="example-text">（総当たり）</text>
+  <text x="410" y="455" class="example-text">順列生成</text>
+  
+  <!-- Connecting lines from complexity to examples -->
+  <path d="M 110 140 L 110 280" class="example-line" />
+  <path d="M 260 140 L 260 280" class="example-line" />
+  <path d="M 410 140 L 410 280" class="example-line" />
+  <path d="M 560 140 L 560 280" class="example-line" />
+  <path d="M 710 140 L 710 280" class="example-line" />
+  <path d="M 860 140 L 860 280" class="example-line" />
+  <path d="M 1010 140 L 1010 280" class="example-line" />
+  <path d="M 410 240 L 410 390" class="example-line" />
+  
+  <!-- Performance evaluation -->
+  <rect x="100" y="520" width="1000" height="200" style="fill: #f0f8ff; stroke: #4682b4; stroke-width: 2px; rx: 4px;" />
+  <text x="600" y="550" class="title">実用性の評価</text>
+  
+  <rect x="130" y="570" width="180" height="40" class="excellent" />
+  <text x="220" y="595" class="complexity-desc">実用的（優秀）</text>
+  
+  <rect x="330" y="570" width="180" height="40" class="good" />
+  <text x="420" y="595" class="complexity-desc">実用的（よい）</text>
+  
+  <rect x="530" y="570" width="180" height="40" class="acceptable" />
+  <text x="620" y="595" class="complexity-desc">実用的（許容範囲）</text>
+  
+  <rect x="730" y="570" width="180" height="40" class="slow" />
+  <text x="820" y="595" class="complexity-desc">小さな問題のみ</text>
+  
+  <rect x="130" y="630" width="180" height="40" class="bad" />
+  <text x="220" y="655" class="complexity-desc">n ≤ 100程度まで</text>
+  
+  <rect x="330" y="630" width="180" height="40" class="worse" />
+  <text x="420" y="655" class="complexity-desc">n ≤ 50程度まで</text>
+  
+  <rect x="530" y="630" width="180" height="40" class="terrible" />
+  <text x="620" y="655" class="complexity-desc">n ≤ 30程度まで</text>
+  
+  <rect x="730" y="630" width="180" height="40" class="impossible" />
+  <text x="820" y="655" class="complexity-desc">n ≤ 10程度まで</text>
+  
+  <text x="220" y="690" class="example-text">← より効率的</text>
+  <text x="820" y="690" class="example-text">より非効率的 →</text>
+</svg>

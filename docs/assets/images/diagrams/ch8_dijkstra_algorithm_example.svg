@@ -1,0 +1,355 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <title>Dijkstraアルゴリズムの実行例</title>
+  <desc>Dijkstraの最短路アルゴリズムのステップバイステップ実行</desc>
+  
+  <defs>
+    <style>
+      .vertex-initial { 
+        fill: #e8f5e9; 
+        stroke: #4caf50; 
+        stroke-width: 2px; 
+      }
+      
+      .vertex-processed { 
+        fill: #e3f2fd; 
+        stroke: #2196f3; 
+        stroke-width: 3px; 
+      }
+      
+      .vertex-unprocessed { 
+        fill: #f3e5f5; 
+        stroke: #9c27b0; 
+        stroke-width: 2px; 
+      }
+      
+      .vertex-current { 
+        fill: #fff3e0; 
+        stroke: #ff9800; 
+        stroke-width: 4px; 
+      }
+      
+      .edge-normal {
+        stroke: #666;
+        stroke-width: 2px;
+        fill: none;
+        marker-end: url(#arrowhead);
+      }
+      
+      .edge-relaxed {
+        stroke: #ff5722;
+        stroke-width: 3px;
+        fill: none;
+        marker-end: url(#arrowhead-red);
+      }
+      
+      .edge-shortest {
+        stroke: #4caf50;
+        stroke-width: 3px;
+        fill: none;
+        marker-end: url(#arrowhead-green);
+      }
+      
+      .title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 18px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #1a1a1a;
+      }
+      
+      .subtitle { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 14px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #2c3e50;
+      }
+      
+      .vertex-label { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 16px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        dominant-baseline: central;
+        fill: #333;
+      }
+      
+      .distance-label { 
+        font-family: Courier, monospace;
+        font-size: 12px; 
+        font-weight: 500; 
+        text-anchor: middle; 
+        dominant-baseline: central;
+        fill: #666;
+      }
+      
+      .edge-weight { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 12px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #333;
+        background: white;
+      }
+      
+      .step-description {
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 12px;
+        font-weight: 400;
+        text-anchor: start;
+        fill: #555;
+      }
+    </style>
+    
+    <!-- Arrow markers -->
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666" />
+    </marker>
+    
+    <marker id="arrowhead-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ff5722" />
+    </marker>
+    
+    <marker id="arrowhead-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4caf50" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="600" y="30" class="title">Dijkstraアルゴリズムの実行例</text>
+  
+  <!-- Initial State -->
+  <g id="initial-state">
+    <text x="150" y="70" class="subtitle">初期状態</text>
+    
+    <!-- Vertices -->
+    <circle cx="100" cy="120" r="25" class="vertex-initial" />
+    <text x="100" y="110" class="vertex-label">A</text>
+    <text x="100" y="130" class="distance-label">d=0</text>
+    
+    <circle cx="250" cy="100" r="25" class="vertex-unprocessed" />
+    <text x="250" y="90" class="vertex-label">B</text>
+    <text x="250" y="110" class="distance-label">d=∞</text>
+    
+    <circle cx="200" cy="180" r="25" class="vertex-unprocessed" />
+    <text x="200" y="170" class="vertex-label">C</text>
+    <text x="200" y="190" class="distance-label">d=∞</text>
+    
+    <circle cx="350" cy="140" r="25" class="vertex-unprocessed" />
+    <text x="350" y="130" class="vertex-label">D</text>
+    <text x="350" y="150" class="distance-label">d=∞</text>
+    
+    <circle cx="300" cy="220" r="25" class="vertex-unprocessed" />
+    <text x="300" y="210" class="vertex-label">E</text>
+    <text x="300" y="230" class="distance-label">d=∞</text>
+    
+    <!-- Edges with weights -->
+    <path d="M 120 105 L 230 105" class="edge-normal" />
+    <rect x="165" y="90" width="20" height="15" fill="white" stroke="none" />
+    <text x="175" y="100" class="edge-weight">4</text>
+    
+    <path d="M 115 140 L 185 165" class="edge-normal" />
+    <rect x="140" y="145" width="20" height="15" fill="white" stroke="none" />
+    <text x="150" y="155" class="edge-weight">2</text>
+    
+    <path d="M 225 120 L 325 140" class="edge-normal" />
+    <rect x="265" y="120" width="20" height="15" fill="white" stroke="none" />
+    <text x="275" y="130" class="edge-weight">5</text>
+    
+    <path d="M 220 165 L 230 115" class="edge-normal" />
+    <rect x="215" y="135" width="20" height="15" fill="white" stroke="none" />
+    <text x="225" y="145" class="edge-weight">1</text>
+    
+    <path d="M 225 180 L 325 150" class="edge-normal" />
+    <rect x="265" y="155" width="20" height="15" fill="white" stroke="none" />
+    <text x="275" y="165" class="edge-weight">8</text>
+    
+    <path d="M 220 200 L 280 210" class="edge-normal" />
+    <rect x="240" y="195" width="20" height="15" fill="white" stroke="none" />
+    <text x="250" y="205" class="edge-weight">10</text>
+    
+    <path d="M 340 160 L 310 205" class="edge-normal" />
+    <rect x="315" y="175" width="20" height="15" fill="white" stroke="none" />
+    <text x="325" y="185" class="edge-weight">2</text>
+  </g>
+  
+  <!-- Step 1: Process A -->
+  <g id="step1" transform="translate(450, 0)">
+    <text x="150" y="70" class="subtitle">ステップ1: Aを処理</text>
+    
+    <!-- Vertices -->
+    <circle cx="100" cy="120" r="25" class="vertex-processed" />
+    <text x="100" y="110" class="vertex-label">A</text>
+    <text x="100" y="130" class="distance-label">d=0</text>
+    
+    <circle cx="250" cy="100" r="25" class="vertex-unprocessed" />
+    <text x="250" y="90" class="vertex-label">B</text>
+    <text x="250" y="110" class="distance-label">d=4</text>
+    
+    <circle cx="200" cy="180" r="25" class="vertex-current" />
+    <text x="200" y="170" class="vertex-label">C</text>
+    <text x="200" y="190" class="distance-label">d=2</text>
+    
+    <circle cx="350" cy="140" r="25" class="vertex-unprocessed" />
+    <text x="350" y="130" class="vertex-label">D</text>
+    <text x="350" y="150" class="distance-label">d=∞</text>
+    
+    <circle cx="300" cy="220" r="25" class="vertex-unprocessed" />
+    <text x="300" y="210" class="vertex-label">E</text>
+    <text x="300" y="230" class="distance-label">d=∞</text>
+    
+    <!-- Edges - relaxed edges in red -->
+    <path d="M 120 105 L 230 105" class="edge-relaxed" />
+    <rect x="165" y="90" width="20" height="15" fill="white" stroke="none" />
+    <text x="175" y="100" class="edge-weight">4</text>
+    
+    <path d="M 115 140 L 185 165" class="edge-relaxed" />
+    <rect x="140" y="145" width="20" height="15" fill="white" stroke="none" />
+    <text x="150" y="155" class="edge-weight">2</text>
+    
+    <path d="M 225 120 L 325 140" class="edge-normal" />
+    <rect x="265" y="120" width="20" height="15" fill="white" stroke="none" />
+    <text x="275" y="130" class="edge-weight">5</text>
+    
+    <path d="M 220 165 L 230 115" class="edge-normal" />
+    <rect x="215" y="135" width="20" height="15" fill="white" stroke="none" />
+    <text x="225" y="145" class="edge-weight">1</text>
+    
+    <path d="M 225 180 L 325 150" class="edge-normal" />
+    <rect x="265" y="155" width="20" height="15" fill="white" stroke="none" />
+    <text x="275" y="165" class="edge-weight">8</text>
+    
+    <path d="M 220 200 L 280 210" class="edge-normal" />
+    <rect x="240" y="195" width="20" height="15" fill="white" stroke="none" />
+    <text x="250" y="205" class="edge-weight">10</text>
+    
+    <path d="M 340 160 L 310 205" class="edge-normal" />
+    <rect x="315" y="175" width="20" height="15" fill="white" stroke="none" />
+    <text x="325" y="185" class="edge-weight">2</text>
+  </g>
+  
+  <!-- Step 2: Process C -->
+  <g id="step2" transform="translate(0, 300)">
+    <text x="150" y="70" class="subtitle">ステップ2: Cを処理</text>
+    
+    <!-- Vertices -->
+    <circle cx="100" cy="120" r="25" class="vertex-processed" />
+    <text x="100" y="110" class="vertex-label">A</text>
+    <text x="100" y="130" class="distance-label">d=0</text>
+    
+    <circle cx="250" cy="100" r="25" class="vertex-current" />
+    <text x="250" y="90" class="vertex-label">B</text>
+    <text x="250" y="110" class="distance-label">d=3</text>
+    
+    <circle cx="200" cy="180" r="25" class="vertex-processed" />
+    <text x="200" y="170" class="vertex-label">C</text>
+    <text x="200" y="190" class="distance-label">d=2</text>
+    
+    <circle cx="350" cy="140" r="25" class="vertex-unprocessed" />
+    <text x="350" y="130" class="vertex-label">D</text>
+    <text x="350" y="150" class="distance-label">d=10</text>
+    
+    <circle cx="300" cy="220" r="25" class="vertex-unprocessed" />
+    <text x="300" y="210" class="vertex-label">E</text>
+    <text x="300" y="230" class="distance-label">d=12</text>
+    
+    <!-- Edges - C's relaxations in red -->
+    <path d="M 120 105 L 230 105" class="edge-normal" />
+    <rect x="165" y="90" width="20" height="15" fill="white" stroke="none" />
+    <text x="175" y="100" class="edge-weight">4</text>
+    
+    <path d="M 115 140 L 185 165" class="edge-shortest" />
+    <rect x="140" y="145" width="20" height="15" fill="white" stroke="none" />
+    <text x="150" y="155" class="edge-weight">2</text>
+    
+    <path d="M 225 120 L 325 140" class="edge-normal" />
+    <rect x="265" y="120" width="20" height="15" fill="white" stroke="none" />
+    <text x="275" y="130" class="edge-weight">5</text>
+    
+    <path d="M 220 165 L 230 115" class="edge-relaxed" />
+    <rect x="215" y="135" width="20" height="15" fill="white" stroke="none" />
+    <text x="225" y="145" class="edge-weight">1</text>
+    
+    <path d="M 225 180 L 325 150" class="edge-relaxed" />
+    <rect x="265" y="155" width="20" height="15" fill="white" stroke="none" />
+    <text x="275" y="165" class="edge-weight">8</text>
+    
+    <path d="M 220 200 L 280 210" class="edge-relaxed" />
+    <rect x="240" y="195" width="20" height="15" fill="white" stroke="none" />
+    <text x="250" y="205" class="edge-weight">10</text>
+    
+    <path d="M 340 160 L 310 205" class="edge-normal" />
+    <rect x="315" y="175" width="20" height="15" fill="white" stroke="none" />
+    <text x="325" y="185" class="edge-weight">2</text>
+  </g>
+  
+  <!-- Final State -->
+  <g id="final-state" transform="translate(450, 300)">
+    <text x="150" y="70" class="subtitle">最終結果（最短路樹）</text>
+    
+    <!-- Vertices -->
+    <circle cx="100" cy="120" r="25" class="vertex-processed" />
+    <text x="100" y="110" class="vertex-label">A</text>
+    <text x="100" y="130" class="distance-label">d=0</text>
+    
+    <circle cx="250" cy="100" r="25" class="vertex-processed" />
+    <text x="250" y="90" class="vertex-label">B</text>
+    <text x="250" y="110" class="distance-label">d=3</text>
+    
+    <circle cx="200" cy="180" r="25" class="vertex-processed" />
+    <text x="200" y="170" class="vertex-label">C</text>
+    <text x="200" y="190" class="distance-label">d=2</text>
+    
+    <circle cx="350" cy="140" r="25" class="vertex-processed" />
+    <text x="350" y="130" class="vertex-label">D</text>
+    <text x="350" y="150" class="distance-label">d=8</text>
+    
+    <circle cx="300" cy="220" r="25" class="vertex-processed" />
+    <text x="300" y="210" class="vertex-label">E</text>
+    <text x="300" y="230" class="distance-label">d=10</text>
+    
+    <!-- Shortest path edges in green -->
+    <path d="M 115 140 L 185 165" class="edge-shortest" />
+    <rect x="140" y="145" width="20" height="15" fill="white" stroke="none" />
+    <text x="150" y="155" class="edge-weight">2</text>
+    
+    <path d="M 220 165 L 230 115" class="edge-shortest" />
+    <rect x="215" y="135" width="20" height="15" fill="white" stroke="none" />
+    <text x="225" y="145" class="edge-weight">1</text>
+    
+    <path d="M 225 120 L 325 140" class="edge-shortest" />
+    <rect x="265" y="120" width="20" height="15" fill="white" stroke="none" />
+    <text x="275" y="130" class="edge-weight">5</text>
+    
+    <path d="M 340 160 L 310 205" class="edge-shortest" />
+    <rect x="315" y="175" width="20" height="15" fill="white" stroke="none" />
+    <text x="325" y="185" class="edge-weight">2</text>
+    
+    <!-- Other edges in normal color -->
+    <path d="M 120 105 L 230 105" class="edge-normal" />
+    <rect x="165" y="90" width="20" height="15" fill="white" stroke="none" />
+    <text x="175" y="100" class="edge-weight">4</text>
+    
+    <path d="M 225 180 L 325 150" class="edge-normal" />
+    <rect x="265" y="155" width="20" height="15" fill="white" stroke="none" />
+    <text x="275" y="165" class="edge-weight">8</text>
+    
+    <path d="M 220 200 L 280 210" class="edge-normal" />
+    <rect x="240" y="195" width="20" height="15" fill="white" stroke="none" />
+    <text x="250" y="205" class="edge-weight">10</text>
+  </g>
+  
+  <!-- Algorithm explanation -->
+  <rect x="100" y="620" width="1000" height="150" style="fill: #f8f9fa; stroke: #6c757d; stroke-width: 2px; rx: 4px;" />
+  <text x="600" y="650" class="title">Dijkstraアルゴリズムの動作原理</text>
+  
+  <text x="120" y="680" class="step-description">1. 開始頂点の距離を0、他の頂点の距離を∞に初期化</text>
+  <text x="120" y="700" class="step-description">2. 未処理の頂点のうち最小距離の頂点を選択して処理</text>
+  <text x="120" y="720" class="step-description">3. 選択した頂点から隣接頂点への辺を緩和（距離更新）</text>
+  <text x="120" y="740" class="step-description">4. 全頂点が処理されるまで2-3を繰り返す</text>
+  
+  <text x="620" y="680" class="step-description">緑の辺：最短路樹に含まれる辺</text>
+  <text x="620" y="700" class="step-description">赤の辺：緩和（距離更新）が発生した辺</text>
+  <text x="620" y="720" class="step-description">青の円：処理済み頂点</text>
+  <text x="620" y="740" class="step-description">橙の円：現在処理中の頂点</text>
+</svg>
