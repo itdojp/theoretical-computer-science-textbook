@@ -1,0 +1,165 @@
+<svg viewBox="0 0 1000 700" xmlns="http://www.w3.org/2000/svg">
+  <title>等価な計算モデル（1930年代）</title>
+  <desc>チューリング機械、λ計算、再帰関数、Post機械の等価性</desc>
+  
+  <defs>
+    <style>
+      .turing-box { fill: #e3f2fd; stroke: #1976d2; stroke-width: 3px; }
+      .lambda-box { fill: #fff3e0; stroke: #ff9800; stroke-width: 3px; }
+      .recursive-box { fill: #e8f5e8; stroke: #4caf50; stroke-width: 3px; }
+      .post-box { fill: #f3e5f5; stroke: #9c27b0; stroke-width: 3px; }
+      
+      .model-box { 
+        rx: 8px; 
+        ry: 8px; 
+        font-family: Inter, Helvetica, sans-serif;
+      }
+      
+      .title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 18px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #1a1a1a;
+      }
+      
+      .model-title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 14px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #333;
+      }
+      
+      .year-text { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 12px; 
+        font-weight: 500; 
+        text-anchor: middle; 
+        fill: #666;
+      }
+      
+      .description { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 10px; 
+        font-weight: 400; 
+        text-anchor: start; 
+        fill: #666;
+      }
+      
+      .equivalence-arrow {
+        stroke: #e74c3c;
+        stroke-width: 3px;
+        fill: none;
+        marker-end: url(#equiv-arrowhead);
+      }
+      
+      .bidirectional-arrow {
+        stroke: #e74c3c;
+        stroke-width: 3px;
+        fill: none;
+        marker-start: url(#equiv-arrowhead);
+        marker-end: url(#equiv-arrowhead);
+      }
+    </style>
+    
+    <!-- Arrow marker -->
+    <marker id="equiv-arrowhead" markerWidth="12" markerHeight="8" refX="11" refY="4" orient="auto">
+      <polygon points="0 0, 12 4, 0 8" fill="#e74c3c" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="500" y="30" class="title">等価な計算モデル（1930年代）</text>
+  
+  <!-- Turing Machine -->
+  <g id="turing-machine">
+    <rect x="100" y="80" width="200" height="120" class="model-box turing-box" />
+    <text x="200" y="110" class="model-title">チューリング機械</text>
+    <text x="200" y="130" class="year-text">(Turing, 1936)</text>
+    
+    <text x="120" y="155" class="description">• 無限テープ上での計算</text>
+    <text x="120" y="170" class="description">• 有限状態制御</text>
+    <text x="120" y="185" class="description">• 読み書きヘッドの移動</text>
+  </g>
+  
+  <!-- Lambda Calculus -->
+  <g id="lambda-calculus">
+    <rect x="400" y="80" width="200" height="120" class="model-box lambda-box" />
+    <text x="500" y="110" class="model-title">λ計算</text>
+    <text x="500" y="130" class="year-text">(Church, 1936)</text>
+    
+    <text x="420" y="155" class="description">• 関数の抽象化と適用</text>
+    <text x="420" y="170" class="description">• 変数束縛と置換</text>
+    <text x="420" y="185" class="description">• 関数型プログラミングの基礎</text>
+  </g>
+  
+  <!-- Recursive Functions -->
+  <g id="recursive-functions">
+    <rect x="100" y="300" width="200" height="120" class="model-box recursive-box" />
+    <text x="200" y="330" class="model-title">再帰関数</text>
+    <text x="200" y="350" class="year-text">(Kleene, 1936)</text>
+    
+    <text x="120" y="375" class="description">• 原始再帰関数</text>
+    <text x="120" y="390" class="description">• μ演算子による拡張</text>
+    <text x="120" y="405" class="description">• 数論的関数の体系</text>
+  </g>
+  
+  <!-- Post Machine -->
+  <g id="post-machine">
+    <rect x="400" y="300" width="200" height="120" class="model-box post-box" />
+    <text x="500" y="330" class="model-title">Post機械</text>
+    <text x="500" y="350" class="year-text">(Post, 1936)</text>
+    
+    <text x="420" y="375" class="description">• 文字列書き換えシステム</text>
+    <text x="420" y="390" class="description">• 生成文法の原型</text>
+    <text x="420" y="405" class="description">• 半群論との関連</text>
+  </g>
+  
+  <!-- Equivalence arrows -->
+  <path d="M 300 140 L 400 140" class="bidirectional-arrow" />
+  <text x="350" y="130" class="description">等価</text>
+  
+  <path d="M 500 200 L 500 300" class="bidirectional-arrow" />
+  <text x="520" y="250" class="description">等価</text>
+  
+  <path d="M 300 360 L 400 360" class="bidirectional-arrow" />
+  <text x="350" y="350" class="description">等価</text>
+  
+  <path d="M 200 200 L 200 300" class="bidirectional-arrow" />
+  <text x="220" y="250" class="description">等価</text>
+  
+  <!-- Diagonal arrows -->
+  <path d="M 300 180 L 420 320" class="bidirectional-arrow" />
+  <path d="M 420 180 L 300 320" class="bidirectional-arrow" />
+  
+  <!-- Central equivalence statement -->
+  <text x="350" y="250" class="model-title">全て等価</text>
+  
+  <!-- Historical significance -->
+  <rect x="100" y="460" width="800" height="200" style="fill: #f8f9fa; stroke: #6c757d; stroke-width: 2px; rx: 4px;" />
+  <text x="500" y="490" class="title">歴史的意義と現代への影響</text>
+  
+  <!-- Left column -->
+  <text x="120" y="520" class="model-title">1930年代の発見</text>
+  <text x="140" y="540" class="description">• 独立して開発された4つのモデルが偶然にも等価</text>
+  <text x="140" y="555" class="description">• 計算可能性の本質的特徴の発見</text>
+  <text x="140" y="570" class="description">• ヒルベルト計画への決定的影響</text>
+  <text x="140" y="585" class="description">• ゲーデル不完全性定理との関連</text>
+  
+  <!-- Right column -->
+  <text x="480" y="520" class="model-title">現代への影響</text>
+  <text x="500" y="540" class="description">• プログラミング言語設計の理論的基盤</text>
+  <text x="500" y="555" class="description">• 計算複雑性理論の出発点</text>
+  <text x="500" y="570" class="description">• 人工知能と認知科学への応用</text>
+  <text x="500" y="585" class="description">• 形式検証とモデル検査の基礎</text>
+  
+  <!-- Modern extensions -->
+  <text x="120" y="615" class="model-title">現代的拡張</text>
+  <text x="140" y="635" class="description">• 確率的チューリング機械 → 確率的アルゴリズム</text>
+  <text x="140" y="650" class="description">• 量子チューリング機械 → 量子計算</text>
+  
+  <text x="480" y="615" class="model-title">実用的意義</text>
+  <text x="500" y="635" class="description">• コンパイラとインタープリターの設計</text>
+  <text x="500" y="650" class="description">• 計算機システムの能力と限界の理解</text>
+</svg>

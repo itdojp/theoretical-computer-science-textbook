@@ -1,0 +1,233 @@
+<svg viewBox="0 0 1400 900" xmlns="http://www.w3.org/2000/svg">
+  <title>マスター定理の適用</title>
+  <desc>分割統治アルゴリズムの解析におけるマスター定理の3つのケース</desc>
+  
+  <defs>
+    <style>
+      .problem-box { fill: #f3e5f5; stroke: #9c27b0; stroke-width: 2px; rx: 8px; }
+      .compare-box { fill: #e3f2fd; stroke: #2196f3; stroke-width: 2px; rx: 8px; }
+      .case-box { fill: #fff3e0; stroke: #ff9800; stroke-width: 2px; rx: 8px; }
+      .result-box { fill: #e8f5e8; stroke: #4caf50; stroke-width: 2px; rx: 8px; }
+      .example-box { fill: #fafafa; stroke: #666; stroke-width: 1px; rx: 4px; }
+      
+      .arrow { 
+        stroke: #666; 
+        stroke-width: 2px; 
+        fill: none; 
+        marker-end: url(#arrowhead);
+      }
+      
+      .dashed-arrow { 
+        stroke: #999; 
+        stroke-width: 2px; 
+        stroke-dasharray: 5,3;
+        fill: none; 
+        marker-end: url(#arrowhead-gray);
+      }
+      
+      .title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 18px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #1a1a1a;
+      }
+      
+      .box-title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 14px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #333;
+      }
+      
+      .formula { 
+        font-family: Courier, monospace;
+        font-size: 12px; 
+        font-weight: 500; 
+        text-anchor: middle; 
+        fill: #333;
+      }
+
+      .condition { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 11px; 
+        font-weight: 400; 
+        text-anchor: middle; 
+        fill: #555;
+      }
+      
+      .example-text { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 10px; 
+        font-weight: 400; 
+        text-anchor: start; 
+        fill: #666;
+      }
+      
+      .explanation { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 9px; 
+        font-weight: 400; 
+        text-anchor: start; 
+        fill: #777;
+      }
+    </style>
+    
+    <!-- Arrow markers -->
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#666" />
+    </marker>
+    <marker id="arrowhead-gray" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#999" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="700" y="30" class="title">マスター定理の適用</text>
+  
+  <!-- Problem Definition -->
+  <g id="problem">
+    <rect x="550" y="60" width="300" height="80" class="problem-box" />
+    <text x="700" y="85" class="box-title">分割統治の再帰式</text>
+    <text x="700" y="105" class="formula">T(n) = aT(n/b) + f(n)</text>
+    <text x="700" y="125" class="condition">a ≥ 1, b > 1, f(n) ≥ 0</text>
+  </g>
+  
+  <!-- Comparison Step -->
+  <g id="comparison">
+    <rect x="550" y="180" width="300" height="80" class="compare-box" />
+    <text x="700" y="205" class="box-title">比較ステップ</text>
+    <text x="700" y="225" class="formula">f(n) vs n^(log_b a)</text>
+    <text x="700" y="245" class="condition">どちらが漸近的に大きいか</text>
+  </g>
+  
+  <!-- Arrow from problem to comparison -->
+  <path d="M 700 140 L 700 170" class="arrow" />
+  
+  <!-- Three Cases -->
+  <g id="cases">
+    <!-- Case 1 -->
+    <rect x="100" y="320" width="280" height="100" class="case-box" />
+    <text x="240" y="345" class="box-title">ケース1: 再帰部分が支配的</text>
+    <text x="240" y="365" class="formula">f(n) = O(n^(log_b a - ε))</text>
+    <text x="240" y="380" class="condition">εは正の定数</text>
+    <text x="240" y="400" class="condition">→ 再帰呼び出しがコスト支配</text>
+    
+    <!-- Case 2 -->
+    <rect x="410" y="320" width="280" height="100" class="case-box" />
+    <text x="550" y="345" class="box-title">ケース2: 各レベルで同等</text>
+    <text x="550" y="365" class="formula">f(n) = Θ(n^(log_b a))</text>
+    <text x="550" y="380" class="condition">完全にバランス</text>
+    <text x="550" y="400" class="condition">→ 全レベルで同じ仕事量</text>
+    
+    <!-- Case 3 -->
+    <rect x="720" y="320" width="280" height="100" class="case-box" />
+    <text x="860" y="345" class="box-title">ケース3: ルートが支配的</text>
+    <text x="860" y="365" class="formula">f(n) = Ω(n^(log_b a + ε))</text>
+    <text x="860" y="380" class="condition">規則性条件も必要</text>
+    <text x="860" y="400" class="condition">→ 最上位レベルがコスト支配</text>
+  </g>
+  
+  <!-- Arrows from comparison to cases -->
+  <path d="M 600 260 L 240 310" class="arrow" />
+  <path d="M 700 260 L 550 310" class="arrow" />
+  <path d="M 800 260 L 860 310" class="arrow" />
+  
+  <!-- Results -->
+  <g id="results">
+    <!-- Result 1 -->
+    <rect x="100" y="450" width="280" height="60" class="result-box" />
+    <text x="240" y="475" class="box-title">T(n) = Θ(n^(log_b a))</text>
+    <text x="240" y="495" class="condition">再帰呼び出しの総コスト</text>
+    
+    <!-- Result 2 -->
+    <rect x="410" y="450" width="280" height="60" class="result-box" />
+    <text x="550" y="475" class="box-title">T(n) = Θ(n^(log_b a) log n)</text>
+    <text x="550" y="495" class="condition">バランス × レベル数</text>
+    
+    <!-- Result 3 -->
+    <rect x="720" y="450" width="280" height="60" class="result-box" />
+    <text x="860" y="475" class="box-title">T(n) = Θ(f(n))</text>
+    <text x="860" y="495" class="condition">ルートレベルの仕事量</text>
+  </g>
+  
+  <!-- Arrows from cases to results -->
+  <path d="M 240 420 L 240 440" class="arrow" />
+  <path d="M 550 420 L 550 440" class="arrow" />
+  <path d="M 860 420 L 860 440" class="arrow" />
+  
+  <!-- Examples Section -->
+  <g id="examples">
+    <text x="700" y="560" class="title">典型的な適用例</text>
+    
+    <!-- Example 1: Binary Search -->
+    <rect x="50" y="580" width="200" height="120" class="example-box" />
+    <text x="60" y="600" class="example-text">例1: 二分探索</text>
+    <text x="60" y="615" class="formula">T(n) = T(n/2) + 1</text>
+    <text x="60" y="630" class="example-text">a=1, b=2, f(n)=1</text>
+    <text x="60" y="645" class="example-text">log₂(1) = 0 &lt; 1のため</text>
+    <text x="60" y="660" class="example-text">ケース1適用</text>
+    <text x="60" y="675" class="formula" fill="#4caf50">T(n) = Θ(1)</text>
+    <text x="60" y="690" class="explanation">※ 実際はΘ(log n)</text>
+    
+    <!-- Example 2: Merge Sort -->
+    <rect x="270" y="580" width="200" height="120" class="example-box" />
+    <text x="280" y="600" class="example-text">例2: マージソート</text>
+    <text x="280" y="615" class="formula">T(n) = 2T(n/2) + n</text>
+    <text x="280" y="630" class="example-text">a=2, b=2, f(n)=n</text>
+    <text x="280" y="645" class="example-text">log₂(2) = 1 = n¹のため</text>
+    <text x="280" y="660" class="example-text">ケース2適用</text>
+    <text x="280" y="675" class="formula" fill="#4caf50">T(n) = Θ(n log n)</text>
+    <text x="280" y="690" class="explanation">最適なソート</text>
+    
+    <!-- Example 3: Strassen's Algorithm -->
+    <rect x="490" y="580" width="200" height="120" class="example-box" />
+    <text x="500" y="600" class="example-text">例3: Strassen行列積</text>
+    <text x="500" y="615" class="formula">T(n) = 7T(n/2) + n²</text>
+    <text x="500" y="630" class="example-text">a=7, b=2, f(n)=n²</text>
+    <text x="500" y="645" class="example-text">log₂(7) ≈ 2.807 > 2のため</text>
+    <text x="500" y="660" class="example-text">ケース1適用</text>
+    <text x="500" y="675" class="formula" fill="#4caf50">T(n) = Θ(n^2.807)</text>
+    <text x="500" y="690" class="explanation">標準O(n³)より高速</text>
+    
+    <!-- Example 4: Non-applicable case -->
+    <rect x="710" y="580" width="200" height="120" class="example-box" />
+    <text x="720" y="600" class="example-text">例4: 分割統治（変則）</text>
+    <text x="720" y="615" class="formula">T(n) = T(n/3) + T(2n/3) + n</text>
+    <text x="720" y="630" class="example-text">分割サイズが不均等</text>
+    <text x="720" y="645" class="example-text">マスター定理不適用</text>
+    <text x="720" y="660" class="example-text">置換法による解析</text>
+    <text x="720" y="675" class="formula" fill="#ff9800">T(n) = Θ(n log n)</text>
+    <text x="720" y="690" class="explanation">別の手法が必要</text>
+    
+    <!-- Example 5: Quicksort average case -->
+    <rect x="930" y="580" width="200" height="120" class="example-box" />
+    <text x="940" y="600" class="example-text">例5: クイックソート（平均）</text>
+    <text x="940" y="615" class="formula">T(n) = 2T(n/2) + n</text>
+    <text x="940" y="630" class="example-text">期待値による解析</text>
+    <text x="940" y="645" class="example-text">a=2, b=2, f(n)=n</text>
+    <text x="940" y="660" class="example-text">ケース2適用</text>
+    <text x="940" y="675" class="formula" fill="#4caf50">T(n) = Θ(n log n)</text>
+    <text x="940" y="690" class="explanation">平均的に効率的</text>
+  </g>
+  
+  <!-- Decision Flow -->
+  <g id="decision-flow">
+    <text x="700" y="750" class="title">判定フローチャート</text>
+    
+    <!-- Decision diamonds -->
+    <rect x="600" y="760" width="200" height="40" style="fill: #fff3e0; stroke: #ff9800; stroke-width: 1px; rx: 20px;" />
+    <text x="700" y="785" class="condition">f(n) vs n^(log_b a) を比較</text>
+    
+    <!-- Branches -->
+    <text x="300" y="825" class="condition">f(n) 小さい → ケース1</text>
+    <text x="700" y="825" class="condition">f(n) 同等 → ケース2</text>
+    <text x="1100" y="825" class="condition">f(n) 大きい → ケース3</text>
+    
+    <!-- Branch arrows -->
+    <path d="M 620 800 L 350 810" class="dashed-arrow" />
+    <path d="M 700 800 L 700 810" class="dashed-arrow" />
+    <path d="M 780 800 L 1050 810" class="dashed-arrow" />
+  </g>
+</svg>

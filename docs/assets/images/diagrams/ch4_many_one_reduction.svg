@@ -1,0 +1,188 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <title>多対一還元の仕組み</title>
+  <desc>言語AからBへの多対一還元とライス定理の応用</desc>
+  
+  <defs>
+    <style>
+      .language-a { fill: #e3f2fd; stroke: #1976d2; stroke-width: 3px; }
+      .language-b { fill: #e8f5e9; stroke: #4caf50; stroke-width: 3px; }
+      .reduction-function { fill: #fff3e0; stroke: #ff9800; stroke-width: 3px; }
+      .decidable-box { fill: #c8e6c9; stroke: #4caf50; stroke-width: 2px; }
+      .undecidable-box { fill: #ffcdd2; stroke: #d32f2f; stroke-width: 2px; }
+      
+      .concept-box { 
+        rx: 6px; 
+        ry: 6px; 
+        font-family: Inter, Helvetica, sans-serif;
+      }
+      
+      .title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 18px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #1a1a1a;
+      }
+      
+      .subtitle { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 14px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #2c3e50;
+      }
+      
+      .concept-title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 13px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #333;
+      }
+      
+      .description { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 11px; 
+        font-weight: 400; 
+        text-anchor: start; 
+        fill: #666;
+      }
+      
+      .formula { 
+        font-family: Courier, monospace;
+        font-size: 12px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #333;
+      }
+      
+      .reduction-arrow {
+        stroke: #e74c3c;
+        stroke-width: 4px;
+        fill: none;
+        marker-end: url(#reduction-arrowhead);
+      }
+      
+      .equivalence-arrow {
+        stroke: #666;
+        stroke-width: 2px;
+        stroke-dasharray: 6,3;
+        fill: none;
+        marker-end: url(#equiv-arrowhead);
+      }
+    </style>
+    
+    <!-- Arrow markers -->
+    <marker id="reduction-arrowhead" markerWidth="12" markerHeight="8" refX="11" refY="4" orient="auto">
+      <polygon points="0 0, 12 4, 0 8" fill="#e74c3c" />
+    </marker>
+    
+    <marker id="equiv-arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="600" y="30" class="title">多対一還元の仕組み</text>
+  
+  <!-- Main Reduction Diagram -->
+  <g id="reduction-diagram">
+    <!-- Language A -->
+    <ellipse cx="200" cy="150" rx="80" ry="60" class="language-a" />
+    <text x="200" y="145" class="concept-title">言語A</text>
+    <text x="200" y="165" class="description">{w | w ∈ A}</text>
+    
+    <!-- Reduction Function -->
+    <rect x="350" y="120" width="100" height="60" class="concept-box reduction-function" />
+    <text x="400" y="145" class="concept-title">還元関数</text>
+    <text x="400" y="165" class="formula">f</text>
+    
+    <!-- Language B -->
+    <ellipse cx="600" cy="150" rx="80" ry="60" class="language-b" />
+    <text x="600" y="145" class="concept-title">言語B</text>
+    <text x="600" y="165" class="description">{f(w) | w ∈ A}</text>
+    
+    <!-- Reduction arrows -->
+    <path d="M 280 150 L 350 150" class="reduction-arrow" />
+    <path d="M 450 150 L 520 150" class="reduction-arrow" />
+    
+    <!-- Property preservation -->
+    <text x="400" y="200" class="formula">w ∈ A ⟺ f(w) ∈ B</text>
+    <text x="400" y="220" class="description">答えが保存される</text>
+  </g>
+  
+  <!-- Decidability Transfer -->
+  <g id="decidability-transfer">
+    <text x="200" y="300" class="subtitle">決定可能性の転移</text>
+    
+    <!-- If B is decidable -->
+    <rect x="50" y="320" width="150" height="80" class="concept-box decidable-box" />
+    <text x="125" y="345" class="concept-title">Bが決定可能</text>
+    <text x="60" y="365" class="description">決定機械 M_B が存在</text>
+    <text x="60" y="380" class="description">∀x: M_B(x) は</text>
+    <text x="60" y="395" class="description">accept/reject</text>
+    
+    <!-- Then A is decidable -->
+    <rect x="250" y="320" width="150" height="80" class="concept-box decidable-box" />
+    <text x="325" y="345" class="concept-title">Aも決定可能</text>
+    <text x="260" y="365" class="description">決定機械 M_A:</text>
+    <text x="260" y="380" class="description">入力w に対して</text>
+    <text x="260" y="395" class="description">M_B(f(w)) を実行</text>
+    
+    <!-- Contrapositive -->
+    <rect x="450" y="320" width="150" height="80" class="concept-box undecidable-box" />
+    <text x="525" y="345" class="concept-title">対偶</text>
+    <text x="460" y="365" class="description">Aが決定不能なら</text>
+    <text x="460" y="380" class="description">Bも決定不能</text>
+    <text x="460" y="395" class="description">（証明に利用）</text>
+    
+    <!-- Arrows -->
+    <path d="M 200 360 L 250 360" class="equivalence-arrow" />
+    <text x="225" y="350" class="description">⇒</text>
+    
+    <path d="M 400 360 L 450 360" class="equivalence-arrow" />
+    <text x="425" y="350" class="description">⇒</text>
+  </g>
+  
+  <!-- Rice's Theorem Application -->
+  <rect x="100" y="450" width="1000" height="300" style="fill: #f8f9fa; stroke: #6c757d; stroke-width: 2px; rx: 4px;" />
+  <text x="600" y="480" class="title">ライス定理と応用例</text>
+  
+  <!-- Rice's Theorem -->
+  <text x="120" y="510" class="subtitle">ライス定理</text>
+  
+  <text x="140" y="530" class="description">チューリング機械の意味的性質（言語の性質）に関する問題は全て決定不能</text>
+  
+  <text x="140" y="555" class="concept-title">定理の内容</text>
+  <text x="160" y="575" class="description">P を再帰可算言語の非自明な性質とする（P ≠ ∅ かつ P ≠ すべての再帰可算言語）</text>
+  <text x="160" y="590" class="description">このとき、{⟨M⟩ | L(M) ∈ P} は決定不能である</text>
+  
+  <!-- Examples of undecidable problems -->
+  <text x="120" y="620" class="subtitle">決定不能問題の例</text>
+  
+  <text x="140" y="645" class="concept-title">1. 空性問題</text>
+  <text x="160" y="665" class="description">EMPTY_TM = {⟨M⟩ | L(M) = ∅}</text>
+  <text x="160" y="680" class="description">チューリング機械が何も受理しないかの判定</text>
+  
+  <text x="140" y="705" class="concept-title">2. 正規性問題</text>
+  <text x="160" y="725" class="description">REGULAR_TM = {⟨M⟩ | L(M) は正規言語}</text>
+  <text x="160" y="740" class="description">チューリング機械が正規言語を認識するかの判定</text>
+  
+  <!-- Practical implications -->
+  <text x="620" y="510" class="subtitle">実用的含意</text>
+  
+  <text x="640" y="530" class="concept-title">プログラム検証の限界</text>
+  <text x="660" y="550" class="description">• 完全なデバッガは不可能</text>
+  <text x="660" y="565" class="description">• 無限ループ検出の一般解は存在しない</text>
+  <text x="660" y="580" class="description">• プログラムの意味的等価性判定不可能</text>
+  
+  <text x="640" y="605" class="concept-title">静的解析の限界</text>
+  <text x="660" y="625" class="description">• 到達不能コード検出の完全解なし</text>
+  <text x="660" y="640" class="description">• 型安全性の完全な静的検証困難</text>
+  <text x="660" y="655" class="description">• メモリリークの完全検出不可能</text>
+  
+  <text x="640" y="680" class="concept-title">形式検証への影響</text>
+  <text x="660" y="700" class="description">• 完全自動検証は原理的に不可能</text>
+  <text x="660" y="715" class="description">• 人間の洞察とヒューリスティックが必要</text>
+  <text x="660" y="730" class="description">• 部分的・制限的な検証が実用的アプローチ</text>
+</svg>

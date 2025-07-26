@@ -22,54 +22,7 @@ T(n) = max{A が入力 I に対して実行する基本演算の回数 | |I| = n
 
 最悪時間解析は性能の保証を与えるため、実用上重要です。
 
-```mermaid
-graph LR
-    subgraph "主要な時間複雑度クラス"
-        O1["O(1)<br/>定数時間"]
-        Ologn["O(log n)<br/>対数時間"]
-        On["O(n)<br/>線形時間"]
-        Onlogn["O(n log n)<br/>線形対数時間"]
-        On2["O(n²)<br/>2乗時間"]
-        On3["O(n³)<br/>3乗時間"]
-        O2n["O(2ⁿ)<br/>指数時間"]
-        Onfact["O(n!)<br/>階乗時間"]
-        
-        O1 --> Ologn
-        Ologn --> On
-        On --> Onlogn
-        Onlogn --> On2
-        On2 --> On3
-        On3 --> O2n
-        O2n --> Onfact
-        
-        Examples1["例: 配列の要素アクセス<br/>ハッシュ表検索"]
-        Examples2["例: 二分探索<br/>平衡木の操作"]
-        Examples3["例: 線形探索<br/>単純なループ"]
-        Examples4["例: 効率的なソート<br/>(マージソート)"]
-        Examples5["例: 入れ子ループ<br/>選択ソート"]
-        Examples6["例: 行列乗算<br/>フロイド-ワーシャル"]
-        Examples7["例: 部分集合生成<br/>ハノイの塔"]
-        Examples8["例: 巡回セールスマン<br/>総当たり探索"]
-        
-        O1 -.-> Examples1
-        Ologn -.-> Examples2
-        On -.-> Examples3
-        Onlogn -.-> Examples4
-        On2 -.-> Examples5
-        On3 -.-> Examples6
-        O2n -.-> Examples7
-        Onfact -.-> Examples8
-    end
-    
-    style O1 fill:#e8f5e8
-    style Ologn fill:#e3f2fd
-    style On fill:#fff3e0
-    style Onlogn fill:#f3e5f5
-    style On2 fill:#ffe0b2
-    style On3 fill:#ffccbc
-    style O2n fill:#ffcdd2
-    style Onfact fill:#ef9a9a
-```
+![主要な時間複雑度クラス](../../assets/images/diagrams/ch6_complexity_classes.svg)
 
 **例 6.1** 挿入ソートの最悪時間解析
 ```
@@ -195,47 +148,7 @@ T(n) = aT(n/b) + f(n) に対して：
 3. f(n) = Ω(n^{log_b a + ε}) （ある ε > 0）かつ
    af(n/b) ≤ cf(n) （ある c < 1, 十分大きな n）ならば T(n) = Θ(f(n))
 
-```mermaid
-graph TD
-    subgraph "マスター定理の適用"
-        Problem["T(n) = aT(n/b) + f(n)"]
-        Compare["比較: f(n) vs n^{log_b a}"]
-        
-        Case1["ケース1:<br/>f(n) = O(n^{log_b a - ε})"]
-        Case2["ケース2:<br/>f(n) = Θ(n^{log_b a})"]
-        Case3["ケース3:<br/>f(n) = Ω(n^{log_b a + ε})"]
-        
-        Result1["T(n) = Θ(n^{log_b a})<br/>再帰部分が支配的"]
-        Result2["T(n) = Θ(n^{log_b a} log n)<br/>各レベルで同等の仕事"]
-        Result3["T(n) = Θ(f(n))<br/>ルートの仕事が支配的"]
-        
-        Problem --> Compare
-        Compare --> Case1
-        Compare --> Case2
-        Compare --> Case3
-        
-        Case1 --> Result1
-        Case2 --> Result2
-        Case3 --> Result3
-        
-        Example1["例: マージソート<br/>T(n) = 2T(n/2) + n<br/>a=2, b=2, f(n)=n"]
-        Example2["例: Strassen行列積<br/>T(n) = 7T(n/2) + n²<br/>a=7, b=2, f(n)=n²"]
-        Example3["例: 二分探索<br/>T(n) = T(n/2) + 1<br/>a=1, b=2, f(n)=1"]
-        
-        Result2 -.-> Example1
-        Result1 -.-> Example2
-        Result1 -.-> Example3
-    end
-    
-    style Problem fill:#f3e5f5
-    style Compare fill:#e3f2fd
-    style Case1 fill:#fff3e0
-    style Case2 fill:#fff3e0
-    style Case3 fill:#fff3e0
-    style Result1 fill:#e8f5e8
-    style Result2 fill:#e8f5e8
-    style Result3 fill:#e8f5e8
-```
+![マスター定理の適用](../../assets/images/diagrams/ch6_master_theorem.svg)
 
 *証明の概要*：再帰木を用いる。深さ i のレベルで：
 - ノード数：a^i
@@ -295,42 +208,7 @@ T(n) = 7T(n/2) + Θ(n²)
 
 **定義 6.6** 問題が**最適部分構造**を持つとは、最適解が部分問題の最適解を含むこと。
 
-```mermaid
-graph TD
-    subgraph "動的計画法の適用条件"
-        Problem["最適化問題"]
-        
-        Condition1["最適部分構造<br/>最適解が部分問題の<br/>最適解を含む"]
-        Condition2["部分問題の重複<br/>同じ部分問題が<br/>何度も現れる"]
-        Condition3["部分問題数の制限<br/>部分問題の数が<br/>多項式個"]
-        
-        Problem --> Condition1
-        Problem --> Condition2
-        Problem --> Condition3
-        
-        DP["動的計画法が適用可能"]
-        
-        Condition1 --> DP
-        Condition2 --> DP
-        Condition3 --> DP
-        
-        Examples["適用例:<br/>・最短路問題<br/>・編集距離<br/>・ナップサック問題<br/>・連鎖行列積"]
-        
-        DP --> Examples
-        
-        NonExamples["不適切な例:<br/>・巡回セールスマン<br/>（部分解が最適でない）<br/>・素因数分解<br/>（部分問題が独立）"]
-        
-        Problem -.-> NonExamples
-    end
-    
-    style Problem fill:#f3e5f5
-    style Condition1 fill:#e3f2fd
-    style Condition2 fill:#e3f2fd
-    style Condition3 fill:#e3f2fd
-    style DP fill:#e8f5e8
-    style Examples fill:#fff3e0
-    style NonExamples fill:#ffebee
-```
+![動的計画法の適用条件](../../assets/images/diagrams/ch6_dynamic_programming_conditions.svg)
 
 **例 6.8** 最短路問題
 グラフ G で頂点 u から v への最短路 p が頂点 w を通るとき、
@@ -391,60 +269,7 @@ d[i,j] = min {
 **定義 6.7** 問題が**貪欲選択性**を持つとは、局所最適な選択を行うことで
 大域最適解を構成できること。
 
-```mermaid
-flowchart TD
-    subgraph "アルゴリズム設計パラダイムの比較"
-        subgraph "貪欲法"
-            G1["現在の状態"]
-            G2["局所最適選択"]
-            G3["次の状態"]
-            G4["最終解"]
-            
-            G1 --> G2
-            G2 --> G3
-            G3 --> |"...繰り返し"| G4
-            
-            GEx["例: Kruskalの最小全域木<br/>Dijkstraの最短路<br/>Huffman符号"]
-        end
-        
-        subgraph "動的計画法"
-            D1["部分問題の定義"]
-            D2["再帰関係の構築"]
-            D3["ボトムアップ計算"]
-            D4["最適解の構成"]
-            
-            D1 --> D2
-            D2 --> D3
-            D3 --> D4
-            
-            DEx["例: ナップサック問題<br/>編集距離<br/>連鎖行列積"]
-        end
-        
-        subgraph "分割統治法"
-            C1["問題の分割"]
-            C2["部分問題の解決<br/>（再帰）"]
-            C3["解の結合"]
-            C4["最終解"]
-            
-            C1 --> C2
-            C2 --> C3
-            C3 --> C4
-            
-            CEx["例: マージソート<br/>クイックソート<br/>FFT"]
-        end
-        
-        G4 -.-> GEx
-        D4 -.-> DEx
-        C4 -.-> CEx
-    end
-    
-    style G1 fill:#e8f5e8
-    style G4 fill:#e8f5e8
-    style D1 fill:#e3f2fd
-    style D4 fill:#e3f2fd
-    style C1 fill:#fff3e0
-    style C4 fill:#fff3e0
-```
+![アルゴリズム設計パラダイムの比較](../../assets/images/diagrams/ch6_algorithm_paradigms.svg)
 
 **例 6.11** 活動選択問題
 n 個の活動 {a₁, ..., aₙ}、各活動 a_i は開始時刻 s_i と終了時刻 f_i を持つ。

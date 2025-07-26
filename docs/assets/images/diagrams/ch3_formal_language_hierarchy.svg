@@ -1,0 +1,226 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <title>形式言語の基本概念</title>
+  <desc>アルファベット、文字列、言語の構成要素と文字列演算</desc>
+  
+  <defs>
+    <style>
+      .alphabet-box { fill: #e3f2fd; stroke: #1976d2; stroke-width: 2px; }
+      .string-box { fill: #e8f5e9; stroke: #4caf50; stroke-width: 2px; }
+      .language-box { fill: #fff3e0; stroke: #ff9800; stroke-width: 2px; }
+      .operation-box { fill: #f3e5f5; stroke: #9c27b0; stroke-width: 2px; }
+      
+      .concept-box { 
+        rx: 4px; 
+        ry: 4px; 
+        font-family: Inter, Helvetica, sans-serif;
+      }
+      
+      .title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 18px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #1a1a1a;
+      }
+      
+      .subtitle { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 14px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #2c3e50;
+      }
+      
+      .concept-title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 13px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #333;
+      }
+      
+      .description { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 11px; 
+        font-weight: 400; 
+        text-anchor: start; 
+        fill: #666;
+      }
+      
+      .formula { 
+        font-family: Courier, monospace;
+        font-size: 12px; 
+        font-weight: 600; 
+        text-anchor: start; 
+        fill: #333;
+      }
+      
+      .example { 
+        font-family: Courier, monospace;
+        font-size: 11px; 
+        font-weight: 400; 
+        text-anchor: start; 
+        fill: #555;
+      }
+      
+      .relation-arrow {
+        stroke: #666;
+        stroke-width: 2px;
+        fill: none;
+        marker-end: url(#arrowhead);
+      }
+    </style>
+    
+    <!-- Arrow marker -->
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="600" y="30" class="title">形式言語の基本概念</text>
+  
+  <!-- Language Components -->
+  <text x="300" y="70" class="subtitle">言語の構成要素</text>
+  
+  <!-- Alphabet -->
+  <g id="alphabet">
+    <rect x="50" y="90" width="200" height="100" class="concept-box alphabet-box" />
+    <text x="150" y="115" class="concept-title">アルファベット Σ</text>
+    <text x="70" y="140" class="description">• 記号の有限集合</text>
+    <text x="70" y="155" class="description">• 言語の構成要素</text>
+    <text x="70" y="170" class="description">例：{0,1}, {a,b,c}, {漢字}</text>
+  </g>
+  
+  <!-- String -->
+  <g id="string">
+    <rect x="270" y="90" width="200" height="100" class="concept-box string-box" />
+    <text x="370" y="115" class="concept-title">文字列 w</text>
+    <text x="290" y="140" class="description">• 記号の有限列</text>
+    <text x="290" y="155" class="description">• 長さ |w|</text>
+    <text x="290" y="170" class="description">• 空文字列 ε（長さ0）</text>
+  </g>
+  
+  <!-- Language -->
+  <g id="language">
+    <rect x="490" y="90" width="200" height="100" class="concept-box language-box" />
+    <text x="590" y="115" class="concept-title">言語 L</text>
+    <text x="510" y="140" class="description">• 文字列の集合</text>
+    <text x="510" y="155" class="description">• L ⊆ Σ*</text>
+    <text x="510" y="170" class="description">• 無限集合も可能</text>
+  </g>
+  
+  <!-- Relationships -->
+  <path d="M 250 140 L 270 140" class="relation-arrow" />
+  <path d="M 470 140 L 490 140" class="relation-arrow" />
+  <text x="260" y="130" class="description">構成</text>
+  <text x="480" y="130" class="description">集合</text>
+  
+  <!-- String Operations -->
+  <text x="300" y="240" class="subtitle">文字列の演算</text>
+  
+  <!-- Concatenation -->
+  <g id="concatenation">
+    <rect x="50" y="260" width="200" height="120" class="concept-box operation-box" />
+    <text x="150" y="285" class="concept-title">連結（Concatenation）</text>
+    <text x="150" y="305" class="formula">w₁ · w₂ = w₁w₂</text>
+    <text x="70" y="330" class="description">例：</text>
+    <text x="70" y="345" class="example">w₁ = "abc", w₂ = "def"</text>
+    <text x="70" y="360" class="example">w₁w₂ = "abcdef"</text>
+  </g>
+  
+  <!-- Powers -->
+  <g id="powers">
+    <rect x="270" y="260" width="200" height="120" class="concept-box operation-box" />
+    <text x="370" y="285" class="concept-title">べき乗（Powers）</text>
+    <text x="370" y="305" class="formula">w⁰ = ε, wⁿ⁺¹ = wⁿ · w</text>
+    <text x="290" y="330" class="description">例：w = "ab"</text>
+    <text x="290" y="345" class="example">w⁰ = ε</text>
+    <text x="290" y="360" class="example">w² = "abab"</text>
+  </g>
+  
+  <!-- Reverse -->
+  <g id="reverse">
+    <rect x="490" y="260" width="200" height="120" class="concept-box operation-box" />
+    <text x="590" y="285" class="concept-title">逆転（Reverse）</text>
+    <text x="590" y="305" class="formula">wᴿ</text>
+    <text x="510" y="330" class="description">例：</text>
+    <text x="510" y="345" class="example">w = "abc"</text>
+    <text x="510" y="360" class="example">wᴿ = "cba"</text>
+  </g>
+  
+  <!-- Language Operations -->
+  <text x="900" y="70" class="subtitle">言語の演算</text>
+  
+  <!-- Union -->
+  <g id="union">
+    <rect x="750" y="90" width="180" height="80" class="concept-box language-box" />
+    <text x="840" y="115" class="concept-title">和集合</text>
+    <text x="840" y="135" class="formula">L₁ ∪ L₂</text>
+    <text x="760" y="155" class="description">いずれかの言語に属する文字列</text>
+  </g>
+  
+  <!-- Concatenation -->
+  <g id="lang-concatenation">
+    <rect x="950" y="90" width="180" height="80" class="concept-box language-box" />
+    <text x="1040" y="115" class="concept-title">連結</text>
+    <text x="1040" y="135" class="formula">L₁ · L₂</text>
+    <text x="960" y="155" class="description">L₁の文字列とL₂の文字列の連結</text>
+  </g>
+  
+  <!-- Kleene Star -->
+  <g id="kleene-star">
+    <rect x="750" y="190" width="180" height="80" class="concept-box language-box" />
+    <text x="840" y="215" class="concept-title">クリーネ閉包</text>
+    <text x="840" y="235" class="formula">L*</text>
+    <text x="760" y="255" class="description">Lの文字列の0回以上の連結</text>
+  </g>
+  
+  <!-- Complement -->
+  <g id="complement">
+    <rect x="950" y="190" width="180" height="80" class="concept-box language-box" />
+    <text x="1040" y="215" class="concept-title">補集合</text>
+    <text x="1040" y="235" class="formula">L̄ = Σ* \ L</text>
+    <text x="960" y="255" class="description">Lに属さない全ての文字列</text>
+  </g>
+  
+  <!-- Examples and Applications -->
+  <rect x="100" y="420" width="1000" height="340" style="fill: #f8f9fa; stroke: #6c757d; stroke-width: 2px; rx: 4px;" />
+  <text x="600" y="450" class="title">具体例と応用</text>
+  
+  <!-- Specific Languages -->
+  <text x="120" y="480" class="subtitle">代表的な形式言語</text>
+  
+  <text x="140" y="500" class="concept-title">1. 正規言語</text>
+  <text x="160" y="520" class="example">L₁ = {0ⁿ1ᵐ | n,m ≥ 0} （0の後に1が続く）</text>
+  <text x="160" y="535" class="description">有限オートマトンで認識可能</text>
+  
+  <text x="140" y="560" class="concept-title">2. 文脈自由言語</text>
+  <text x="160" y="580" class="example">L₂ = {0ⁿ1ⁿ | n ≥ 0} （0と1の個数が等しい）</text>
+  <text x="160" y="595" class="description">プッシュダウンオートマトンで認識可能</text>
+  
+  <text x="140" y="620" class="concept-title">3. 文脈依存言語</text>
+  <text x="160" y="640" class="example">L₃ = {aⁿbⁿcⁿ | n ≥ 1} （a, b, cの個数が等しい）</text>
+  <text x="160" y="655" class="description">線形拘束オートマトンで認識可能</text>
+  
+  <!-- Applications -->
+  <text x="600" y="480" class="subtitle">実用的応用</text>
+  
+  <text x="620" y="500" class="concept-title">プログラミング言語</text>
+  <text x="640" y="520" class="description">• 字句解析：正規言語でトークンを定義</text>
+  <text x="640" y="535" class="description">• 構文解析：文脈自由文法で構文を定義</text>
+  
+  <text x="620" y="560" class="concept-title">文字列処理</text>
+  <text x="640" y="580" class="description">• 正規表現：パターンマッチング</text>
+  <text x="640" y="595" class="description">• 文字列検索・置換アルゴリズム</text>
+  
+  <text x="620" y="620" class="concept-title">生物情報学</text>
+  <text x="640" y="640" class="description">• DNA配列の解析</text>
+  <text x="640" y="655" class="description">• タンパク質構造予測</text>
+  
+  <!-- Mathematical Properties -->
+  <text x="120" y="690" class="subtitle">数学的性質</text>
+  <text x="140" y="710" class="formula">Σ* = {ε} ∪ Σ ∪ Σ² ∪ Σ³ ∪ ...</text>
+  <text x="140" y="730" class="description">全ての文字列の集合（可算無限）</text>
+  <text x="140" y="745" class="description">形式言語は Σ* の部分集合（非可算無限個存在）</text>
+</svg>

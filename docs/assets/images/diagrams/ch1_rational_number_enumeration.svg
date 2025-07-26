@@ -1,0 +1,215 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <title>有理数の数え上げ（Cantorの対角線法）</title>
+  <desc>正の有理数を可算無限であることを示すCantorの対角線的列挙法</desc>
+  
+  <defs>
+    <style>
+      .fraction-box { fill: #e3f2fd; stroke: #1976d2; stroke-width: 2px; rx: 4px; }
+      .sum-group { fill: rgba(76, 175, 80, 0.1); stroke: #4caf50; stroke-width: 2px; stroke-dasharray: 8,4; }
+      .skip-box { fill: #ffebee; stroke: #f44336; stroke-width: 2px; rx: 4px; }
+      .path-arrow { stroke: #ff9800; stroke-width: 3px; fill: none; marker-end: url(#path-arrowhead); }
+      
+      .title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 18px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #1a1a1a;
+      }
+      
+      .subtitle { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 14px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #2c3e50;
+      }
+      
+      .fraction-text { 
+        font-family: Courier, monospace;
+        font-size: 12px; 
+        font-weight: 500; 
+        text-anchor: middle; 
+        fill: #333;
+      }
+      
+      .order-text { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 10px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #1976d2;
+      }
+      
+      .description { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 11px; 
+        font-weight: 400; 
+        text-anchor: start; 
+        fill: #666;
+      }
+      
+      .sum-label { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 12px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #4caf50;
+      }
+    </style>
+    
+    <!-- Arrow marker -->
+    <marker id="path-arrowhead" markerWidth="12" markerHeight="8" refX="11" refY="4" orient="auto">
+      <polygon points="0 0, 12 4, 0 8" fill="#ff9800" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="600" y="30" class="title">有理数の数え上げ（Cantorの対角線法）</text>
+  
+  <!-- p+q=2 group -->
+  <g id="sum-2">
+    <rect x="80" y="80" width="120" height="60" class="sum-group" />
+    <text x="140" y="105" class="sum-label">p+q=2</text>
+    
+    <rect x="100" y="110" width="80" height="40" class="fraction-box" />
+    <text x="140" y="125" class="fraction-text">1/1</text>
+    <text x="140" y="140" class="order-text">(1)</text>
+  </g>
+  
+  <!-- p+q=3 group -->
+  <g id="sum-3">
+    <rect x="220" y="80" width="200" height="60" class="sum-group" />
+    <text x="320" y="105" class="sum-label">p+q=3</text>
+    
+    <rect x="240" y="110" width="60" height="40" class="fraction-box" />
+    <text x="270" y="125" class="fraction-text">1/2</text>
+    <text x="270" y="140" class="order-text">(2)</text>
+    
+    <rect x="320" y="110" width="60" height="40" class="fraction-box" />
+    <text x="350" y="125" class="fraction-text">2/1</text>
+    <text x="350" y="140" class="order-text">(3)</text>
+  </g>
+  
+  <!-- p+q=4 group -->
+  <g id="sum-4">
+    <rect x="450" y="80" width="280" height="60" class="sum-group" />
+    <text x="590" y="105" class="sum-label">p+q=4</text>
+    
+    <rect x="470" y="110" width="60" height="40" class="fraction-box" />
+    <text x="500" y="125" class="fraction-text">1/3</text>
+    <text x="500" y="140" class="order-text">(4)</text>
+    
+    <rect x="550" y="110" width="60" height="40" class="skip-box" />
+    <text x="580" y="125" class="fraction-text">2/2</text>
+    <text x="580" y="140" class="order-text">skip</text>
+    
+    <rect x="630" y="110" width="60" height="40" class="fraction-box" />
+    <text x="660" y="125" class="fraction-text">3/1</text>
+    <text x="660" y="140" class="order-text">(5)</text>
+  </g>
+  
+  <!-- p+q=5 group -->
+  <g id="sum-5">
+    <rect x="80" y="180" width="360" height="60" class="sum-group" />
+    <text x="260" y="205" class="sum-label">p+q=5</text>
+    
+    <rect x="100" y="210" width="60" height="40" class="fraction-box" />
+    <text x="130" y="225" class="fraction-text">1/4</text>
+    <text x="130" y="240" class="order-text">(6)</text>
+    
+    <rect x="180" y="210" width="60" height="40" class="fraction-box" />
+    <text x="210" y="225" class="fraction-text">2/3</text>
+    <text x="210" y="240" class="order-text">(7)</text>
+    
+    <rect x="260" y="210" width="60" height="40" class="fraction-box" />
+    <text x="290" y="225" class="fraction-text">3/2</text>
+    <text x="290" y="240" class="order-text">(8)</text>
+    
+    <rect x="340" y="210" width="60" height="40" class="fraction-box" />
+    <text x="370" y="225" class="fraction-text">4/1</text>
+    <text x="370" y="240" class="order-text">(9)</text>
+  </g>
+  
+  <!-- p+q=6 group -->
+  <g id="sum-6">
+    <rect x="480" y="180" width="300" height="60" class="sum-group" />
+    <text x="630" y="205" class="sum-label">p+q=6</text>
+    
+    <rect x="500" y="210" width="60" height="40" class="fraction-box" />
+    <text x="530" y="225" class="fraction-text">1/5</text>
+    <text x="530" y="240" class="order-text">(10)</text>
+    
+    <rect x="580" y="210" width="60" height="40" class="skip-box" />
+    <text x="610" y="225" class="fraction-text">2/4</text>
+    <text x="610" y="240" class="order-text">skip</text>
+    
+    <rect x="660" y="210" width="60" height="40" class="skip-box" />
+    <text x="690" y="225" class="fraction-text">3/3</text>
+    <text x="690" y="240" class="order-text">skip</text>
+    
+    <rect x="740" y="210" width="60" height="40" class="skip-box" />
+    <text x="770" y="225" class="fraction-text">4/2</text>
+    <text x="770" y="240" class="order-text">skip</text>
+    
+    <text x="830" y="225" class="fraction-text">5/1</text>
+    <text x="830" y="240" class="order-text">(11)</text>
+  </g>
+  
+  <!-- Enumeration path arrows -->
+  <path d="M 180 130 L 240 130" class="path-arrow" />
+  <path d="M 300 130 L 320 130" class="path-arrow" />
+  <path d="M 380 130 L 470 130" class="path-arrow" />
+  <path d="M 590 130 L 630 130" class="path-arrow" />
+  <path d="M 660 150 L 130 180" class="path-arrow" />
+  <path d="M 160 230 L 180 230" class="path-arrow" />
+  <path d="M 240 230 L 260 230" class="path-arrow" />
+  <path d="M 320 230 L 340 230" class="path-arrow" />
+  <path d="M 400 230 L 500 230" class="path-arrow" />
+  
+  <!-- Algorithm explanation -->
+  <rect x="100" y="300" width="1000" height="450" style="fill: #f8f9fa; stroke: #6c757d; stroke-width: 2px; rx: 4px;" />
+  <text x="600" y="330" class="title">Cantorの対角線的列挙法</text>
+  
+  <!-- Method description -->
+  <text x="120" y="360" class="subtitle">数え上げの方法</text>
+  <text x="140" y="380" class="description">1. p + q = k となる正の整数の組 (p, q) を考える</text>
+  <text x="140" y="400" class="description">2. k = 2, 3, 4, ... の順に、各kに対してすべての組を列挙</text>
+  <text x="140" y="420" class="description">3. 既約分数でないもの（gcd(p,q) ≠ 1）はスキップ</text>
+  <text x="140" y="440" class="description">4. 残った分数に1, 2, 3, ... と順番に番号を付ける</text>
+  
+  <!-- Key insight -->
+  <text x="120" y="480" class="subtitle">重要なポイント</text>
+  <text x="140" y="500" class="description">• すべての正の有理数は有限回のステップで必ず現れる</text>
+  <text x="140" y="520" class="description">• 重複を避けるため、既約分数のみを数える</text>
+  <text x="140" y="540" class="description">• これにより正の有理数全体が可算無限であることが示される</text>
+  
+  <!-- Mathematical significance -->
+  <text x="120" y="580" class="subtitle">数学的意義</text>
+  <text x="140" y="600" class="description">• 無限集合にも「大きさ」の概念があることを示す</text>
+  <text x="140" y="620" class="description">• 自然数と一対一対応できる無限集合を「可算無限」という</text>
+  <text x="140" y="640" class="description">• 後にCantorは実数が非可算無限であることも証明した</text>
+  
+  <!-- Examples -->
+  <text x="600" y="360" class="subtitle">具体例</text>
+  <text x="620" y="380" class="description">1番目: 1/1 = 1</text>
+  <text x="620" y="400" class="description">2番目: 1/2 = 0.5</text>
+  <text x="620" y="420" class="description">3番目: 2/1 = 2</text>
+  <text x="620" y="440" class="description">4番目: 1/3 = 0.333...</text>
+  <text x="620" y="460" class="description">5番目: 3/1 = 3</text>
+  <text x="620" y="480" class="description">⋮</text>
+  
+  <!-- Skipped fractions explanation -->
+  <text x="600" y="520" class="subtitle">スキップされる分数</text>
+  <text x="620" y="540" class="description">2/2 = 1 (既に1/1で数えた)</text>
+  <text x="620" y="560" class="description">2/4 = 1/2 (既に1/2で数えた)</text>
+  <text x="620" y="580" class="description">3/3 = 1 (既に1/1で数えた)</text>
+  <text x="620" y="600" class="description">4/2 = 2 (既に2/1で数えた)</text>
+  <text x="620" y="620" class="description">このように重複を避ける</text>
+  
+  <!-- Formal proof outline -->
+  <text x="600" y="660" class="subtitle">証明の骨格</text>
+  <text x="620" y="680" class="description">Q⁺ → ℕ の全単射関数の構成</text>
+  <text x="620" y="700" class="description">f: 既約分数 p/q ↦ その列挙順序</text>
+  <text x="620" y="720" class="description">∴ |Q⁺| = |ℕ| = ℵ₀ (アレフ零)</text>
+</svg>

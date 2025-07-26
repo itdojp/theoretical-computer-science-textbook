@@ -1,0 +1,332 @@
+<svg viewBox="0 0 1400 800" xmlns="http://www.w3.org/2000/svg">
+  <title>基本データ構造の比較</title>
+  <desc>配列、連結リスト、動的配列の特徴と性能比較</desc>
+  
+  <defs>
+    <style>
+      .array-box { fill: #e3f2fd; stroke: #2196f3; stroke-width: 2px; rx: 8px; }
+      .list-box { fill: #fff3e0; stroke: #ff9800; stroke-width: 2px; rx: 8px; }
+      .dynamic-box { fill: #e8f5e8; stroke: #4caf50; stroke-width: 2px; rx: 8px; }
+      .memory-box { fill: #f5f5f5; stroke: #666; stroke-width: 1px; rx: 4px; }
+      .node-box { fill: #fafafa; stroke: #999; stroke-width: 1px; rx: 4px; }
+      .properties-box { fill: #f8f9fa; stroke: #6c757d; stroke-width: 1px; rx: 4px; }
+      
+      .pointer { 
+        stroke: #333; 
+        stroke-width: 2px; 
+        fill: none; 
+        marker-end: url(#arrowhead);
+      }
+      
+      .dashed-line { 
+        stroke: #999; 
+        stroke-width: 1px; 
+        stroke-dasharray: 3,2;
+        fill: none;
+      }
+      
+      .title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 18px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #1a1a1a;
+      }
+      
+      .structure-title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 14px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #333;
+      }
+      
+      .memory-label { 
+        font-family: Courier, monospace;
+        font-size: 10px; 
+        font-weight: 500; 
+        text-anchor: middle; 
+        dominant-baseline: central;
+        fill: #333;
+      }
+      
+      .index-label { 
+        font-family: Courier, monospace;
+        font-size: 9px; 
+        font-weight: 400; 
+        text-anchor: middle; 
+        fill: #666;
+      }
+      
+      .property-text { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 10px; 
+        font-weight: 400; 
+        text-anchor: start; 
+        fill: #555;
+      }
+      
+      .complexity-text { 
+        font-family: Courier, monospace;
+        font-size: 9px; 
+        font-weight: 500; 
+        text-anchor: start; 
+        fill: #333;
+      }
+    </style>
+    
+    <!-- Arrow marker -->
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#333" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="700" y="30" class="title">基本データ構造の比較</text>
+  
+  <!-- Array Structure -->
+  <g id="array-structure">
+    <rect x="50" y="70" width="400" height="200" class="array-box" />
+    <text x="250" y="95" class="structure-title">配列（Array）</text>
+    
+    <text x="70" y="120" class="structure-title">メモリ上の連続領域</text>
+    
+    <!-- Memory representation -->
+    <rect x="80" y="130" width="40" height="30" class="memory-box" />
+    <text x="100" y="148" class="memory-label">42</text>
+    <text x="100" y="170" class="index-label">[0]</text>
+    
+    <rect x="120" y="130" width="40" height="30" class="memory-box" />
+    <text x="140" y="148" class="memory-label">17</text>
+    <text x="140" y="170" class="index-label">[1]</text>
+    
+    <rect x="160" y="130" width="40" height="30" class="memory-box" />
+    <text x="180" y="148" class="memory-label">93</text>
+    <text x="180" y="170" class="index-label">[2]</text>
+    
+    <rect x="200" y="130" width="40" height="30" class="memory-box" />
+    <text x="220" y="148" class="memory-label">65</text>
+    <text x="220" y="170" class="index-label">[3]</text>
+    
+    <!-- Memory addresses -->
+    <text x="70" y="190" class="index-label">アドレス: 1000</text>
+    <text x="120" y="190" class="index-label">1004</text>
+    <text x="160" y="190" class="index-label">1008</text>
+    <text x="200" y="190" class="index-label">1012</text>
+    
+    <!-- Properties -->
+    <rect x="280" y="130" width="150" height="120" class="properties-box" />
+    <text x="290" y="150" class="property-text">特徴:</text>
+    <text x="295" y="165" class="property-text">• O(1) ランダムアクセス</text>
+    <text x="295" y="180" class="property-text">• キャッシュ効率高</text>
+    <text x="295" y="195" class="property-text">• 挿入/削除が高コスト</text>
+    <text x="295" y="210" class="property-text">• 固定サイズ</text>
+    
+    <text x="290" y="230" class="property-text">計算量:</text>
+    <text x="295" y="245" class="complexity-text">アクセス: O(1), 挿入: O(n)</text>
+  </g>
+  
+  <!-- Linked List Structure -->
+  <g id="linked-list-structure">
+    <rect x="500" y="70" width="400" height="200" class="list-box" />
+    <text x="700" y="95" class="structure-title">連結リスト（Linked List）</text>
+    
+    <!-- Node representation -->
+    <rect x="520" y="120" width="70" height="40" class="node-box" />
+    <text x="535" y="135" class="memory-label">data: 42</text>
+    <text x="535" y="150" class="memory-label">next:</text>
+    
+    <rect x="610" y="120" width="70" height="40" class="node-box" />
+    <text x="625" y="135" class="memory-label">data: 17</text>
+    <text x="625" y="150" class="memory-label">next:</text>
+    
+    <rect x="700" y="120" width="70" height="40" class="node-box" />
+    <text x="715" y="135" class="memory-label">data: 93</text>
+    <text x="715" y="150" class="memory-label">next:</text>
+    
+    <rect x="790" y="120" width="70" height="40" class="node-box" />
+    <text x="800" y="135" class="memory-label">data: 65</text>
+    <text x="800" y="150" class="memory-label">next: null</text>
+    
+    <!-- Pointers -->
+    <path d="M 590 140 L 605 140" class="pointer" />
+    <path d="M 680 140 L 695 140" class="pointer" />
+    <path d="M 770 140 L 785 140" class="pointer" />
+    
+    <!-- Properties -->
+    <rect x="520" y="180" width="340" height="80" class="properties-box" />
+    <text x="530" y="200" class="property-text">特徴:</text>
+    <text x="535" y="215" class="property-text">• 先頭へのO(1)挿入/削除　　• 動的サイズ</text>
+    <text x="535" y="230" class="property-text">• メモリオーバーヘッド　　 • キャッシュ効率低</text>
+    
+    <text x="530" y="250" class="complexity-text">アクセス: O(n), 先頭挿入: O(1)</text>
+  </g>
+  
+  <!-- Dynamic Array Structure -->
+  <g id="dynamic-array-structure">
+    <rect x="50" y="300" width="850" height="200" class="dynamic-box" />
+    <text x="475" y="325" class="structure-title">動的配列（Dynamic Array）</text>
+    
+    <text x="70" y="350" class="structure-title">容量: 8, サイズ: 4</text>
+    
+    <!-- Memory representation with capacity -->
+    <rect x="80" y="360" width="40" height="30" class="memory-box" />
+    <text x="100" y="378" class="memory-label">42</text>
+    <text x="100" y="400" class="index-label">[0]</text>
+    
+    <rect x="120" y="360" width="40" height="30" class="memory-box" />
+    <text x="140" y="378" class="memory-label">17</text>
+    <text x="140" y="400" class="index-label">[1]</text>
+    
+    <rect x="160" y="360" width="40" height="30" class="memory-box" />
+    <text x="180" y="378" class="memory-label">93</text>
+    <text x="180" y="400" class="index-label">[2]</text>
+    
+    <rect x="200" y="360" width="40" height="30" class="memory-box" />
+    <text x="220" y="378" class="memory-label">65</text>
+    <text x="220" y="400" class="index-label">[3]</text>
+    
+    <!-- Unused capacity -->
+    <rect x="240" y="360" width="40" height="30" style="fill: #eeeeee; stroke: #ccc; stroke-width: 1px; rx: 4px;" />
+    <text x="260" y="378" class="memory-label">-</text>
+    <text x="260" y="400" class="index-label">[4]</text>
+    
+    <rect x="280" y="360" width="40" height="30" style="fill: #eeeeee; stroke: #ccc; stroke-width: 1px; rx: 4px;" />
+    <text x="300" y="378" class="memory-label">-</text>
+    <text x="300" y="400" class="index-label">[5]</text>
+    
+    <rect x="320" y="360" width="40" height="30" style="fill: #eeeeee; stroke: #ccc; stroke-width: 1px; rx: 4px;" />
+    <text x="340" y="378" class="memory-label">-</text>
+    <text x="340" y="400" class="index-label">[6]</text>
+    
+    <rect x="360" y="360" width="40" height="30" style="fill: #eeeeee; stroke: #ccc; stroke-width: 1px; rx: 4px;" />
+    <text x="380" y="378" class="memory-label">-</text>
+    <text x="380" y="400" class="index-label">[7]</text>
+    
+    <!-- Used vs unused indicator -->
+    <line x1="80" y1="420" x2="240" y2="420" stroke="#4caf50" stroke-width="3"/>
+    <text x="160" y="435" class="index-label" fill="#4caf50">使用中</text>
+    
+    <line x1="240" y1="420" x2="400" y2="420" stroke="#ccc" stroke-width="3"/>
+    <text x="320" y="435" class="index-label" fill="#999">予約済み</text>
+    
+    <!-- Resizing illustration -->
+    <text x="450" y="360" class="structure-title">倍増戦略</text>
+    
+    <!-- Before resize -->
+    <rect x="460" y="370" width="30" height="20" class="memory-box" />
+    <rect x="490" y="370" width="30" height="20" class="memory-box" />
+    <rect x="520" y="370" width="30" height="20" class="memory-box" />
+    <rect x="550" y="370" width="30" height="20" class="memory-box" />
+    <text x="505" y="405" class="index-label">容量: 4, 満杯</text>
+    
+    <!-- Arrow -->
+    <path d="M 590 380 L 620 380" class="pointer" />
+    <text x="605" y="375" class="index-label">拡張</text>
+    
+    <!-- After resize -->
+    <rect x="640" y="370" width="25" height="20" class="memory-box" />
+    <rect x="665" y="370" width="25" height="20" class="memory-box" />
+    <rect x="690" y="370" width="25" height="20" class="memory-box" />
+    <rect x="715" y="370" width="25" height="20" class="memory-box" />
+    <rect x="740" y="370" width="25" height="20" style="fill: #eeeeee; stroke: #ccc; stroke-width: 1px; rx: 4px;" />
+    <rect x="765" y="370" width="25" height="20" style="fill: #eeeeee; stroke: #ccc; stroke-width: 1px; rx: 4px;" />
+    <rect x="790" y="370" width="25" height="20" style="fill: #eeeeee; stroke: #ccc; stroke-width: 1px; rx: 4px;" />
+    <rect x="815" y="370" width="25" height="20" style="fill: #eeeeee; stroke: #ccc; stroke-width: 1px; rx: 4px;" />
+    <text x="727" y="405" class="index-label">容量: 8, 50%使用</text>
+    
+    <!-- Properties -->
+    <rect x="460" y="420" width="380" height="70" class="properties-box" />
+    <text x="470" y="440" class="property-text">特徴:</text>
+    <text x="475" y="455" class="property-text">• 償却O(1)挿入　　　• 倍増戦略でサイズ調整</text>
+    <text x="475" y="470" class="property-text">• 間欠的な再割当　　• 配列の利点を維持</text>
+    
+    <text x="470" y="485" class="complexity-text">挿入(償却): O(1), アクセス: O(1)</text>
+  </g>
+  
+  <!-- Performance Comparison Table -->
+  <g id="performance-comparison">
+    <rect x="50" y="530" width="850" height="220" style="fill: #f8f9fa; stroke: #6c757d; stroke-width: 2px; rx: 8px;" />
+    <text x="475" y="555" class="title">性能比較表</text>
+    
+    <!-- Table headers -->
+    <rect x="80" y="570" width="120" height="30" style="fill: #e0e0e0; stroke: #999; stroke-width: 1px;" />
+    <text x="140" y="590" class="structure-title">操作</text>
+    
+    <rect x="200" y="570" width="150" height="30" style="fill: #e3f2fd; stroke: #2196f3; stroke-width: 1px;" />
+    <text x="275" y="590" class="structure-title">配列</text>
+    
+    <rect x="350" y="570" width="150" height="30" style="fill: #fff3e0; stroke: #ff9800; stroke-width: 1px;" />
+    <text x="425" y="590" class="structure-title">連結リスト</text>
+    
+    <rect x="500" y="570" width="150" height="30" style="fill: #e8f5e8; stroke: #4caf50; stroke-width: 1px;" />
+    <text x="575" y="590" class="structure-title">動的配列</text>
+    
+    <rect x="650" y="570" width="200" height="30" style="fill: #fafafa; stroke: #999; stroke-width: 1px;" />
+    <text x="750" y="590" class="structure-title">備考</text>
+    
+    <!-- Random Access -->
+    <rect x="80" y="600" width="120" height="30" style="fill: #fafafa; stroke: #ccc; stroke-width: 1px;" />
+    <text x="90" y="620" class="property-text">ランダムアクセス</text>
+    
+    <rect x="200" y="600" width="150" height="30" style="fill: #fafafa; stroke: #ccc; stroke-width: 1px;" />
+    <text x="275" y="620" class="complexity-text">O(1)</text>
+    
+    <rect x="350" y="600" width="150" height="30" style="fill: #fafafa; stroke: #ccc; stroke-width: 1px;" />
+    <text x="425" y="620" class="complexity-text">O(n)</text>
+    
+    <rect x="500" y="600" width="150" height="30" style="fill: #fafafa; stroke: #ccc; stroke-width: 1px;" />
+    <text x="575" y="620" class="complexity-text">O(1)</text>
+    
+    <rect x="650" y="600" width="200" height="30" style="fill: #fafafa; stroke: #ccc; stroke-width: 1px;" />
+    <text x="660" y="620" class="property-text">インデックス直接計算</text>
+    
+    <!-- Insert at Beginning -->
+    <rect x="80" y="630" width="120" height="30" style="fill: #fafafa; stroke: #ccc; stroke-width: 1px;" />
+    <text x="90" y="650" class="property-text">先頭への挿入</text>
+    
+    <rect x="200" y="630" width="150" height="30" style="fill: #fafafa; stroke: #ccc; stroke-width: 1px;" />
+    <text x="275" y="650" class="complexity-text">O(n)</text>
+    
+    <rect x="350" y="630" width="150" height="30" style="fill: #fafafa; stroke: #ccc; stroke-width: 1px;" />
+    <text x="425" y="650" class="complexity-text">O(1)</text>
+    
+    <rect x="500" y="630" width="150" height="30" style="fill: #fafafa; stroke: #ccc; stroke-width: 1px;" />
+    <text x="575" y="650" class="complexity-text">O(n)</text>
+    
+    <rect x="650" y="630" width="200" height="30" style="fill: #fafafa; stroke: #ccc; stroke-width: 1px;" />
+    <text x="660" y="650" class="property-text">要素のシフトが必要</text>
+    
+    <!-- Insert at End -->
+    <rect x="80" y="660" width="120" height="30" style="fill: #fafafa; stroke: #ccc; stroke-width: 1px;" />
+    <text x="90" y="680" class="property-text">末尾への挿入</text>
+    
+    <rect x="200" y="660" width="150" height="30" style="fill: #fafafa; stroke: #ccc; stroke-width: 1px;" />
+    <text x="275" y="680" class="complexity-text">O(1)*</text>
+    
+    <rect x="350" y="660" width="150" height="30" style="fill: #fafafa; stroke: #ccc; stroke-width: 1px;" />
+    <text x="425" y="680" class="complexity-text">O(n)</text>
+    
+    <rect x="500" y="660" width="150" height="30" style="fill: #fafafa; stroke: #ccc; stroke-width: 1px;" />
+    <text x="575" y="680" class="complexity-text">O(1)償却</text>
+    
+    <rect x="650" y="660" width="200" height="30" style="fill: #fafafa; stroke: #ccc; stroke-width: 1px;" />
+    <text x="660" y="680" class="property-text">*容量不足で拡張必要</text>
+    
+    <!-- Space Complexity -->
+    <rect x="80" y="690" width="120" height="30" style="fill: #fafafa; stroke: #ccc; stroke-width: 1px;" />
+    <text x="90" y="710" class="property-text">空間使用効率</text>
+    
+    <rect x="200" y="690" width="150" height="30" style="fill: #fafafa; stroke: #ccc; stroke-width: 1px;" />
+    <text x="275" y="710" class="complexity-text">100%</text>
+    
+    <rect x="350" y="690" width="150" height="30" style="fill: #fafafa; stroke: #ccc; stroke-width: 1px;" />
+    <text x="425" y="710" class="complexity-text">~67%</text>
+    
+    <rect x="500" y="690" width="150" height="30" style="fill: #fafafa; stroke: #ccc; stroke-width: 1px;" />
+    <text x="575" y="710" class="complexity-text">~50%</text>
+    
+    <rect x="650" y="690" width="200" height="30" style="fill: #fafafa; stroke: #ccc; stroke-width: 1px;" />
+    <text x="660" y="710" class="property-text">ポインタ・予約領域考慮</text>
+  </g>
+</svg>

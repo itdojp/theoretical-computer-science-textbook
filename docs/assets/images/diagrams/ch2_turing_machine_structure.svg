@@ -1,0 +1,167 @@
+<svg viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
+  <title>チューリング機械の構成</title>
+  <desc>テープ、制御部、読み書きヘッドの構造と動作</desc>
+  
+  <defs>
+    <style>
+      .tape-cell { fill: #f5f5f5; stroke: #333; stroke-width: 2px; }
+      .current-cell { fill: #ffeb3b; stroke: #333; stroke-width: 3px; }
+      .control-unit { fill: #e3f2fd; stroke: #1976d2; stroke-width: 3px; rx: 8px; }
+      .head { fill: #ff9800; stroke: #333; stroke-width: 2px; }
+      .connection { stroke: #666; stroke-width: 2px; stroke-dasharray: 6,3; fill: none; }
+      
+      .title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 18px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #1a1a1a;
+      }
+      
+      .subtitle { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 14px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #2c3e50;
+      }
+      
+      .tape-symbol { 
+        font-family: Courier, monospace;
+        font-size: 16px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        dominant-baseline: central;
+        fill: #333;
+      }
+      
+      .state-text { 
+        font-family: Courier, monospace;
+        font-size: 14px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        dominant-baseline: central;
+        fill: #1976d2;
+      }
+      
+      .description { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 11px; 
+        font-weight: 400; 
+        text-anchor: start; 
+        fill: #666;
+      }
+      
+      .component-label { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 12px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #333;
+      }
+    </style>
+  </defs>
+  
+  <!-- Title -->
+  <text x="600" y="30" class="title">チューリング機械の構成</text>
+  
+  <!-- Tape -->
+  <g id="tape">
+    <text x="600" y="70" class="subtitle">テープ（無限長）</text>
+    
+    <!-- Tape cells -->
+    <rect x="200" y="90" width="60" height="60" class="tape-cell" />
+    <text x="230" y="120" class="tape-symbol">1</text>
+    
+    <rect x="260" y="90" width="60" height="60" class="tape-cell" />
+    <text x="290" y="120" class="tape-symbol">0</text>
+    
+    <rect x="320" y="90" width="60" height="60" class="tape-cell" />
+    <text x="350" y="120" class="tape-symbol">1</text>
+    
+    <rect x="380" y="90" width="60" height="60" class="tape-cell" />
+    <text x="410" y="120" class="tape-symbol">1</text>
+    
+    <!-- Current cell (highlighted) -->
+    <rect x="440" y="90" width="60" height="60" class="current-cell" />
+    <text x="470" y="120" class="tape-symbol">0</text>
+    
+    <rect x="500" y="90" width="60" height="60" class="tape-cell" />
+    <text x="530" y="120" class="tape-symbol">1</text>
+    
+    <rect x="560" y="90" width="60" height="60" class="tape-cell" />
+    <text x="590" y="120" class="tape-symbol">1</text>
+    
+    <rect x="620" y="90" width="60" height="60" class="tape-cell" />
+    <text x="650" y="120" class="tape-symbol">1</text>
+    
+    <!-- Continuation indicators -->
+    <text x="180" y="120" class="tape-symbol">...</text>
+    <text x="700" y="120" class="tape-symbol">...</text>
+    
+    <!-- Tape description -->
+    <text x="600" y="180" class="component-label">双方向無限テープ</text>
+    <text x="450" y="200" class="description">• 各セルには記号が格納（0, 1, または空白記号）</text>
+    <text x="450" y="220" class="description">• 左右に無限に拡張可能</text>
+    <text x="450" y="240" class="description">• 読み取り・書き込み可能</text>
+  </g>
+  
+  <!-- Read/Write Head -->
+  <g id="head">
+    <text x="470" y="280" class="subtitle">読み書きヘッド</text>
+    
+    <!-- Head indicator -->
+    <polygon points="470,260 460,280 480,280" class="head" />
+    <path d="M 470 260 L 470 150" class="connection" />
+    
+    <text x="400" y="300" class="description">• 現在位置: 5番目のセル（記号 0）</text>
+    <text x="400" y="320" class="description">• 一度に一つのセルのみ読み書き</text>
+    <text x="400" y="340" class="description">• 左右に移動可能（L/R）</text>
+  </g>
+  
+  <!-- Control Unit -->
+  <g id="control-unit">
+    <text x="600" y="380" class="subtitle">制御部（有限状態機械）</text>
+    
+    <rect x="500" y="400" width="200" height="80" class="control-unit" />
+    <text x="600" y="430" class="state-text">現在状態: q₅</text>
+    <text x="600" y="450" class="component-label">有限状態制御</text>
+    
+    <!-- Connection to head -->
+    <path d="M 550 400 L 470 280" class="connection" />
+    
+    <!-- Control unit description -->
+    <text x="350" y="500" class="description">• 有限個の内部状態を持つ</text>
+    <text x="350" y="520" class="description">• 現在状態と読み取った記号に基づいて動作決定</text>
+    <text x="350" y="540" class="description">• 遷移関数 δ: Q × Γ → Q × Γ × {L,R}</text>
+  </g>
+  
+  <!-- Formal Definition -->
+  <rect x="750" y="90" width="400" height="460" style="fill: #f8f9fa; stroke: #6c757d; stroke-width: 2px; rx: 4px;" />
+  <text x="950" y="120" class="subtitle">チューリング機械の形式的定義</text>
+  
+  <text x="770" y="150" class="component-label">M = (Q, Σ, Γ, δ, q₀, qₐ, qᵣ)</text>
+  
+  <text x="770" y="180" class="description">Q: 有限状態集合</text>
+  <text x="780" y="200" class="description">例: {q₀, q₁, q₂, ..., qₙ}</text>
+  
+  <text x="770" y="230" class="description">Σ: 入力アルファベット</text>
+  <text x="780" y="250" class="description">例: {0, 1}</text>
+  
+  <text x="770" y="280" class="description">Γ: テープアルファベット（Σ ⊆ Γ）</text>
+  <text x="780" y="300" class="description">例: {0, 1, ⊔} (⊔は空白記号)</text>
+  
+  <text x="770" y="330" class="description">δ: 遷移関数</text>
+  <text x="780" y="350" class="description">δ: Q × Γ → Q × Γ × {L,R}</text>
+  <text x="780" y="370" class="description">(状態, 記号) → (新状態, 書込記号, 移動方向)</text>
+  
+  <text x="770" y="400" class="description">q₀: 初期状態</text>
+  
+  <text x="770" y="430" class="description">qₐ: 受理状態</text>
+  
+  <text x="770" y="460" class="description">qᵣ: 拒否状態</text>
+  
+  <text x="770" y="490" class="subtitle">動作例</text>
+  <text x="780" y="510" class="description">δ(q₅, 0) = (q₆, 1, R)</text>
+  <text x="780" y="530" class="description">→ 状態q₅で0を読むと、1を書いて右に移動し、状態q₆へ</text>
+</svg>

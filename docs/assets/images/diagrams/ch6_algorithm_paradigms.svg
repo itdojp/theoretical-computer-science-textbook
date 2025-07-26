@@ -1,0 +1,351 @@
+<svg viewBox="0 0 1400 900" xmlns="http://www.w3.org/2000/svg">
+  <title>アルゴリズム設計パラダイムの比較</title>
+  <desc>貪欲法、動的計画法、分割統治法の特徴と適用例の比較</desc>
+  
+  <defs>
+    <style>
+      .greedy-box { fill: #e8f5e8; stroke: #4caf50; stroke-width: 2px; rx: 8px; }
+      .dp-box { fill: #e3f2fd; stroke: #2196f3; stroke-width: 2px; rx: 8px; }
+      .divide-box { fill: #fff3e0; stroke: #ff9800; stroke-width: 2px; rx: 8px; }
+      .process-box { fill: #f5f5f5; stroke: #666; stroke-width: 1px; rx: 4px; }
+      .example-box { fill: #fafafa; stroke: #999; stroke-width: 1px; rx: 4px; }
+      
+      .process-arrow { 
+        stroke: #333; 
+        stroke-width: 2px; 
+        fill: none; 
+        marker-end: url(#process-arrowhead);
+      }
+      
+      .repeat-arrow { 
+        stroke: #666; 
+        stroke-width: 1px; 
+        stroke-dasharray: 3,2;
+        fill: none; 
+        marker-end: url(#gray-arrowhead);
+      }
+      
+      .title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 18px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #1a1a1a;
+      }
+      
+      .paradigm-title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 16px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #333;
+      }
+      
+      .step-title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 12px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #333;
+      }
+      
+      .step-text { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 10px; 
+        font-weight: 400; 
+        text-anchor: middle; 
+        fill: #555;
+      }
+      
+      .example-title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 11px; 
+        font-weight: 600; 
+        text-anchor: start; 
+        fill: #333;
+      }
+      
+      .example-text { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 9px; 
+        font-weight: 400; 
+        text-anchor: start; 
+        fill: #666;
+      }
+      
+      .repeat-text { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 10px; 
+        font-weight: 400; 
+        text-anchor: middle; 
+        fill: #777;
+        font-style: italic;
+      }
+    </style>
+    
+    <!-- Arrow markers -->
+    <marker id="process-arrowhead" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#333" />
+    </marker>
+    <marker id="gray-arrowhead" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto">
+      <polygon points="0 0, 6 2, 0 4" fill="#666" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="700" y="30" class="title">アルゴリズム設計パラダイムの比較</text>
+  
+  <!-- Greedy Method -->
+  <g id="greedy-method">
+    <rect x="50" y="70" width="400" height="250" class="greedy-box" />
+    <text x="250" y="95" class="paradigm-title">貪欲法（Greedy Method）</text>
+    
+    <!-- Process flow -->
+    <rect x="70" y="110" width="80" height="40" class="process-box" />
+    <text x="110" y="125" class="step-title">現在の状態</text>
+    <text x="110" y="140" class="step-text">問題の一部</text>
+    
+    <rect x="170" y="110" width="80" height="40" class="process-box" />
+    <text x="210" y="125" class="step-title">局所最適選択</text>
+    <text x="210" y="140" class="step-text">現時点で最良</text>
+    
+    <rect x="270" y="110" width="80" height="40" class="process-box" />
+    <text x="310" y="125" class="step-title">次の状態</text>
+    <text x="310" y="140" class="step-text">部分解を拡張</text>
+    
+    <rect x="370" y="110" width="60" height="40" class="process-box" />
+    <text x="400" y="125" class="step-title">最終解</text>
+    <text x="400" y="140" class="step-text">完成</text>
+    
+    <!-- Arrows -->
+    <path d="M 150 130 L 160 130" class="process-arrow" />
+    <path d="M 250 130 L 260 130" class="process-arrow" />
+    <path d="M 350 130 L 360 130" class="process-arrow" />
+    
+    <!-- Repeat arrow -->
+    <path d="M 310 150 Q 240 180 170 150" class="repeat-arrow" />
+    <text x="240" y="185" class="repeat-text">繰り返し</text>
+    
+    <!-- Examples -->
+    <rect x="70" y="200" width="360" height="110" class="example-box" />
+    <text x="80" y="220" class="example-title">適用例:</text>
+    <text x="85" y="235" class="example-text">• Kruskalの最小全域木: 最小重み辺を順次選択</text>
+    <text x="85" y="250" class="example-text">• Dijkstraの最短路: 最小距離頂点を順次確定</text>
+    <text x="85" y="265" class="example-text">• Huffman符号: 最小頻度ノードを順次結合</text>
+    <text x="85" y="280" class="example-text">• 活動選択問題: 最早終了時刻の活動を選択</text>
+    
+    <text x="80" y="300" class="example-title">特徴: 一度選択した決定を変更しない</text>
+  </g>
+  
+  <!-- Dynamic Programming -->
+  <g id="dynamic-programming">
+    <rect x="500" y="70" width="400" height="250" class="dp-box" />
+    <text x="700" y="95" class="paradigm-title">動的計画法（Dynamic Programming）</text>
+    
+    <!-- Process flow -->
+    <rect x="520" y="110" width="80" height="40" class="process-box" />
+    <text x="560" y="125" class="step-title">部分問題定義</text>
+    <text x="560" y="140" class="step-text">状態空間設計</text>
+    
+    <rect x="620" y="110" width="80" height="40" class="process-box" />
+    <text x="660" y="125" class="step-title">再帰関係構築</text>
+    <text x="660" y="140" class="step-text">最適性方程式</text>
+    
+    <rect x="720" y="110" width="80" height="40" class="process-box" />
+    <text x="760" y="125" class="step-title">ボトムアップ</text>
+    <text x="760" y="140" class="step-text">表の埋め込み</text>
+    
+    <rect x="820" y="110" width="60" height="40" class="process-box" />
+    <text x="850" y="125" class="step-title">最適解構成</text>
+    <text x="850" y="140" class="step-text">逆算</text>
+    
+    <!-- Arrows -->
+    <path d="M 600 130 L 610 130" class="process-arrow" />
+    <path d="M 700 130 L 710 130" class="process-arrow" />
+    <path d="M 800 130 L 810 130" class="process-arrow" />
+    
+    <!-- Examples -->
+    <rect x="520" y="200" width="360" height="110" class="example-box" />
+    <text x="530" y="220" class="example-title">適用例:</text>
+    <text x="535" y="235" class="example-text">• ナップサック問題: dp[i][w] = 最大価値</text>
+    <text x="535" y="250" class="example-text">• 編集距離: dp[i][j] = 最小編集コスト</text>
+    <text x="535" y="265" class="example-text">• 連鎖行列積: dp[i][j] = 最小乗算回数</text>
+    <text x="535" y="280" class="example-text">• 最長公共部分列: dp[i][j] = LCS長</text>
+    
+    <text x="530" y="300" class="example-title">特徴: 部分問題の解を記録して再利用</text>
+  </g>
+  
+  <!-- Divide and Conquer -->
+  <g id="divide-conquer">
+    <rect x="950" y="70" width="400" height="250" class="divide-box" />
+    <text x="1150" y="95" class="paradigm-title">分割統治法（Divide and Conquer）</text>
+    
+    <!-- Process flow -->
+    <rect x="970" y="110" width="80" height="40" class="process-box" />
+    <text x="1010" y="125" class="step-title">問題の分割</text>
+    <text x="1010" y="140" class="step-text">小さな部分問題</text>
+    
+    <rect x="1070" y="110" width="80" height="40" class="process-box" />
+    <text x="1110" y="125" class="step-title">部分問題解決</text>
+    <text x="1110" y="140" class="step-text">再帰呼び出し</text>
+    
+    <rect x="1170" y="110" width="80" height="40" class="process-box" />
+    <text x="1210" y="125" class="step-title">解の結合</text>
+    <text x="1210" y="140" class="step-text">統合処理</text>
+    
+    <rect x="1270" y="110" width="60" height="40" class="process-box" />
+    <text x="1300" y="125" class="step-title">最終解</text>
+    <text x="1300" y="140" class="step-text">完成</text>
+    
+    <!-- Arrows -->
+    <path d="M 1050 130 L 1060 130" class="process-arrow" />
+    <path d="M 1150 130 L 1160 130" class="process-arrow" />
+    <path d="M 1250 130 L 1260 130" class="process-arrow" />
+    
+    <!-- Examples -->
+    <rect x="970" y="200" width="360" height="110" class="example-box" />
+    <text x="980" y="220" class="example-title">適用例:</text>
+    <text x="985" y="235" class="example-text">• マージソート: 分割→ソート→マージ</text>
+    <text x="985" y="250" class="example-text">• クイックソート: 分割→再帰ソート</text>
+    <text x="985" y="265" class="example-text">• FFT: 多項式を偶数・奇数項に分割</text>
+    <text x="985" y="280" class="example-text">• Strassen行列積: 行列を4つに分割</text>
+    
+    <text x="980" y="300" class="example-title">特徴: 問題を独立な部分問題に分解</text>
+  </g>
+  
+  <!-- Comparison Table -->
+  <g id="comparison">
+    <rect x="50" y="360" width="1300" height="500" style="fill: #f8f9fa; stroke: #6c757d; stroke-width: 2px; rx: 8px;" />
+    <text x="700" y="385" class="title">設計パラダイムの詳細比較</text>
+    
+    <!-- Table headers -->
+    <rect x="80" y="410" width="200" height="30" style="fill: #e0e0e0; stroke: #999; stroke-width: 1px;" />
+    <text x="180" y="430" class="step-title">観点</text>
+    
+    <rect x="280" y="410" width="280" height="30" style="fill: #e8f5e8; stroke: #4caf50; stroke-width: 1px;" />
+    <text x="420" y="430" class="step-title">貪欲法</text>
+    
+    <rect x="560" y="410" width="280" height="30" style="fill: #e3f2fd; stroke: #2196f3; stroke-width: 1px;" />
+    <text x="700" y="430" class="step-title">動的計画法</text>
+    
+    <rect x="840" y="410" width="280" height="30" style="fill: #fff3e0; stroke: #ff9800; stroke-width: 1px;" />
+    <text x="980" y="430" class="step-title">分割統治法</text>
+    
+    <!-- Decision Strategy -->
+    <rect x="80" y="440" width="200" height="40" style="fill: #fafafa; stroke: #ccc; stroke-width: 1px;" />
+    <text x="90" y="455" class="example-text">決定戦略</text>
+    <text x="90" y="470" class="example-text">意思決定の方法</text>
+    
+    <rect x="280" y="440" width="280" height="40" style="fill: #fafafa; stroke: #ccc; stroke-width: 1px;" />
+    <text x="290" y="455" class="example-text">局所最適選択</text>
+    <text x="290" y="470" class="example-text">現時点で最良の選択を行う</text>
+    
+    <rect x="560" y="440" width="280" height="40" style="fill: #fafafa; stroke: #ccc; stroke-width: 1px;" />
+    <text x="570" y="455" class="example-text">大域最適化</text>
+    <text x="570" y="470" class="example-text">全体を考慮した最適解を構築</text>
+    
+    <rect x="840" y="440" width="280" height="40" style="fill: #fafafa; stroke: #ccc; stroke-width: 1px;" />
+    <text x="850" y="455" class="example-text">分解と統合</text>
+    <text x="850" y="470" class="example-text">問題を分割し結果を結合</text>
+    
+    <!-- Problem Structure -->
+    <rect x="80" y="480" width="200" height="40" style="fill: #fafafa; stroke: #ccc; stroke-width: 1px;" />
+    <text x="90" y="495" class="example-text">問題構造</text>
+    <text x="90" y="510" class="example-text">必要な性質</text>
+    
+    <rect x="280" y="480" width="280" height="40" style="fill: #fafafa; stroke: #ccc; stroke-width: 1px;" />
+    <text x="290" y="495" class="example-text">貪欲選択性</text>
+    <text x="290" y="510" class="example-text">局所選択で大域最適を達成</text>
+    
+    <rect x="560" y="480" width="280" height="40" style="fill: #fafafa; stroke: #ccc; stroke-width: 1px;" />
+    <text x="570" y="495" class="example-text">最適部分構造 + 重複</text>
+    <text x="570" y="510" class="example-text">部分問題の最適解が必要</text>
+    
+    <rect x="840" y="480" width="280" height="40" style="fill: #fafafa; stroke: #ccc; stroke-width: 1px;" />
+    <text x="850" y="495" class="example-text">独立分割可能性</text>
+    <text x="850" y="510" class="example-text">部分問題が独立</text>
+    
+    <!-- Time Complexity -->
+    <rect x="80" y="520" width="200" height="40" style="fill: #fafafa; stroke: #ccc; stroke-width: 1px;" />
+    <text x="90" y="535" class="example-text">時間複雑度</text>
+    <text x="90" y="550" class="example-text">典型的な計算量</text>
+    
+    <rect x="280" y="520" width="280" height="40" style="fill: #fafafa; stroke: #ccc; stroke-width: 1px;" />
+    <text x="290" y="535" class="example-text">O(n log n) 程度</text>
+    <text x="290" y="550" class="example-text">ソートが支配的な場合が多い</text>
+    
+    <rect x="560" y="520" width="280" height="40" style="fill: #fafafa; stroke: #ccc; stroke-width: 1px;" />
+    <text x="570" y="535" class="example-text">O(n²) ~ O(n³)</text>
+    <text x="570" y="550" class="example-text">表のサイズに依存</text>
+    
+    <rect x="840" y="520" width="280" height="40" style="fill: #fafafa; stroke: #ccc; stroke-width: 1px;" />
+    <text x="850" y="535" class="example-text">O(n log n) 程度</text>
+    <text x="850" y="550" class="example-text">マスター定理で解析</text>
+    
+    <!-- Space Complexity -->
+    <rect x="80" y="560" width="200" height="40" style="fill: #fafafa; stroke: #ccc; stroke-width: 1px;" />
+    <text x="90" y="575" class="example-text">空間複雑度</text>
+    <text x="90" y="590" class="example-text">メモリ使用量</text>
+    
+    <rect x="280" y="560" width="280" height="40" style="fill: #fafafa; stroke: #ccc; stroke-width: 1px;" />
+    <text x="290" y="575" class="example-text">O(1) ~ O(n)</text>
+    <text x="290" y="590" class="example-text">追加記憶域は最小限</text>
+    
+    <rect x="560" y="560" width="280" height="40" style="fill: #fafafa; stroke: #ccc; stroke-width: 1px;" />
+    <text x="570" y="575" class="example-text">O(n²) など</text>
+    <text x="570" y="590" class="example-text">DPテーブルが必要</text>
+    
+    <rect x="840" y="560" width="280" height="40" style="fill: #fafafa; stroke: #ccc; stroke-width: 1px;" />
+    <text x="850" y="575" class="example-text">O(log n) ~ O(n)</text>
+    <text x="850" y="590" class="example-text">再帰スタック分</text>
+    
+    <!-- Proof Method -->
+    <rect x="80" y="600" width="200" height="40" style="fill: #fafafa; stroke: #ccc; stroke-width: 1px;" />
+    <text x="90" y="615" class="example-text">正当性証明</text>
+    <text x="90" y="630" class="example-text">証明手法</text>
+    
+    <rect x="280" y="600" width="280" height="40" style="fill: #fafafa; stroke: #ccc; stroke-width: 1px;" />
+    <text x="290" y="615" class="example-text">交換論法</text>
+    <text x="290" y="630" class="example-text">最適解との比較</text>
+    
+    <rect x="560" y="600" width="280" height="40" style="fill: #fafafa; stroke: #ccc; stroke-width: 1px;" />
+    <text x="570" y="615" class="example-text">カット&amp;ペースト論法</text>
+    <text x="570" y="630" class="example-text">最適部分構造の証明</text>
+    
+    <rect x="840" y="600" width="280" height="40" style="fill: #fafafa; stroke: #ccc; stroke-width: 1px;" />
+    <text x="850" y="615" class="example-text">帰納法</text>
+    <text x="850" y="630" class="example-text">再帰的構造の証明</text>
+    
+    <!-- Typical Applications -->
+    <rect x="80" y="640" width="200" height="80" style="fill: #fafafa; stroke: #ccc; stroke-width: 1px;" />
+    <text x="90" y="660" class="example-text">適用分野</text>
+    <text x="90" y="675" class="example-text">よく使われる</text>
+    <text x="90" y="690" class="example-text">問題領域</text>
+    
+    <rect x="280" y="640" width="280" height="80" style="fill: #fafafa; stroke: #ccc; stroke-width: 1px;" />
+    <text x="290" y="660" class="example-text">• グラフアルゴリズム</text>
+    <text x="290" y="675" class="example-text">• スケジューリング</text>
+    <text x="290" y="690" class="example-text">• 符号化理論</text>
+    <text x="290" y="705" class="example-text">• 近似アルゴリズム</text>
+    
+    <rect x="560" y="640" width="280" height="80" style="fill: #fafafa; stroke: #ccc; stroke-width: 1px;" />
+    <text x="570" y="660" class="example-text">• 最適化問題</text>
+    <text x="570" y="675" class="example-text">• 文字列処理</text>
+    <text x="570" y="690" class="example-text">• 数値計算</text>
+    <text x="570" y="705" class="example-text">• バイオインフォマティクス</text>
+    
+    <rect x="840" y="640" width="280" height="80" style="fill: #fafafa; stroke: #ccc; stroke-width: 1px;" />
+    <text x="850" y="660" class="example-text">• ソートアルゴリズム</text>
+    <text x="850" y="675" class="example-text">• 高速計算（FFT等）</text>
+    <text x="850" y="690" class="example-text">• 幾何学的アルゴリズム</text>
+    <text x="850" y="705" class="example-text">• 行列演算</text>
+    
+    <!-- Selection Guidelines -->
+    <rect x="80" y="780" width="1040" height="60" style="fill: #e8f5e8; stroke: #4caf50; stroke-width: 2px; rx: 4px;" />
+    <text x="100" y="800" class="example-title">選択指針:</text>
+    <text x="100" y="815" class="example-text">• 貪欲法: 局所選択で最適解が得られる場合（証明が重要）</text>
+    <text x="100" y="830" class="example-text">• 動的計画法: 最適部分構造があり、部分問題が重複する場合</text>
+    <text x="600" y="815" class="example-text">• 分割統治法: 問題が独立な部分問題に分割できる場合</text>
+    <text x="600" y="830" class="example-text">• 混合アプローチ: 複雑な問題では複数の手法を組み合わせる</text>
+  </g>
+</svg>

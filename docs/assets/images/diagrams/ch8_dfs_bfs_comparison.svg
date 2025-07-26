@@ -1,0 +1,266 @@
+<svg viewBox="0 0 1400 900" xmlns="http://www.w3.org/2000/svg">
+  <title>DFS vs BFS の探索順序</title>
+  <desc>深さ優先探索と幅優先探索の動作比較</desc>
+  
+  <defs>
+    <style>
+      .vertex { fill: #e3f2fd; stroke: #1976d2; stroke-width: 2px; }
+      .dfs-vertex { fill: #ffcdd2; stroke: #d32f2f; stroke-width: 2px; }
+      .bfs-vertex { fill: #c8e6c9; stroke: #4caf50; stroke-width: 2px; }
+      .edge { stroke: #333; stroke-width: 2px; fill: none; marker-end: url(#arrowhead); }
+      .dfs-edge { stroke: #d32f2f; stroke-width: 3px; fill: none; }
+      .bfs-edge { stroke: #4caf50; stroke-width: 3px; fill: none; }
+      
+      .title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 18px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #1a1a1a;
+      }
+      
+      .subtitle { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 14px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #2c3e50;
+      }
+      
+      .vertex-label { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 14px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        dominant-baseline: central;
+        fill: #333;
+      }
+      
+      .time-label { 
+        font-family: Courier, monospace;
+        font-size: 10px; 
+        font-weight: 500; 
+        text-anchor: middle; 
+        fill: #666;
+      }
+      
+      .description { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 11px; 
+        font-weight: 400; 
+        text-anchor: start; 
+        fill: #666;
+      }
+      
+      .order-text { 
+        font-family: Courier, monospace;
+        font-size: 12px; 
+        font-weight: 500; 
+        text-anchor: start; 
+        fill: #333;
+      }
+    </style>
+    
+    <!-- Arrow marker -->
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#333" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="700" y="30" class="title">DFS vs BFS の探索順序</text>
+  
+  <!-- Sample Graph -->
+  <g id="sample-graph">
+    <text x="200" y="70" class="subtitle">サンプルグラフ</text>
+    
+    <!-- Vertices -->
+    <circle cx="200" cy="120" r="20" class="vertex" />
+    <text x="200" y="120" class="vertex-label">A</text>
+    
+    <circle cx="150" cy="180" r="20" class="vertex" />
+    <text x="150" y="180" class="vertex-label">B</text>
+    
+    <circle cx="250" cy="180" r="20" class="vertex" />
+    <text x="250" y="180" class="vertex-label">C</text>
+    
+    <circle cx="100" cy="240" r="20" class="vertex" />
+    <text x="100" y="240" class="vertex-label">D</text>
+    
+    <circle cx="200" cy="240" r="20" class="vertex" />
+    <text x="200" y="240" class="vertex-label">E</text>
+    
+    <circle cx="300" cy="240" r="20" class="vertex" />
+    <text x="300" y="240" class="vertex-label">F</text>
+    
+    <circle cx="350" cy="180" r="20" class="vertex" />
+    <text x="350" y="180" class="vertex-label">G</text>
+    
+    <circle cx="50" cy="300" r="20" class="vertex" />
+    <text x="50" y="300" class="vertex-label">H</text>
+    
+    <!-- Edges -->
+    <line x1="185" y1="135" x2="165" y2="165" class="edge" />
+    <line x1="215" y1="135" x2="235" y2="165" class="edge" />
+    <line x1="135" y1="195" x2="115" y2="225" class="edge" />
+    <line x1="165" y1="195" x2="185" y2="225" class="edge" />
+    <line x1="265" y1="195" x2="285" y2="225" class="edge" />
+    <line x1="270" y1="180" x2="330" y2="180" class="edge" />
+    <line x1="85" y1="255" x2="65" y2="285" class="edge" />
+  </g>
+  
+  <!-- DFS Exploration -->
+  <g id="dfs-exploration">
+    <text x="550" y="70" class="subtitle">DFS の探索順序</text>
+    
+    <!-- DFS Tree -->
+    <circle cx="550" cy="120" r="20" class="dfs-vertex" />
+    <text x="550" y="120" class="vertex-label">A</text>
+    <text x="550" y="145" class="time-label">(1/16)</text>
+    
+    <circle cx="500" cy="180" r="20" class="dfs-vertex" />
+    <text x="500" y="180" class="vertex-label">B</text>
+    <text x="500" y="205" class="time-label">(2/9)</text>
+    
+    <circle cx="600" cy="180" r="20" class="dfs-vertex" />
+    <text x="600" y="180" class="vertex-label">C</text>
+    <text x="600" y="205" class="time-label">(10/15)</text>
+    
+    <circle cx="450" cy="240" r="20" class="dfs-vertex" />
+    <text x="450" y="240" class="vertex-label">D</text>
+    <text x="450" y="265" class="time-label">(3/8)</text>
+    
+    <circle cx="550" cy="240" r="20" class="dfs-vertex" />
+    <text x="550" y="240" class="vertex-label">E</text>
+    <text x="550" y="265" class="time-label">(5/6)</text>
+    
+    <circle cx="650" cy="240" r="20" class="dfs-vertex" />
+    <text x="650" y="240" class="vertex-label">F</text>
+    <text x="650" y="265" class="time-label">(11/12)</text>
+    
+    <circle cx="700" cy="180" r="20" class="dfs-vertex" />
+    <text x="700" y="180" class="vertex-label">G</text>
+    <text x="700" y="205" class="time-label">(13/14)</text>
+    
+    <circle cx="400" cy="300" r="20" class="dfs-vertex" />
+    <text x="400" y="300" class="vertex-label">H</text>
+    <text x="400" y="325" class="time-label">(4/7)</text>
+    
+    <!-- DFS Tree Edges -->
+    <line x1="535" y1="135" x2="515" y2="165" class="dfs-edge" />
+    <line x1="565" y1="135" x2="585" y2="165" class="dfs-edge" />
+    <line x1="485" y1="195" x2="465" y2="225" class="dfs-edge" />
+    <line x1="515" y1="195" x2="535" y2="225" class="dfs-edge" />
+    <line x1="615" y1="195" x2="635" y2="225" class="dfs-edge" />
+    <line x1="620" y1="180" x2="680" y2="180" class="dfs-edge" />
+    <line x1="435" y1="255" x2="415" y2="285" class="dfs-edge" />
+    
+    <!-- DFS Order -->
+    <text x="450" y="360" class="subtitle">訪問順序:</text>
+    <text x="470" y="380" class="order-text">A → B → D → H → E</text>
+    <text x="470" y="395" class="order-text">→ C → F → G</text>
+    <text x="450" y="420" class="description">括弧内: (開始時刻/終了時刻)</text>
+    <text x="450" y="435" class="description">深さ優先で可能な限り深く探索</text>
+  </g>
+  
+  <!-- BFS Exploration -->
+  <g id="bfs-exploration">
+    <text x="950" y="70" class="subtitle">BFS の探索順序</text>
+    
+    <!-- BFS Tree -->
+    <circle cx="950" cy="120" r="20" class="bfs-vertex" />
+    <text x="950" y="120" class="vertex-label">A</text>
+    <text x="950" y="145" class="time-label">(0)</text>
+    
+    <circle cx="900" cy="180" r="20" class="bfs-vertex" />
+    <text x="900" y="180" class="vertex-label">B</text>
+    <text x="900" y="205" class="time-label">(1)</text>
+    
+    <circle cx="1000" cy="180" r="20" class="bfs-vertex" />
+    <text x="1000" y="180" class="vertex-label">C</text>
+    <text x="1000" y="205" class="time-label">(1)</text>
+    
+    <circle cx="850" cy="240" r="20" class="bfs-vertex" />
+    <text x="850" y="240" class="vertex-label">D</text>
+    <text x="850" y="265" class="time-label">(2)</text>
+    
+    <circle cx="950" cy="240" r="20" class="bfs-vertex" />
+    <text x="950" y="240" class="vertex-label">E</text>
+    <text x="950" y="265" class="time-label">(2)</text>
+    
+    <circle cx="1050" cy="240" r="20" class="bfs-vertex" />
+    <text x="1050" y="240" class="vertex-label">F</text>
+    <text x="1050" y="265" class="time-label">(2)</text>
+    
+    <circle cx="1100" cy="180" r="20" class="bfs-vertex" />
+    <text x="1100" y="180" class="vertex-label">G</text>
+    <text x="1100" y="205" class="time-label">(2)</text>
+    
+    <circle cx="800" cy="300" r="20" class="bfs-vertex" />
+    <text x="800" y="300" class="vertex-label">H</text>
+    <text x="800" y="325" class="time-label">(3)</text>
+    
+    <!-- BFS Tree Edges -->
+    <line x1="935" y1="135" x2="915" y2="165" class="bfs-edge" />
+    <line x1="965" y1="135" x2="985" y2="165" class="bfs-edge" />
+    <line x1="885" y1="195" x2="865" y2="225" class="bfs-edge" />
+    <line x1="915" y1="195" x2="935" y2="225" class="bfs-edge" />
+    <line x1="1015" y1="195" x2="1035" y2="225" class="bfs-edge" />
+    <line x1="1020" y1="180" x2="1080" y2="180" class="bfs-edge" />
+    <line x1="835" y1="255" x2="815" y2="285" class="bfs-edge" />
+    
+    <!-- BFS Order -->
+    <text x="850" y="360" class="subtitle">訪問順序:</text>
+    <text x="870" y="380" class="order-text">A → B,C → D,E,F,G</text>
+    <text x="870" y="395" class="order-text">→ H</text>
+    <text x="850" y="420" class="description">括弧内: (距離)</text>
+    <text x="850" y="435" class="description">幅優先で同じ距離の頂点を先に探索</text>
+  </g>
+  
+  <!-- Algorithm Comparison -->
+  <rect x="100" y="480" width="1200" height="380" style="fill: #f8f9fa; stroke: #6c757d; stroke-width: 2px; rx: 4px;" />
+  <text x="700" y="510" class="title">DFS と BFS の比較</text>
+  
+  <!-- DFS Properties -->
+  <text x="120" y="540" class="subtitle">深さ優先探索 (DFS)</text>
+  
+  <text x="140" y="565" class="description">データ構造: スタック（再帰または明示的）</text>
+  <text x="140" y="580" class="description">探索戦略: 可能な限り深く探索してからバックトラック</text>
+  <text x="140" y="595" class="description">時間複雑度: O(|V| + |E|)</text>
+  <text x="140" y="610" class="description">空間複雑度: O(|V|)（再帰スタック）</text>
+  
+  <text x="140" y="635" class="description">用途:</text>
+  <text x="160" y="650" class="description">• トポロジカル順序</text>
+  <text x="160" y="665" class="description">• 強連結成分の検出</text>
+  <text x="160" y="680" class="description">• パスの存在判定</text>
+  <text x="160" y="695" class="description">• 迷路の解探索</text>
+  
+  <text x="140" y="720" class="description">特徴:</text>
+  <text x="160" y="735" class="description">• DFS木を構築</text>
+  <text x="160" y="750" class="description">• 発見時刻と終了時刻を記録</text>
+  <text x="160" y="765" class="description">• 後退辺を検出可能</text>
+  
+  <!-- BFS Properties -->
+  <text x="620" y="540" class="subtitle">幅優先探索 (BFS)</text>
+  
+  <text x="640" y="565" class="description">データ構造: キュー</text>
+  <text x="640" y="580" class="description">探索戦略: 同じ距離の頂点を先に探索</text>
+  <text x="640" y="595" class="description">時間複雑度: O(|V| + |E|)</text>
+  <text x="640" y="610" class="description">空間複雑度: O(|V|)（キューサイズ）</text>
+  
+  <text x="640" y="635" class="description">用途:</text>
+  <text x="660" y="650" class="description">• 最短経路探索（重みなし）</text>
+  <text x="660" y="665" class="description">• 連結性の判定</text>
+  <text x="660" y="680" class="description">• レベル順の探索</text>
+  <text x="660" y="695" class="description">• 最小スパニング木</text>
+  
+  <text x="640" y="720" class="description">特徴:</text>
+  <text x="660" y="735" class="description">• BFS木を構築</text>
+  <text x="660" y="750" class="description">• 距離情報を記録</text>
+  <text x="660" y="765" class="description">• 最短経路の保証</text>
+  
+  <!-- Performance Analysis -->
+  <text x="120" y="800" class="subtitle">性能分析</text>
+  <text x="140" y="820" class="description">両アルゴリズム共に線形時間 O(|V| + |E|) で実行</text>
+  <text x="140" y="835" class="description">選択基準は用途による：最短経路が必要ならBFS、トポロジが重要ならDFS</text>
+</svg>
