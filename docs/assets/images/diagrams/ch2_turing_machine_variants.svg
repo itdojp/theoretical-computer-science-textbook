@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 750" width="1000" height="750">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 720" width="1000" height="720">
   <title>チューリング機械の変種と等価性</title>
   <desc>多テープ、非決定性、線形拘束オートマトンなどの変種と標準TMとの等価性を示す図</desc>
   
@@ -30,7 +30,7 @@
   </defs>
   
   <!-- Background -->
-  <rect width="1000" height="750" fill="#ffffff"/>
+  <rect width="1000" height="720" fill="#ffffff"/>
   
   <!-- Main Title -->
   <text x="500" y="30" class="title-text">チューリング機械の変種と等価性</text>
@@ -115,36 +115,40 @@
   <text x="500" y="525" class="detail-text" fill="#2e7d32">・基本的な計算モデル</text>
   
   <!-- Equivalence Statement -->
-  <rect x="300" y="570" width="400" height="100" class="equivalence-box"/>
-  <text x="500" y="595" class="section-title" fill="#ff9800">Church-Turingの提唱</text>
-  <text x="500" y="615" class="main-text" fill="#ff9800">全ての合理的な計算モデルは</text>
-  <text x="500" y="630" class="main-text" fill="#ff9800">チューリング機械と等価</text>
-  <text x="500" y="650" class="detail-text" fill="#ff9800">計算能力は同じ、効率性は異なる</text>
+  <rect x="300" y="590" width="400" height="100" class="equivalence-box"/>
+  <text x="500" y="615" class="section-title" fill="#ff9800">Church-Turingの提唱</text>
+  <text x="500" y="635" class="main-text" fill="#ff9800">全ての合理的な計算モデルは</text>
+  <text x="500" y="650" class="main-text" fill="#ff9800">チューリング機械と等価</text>
+  <text x="500" y="670" class="detail-text" fill="#ff9800">計算能力は同じ、効率性は異なる</text>
   
-  <!-- Simulation arrows -->
+  <!-- Simulation arrows - parallel paths to avoid crossing -->
   <!-- Multi-tape to Standard -->
-  <path d="M 200 350 Q 300 400 375 470" class="simulate-arrow"/>
-  <text x="280" y="410" class="simulate-text">シミュレート</text>
+  <line x1="150" y1="370" x2="150" y2="380" class="simulate-arrow"/>
+  <line x1="150" y1="380" x2="390" y2="450" class="simulate-arrow"/>
+  <text x="250" y="400" class="simulate-text">シミュレート</text>
   
   <!-- NTM to Standard -->
-  <path d="M 400 370 Q 450 420 450 450" class="simulate-arrow"/>
-  <text x="430" y="410" class="simulate-text">シミュレート</text>
+  <line x1="400" y1="370" x2="400" y2="380" class="simulate-arrow"/>
+  <line x1="400" y1="380" x2="460" y2="450" class="simulate-arrow"/>
+  <text x="430" y="400" class="simulate-text">シミュレート</text>
   
   <!-- LBA restriction -->
-  <path d="M 650 350 Q 580 400 550 450" class="simulate-arrow"/>
-  <text x="600" y="410" class="simulate-text">制限</text>
+  <line x1="750" y1="370" x2="750" y2="380" class="simulate-arrow"/>
+  <line x1="750" y1="380" x2="580" y2="450" class="simulate-arrow"/>
+  <text x="665" y="400" class="simulate-text">制限</text>
   
-  <!-- Bidirectional equivalence for multi-tape and NTM -->
-  <line x1="375" y1="490" x2="250" y2="350" class="equivalence-arrow"/>
-  <line x1="450" y1="450" x2="450" y2="370" class="equivalence-arrow"/>
+  <!-- Bidirectional equivalence arrows -->
+  <line x1="390" y1="450" x2="270" y2="370" class="equivalence-arrow"/>
+  <line x1="460" y1="450" x2="460" y2="370" class="equivalence-arrow"/>
   
   <!-- Implementation details box -->
-  <rect x="50" y="420" width="200" height="120" rx="6" fill="#f8f9fa" stroke="#6c757d" stroke-width="1"/>
-  <text x="150" y="440" class="section-title">シミュレーション技法</text>
+  <rect x="50" y="420" width="220" height="140" rx="6" fill="#f8f9fa" stroke="#6c757d" stroke-width="1"/>
+  <text x="160" y="440" class="section-title">シミュレーション技法</text>
   <text x="70" y="460" class="detail-text" text-anchor="start" font-size="9px">多テープ→単一テープ:</text>
   <text x="70" y="475" class="detail-text" text-anchor="start" font-size="9px">• テープを複数領域に分割</text>
   <text x="70" y="490" class="detail-text" text-anchor="start" font-size="9px">• ヘッド位置を特殊記号でマーク</text>
-  <text x="70" y="505" class="detail-text" text-anchor="start" font-size="9px">非決定性→決定性:</text>
-  <text x="70" y="520" class="detail-text" text-anchor="start" font-size="9px">• 計算木の幅優先探索</text>
-  <text x="70" y="535" class="detail-text" text-anchor="start" font-size="9px">• 系統的なパス探索</text>
+  <text x="70" y="505" class="detail-text" text-anchor="start" font-size="9px">• 段階的シミュレーション</text>
+  <text x="70" y="525" class="detail-text" text-anchor="start" font-size="9px">非決定性→決定性:</text>
+  <text x="70" y="540" class="detail-text" text-anchor="start" font-size="9px">• 計算木の幅優先探索</text>
+  <text x="70" y="555" class="detail-text" text-anchor="start" font-size="9px">• 系統的なパス探索</text>
 </svg>
