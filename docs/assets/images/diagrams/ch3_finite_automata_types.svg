@@ -1,0 +1,222 @@
+<svg viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg">
+  <title>有限オートマトンの種類と特徴</title>
+  <desc>DFA（決定性）とNFA（非決定性）の比較</desc>
+  
+  <defs>
+    <style>
+      .dfa-box { fill: #e3f2fd; stroke: #1976d2; stroke-width: 3px; }
+      .nfa-box { fill: #e8f5e9; stroke: #4caf50; stroke-width: 3px; }
+      .example-box { fill: #fff3e0; stroke: #ff9800; stroke-width: 2px; }
+      .state { fill: #f5f5f5; stroke: #333; stroke-width: 2px; }
+      .accept-state { fill: #c8e6c9; stroke: #4caf50; stroke-width: 3px; }
+      .transition { stroke: #333; stroke-width: 2px; fill: none; marker-end: url(#arrowhead); }
+      
+      .concept-box { 
+        rx: 6px; 
+        ry: 6px; 
+        font-family: Inter, Helvetica, sans-serif;
+      }
+      
+      .title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 18px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #1a1a1a;
+      }
+      
+      .subtitle { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 14px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #2c3e50;
+      }
+      
+      .definition-title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 13px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #333;
+      }
+      
+      .description { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 11px; 
+        font-weight: 400; 
+        text-anchor: start; 
+        fill: #666;
+      }
+      
+      .formula { 
+        font-family: Courier, monospace;
+        font-size: 11px; 
+        font-weight: 500; 
+        text-anchor: start; 
+        fill: #333;
+      }
+      
+      .state-label { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 12px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        dominant-baseline: central;
+        fill: #333;
+      }
+      
+      .transition-label { 
+        font-family: Courier, monospace;
+        font-size: 10px; 
+        font-weight: 500; 
+        text-anchor: middle; 
+        fill: #333;
+      }
+    </style>
+    
+    <!-- Arrow marker -->
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="600" y="30" class="title">有限オートマトンの種類と特徴</text>
+  
+  <!-- DFA Section -->
+  <g id="dfa-section">
+    <text x="300" y="70" class="subtitle">DFA（決定性有限オートマトン）</text>
+    
+    <!-- DFA Definition -->
+    <rect x="50" y="90" width="500" height="140" class="concept-box dfa-box" />
+    <text x="300" y="115" class="definition-title">M = (Q, Σ, δ, q₀, F)</text>
+    
+    <text x="70" y="140" class="description">• Q: 状態集合</text>
+    <text x="70" y="155" class="description">• Σ: 入力アルファベット</text>
+    <text x="70" y="170" class="description">• δ: Q × Σ → Q （遷移関数）</text>
+    <text x="70" y="185" class="description">• q₀: 初期状態</text>
+    <text x="70" y="200" class="description">• F: 受理状態集合</text>
+    
+    <text x="300" y="140" class="definition-title">特徴</text>
+    <text x="320" y="160" class="description">• 各状態で各入力に対して</text>
+    <text x="320" y="175" class="description">  唯一の遷移先</text>
+    <text x="320" y="190" class="description">• 決定的な計算</text>
+    <text x="320" y="205" class="description">• 効率的な実装</text>
+    
+    <!-- DFA Example -->
+    <rect x="50" y="250" width="500" height="180" class="concept-box example-box" />
+    <text x="300" y="275" class="definition-title">例：0の個数が偶数</text>
+    
+    <!-- DFA states -->
+    <circle cx="150" cy="330" r="25" class="accept-state" />
+    <text x="150" y="330" class="state-label">q₀</text>
+    <text x="150" y="365" class="description">偶数個(受理)</text>
+    
+    <circle cx="400" cy="330" r="25" class="state" />
+    <text x="400" y="330" class="state-label">q₁</text>
+    <text x="400" y="365" class="description">奇数個</text>
+    
+    <!-- DFA transitions -->
+    <path d="M 175 320 Q 275 300 375 320" class="transition" />
+    <text x="275" y="295" class="transition-label">0</text>
+    
+    <path d="M 375 340 Q 275 360 175 340" class="transition" />
+    <text x="275" y="375" class="transition-label">0</text>
+    
+    <!-- Self loops -->
+    <path d="M 130 310 Q 120 280 150 305" class="transition" />
+    <text x="125" y="285" class="transition-label">1</text>
+    
+    <path d="M 420 310 Q 430 280 400 305" class="transition" />
+    <text x="435" y="285" class="transition-label">1</text>
+    
+    <!-- Transition function -->
+    <text x="70" y="395" class="formula">δ(q₀,0)=q₁, δ(q₀,1)=q₀</text>
+    <text x="70" y="410" class="formula">δ(q₁,0)=q₀, δ(q₁,1)=q₁</text>
+  </g>
+  
+  <!-- NFA Section -->
+  <g id="nfa-section">
+    <text x="900" y="70" class="subtitle">NFA（非決定性有限オートマトン）</text>
+    
+    <!-- NFA Definition -->
+    <rect x="650" y="90" width="500" height="140" class="concept-box nfa-box" />
+    <text x="900" y="115" class="definition-title">M = (Q, Σ, δ, q₀, F)</text>
+    
+    <text x="670" y="140" class="description">• δ: Q × Σ → P(Q)</text>
+    <text x="670" y="155" class="description">  （状態集合のべき集合）</text>
+    <text x="670" y="170" class="description">• ε遷移も可能</text>
+    <text x="670" y="185" class="description">• 複数の計算パス</text>
+    <text x="670" y="200" class="description">• 非決定的な選択</text>
+    
+    <text x="900" y="140" class="definition-title">特徴</text>
+    <text x="920" y="160" class="description">• 一つの入力に対して</text>
+    <text x="920" y="175" class="description">  複数の選択肢</text>
+    <text x="920" y="190" class="description">• 並行計算のモデル</text>
+    <text x="920" y="205" class="description">• 設計が容易</text>
+    
+    <!-- NFA Example -->
+    <rect x="650" y="250" width="500" height="180" class="concept-box example-box" />
+    <text x="900" y="275" class="definition-title">例：末尾が01で終わる文字列</text>
+    
+    <!-- NFA states -->
+    <circle cx="720" cy="330" r="25" class="state" />
+    <text x="720" y="330" class="state-label">q₀</text>
+    
+    <circle cx="820" cy="330" r="25" class="state" />
+    <text x="820" y="330" class="state-label">q₁</text>
+    
+    <circle cx="920" cy="330" r="25" class="accept-state" />
+    <text x="920" y="330" class="state-label">q₂</text>
+    
+    <!-- NFA transitions -->
+    <path d="M 745 330 L 795 330" class="transition" />
+    <text x="770" y="320" class="transition-label">0</text>
+    
+    <path d="M 845 330 L 895 330" class="transition" />
+    <text x="870" y="320" class="transition-label">1</text>
+    
+    <!-- Self loops and multiple transitions -->
+    <path d="M 700 310 Q 690 280 720 305" class="transition" />
+    <text x="690" y="285" class="transition-label">0,1</text>
+    
+    <path d="M 800 350 Q 770 370 740 350" class="transition" />
+    <text x="770" y="380" class="transition-label">0</text>
+  </g>
+  
+  <!-- Comparison -->
+  <rect x="100" y="470" width="1000" height="380" style="fill: #f8f9fa; stroke: #6c757d; stroke-width: 2px; rx: 4px;" />
+  <text x="600" y="500" class="title">DFA と NFA の比較</text>
+  
+  <!-- Comparison table -->
+  <text x="120" y="530" class="subtitle">基本的な違い</text>
+  
+  <!-- DFA characteristics -->
+  <text x="140" y="560" class="definition-title">DFA</text>
+  <text x="160" y="580" class="description">• 決定的：各状態・入力の組に対して唯一の次状態</text>
+  <text x="160" y="595" class="description">• 効率的実行：O(n)時間で文字列を処理</text>
+  <text x="160" y="610" class="description">• 直接実装：ハードウェア・ソフトウェアで容易</text>
+  <text x="160" y="625" class="description">• 大きなサイズ：複雑な言語で状態数が多い</text>
+  
+  <!-- NFA characteristics -->
+  <text x="600" y="560" class="definition-title">NFA</text>
+  <text x="620" y="580" class="description">• 非決定的：複数の選択肢、ε遷移可能</text>
+  <text x="620" y="595" class="description">• 設計容易：自然な問題記述</text>
+  <text x="620" y="610" class="description">• 小さなサイズ：効率的な表現</text>
+  <text x="620" y="625" class="description">• 間接実行：DFAに変換してから実行</text>
+  
+  <!-- Equivalence -->
+  <text x="120" y="660" class="subtitle">等価性定理</text>
+  <text x="140" y="680" class="description">DFAとNFAは表現力が等価：</text>
+  <text x="160" y="700" class="description">• 任意のNFAに対して、同じ言語を認識するDFAが存在</text>
+  <text x="160" y="715" class="description">• 任意のDFAはNFAの特殊ケース</text>
+  <text x="160" y="730" class="description">• べき集合構成法によりNFA→DFA変換可能</text>
+  
+  <!-- Practical considerations -->
+  <text x="120" y="760" class="subtitle">実用的考慮</text>
+  <text x="140" y="780" class="description">• 正規表現エンジン：NFAベースが多い（バックトラック）</text>
+  <text x="140" y="795" class="description">• 字句解析器：DFAに変換して高速実行</text>
+  <text x="140" y="810" class="description">• 状態爆発：NFA→DFA変換で指数的増大の可能性</text>
+  <text x="140" y="825" class="description">• 最小化：DFAは効率的に最小化可能</text>
+</svg>

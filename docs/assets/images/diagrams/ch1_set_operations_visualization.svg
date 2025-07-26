@@ -1,0 +1,142 @@
+<svg viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg">
+  <title>集合演算の視覚化</title>
+  <desc>和集合と共通部分の概念を視覚的に表現</desc>
+  
+  <defs>
+    <style>
+      .set-a { fill: rgba(33, 150, 243, 0.3); stroke: #1976d2; stroke-width: 3px; }
+      .set-b { fill: rgba(76, 175, 80, 0.3); stroke: #388e3c; stroke-width: 3px; }
+      .union-area { fill: rgba(255, 193, 7, 0.4); stroke: #ff9800; stroke-width: 3px; }
+      .intersection-area { fill: rgba(156, 39, 176, 0.4); stroke: #9c27b0; stroke-width: 3px; }
+      
+      .title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 18px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #1a1a1a;
+      }
+      
+      .subtitle { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 14px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #2c3e50;
+      }
+      
+      .set-label { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 16px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #333;
+      }
+      
+      .description { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 12px; 
+        font-weight: 400; 
+        text-anchor: middle; 
+        fill: #666;
+      }
+      
+      .operation-arrow {
+        stroke: #666;
+        stroke-width: 2px;
+        stroke-dasharray: 6,3;
+        fill: none;
+        marker-end: url(#arrowhead);
+      }
+    </style>
+    
+    <!-- Arrow marker -->
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="500" y="30" class="title">集合演算の視覚化</text>
+  
+  <!-- Union Operation -->
+  <g id="union-operation">
+    <text x="250" y="70" class="subtitle">和集合 A ∪ B</text>
+    
+    <!-- Set A circle -->
+    <circle cx="180" cy="140" r="60" class="set-a" />
+    <text x="150" y="145" class="set-label">A</text>
+    
+    <!-- Set B circle -->
+    <circle cx="220" cy="140" r="60" class="set-b" />
+    <text x="250" y="145" class="set-label">B</text>
+    
+    <!-- Union result -->
+    <rect x="150" y="230" width="150" height="60" rx="30" class="union-area" />
+    <text x="225" y="265" class="set-label">A ∪ B</text>
+    
+    <!-- Arrow and description -->
+    <path d="M 200 200 L 200 230" class="operation-arrow" />
+    <text x="225" y="220" class="description">A または B</text>
+    
+    <!-- Elements representation -->
+    <text x="100" y="330" class="description">A ∪ B = {x | x ∈ A または x ∈ B}</text>
+    <text x="100" y="350" class="description">例：A = {1, 2, 3}, B = {3, 4, 5} なら A ∪ B = {1, 2, 3, 4, 5}</text>
+  </g>
+  
+  <!-- Intersection Operation -->
+  <g id="intersection-operation">
+    <text x="750" y="70" class="subtitle">共通部分 A ∩ B</text>
+    
+    <!-- Set A circle -->
+    <circle cx="680" cy="140" r="60" class="set-a" />
+    <text x="650" y="145" class="set-label">A</text>
+    
+    <!-- Set B circle -->
+    <circle cx="720" cy="140" r="60" class="set-b" />
+    <text x="750" y="145" class="set-label">B</text>
+    
+    <!-- Intersection area (overlap) -->
+    <path d="M 700 85 A 60 60 0 0 1 700 195 A 60 60 0 0 1 700 85" class="intersection-area" />
+    
+    <!-- Intersection result -->
+    <rect x="650" y="230" width="150" height="60" rx="30" class="intersection-area" />
+    <text x="725" y="265" class="set-label">A ∩ B</text>
+    
+    <!-- Arrow and description -->
+    <path d="M 700 200 L 700 230" class="operation-arrow" />
+    <text x="725" y="220" class="description">A かつ B</text>
+    
+    <!-- Elements representation -->
+    <text x="600" y="330" class="description">A ∩ B = {x | x ∈ A かつ x ∈ B}</text>
+    <text x="600" y="350" class="description">例：A = {1, 2, 3}, B = {3, 4, 5} なら A ∩ B = {3}</text>
+  </g>
+  
+  <!-- Additional Set Operations -->
+  <rect x="100" y="400" width="800" height="150" style="fill: #f8f9fa; stroke: #6c757d; stroke-width: 2px; rx: 4px;" />
+  <text x="500" y="430" class="subtitle">その他の集合演算</text>
+  
+  <!-- Difference -->
+  <g id="difference-operation">
+    <text x="200" y="460" class="subtitle">差集合 A \ B</text>
+    <text x="200" y="480" class="description">A \ B = {x | x ∈ A かつ x ∉ B}</text>
+    <text x="200" y="500" class="description">Aにあって、Bにない要素</text>
+    <text x="200" y="520" class="description">例：A = {1, 2, 3}, B = {3, 4, 5} なら A \ B = {1, 2}</text>
+  </g>
+  
+  <!-- Complement -->
+  <g id="complement-operation">
+    <text x="500" y="460" class="subtitle">補集合 A^c</text>
+    <text x="500" y="480" class="description">A^c = {x | x ∈ U かつ x ∉ A}</text>
+    <text x="500" y="500" class="description">全体集合Uにあって、Aにない要素</text>
+    <text x="500" y="520" class="description">例：U = {1, 2, 3, 4, 5}, A = {1, 2, 3} なら A^c = {4, 5}</text>
+  </g>
+  
+  <!-- Symmetric Difference -->
+  <g id="symmetric-difference">
+    <text x="800" y="460" class="subtitle">対称差 A ⊕ B</text>
+    <text x="800" y="480" class="description">A ⊕ B = (A \ B) ∪ (B \ A)</text>
+    <text x="800" y="500" class="description">どちらか一方にのみ属する要素</text>
+    <text x="800" y="520" class="description">例：A = {1, 2, 3}, B = {3, 4, 5} なら A ⊕ B = {1, 2, 4, 5}</text>
+  </g>
+</svg>
