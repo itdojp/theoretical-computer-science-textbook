@@ -115,8 +115,36 @@ style(css): レスポンシブデザインを改善
 - 複雑な数式は改行して見やすく
 
 #### 図表
-- Mermaid記法を使用
-- グラフ、フローチャート、状態遷移図など
+- **基本方針**: 学術品質のSVG図表を推奨
+- **レガシー対応**: Mermaid記法も使用可能（グラフ、フローチャート、状態遷移図など）
+- **専門的内容**: 理論計算機科学の図表には高品質なSVG図表を使用
+
+##### SVG図表の作成ガイドライン
+
+**ファイル命名規則**:
+- `chX_図表内容の英語名.svg` （例: `ch5_complexity_class_inclusions.svg`）
+- 章番号 + アンダースコア + 英語記述子
+- ファイル名は英語、図表内テキストは日本語
+
+**技術仕様**:
+- viewBox寸法: 内容に応じて最適化（推奨: 800-1400px幅）
+- フォント: Inter/Helveticaフォントスタック使用
+- 色彩: アクセシビリティ対応（適切なコントラスト比）
+- エンコーディング: UTF-8でUnicode対応
+
+**アクセシビリティ要件**:
+```svg
+<title id="title">図表の日本語タイトル</title>
+<desc id="desc">図表の詳細な説明文</desc>
+```
+- `role="img"` と `aria-labelledby="title"` 属性必須
+- 数学記号や専門用語の適切な日本語化
+
+**学術品質基準**:
+- 論文・教科書レベルの視覚的品質
+- 理論的概念の正確な視覚化
+- 一貫したデザインスタイル
+- 複雑な階層構造の明確な表現
 
 ### ファイル構成
 
@@ -131,8 +159,20 @@ docs/
 │       └── *.md             # 導入部
 ├── _layouts/                # Jekyll レイアウト
 ├── _includes/               # 共通パーツ
-└── assets/                  # CSS/JS/画像
+├── assets/                  # CSS/JS/画像
+│   ├── images/
+│   │   └── diagrams/        # SVG図表ファイル
+│   │       ├── chX_*.svg    # 章別図表
+│   │       └── appendix_*.svg # 付録図表
+│   ├── css/                 # スタイルシート
+│   └── js/                  # JavaScript
+└── package.json             # NPM設定
 ```
+
+**図表ファイルの管理**:
+- すべてのSVG図表は `docs/assets/images/diagrams/` に配置
+- 章番号プレフィックスで整理（例: `ch1_`, `ch2_`）
+- 付録図表は `appendix_` プレフィックス使用
 
 ## 🧪 テスト
 
@@ -267,10 +307,22 @@ graph TD
 
 ## 📚 参考資料
 
+### 基本ツール
 - [Jekyll Documentation](https://jekyllrb.com/docs/)
 - [GitHub Pages Documentation](https://docs.github.com/en/pages)
 - [MathJax Documentation](https://docs.mathjax.org/)
 - [Mermaid Documentation](https://mermaid-js.github.io/mermaid/)
+
+### SVG図表作成
+- [SVG Specification](https://www.w3.org/TR/SVG2/) - W3C SVG仕様
+- [SVG Accessibility Guidelines](https://www.w3.org/WAI/GL/WCAG20-TECHS/SVG.html) - アクセシビリティガイドライン
+- [Japanese Typography Guidelines](https://www.w3.org/TR/jlreq/) - 日本語組版ガイドライン
+
+### 学術図表のベストプラクティス
+- **色覚バリアフリー**: ColorBrewer 2.0パレット推奨
+- **フォント選択**: Inter/Helvetica（欧文）+ 游ゴシック/Noto Sans CJK（和文）
+- **図表解像度**: ベクター形式で倍率非依存
+- **多言語対応**: Unicode文字の適切な処理
 
 ## 💬 コミュニケーション
 
