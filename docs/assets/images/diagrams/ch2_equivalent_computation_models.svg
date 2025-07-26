@@ -116,22 +116,22 @@
     <text x="420" y="405" class="description">• 半群論との関連</text>
   </g>
   
-  <!-- Equivalence arrows -->
-  <path d="M 300 140 L 400 140" class="bidirectional-arrow" />
-  <text x="350" y="130" class="description">等価</text>
+  <!-- Equivalence arrows with curved arcs -->
+  <path d="M 300 140 Q 350 120 400 140" class="bidirectional-arrow" />
+  <text x="350" y="110" class="description">等価</text>
   
-  <path d="M 500 200 L 500 300" class="bidirectional-arrow" />
-  <text x="520" y="250" class="description">等価</text>
+  <path d="M 500 200 Q 520 250 500 300" class="bidirectional-arrow" />
+  <text x="540" y="250" class="description">等価</text>
   
-  <path d="M 300 360 L 400 360" class="bidirectional-arrow" />
-  <text x="350" y="350" class="description">等価</text>
+  <path d="M 300 360 Q 350 380 400 360" class="bidirectional-arrow" />
+  <text x="350" y="390" class="description">等価</text>
   
-  <path d="M 200 200 L 200 300" class="bidirectional-arrow" />
-  <text x="220" y="250" class="description">等価</text>
+  <path d="M 200 200 Q 180 250 200 300" class="bidirectional-arrow" />
+  <text x="160" y="250" class="description">等価</text>
   
-  <!-- Diagonal arrows -->
-  <path d="M 300 180 L 420 320" class="bidirectional-arrow" />
-  <path d="M 420 180 L 300 320" class="bidirectional-arrow" />
+  <!-- Diagonal arrows with curved arcs -->
+  <path d="M 300 180 Q 330 220 360 250 Q 390 280 420 320" class="bidirectional-arrow" />
+  <path d="M 420 180 Q 390 220 360 250 Q 330 280 300 320" class="bidirectional-arrow" />
   
   <!-- Central equivalence statement -->
   <text x="350" y="250" class="model-title">全て等価</text>

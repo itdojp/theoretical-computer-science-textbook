@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" width="1000" height="700">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 620" width="1000" height="620">
   <title>決定可能性の階層構造</title>
   <desc>言語クラスの包含関係と決定可能性の概念を示す階層図</desc>
   
@@ -29,7 +29,7 @@
   </defs>
   
   <!-- Background -->
-  <rect width="1000" height="700" fill="#ffffff"/>
+  <rect width="1000" height="620" fill="#ffffff"/>
   
   <!-- Main Title -->
   <text x="500" y="30" class="title-text">決定可能性の階層構造</text>
@@ -130,14 +130,15 @@
   <text x="670" y="385" class="detail-text">対角化論法</text>
   
   <!-- Key insight box -->
-  <rect x="320" y="450" width="450" height="120" rx="8" fill="#f0f8ff" stroke="#4682b4" stroke-width="2"/>
+  <rect x="320" y="450" width="450" height="140" rx="8" fill="#f0f8ff" stroke="#4682b4" stroke-width="2"/>
   <text x="545" y="475" class="section-title">重要な洞察</text>
   <text x="545" y="500" class="main-text">決定可能 ⟺ L と L̄ の両方が認識可能</text>
   <text x="340" y="520" class="detail-text" text-anchor="start">• 決定可能な言語は、受理と拒否の両方が可能</text>
   <text x="340" y="535" class="detail-text" text-anchor="start">• 認識可能だが決定不能な言語は、補言語が認識不能</text>
   <text x="340" y="550" class="detail-text" text-anchor="start">• この差が計算の根本的な限界を示している</text>
+  <text x="340" y="570" class="detail-text" text-anchor="start">• 万能チューリング機械による対角化論法が鍵となる</text>
   
   <!-- Connection lines -->
-  <line x1="230" y1="395" x2="320" y2="250" class="connection-line" stroke-dasharray="3,2"/>
-  <line x1="230" y1="485" x2="570" y2="170" class="connection-line" stroke-dasharray="3,2"/>
+  <line x1="230" y1="395" x2="310" y2="250" class="connection-line" stroke-dasharray="3,2"/>
+  <line x1="230" y1="485" x2="560" y2="170" class="connection-line" stroke-dasharray="3,2"/>
 </svg>

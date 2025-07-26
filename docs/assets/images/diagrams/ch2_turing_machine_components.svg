@@ -1,4 +1,4 @@
-<svg viewBox="0 0 900 650" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 900 670" xmlns="http://www.w3.org/2000/svg">
   <title>チューリング機械の構成要素</title>
   <desc>チューリング機械の形式的定義と各構成要素の説明図</desc>
   
@@ -107,27 +107,30 @@
   <text x="620" y="190" class="component-desc">・テープ上の全記号　・空白記号を含む</text>
   
   <!-- Row 2: δ, q₀, Accept/Reject -->
-  <rect x="50" y="240" width="280" height="70" class="component-box" />
+  <rect x="50" y="240" width="280" height="85" class="component-box" />
   <text x="60" y="260" class="component-title">δ: 遷移関数</text>
   <text x="60" y="275" class="component-desc">Q × Γ → Q × Γ × {L, R}</text>
-  <text x="60" y="290" class="component-desc">現在状態と読み取り記号から次状態・書込み記号・移動方向を決定</text>
+  <text x="60" y="290" class="component-desc">現在状態と読み取り記号から</text>
+  <text x="60" y="305" class="component-desc">次状態・書込み記号・移動方向を決定</text>
 
-  <rect x="370" y="240" width="200" height="70" class="component-box" />
+  <rect x="370" y="240" width="200" height="85" class="component-box" />
   <text x="380" y="260" class="component-title">q₀: 初期状態</text>
   <text x="380" y="275" class="component-desc">計算開始時の状態</text>
-  <text x="380" y="290" class="component-desc">・Q の一つの元　・計算の開始点</text>
+  <text x="380" y="290" class="component-desc">・Q の一つの元</text>
+  <text x="380" y="305" class="component-desc">・計算の開始点</text>
 
-  <rect x="610" y="240" width="240" height="70" class="component-box" />
+  <rect x="610" y="240" width="240" height="85" class="component-box" />
   <text x="620" y="260" class="component-title">qaccept, qreject</text>
   <text x="620" y="275" class="component-desc">受理状態・拒否状態</text>
-  <text x="620" y="290" class="component-desc">・計算の終了状態　・入力の受理/拒否を決定</text>
+  <text x="620" y="290" class="component-desc">・計算の終了状態</text>
+  <text x="620" y="305" class="component-desc">・入力の受理/拒否を決定</text>
 
   <!-- Computation Example Section -->
-  <rect x="80" y="340" width="740" height="170" style="fill: #f8f9fa; stroke: #6c757d; stroke-width: 2px; rx: 4px;" />
-  <text x="450" y="365" class="subtitle">計算の例：文字列 "101" の処理</text>
+  <rect x="80" y="355" width="740" height="170" style="fill: #f8f9fa; stroke: #6c757d; stroke-width: 2px; rx: 4px;" />
+  <text x="450" y="380" class="subtitle">計算の例：文字列 "101" の処理</text>
   
   <!-- Tape visualization -->
-  <g transform="translate(200, 385)">
+  <g transform="translate(200, 400)">
     <!-- Tape label -->
     <text x="-100" y="20" class="component-title">テープ:</text>
     
@@ -151,7 +154,7 @@
   </g>
 
   <!-- Control unit -->
-  <g transform="translate(500, 385)">
+  <g transform="translate(500, 400)">
     <rect x="0" y="0" width="150" height="60" style="fill: #d4edda; stroke: #28a745; stroke-width: 2px; rx: 4px;" />
     <text x="75" y="25" class="component-title" text-anchor="middle">制御部</text>
     <text x="75" y="40" class="component-desc" text-anchor="middle">現在状態: q₁</text>
@@ -159,11 +162,11 @@
   </g>
   
   <!-- Transition explanation -->
-  <text x="200" y="475" class="component-desc">遷移例: δ(q₁, 1) = (q₂, 0, R)</text>
-  <text x="200" y="490" class="component-desc">「状態q₁で記号1を読むと、0を書いてq₂に遷移し右に移動」</text>
+  <text x="200" y="490" class="component-desc">遷移例: δ(q₁, 1) = (q₂, 0, R)</text>
+  <text x="200" y="505" class="component-desc">「状態q₁で記号1を読むと、0を書いてq₂に遷移し右に移動」</text>
 
   <!-- 7±2 rule compliant legend -->
-  <g transform="translate(50, 540)">
+  <g transform="translate(50, 555)">
     <rect x="0" y="0" width="800" height="80" style="fill: #f0f8ff; stroke: #4682b4; stroke-width: 1px; rx: 4px;" />
     <text x="400" y="20" class="subtitle">チューリング機械の動作</text>
     <text x="20" y="40" class="component-desc">1. 現在状態と読み取り記号を確認</text>
