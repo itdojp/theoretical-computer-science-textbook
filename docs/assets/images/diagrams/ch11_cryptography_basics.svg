@@ -1,0 +1,256 @@
+<svg viewBox="0 0 1400 1000" xmlns="http://www.w3.org/2000/svg">
+  <title>暗号システムの基本構造</title>
+  <desc>対称鍵暗号、公開鍵暗号、安全性分類、攻撃モデルの比較と特徴</desc>
+  
+  <defs>
+    <style>
+      .symmetric-crypto { fill: #e3f2fd; stroke: #2196f3; stroke-width: 2px; rx: 8px; }
+      .public-crypto { fill: #e8f5e8; stroke: #4caf50; stroke-width: 2px; rx: 8px; }
+      .security-class { fill: #fff3e0; stroke: #ff9800; stroke-width: 2px; rx: 8px; }
+      .attack-model { fill: #f3e5f5; stroke: #9c27b0; stroke-width: 2px; rx: 8px; }
+      .key-problem { fill: #ffebee; stroke: #f44336; stroke-width: 2px; rx: 8px; }
+      .key-solution { fill: #e0f2f1; stroke: #009688; stroke-width: 2px; rx: 8px; }
+      
+      .crypto-arrow { 
+        stroke: #2196f3; 
+        stroke-width: 3px; 
+        fill: none; 
+        marker-end: url(#crypto-arrowhead);
+      }
+      
+      .title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 18px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #1a1a1a;
+      }
+      
+      .section-title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 14px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #333;
+      }
+      
+      .crypto-title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 12px; 
+        font-weight: 600; 
+        text-anchor: start; 
+        fill: #333;
+      }
+      
+      .crypto-text { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 10px; 
+        font-weight: 400; 
+        text-anchor: start; 
+        fill: #555;
+      }
+      
+      .math-text { 
+        font-family: Courier, monospace;
+        font-size: 10px; 
+        font-weight: 500; 
+        text-anchor: start; 
+        fill: #333;
+      }
+      
+      .problem-text { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 9px; 
+        font-weight: 400; 
+        text-anchor: start; 
+        fill: #d32f2f;
+      }
+      
+      .solution-text { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 9px; 
+        font-weight: 400; 
+        text-anchor: start; 
+        fill: #00695c;
+      }
+    </style>
+    
+    <!-- Arrow marker -->
+    <marker id="crypto-arrowhead" markerWidth="12" markerHeight="10" refX="11" refY="5" orient="auto">
+      <polygon points="0 0, 12 5, 0 10" fill="#2196f3" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="700" y="30" class="title">暗号システムの基本構造</text>
+  
+  <!-- Symmetric Key Cryptography -->
+  <g id="symmetric-crypto">
+    <text x="350" y="70" class="section-title">対称鍵暗号</text>
+    
+    <!-- Alice and Bob -->
+    <rect x="50" y="90" width="120" height="80" class="symmetric-crypto" />
+    <text x="60" y="115" class="crypto-title">Alice</text>
+    <text x="60" y="135" class="crypto-text">秘密鍵 k</text>
+    <text x="60" y="150" class="crypto-text">平文 m を暗号化</text>
+    <text x="60" y="165" class="math-text">c = E_k(m)</text>
+    
+    <rect x="530" y="90" width="120" height="80" class="symmetric-crypto" />
+    <text x="540" y="115" class="crypto-title">Bob</text>
+    <text x="540" y="135" class="crypto-text">秘密鍵 k</text>
+    <text x="540" y="150" class="crypto-text">暗号文 c を復号</text>
+    <text x="540" y="165" class="math-text">m = D_k(c)</text>
+    
+    <!-- Communication channel -->
+    <rect x="250" y="115" width="200" height="40" style="fill: #f5f5f5; stroke: #666; stroke-width: 1px; rx: 4px;" />
+    <text x="350" y="140" class="crypto-text" text-anchor="middle">暗号文 c の送信</text>
+    
+    <!-- Arrows -->
+    <path d="M 170 130 L 240 130" class="crypto-arrow" />
+    <path d="M 450 130 L 520 130" class="crypto-arrow" />
+    
+    <!-- Key distribution problem -->
+    <rect x="50" y="190" width="600" height="60" class="key-problem" />
+    <text x="60" y="210" class="crypto-title">鍵配送問題</text>
+    <text x="60" y="230" class="problem-text">共通鍵をどうやって安全に共有するか？</text>
+    <text x="60" y="245" class="problem-text">• 事前に安全な通信路が必要</text>
+  </g>
+  
+  <!-- Public Key Cryptography -->
+  <g id="public-crypto">
+    <text x="1050" y="70" class="section-title">公開鍵暗号</text>
+    
+    <!-- Alice and Bob -->
+    <rect x="750" y="90" width="120" height="80" class="public-crypto" />
+    <text x="760" y="115" class="crypto-title">Alice</text>
+    <text x="760" y="135" class="crypto-text">公開鍵 pk, 秘密鍵 sk</text>
+    <text x="760" y="150" class="crypto-text">平文 m を暗号化</text>
+    <text x="760" y="165" class="math-text">c = E_pk(m)</text>
+    
+    <rect x="1230" y="90" width="120" height="80" class="public-crypto" />
+    <text x="1240" y="115" class="crypto-title">Bob</text>
+    <text x="1240" y="135" class="crypto-text">秘密鍵 sk</text>
+    <text x="1240" y="150" class="crypto-text">暗号文 c を復号</text>
+    <text x="1240" y="165" class="math-text">m = D_sk(c)</text>
+    
+    <!-- Communication channel -->
+    <rect x="950" y="115" width="200" height="40" style="fill: #f5f5f5; stroke: #666; stroke-width: 1px; rx: 4px;" />
+    <text x="1050" y="140" class="crypto-text" text-anchor="middle">暗号文 c の送信</text>
+    
+    <!-- Arrows -->
+    <path d="M 870 130 L 940 130" class="crypto-arrow" />
+    <path d="M 1150 130 L 1220 130" class="crypto-arrow" />
+    
+    <!-- Key distribution solution -->
+    <rect x="750" y="190" width="600" height="60" class="key-solution" />
+    <text x="760" y="210" class="crypto-title">鍵配送不要</text>
+    <text x="760" y="230" class="solution-text">公開鍵は誰でも利用可能</text>
+    <text x="760" y="245" class="solution-text">• 事前の鍵共有が不要</text>
+  </g>
+  
+  <!-- Security Classifications -->
+  <g id="security-class">
+    <text x="350" y="320" class="section-title">安全性の分類</text>
+    
+    <!-- Information-theoretic security -->
+    <rect x="50" y="340" width="300" height="120" class="security-class" />
+    <text x="60" y="360" class="crypto-title">情報理論的安全性</text>
+    <text x="60" y="380" class="crypto-text">• 完全秘匿性</text>
+    <text x="60" y="395" class="crypto-text">• 計算量無制限の敵に対して安全</text>
+    <text x="60" y="410" class="crypto-text">• 例：ワンタイムパッド</text>
+    <text x="60" y="425" class="crypto-text">• 鍵長 ≥ メッセージ長が必要</text>
+    <text x="60" y="440" class="crypto-text">• 実用性に制限</text>
+    <text x="60" y="455" class="math-text">I(M;C) = 0</text>
+    
+    <!-- Computational security -->
+    <rect x="370" y="340" width="300" height="120" class="security-class" />
+    <text x="380" y="360" class="crypto-title">計算論的安全性</text>
+    <text x="380" y="380" class="crypto-text">• 多項式時間の敵に対してのみ安全</text>
+    <text x="380" y="395" class="crypto-text">• 実用的な安全性</text>
+    <text x="380" y="410" class="crypto-text">• 例：AES, RSA</text>
+    <text x="380" y="425" class="crypto-text">• 計算量仮定に依存</text>
+    <text x="380" y="440" class="crypto-text">• 現実的な運用が可能</text>
+    <text x="380" y="455" class="math-text">Pr[Attack] < negl(n)</text>
+    
+    <!-- Computational assumptions -->
+    <rect x="50" y="480" width="620" height="60" class="security-class" />
+    <text x="60" y="500" class="crypto-title">計算量仮定</text>
+    <text x="60" y="520" class="crypto-text">• 一方向関数の存在　• 素因数分解困難性　• 離散対数困難性</text>
+    <text x="60" y="535" class="crypto-text">• 判断Diffie-Hellman仮定　• 格子問題の困難性　• 符号化問題の困難性</text>
+  </g>
+  
+  <!-- Attack Models -->
+  <g id="attack-model">
+    <text x="1050" y="320" class="section-title">攻撃モデル</text>
+    
+    <!-- Known plaintext attack -->
+    <rect x="750" y="340" width="200" height="100" class="attack-model" />
+    <text x="760" y="360" class="crypto-title">既知平文攻撃（KPA）</text>
+    <text x="760" y="380" class="crypto-text">• 平文と暗号文のペアを観察</text>
+    <text x="760" y="395" class="crypto-text">• 最も基本的な攻撃</text>
+    <text x="760" y="410" class="crypto-text">• 頻度解析など</text>
+    <text x="760" y="425" class="crypto-text">• 歴史的な暗号に有効</text>
+    
+    <!-- Chosen plaintext attack -->
+    <rect x="970" y="340" width="200" height="100" class="attack-model" />
+    <text x="980" y="360" class="crypto-title">選択平文攻撃（CPA）</text>
+    <text x="980" y="380" class="crypto-text">• 攻撃者が暗号化を利用可能</text>
+    <text x="980" y="395" class="crypto-text">• 任意の平文を暗号化できる</text>
+    <text x="980" y="410" class="crypto-text">• 公開鍵暗号の標準的脅威</text>
+    <text x="980" y="425" class="crypto-text">• IND-CPA安全性</text>
+    
+    <!-- Chosen ciphertext attack -->
+    <rect x="1190" y="340" width="200" height="100" class="attack-model" />
+    <text x="1200" y="360" class="crypto-title">選択暗号文攻撃（CCA）</text>
+    <text x="1200" y="380" class="crypto-text">• 攻撃者が復号も利用可能</text>
+    <text x="1200" y="395" class="crypto-text">• 最も強力な攻撃モデル</text>
+    <text x="1200" y="410" class="crypto-text">• IND-CCA安全性</text>
+    <text x="1200" y="425" class="crypto-text">• パディング攻撃など</text>
+    
+    <!-- Attack strength comparison -->
+    <rect x="750" y="460" width="640" height="60" class="attack-model" />
+    <text x="760" y="480" class="crypto-title">攻撃の強さ：CCA > CPA > KPA</text>
+    <text x="760" y="500" class="crypto-text">• より強い攻撃に耐性があれば、弱い攻撃にも耐性がある</text>
+    <text x="760" y="515" class="crypto-text">• 実用的なシステムでは適切な攻撃モデルを想定する必要がある</text>
+  </g>
+  
+  <!-- Cryptographic primitives -->
+  <g id="primitives">
+    <text x="700" y="580" class="section-title">暗号プリミティブの関係</text>
+    
+    <rect x="50" y="600" width="1300" height="180" style="fill: #f8f9fa; stroke: #6c757d; stroke-width: 2px; rx: 8px;" />
+    <text x="60" y="625" class="crypto-title">一方向関数の階層</text>
+    
+    <!-- Left column -->
+    <text x="70" y="650" class="crypto-title">基礎：</text>
+    <text x="80" y="670" class="crypto-text">• 一方向関数（計算容易、逆計算困難）</text>
+    <text x="80" y="685" class="crypto-text">• トラップドア一方向関数（秘密情報で逆計算可能）</text>
+    <text x="80" y="700" class="crypto-text">• 疑似乱数生成器（短い真の乱数から長い疑似乱数）</text>
+    <text x="80" y="715" class="crypto-text">• 疑似ランダム関数（鍵付きランダム関数の模倣）</text>
+    
+    <!-- Middle column -->
+    <text x="400" y="650" class="crypto-title">対称鍵暗号：</text>
+    <text x="410" y="670" class="crypto-text">• ストリーム暗号（PRGベース）</text>
+    <text x="410" y="685" class="crypto-text">• ブロック暗号（PRFベース）</text>
+    <text x="410" y="700" class="crypto-text">• メッセージ認証コード（MAC）</text>
+    <text x="410" y="715" class="crypto-text">• 認証付き暗号（AE, AEAD）</text>
+    
+    <!-- Right column -->
+    <text x="730" y="650" class="crypto-title">公開鍵暗号：</text>
+    <text x="740" y="670" class="crypto-text">• 公開鍵暗号（トラップドア関数ベース）</text>
+    <text x="740" y="685" class="crypto-text">• デジタル署名（一方向関数ベース）</text>
+    <text x="740" y="700" class="crypto-text">• 鍵交換・鍵合意プロトコル</text>
+    <text x="740" y="715" class="crypto-text">• ゼロ知識証明</text>
+    
+    <!-- Advanced primitives -->
+    <text x="1070" y="650" class="crypto-title">高度な暗号：</text>
+    <text x="1080" y="670" class="crypto-text">• 準同型暗号</text>
+    <text x="1080" y="685" class="crypto-text">• 秘密分散</text>
+    <text x="1080" y="700" class="crypto-text">• 安全な多者計算</text>
+    <text x="1080" y="715" class="crypto-text">• 関数型暗号</text>
+    
+    <!-- Bottom row -->
+    <text x="70" y="745" class="crypto-title">理論的基盤：</text>
+    <text x="80" y="765" class="crypto-text">• P ≠ NP予想、素因数分解困難性、離散対数困難性、格子問題、符号化問題</text>
+  </g>
+</svg>

@@ -1,0 +1,283 @@
+<svg viewBox="0 0 1400 900" xmlns="http://www.w3.org/2000/svg">
+  <title>RSA暗号の仕組み</title>
+  <desc>RSA暗号の鍵生成、暗号化・復号の仕組み、数学的基礎、実装上の注意点</desc>
+  
+  <defs>
+    <style>
+      .keygen-step { fill: #e3f2fd; stroke: #2196f3; stroke-width: 2px; rx: 8px; }
+      .crypto-example { fill: #fff3e0; stroke: #ff9800; stroke-width: 2px; rx: 8px; }
+      .math-foundation { fill: #e8f5e8; stroke: #4caf50; stroke-width: 2px; rx: 8px; }
+      .security-aspect { fill: #f3e5f5; stroke: #9c27b0; stroke-width: 2px; rx: 8px; }
+      .implementation { fill: #ffebee; stroke: #f44336; stroke-width: 2px; rx: 8px; }
+      
+      .flow-arrow { 
+        stroke: #2196f3; 
+        stroke-width: 3px; 
+        fill: none; 
+        marker-end: url(#flow-arrowhead);
+      }
+      
+      .title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 18px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #1a1a1a;
+      }
+      
+      .section-title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 14px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #333;
+      }
+      
+      .step-title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 12px; 
+        font-weight: 600; 
+        text-anchor: start; 
+        fill: #333;
+      }
+      
+      .math-formula { 
+        font-family: Courier, monospace;
+        font-size: 11px; 
+        font-weight: 500; 
+        text-anchor: start; 
+        fill: #333;
+      }
+      
+      .explanation { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 10px; 
+        font-weight: 400; 
+        text-anchor: start; 
+        fill: #555;
+      }
+      
+      .example-text { 
+        font-family: Courier, monospace;
+        font-size: 9px; 
+        font-weight: 400; 
+        text-anchor: start; 
+        fill: #666;
+      }
+      
+      .warning-text { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 9px; 
+        font-weight: 400; 
+        text-anchor: start; 
+        fill: #d32f2f;
+      }
+    </style>
+    
+    <!-- Arrow marker -->
+    <marker id="flow-arrowhead" markerWidth="12" markerHeight="10" refX="11" refY="5" orient="auto">
+      <polygon points="0 0, 12 5, 0 10" fill="#2196f3" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="700" y="30" class="title">RSA暗号の仕組み</text>
+  
+  <!-- Key Generation Process -->
+  <g id="key-generation">
+    <text x="350" y="70" class="section-title">鍵生成プロセス</text>
+    
+    <!-- Step 1 -->
+    <rect x="50" y="90" width="200" height="60" class="keygen-step" />
+    <text x="60" y="110" class="step-title">1. 大きな素数 p, q を選択</text>
+    <text x="60" y="125" class="math-formula">例: p = 61, q = 53</text>
+    <text x="60" y="140" class="explanation">1024-4096 bit の素数を使用</text>
+    
+    <!-- Step 2 -->
+    <rect x="270" y="90" width="200" height="60" class="keygen-step" />
+    <text x="280" y="110" class="step-title">2. n = pq を計算</text>
+    <text x="280" y="125" class="math-formula">n = 61 × 53 = 3233</text>
+    <text x="280" y="140" class="explanation">公開される合成数</text>
+    
+    <!-- Step 3 -->
+    <rect x="490" y="90" width="200" height="60" class="keygen-step" />
+    <text x="500" y="110" class="step-title">3. φ(n) = (p-1)(q-1)</text>
+    <text x="500" y="125" class="math-formula">φ(3233) = 60 × 52 = 3120</text>
+    <text x="500" y="140" class="explanation">Eulerのφ関数</text>
+    
+    <!-- Arrow between steps -->
+    <path d="M 250 120 L 260 120" class="flow-arrow" />
+    <path d="M 470 120 L 480 120" class="flow-arrow" />
+    
+    <!-- Step 4 -->
+    <rect x="50" y="170" width="300" height="60" class="keygen-step" />
+    <text x="60" y="190" class="step-title">4. gcd(e, φ(n)) = 1 となる e を選択</text>
+    <text x="60" y="205" class="math-formula">例: e = 17</text>
+    <text x="60" y="220" class="explanation">一般的に e = 65537 を使用</text>
+    
+    <!-- Step 5 -->
+    <rect x="370" y="170" width="320" height="60" class="keygen-step" />
+    <text x="380" y="190" class="step-title">5. ed ≡ 1 (mod φ(n)) を満たす d を計算</text>
+    <text x="380" y="205" class="math-formula">17d ≡ 1 (mod 3120), d = 2753</text>
+    <text x="380" y="220" class="explanation">拡張Euclidアルゴリズムで計算</text>
+    
+    <!-- Final keys -->
+    <rect x="50" y="250" width="640" height="40" style="fill: #fff3e0; stroke: #ff9800; stroke-width: 2px; rx: 8px;" />
+    <text x="60" y="275" class="step-title">公開鍵: (n = 3233, e = 17)　　秘密鍵: d = 2753</text>
+  </g>
+  
+  <!-- Encryption/Decryption Example -->
+  <g id="crypto-example">
+    <text x="1000" y="70" class="section-title">暗号化・復号の例</text>
+    
+    <!-- Plaintext -->
+    <rect x="750" y="90" width="150" height="50" class="crypto-example" />
+    <text x="760" y="110" class="step-title">平文 m</text>
+    <text x="760" y="130" class="math-formula">m = 123</text>
+    
+    <!-- Encryption -->
+    <rect x="920" y="90" width="200" height="50" class="crypto-example" />
+    <text x="930" y="110" class="step-title">暗号化: c = m^e mod n</text>
+    <text x="930" y="130" class="math-formula">c = 123^17 mod 3233 = 855</text>
+    
+    <!-- Decryption -->
+    <rect x="1140" y="90" width="200" height="50" class="crypto-example" />
+    <text x="1150" y="110" class="step-title">復号: m = c^d mod n</text>
+    <text x="1150" y="130" class="math-formula">m = 855^2753 mod 3233 = 123</text>
+    
+    <!-- Arrows -->
+    <path d="M 900 115 L 910 115" class="flow-arrow" />
+    <path d="M 1120 115 L 1130 115" class="flow-arrow" />
+    
+    <!-- Verification -->
+    <rect x="750" y="160" width="590" height="40" class="crypto-example" />
+    <text x="760" y="180" class="step-title">検証: 元の平文が正しく復号されることを確認</text>
+    <text x="760" y="195" class="explanation">高速べき乗算を用いて効率的に計算</text>
+  </g>
+  
+  <!-- Mathematical Foundation -->
+  <g id="math-foundation">
+    <text x="350" y="340" class="section-title">数学的基礎</text>
+    
+    <!-- Euler's theorem -->
+    <rect x="50" y="360" width="300" height="80" class="math-foundation" />
+    <text x="60" y="380" class="step-title">Eulerの定理</text>
+    <text x="60" y="400" class="math-formula">gcd(a,n) = 1 なら a^φ(n) ≡ 1 (mod n)</text>
+    <text x="60" y="415" class="explanation">RSAの正当性の基礎となる重要な定理</text>
+    <text x="60" y="430" class="explanation">Fermatの小定理の一般化</text>
+    
+    <!-- Correctness proof -->
+    <rect x="370" y="360" width="320" height="80" class="math-foundation" />
+    <text x="380" y="380" class="step-title">正当性の証明</text>
+    <text x="380" y="400" class="math-formula">c^d = (m^e)^d = m^ed = m^(1+kφ(n))</text>
+    <text x="380" y="415" class="math-formula">= m · (m^φ(n))^k ≡ m · 1^k ≡ m (mod n)</text>
+    <text x="380" y="430" class="explanation">Eulerの定理により成立</text>
+  </g>
+  
+  <!-- Security Aspects -->
+  <g id="security">
+    <text x="1000" y="340" class="section-title">安全性の根拠</text>
+    
+    <!-- RSA assumption -->
+    <rect x="750" y="360" width="300" height="80" class="security-aspect" />
+    <text x="760" y="380" class="step-title">RSA仮定</text>
+    <text x="760" y="400" class="explanation">n = pq, e, c = m^e mod n が与えられても</text>
+    <text x="760" y="415" class="explanation">m を求めるのは計算量的に困難</text>
+    <text x="760" y="430" class="explanation">素因数分解困難性に関連</text>
+    
+    <!-- Strong RSA assumption -->
+    <rect x="1070" y="360" width="280" height="80" class="security-aspect" />
+    <text x="1080" y="380" class="step-title">強RSA仮定</text>
+    <text x="1080" y="400" class="explanation">任意の e > 1 に対して</text>
+    <text x="1080" y="415" class="explanation">e 乗根を求めるのは困難</text>
+    <text x="1080" y="430" class="explanation">より強い安全性の根拠</text>
+  </g>
+  
+  <!-- Implementation Considerations -->
+  <g id="implementation">
+    <text x="350" y="490" class="section-title">実装上の注意</text>
+    
+    <!-- Padding -->
+    <rect x="50" y="510" width="200" height="100" class="implementation" />
+    <text x="60" y="530" class="step-title">パディング</text>
+    <text x="60" y="550" class="explanation">• OAEP (Optimal Asymmetric</text>
+    <text x="60" y="565" class="explanation">  Encryption Padding)</text>
+    <text x="60" y="580" class="explanation">• PSS (Probabilistic Signature</text>
+    <text x="60" y="595" class="explanation">  Scheme)</text>
+    <text x="60" y="610" class="warning-text">決定論的でない暗号化が必要</text>
+    
+    <!-- Key sizes -->
+    <rect x="270" y="510" width="200" height="100" class="implementation" />
+    <text x="280" y="530" class="step-title">鍵サイズ</text>
+    <text x="280" y="550" class="explanation">• 現在: 2048 bit以上推奨</text>
+    <text x="280" y="565" class="explanation">• 将来: 3072 bit以上</text>
+    <text x="280" y="580" class="explanation">• 長期利用: 4096 bit</text>
+    <text x="280" y="595" class="warning-text">量子計算機対策が必要</text>
+    <text x="280" y="610" class="warning-text">512, 1024 bitは危険</text>
+    
+    <!-- Known attacks -->
+    <rect x="490" y="510" width="200" height="100" class="implementation" />
+    <text x="500" y="530" class="step-title">既知の攻撃</text>
+    <text x="500" y="550" class="warning-text">• 小さい e の攻撃</text>
+    <text x="500" y="565" class="warning-text">• 共通剰余数攻撃</text>
+    <text x="500" y="580" class="warning-text">• タイミング攻撃</text>
+    <text x="500" y="595" class="warning-text">• 素因数分解アルゴリズム</text>
+    <text x="500" y="610" class="warning-text">• 量子アルゴリズム(Shor)</text>
+  </g>
+  
+  <!-- Performance and Optimization -->
+  <g id="performance">
+    <text x="1000" y="490" class="section-title">性能と最適化</text>
+    
+    <!-- CRT optimization -->
+    <rect x="750" y="510" width="280" height="100" class="math-foundation" />
+    <text x="760" y="530" class="step-title">中国人の剰余定理(CRT)による高速化</text>
+    <text x="760" y="550" class="math-formula">m₁ = c^(d mod (p-1)) mod p</text>
+    <text x="760" y="565" class="math-formula">m₂ = c^(d mod (q-1)) mod q</text>
+    <text x="760" y="580" class="explanation">m = CRT(m₁, m₂)</text>
+    <text x="760" y="595" class="explanation">復号速度が約4倍高速化</text>
+    <text x="760" y="610" class="warning-text">サイドチャネル攻撃に注意</text>
+    
+    <!-- Fast exponentiation -->
+    <rect x="1050" y="510" width="300" height="100" class="math-foundation" />
+    <text x="1060" y="530" class="step-title">高速べき乗算</text>
+    <text x="1060" y="550" class="explanation">• バイナリ法</text>
+    <text x="1060" y="565" class="explanation">• ウィンドウ法</text>
+    <text x="1060" y="580" class="explanation">• モンゴメリ乗算</text>
+    <text x="1060" y="595" class="explanation">計算量: O(log³ n)</text>
+    <text x="1060" y="610" class="explanation">定数時間実装が重要</text>
+  </g>
+  
+  <!-- Modern Considerations -->
+  <g id="modern-considerations">
+    <rect x="50" y="640" width="1300" height="220" style="fill: #f8f9fa; stroke: #6c757d; stroke-width: 2px; rx: 8px;" />
+    <text x="700" y="665" class="section-title">現代的な考慮事項</text>
+    
+    <!-- Left column -->
+    <text x="70" y="690" class="step-title">量子計算機の脅威:</text>
+    <text x="80" y="710" class="warning-text">• Shorのアルゴリズムにより多項式時間で素因数分解可能</text>
+    <text x="80" y="725" class="warning-text">• 十分に大きな量子計算機が実現すれば RSA は破綻</text>
+    <text x="80" y="740" class="warning-text">• 現在の推定では2030-2040年頃に実用化の可能性</text>
+    <text x="80" y="755" class="explanation">• 対策：耐量子暗号への移行が必要</text>
+    
+    <!-- Middle column -->
+    <text x="450" y="690" class="step-title">実装上のセキュリティ:</text>
+    <text x="460" y="710" class="explanation">• サイドチャネル攻撃対策（電力解析、タイミング攻撃）</text>
+    <text x="460" y="725" class="explanation">• 定数時間実装によるタイミング攻撃の回避</text>
+    <text x="460" y="740" class="explanation">• ハードウェアセキュリティモジュール（HSM）の使用</text>
+    <text x="460" y="755" class="explanation">• 鍵の安全な生成と管理</text>
+    
+    <!-- Right column -->
+    <text x="850" y="690" class="step-title">標準化と相互運用性:</text>
+    <text x="860" y="710" class="explanation">• PKCS#1 v2.2 (RFC 8017) 準拠</text>
+    <text x="860" y="725" class="explanation">• FIPS 140-2/3 認証</text>
+    <text x="860" y="740" class="explanation">• Common Criteria 評価</text>
+    <text x="860" y="755" class="explanation">• 各国の暗号規制への対応</text>
+    
+    <!-- Bottom row -->
+    <text x="70" y="785" class="step-title">ハイブリッド暗号での利用:</text>
+    <text x="80" y="805" class="explanation">• RSAは通常、対称鍵の暗号化に使用（鍵カプセル化）</text>
+    <text x="80" y="820" class="explanation">• 実際のデータはAESなどの対称鍵暗号で暗号化</text>
+    <text x="80" y="835" class="explanation">• RSA-OAEP + AES-GCM の組み合わせが一般的</text>
+  </g>
+</svg>

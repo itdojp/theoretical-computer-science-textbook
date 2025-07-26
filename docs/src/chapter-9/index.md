@@ -65,54 +65,7 @@ v の論理式への拡張 v̂ を帰納的に定義：
 
 ### 9.1.4 命題論理の決定手続き
 
-```mermaid
-graph TD
-    subgraph "命題論理の決定手続きの比較"
-        subgraph "真理値表法"
-            TT1["すべての真理値割当を列挙"]
-            TT2["各割当で論理式を評価"]
-            TT3["すべて偽なら UNSAT<br/>一つでも真なら SAT"]
-            
-            TT1 --> TT2
-            TT2 --> TT3
-            
-            TTComplexity["計算量: O(2ⁿ · |φ|)<br/>n: 変数数<br/>|φ|: 論理式のサイズ"]
-        end
-        
-        subgraph "DPLLアルゴリズム"
-            DPLL1["前処理<br/>・単位伝播<br/>・純リテラル削除"]
-            DPLL2["分岐変数の選択"]
-            DPLL3["True/False で分岐"]
-            DPLL4["再帰的に解決"]
-            DPLL5["学習節の追加<br/>（CDCL拡張）"]
-            
-            DPLL1 --> DPLL2
-            DPLL2 --> DPLL3
-            DPLL3 --> DPLL4
-            DPLL4 --> DPLL5
-            
-            DPLLBenefit["利点:<br/>・効率的な枝刈り<br/>・実用的な性能<br/>・学習による高速化"]
-        end
-        
-        subgraph "BDDによる手法"
-            BDD1["論理式のBDD構築"]
-            BDD2["正規化と縮約"]
-            BDD3["終端ノードで判定"]
-            
-            BDD1 --> BDD2
-            BDD2 --> BDD3
-            
-            BDDNote["Binary Decision Diagram<br/>変数順序に依存<br/>記号的計算に適用"]
-        end
-    end
-    
-    style TT1 fill:#e3f2fd
-    style DPLL1 fill:#fff3e0
-    style BDD1 fill:#e8f5e8
-    style TTComplexity fill:#ffebee
-    style DPLLBenefit fill:#f3e5f5
-    style BDDNote fill:#ffe0b2
-```
+![命題論理の決定手続きの比較](../../assets/images/diagrams/ch9_propositional_logic_decision_procedures.svg)
 
 #### 真理値表法
 時間複雑度：O(2^n · |φ|)（n は変数数）
@@ -249,54 +202,7 @@ Q₁x₁...Qₙxₙ ψ（Qᵢ ∈ {∀, ∃}、ψ は量化子を含まない）
 
 ### 9.3.3 モデル検査
 
-```mermaid
-graph TD
-    subgraph "時相論理とモデル検査"
-        subgraph "時相論理の種類"
-            LTL["線形時相論理 (LTL)<br/>・○φ (next)<br/>・□φ (always)<br/>・◇φ (eventually)<br/>・φ U ψ (until)"]
-            CTL["計算木論理 (CTL)<br/>・AX, EX (next)<br/>・AG, EG (always)<br/>・AF, EF (eventually)<br/>・AU, EU (until)"]
-            
-            LTL_Features["単一実行経路上の性質<br/>線形時間オペレータ"]
-            CTL_Features["分岐時間構造<br/>全経路/存在経路量化"]
-            
-            LTL --> LTL_Features
-            CTL --> CTL_Features
-        end
-        
-        subgraph "モデル検査プロセス"
-            System["システムモデル<br/>状態遷移系"]
-            Property["性質仕様<br/>時相論理式"]
-            ModelCheck[["モデル検査器"]]
-            
-            Result1["満たす<br/>✓"]
-            Result2["反例<br/>✗"]
-            
-            System --> ModelCheck
-            Property --> ModelCheck
-            ModelCheck --> Result1
-            ModelCheck --> Result2
-        end
-        
-        subgraph "CTLモデル検査アルゴリズム"
-            CTL_Input["CTL式 φ と<br/>遷移系 M"]
-            CTL_Parse["構文解析<br/>部分式に分解"]
-            CTL_Compute["ボトムアップ計算<br/>不動点演算"]
-            CTL_Result["満足する状態集合<br/>を返す"]
-            
-            CTL_Input --> CTL_Parse
-            CTL_Parse --> CTL_Compute
-            CTL_Compute --> CTL_Result
-            
-            CTL_Complexity["計算量:<br/>O(|φ| · |S| · |R|)<br/>S: 状態, R: 遷移"]
-        end
-    end
-    
-    style LTL fill:#e3f2fd
-    style CTL fill:#fff3e0
-    style ModelCheck fill:#f3e5f5
-    style CTL_Compute fill:#e8f5e8
-    style CTL_Complexity fill:#ffe0b2
-```
+![時相論理とモデル検査](../../assets/images/diagrams/ch9_temporal_logic_model_checking.svg)
 
 **定義 9.14** **モデル検査問題**：
 与えられた有限状態システム M と時相論理式 φ に対して、M ⊨ φ ?
@@ -340,47 +246,7 @@ CTLCheck(M, φ):
 
 ### 9.4.2 推論規則
 
-```mermaid
-graph TD
-    subgraph "Hoare論理の推論規則体系"
-        subgraph "基本規則"
-            Assignment["代入規則<br/>{P[e/x]} x := e {P}"]
-            Sequence["順次実行<br/>{P} S₁ {Q}, {Q} S₂ {R}<br/>―――――――――――――――<br/>{P} S₁; S₂ {R}"]
-            Conditional["条件分岐<br/>{P ∧ B} S₁ {Q}, {P ∧ ¬B} S₂ {Q}<br/>――――――――――――――――――――<br/>{P} if B then S₁ else S₂ {Q}"]
-            
-            Assignment_Ex["例: {x = 5}<br/>y := x + 1<br/>{y = 6}"]
-            Sequence_Ex["例: {x = 0}<br/>x := x + 1; x := x * 2<br/>{x = 2}"]
-            Conditional_Ex["例: {x ≥ 0}<br/>if x > 0 then y := 1 else y := 0<br/>{y ≥ 0}"]
-        end
-        
-        subgraph "ループ規則"
-            Loop["ループ規則<br/>{I ∧ B} S {I}<br/>――――――――――<br/>{I} while B do S {I ∧ ¬B}"]
-            Invariant["ループ不変条件 I:<br/>・ループ開始前に成立<br/>・各反復で保持<br/>・終了後も成立"]
-            
-            Loop_Ex["例: {n ≥ 0 ∧ i = 0 ∧ sum = 0}<br/>while i < n do<br/>  (sum := sum + i; i := i + 1)<br/>{sum = 0+1+...+(n-1)}"]
-        end
-        
-        subgraph "構造規則"
-            Consequence["帰結規則<br/>P' → P, {P} S {Q}, Q → Q'<br/>――――――――――――――――<br/>{P'} S {Q'}"]
-            Strengthen["事前条件強化<br/>事後条件弱化"]
-            
-            Frame["フレーム規則<br/>（分離論理）<br/>{P} S {Q}<br/>―――――――<br/>{P * R} S {Q * R}"]
-        end
-        
-        Assignment --> Assignment_Ex
-        Sequence --> Sequence_Ex
-        Conditional --> Conditional_Ex
-        Loop --> Invariant
-        Loop --> Loop_Ex
-        Consequence --> Strengthen
-    end
-    
-    style Assignment fill:#e3f2fd
-    style Loop fill:#fff3e0
-    style Consequence fill:#f3e5f5
-    style Invariant fill:#e8f5e8
-    style Frame fill:#ffe0b2
-```
+![Hoare論理の推論規則体系](../../assets/images/diagrams/ch9_hoare_logic_inference_system.svg)
 
 **基本的な推論規則**：
 
@@ -511,51 +377,7 @@ axioms:
 
 ### 9.6.1 対話型定理証明
 
-```mermaid
-graph TD
-    subgraph "定理証明支援系の分類と特徴"
-        subgraph "対話型証明支援系"
-            Coq["Coq<br/>・帰納的構成の計算 (CIC)<br/>・依存型<br/>・プログラム抽出"]
-            Isabelle["Isabelle/HOL<br/>・高階論理<br/>・強力な自動化<br/>・豊富なライブラリ"]
-            Lean["Lean<br/>・現代的な依存型理論<br/>・数学的定理の形式化<br/>・アクティブな開発"]
-            
-            Coq_Features["特徴:<br/>・Curry-Howard対応<br/>・証明項の構成<br/>・型チェックによる検証"]
-            Isabelle_Features["特徴:<br/>・sledgehammer自動化<br/>・Archive of Formal Proofs<br/>・実用的な証明"]
-            Lean_Features["特徴:<br/>・モダンな構文<br/>・mathlib数学ライブラリ<br/>・タクティック証明"]
-        end
-        
-        subgraph "自動定理証明"
-            SMT["SMTソルバ<br/>・Z3, CVC4, Yices<br/>・理論の組み合わせ<br/>・DPLL(T)"]
-            ATP["汎用ATP<br/>・Vampire, E, SPASS<br/>・一階論理<br/>・Resolution"]
-            
-            SMT_Apps["応用:<br/>・プログラム検証<br/>・制約充足<br/>・最適化"]
-            ATP_Apps["応用:<br/>・数学定理証明<br/>・論理パズル<br/>・知識推論"]
-        end
-        
-        subgraph "証明の構造（Coq例）"
-            ProofStart["定理宣言<br/>Theorem example : ∀ n, n + 0 = n"]
-            ProofBody["証明開始<br/>Proof."]
-            Tactics["タクティック適用<br/>intros n.<br/>induction n.<br/>- reflexivity.<br/>- simpl. rewrite IHn. reflexivity."]
-            ProofEnd["証明終了<br/>Qed."]
-            
-            ProofStart --> ProofBody
-            ProofBody --> Tactics
-            Tactics --> ProofEnd
-        end
-        
-        Coq --> Coq_Features
-        Isabelle --> Isabelle_Features
-        Lean --> Lean_Features
-        SMT --> SMT_Apps
-        ATP --> ATP_Apps
-    end
-    
-    style Coq fill:#e3f2fd
-    style Isabelle fill:#fff3e0
-    style Lean fill:#f3e5f5
-    style SMT fill:#e8f5e8
-    style ProofStart fill:#ffe0b2
-```
+![定理証明支援系の分類と特徴](../../assets/images/diagrams/ch9_theorem_proving_systems.svg)
 
 **主要なシステム**：
 - Coq：帰納的構成の計算（CIC）に基づく

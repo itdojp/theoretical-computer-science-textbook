@@ -1,0 +1,307 @@
+<svg viewBox="0 0 1400 900" xmlns="http://www.w3.org/2000/svg">
+  <title>計算複雑性の階層構造</title>
+  <desc>時間複雑性、空間複雑性、非決定性クラスの包含関係と実用的境界</desc>
+  
+  <defs>
+    <style>
+      .time-complexity { fill: #e3f2fd; stroke: #2196f3; stroke-width: 2px; rx: 8px; }
+      .space-complexity { fill: #fff3e0; stroke: #ff9800; stroke-width: 2px; rx: 8px; }
+      .non-deterministic { fill: #e8f5e8; stroke: #4caf50; stroke-width: 2px; rx: 8px; }
+      .inclusion-box { fill: #f3e5f5; stroke: #9c27b0; stroke-width: 2px; rx: 8px; }
+      .practical-box { fill: #ffebee; stroke: #f44336; stroke-width: 2px; rx: 8px; }
+      
+      .hierarchy-arrow { 
+        stroke: #666; 
+        stroke-width: 2px; 
+        fill: none; 
+        marker-end: url(#arrowhead);
+      }
+      
+      .dashed-relation { 
+        stroke: #999; 
+        stroke-width: 1px; 
+        stroke-dasharray: 5,3;
+        fill: none;
+      }
+      
+      .title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 18px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #1a1a1a;
+      }
+      
+      .section-title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 14px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #333;
+      }
+      
+      .class-name { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 12px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #333;
+      }
+      
+      .class-notation { 
+        font-family: Courier, monospace;
+        font-size: 10px; 
+        font-weight: 500; 
+        text-anchor: middle; 
+        fill: #666;
+      }
+      
+      .description { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 10px; 
+        font-weight: 400; 
+        text-anchor: start; 
+        fill: #555;
+      }
+      
+      .inclusion-text { 
+        font-family: Courier, monospace;
+        font-size: 11px; 
+        font-weight: 500; 
+        text-anchor: start; 
+        fill: #333;
+      }
+    </style>
+    
+    <!-- Arrow marker -->
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#666" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="700" y="30" class="title">計算複雑性の階層構造</text>
+  
+  <!-- Time Complexity Classes -->
+  <g id="time-complexity">
+    <text x="350" y="70" class="section-title">時間複雑性クラス</text>
+    
+    <!-- Constant Time -->
+    <rect x="50" y="90" width="120" height="50" class="time-complexity" />
+    <text x="110" y="110" class="class-name">定数時間</text>
+    <text x="110" y="125" class="class-notation">O(1)</text>
+    
+    <!-- Log Time -->
+    <rect x="190" y="90" width="120" height="50" class="time-complexity" />
+    <text x="250" y="110" class="class-name">対数時間</text>
+    <text x="250" y="125" class="class-notation">O(log n)</text>
+    
+    <!-- Polylog Time -->
+    <rect x="330" y="90" width="120" height="50" class="time-complexity" />
+    <text x="390" y="110" class="class-name">多重対数時間</text>
+    <text x="390" y="125" class="class-notation">O(log^k n)</text>
+    
+    <!-- Linear Time -->
+    <rect x="470" y="90" width="120" height="50" class="time-complexity" />
+    <text x="530" y="110" class="class-name">線形時間</text>
+    <text x="530" y="125" class="class-notation">O(n)</text>
+    
+    <!-- Quasi-Linear Time -->
+    <rect x="50" y="160" width="120" height="50" class="time-complexity" />
+    <text x="110" y="180" class="class-name">準線形時間</text>
+    <text x="110" y="195" class="class-notation">O(n log n)</text>
+    
+    <!-- Quadratic -->
+    <rect x="190" y="160" width="120" height="50" class="time-complexity" />
+    <text x="250" y="180" class="class-name">2次時間</text>
+    <text x="250" y="195" class="class-notation">O(n²)</text>
+    
+    <!-- Polynomial -->
+    <rect x="330" y="160" width="120" height="50" class="time-complexity" />
+    <text x="390" y="175" class="class-name">多項式時間</text>
+    <text x="390" y="190" class="class-notation">P = ∪ₖ TIME(nᵏ)</text>
+    <text x="390" y="200" class="class-notation" style="font-size: 8px;">実用的な上限</text>
+    
+    <!-- Exponential -->
+    <rect x="470" y="160" width="120" height="50" class="time-complexity" />
+    <text x="530" y="175" class="class-name">指数時間</text>
+    <text x="530" y="190" class="class-notation">EXPTIME</text>
+    <text x="530" y="200" class="class-notation" style="font-size: 8px;">= ∪ₖ TIME(2^(nᵏ))</text>
+    
+    <!-- Double Exponential -->
+    <rect x="190" y="230" width="120" height="50" class="time-complexity" />
+    <text x="250" y="250" class="class-name">二重指数時間</text>
+    <text x="250" y="265" class="class-notation">2-EXPTIME</text>
+    
+    <!-- Hierarchy arrows -->
+    <path d="M 170 115 L 180 115" class="hierarchy-arrow" />
+    <path d="M 310 115 L 320 115" class="hierarchy-arrow" />
+    <path d="M 450 115 L 460 115" class="hierarchy-arrow" />
+    <path d="M 530 140 L 530 150" class="hierarchy-arrow" />
+    <path d="M 170 185 L 180 185" class="hierarchy-arrow" />
+    <path d="M 310 185 L 320 185" class="hierarchy-arrow" />
+    <path d="M 450 185 L 460 185" class="hierarchy-arrow" />
+    <path d="M 390 210 L 390 220" class="hierarchy-arrow" />
+    
+    <!-- Connect top row to bottom row -->
+    <path d="M 110 140 L 110 150" class="hierarchy-arrow" />
+    <path d="M 250 140 L 250 150" class="hierarchy-arrow" />
+  </g>
+  
+  <!-- Space Complexity Classes -->
+  <g id="space-complexity">
+    <text x="350" y="320" class="section-title">空間複雑性クラス</text>
+    
+    <!-- Log Space -->
+    <rect x="150" y="340" width="120" height="50" class="space-complexity" />
+    <text x="210" y="360" class="class-name">対数空間</text>
+    <text x="210" y="375" class="class-notation">L = SPACE(log n)</text>
+    
+    <!-- Polynomial Space -->
+    <rect x="290" y="340" width="120" height="50" class="space-complexity" />
+    <text x="350" y="360" class="class-name">多項式空間</text>
+    <text x="350" y="375" class="class-notation">PSPACE = ∪ₖ SPACE(nᵏ)</text>
+    
+    <!-- Exponential Space -->
+    <rect x="430" y="340" width="120" height="50" class="space-complexity" />
+    <text x="490" y="360" class="class-name">指数空間</text>
+    <text x="490" y="375" class="class-notation">EXPSPACE</text>
+    
+    <!-- Space hierarchy arrows -->
+    <path d="M 270 365 L 280 365" class="hierarchy-arrow" />
+    <path d="M 410 365 L 420 365" class="hierarchy-arrow" />
+  </g>
+  
+  <!-- Non-deterministic Classes -->
+  <g id="non-deterministic">
+    <text x="950" y="70" class="section-title">非決定性クラス</text>
+    
+    <!-- NL -->
+    <rect x="750" y="90" width="120" height="50" class="non-deterministic" />
+    <text x="810" y="105" class="class-name">NL</text>
+    <text x="810" y="120" class="class-notation">非決定性対数空間</text>
+    <text x="810" y="130" class="class-notation" style="font-size: 8px;">NSPACE(log n)</text>
+    
+    <!-- NP -->
+    <rect x="890" y="90" width="120" height="50" class="non-deterministic" />
+    <text x="950" y="105" class="class-name">NP</text>
+    <text x="950" y="120" class="class-notation">非決定性多項式時間</text>
+    <text x="950" y="130" class="class-notation" style="font-size: 8px;">NTIME(nᵏ)</text>
+    
+    <!-- NEXPTIME -->
+    <rect x="1030" y="90" width="120" height="50" class="non-deterministic" />
+    <text x="1090" y="105" class="class-name">NEXPTIME</text>
+    <text x="1090" y="120" class="class-notation">非決定性指数時間</text>
+    <text x="1090" y="130" class="class-notation" style="font-size: 8px;">NTIME(2^(nᵏ))</text>
+    
+    <!-- Non-deterministic hierarchy arrows -->
+    <path d="M 870 115 L 880 115" class="hierarchy-arrow" />
+    <path d="M 1010 115 L 1020 115" class="hierarchy-arrow" />
+  </g>
+  
+  <!-- Major Inclusion Relationships -->
+  <g id="inclusion-relationships">
+    <rect x="650" y="180" width="550" height="100" class="inclusion-box" />
+    <text x="925" y="200" class="section-title">主要な包含関係</text>
+    
+    <text x="670" y="220" class="inclusion-text">確実な包含:</text>
+    <text x="680" y="235" class="inclusion-text">L ⊆ NL ⊆ P ⊆ NP ⊆ PSPACE ⊆ EXPTIME ⊆ NEXPTIME</text>
+    
+    <text x="670" y="255" class="inclusion-text">真の包含（証明済み）:</text>
+    <text x="680" y="270" class="inclusion-text">P ⊊ EXPTIME （時間階層定理）, L ⊊ PSPACE （空間階層定理）</text>
+  </g>
+  
+  <!-- Practical Boundaries -->
+  <g id="practical-boundaries">
+    <rect x="50" y="420" width="550" height="200" class="practical-box" />
+    <text x="325" y="445" class="section-title">実用的な境界</text>
+    
+    <!-- Practical -->
+    <rect x="70" y="460" width="150" height="70" style="fill: #e8f5e8; stroke: #4caf50; stroke-width: 2px; rx: 4px;" />
+    <text x="145" y="480" class="class-name">実用的</text>
+    <text x="80" y="500" class="description">• 線形時間 O(n)</text>
+    <text x="80" y="515" class="description">• 準線形時間 O(n log n)</text>
+    <text x="80" y="530" class="description">• 低次多項式時間 O(n²)</text>
+    
+    <!-- Feasible -->
+    <rect x="240" y="460" width="150" height="70" style="fill: #fff3e0; stroke: #ff9800; stroke-width: 2px; rx: 4px;" />
+    <text x="315" y="480" class="class-name">計算可能</text>
+    <text x="250" y="500" class="description">• 多項式時間 P</text>
+    <text x="250" y="515" class="description">• 準指数時間 O(2^(n^ε))</text>
+    <text x="250" y="530" class="description">• 小さな指数 O(2^n), n ≤ 30</text>
+    
+    <!-- Intractable -->
+    <rect x="410" y="460" width="150" height="70" style="fill: #ffcdd2; stroke: #f44336; stroke-width: 2px; rx: 4px;" />
+    <text x="485" y="480" class="class-name">非実用的</text>
+    <text x="420" y="500" class="description">• 指数時間 EXPTIME</text>
+    <text x="420" y="515" class="description">• 二重指数時間</text>
+    <text x="420" y="530" class="description">• 高次指数時間</text>
+    
+    <!-- Examples -->
+    <text x="70" y="550" class="description">例: ソート、最短路、線形計画法</text>
+    <text x="240" y="550" class="description">例: 因数分解、グラフ同型、QBF</text>
+    <text x="410" y="550" class="description">例: チェス（一般化）、Presburger算術</text>
+    
+    <!-- Complexity measures -->
+    <text x="70" y="575" class="description">nが10⁶でも瞬時</text>
+    <text x="240" y="575" class="description">nが10³程度まで実用的</text>
+    <text x="410" y="575" class="description">nが20程度で限界</text>
+    
+    <!-- Memory requirements -->
+    <text x="70" y="590" class="description">メモリ使用量: 線形〜準線形</text>
+    <text x="240" y="590" class="description">メモリ使用量: 多項式</text>
+    <text x="410" y="590" class="description">メモリ使用量: 指数的</text>
+  </g>
+  
+  <!-- Theoretical vs Practical Gap -->
+  <g id="theory-practice-gap">
+    <rect x="650" y="320" width="550" height="300" style="fill: #f8f9fa; stroke: #6c757d; stroke-width: 2px; rx: 8px;" />
+    <text x="925" y="345" class="section-title">理論と実践のギャップ</text>
+    
+    <!-- Theoretical complexity -->
+    <text x="670" y="370" class="description">理論的複雑性:</text>
+    <text x="680" y="385" class="class-notation">• 漸近的な振る舞い（n → ∞）</text>
+    <text x="680" y="400" class="class-notation">• 定数因子を無視</text>
+    <text x="680" y="415" class="class-notation">• 最悪ケースを重視</text>
+    
+    <!-- Practical considerations -->
+    <text x="670" y="440" class="description">実用的考慮事項:</text>
+    <text x="680" y="455" class="class-notation">• 定数因子の重要性</text>
+    <text x="680" y="470" class="class-notation">• 平均的性能</text>
+    <text x="680" y="485" class="class-notation">• キャッシュ効率、並列性</text>
+    <text x="680" y="500" class="class-notation">• 実装の複雑さ</text>
+    
+    <!-- Examples of gap -->
+    <text x="670" y="525" class="description">ギャップの具体例:</text>
+    <text x="680" y="540" class="class-notation">• 単体法: 指数時間だが実用的</text>
+    <text x="680" y="555" class="class-notation">• AKS素数判定: 多項式時間だが非実用的</text>
+    <text x="680" y="570" class="class-notation">• 行列乗算: 理論上O(n^2.373)、実用上O(n³)</text>
+    
+    <!-- Modern trends -->
+    <text x="670" y="595" class="description">現代的傾向:</text>
+    <text x="680" y="610" class="class-notation">• ビッグデータ: nが巨大（n > 10⁹）</text>
+    <text x="1000" y="370" class="class-notation">• 近似アルゴリズム</text>
+    <text x="1000" y="385" class="class-notation">• ランダム化アルゴリズム</text>
+    <text x="1000" y="400" class="class-notation">• ヒューリスティック手法</text>
+    <text x="1000" y="415" class="class-notation">• 並列・分散アルゴリズム</text>
+    <text x="1000" y="440" class="class-notation">機械学習の興隆:</text>
+    <text x="1000" y="455" class="class-notation">• 勾配降下法</text>
+    <text x="1000" y="470" class="class-notation">• 深層学習</text>
+    <text x="1000" y="485" class="class-notation">• 確率的最適化</text>
+  </g>
+  
+  <!-- Connections between sections -->
+  <g id="connections">
+    <!-- Time to Space connections -->
+    <path d="M 390 210 L 350 330" class="dashed-relation" />
+    <path d="M 530 210 L 490 330" class="dashed-relation" />
+    
+    <!-- Deterministic to Non-deterministic connections -->
+    <path d="M 590 115 L 740 115" class="dashed-relation" />
+    <text x="665" y="110" class="description" style="font-size: 9px;">対応関係</text>
+    
+    <!-- Practical boundary indicators -->
+    <line x1="450" y1="185" x2="450" y2="410" stroke="#f44336" stroke-width="3" stroke-dasharray="10,5" opacity="0.7"/>
+    <text x="460" y="300" class="description" fill="#f44336" transform="rotate(90 460 300)">実用性の境界</text>
+  </g>
+</svg>

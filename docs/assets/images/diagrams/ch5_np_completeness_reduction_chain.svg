@@ -1,0 +1,317 @@
+<svg viewBox="0 0 1400 900" xmlns="http://www.w3.org/2000/svg">
+  <title>NP完全性と還元の連鎖</title>
+  <desc>NP完全問題の概念、多項式時間還元、主要なNP完全問題とその還元関係</desc>
+  
+  <defs>
+    <style>
+      .np-complete { fill: #ffcdd2; stroke: #d32f2f; stroke-width: 2px; rx: 8px; }
+      .np-hard { fill: #ffe0b2; stroke: #f57c00; stroke-width: 2px; rx: 8px; }
+      .reduction-concept { fill: #e8f5e8; stroke: #4caf50; stroke-width: 2px; rx: 8px; }
+      .basic-problem { fill: #e3f2fd; stroke: #2196f3; stroke-width: 2px; rx: 8px; }
+      .graph-problem { fill: #f3e5f5; stroke: #9c27b0; stroke-width: 2px; rx: 8px; }
+      .optimization-problem { fill: #fff3e0; stroke: #ff9800; stroke-width: 2px; rx: 8px; }
+      
+      .reduction-arrow { 
+        stroke: #d32f2f; 
+        stroke-width: 3px; 
+        fill: none; 
+        marker-end: url(#reduction-arrowhead);
+      }
+      
+      .concept-arrow { 
+        stroke: #4caf50; 
+        stroke-width: 2px; 
+        fill: none; 
+        marker-end: url(#concept-arrowhead);
+      }
+      
+      .title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 18px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #1a1a1a;
+      }
+      
+      .section-title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 14px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #333;
+      }
+      
+      .concept-title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 12px; 
+        font-weight: 600; 
+        text-anchor: start; 
+        fill: #333;
+      }
+      
+      .problem-name { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 11px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #333;
+      }
+      
+      .description { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 9px; 
+        font-weight: 400; 
+        text-anchor: start; 
+        fill: #555;
+      }
+      
+      .mathematical-def { 
+        font-family: Courier, monospace;
+        font-size: 10px; 
+        font-weight: 500; 
+        text-anchor: start; 
+        fill: #333;
+      }
+      
+      .reduction-label { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 8px; 
+        font-weight: 400; 
+        text-anchor: middle; 
+        fill: #d32f2f;
+      }
+    </style>
+    
+    <!-- Arrow markers -->
+    <marker id="reduction-arrowhead" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0 0, 10 4, 0 8" fill="#d32f2f" />
+    </marker>
+    <marker id="concept-arrowhead" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#4caf50" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="700" y="30" class="title">NP完全性と還元の連鎖</text>
+  
+  <!-- NP-Completeness Concepts -->
+  <g id="np-completeness-concepts">
+    <text x="350" y="70" class="section-title">NP完全性の概念</text>
+    
+    <!-- NP-Complete Definition -->
+    <rect x="50" y="90" width="200" height="100" class="np-complete" />
+    <text x="60" y="110" class="concept-title">NP完全問題 L</text>
+    <text x="60" y="130" class="mathematical-def">1. L ∈ NP</text>
+    <text x="60" y="145" class="mathematical-def">2. ∀A ∈ NP: A ≤_p L</text>
+    <text x="60" y="160" class="description">すべてのNP問題がLに還元可能</text>
+    <text x="60" y="175" class="description">Lが多項式時間で解けるならP=NP</text>
+    
+    <!-- NP-Hard Definition -->
+    <rect x="270" y="90" width="200" height="100" class="np-hard" />
+    <text x="280" y="110" class="concept-title">NP困難問題 L</text>
+    <text x="280" y="130" class="mathematical-def">∀A ∈ NP: A ≤_p L</text>
+    <text x="280" y="145" class="description">すべてのNP問題がLに還元可能</text>
+    <text x="280" y="160" class="description">必ずしもNPに属さない</text>
+    <text x="280" y="175" class="description">最適化問題などが該当</text>
+    
+    <!-- Reduction Concept -->
+    <rect x="490" y="90" width="200" height="100" class="reduction-concept" />
+    <text x="500" y="110" class="concept-title">多項式時間還元</text>
+    <text x="500" y="125" class="mathematical-def">A ≤_p B</text>
+    <text x="500" y="140" class="description">Aの各インスタンスをBの</text>
+    <text x="500" y="155" class="description">インスタンスに変換</text>
+    <text x="500" y="170" class="description">変換は多項式時間、答えが保存</text>
+  </g>
+  
+  <!-- Fundamental NP-Complete Problems -->
+  <g id="fundamental-problems">
+    <text x="700" y="230" class="section-title">基本的なNP完全問題</text>
+    
+    <!-- SAT (The first) -->
+    <rect x="600" y="250" width="100" height="80" class="basic-problem" />
+    <text x="650" y="270" class="problem-name">SAT</text>
+    <text x="610" y="285" class="description">充足可能性問題</text>
+    <text x="610" y="300" class="description">Cook-Levin定理</text>
+    <text x="610" y="315" class="description">最初のNP完全問題</text>
+    
+    <!-- 3-SAT -->
+    <rect x="450" y="350" width="100" height="80" class="basic-problem" />
+    <text x="500" y="370" class="problem-name">3-SAT</text>
+    <text x="460" y="385" class="description">3-充足可能性</text>
+    <text x="460" y="400" class="description">各節が高々3リテラル</text>
+    <text x="460" y="415" class="description">実用的還元の起点</text>
+    
+    <!-- Vertex Cover -->
+    <rect x="600" y="350" width="100" height="80" class="graph-problem" />
+    <text x="650" y="370" class="problem-name">VERTEX-COVER</text>
+    <text x="610" y="385" class="description">頂点被覆</text>
+    <text x="610" y="400" class="description">k個以下の頂点で</text>
+    <text x="610" y="415" class="description">全辺を被覆</text>
+    
+    <!-- Clique -->
+    <rect x="750" y="350" width="100" height="80" class="graph-problem" />
+    <text x="800" y="370" class="problem-name">CLIQUE</text>
+    <text x="760" y="385" class="description">クリーク</text>
+    <text x="760" y="400" class="description">k個の頂点の</text>
+    <text x="760" y="415" class="description">完全部分グラフ</text>
+    
+    <!-- Independent Set -->
+    <rect x="900" y="350" width="100" height="80" class="graph-problem" />
+    <text x="950" y="370" class="problem-name">INDEPENDENT</text>
+    <text x="950" y="385" class="problem-name">SET</text>
+    <text x="910" y="400" class="description">互いに隣接しない</text>
+    <text x="910" y="415" class="description">k個の頂点</text>
+  </g>
+  
+  <!-- Reduction Chain -->
+  <g id="reduction-chain">
+    <!-- SAT to 3-SAT -->
+    <path d="M 630 330 L 520 350" class="reduction-arrow" />
+    <text x="575" y="340" class="reduction-label">多項式時間還元</text>
+    
+    <!-- 3-SAT to Vertex Cover -->
+    <path d="M 550 390 L 590 390" class="reduction-arrow" />
+    <text x="570" y="385" class="reduction-label">≤_p</text>
+    
+    <!-- Vertex Cover to Clique -->
+    <path d="M 700 390 L 740 390" class="reduction-arrow" />
+    <text x="720" y="385" class="reduction-label">≤_p</text>
+    
+    <!-- Clique to Independent Set -->
+    <path d="M 850 390 L 890 390" class="reduction-arrow" />
+    <text x="870" y="385" class="reduction-label">≤_p</text>
+  </g>
+  
+  <!-- More NP-Complete Problems -->
+  <g id="more-problems">
+    <text x="700" y="480" class="section-title">その他の重要なNP完全問題</text>
+    
+    <!-- Hamiltonian Path -->
+    <rect x="50" y="500" width="120" height="70" class="graph-problem" />
+    <text x="110" y="520" class="problem-name">HAMILTONIAN</text>
+    <text x="110" y="535" class="problem-name">PATH</text>
+    <text x="60" y="550" class="description">ハミルトン路</text>
+    <text x="60" y="565" class="description">全頂点を一度ずつ通る路</text>
+    
+    <!-- TSP -->
+    <rect x="190" y="500" width="120" height="70" class="optimization-problem" />
+    <text x="250" y="520" class="problem-name">TSP</text>
+    <text x="200" y="535" class="description">巡回セールスマン問題</text>
+    <text x="200" y="550" class="description">最短巡回路</text>
+    <text x="200" y="565" class="description">（決定版）</text>
+    
+    <!-- Knapsack -->
+    <rect x="330" y="500" width="120" height="70" class="optimization-problem" />
+    <text x="390" y="520" class="problem-name">KNAPSACK</text>
+    <text x="340" y="535" class="description">ナップサック問題</text>
+    <text x="340" y="550" class="description">価値最大化</text>
+    <text x="340" y="565" class="description">（決定版）</text>
+    
+    <!-- Subset Sum -->
+    <rect x="470" y="500" width="120" height="70" class="basic-problem" />
+    <text x="530" y="520" class="problem-name">SUBSET-SUM</text>
+    <text x="480" y="535" class="description">部分集合和</text>
+    <text x="480" y="550" class="description">目標値に合う</text>
+    <text x="480" y="565" class="description">部分集合の存在</text>
+    
+    <!-- Partition -->
+    <rect x="610" y="500" width="120" height="70" class="basic-problem" />
+    <text x="670" y="520" class="problem-name">PARTITION</text>
+    <text x="620" y="535" class="description">分割問題</text>
+    <text x="620" y="550" class="description">集合を同じ和の</text>
+    <text x="620" y="565" class="description">2つに分割</text>
+    
+    <!-- Graph Coloring -->
+    <rect x="750" y="500" width="120" height="70" class="graph-problem" />
+    <text x="810" y="520" class="problem-name">GRAPH</text>
+    <text x="810" y="535" class="problem-name">COLORING</text>
+    <text x="760" y="550" class="description">グラフk彩色</text>
+    <text x="760" y="565" class="description">k色で隣接頂点異色</text>
+    
+    <!-- Boolean Satisfiability variants -->
+    <rect x="890" y="500" width="120" height="70" class="basic-problem" />
+    <text x="950" y="520" class="problem-name">2-SAT</text>
+    <text x="900" y="535" class="description">2-充足可能性</text>
+    <text x="900" y="550" class="description">P時間で解ける</text>
+    <text x="900" y="565" class="description">（NP完全でない）</text>
+    
+    <!-- Steiner Tree -->
+    <rect x="1030" y="500" width="120" height="70" class="graph-problem" />
+    <text x="1090" y="520" class="problem-name">STEINER TREE</text>
+    <text x="1040" y="535" class="description">シュタイナー木</text>
+    <text x="1040" y="550" class="description">指定頂点を含む</text>
+    <text x="1040" y="565" class="description">最小木</text>
+  </g>
+  
+  <!-- Reduction Examples -->
+  <g id="reduction-examples">
+    <!-- Some example reductions -->
+    <path d="M 170 535 L 180 535" class="concept-arrow" />
+    <path d="M 310 535 L 320 535" class="concept-arrow" />
+    <path d="M 450 535 L 460 535" class="concept-arrow" />
+    <path d="M 590 535 L 600 535" class="concept-arrow" />
+    
+    <!-- Connect graph problems -->
+    <path d="M 650 430 L 110 500" class="concept-arrow" />
+    <path d="M 800 430 L 810 500" class="concept-arrow" />
+  </g>
+  
+  <!-- Practical Implications -->
+  <g id="practical-implications">
+    <rect x="50" y="600" width="1300" height="120" style="fill: #f8f9fa; stroke: #6c757d; stroke-width: 2px; rx: 8px;" />
+    <text x="700" y="625" class="section-title">実践的含意</text>
+    
+    <!-- Left column -->
+    <text x="70" y="645" class="concept-title">アルゴリズム設計への影響:</text>
+    <text x="80" y="665" class="description">• NP完全問題は多項式時間厳密解法が困難</text>
+    <text x="80" y="680" class="description">• 近似アルゴリズム、ヒューリスティックが重要</text>
+    <text x="80" y="695" class="description">• 特殊ケースでの効率的アルゴリズムを探索</text>
+    <text x="80" y="710" class="description">• パラメータ化複雑性、指数時間アルゴリズム</text>
+    
+    <!-- Middle column -->
+    <text x="450" y="645" class="concept-title">実用的対処法:</text>
+    <text x="460" y="665" class="description">• 貪欲法、局所探索法</text>
+    <text x="460" y="680" class="description">• 分枝限定法、動的計画法</text>
+    <text x="460" y="695" class="description">• メタヒューリスティック（遺伝的アルゴリズム等）</text>
+    <text x="460" y="710" class="description">• 機械学習を用いたアプローチ</text>
+    
+    <!-- Right column -->
+    <text x="800" y="645" class="concept-title">応用分野:</text>
+    <text x="810" y="665" class="description">• 組合せ最適化（スケジューリング、配送）</text>
+    <text x="810" y="680" class="description">• VLSI設計、回路最適化</text>
+    <text x="810" y="695" class="description">• バイオインフォマティクス</text>
+    <text x="810" y="710" class="description">• 人工知能、制約充足問題</text>
+  </g>
+  
+  <!-- Reduction Techniques -->
+  <g id="reduction-techniques">
+    <rect x="50" y="750" width="650" height="120" style="fill: #f0f8ff; stroke: #4682b4; stroke-width: 2px; rx: 8px;" />
+    <text x="375" y="775" class="section-title">還元の技法</text>
+    
+    <text x="70" y="795" class="concept-title">局所置換（Local Replacement）:</text>
+    <text x="80" y="810" class="description">• 問題Aの各構成要素を問題Bの対応要素に置換</text>
+    <text x="80" y="825" class="description">• 例: 3-SAT → Vertex Cover（変数・節をガジェットに変換）</text>
+    
+    <text x="370" y="795" class="concept-title">ガジェット構成（Gadget Construction）:</text>
+    <text x="380" y="810" class="description">• 論理的制約を構造的制約に変換</text>
+    <text x="380" y="825" class="description">• 例: Boolean回路の実現、制約の符号化</text>
+    
+    <text x="70" y="845" class="concept-title">補間技法（Interpolation）:</text>
+    <text x="80" y="860" class="description">• 問題間の段階的変換、中間問題の構成</text>
+    
+    <text x="370" y="845" class="concept-title">パディング（Padding）:</text>
+    <text x="380" y="860" class="description">• インスタンスサイズの調整、複雑性の保存</text>
+  </g>
+  
+  <!-- Historical Development -->
+  <g id="historical-development">
+    <rect x="720" y="750" width="630" height="120" style="fill: #f5f5dc; stroke: #d2b48c; stroke-width: 2px; rx: 8px;" />
+    <text x="1035" y="775" class="section-title">歴史的発展</text>
+    
+    <text x="740" y="795" class="description">1971: Cook-Levin定理（SAT のNP完全性）</text>
+    <text x="740" y="810" class="description">1972: Karpの21問題（基本的なNP完全問題群）</text>
+    <text x="740" y="825" class="description">1979: Garey & Johnson「Computers and Intractability」</text>
+    <text x="740" y="840" class="description">1980s-: 近似困難性理論の発展</text>
+    <text x="740" y="855" class="description">1990s-: PCP定理、近似限界の解明</text>
+  </g>
+</svg>

@@ -1,0 +1,273 @@
+<svg viewBox="0 0 1400 800" xmlns="http://www.w3.org/2000/svg">
+  <title>計算複雑性クラスの包含関係</title>
+  <desc>時間と空間、決定性と非決定性複雑性クラス間の包含関係の図示</desc>
+  
+  <defs>
+    <style>
+      .deterministic-time { fill: #e3f2fd; stroke: #2196f3; stroke-width: 2px; rx: 8px; }
+      .non-deterministic-time { fill: #e8f5e8; stroke: #4caf50; stroke-width: 2px; rx: 8px; }
+      .space-class { fill: #fff3e0; stroke: #ff9800; stroke-width: 2px; rx: 8px; }
+      .probabilistic-class { fill: #f3e5f5; stroke: #9c27b0; stroke-width: 2px; rx: 8px; }
+      .complement-class { fill: #ffe0b2; stroke: #f57c00; stroke-width: 2px; rx: 8px; }
+      
+      .inclusion-arrow { 
+        stroke: #4caf50; 
+        stroke-width: 3px; 
+        fill: none; 
+        marker-end: url(#inclusion-arrowhead);
+      }
+      
+      .uncertain-relation { 
+        stroke: #f44336; 
+        stroke-width: 2px; 
+        stroke-dasharray: 5,3;
+        fill: none;
+      }
+      
+      .equivalence-line {
+        stroke: #666;
+        stroke-width: 2px;
+        stroke-dasharray: 3,2;
+        fill: none;
+      }
+      
+      .title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 18px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #1a1a1a;
+      }
+      
+      .section-title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 14px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #333;
+      }
+      
+      .class-name { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 12px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #333;
+      }
+      
+      .class-notation { 
+        font-family: Courier, monospace;
+        font-size: 10px; 
+        font-weight: 500; 
+        text-anchor: middle; 
+        fill: #666;
+      }
+      
+      .description { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 9px; 
+        font-weight: 400; 
+        text-anchor: start; 
+        fill: #555;
+      }
+      
+      .relation-label { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 8px; 
+        font-weight: 400; 
+        text-anchor: middle; 
+        fill: #666;
+      }
+    </style>
+    
+    <!-- Arrow markers -->
+    <marker id="inclusion-arrowhead" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0 0, 10 4, 0 8" fill="#4caf50" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="700" y="30" class="title">計算複雑性クラスの包含関係</text>
+  
+  <!-- Basic Hierarchy -->
+  <g id="basic-hierarchy">
+    <!-- L (Log Space) -->
+    <rect x="100" y="100" width="100" height="60" class="space-class" />
+    <text x="150" y="120" class="class-name">L</text>
+    <text x="150" y="135" class="class-notation">対数空間</text>
+    <text x="150" y="150" class="class-notation">SPACE(log n)</text>
+    
+    <!-- NL (Nondeterministic Log Space) -->
+    <rect x="100" y="200" width="100" height="60" class="space-class" />
+    <text x="150" y="220" class="class-name">NL</text>
+    <text x="150" y="235" class="class-notation">非決定性対数空間</text>
+    <text x="150" y="250" class="class-notation">NSPACE(log n)</text>
+    
+    <!-- P (Polynomial Time) -->
+    <rect x="300" y="150" width="100" height="60" class="deterministic-time" />
+    <text x="350" y="170" class="class-name">P</text>
+    <text x="350" y="185" class="class-notation">多項式時間</text>
+    <text x="350" y="200" class="class-notation">∪ₖ TIME(nᵏ)</text>
+    
+    <!-- NP (Nondeterministic Polynomial Time) -->
+    <rect x="500" y="100" width="100" height="60" class="non-deterministic-time" />
+    <text x="550" y="120" class="class-name">NP</text>
+    <text x="550" y="135" class="class-notation">非決定性多項式時間</text>
+    <text x="550" y="150" class="class-notation">∪ₖ NTIME(nᵏ)</text>
+    
+    <!-- coNP (Complement of NP) -->
+    <rect x="500" y="200" width="100" height="60" class="complement-class" />
+    <text x="550" y="220" class="class-name">coNP</text>
+    <text x="550" y="235" class="class-notation">補NP</text>
+    <text x="550" y="250" class="class-notation">NPの補集合クラス</text>
+    
+    <!-- BPP (Bounded-error Probabilistic Polynomial) -->
+    <rect x="300" y="300" width="100" height="60" class="probabilistic-class" />
+    <text x="350" y="320" class="class-name">BPP</text>
+    <text x="350" y="335" class="class-notation">確率的多項式時間</text>
+    <text x="350" y="350" class="class-notation">有界誤り確率</text>
+    
+    <!-- PSPACE (Polynomial Space) -->
+    <rect x="700" y="150" width="100" height="60" class="space-class" />
+    <text x="750" y="170" class="class-name">PSPACE</text>
+    <text x="750" y="185" class="class-notation">多項式空間</text>
+    <text x="750" y="200" class="class-notation">∪ₖ SPACE(nᵏ)</text>
+    
+    <!-- EXPTIME (Exponential Time) -->
+    <rect x="900" y="150" width="100" height="60" class="deterministic-time" />
+    <text x="950" y="170" class="class-name">EXPTIME</text>
+    <text x="950" y="185" class="class-notation">指数時間</text>
+    <text x="950" y="200" class="class-notation">∪ₖ TIME(2^(nᵏ))</text>
+  </g>
+  
+  <!-- Main Inclusion Chain -->
+  <g id="main-inclusions">
+    <!-- L ⊆ NL -->
+    <path d="M 150 160 L 150 190" class="inclusion-arrow" />
+    <text x="160" y="175" class="relation-label">⊆</text>
+    
+    <!-- NL ⊆ P -->
+    <path d="M 200 230 L 290 180" class="inclusion-arrow" />
+    <text x="245" y="200" class="relation-label">⊆</text>
+    
+    <!-- L ⊆ P (direct) -->
+    <path d="M 200 130 L 290 165" class="inclusion-arrow" />
+    <text x="245" y="140" class="relation-label">⊆</text>
+    
+    <!-- P ⊆ NP -->
+    <path d="M 400 170 L 490 140" class="inclusion-arrow" />
+    <text x="445" y="150" class="relation-label">⊆</text>
+    
+    <!-- P ⊆ coNP -->
+    <path d="M 400 190 L 490 220" class="inclusion-arrow" />
+    <text x="445" y="210" class="relation-label">⊆</text>
+    
+    <!-- P ⊆ BPP -->
+    <path d="M 350 210 L 350 290" class="inclusion-arrow" />
+    <text x="360" y="250" class="relation-label">⊆</text>
+    
+    <!-- NP ⊆ PSPACE -->
+    <path d="M 600 130 L 690 165" class="inclusion-arrow" />
+    <text x="645" y="140" class="relation-label">⊆</text>
+    
+    <!-- coNP ⊆ PSPACE -->
+    <path d="M 600 230 L 690 195" class="inclusion-arrow" />
+    <text x="645" y="220" class="relation-label">⊆</text>
+    
+    <!-- BPP ⊆ PSPACE -->
+    <path d="M 400 330 L 690 200" class="inclusion-arrow" />
+    <text x="545" y="265" class="relation-label">⊆</text>
+    
+    <!-- PSPACE ⊆ EXPTIME -->
+    <path d="M 800 180 L 890 180" class="inclusion-arrow" />
+    <text x="845" y="175" class="relation-label">⊆</text>
+  </g>
+  
+  <!-- Uncertain Relations -->
+  <g id="uncertain-relations">
+    <!-- NP vs coNP -->
+    <path d="M 550 160 L 550 190" class="uncertain-relation" />
+    <text x="560" y="175" class="relation-label" fill="#f44336">?</text>
+    
+    <!-- NP vs BPP -->
+    <path d="M 500 150 L 400 320" class="uncertain-relation" />
+    <text x="430" y="235" class="relation-label" fill="#f44336">?</text>
+    
+    <!-- coNP vs BPP -->
+    <path d="M 500 250 L 400 340" class="uncertain-relation" />
+    <text x="430" y="295" class="relation-label" fill="#f44336">?</text>
+  </g>
+  
+  <!-- Known Separations -->
+  <g id="known-separations">
+    <rect x="50" y="420" width="600" height="120" style="fill: #f8f9fa; stroke: #6c757d; stroke-width: 2px; rx: 8px;" />
+    <text x="350" y="445" class="section-title">確実に知られている関係</text>
+    
+    <text x="70" y="470" class="description">包含関係（⊆）:</text>
+    <text x="80" y="485" class="class-notation">L ⊆ NL ⊆ P ⊆ NP ⊆ PSPACE ⊆ EXPTIME</text>
+    <text x="80" y="500" class="class-notation">P ⊆ coNP ⊆ PSPACE</text>
+    <text x="80" y="515" class="class-notation">P ⊆ BPP ⊆ PSPACE</text>
+    
+    <text x="350" y="470" class="description">真の包含（⊊）:</text>
+    <text x="360" y="485" class="class-notation">P ⊊ EXPTIME （時間階層定理）</text>
+    <text x="360" y="500" class="class-notation">L ⊊ PSPACE （空間階層定理）</text>
+    <text x="360" y="515" class="class-notation">NL ⊊ PSPACE （Savitchの定理より）</text>
+  </g>
+  
+  <!-- Open Questions -->
+  <g id="open-questions">
+    <rect x="700" y="420" width="650" height="120" style="fill: #ffebee; stroke: #f44336; stroke-width: 2px; rx: 8px;" />
+    <text x="1025" y="445" class="section-title">未解決問題</text>
+    
+    <text x="720" y="470" class="description">主要な未解決問題:</text>
+    <text x="730" y="485" class="class-notation">• P vs NP （最も有名なミレニアム問題）</text>
+    <text x="730" y="500" class="class-notation">• NP vs coNP （対称性の問題）</text>
+    <text x="730" y="515" class="class-notation">• L vs P, L vs NL, NL vs P （小さなクラスの分離）</text>
+    
+    <text x="1100" y="470" class="description">関連する未解決問題:</text>
+    <text x="1110" y="485" class="class-notation">• NP vs PSPACE</text>
+    <text x="1110" y="500" class="class-notation">• BPP vs NP, BPP vs coNP</text>
+    <text x="1110" y="515" class="class-notation">• P vs BPP （脱ランダム化）</text>
+  </g>
+  
+  <!-- Practical Implications -->
+  <g id="practical-implications">
+    <rect x="50" y="580" width="1300" height="120" style="fill: #e8f5e8; stroke: #4caf50; stroke-width: 2px; rx: 8px;" />
+    <text x="700" y="605" class="section-title">実用的含意</text>
+    
+    <!-- Left column -->
+    <text x="70" y="630" class="description">クラス分離の重要性:</text>
+    <text x="80" y="645" class="class-notation">• P ≠ NP なら現在の暗号系は安全</text>
+    <text x="80" y="660" class="class-notation">• L ≠ P なら空間効率的アルゴリズムの限界</text>
+    <text x="80" y="675" class="class-notation">• BPP = P なら完全な脱ランダム化が可能</text>
+    
+    <!-- Middle column -->
+    <text x="450" y="630" class="description">アルゴリズム設計への影響:</text>
+    <text x="460" y="645" class="class-notation">• NP完全問題は近似・ヒューリスティック必要</text>
+    <text x="460" y="660" class="class-notation">• PSPACE完全問題は指数時間必要</text>
+    <text x="460" y="675" class="class-notation">• BPPのランダム化の威力</text>
+    
+    <!-- Right column -->
+    <text x="850" y="630" class="description">研究の方向性:</text>
+    <text x="860" y="645" class="class-notation">• 下界証明技法の開発</text>
+    <text x="860" y="660" class="class-notation">• 新しい計算モデルの探求</text>
+    <text x="860" y="675" class="class-notation">• 量子・近似・並列複雑性との関係</text>
+  </g>
+  
+  <!-- Visual aids for uncertain relationships -->
+  <g id="legend">
+    <rect x="1050" y="80" width="300" height="120" style="fill: #fafafa; stroke: #ddd; stroke-width: 1px; rx: 4px;" />
+    <text x="1200" y="100" class="section-title" style="font-size: 12px;">凡例</text>
+    
+    <line x1="1070" y1="115" x2="1090" y2="115" class="inclusion-arrow" />
+    <text x="1100" y="120" class="description">確実な包含関係 (⊆)</text>
+    
+    <line x1="1070" y1="135" x2="1090" y2="135" class="uncertain-relation" />
+    <text x="1100" y="140" class="description">未解決関係 (?)</text>
+    
+    <line x1="1070" y1="155" x2="1090" y2="155" class="equivalence-line" />
+    <text x="1100" y="160" class="description">条件付き等価性</text>
+    
+    <text x="1070" y="185" class="description" style="font-size: 8px;">階層定理により一部の真の包含は証明済み</text>
+  </g>
+</svg>

@@ -36,47 +36,7 @@ I(p) = -log₂ p = log₂(1/p) [bits]
 
 ### 10.1.2 Shannon エントロピー
 
-```mermaid
-graph TD
-    subgraph "情報量とエントロピーの概念"
-        subgraph "自己情報量"
-            SelfInfo["I(p) = -log₂ p<br/>確率 p の事象の情報量"]
-            Properties["性質:<br/>・p=1 なら I(p)=0<br/>・p が小さいほど大きい<br/>・独立事象は加法的"]
-            
-            SelfInfo --> Properties
-        end
-        
-        subgraph "Shannon エントロピー"
-            Entropy["H(X) = -∑ p(x) log₂ p(x)<br/>= E[I(X)]"]
-            BinaryH["二値エントロピー関数<br/>h(p) = -p log₂ p - (1-p) log₂(1-p)"]
-            
-            Entropy --> BinaryH
-            
-            HProperties["エントロピーの性質:<br/>・0 ≤ H(X) ≤ log₂ |X|<br/>・一様分布で最大<br/>・確定的分布で最小(0)"]
-        end
-        
-        subgraph "エントロピー関数の形状"
-            BinaryPlot["二値エントロピー h(p)の性質:<br/>・p=0, p=1 で h(p)=0（確実性最大）<br/>・p=0.5 で h(p)=1（不確実性最大）<br/>・凹関数（下に凸）<br/>・対称性: h(p) = h(1-p)"]
-            
-            UniformMax["一様分布でエントロピー最大:<br/>・不確実性が最も高い<br/>・全ての結果が等確率"]
-            DeterministicMin["確定的分布でエントロピー最小<br/>不確実性がない<br/>結果が完全に予測可能"]
-        end
-        
-        subgraph "実用例"
-            FairCoin["公正なコイン<br/>p=0.5: H=1 bit"]
-            BiasedCoin["偏ったコイン<br/>p=0.1: H≈0.47 bit"]
-            Certain["確実な事象<br/>p=1: H=0 bit"]
-            
-            Example["例: 8面サイコロ<br/>一様: H = log₂ 8 = 3 bit<br/>偏り有り: H < 3 bit"]
-        end
-    end
-    
-    style SelfInfo fill:#e3f2fd
-    style Entropy fill:#fff3e0
-    style BinaryPlot fill:#e8f5e8
-    style FairCoin fill:#f3e5f5
-    style UniformMax fill:#ffe0b2
-```
+![情報量とエントロピーの概念](../../assets/images/diagrams/ch10_information_entropy_concepts.svg)
 
 **定義 10.2** 離散確率変数 X の**エントロピー**：
 H(X) = -∑ₓ p(x) log₂ p(x) = E[I(X)]
@@ -184,61 +144,7 @@ D(p||q) ≥ 0 より導かれる。□
 
 #### Huffman 符号
 
-```mermaid
-graph TD
-    subgraph "Huffman符号の構成例"
-        subgraph "記号と確率"
-            A["A: 0.4"]
-            B["B: 0.2"]
-            C["C: 0.2"]
-            D["D: 0.1"]
-            E["E: 0.1"]
-        end
-        
-        subgraph "符号木の構築過程"
-            Step1["ステップ1: 最小確率をマージ<br/>D(0.1) + E(0.1) = DE(0.2)"]
-            Step2["ステップ2: 次の最小をマージ<br/>B(0.2) + DE(0.2) = BDE(0.4)"]
-            Step3["ステップ3: 次の最小をマージ<br/>C(0.2) + BDE(0.4) = CBDE(0.6)"]
-            Step4["ステップ4: 最後のマージ<br/>A(0.4) + CBDE(0.6) = ROOT(1.0)"]
-        end
-        
-        subgraph "最終的な符号木"
-            Root["ROOT(1.0)"]
-            
-            N1["A(0.4)"]
-            N2["CBDE(0.6)"]
-            
-            N3["C(0.2)"]
-            N4["BDE(0.4)"]
-            
-            N5["B(0.2)"]
-            N6["DE(0.2)"]
-            
-            N7["D(0.1)"]
-            N8["E(0.1)"]
-            
-            Root -->|0| N1
-            Root -->|1| N2
-            N2 -->|0| N3
-            N2 -->|1| N4
-            N4 -->|0| N5
-            N4 -->|1| N6
-            N6 -->|0| N7
-            N6 -->|1| N8
-        end
-        
-        subgraph "符号表と性能"
-            CodeTable["符号表:<br/>A: 0 (1 bit)<br/>C: 10 (2 bit)<br/>B: 110 (3 bit)<br/>D: 1110 (4 bit)<br/>E: 1111 (4 bit)"]
-            
-            Performance["平均符号長:<br/>L = 0.4×1 + 0.2×2 + 0.2×3<br/>  + 0.1×4 + 0.1×4<br/>  = 2.2 bits<br/><br/>エントロピー:<br/>H ≈ 2.122 bits<br/><br/>効率: H/L ≈ 96.5%"]
-        end
-    end
-    
-    style Root fill:#e3f2fd
-    style CodeTable fill:#fff3e0
-    style Performance fill:#e8f5e8
-    style Step1 fill:#f3e5f5
-```
+![Huffman符号の構成例](../../assets/images/diagrams/ch10_huffman_coding_construction.svg)
 
 **アルゴリズム**（二元の場合）：
 1. 各記号を確率付きノードとする
@@ -274,58 +180,7 @@ graph TD
 
 ### 10.3.1 通信路モデル
 
-```mermaid
-graph TD
-    subgraph "通信路モデルと容量"
-        subgraph "二元対称通信路 (BSC)"
-            BSC_Input["入力 X ∈ {0,1}"]
-            BSC_Channel["BSC(p)<br/>クロスオーバー確率 p"]
-            BSC_Output["出力 Y ∈ {0,1}"]
-            
-            BSC_Input --> BSC_Channel
-            BSC_Channel --> BSC_Output
-            
-            BSC_Matrix["遷移確率行列<br/>p(0|0) = 1-p, p(1|0) = p<br/>p(0|1) = p,   p(1|1) = 1-p"]
-            
-            BSC_Capacity["容量<br/>C = 1 - h(p)<br/>h(p): 二値エントロピー関数<br/><br/>例:<br/>p=0: C=1 (完全)<br/>p=0.5: C=0 (無用)<br/>p=0.1: C≈0.53"]
-        end
-        
-        subgraph "AWGN通信路"
-            AWGN_Input["入力 X<br/>電力制約 E[X²] ≤ P"]
-            AWGN_Channel["Y = X + Z<br/>Z ~ N(0,N)"]
-            AWGN_Output["出力 Y"]
-            
-            AWGN_Input --> AWGN_Channel
-            AWGN_Channel --> AWGN_Output
-            
-            AWGN_Capacity["容量<br/>C = (1/2) log(1 + P/N)<br/><br/>Shannon-Hartley:<br/>C = W log(1 + SNR)<br/>W: 帯域幅"]
-        end
-        
-        subgraph "通信路符号化定理"
-            Encoding["符号化<br/>メッセージ → 符号語"]
-            Channel["雑音のある通信路"]
-            Decoding["復号<br/>受信語 → メッセージ"]
-            
-            Encoding --> Channel
-            Channel --> Decoding
-            
-            Theorem["Shannon の定理:<br/>R < C なら誤り率 → 0<br/>R > C なら誤り率 > δ > 0<br/><br/>R: 情報レート<br/>C: 通信路容量"]
-        end
-        
-        subgraph "実用的な符号"
-            Linear["線形符号<br/>・Hamming符号<br/>・BCH符号<br/>・Reed-Solomon符号"]
-            
-            Modern["現代の符号<br/>・ターボ符号<br/>・LDPC符号<br/>・極符号"]
-            
-            Performance["性能指標<br/>・符号化率 R=k/n<br/>・最小距離 d<br/>・復号複雑度"]
-        end
-    end
-    
-    style BSC_Channel fill:#e3f2fd
-    style AWGN_Channel fill:#fff3e0
-    style Theorem fill:#e8f5e8
-    style Modern fill:#f3e5f5
-```
+![通信路モデルと容量](../../assets/images/diagrams/ch10_channel_models_capacity.svg)
 
 **定義 10.8** **離散無記憶通信路**（DMC）は、
 入力アルファベット X、出力アルファベット Y、
@@ -480,56 +335,7 @@ C = W log(1 + P/N) [bits/second]
 
 ### 10.6.1 データ圧縮への応用
 
-```mermaid
-graph TD
-    subgraph "情報理論の応用分野"
-        subgraph "データ圧縮"
-            Lossless["損失なし圧縮<br/>・Huffman符号<br/>・LZ系アルゴリズム<br/>・算術符号"]
-            
-            Lossy["損失あり圧縮<br/>・レート歪み理論<br/>・量子化理論<br/>・変換符号化"]
-            
-            Examples1["実用例:<br/>・ZIP (LZ系)<br/>・JPEG (DCT+量子化)<br/>・MP3 (心理音響モデル)"]
-        end
-        
-        subgraph "暗号理論との関係"
-            Perfect["完全秘匿性<br/>I(M;C) = 0<br/>メッセージと暗号文が独立"]
-            
-            KeyLength["鍵長の必要条件<br/>|K| ≥ |M|<br/>ワンタイムパッド"]
-            
-            Entropy["エントロピーと暗号強度<br/>・鍵の予測不可能性<br/>・擬似乱数の品質評価"]
-        end
-        
-        subgraph "機械学習への応用"
-            MaxEnt["最大エントロピー原理<br/>制約下でのエントロピー最大化<br/>→ 最尤推定"]
-            
-            InfoBottleneck["情報ボトルネック法<br/>I(X;T) 最小化<br/>I(T;Y) 最大化<br/>→ 表現学習"]
-            
-            KL["KLダイバージェンス<br/>・分布間距離<br/>・変分推論<br/>・GANの訓練"]
-        end
-        
-        subgraph "通信システム"
-            Capacity["通信路容量<br/>・Shannon限界<br/>・MIMO系<br/>・協調通信"]
-            
-            Coding["符号化技術<br/>・ターボ符号<br/>・LDPC符号<br/>・極符号"]
-            
-            Network["ネットワーク符号化<br/>・多端子情報理論<br/>・Slepian-Wolf<br/>・分散圧縮"]
-        end
-        
-        subgraph "生物情報学"
-            Sequence["配列解析<br/>・相互情報量によるモチーフ発見<br/>・配列アラインメント"]
-            
-            Evolution["進化解析<br/>・KL距離による系統解析<br/>・分子時計<br/>・遺伝的多様性"]
-            
-            Structure["構造解析<br/>・二次構造予測<br/>・タンパク質相互作用<br/>・遺伝子発現解析"]
-        end
-    end
-    
-    style Lossless fill:#e3f2fd
-    style Perfect fill:#fff3e0
-    style MaxEnt fill:#e8f5e8
-    style Capacity fill:#f3e5f5
-    style Sequence fill:#ffe0b2
-```
+![情報理論の応用分野](../../assets/images/diagrams/ch10_information_theory_applications.svg)
 
 **損失のある圧縮**：
 - レート歪み理論
