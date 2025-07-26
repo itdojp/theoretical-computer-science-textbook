@@ -134,8 +134,11 @@ style(css): レスポンシブデザインを改善
 
 **アクセシビリティ要件**:
 ```svg
-<title id="title">図表の日本語タイトル</title>
-<desc id="desc">図表の詳細な説明文</desc>
+<svg role="img" aria-labelledby="title desc" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <title id="title">図表の日本語タイトル</title>
+  <desc id="desc">図表の詳細な説明文</desc>
+  <!-- 図表の内容をここに記述 -->
+</svg>
 ```
 - `role="img"` と `aria-labelledby="title"` 属性必須
 - 数学記号や専門用語の適切な日本語化
