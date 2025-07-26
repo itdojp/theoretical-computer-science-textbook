@@ -1,0 +1,284 @@
+<svg viewBox="0 0 1400 900" xmlns="http://www.w3.org/2000/svg">
+  <title>AVL木の回転操作</title>
+  <desc>左回転と二重回転による平衡の維持</desc>
+  
+  <defs>
+    <style>
+      .node { fill: #e3f2fd; stroke: #1976d2; stroke-width: 2px; }
+      .unbalanced-node { fill: #ffcdd2; stroke: #d32f2f; stroke-width: 3px; }
+      .balanced-node { fill: #c8e6c9; stroke: #4caf50; stroke-width: 2px; }
+      .subtree { fill: #f5f5f5; stroke: #999; stroke-width: 1px; }
+      .tree-edge { stroke: #333; stroke-width: 2px; fill: none; }
+      .rotation-arrow { stroke: #ff9800; stroke-width: 4px; fill: none; marker-end: url(#rotation-arrowhead); }
+      
+      .title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 18px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #1a1a1a;
+      }
+      
+      .subtitle { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 14px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #2c3e50;
+      }
+      
+      .node-label { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 14px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        dominant-baseline: central;
+        fill: #333;
+      }
+      
+      .height-label { 
+        font-family: Courier, monospace;
+        font-size: 10px; 
+        font-weight: 500; 
+        text-anchor: middle; 
+        fill: #666;
+      }
+      
+      .subtree-label { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 12px; 
+        font-weight: 500; 
+        text-anchor: middle; 
+        dominant-baseline: central;
+        fill: #666;
+      }
+      
+      .description { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 11px; 
+        font-weight: 400; 
+        text-anchor: start; 
+        fill: #666;
+      }
+      
+      .operation-label { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 16px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #ff9800;
+      }
+    </style>
+    
+    <!-- Arrow marker -->
+    <marker id="rotation-arrowhead" markerWidth="12" markerHeight="8" refX="11" refY="4" orient="auto">
+      <polygon points="0 0, 12 4, 0 8" fill="#ff9800" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="700" y="30" class="title">AVL木の回転操作</text>
+  
+  <!-- Single Left Rotation -->
+  <g id="left-rotation">
+    <text x="350" y="70" class="subtitle">左回転（Left Rotation）</text>
+    
+    <!-- Before (Unbalanced) -->
+    <text x="200" y="100" class="subtitle">不均衡状態</text>
+    
+    <!-- Node A (root, unbalanced) -->
+    <circle cx="200" cy="130" r="20" class="unbalanced-node" />
+    <text x="200" y="130" class="node-label">A</text>
+    <text x="200" y="155" class="height-label">h+2</text>
+    
+    <!-- Subtree X -->
+    <rect x="140" y="175" width="30" height="20" rx="10" class="subtree" />
+    <text x="155" y="185" class="subtree-label">X</text>
+    <text x="155" y="205" class="height-label">h-1</text>
+    
+    <!-- Node B -->
+    <circle cx="260" cy="175" r="20" class="node" />
+    <text x="260" y="175" class="node-label">B</text>
+    <text x="260" y="200" class="height-label">h+1</text>
+    
+    <!-- Subtree Y -->
+    <rect x="220" y="220" width="30" height="20" rx="10" class="subtree" />
+    <text x="235" y="230" class="subtree-label">Y</text>
+    <text x="235" y="250" class="height-label">h</text>
+    
+    <!-- Subtree Z -->
+    <rect x="270" y="220" width="30" height="20" rx="10" class="subtree" />
+    <text x="285" y="230" class="subtree-label">Z</text>
+    <text x="285" y="250" class="height-label">h</text>
+    
+    <!-- Edges before -->
+    <line x1="185" y1="140" x2="155" y2="175" class="tree-edge" />
+    <line x1="215" y1="140" x2="245" y2="165" class="tree-edge" />
+    <line x1="245" y1="185" x2="235" y2="210" class="tree-edge" />
+    <line x1="275" y1="185" x2="285" y2="210" class="tree-edge" />
+    
+    <!-- Rotation Arrow -->
+    <path d="M 320 175 Q 360 175 400 175" class="rotation-arrow" />
+    <text x="360" y="165" class="operation-label">左回転</text>
+    
+    <!-- After (Balanced) -->
+    <text x="500" y="100" class="subtitle">均衡状態</text>
+    
+    <!-- Node B (new root, balanced) -->
+    <circle cx="500" cy="130" r="20" class="balanced-node" />
+    <text x="500" y="130" class="node-label">B</text>
+    <text x="500" y="155" class="height-label">h+1</text>
+    
+    <!-- Node A (now left child) -->
+    <circle cx="440" cy="175" r="20" class="balanced-node" />
+    <text x="440" y="175" class="node-label">A</text>
+    <text x="440" y="200" class="height-label">h</text>
+    
+    <!-- Subtree Z (now right child of B) -->
+    <rect x="570" y="175" width="30" height="20" rx="10" class="subtree" />
+    <text x="585" y="185" class="subtree-label">Z</text>
+    <text x="585" y="205" class="height-label">h</text>
+    
+    <!-- Subtree X (left child of A) -->
+    <rect x="400" y="220" width="30" height="20" rx="10" class="subtree" />
+    <text x="415" y="230" class="subtree-label">X</text>
+    <text x="415" y="250" class="height-label">h-1</text>
+    
+    <!-- Subtree Y (right child of A) -->
+    <rect x="450" y="220" width="30" height="20" rx="10" class="subtree" />
+    <text x="465" y="230" class="subtree-label">Y</text>
+    <text x="465" y="250" class="height-label">h</text>
+    
+    <!-- Edges after -->
+    <line x1="485" y1="140" x2="455" y2="165" class="tree-edge" />
+    <line x1="515" y1="140" x2="570" y2="175" class="tree-edge" />
+    <line x1="425" y1="185" x2="415" y2="210" class="tree-edge" />
+    <line x1="455" y1="185" x2="465" y2="210" class="tree-edge" />
+  </g>
+  
+  <!-- Double Rotation -->
+  <g id="double-rotation">
+    <text x="350" y="350" class="subtitle">二重回転（Double Rotation）</text>
+    
+    <!-- Before Double Rotation -->
+    <text x="200" y="380" class="subtitle">不均衡状態</text>
+    
+    <!-- Node A (root, unbalanced) -->
+    <circle cx="200" cy="410" r="20" class="unbalanced-node" />
+    <text x="200" y="410" class="node-label">A</text>
+    <text x="200" y="435" class="height-label">h+3</text>
+    
+    <!-- Subtree W -->
+    <rect x="140" y="455" width="30" height="20" rx="10" class="subtree" />
+    <text x="155" y="465" class="subtree-label">W</text>
+    <text x="155" y="485" class="height-label">h</text>
+    
+    <!-- Node C (right child of A) -->
+    <circle cx="260" cy="455" r="20" class="unbalanced-node" />
+    <text x="260" y="455" class="node-label">C</text>
+    <text x="260" y="480" class="height-label">h+2</text>
+    
+    <!-- Node B (left child of C) -->
+    <circle cx="220" cy="500" r="20" class="node" />
+    <text x="220" y="500" class="node-label">B</text>
+    <text x="220" y="525" class="height-label">h+1</text>
+    
+    <!-- Subtree Z (right child of C) -->
+    <rect x="280" y="500" width="30" height="20" rx="10" class="subtree" />
+    <text x="295" y="510" class="subtree-label">Z</text>
+    <text x="295" y="530" class="height-label">h</text>
+    
+    <!-- Subtrees X and Y (children of B) -->
+    <rect x="200" y="545" width="20" height="15" rx="8" class="subtree" />
+    <text x="210" y="555" class="subtree-label">X</text>
+    
+    <rect x="230" y="545" width="20" height="15" rx="8" class="subtree" />
+    <text x="240" y="555" class="subtree-label">Y</text>
+    
+    <!-- Edges before double rotation -->
+    <line x1="185" y1="420" x2="155" y2="445" class="tree-edge" />
+    <line x1="215" y1="420" x2="245" y2="445" class="tree-edge" />
+    <line x1="245" y1="465" x2="230" y2="490" class="tree-edge" />
+    <line x1="275" y1="465" x2="295" y2="490" class="tree-edge" />
+    <line x1="210" y1="510" x2="210" y2="540" class="tree-edge" />
+    <line x1="230" y1="510" x2="240" y2="540" class="tree-edge" />
+    
+    <!-- Double Rotation Arrow -->
+    <path d="M 340 480 Q 400 480 460 480" class="rotation-arrow" />
+    <text x="400" y="465" class="operation-label">右-左回転</text>
+    <text x="400" y="480" class="description">(C右回転 → A左回転)</text>
+    
+    <!-- After Double Rotation -->
+    <text x="600" y="380" class="subtitle">均衡状態</text>
+    
+    <!-- Node B (new root, balanced) -->
+    <circle cx="600" cy="410" r="20" class="balanced-node" />
+    <text x="600" y="410" class="node-label">B</text>
+    <text x="600" y="435" class="height-label">h+2</text>
+    
+    <!-- Node A (left child of B) -->
+    <circle cx="540" cy="455" r="20" class="balanced-node" />
+    <text x="540" y="455" class="node-label">A</text>
+    <text x="540" y="480" class="height-label">h+1</text>
+    
+    <!-- Node C (right child of B) -->
+    <circle cx="660" cy="455" r="20" class="balanced-node" />
+    <text x="660" y="455" class="node-label">C</text>
+    <text x="660" y="480" class="height-label">h+1</text>
+    
+    <!-- Subtrees in final configuration -->
+    <rect x="500" y="500" width="30" height="20" rx="10" class="subtree" />
+    <text x="515" y="510" class="subtree-label">W</text>
+    <text x="515" y="530" class="height-label">h</text>
+    
+    <rect x="550" y="500" width="20" height="15" rx="8" class="subtree" />
+    <text x="560" y="510" class="subtree-label">X</text>
+    
+    <rect x="650" y="500" width="20" height="15" rx="8" class="subtree" />
+    <text x="660" y="510" class="subtree-label">Y</text>
+    
+    <rect x="680" y="500" width="30" height="20" rx="10" class="subtree" />
+    <text x="695" y="510" class="subtree-label">Z</text>
+    <text x="695" y="530" class="height-label">h</text>
+    
+    <!-- Edges after double rotation -->
+    <line x1="585" y1="420" x2="555" y2="445" class="tree-edge" />
+    <line x1="615" y1="420" x2="645" y2="445" class="tree-edge" />
+    <line x1="525" y1="465" x2="515" y2="490" class="tree-edge" />
+    <line x1="555" y1="465" x2="560" y2="490" class="tree-edge" />
+    <line x1="645" y1="465" x2="660" y2="490" class="tree-edge" />
+    <line x1="675" y1="465" x2="695" y2="490" class="tree-edge" />
+  </g>
+  
+  <!-- AVL Properties -->
+  <rect x="100" y="600" width="1200" height="250" style="fill: #f8f9fa; stroke: #6c757d; stroke-width: 2px; rx: 4px;" />
+  <text x="700" y="630" class="title">AVL木の性質と操作</text>
+  
+  <!-- Balance Factor -->
+  <text x="120" y="660" class="subtitle">平衡因子</text>
+  <text x="140" y="680" class="description">各ノードの平衡因子 = 右部分木の高さ - 左部分木の高さ</text>
+  <text x="140" y="695" class="description">AVL木では全ノードの平衡因子が {-1, 0, 1} の範囲内</text>
+  
+  <!-- Rotation Types -->
+  <text x="120" y="725" class="subtitle">回転の種類</text>
+  <text x="140" y="745" class="description">• 左回転（LL回転）：右の子が重い場合の単純回転</text>
+  <text x="140" y="760" class="description">• 右回転（RR回転）：左の子が重い場合の単純回転</text>
+  <text x="140" y="775" class="description">• 左-右回転（LR回転）：左の子の右が重い場合の二重回転</text>
+  <text x="140" y="790" class="description">• 右-左回転（RL回転）：右の子の左が重い場合の二重回転</text>
+  
+  <!-- Performance -->
+  <text x="600" y="660" class="subtitle">性能保証</text>
+  <text x="620" y="680" class="description">• 高さ：O(log n)</text>
+  <text x="620" y="695" class="description">• 探索・挿入・削除：O(log n)</text>
+  <text x="620" y="710" class="description">• 回転回数：挿入で最大1回、削除で最大O(log n)回</text>
+  
+  <!-- Applications -->
+  <text x="600" y="740" class="subtitle">実用性</text>
+  <text x="620" y="760" class="description">• 頻繁な探索が必要なアプリケーション</text>
+  <text x="620" y="775" class="description">• データベースのインデックス</text>
+  <text x="620" y="790" class="description">• メモリ効率的な平衡木実装</text>
+  
+  <!-- Height bound theorem -->
+  <text x="120" y="820" class="subtitle">高さの上界定理</text>
+  <text x="140" y="840" class="description">n個のノードを持つAVL木の高さ h は h ≤ 1.44 log₂(n + 2) - 0.328</text>
+</svg>

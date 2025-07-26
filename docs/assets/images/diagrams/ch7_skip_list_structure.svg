@@ -1,0 +1,328 @@
+<svg viewBox="0 0 1400 800" xmlns="http://www.w3.org/2000/svg">
+  <title>スキップリストの構造</title>
+  <desc>階層的な連結リストによる確率的データ構造と検索例</desc>
+  
+  <defs>
+    <style>
+      .level-box { fill: #f5f5f5; stroke: #999; stroke-width: 1px; rx: 4px; }
+      .node-box { fill: #e3f2fd; stroke: #2196f3; stroke-width: 2px; rx: 4px; }
+      .special-node { fill: #fff3e0; stroke: #ff9800; stroke-width: 2px; rx: 4px; }
+      .target-node { fill: #e8f5e8; stroke: #4caf50; stroke-width: 3px; rx: 4px; }
+      .sentinel-node { fill: #ffebee; stroke: #f44336; stroke-width: 2px; rx: 4px; }
+      
+      .horizontal-edge { stroke: #333; stroke-width: 2px; fill: none; marker-end: url(#arrowhead); }
+      .vertical-edge { stroke: #666; stroke-width: 1px; stroke-dasharray: 3,2; fill: none; }
+      .search-path { stroke: #4caf50; stroke-width: 3px; fill: none; marker-end: url(#search-arrowhead); }
+      
+      .title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 18px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #1a1a1a;
+      }
+      
+      .level-title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 12px; 
+        font-weight: 600; 
+        text-anchor: start; 
+        fill: #333;
+      }
+      
+      .node-label { 
+        font-family: Courier, monospace;
+        font-size: 11px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        dominant-baseline: central;
+        fill: #333;
+      }
+      
+      .description { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 10px; 
+        font-weight: 400; 
+        text-anchor: start; 
+        fill: #555;
+      }
+      
+      .search-step { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 9px; 
+        font-weight: 400; 
+        text-anchor: start; 
+        fill: #4caf50;
+      }
+      
+      .complexity-text { 
+        font-family: Courier, monospace;
+        font-size: 11px; 
+        font-weight: 500; 
+        text-anchor: start; 
+        fill: #333;
+      }
+    </style>
+    
+    <!-- Arrow markers -->
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#333" />
+    </marker>
+    <marker id="search-arrowhead" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0 0, 10 4, 0 8" fill="#4caf50" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="700" y="30" class="title">スキップリストの構造</text>
+  
+  <!-- Level 3 (Top) -->
+  <g id="level-3">
+    <rect x="50" y="70" width="1000" height="40" class="level-box" />
+    <text x="60" y="85" class="level-title">レベル3</text>
+    
+    <!-- Nodes -->
+    <rect x="150" y="75" width="60" height="30" class="sentinel-node" />
+    <text x="180" y="90" class="node-label">-∞</text>
+    
+    <rect x="450" y="75" width="60" height="30" class="special-node" />
+    <text x="480" y="90" class="node-label">17</text>
+    
+    <rect x="900" y="75" width="60" height="30" class="sentinel-node" />
+    <text x="930" y="90" class="node-label">+∞</text>
+    
+    <!-- Horizontal edges -->
+    <path d="M 210 90 L 440 90" class="horizontal-edge" />
+    <path d="M 510 90 L 890 90" class="horizontal-edge" />
+  </g>
+  
+  <!-- Level 2 -->
+  <g id="level-2">
+    <rect x="50" y="130" width="1000" height="40" class="level-box" />
+    <text x="60" y="145" class="level-title">レベル2</text>
+    
+    <!-- Nodes -->
+    <rect x="150" y="135" width="60" height="30" class="sentinel-node" />
+    <text x="180" y="150" class="node-label">-∞</text>
+    
+    <rect x="250" y="135" width="60" height="30" class="node-box" />
+    <text x="280" y="150" class="node-label">3</text>
+    
+    <rect x="450" y="135" width="60" height="30" class="special-node" />
+    <text x="480" y="150" class="node-label">17</text>
+    
+    <rect x="650" y="135" width="60" height="30" class="node-box" />
+    <text x="680" y="150" class="node-label">25</text>
+    
+    <rect x="900" y="135" width="60" height="30" class="sentinel-node" />
+    <text x="930" y="150" class="node-label">+∞</text>
+    
+    <!-- Horizontal edges -->
+    <path d="M 210 150 L 240 150" class="horizontal-edge" />
+    <path d="M 310 150 L 440 150" class="horizontal-edge" />
+    <path d="M 510 150 L 640 150" class="horizontal-edge" />
+    <path d="M 710 150 L 890 150" class="horizontal-edge" />
+  </g>
+  
+  <!-- Level 1 -->
+  <g id="level-1">
+    <rect x="50" y="190" width="1000" height="40" class="level-box" />
+    <text x="60" y="205" class="level-title">レベル1</text>
+    
+    <!-- Nodes -->
+    <rect x="150" y="195" width="60" height="30" class="sentinel-node" />
+    <text x="180" y="210" class="node-label">-∞</text>
+    
+    <rect x="250" y="195" width="60" height="30" class="node-box" />
+    <text x="280" y="210" class="node-label">3</text>
+    
+    <rect x="320" y="195" width="60" height="30" class="node-box" />
+    <text x="350" y="210" class="node-label">7</text>
+    
+    <rect x="380" y="195" width="60" height="30" class="node-box" />
+    <text x="410" y="210" class="node-label">12</text>
+    
+    <rect x="450" y="195" width="60" height="30" class="special-node" />
+    <text x="480" y="210" class="node-label">17</text>
+    
+    <rect x="650" y="195" width="60" height="30" class="node-box" />
+    <text x="680" y="210" class="node-label">25</text>
+    
+    <rect x="750" y="195" width="60" height="30" class="node-box" />
+    <text x="780" y="210" class="node-label">31</text>
+    
+    <rect x="900" y="195" width="60" height="30" class="sentinel-node" />
+    <text x="930" y="210" class="node-label">+∞</text>
+    
+    <!-- Horizontal edges -->
+    <path d="M 210 210 L 240 210" class="horizontal-edge" />
+    <path d="M 310 210 L 310 210" class="horizontal-edge" />
+    <path d="M 380 210 L 370 210" class="horizontal-edge" />
+    <path d="M 440 210 L 440 210" class="horizontal-edge" />
+    <path d="M 510 210 L 640 210" class="horizontal-edge" />
+    <path d="M 710 210 L 740 210" class="horizontal-edge" />
+    <path d="M 810 210 L 890 210" class="horizontal-edge" />
+  </g>
+  
+  <!-- Level 0 (Base) -->
+  <g id="level-0">
+    <rect x="50" y="250" width="1000" height="40" class="level-box" />
+    <text x="60" y="265" class="level-title">レベル0（基底）</text>
+    
+    <!-- Nodes -->
+    <rect x="150" y="255" width="60" height="30" class="sentinel-node" />
+    <text x="180" y="270" class="node-label">-∞</text>
+    
+    <rect x="250" y="255" width="60" height="30" class="node-box" />
+    <text x="280" y="270" class="node-label">3</text>
+    
+    <rect x="320" y="255" width="60" height="30" class="node-box" />
+    <text x="350" y="270" class="node-label">7</text>
+    
+    <rect x="380" y="255" width="60" height="30" class="node-box" />
+    <text x="410" y="270" class="node-label">9</text>
+    
+    <rect x="430" y="255" width="60" height="30" class="node-box" />
+    <text x="460" y="270" class="node-label">12</text>
+    
+    <rect x="490" y="255" width="60" height="30" class="special-node" />
+    <text x="520" y="270" class="node-label">17</text>
+    
+    <rect x="550" y="255" width="60" height="30" class="target-node" />
+    <text x="580" y="270" class="node-label">20</text>
+    
+    <rect x="620" y="255" width="60" height="30" class="node-box" />
+    <text x="650" y="270" class="node-label">25</text>
+    
+    <rect x="720" y="255" width="60" height="30" class="node-box" />
+    <text x="750" y="270" class="node-label">31</text>
+    
+    <rect x="820" y="255" width="60" height="30" class="node-box" />
+    <text x="850" y="270" class="node-label">38</text>
+    
+    <rect x="900" y="255" width="60" height="30" class="sentinel-node" />
+    <text x="930" y="270" class="node-label">+∞</text>
+    
+    <!-- Horizontal edges -->
+    <path d="M 210 270 L 240 270" class="horizontal-edge" />
+    <path d="M 310 270 L 310 270" class="horizontal-edge" />
+    <path d="M 380 270 L 370 270" class="horizontal-edge" />
+    <path d="M 440 270 L 420 270" class="horizontal-edge" />
+    <path d="M 490 270 L 480 270" class="horizontal-edge" />
+    <path d="M 550 270 L 540 270" class="horizontal-edge" />
+    <path d="M 610 270 L 610 270" class="horizontal-edge" />
+    <path d="M 680 270 L 710 270" class="horizontal-edge" />
+    <path d="M 780 270 L 810 270" class="horizontal-edge" />
+    <path d="M 880 270 L 890 270" class="horizontal-edge" />
+  </g>
+  
+  <!-- Vertical connections -->
+  <g id="vertical-connections">
+    <!-- Node 17 connections -->
+    <line x1="480" y1="105" x2="480" y2="135" class="vertical-edge" />
+    <line x1="480" y1="165" x2="480" y2="195" class="vertical-edge" />
+    <line x1="480" y1="225" x2="520" y2="255" class="vertical-edge" />
+    
+    <!-- Node 3 connections -->
+    <line x1="280" y1="165" x2="280" y2="195" class="vertical-edge" />
+    <line x1="280" y1="225" x2="280" y2="255" class="vertical-edge" />
+    
+    <!-- Node 25 connections -->
+    <line x1="680" y1="165" x2="680" y2="195" class="vertical-edge" />
+    <line x1="680" y1="225" x2="650" y2="255" class="vertical-edge" />
+    
+    <!-- Other connections -->
+    <line x1="350" y1="225" x2="350" y2="255" class="vertical-edge" />
+    <line x1="410" y1="225" x2="460" y2="255" class="vertical-edge" />
+    <line x1="780" y1="225" x2="750" y2="255" class="vertical-edge" />
+  </g>
+  
+  <!-- Search Example -->
+  <g id="search-example">
+    <rect x="50" y="320" width="500" height="180" style="fill: #f8f9fa; stroke: #6c757d; stroke-width: 2px; rx: 8px;" />
+    <text x="300" y="345" class="title">検索例: 20を検索</text>
+    
+    <!-- Search steps -->
+    <text x="70" y="370" class="search-step">1. レベル3: -∞ → 17 (17 < 20) → +∞ (25 > 20) → 下へ</text>
+    
+    <text x="70" y="390" class="search-step">2. レベル2: 17 → 25 (25 > 20) → 下へ</text>
+    
+    <text x="70" y="410" class="search-step">3. レベル1: 17 → 25 (25 > 20) → 下へ</text>
+    
+    <text x="70" y="430" class="search-step">4. レベル0: 17 → 20 を発見！</text>
+    
+    <!-- Search path visualization -->
+    <rect x="70" y="450" width="460" height="40" style="fill: #e8f5e8; stroke: #4caf50; stroke-width: 1px; rx: 4px;" />
+    <text x="80" y="470" class="description">探索経路: レベル3(-∞→17) → レベル2(17→25) → レベル1(17→25) → レベル0(17→20)</text>
+    <text x="80" y="485" class="description">比較回数: 約 O(log n) 回で目標に到達</text>
+  </g>
+  
+  <!-- Properties -->
+  <g id="properties">
+    <rect x="600" y="320" width="750" height="180" style="fill: #f8f9fa; stroke: #6c757d; stroke-width: 2px; rx: 8px;" />
+    <text x="975" y="345" class="title">スキップリストの性質</text>
+    
+    <!-- Performance characteristics -->
+    <text x="620" y="370" class="description">性質:</text>
+    <text x="625" y="385" class="complexity-text">• 期待高さ: O(log n)</text>
+    <text x="625" y="400" class="complexity-text">• 期待空間: O(n)</text>
+    <text x="625" y="415" class="complexity-text">• 検索/挿入/削除: O(log n) 期待時間</text>
+    
+    <!-- Promotion probability -->
+    <text x="850" y="370" class="description">昇格規則:</text>
+    <text x="855" y="385" class="description">• 各要素は確率 1/2 で上位レベルに昇格</text>
+    <text x="855" y="400" class="description">• レベル k に到達する確率: (1/2)^k</text>
+    <text x="855" y="415" class="description">• 期待される最大レベル: log₂ n</text>
+    
+    <!-- Advantages -->
+    <text x="620" y="440" class="description">利点:</text>
+    <text x="625" y="455" class="description">• バランス操作が不要（確率的に平衡）</text>
+    <text x="625" y="470" class="description">• 実装が比較的単純</text>
+    <text x="625" y="485" class="description">• 並行アクセスに適している</text>
+    
+    <!-- Use cases -->
+    <text x="850" y="440" class="description">用途:</text>
+    <text x="855" y="455" class="description">• メモリ内データベースのインデックス</text>
+    <text x="855" y="470" class="description">• 並行プログラミング</text>
+    <text x="855" y="485" class="description">• レンジクエリが頻繁なアプリケーション</text>
+  </g>
+  
+  <!-- Complexity Analysis -->
+  <g id="complexity-analysis">
+    <rect x="50" y="530" width="1300" height="220" style="fill: #f8f9fa; stroke: #6c757d; stroke-width: 2px; rx: 8px;" />
+    <text x="700" y="555" class="title">計算量解析</text>
+    
+    <!-- Expected height analysis -->
+    <text x="70" y="580" class="description">期待高さの解析:</text>
+    <text x="80" y="595" class="description">• n個の要素のスキップリスト</text>
+    <text x="80" y="610" class="description">• 要素がレベルkに到達する確率: P(レベル ≥ k) = (1/2)^k</text>
+    <text x="80" y="625" class="description">• 期待される最大レベル: E[max level] ≈ log₂ n</text>
+    <text x="80" y="640" class="description">• 高い確率で高さは O(log n) に収まる</text>
+    
+    <!-- Search complexity -->
+    <text x="450" y="580" class="description">検索時間の解析:</text>
+    <text x="460" y="595" class="description">• 各レベルで最大2つの要素を調査</text>
+    <text x="460" y="610" class="description">• レベル数は期待で O(log n)</text>
+    <text x="460" y="625" class="description">• 総比較回数: E[comparisons] = O(log n)</text>
+    <text x="460" y="640" class="description">• 分散も小さく、性能が安定</text>
+    
+    <!-- Space complexity -->
+    <text x="800" y="580" class="description">空間計算量の解析:</text>
+    <text x="810" y="595" class="description">• 各要素の期待ポインタ数: 1/(1-1/2) = 2</text>
+    <text x="810" y="610" class="description">• n個の要素で期待ポインタ数: 2n</text>
+    <text x="810" y="625" class="description">• 空間複雑度: O(n)</text>
+    <text x="810" y="640" class="description">• 定数因子は小さく実用的</text>
+    
+    <!-- Implementation notes -->
+    <text x="70" y="675" class="description">実装上の注意:</text>
+    <text x="80" y="690" class="description">• センチネルノード（-∞, +∞）で境界処理を簡素化</text>
+    <text x="80" y="705" class="description">• 更新操作時は下から上へ順次実行</text>
+    <text x="80" y="720" class="description">• 乱数生成の品質が性能に影響</text>
+    
+    <!-- Comparison with other structures -->
+    <text x="600" y="675" class="description">他のデータ構造との比較:</text>
+    <text x="610" y="690" class="description">• AVL木/赤黒木: 厳密にO(log n)だが回転操作が複雑</text>
+    <text x="610" y="705" class="description">• ハッシュ表: O(1)期待時間だが順序関係を保持しない</text>
+    <text x="610" y="720" class="description">• スキップリスト: 確率的だが実装が簡単で並行性に優れる</text>
+  </g>
+</svg>

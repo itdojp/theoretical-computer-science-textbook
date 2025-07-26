@@ -1,0 +1,218 @@
+<svg viewBox="0 0 1400 900" xmlns="http://www.w3.org/2000/svg">
+  <title>動的計画法の適用条件</title>
+  <desc>最適部分構造、部分問題の重複、計算量制限の3つの条件と適用例</desc>
+  
+  <defs>
+    <style>
+      .problem-box { fill: #f3e5f5; stroke: #9c27b0; stroke-width: 2px; rx: 8px; }
+      .condition-box { fill: #e3f2fd; stroke: #2196f3; stroke-width: 2px; rx: 8px; }
+      .dp-box { fill: #e8f5e8; stroke: #4caf50; stroke-width: 2px; rx: 8px; }
+      .example-box { fill: #fff3e0; stroke: #ff9800; stroke-width: 2px; rx: 8px; }
+      .non-example-box { fill: #ffebee; stroke: #f44336; stroke-width: 2px; rx: 8px; }
+      
+      .arrow { 
+        stroke: #666; 
+        stroke-width: 2px; 
+        fill: none; 
+        marker-end: url(#arrowhead);
+      }
+      
+      .dashed-arrow { 
+        stroke: #999; 
+        stroke-width: 2px; 
+        stroke-dasharray: 5,3;
+        fill: none; 
+        marker-end: url(#arrowhead-gray);
+      }
+      
+      .title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 18px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #1a1a1a;
+      }
+      
+      .box-title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 14px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #333;
+      }
+      
+      .condition-text { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 11px; 
+        font-weight: 400; 
+        text-anchor: middle; 
+        fill: #555;
+      }
+      
+      .example-text { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 10px; 
+        font-weight: 400; 
+        text-anchor: start; 
+        fill: #666;
+      }
+      
+      .formula { 
+        font-family: Courier, monospace;
+        font-size: 10px; 
+        font-weight: 500; 
+        text-anchor: start; 
+        fill: #333;
+      }
+    </style>
+    
+    <!-- Arrow markers -->
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#666" />
+    </marker>
+    <marker id="arrowhead-gray" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#999" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="700" y="30" class="title">動的計画法の適用条件</text>
+  
+  <!-- Problem Definition -->
+  <g id="problem">
+    <rect x="550" y="60" width="300" height="60" class="problem-box" />
+    <text x="700" y="85" class="box-title">最適化問題</text>
+    <text x="700" y="105" class="condition-text">効率的な解法を求める対象</text>
+  </g>
+  
+  <!-- Three Conditions -->
+  <g id="conditions">
+    <!-- Condition 1: Optimal Substructure -->
+    <rect x="150" y="180" width="250" height="100" class="condition-box" />
+    <text x="275" y="205" class="box-title">最適部分構造</text>
+    <text x="275" y="225" class="condition-text">最適解が部分問題の</text>
+    <text x="275" y="240" class="condition-text">最適解を含む</text>
+    <text x="275" y="260" class="condition-text">切り取り&amp;貼り付け論法で証明</text>
+    
+    <!-- Condition 2: Overlapping Subproblems -->
+    <rect x="450" y="180" width="250" height="100" class="condition-box" />
+    <text x="575" y="205" class="box-title">部分問題の重複</text>
+    <text x="575" y="225" class="condition-text">同じ部分問題が</text>
+    <text x="575" y="240" class="condition-text">何度も現れる</text>
+    <text x="575" y="260" class="condition-text">メモ化で効率化が可能</text>
+    
+    <!-- Condition 3: Polynomial Number of Subproblems -->
+    <rect x="750" y="180" width="250" height="100" class="condition-box" />
+    <text x="875" y="205" class="box-title">部分問題数の制限</text>
+    <text x="875" y="225" class="condition-text">部分問題の数が</text>
+    <text x="875" y="240" class="condition-text">多項式個</text>
+    <text x="875" y="260" class="condition-text">実用的な時間で解ける</text>
+  </g>
+  
+  <!-- Arrows from problem to conditions -->
+  <path d="M 650 120 L 275 170" class="arrow" />
+  <path d="M 700 120 L 575 170" class="arrow" />
+  <path d="M 750 120 L 875 170" class="arrow" />
+  
+  <!-- DP Applicability -->
+  <g id="dp-applicability">
+    <rect x="500" y="330" width="300" height="80" class="dp-box" />
+    <text x="650" y="355" class="box-title">動的計画法が適用可能</text>
+    <text x="650" y="375" class="condition-text">3つの条件をすべて満たす場合</text>
+    <text x="650" y="395" class="condition-text">効率的な最適解を得られる</text>
+  </g>
+  
+  <!-- Arrows from conditions to DP -->
+  <path d="M 275 280 L 550 340" class="arrow" />
+  <path d="M 575 280 L 625 330" class="arrow" />
+  <path d="M 875 280 L 750 340" class="arrow" />
+  
+  <!-- Examples Section -->
+  <g id="examples">
+    <rect x="100" y="450" width="600" height="200" class="example-box" />
+    <text x="400" y="475" class="box-title">適用例</text>
+    
+    <!-- Shortest Path -->
+    <text x="120" y="500" class="example-text">• 最短路問題</text>
+    <text x="130" y="515" class="example-text">- 最適部分構造: 最短路の一部も最短路</text>
+    <text x="130" y="530" class="example-text">- 重複: 同じ頂点への最短距離を何度も計算</text>
+    <text x="130" y="545" class="example-text">- 部分問題数: O(|V|)</text>
+    
+    <!-- Edit Distance -->
+    <text x="120" y="570" class="example-text">• 編集距離（Levenshtein距離）</text>
+    <text x="130" y="585" class="example-text">- 最適部分構造: 部分文字列の編集も最適</text>
+    <text x="130" y="600" class="example-text">- 重複: 同じ(i,j)の編集距離を何度も参照</text>
+    <text x="130" y="615" class="example-text">- 部分問題数: O(mn)</text>
+    
+    <!-- Knapsack -->
+    <text x="360" y="500" class="example-text">• ナップサック問題</text>
+    <text x="370" y="515" class="example-text">- 最適部分構造: 部分容量での最適解</text>
+    <text x="370" y="530" class="example-text">- 重複: 同じ(i,w)の組み合わせ</text>
+    <text x="370" y="545" class="example-text">- 部分問題数: O(nW)</text>
+    
+    <!-- Matrix Chain Multiplication -->
+    <text x="360" y="570" class="example-text">• 連鎖行列積</text>
+    <text x="370" y="585" class="example-text">- 最適部分構造: 部分連鎖も最適</text>
+    <text x="370" y="600" class="example-text">- 重複: 同じ区間[i,j]を何度も計算</text>
+    <text x="370" y="615" class="example-text">- 部分問題数: O(n²)</text>
+  </g>
+  
+  <!-- Non-Examples Section -->
+  <g id="non-examples">
+    <rect x="750" y="450" width="600" height="200" class="non-example-box" />
+    <text x="1050" y="475" class="box-title">不適切な例</text>
+    
+    <!-- TSP -->
+    <text x="770" y="500" class="example-text">• 巡回セールスマン問題（TSP）</text>
+    <text x="780" y="515" class="example-text">- 問題: 最適部分構造が成り立たない</text>
+    <text x="780" y="530" class="example-text">- 理由: 部分路が最適でも全体が最適とは限らない</text>
+    <text x="780" y="545" class="example-text">- 例外: Held-Karp法では状態を工夫して適用</text>
+    
+    <!-- Longest Path -->
+    <text x="770" y="570" class="example-text">• 一般グラフでの最長路問題</text>
+    <text x="780" y="585" class="example-text">- 問題: NP困難で部分問題数が指数的</text>
+    <text x="780" y="600" class="example-text">- 理由: サイクルがある場合の状態爆発</text>
+    <text x="780" y="615" class="example-text">- 例外: DAGでは線形時間で解ける</text>
+  </g>
+  
+  <!-- Connection arrows -->
+  <path d="M 650 410 L 400 440" class="arrow" />
+  <path d="M 700 440 L 1050 440" class="dashed-arrow" />
+  
+  <!-- DP Design Process -->
+  <g id="design-process">
+    <rect x="200" y="700" width="1000" height="150" style="fill: #f8f9fa; stroke: #6c757d; stroke-width: 2px; rx: 8px;" />
+    <text x="700" y="725" class="box-title">動的計画法の設計手順</text>
+    
+    <!-- Step boxes -->
+    <rect x="220" y="740" width="180" height="40" style="fill: #e3f2fd; stroke: #2196f3; stroke-width: 1px; rx: 4px;" />
+    <text x="310" y="765" class="condition-text">1. 最適解の構造を特徴付け</text>
+    
+    <rect x="420" y="740" width="180" height="40" style="fill: #e3f2fd; stroke: #2196f3; stroke-width: 1px; rx: 4px;" />
+    <text x="510" y="765" class="condition-text">2. 最適値を再帰的に定義</text>
+    
+    <rect x="620" y="740" width="180" height="40" style="fill: #e3f2fd; stroke: #2196f3; stroke-width: 1px; rx: 4px;" />
+    <text x="710" y="765" class="condition-text">3. ボトムアップで最適値計算</text>
+    
+    <rect x="820" y="740" width="180" height="40" style="fill: #e3f2fd; stroke: #2196f3; stroke-width: 1px; rx: 4px;" />
+    <text x="910" y="765" class="condition-text">4. 最適解を構成</text>
+    
+    <!-- Process arrows -->
+    <path d="M 400 760 L 410 760" class="arrow" />
+    <path d="M 600 760 L 610 760" class="arrow" />
+    <path d="M 800 760 L 810 760" class="arrow" />
+    
+    <!-- Example implementation -->
+    <text x="220" y="800" class="example-text">例: 編集距離の実装</text>
+    <text x="220" y="815" class="formula">dp[i][j] = min(</text>
+    <text x="240" y="830" class="formula">dp[i-1][j] + 1,     // 削除</text>
+    <text x="240" y="845" class="formula">dp[i][j-1] + 1,     // 挿入</text>
+    <text x="240" y="860" class="formula">dp[i-1][j-1] + cost // 置換</text>
+    <text x="220" y="875" class="formula">)</text>
+    
+    <text x="600" y="800" class="example-text">計算量分析:</text>
+    <text x="600" y="815" class="formula">時間複雑度: O(部分問題数 × 各問題の解決時間)</text>
+    <text x="600" y="830" class="formula">空間複雑度: O(記録する部分問題数)</text>
+    <text x="600" y="845" class="example-text">最適化: 空間効率化、スパース化など</text>
+  </g>
+</svg>

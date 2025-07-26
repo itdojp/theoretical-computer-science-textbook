@@ -1,0 +1,328 @@
+<svg viewBox="0 0 1400 900" xmlns="http://www.w3.org/2000/svg">
+  <title>Union-Findの最適化技法</title>
+  <desc>単純なUnion、ランクによる併合、経路圧縮の比較と性能改善</desc>
+  
+  <defs>
+    <style>
+      .initial-node { fill: #f5f5f5; stroke: #999; stroke-width: 2px; }
+      .simple-node { fill: #ffebee; stroke: #f44336; stroke-width: 2px; }
+      .rank-node { fill: #e3f2fd; stroke: #2196f3; stroke-width: 2px; }
+      .path-node { fill: #e8f5e8; stroke: #4caf50; stroke-width: 2px; }
+      .root-node { fill: #fff3e0; stroke: #ff9800; stroke-width: 3px; }
+      
+      .tree-edge { stroke: #333; stroke-width: 2px; fill: none; }
+      .dashed-edge { stroke: #666; stroke-width: 1px; stroke-dasharray: 3,2; fill: none; }
+      .compression-arrow { stroke: #4caf50; stroke-width: 3px; fill: none; marker-end: url(#compression-arrowhead); }
+      
+      .title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 18px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #1a1a1a;
+      }
+      
+      .section-title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 14px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #333;
+      }
+      
+      .node-label { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 12px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        dominant-baseline: central;
+        fill: #333;
+      }
+      
+      .rank-label { 
+        font-family: Courier, monospace;
+        font-size: 9px; 
+        font-weight: 500; 
+        text-anchor: middle; 
+        fill: #666;
+      }
+      
+      .description { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 10px; 
+        font-weight: 400; 
+        text-anchor: start; 
+        fill: #555;
+      }
+      
+      .problem-text { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 10px; 
+        font-weight: 400; 
+        text-anchor: start; 
+        fill: #d32f2f;
+      }
+      
+      .benefit-text { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 10px; 
+        font-weight: 400; 
+        text-anchor: start; 
+        fill: #4caf50;
+      }
+      
+      .complexity-text { 
+        font-family: Courier, monospace;
+        font-size: 11px; 
+        font-weight: 500; 
+        text-anchor: start; 
+        fill: #333;
+      }
+    </style>
+    
+    <!-- Arrow marker -->
+    <marker id="compression-arrowhead" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0 0, 10 4, 0 8" fill="#4caf50" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="700" y="30" class="title">Union-Findの最適化技法</text>
+  
+  <!-- Initial State -->
+  <g id="initial-state">
+    <text x="200" y="70" class="section-title">初期状態</text>
+    
+    <!-- Individual nodes -->
+    <circle cx="120" cy="100" r="15" class="initial-node" />
+    <text x="120" y="100" class="node-label">1</text>
+    
+    <circle cx="160" cy="100" r="15" class="initial-node" />
+    <text x="160" y="100" class="node-label">2</text>
+    
+    <circle cx="200" cy="100" r="15" class="initial-node" />
+    <text x="200" y="100" class="node-label">3</text>
+    
+    <circle cx="240" cy="100" r="15" class="initial-node" />
+    <text x="240" y="100" class="node-label">4</text>
+    
+    <circle cx="280" cy="100" r="15" class="initial-node" />
+    <text x="280" y="100" class="node-label">5</text>
+    
+    <circle cx="120" cy="140" r="15" class="initial-node" />
+    <text x="120" y="140" class="node-label">6</text>
+    
+    <circle cx="160" cy="140" r="15" class="initial-node" />
+    <text x="160" y="140" class="node-label">7</text>
+    
+    <circle cx="200" cy="140" r="15" class="initial-node" />
+    <text x="200" y="140" class="node-label">8</text>
+  </g>
+  
+  <!-- Simple Union (Bad Case) -->
+  <g id="simple-union">
+    <text x="200" y="200" class="section-title">単純なUnion</text>
+    
+    <!-- Degenerate tree -->
+    <circle cx="120" cy="240" r="15" class="simple-node root-node" />
+    <text x="120" y="240" class="node-label">根</text>
+    
+    <circle cx="160" cy="270" r="15" class="simple-node" />
+    <text x="160" y="270" class="node-label">2</text>
+    
+    <circle cx="200" cy="300" r="15" class="simple-node" />
+    <text x="200" y="300" class="node-label">3</text>
+    
+    <circle cx="240" cy="330" r="15" class="simple-node" />
+    <text x="240" y="330" class="node-label">4</text>
+    
+    <circle cx="280" cy="360" r="15" class="simple-node" />
+    <text x="280" y="360" class="node-label">5</text>
+    
+    <circle cx="320" cy="390" r="15" class="simple-node" />
+    <text x="320" y="390" class="node-label">6</text>
+    
+    <circle cx="360" cy="420" r="15" class="simple-node" />
+    <text x="360" y="420" class="node-label">7</text>
+    
+    <circle cx="400" cy="450" r="15" class="simple-node" />
+    <text x="400" y="450" class="node-label">8</text>
+    
+    <!-- Edges for degenerate tree -->
+    <line x1="135" y1="250" x2="145" y2="260" class="tree-edge" />
+    <line x1="175" y1="280" x2="185" y2="290" class="tree-edge" />
+    <line x1="215" y1="310" x2="225" y2="320" class="tree-edge" />
+    <line x1="255" y1="340" x2="265" y2="350" class="tree-edge" />
+    <line x1="295" y1="370" x2="305" y2="380" class="tree-edge" />
+    <line x1="335" y1="400" x2="345" y2="410" class="tree-edge" />
+    <line x1="375" y1="430" x2="385" y2="440" class="tree-edge" />
+    
+    <!-- Problem description -->
+    <rect x="50" y="480" width="350" height="60" style="fill: #ffebee; stroke: #f44336; stroke-width: 1px; rx: 4px;" />
+    <text x="60" y="500" class="problem-text">問題: 木が一直線に伸びる可能性</text>
+    <text x="60" y="515" class="problem-text">• find操作が O(n) 時間かかる</text>
+    <text x="60" y="530" class="problem-text">• 最悪の場合、全体の性能が線形に劣化</text>
+  </g>
+  
+  <!-- Union by Rank -->
+  <g id="union-by-rank">
+    <text x="700" y="200" class="section-title">ランクによる併合</text>
+    
+    <!-- Balanced tree -->
+    <circle cx="700" cy="240" r="15" class="rank-node root-node" />
+    <text x="700" y="240" class="node-label">根</text>
+    <text x="700" y="260" class="rank-label">rank:3</text>
+    
+    <!-- Level 1 -->
+    <circle cx="650" cy="290" r="15" class="rank-node" />
+    <text x="650" y="290" class="node-label">B</text>
+    <text x="650" y="310" class="rank-label">rank:2</text>
+    
+    <circle cx="750" cy="290" r="15" class="rank-node" />
+    <text x="750" y="290" class="node-label">C</text>
+    <text x="750" y="310" class="rank-label">rank:1</text>
+    
+    <!-- Level 2 -->
+    <circle cx="620" cy="340" r="15" class="rank-node" />
+    <text x="620" y="340" class="node-label">4</text>
+    
+    <circle cx="680" cy="340" r="15" class="rank-node" />
+    <text x="680" y="340" class="node-label">5</text>
+    
+    <circle cx="720" cy="340" r="15" class="rank-node" />
+    <text x="720" y="340" class="node-label">6</text>
+    
+    <circle cx="780" cy="340" r="15" class="rank-node" />
+    <text x="780" y="340" class="node-label">7</text>
+    
+    <circle cx="820" cy="340" r="15" class="rank-node" />
+    <text x="820" y="340" class="node-label">8</text>
+    
+    <!-- Tree edges -->
+    <line x1="685" y1="250" x2="665" y2="280" class="tree-edge" />
+    <line x1="715" y1="250" x2="735" y2="280" class="tree-edge" />
+    <line x1="635" y1="300" x2="635" y2="330" class="tree-edge" />
+    <line x1="665" y1="300" x2="665" y2="330" class="tree-edge" />
+    <line x1="735" y1="300" x2="735" y2="330" class="tree-edge" />
+    <line x1="765" y1="300" x2="765" y2="330" class="tree-edge" />
+    <line x1="765" y1="300" x2="805" y2="330" class="tree-edge" />
+    
+    <!-- Benefit description -->
+    <rect x="550" y="380" width="350" height="60" style="fill: #e3f2fd; stroke: #2196f3; stroke-width: 1px; rx: 4px;" />
+    <text x="560" y="400" class="benefit-text">利点: 木の高さがO(log n)に制限</text>
+    <text x="560" y="415" class="benefit-text">• 小さいランクの木を大きいランクの木に接続</text>
+    <text x="560" y="430" class="benefit-text">• find操作の時間計算量が保証される</text>
+  </g>
+  
+  <!-- Path Compression -->
+  <g id="path-compression">
+    <text x="700" y="500" class="section-title">経路圧縮</text>
+    
+    <!-- Before compression -->
+    <text x="500" y="530" class="section-title">圧縮前</text>
+    
+    <circle cx="500" cy="560" r="15" class="path-node root-node" />
+    <text x="500" y="560" class="node-label">根</text>
+    
+    <circle cx="540" cy="600" r="15" class="path-node" />
+    <text x="540" y="600" class="node-label">2</text>
+    
+    <circle cx="580" cy="640" r="15" class="path-node" />
+    <text x="580" y="640" class="node-label">3</text>
+    
+    <circle cx="620" cy="680" r="15" class="path-node" />
+    <text x="620" y="680" class="node-label">4</text>
+    
+    <!-- Edges before compression -->
+    <line x1="515" y1="570" x2="525" y2="590" class="tree-edge" />
+    <line x1="555" y1="610" x2="565" y2="630" class="tree-edge" />
+    <line x1="595" y1="650" x2="605" y2="670" class="tree-edge" />
+    
+    <!-- Compression arrow -->
+    <path d="M 660 620 Q 720 620 780 620" class="compression-arrow" />
+    <text x="720" y="610" class="section-title">圧縮</text>
+    
+    <!-- After compression -->
+    <text x="900" y="530" class="section-title">圧縮後</text>
+    
+    <circle cx="900" cy="560" r="15" class="path-node root-node" />
+    <text x="900" y="560" class="node-label">根</text>
+    
+    <circle cx="850" cy="600" r="15" class="path-node" />
+    <text x="850" y="600" class="node-label">2</text>
+    
+    <circle cx="920" cy="600" r="15" class="path-node" />
+    <text x="920" y="600" class="node-label">3</text>
+    
+    <circle cx="970" cy="600" r="15" class="path-node" />
+    <text x="970" y="600" class="node-label">4</text>
+    
+    <!-- Direct edges after compression -->
+    <line x1="885" y1="570" x2="865" y2="590" class="tree-edge" />
+    <line x1="915" y1="570" x2="935" y2="590" class="tree-edge" />
+    <line x1="925" y1="570" x2="955" y2="590" class="tree-edge" />
+    
+    <!-- Performance benefit -->
+    <rect x="750" y="650" width="350" height="60" style="fill: #e8f5e8; stroke: #4caf50; stroke-width: 1px; rx: 4px;" />
+    <text x="760" y="670" class="benefit-text">償却時間: O(α(n)) - 逆アッカーマン関数</text>
+    <text x="760" y="685" class="benefit-text">• find操作中に経路上の全ノードを根に直結</text>
+    <text x="760" y="700" class="benefit-text">• 後続のfind操作が高速になる</text>
+  </g>
+  
+  <!-- Performance Analysis -->
+  <g id="performance-analysis">
+    <rect x="50" y="750" width="1300" height="120" style="fill: #f8f9fa; stroke: #6c757d; stroke-width: 2px; rx: 8px;" />
+    <text x="700" y="775" class="title">性能分析</text>
+    
+    <!-- Comparison table -->
+    <rect x="80" y="790" width="180" height="30" style="fill: #e0e0e0; stroke: #999; stroke-width: 1px;" />
+    <text x="170" y="810" class="section-title">手法</text>
+    
+    <rect x="260" y="790" width="200" height="30" style="fill: #e0e0e0; stroke: #999; stroke-width: 1px;" />
+    <text x="360" y="810" class="section-title">find操作の計算量</text>
+    
+    <rect x="460" y="790" width="200" height="30" style="fill: #e0e0e0; stroke: #999; stroke-width: 1px;" />
+    <text x="560" y="810" class="section-title">union操作の計算量</text>
+    
+    <rect x="660" y="790" width="300" height="30" style="fill: #e0e0e0; stroke: #999; stroke-width: 1px;" />
+    <text x="810" y="810" class="section-title">m回の操作の総時間</text>
+    
+    <rect x="960" y="790" width="300" height="30" style="fill: #e0e0e0; stroke: #999; stroke-width: 1px;" />
+    <text x="1110" y="810" class="section-title">実用性</text>
+    
+    <!-- Simple Union -->
+    <rect x="80" y="820" width="180" height="25" style="fill: #ffebee; stroke: #f44336; stroke-width: 1px;" />
+    <text x="90" y="837" class="description">単純Union</text>
+    
+    <rect x="260" y="820" width="200" height="25" style="fill: #fafafa; stroke: #ccc; stroke-width: 1px;" />
+    <text x="270" y="837" class="complexity-text">O(n)</text>
+    
+    <rect x="460" y="820" width="200" height="25" style="fill: #fafafa; stroke: #ccc; stroke-width: 1px;" />
+    <text x="470" y="837" class="complexity-text">O(1)</text>
+    
+    <rect x="660" y="820" width="300" height="25" style="fill: #fafafa; stroke: #ccc; stroke-width: 1px;" />
+    <text x="670" y="837" class="complexity-text">O(mn)</text>
+    
+    <rect x="960" y="820" width="300" height="25" style="fill: #fafafa; stroke: #ccc; stroke-width: 1px;" />
+    <text x="970" y="837" class="description">大規模データには不適</text>
+    
+    <!-- Union by Rank + Path Compression -->
+    <rect x="80" y="845" width="180" height="25" style="fill: #e8f5e8; stroke: #4caf50; stroke-width: 1px;" />
+    <text x="90" y="862" class="description">ランク+経路圧縮</text>
+    
+    <rect x="260" y="845" width="200" height="25" style="fill: #fafafa; stroke: #ccc; stroke-width: 1px;" />
+    <text x="270" y="862" class="complexity-text">O(α(n))償却</text>
+    
+    <rect x="460" y="845" width="200" height="25" style="fill: #fafafa; stroke: #ccc; stroke-width: 1px;" />
+    <text x="470" y="862" class="complexity-text">O(α(n))償却</text>
+    
+    <rect x="660" y="845" width="300" height="25" style="fill: #fafafa; stroke: #ccc; stroke-width: 1px;" />
+    <text x="670" y="862" class="complexity-text">O(mα(n))</text>
+    
+    <rect x="960" y="845" width="300" height="25" style="fill: #fafafa; stroke: #ccc; stroke-width: 1px;" />
+    <text x="970" y="862" class="description">実用上ほぼ定数時間</text>
+  </g>
+  
+  <!-- Note about inverse Ackermann -->
+  <text x="50" y="890" class="description">注: α(n)は逆アッカーマン関数で、実用的なnに対してα(n) ≤ 5</text>
+</svg>
