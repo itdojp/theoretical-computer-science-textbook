@@ -1,0 +1,215 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <title>Dijkstraアルゴリズムの実行例</title>
+  <desc>Dijkstraアルゴリズムの実行過程を段階的に示すグラフ</desc>
+  
+  <defs>
+    <style>
+      .title-text { font-family: 'Inter', 'Helvetica', sans-serif; font-size: 18px; font-weight: 600; fill: #2d3748; }
+      .section-title { font-family: 'Inter', 'Helvetica', sans-serif; font-size: 14px; font-weight: 600; fill: #4a5568; }
+      .node-text { font-family: 'Inter', 'Helvetica', sans-serif; font-size: 12px; font-weight: 500; fill: #2d3748; }
+      .distance-text { font-family: 'Inter', 'Helvetica', sans-serif; font-size: 10px; font-weight: 400; fill: #2d3748; }
+      .edge-weight { font-family: 'Inter', 'Helvetica', sans-serif; font-size: 10px; font-weight: 500; fill: #4a5568; }
+      .result-text { font-family: 'Inter', 'Helvetica', sans-serif; font-size: 11px; font-weight: 400; fill: #2d3748; }
+      .arrow { fill: #718096; }
+      .initial-node { fill: #fed7d7; stroke: #e53e3e; stroke-width: 2; }
+      .processed-node { fill: #c6f6d5; stroke: #38a169; stroke-width: 2; }
+      .current-node { fill: #bee3f8; stroke: #3182ce; stroke-width: 2; }
+      .unvisited-node { fill: #f7fafc; stroke: #a0aec0; stroke-width: 1.5; }
+      .edge { stroke: #718096; stroke-width: 1.5; fill: none; }
+      .edge-highlight { stroke: #3182ce; stroke-width: 2.5; fill: none; }
+    </style>
+  </defs>
+  
+  <!-- Title -->
+  <text x="600" y="30" text-anchor="middle" class="title-text">Dijkstraアルゴリズムの実行例</text>
+  
+  <!-- Initial State -->
+  <g id="initial-state">
+    <text x="100" y="70" text-anchor="middle" class="section-title">初期状態</text>
+    
+    <!-- Nodes -->
+    <circle cx="50" cy="120" r="20" class="initial-node"/>
+    <text x="50" y="110" text-anchor="middle" class="node-text">A</text>
+    <text x="50" y="125" text-anchor="middle" class="distance-text">d=0</text>
+    
+    <circle cx="120" cy="90" r="20" class="unvisited-node"/>
+    <text x="120" y="85" text-anchor="middle" class="node-text">B</text>
+    <text x="120" y="100" text-anchor="middle" class="distance-text">d=∞</text>
+    
+    <circle cx="120" cy="150" r="20" class="unvisited-node"/>
+    <text x="120" y="145" text-anchor="middle" class="node-text">C</text>
+    <text x="120" y="160" text-anchor="middle" class="distance-text">d=∞</text>
+    
+    <circle cx="190" cy="90" r="20" class="unvisited-node"/>
+    <text x="190" y="85" text-anchor="middle" class="node-text">D</text>
+    <text x="190" y="100" text-anchor="middle" class="distance-text">d=∞</text>
+    
+    <circle cx="190" cy="150" r="20" class="unvisited-node"/>
+    <text x="190" y="145" text-anchor="middle" class="node-text">E</text>
+    <text x="190" y="160" text-anchor="middle" class="distance-text">d=∞</text>
+    
+    <!-- Edges with weights -->
+    <line x1="70" y1="115" x2="100" y2="95" class="edge"/>
+    <text x="85" y="100" class="edge-weight">4</text>
+    
+    <line x1="70" y1="125" x2="100" y2="145" class="edge"/>
+    <text x="85" y="140" class="edge-weight">2</text>
+    
+    <line x1="140" y1="95" x2="170" y2="95" class="edge"/>
+    <text x="155" y="90" class="edge-weight">5</text>
+    
+    <line x1="135" y1="145" x2="105" y2="95" class="edge"/>
+    <text x="115" y="115" class="edge-weight">1</text>
+    
+    <line x1="140" y1="145" x2="170" y2="95" class="edge"/>
+    <text x="160" y="115" class="edge-weight">8</text>
+    
+    <line x1="140" y1="155" x2="170" y2="155" class="edge"/>
+    <text x="155" y="170" class="edge-weight">10</text>
+    
+    <line x1="195" y1="110" x2="195" y2="130" class="edge"/>
+    <text x="205" y="125" class="edge-weight">2</text>
+  </g>
+  
+  <!-- Arrow 1 -->
+  <polygon points="250,120 270,115 270,125" class="arrow"/>
+  
+  <!-- Step 1: Process A -->
+  <g id="step1">
+    <text x="350" y="70" text-anchor="middle" class="section-title">ステップ1: Aを処理</text>
+    
+    <!-- Nodes -->
+    <circle cx="300" cy="120" r="20" class="processed-node"/>
+    <text x="300" y="110" text-anchor="middle" class="node-text">A</text>
+    <text x="300" y="125" text-anchor="middle" class="distance-text">d=0 ✓</text>
+    
+    <circle cx="370" cy="90" r="20" class="current-node"/>
+    <text x="370" y="85" text-anchor="middle" class="node-text">B</text>
+    <text x="370" y="100" text-anchor="middle" class="distance-text">d=4</text>
+    
+    <circle cx="370" cy="150" r="20" class="current-node"/>
+    <text x="370" y="145" text-anchor="middle" class="node-text">C</text>
+    <text x="370" y="160" text-anchor="middle" class="distance-text">d=2</text>
+    
+    <circle cx="440" cy="90" r="20" class="unvisited-node"/>
+    <text x="440" y="85" text-anchor="middle" class="node-text">D</text>
+    <text x="440" y="100" text-anchor="middle" class="distance-text">d=∞</text>
+    
+    <circle cx="440" cy="150" r="20" class="unvisited-node"/>
+    <text x="440" y="145" text-anchor="middle" class="node-text">E</text>
+    <text x="440" y="160" text-anchor="middle" class="distance-text">d=∞</text>
+    
+    <!-- Edges -->
+    <line x1="320" y1="115" x2="350" y2="95" class="edge-highlight"/>
+    <line x1="320" y1="125" x2="350" y2="145" class="edge-highlight"/>
+    <line x1="390" y1="95" x2="420" y2="95" class="edge"/>
+    <line x1="385" y1="145" x2="355" y2="95" class="edge"/>
+    <line x1="390" y1="145" x2="420" y2="95" class="edge"/>
+    <line x1="390" y1="155" x2="420" y2="155" class="edge"/>
+    <line x1="445" y1="110" x2="445" y2="130" class="edge"/>
+  </g>
+  
+  <!-- Arrow 2 -->
+  <polygon points="500,120 520,115 520,125" class="arrow"/>
+  
+  <!-- Step 2: Process C -->
+  <g id="step2">
+    <text x="600" y="70" text-anchor="middle" class="section-title">ステップ2: Cを処理</text>
+    
+    <!-- Nodes -->
+    <circle cx="550" cy="120" r="20" class="processed-node"/>
+    <text x="550" y="110" text-anchor="middle" class="node-text">A</text>
+    <text x="550" y="125" text-anchor="middle" class="distance-text">d=0 ✓</text>
+    
+    <circle cx="620" cy="90" r="20" class="current-node"/>
+    <text x="620" y="85" text-anchor="middle" class="node-text">B</text>
+    <text x="620" y="100" text-anchor="middle" class="distance-text">d=3</text>
+    
+    <circle cx="620" cy="150" r="20" class="processed-node"/>
+    <text x="620" y="145" text-anchor="middle" class="node-text">C</text>
+    <text x="620" y="160" text-anchor="middle" class="distance-text">d=2 ✓</text>
+    
+    <circle cx="690" cy="90" r="20" class="current-node"/>
+    <text x="690" y="85" text-anchor="middle" class="node-text">D</text>
+    <text x="690" y="100" text-anchor="middle" class="distance-text">d=10</text>
+    
+    <circle cx="690" cy="150" r="20" class="current-node"/>
+    <text x="690" y="145" text-anchor="middle" class="node-text">E</text>
+    <text x="690" y="160" text-anchor="middle" class="distance-text">d=12</text>
+    
+    <!-- Edges -->
+    <line x1="570" y1="115" x2="600" y2="95" class="edge"/>
+    <line x1="570" y1="125" x2="600" y2="145" class="edge"/>
+    <line x1="640" y1="95" x2="670" y2="95" class="edge"/>
+    <line x1="635" y1="145" x2="605" y2="95" class="edge-highlight"/>
+    <line x1="640" y1="145" x2="670" y2="95" class="edge-highlight"/>
+    <line x1="640" y1="155" x2="670" y2="155" class="edge-highlight"/>
+    <line x1="695" y1="110" x2="695" y2="130" class="edge"/>
+  </g>
+  
+  <!-- Arrow 3 -->
+  <polygon points="750,120 770,115 770,125" class="arrow"/>
+  
+  <!-- Final Result -->
+  <g id="final-result">
+    <text x="900" y="70" text-anchor="middle" class="section-title">最終結果</text>
+    
+    <!-- Nodes -->
+    <circle cx="850" cy="120" r="20" class="processed-node"/>
+    <text x="850" y="110" text-anchor="middle" class="node-text">A</text>
+    <text x="850" y="125" text-anchor="middle" class="distance-text">d=0</text>
+    
+    <circle cx="920" cy="90" r="20" class="processed-node"/>
+    <text x="920" y="85" text-anchor="middle" class="node-text">B</text>
+    <text x="920" y="100" text-anchor="middle" class="distance-text">d=3</text>
+    
+    <circle cx="920" cy="150" r="20" class="processed-node"/>
+    <text x="920" y="145" text-anchor="middle" class="node-text">C</text>
+    <text x="920" y="160" text-anchor="middle" class="distance-text">d=2</text>
+    
+    <circle cx="990" cy="90" r="20" class="processed-node"/>
+    <text x="990" y="85" text-anchor="middle" class="node-text">D</text>
+    <text x="990" y="100" text-anchor="middle" class="distance-text">d=8</text>
+    
+    <circle cx="990" cy="150" r="20" class="processed-node"/>
+    <text x="990" y="145" text-anchor="middle" class="node-text">E</text>
+    <text x="990" y="160" text-anchor="middle" class="distance-text">d=10</text>
+    
+    <!-- Edges -->
+    <line x1="870" y1="115" x2="900" y2="95" class="edge"/>
+    <line x1="870" y1="125" x2="900" y2="145" class="edge"/>
+    <line x1="940" y1="95" x2="970" y2="95" class="edge"/>
+    <line x1="935" y1="145" x2="905" y2="95" class="edge"/>
+    <line x1="940" y1="145" x2="970" y2="95" class="edge"/>
+    <line x1="940" y1="155" x2="970" y2="155" class="edge"/>
+    <line x1="995" y1="110" x2="995" y2="130" class="edge"/>
+    
+    <!-- Result paths -->
+    <rect x="780" y="200" width="300" height="120" fill="#f7fafc" stroke="#e2e8f0" stroke-width="1" rx="8"/>
+    <text x="930" y="220" text-anchor="middle" class="section-title">最短路:</text>
+    <text x="790" y="240" class="result-text">A→C: 2</text>
+    <text x="790" y="255" class="result-text">A→B: 3 (A-C-B)</text>
+    <text x="790" y="270" class="result-text">A→D: 8 (A-B-D)</text>
+    <text x="790" y="285" class="result-text">A→E: 10 (A-B-D-E)</text>
+  </g>
+  
+  <!-- Algorithm steps explanation -->
+  <rect x="50" y="350" width="1100" height="420" fill="#f9f9f9" stroke="#e2e8f0" stroke-width="1" rx="8"/>
+  <text x="600" y="380" text-anchor="middle" class="section-title">Dijkstraアルゴリズムの実行手順</text>
+  
+  <text x="70" y="410" class="result-text">1. 初期化: 始点Aの距離を0、他の頂点の距離を∞に設定</text>
+  <text x="70" y="430" class="result-text">2. ステップ1: 未処理頂点の中で最小距離のA(0)を選択し、隣接頂点B,Cの距離を更新</text>
+  <text x="70" y="450" class="result-text">   - B: ∞ → 4 (0 + 4), C: ∞ → 2 (0 + 2)</text>
+  <text x="70" y="480" class="result-text">3. ステップ2: 未処理頂点の中で最小距離のC(2)を選択し、隣接頂点の距離を更新</text>
+  <text x="70" y="500" class="result-text">   - B: 4 → 3 (2 + 1で改善), D: ∞ → 10 (2 + 8), E: ∞ → 12 (2 + 10)</text>
+  <text x="70" y="530" class="result-text">4. ステップ3: 未処理頂点の中で最小距離のB(3)を選択し、隣接頂点の距離を更新</text>
+  <text x="70" y="550" class="result-text">   - D: 10 → 8 (3 + 5で改善)</text>
+  <text x="70" y="580" class="result-text">5. ステップ4: 未処理頂点の中で最小距離のD(8)を選択し、隣接頂点の距離を更新</text>
+  <text x="70" y="600" class="result-text">   - E: 12 → 10 (8 + 2で改善)</text>
+  <text x="70" y="630" class="result-text">6. ステップ5: 最後の頂点E(10)を処理して終了</text>
+  
+  <rect x="70" y="660" width="1060" height="80" fill="#e6fffa" stroke="#38b2ac" stroke-width="1" rx="6"/>
+  <text x="600" y="685" text-anchor="middle" class="section-title">時間複雑度と最適性</text>
+  <text x="90" y="710" class="result-text">• 時間複雑度: O((|V| + |E|) log |V|) (二分ヒープ使用), O(|V| log |V| + |E|) (フィボナッチヒープ使用)</text>
+  <text x="90" y="725" class="result-text">• 非負重みグラフにおいて最短路を正しく計算することが保証されている</text>
+</svg>

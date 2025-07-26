@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <title>チューリング機械の構成</title>
+  <desc>チューリング機械の構成要素：テープ、制御部、読み書きヘッドの関係を示す図</desc>
+  
+  <defs>
+    <style>
+      .tape-cell { fill: #ffffff; stroke: #2c3e50; stroke-width: 1.5; }
+      .tape-cell-active { fill: #ffeb3b; stroke: #2c3e50; stroke-width: 2; }
+      .tape-text { font-family: 'Inter', 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px; font-weight: 600; text-anchor: middle; fill: #2c3e50; }
+      .control-box { fill: #e3f2fd; stroke: #1976d2; stroke-width: 2; rx: 8; }
+      .control-text { font-family: 'Inter', 'Helvetica Neue', Helvetica, sans-serif; font-size: 14px; font-weight: 500; text-anchor: middle; fill: #1976d2; }
+      .head-box { fill: #fff3e0; stroke: #f57c00; stroke-width: 2; rx: 6; }
+      .head-text { font-family: 'Inter', 'Helvetica Neue', Helvetica, sans-serif; font-size: 12px; font-weight: 500; text-anchor: middle; fill: #f57c00; }
+      .arrow { stroke: #666; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .dashed-arrow { stroke: #666; stroke-width: 2; fill: none; stroke-dasharray: 5,3; marker-end: url(#arrowhead); }
+      .info-box { fill: #f8f9fa; stroke: #dee2e6; stroke-width: 1; rx: 6; }
+      .info-text { font-family: 'Inter', 'Helvetica Neue', Helvetica, sans-serif; font-size: 12px; fill: #495057; }
+      .section-title { font-family: 'Inter', 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px; font-weight: 600; fill: #2c3e50; }
+    </style>
+    
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="450" fill="#ffffff"/>
+  
+  <!-- Title -->
+  <text x="400" y="30" class="section-title" text-anchor="middle">チューリング機械の構成</text>
+  
+  <!-- Tape Section -->
+  <text x="60" y="80" class="section-title">テープ</text>
+  
+  <!-- Tape cells -->
+  <g id="tape">
+    <rect x="80" y="90" width="40" height="40" class="tape-cell"/>
+    <text x="100" y="115" class="tape-text">1</text>
+    <text x="100" y="140" class="tape-text" font-size="10">T1</text>
+    
+    <rect x="120" y="90" width="40" height="40" class="tape-cell"/>
+    <text x="140" y="115" class="tape-text">0</text>
+    <text x="140" y="140" class="tape-text" font-size="10">T2</text>
+    
+    <rect x="160" y="90" width="40" height="40" class="tape-cell"/>
+    <text x="180" y="115" class="tape-text">1</text>
+    <text x="180" y="140" class="tape-text" font-size="10">T3</text>
+    
+    <rect x="200" y="90" width="40" height="40" class="tape-cell"/>
+    <text x="220" y="115" class="tape-text">1</text>
+    <text x="220" y="140" class="tape-text" font-size="10">T4</text>
+    
+    <!-- Active cell -->
+    <rect x="240" y="90" width="40" height="40" class="tape-cell-active"/>
+    <text x="260" y="115" class="tape-text">0</text>
+    <text x="260" y="140" class="tape-text" font-size="10">T5</text>
+    
+    <rect x="280" y="90" width="40" height="40" class="tape-cell"/>
+    <text x="300" y="115" class="tape-text">1</text>
+    <text x="300" y="140" class="tape-text" font-size="10">T6</text>
+    
+    <rect x="320" y="90" width="40" height="40" class="tape-cell"/>
+    <text x="340" y="115" class="tape-text">1</text>
+    <text x="340" y="140" class="tape-text" font-size="10">T7</text>
+    
+    <rect x="360" y="90" width="40" height="40" class="tape-cell"/>
+    <text x="380" y="115" class="tape-text">1</text>
+    <text x="380" y="140" class="tape-text" font-size="10">T8</text>
+    
+    <rect x="400" y="90" width="40" height="40" class="tape-cell"/>
+    <text x="420" y="115" class="tape-text">...</text>
+    <text x="420" y="140" class="tape-text" font-size="10">T9</text>
+  </g>
+  
+  <!-- Control Unit -->
+  <text x="60" y="200" class="section-title">制御部</text>
+  <rect x="80" y="210" width="120" height="60" class="control-box"/>
+  <text x="140" y="235" class="control-text">状態: q₅</text>
+  <text x="140" y="255" class="control-text" font-size="12">現在の内部状態</text>
+  
+  <!-- Head -->
+  <rect x="200" y="160" width="120" height="30" class="head-box"/>
+  <text x="260" y="180" class="head-text">読み書きヘッド</text>
+  
+  <!-- Arrows -->
+  <!-- Head to active tape cell -->
+  <line x1="260" y1="160" x2="260" y2="135" class="arrow"/>
+  
+  <!-- Control to head -->
+  <line x1="180" y1="220" x2="220" y2="190" class="dashed-arrow"/>
+  
+  <!-- Information Box -->
+  <rect x="500" y="90" width="250" height="120" class="info-box"/>
+  <text x="520" y="115" class="section-title">説明</text>
+  <text x="520" y="140" class="info-text">現在状態: q₅</text>
+  <text x="520" y="160" class="info-text">読取り記号: 0</text>
+  <text x="520" y="180" class="info-text">ヘッド位置: 5番目（T5）</text>
+  <text x="520" y="200" class="info-text">構成表現: 1011q₅0111</text>
+  
+  <!-- Additional explanation -->
+  <text x="60" y="320" class="section-title">構成の記法</text>
+  <text x="60" y="345" class="info-text">• 構成は uqv の形で表現</text>
+  <text x="60" y="365" class="info-text">• q は現在の状態</text>
+  <text x="60" y="385" class="info-text">• uv はテープの内容（空白でない部分）</text>
+  <text x="60" y="405" class="info-text">• ヘッドは v の最初の記号を指している</text>
+  
+  <!-- Tape position indicators -->
+  <text x="100" y="160" class="info-text" font-size="10">1</text>
+  <text x="140" y="160" class="info-text" font-size="10">2</text>
+  <text x="180" y="160" class="info-text" font-size="10">3</text>
+  <text x="220" y="160" class="info-text" font-size="10">4</text>
+  <text x="260" y="160" class="info-text" font-size="10" font-weight="bold">5</text>
+  <text x="300" y="160" class="info-text" font-size="10">6</text>
+  <text x="340" y="160" class="info-text" font-size="10">7</text>
+  <text x="380" y="160" class="info-text" font-size="10">8</text>
+</svg>

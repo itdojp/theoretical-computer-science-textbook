@@ -20,40 +20,7 @@ chapter: 4
 **定義 4.1** **停止問題**（Halting Problem）は以下の言語として定義される：
 HALT_TM = {⟨M, w⟩ | M はチューリング機械で、入力 w で停止する}
 
-```mermaid
-flowchart TD
-    subgraph "停止問題の対角化論法"
-        Input["入力: ⟨M, w⟩"]
-        H["仮想的な停止判定機械 H"]
-        Decision1["M は w で停止？"]
-        Accept1["H: accept"]
-        Reject1["H: reject"]
-        
-        D["対角化機械 D"]
-        Input2["入力: ⟨D⟩"]
-        Decision2["H(⟨D, ⟨D⟩⟩) = ??"]
-        Loop["無限ループ"]
-        Accept2["accept"]
-        
-        Input --> H
-        H --> Decision1
-        Decision1 -->|"停止する"| Accept1
-        Decision1 -->|"停止しない"| Reject1
-        
-        Input2 --> D
-        D --> Decision2
-        Decision2 -->|"accept（停止する）"| Loop
-        Decision2 -->|"reject（停止しない）"| Accept2
-        
-        Loop -.-> |"矛盾！"| Decision2
-        Accept2 -.-> |"矛盾！"| Decision2
-    end
-    
-    style H fill:#e3f2fd
-    style D fill:#fff3e0
-    style Loop fill:#ffebee
-    style Accept2 fill:#ffebee
-```
+![停止問題の対角化論法](../../assets/images/diagrams/ch4_halting_problem_diagonalization.svg)
 
 **定理 4.1** HALT_TM は決定不能である。
 
@@ -140,39 +107,7 @@ D 自身に ⟨D⟩ を入力した場合を考える：
 w ∈ A ⟺ f(w) ∈ B
 が成り立つことである。これを A ≤_m B と表記する。
 
-```mermaid
-flowchart LR
-    subgraph "多対一還元の仕組み"
-        A["言語A"]
-        B["言語B"]
-        f["還元関数 f"]
-        
-        w1["w ∈ A"]
-        w2["w ∉ A"]
-        fw1["f(w) ∈ B"]
-        fw2["f(w) ∉ B"]
-        
-        w1 --> f
-        w2 --> f
-        f --> fw1
-        f --> fw2
-        
-        DeciderB["言語B の決定機械"]
-        DeciderA["言語A の決定機械<br/>（Bが決定可能なら構成可能）"]
-        
-        fw1 --> DeciderB
-        fw2 --> DeciderB
-        DeciderB --> DeciderA
-        
-        Note["還元の結果:<br/>A ≤_m B かつ B が決定可能<br/>⇒ A も決定可能<br/><br/>A ≤_m B かつ A が決定不能<br/>⇒ B も決定不能"]
-    end
-    
-    style A fill:#fff3e0
-    style B fill:#e3f2fd
-    style f fill:#f3e5f5
-    style DeciderA fill:#e8f5e8
-    style DeciderB fill:#e8f5e8
-```
+![多対一還元の仕組み](../../assets/images/diagrams/ch4_many_one_reduction.svg)
 
 **定理 4.4** A ≤_m B かつ B が決定可能ならば、A も決定可能である。
 
@@ -244,33 +179,7 @@ B を決定するオラクルを使って A を決定する機械が存在する
 **定理 4.7** 以下の真の包含関係が成り立つ：
 決定可能言語 ⊊ 再帰的可算言語 ⊊ すべての言語
 
-```mermaid
-graph TD
-    subgraph "言語クラスの階層構造"
-        All["すべての言語"]
-        RE["再帰的可算言語<br/>（RE）"]
-        Decidable["決定可能言語<br/>（REC）"]
-        
-        All --> |"真の包含"| RE
-        RE --> |"真の包含"| Decidable
-        
-        Examples1["例: L_dの補集合<br/>（REにも属さない）"]
-        Examples2["例: A_TM, HALT_TM<br/>（REだが決定可能でない）"]
-        Examples3["例: 有限言語<br/>正規言語<br/>CFL"]
-        
-        All -.-> Examples1
-        RE -.-> Examples2
-        Decidable -.-> Examples3
-        
-        CoRE["補再帰的可算言語<br/>（co-RE）"]
-        RE -.-> |"L ∈ RE ∩ co-RE<br/>⇔ L は決定可能"| CoRE
-    end
-    
-    style All fill:#ffebee
-    style RE fill:#fff3e0
-    style Decidable fill:#e8f5e8
-    style CoRE fill:#e3f2fd
-```
+![言語クラスの階層構造](../../assets/images/diagrams/ch4_language_class_hierarchy.svg)
 
 *証明*：
 （決定可能 ⊆ 再帰的可算）定義より明らか。
@@ -384,42 +293,7 @@ Riceの定理により、以下の問題はすべて決定不能：
    - h(n+1, x̄) = g(n, h(n, x̄), x̄)
 3. **最小化**：h(x̄) = μy[f(x̄, y) = 0]
 
-```mermaid
-graph TD
-    subgraph "部分再帰関数の構成"
-        subgraph "基本関数"
-            Zero["零関数<br/>Z(x) = 0"]
-            Succ["後続関数<br/>S(x) = x + 1"]
-            Proj["射影関数<br/>P_i^n(x_1, ..., x_n) = x_i"]
-        end
-        
-        subgraph "構成法"
-            Comp["合成<br/>h = f ∘ (g₁,...,gₖ)"]
-            PR["原始再帰<br/>h(0,x) = f(x)<br/>h(n+1,x) = g(n,h(n,x),x)"]
-            Min["最小化<br/>h(x) = μy[f(x,y) = 0]"]
-        end
-        
-        Zero --> Comp
-        Succ --> Comp
-        Proj --> Comp
-        
-        Comp --> PR
-        PR --> Min
-        
-        Examples["例:<br/>加法: +(x,y)<br/>乗法: ×(x,y)<br/>指数: exp(x,y)<br/>Ackermann関数"]
-        
-        Min --> Examples
-        
-        Note["注意: 最小化により<br/>部分関数が生じる<br/>（定義されない値が存在）"]
-    end
-    
-    style Zero fill:#e3f2fd
-    style Succ fill:#e3f2fd
-    style Proj fill:#e3f2fd
-    style Comp fill:#fff3e0
-    style PR fill:#f3e5f5
-    style Min fill:#ffebee
-```
+![部分再帰関数の構成](../../assets/images/diagrams/ch4_partial_recursive_functions.svg)
 
 ### 4.5.2 計算可能性の同値性
 

@@ -15,46 +15,7 @@ chapter: 3
 
 ## 3.1 形式言語
 
-```mermaid
-graph TD
-    subgraph "形式言語の基本概念"
-        subgraph "言語の構成要素"
-            Alphabet["アルファベット Σ<br/>・記号の有限集合<br/>・例: {0,1}, {a,b,c}, {漢字}"]
-            
-            String["文字列 w<br/>・記号の有限列<br/>・長さ |w|<br/>・空文字列 ε"]
-            
-            Language["言語 L<br/>・文字列の集合<br/>・L ⊆ Σ*<br/>・無限集合も可能"]
-        end
-        
-        subgraph "文字列の演算"
-            Concatenation["連結 xy<br/>x の後に y を続ける<br/>|xy| = |x| + |y|<br/>単位元: ε"]
-            
-            Power["べき乗 wⁿ<br/>w⁰ = ε<br/>wⁿ⁺¹ = wⁿ w<br/>例: abc³ = abcabcabc"]
-            
-            Reverse["逆転 wᴿ<br/>w = a₁a₂...aₙ<br/>wᴿ = aₙ...a₂a₁<br/>例: abcᴿ = cba"]
-        end
-        
-        subgraph "言語の演算"
-            Union["L₁ ∪ L₂<br/>・和集合<br/>・「または」"]
-            
-            Concat2["L₁ L₂<br/>・連結<br/>・{xy | x ∈ L₁, y ∈ L₂}"]
-            
-            Kleene["L*<br/>・クリーネ閉包<br/>・0回以上の連結<br/>・L* = ⋃ₙ Lⁿ"]
-            
-            Plus["L⁺<br/>・正閉包<br/>・1回以上の連結<br/>・L⁺ = ⋃ₙ≥₁ Lⁿ"]
-        end
-        
-        subgraph "例: L = {0, 11}"
-            Examples["演算例<br/>L² = {00, 011, 110, 1111}<br/>L* = {ε, 0, 11, 00, 011, 110, ...}<br/>L⁺ = {0, 11, 00, 011, 110, ...}"]
-        end
-    end
-    
-    style Alphabet fill:#e3f2fd
-    style String fill:#fff3e0
-    style Language fill:#e8f5e8
-    style Kleene fill:#f3e5f5
-    style Examples fill:#ffe0b2
-```
+![形式言語の基本概念](../../assets/images/diagrams/ch3_formal_language_concepts.svg)
 
 ### 3.1.1 基本定義
 
@@ -182,44 +143,7 @@ token_patterns = {
 
 ## 3.2 有限オートマトン
 
-```mermaid
-graph TD
-    subgraph "有限オートマトンの種類と特徴"
-        subgraph "DFA（決定性有限オートマトン）"
-            DFA_Def["M = (Q, Σ, δ, q₀, F)<br/>・Q: 状態集合<br/>・Σ: 入力アルファベット<br/>・δ: Q × Σ → Q<br/>・q₀: 初期状態<br/>・F: 受理状態集合"]
-            
-            DFA_Features["特徴<br/>・各状態で各入力に対し<br/>て唯一の遷移先<br/>・決定的な計算<br/>・効率的な実装"]
-            
-            DFA_Example["例: 0の個数が偶数<br/>q₀: 偶数個(受理)<br/>q₁: 奇数個<br/>δ(q₀,0)=q₁, δ(q₀,1)=q₀<br/>δ(q₁,0)=q₀, δ(q₁,1)=q₁"]
-        end
-        
-        subgraph "NFA（非決定性有限オートマトン）"
-            NFA_Def["M = (Q, Σ, δ, q₀, F)<br/>・δ: Q × Σ → P(Q)<br/>・非決定的選択<br/>・並行計算パス"]
-            
-            NFA_Features["特徴<br/>・複数の遷移先可能<br/>・推測による計算<br/>・コンパクトな表現"]
-            
-            NFA_Example["例: 末尾から3番目が1<br/>・推測: 今の1が末尾から3番目<br/>・3文字先の文字列終端で受理"]
-        end
-        
-        subgraph "ε-NFA"
-            EpsilonNFA["ε-遷移付きNFA<br/>・空文字列での遷移<br/>・δ: Q × (Σ ∪ {ε}) → P(Q)<br/>・ECLOSE(ε閉包)で処理"]
-            
-            EpsilonFeatures["使用例<br/>・正規表現からの変換<br/>・複数のオートマトンの結合<br/>・構成的な設計"]
-        end
-        
-        subgraph "等価性と変換"
-            Equivalence["計算能力の等価性<br/>DFA ≡ NFA ≡ ε-NFA<br/>・部分集合構成法<br/>・状態爆発の可能性"]
-            
-            Conversion["変換アルゴリズム<br/>NFA → DFA: 部分集合構成<br/>ε-NFA → NFA: ε閉包計算<br/>DFA 最小化: 等価状態結合"]
-        end
-    end
-    
-    style DFA_Def fill:#e3f2fd
-    style NFA_Def fill:#fff3e0
-    style EpsilonNFA fill:#f3e5f5
-    style Equivalence fill:#e8f5e8
-    style DFA_Example fill:#ffe0b2
-```
+![有限オートマトンの種類と特徴](../../assets/images/diagrams/ch3_finite_automata_overview.svg)
 
 ### 3.2.1 決定性有限オートマトン（DFA）
 
@@ -306,48 +230,7 @@ NFA N = (Qₙ, Σ, δₙ, q₀, Fₙ) から DFA D = (Qᴅ, Σ, δᴅ, q₀ᴅ, 
 
 ## 3.3 正規言語
 
-```mermaid
-graph TD
-    subgraph "正規言語と正規表現"
-        subgraph "正規表現の構成"
-            Basics["基本要素<br/>・∅: 空言語<br/>・ε: 空文字列<br/>・a: 単一記号"]
-            
-            Operations["演算<br/>・R₁ + R₂: 和集合<br/>・R₁R₂: 連結<br/>・R*: クリーネ閉包"]
-            
-            Priority["優先順位<br/>1. * (閉包)<br/>2. 連結<br/>3. + (和)"]
-            
-            Extensions["拡張記法<br/>・R+: 正閉包 (RR*)<br/>・R?: オプション (R + ε)<br/>・[abc]: 文字クラス"]
-        end
-        
-        subgraph "正規表現の例"
-            Examples1["基本例<br/>(0+1)*: 全て2進文字列<br/>0*10*: ちょうど1つの1<br/>(0+1)*11(0+1)*: 11を含む"]
-            
-            Examples2["実用例<br/>[a-z]+: 英小文字<br/>[0-9]+: 数字<br/>a*b+c?: a後にb、任意c"]
-        end
-        
-        subgraph "Kleeneの定理"
-            Kleene["等価性の定理<br/>正規表現 ≡ DFA ≡ NFA"]
-            
-            Direction1["正規表現 → NFA<br/>・Thompsonの構成法<br/>・帰納的にオートマトン構築<br/>・ε-遷移を使用"]
-            
-            Direction2["DFA → 正規表現<br/>・状態消去法<br/>・Ardenの補題<br/>・連立方程式解法"]
-        end
-        
-        subgraph "正規言語の性質"
-            Closure["閉包性<br/>・和集合 ∪<br/>・積集合 ∩<br/>・補集合 ¯<br/>・連結 ・<br/>・クリーネ閉包 *"]
-            
-            Decidable["決定可能問題<br/>・所属問題: w ∈ L?<br/>・空問題: L = ∅?<br/>・有限性: Lは有限?<br/>・等価性: L₁ = L₂?"]
-            
-            Pumping["正規言語の限界<br/>Pumping補題<br/>・十分長い文字列にループ<br/>・繰り返し可能な部分"]
-        end
-    end
-    
-    style Basics fill:#e3f2fd
-    style Examples1 fill:#fff3e0
-    style Kleene fill:#e8f5e8
-    style Closure fill:#f3e5f5
-    style Pumping fill:#ffebee
-```
+![正規言語と正規表現](../../assets/images/diagrams/ch3_regular_languages_expressions.svg)
 
 ### 3.3.1 正規表現
 
@@ -423,50 +306,7 @@ L₁ = L₂ ⟺ (L₁ \ L₂) ∪ (L₂ \ L₁) = ∅
 
 ## 3.4 正規言語の限界
 
-```mermaid
-graph TD
-    subgraph "正規言語のPumping補題と限界"
-        subgraph "Pumping補題の内容"
-            Statement["正規言語Lに対し<br/>pumping length pが存在<br/>|s| ≥ pなs ∈ Lに対し<br/>s = xyzと分解可能"]
-            
-            Conditions["条件<br/>1. |xy| ≤ p<br/>2. |y| > 0<br/>3. ∀i ≥ 0, xyⁱz ∈ L"]
-            
-            Intuition["直観的理解<br/>・長い文字列にはループが存在<br/>・ループ部分は繰り返し可能<br/>・鳩の巣原理の応用"]
-        end
-        
-        subgraph "証明の概略"
-            DFABased["正規言語→DFAが存在<br/>状態数をpとする<br/>|s| ≥ pなら状態重複必発"]
-            
-            StateSequence["状態列 r₀, r₁, ..., rₚ<br/>鳩の巣原理でrⱼ = rₖ<br/>0 ≤ j < k ≤ p"]
-            
-            Decomposition["分解の構成<br/>x = a₁...aⱼ<br/>y = aⱼ₊₁...aₖ<br/>z = aₖ₊₁...aₙ"]
-            
-            Loop["ループの特徴<br/>y部分は状態ループを形成<br/>任意回数繰り返し可能"]
-        end
-        
-        subgraph "非正規言語の例"
-            Example1["{0ⁿ1ⁿ | n ≥ 0}<br/>証明: s = 0ᵖ 1ᵖ<br/>yは0のみから構成<br/>xy²zで個数が不一致"]
-            
-            Example2["{ww | w ∈ {0,1}*}<br/>証明: 前半部でpumping<br/>後半部と不一致"]
-            
-            Example3["{0ⁿ² | n ≥ 0}<br/>証明: 平方数の間隔<br/>等差数列ではない"]
-        end
-        
-        subgraph "Myhill-Nerodeの定理"
-            MN_Theorem["正規言語の特徴付け<br/>Lが正規 ⇔ 右同値類が有限"]
-            
-            RightCongruence["右同値関係<br/>x ≡ₗ y ⇔ ∀z, xz ∈ L ⇔ yz ∈ L<br/>「区別不可能」な文字列"]
-            
-            Applications["応用<br/>・最小状態数の下界<br/>・DFA最小化の理論<br/>・正規性の判定"]
-        end
-    end
-    
-    style Statement fill:#fff3e0
-    style Conditions fill:#e3f2fd
-    style Example1 fill:#ffebee
-    style MN_Theorem fill:#e8f5e8
-    style Applications fill:#f3e5f5
-```
+![正規言語のPumping補題と限界](../../assets/images/diagrams/ch3_pumping_lemma_limitations.svg)
 
 ### 3.4.1 Pumping補題
 
@@ -529,48 +369,7 @@ x ≡ₘ y ならば x ≡ₗ y が示せるので、≡ₗ も有限個の同�
 
 ## 3.5 文脈自由言語
 
-```mermaid
-graph TD
-    subgraph "文脈自由言語と文法"
-        subgraph "文脈自由文法(CFG)"
-            CFG_Def["G = (V, Σ, R, S)<br/>・V: 変数(非終端記号)<br/>・Σ: 終端記号<br/>・R: 生成規則 A → α<br/>・S: 開始記号"]
-            
-            Production["生成規則の例<br/>S → 0S1 | ε<br/>・0ⁿ1ⁿを生成<br/>・再帰的構造"]
-            
-            Derivation["導出過程<br/>直接導出: uAv ⇒ uαv<br/>導出: ⇒*の反射推移閉包<br/>左導出、右導出"]
-        end
-        
-        subgraph "導出木と曖昧性"
-            ParseTree["導出木の構造<br/>・根: 開始記号<br/>・内部ノード: 変数<br/>・葉: 終端記号またはε"]
-            
-            Ambiguity["曖昧性の問題<br/>同じ文字列に複数の導出木<br/>例: a+a×aの解釈<br/>優先順位で解決"]
-            
-            LeftmostRightmost["導出の種類<br/>左導出: 最左の変数を展開<br/>右導出: 最右の変数を展開<br/>構文解析で重要"]
-        end
-        
-        subgraph "標準形"
-            CNF["Chomsky標準形(CNF)<br/>A → BC (変数→2個)<br/>A → a (終端記号)<br/>S → ε (特別な場合)"]
-            
-            GNF["Greibach標準形(GNF)<br/>A → aα<br/>終端記号で始まる<br/>左再帰の除去"]
-            
-            Conversion["変換アルゴリズム<br/>1. ε-規則の除去<br/>2. 単位規則の除去<br/>3. 無用記号の除去<br/>4. 規則の分解"]
-        end
-        
-        subgraph "CFGのPumping補題"
-            CFL_Pumping["文脈自由言語のPumping補題<br/>十分長いs ∈ Lに対し<br/>s = uvxyzと分解<br/>uvⁱxyⁱz ∈ L (∀i ≥ 0)"]
-            
-            CFL_Conditions["条件<br/>1. |vxy| ≤ p<br/>2. |vy| > 0<br/>3. vとyを同時にpumping"]
-            
-            CFL_Example["非文脈自由言語<br/>{aⁿbⁿcⁿ | n ≥ 0}<br/>3種類の文字の個数が等しい<br/>2種類しかpumping不可"]
-        end
-    end
-    
-    style CFG_Def fill:#e3f2fd
-    style ParseTree fill:#fff3e0
-    style CNF fill:#e8f5e8
-    style CFL_Pumping fill:#f3e5f5
-    style CFL_Example fill:#ffebee
-```
+![文脈自由言語と文法](../../assets/images/diagrams/ch3_context_free_languages_grammars.svg)
 
 ### 3.5.1 文脈自由文法
 
@@ -652,48 +451,7 @@ s = uvxyz と分解したとき、|vxy| ≤ p より、vxy は高々2種類の�
 
 ## 3.6 プッシュダウンオートマトン
 
-```mermaid
-graph TD
-    subgraph "プッシュダウンオートマトンの構造と機能"
-        subgraph "PDAの基本構造"
-            PDA_Def["P = (Q, Σ, Γ, δ, q₀, Z₀, F)<br/>・Q: 状態集合<br/>・Σ: 入力アルファベット<br/>・Γ: スタックアルファベット<br/>・δ: Q×(Σ∪{ε})×Γ → P_finite(Q×Γ*)<br/>・q₀: 初期状態<br/>・Z₀: 初期スタック記号<br/>・F: 受理状態集合"]
-            
-            Components["構成要素<br/>・有限制御部(状態)<br/>・入力テープ(読み取り専用)<br/>・スタック(無限記憶域)"]
-            
-            StackOps["スタック操作<br/>・push: データを積む<br/>・pop: データを取り出す<br/>・LIFO(Last In, First Out)"]
-        end
-        
-        subgraph "瞬時記述と遷移"
-            ID["瞬時記述(ID)<br/>(q, w, α) ∈ Q × Σ* × Γ*<br/>・q: 現在状態<br/>・w: 未読入力<br/>・α: スタック内容"]
-            
-            Transition["遷移関係 ⊢<br/>(q, aw, Zα) ⊢ (p, w, βα)<br/>if (p, β) ∈ δ(q, a, Z)<br/>・Zをポップしてβをプッシュ"]
-            
-            Nondeterminism["非決定性<br/>・複数の選択肢可能<br/>・ε-遷移可能<br/>・推測による計算"]
-        end
-        
-        subgraph "受理方式"
-            FinalState["最終状態による受理<br/>L(P) = {w | (q₀,w,Z₀) ⊢* (q,ε,α), q ∈ F}<br/>・入力を全て読み終えた時に<br/>受理状態にいる"]
-            
-            EmptyStack["空スタックによる受理<br/>N(P) = {w | (q₀,w,Z₀) ⊢* (q,ε,ε)}<br/>・入力を全て読み終えた時に<br/>スタックが空"]
-            
-            Equivalence["受理方式の等価性<br/>最終状態受理 ≡ 空スタック受理<br/>相互変換アルゴリズムが存在"]
-        end
-        
-        subgraph "CFGとPDAの等価性"
-            Theorem["基本定理<br/>文脈自由言語 ≡ PDAで受理される言語"]
-            
-            CFG_to_PDA["CFG → PDA<br/>スタックで左導出をシミュレート<br/>1. 初期記号をプッシュ<br/>2. 変数を生成規則で展開<br/>3. 終端記号をマッチング"]
-            
-            PDA_to_CFG["PDA → CFG<br/>変数[q,A,p]で表現<br/>・状態qでスタックトップAから<br/>状態pでAを除去する過程"]
-        end
-    end
-    
-    style PDA_Def fill:#e3f2fd
-    style Components fill:#fff3e0
-    style ID fill:#e8f5e8
-    style FinalState fill:#f3e5f5
-    style Theorem fill:#ffe0b2
-```
+![プッシュダウンオートマトンの構造と機能](../../assets/images/diagrams/ch3_pushdown_automata_structure.svg)
 
 ### 3.6.1 PDAの定義
 
@@ -735,49 +493,7 @@ graph TD
 
 ## 3.7 文脈自由言語の性質
 
-```mermaid
-graph TD
-    subgraph "文脈自由言語の性質と限界"
-        subgraph "閉包性"
-            Closed["閉じている演算<br/>・和集合 ∪<br/>・連結 ・<br/>・クリーネ閉包 *<br/>・正規言語との積集合 ∩"]
-            
-            NotClosed["閉じていない演算<br/>・積集合 ∩<br/>・補集合 ¯<br/>・差集合 \\"]
-            
-            CounterExample["反例<br/>L₁ = {aⁿbⁿcᵐ | n,m ≥ 0}<br/>L₂ = {aᵐbⁿcⁿ | n,m ≥ 0}<br/>L₁, L₂は文脈自由だが<br/>L₁ ∩ L₂ = {aⁿbⁿcⁿ | n ≥ 0}は非文脈自由"]
-        end
-        
-        subgraph "決定問題"
-            Decidable["決定可能問題<br/>・所属問題: w ∈ L?<br/>　CYKアルゴリズム O(n³|G|)<br/>・空問題: L = ∅?<br/>・有限性問題: Lは有限?"]
-            
-            Undecidable["決定不能問題<br/>・等価性問題: L₁ = L₂?<br/>・包含問題: L₁ ⊆ L₂?<br/>・曖昧性問題: CFGは曖昧?"]
-            
-            CYK["構文解析アルゴリズム<br/>CYK(Cocke-Younger-Kasami)<br/>・CNFを使用<br/>・動的計画法<br/>・O(n³)時間"]
-        end
-        
-        subgraph "決定性文脈自由言語"
-            DPDA["決定性PDA(DPDA)<br/>・各構成で高々一つの遷移<br/>・受理条件の制約<br/>・LR(k)文法と関連"]
-            
-            DCFL["決定性文脈自由言語(DCFL)<br/>・DPDAで受理される言語<br/>・DCFL ⊂ CFL(真部分集合)<br/>・補集合に関して閉じている"]
-            
-            Applications["実用的応用<br/>・プログラミング言語<br/>・LRパーサ<br/>・コンパイラ設計"]
-        end
-        
-        subgraph "言語クラスの階層"
-            Hierarchy["チョムスキーの階層<br/>正規言語 ⊂ DCFL ⊂ 文脈自由言語<br/>⊂ 文脈依存言語 ⊂ 再帰的可算言語"]
-            
-            Recognition["認識機械<br/>・Type 3: 有限オートマトン<br/>・Type 2: プッシュダウンオートマトン<br/>・Type 1: 線形拘束オートマトン<br/>・Type 0: チューリング機械"]
-            
-            Practical["実用的重要性<br/>・正規: テキスト処理<br/>・文脈自由: プログラム構文<br/>・文脈依存: 型システム<br/>・再帰的可算: 一般計算"]
-        end
-    end
-    
-    style Closed fill:#e8f5e8
-    style NotClosed fill:#ffebee
-    style Decidable fill:#e3f2fd
-    style Undecidable fill:#ffebee
-    style DCFL fill:#fff3e0
-    style Hierarchy fill:#f3e5f5
-```
+![文脈自由言語の性質と限界](../../assets/images/diagrams/ch3_context_free_language_properties.svg)
 
 ### 3.7.1 閉包性
 

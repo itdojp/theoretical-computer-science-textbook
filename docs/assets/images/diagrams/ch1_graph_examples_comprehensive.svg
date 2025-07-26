@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="900" height="650" viewBox="0 0 900 650" xmlns="http://www.w3.org/2000/svg">
+  <title>グラフ理論の基本例</title>
+  <desc>無向グラフ、有向グラフ、木、DAG、強連結成分の例を示す図</desc>
+  
+  <defs>
+    <style>
+      .title { font-family: 'Inter', 'Helvetica Neue', sans-serif; font-size: 18px; font-weight: 600; fill: #1a1a1a; }
+      .section-title { font-family: 'Inter', 'Helvetica Neue', sans-serif; font-size: 16px; font-weight: 600; fill: #333; }
+      .subtitle { font-family: 'Inter', 'Helvetica Neue', sans-serif; font-size: 14px; font-weight: 500; fill: #555; }
+      .label { font-family: 'Inter', 'Helvetica Neue', sans-serif; font-size: 12px; font-weight: 500; fill: #1a1a1a; }
+      .vertex { fill: #e3f2fd; stroke: #2563eb; stroke-width: 2; }
+      .vertex-tree { fill: #fff3e0; stroke: #f57c00; stroke-width: 2; }
+      .vertex-dag { fill: #f3e5f5; stroke: #7b1fa2; stroke-width: 2; }
+      .vertex-scc { fill: #e8f5e8; stroke: #388e3c; stroke-width: 2; }
+      .edge { fill: none; stroke: #666; stroke-width: 2; }
+      .edge-tree { fill: none; stroke: #f57c00; stroke-width: 2; }
+      .edge-dag { fill: none; stroke: #7b1fa2; stroke-width: 2; marker-end: url(#arrowhead-dag); }
+      .edge-scc { fill: none; stroke: #388e3c; stroke-width: 2; marker-end: url(#arrowhead-scc); }
+      .section-box { fill: none; stroke: #ddd; stroke-width: 1; stroke-dasharray: 5,5; }
+    </style>
+    
+    <marker id="arrowhead-dag" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#7b1fa2" />
+    </marker>
+    
+    <marker id="arrowhead-scc" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#388e3c" />
+    </marker>
+  </defs>
+  
+  <!-- Main title -->
+  <text x="450" y="30" text-anchor="middle" class="title">グラフ理論の基本例</text>
+  
+  <!-- Undirected graphs section -->
+  <g transform="translate(50, 60)">
+    <rect x="-20" y="-10" width="380" height="220" class="section-box"/>
+    <text x="170" y="15" text-anchor="middle" class="section-title">無向グラフの例</text>
+    
+    <!-- Simple graph -->
+    <g transform="translate(70, 50)">
+      <text x="70" y="-10" text-anchor="middle" class="subtitle">単純グラフ</text>
+      
+      <!-- Vertices -->
+      <circle cx="30" cy="30" r="15" class="vertex"/>
+      <text x="30" y="35" text-anchor="middle" class="label">A</text>
+      
+      <circle cx="110" cy="30" r="15" class="vertex"/>
+      <text x="110" y="35" text-anchor="middle" class="label">B</text>
+      
+      <circle cx="110" cy="90" r="15" class="vertex"/>
+      <text x="110" y="95" text-anchor="middle" class="label">C</text>
+      
+      <circle cx="30" cy="90" r="15" class="vertex"/>
+      <text x="30" y="95" text-anchor="middle" class="label">D</text>
+      
+      <!-- Edges -->
+      <path d="M 45 30 L 95 30" class="edge"/>
+      <path d="M 110 45 L 110 75" class="edge"/>
+      <path d="M 95 90 L 45 90" class="edge"/>
+      <path d="M 30 75 L 30 45" class="edge"/>
+      <path d="M 40 40 L 100 80" class="edge"/>
+    </g>
+    
+    <!-- Tree -->
+    <g transform="translate(250, 50)">
+      <text x="70" y="-10" text-anchor="middle" class="subtitle">木（Tree）</text>
+      
+      <!-- Vertices -->
+      <circle cx="70" cy="20" r="15" class="vertex-tree"/>
+      <text x="70" y="25" text-anchor="middle" class="label">A</text>
+      
+      <circle cx="40" cy="60" r="15" class="vertex-tree"/>
+      <text x="40" y="65" text-anchor="middle" class="label">B</text>
+      
+      <circle cx="100" cy="60" r="15" class="vertex-tree"/>
+      <text x="100" y="65" text-anchor="middle" class="label">C</text>
+      
+      <circle cx="20" cy="100" r="15" class="vertex-tree"/>
+      <text x="20" y="105" text-anchor="middle" class="label">D</text>
+      
+      <circle cx="60" cy="100" r="15" class="vertex-tree"/>
+      <text x="60" y="105" text-anchor="middle" class="label">E</text>
+      
+      <circle cx="120" cy="100" r="15" class="vertex-tree"/>
+      <text x="120" y="105" text-anchor="middle" class="label">F</text>
+      
+      <!-- Edges -->
+      <path d="M 60 30 L 50 50" class="edge-tree"/>
+      <path d="M 80 30 L 90 50" class="edge-tree"/>
+      <path d="M 35 70 L 25 90" class="edge-tree"/>
+      <path d="M 45 70 L 55 90" class="edge-tree"/>
+      <path d="M 105 70 L 115 90" class="edge-tree"/>
+    </g>
+  </g>
+  
+  <!-- Directed graphs section -->
+  <g transform="translate(50, 320)">
+    <rect x="-20" y="-10" width="380" height="220" class="section-box"/>
+    <text x="170" y="15" text-anchor="middle" class="section-title">有向グラフの例</text>
+    
+    <!-- DAG -->
+    <g transform="translate(70, 50)">
+      <text x="70" y="-10" text-anchor="middle" class="subtitle">DAG（非循環）</text>
+      
+      <!-- Vertices -->
+      <circle cx="70" cy="20" r="15" class="vertex-dag"/>
+      <text x="70" y="25" text-anchor="middle" class="label">A</text>
+      
+      <circle cx="40" cy="70" r="15" class="vertex-dag"/>
+      <text x="40" y="75" text-anchor="middle" class="label">B</text>
+      
+      <circle cx="100" cy="70" r="15" class="vertex-dag"/>
+      <text x="100" y="75" text-anchor="middle" class="label">C</text>
+      
+      <circle cx="70" cy="120" r="15" class="vertex-dag"/>
+      <text x="70" y="125" text-anchor="middle" class="label">D</text>
+      
+      <!-- Edges -->
+      <path d="M 60 30 L 50 60" class="edge-dag"/>
+      <path d="M 80 30 L 90 60" class="edge-dag"/>
+      <path d="M 50 80 L 60 110" class="edge-dag"/>
+      <path d="M 90 80 L 80 110" class="edge-dag"/>
+    </g>
+    
+    <!-- Strongly connected component -->
+    <g transform="translate(250, 50)">
+      <text x="70" y="-10" text-anchor="middle" class="subtitle">強連結成分</text>
+      
+      <!-- Vertices -->
+      <circle cx="40" cy="30" r="15" class="vertex-scc"/>
+      <text x="40" y="35" text-anchor="middle" class="label">A</text>
+      
+      <circle cx="100" cy="30" r="15" class="vertex-scc"/>
+      <text x="100" y="35" text-anchor="middle" class="label">B</text>
+      
+      <circle cx="70" cy="80" r="15" class="vertex-scc"/>
+      <text x="70" y="85" text-anchor="middle" class="label">C</text>
+      
+      <circle cx="120" cy="120" r="15" class="vertex-scc"/>
+      <text x="120" y="125" text-anchor="middle" class="label">D</text>
+      
+      <!-- Edges -->
+      <path d="M 55 30 L 85 30" class="edge-scc"/>
+      <path d="M 90 40 L 80 70" class="edge-scc"/>
+      <path d="M 60 70 L 50 40" class="edge-scc"/>
+      <path d="M 80 90 L 110 110" class="edge-scc"/>
+    </g>
+  </g>
+  
+  <!-- Properties and definitions -->
+  <g transform="translate(480, 80)">
+    <rect x="0" y="0" width="380" height="480" fill="#f8f9fa" stroke="#ddd" stroke-width="1" rx="8"/>
+    <text x="190" y="25" text-anchor="middle" class="section-title">グラフの性質と定義</text>
+    
+    <!-- Undirected graph properties -->
+    <g transform="translate(20, 50)">
+      <text x="0" y="0" class="subtitle">無向グラフ</text>
+      <text x="0" y="20" class="label">• 辺は非順序対 {u, v}</text>
+      <text x="0" y="35" class="label">• 双方向の関係を表現</text>
+      <text x="0" y="50" class="label">• 例：友人関係、道路網</text>
+      
+      <text x="0" y="75" class="subtitle">単純グラフ</text>
+      <text x="0" y="95" class="label">• ループなし (v, v)</text>
+      <text x="0" y="110" class="label">• 多重辺なし</text>
+      <text x="0" y="125" class="label">• 最も基本的なグラフ</text>
+      
+      <text x="0" y="150" class="subtitle">木（Tree）</text>
+      <text x="0" y="170" class="label">• 連結かつ閉路なし</text>
+      <text x="0" y="185" class="label">• n頂点で n-1辺</text>
+      <text x="0" y="200" class="label">• 任意の2頂点間に道は1つ</text>
+    </g>
+    
+    <!-- Directed graph properties -->
+    <g transform="translate(20, 270)">
+      <text x="0" y="0" class="subtitle">有向グラフ</text>
+      <text x="0" y="20" class="label">• 辺は順序対 (u, v)</text>
+      <text x="0" y="35" class="label">• 方向性のある関係</text>
+      <text x="0" y="50" class="label">• 例：依存関係、Webリンク</text>
+      
+      <text x="0" y="75" class="subtitle">DAG（有向非循環グラフ）</text>
+      <text x="0" y="95" class="label">• 有向グラフかつ閉路なし</text>
+      <text x="0" y="110" class="label">• トポロジカル順序が存在</text>
+      <text x="0" y="125" class="label">• 例：タスクの依存関係</text>
+      
+      <text x="0" y="150" class="subtitle">強連結成分</text>
+      <text x="0" y="170" class="label">• 任意の2頂点間に有向道</text>
+      <text x="0" y="185" class="label">• 相互に到達可能</text>
+      <text x="0" y="200" class="label">• 例：相互参照する状態</text>
+    </g>
+  </g>
+</svg>

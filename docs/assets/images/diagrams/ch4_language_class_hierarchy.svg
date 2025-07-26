@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="700" height="600" viewBox="0 0 700 600" xmlns="http://www.w3.org/2000/svg" 
+     role="img" aria-labelledby="title" aria-describedby="desc">
+  <title id="title">言語クラスの階層構造</title>
+  <desc id="desc">決定可能言語、再帰的可算言語、補再帰的可算言語の包含関係と階層構造を示した図。計算可能性理論の基本的な言語クラスの位置づけを可視化している。</desc>
+  
+  <defs>
+    <style>
+      .diagram-text { font-family: 'Inter', 'Helvetica', sans-serif; font-size: 14px; fill: #2c3e50; text-anchor: middle; }
+      .small-text { font-size: 12px; }
+      .large-text { font-size: 16px; font-weight: bold; }
+      .all-languages { fill: #ffebee; stroke: #d32f2f; stroke-width: 3; rx: 12; }
+      .re-languages { fill: #fff3e0; stroke: #f57c00; stroke-width: 2.5; rx: 10; }
+      .decidable-languages { fill: #e8f5e8; stroke: #4caf50; stroke-width: 2; rx: 8; }
+      .co-re-languages { fill: #e3f2fd; stroke: #1976d2; stroke-width: 2.5; rx: 10; }
+      .example-box { fill: #f8f9fa; stroke: #6c757d; stroke-width: 1.5; rx: 6; }
+      .inclusion-arrow { stroke: #333; stroke-width: 3; fill: none; marker-end: url(#inclusion-head); }
+      .relation-arrow { stroke: #7b1fa2; stroke-width: 2; stroke-dasharray: 6,3; fill: none; marker-end: url(#relation-head); }
+    </style>
+    
+    <marker id="inclusion-head" markerWidth="12" markerHeight="8" refX="11" refY="4" orient="auto">
+      <polygon points="0 0, 12 4, 0 8" fill="#333" />
+    </marker>
+    
+    <marker id="relation-head" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#7b1fa2" />
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="700" height="600" fill="#ffffff"/>
+  
+  <!-- Title -->
+  <text x="350" y="30" class="diagram-text large-text" style="fill: #1a237e;">言語クラスの階層構造</text>
+  
+  <!-- All languages (outermost) -->
+  <ellipse cx="350" cy="250" rx="320" ry="180" class="all-languages"/>
+  <text x="350" y="100" class="diagram-text" style="fill: #d32f2f; font-weight: bold;">すべての言語</text>
+  
+  <!-- RE languages -->
+  <ellipse cx="280" cy="280" rx="220" ry="120" class="re-languages"/>
+  <text x="280" y="200" class="diagram-text" style="fill: #f57c00; font-weight: bold;">再帰的可算言語</text>
+  <text x="280" y="220" class="diagram-text small-text" style="fill: #f57c00;">(RE)</text>
+  
+  <!-- co-RE languages -->
+  <ellipse cx="420" cy="280" rx="220" ry="120" class="co-re-languages"/>
+  <text x="420" y="200" class="diagram-text" style="fill: #1976d2; font-weight: bold;">補再帰的可算言語</text>
+  <text x="420" y="220" class="diagram-text small-text" style="fill: #1976d2;">(co-RE)</text>
+  
+  <!-- Decidable languages (intersection) -->
+  <ellipse cx="350" cy="280" rx="140" ry="80" class="decidable-languages"/>
+  <text x="350" y="270" class="diagram-text" style="fill: #4caf50; font-weight: bold;">決定可能言語</text>
+  <text x="350" y="290" class="diagram-text small-text" style="fill: #4caf50;">(REC)</text>
+  
+  <!-- Inclusion arrows -->
+  <path d="M 350 340 L 350 380" class="inclusion-arrow"/>
+  <text x="380" y="370" class="diagram-text small-text" style="fill: #333;">真の包含</text>
+  
+  <path d="M 280 380 L 280 420" class="inclusion-arrow"/>
+  <text x="220" y="410" class="diagram-text small-text" style="fill: #333;">真の包含</text>
+  
+  <!-- Examples -->
+  <!-- Examples for decidable languages -->
+  <rect x="280" y="320" width="140" height="30" class="example-box"/>
+  <text x="350" y="335" class="diagram-text small-text">例: 有限言語</text>
+  <text x="350" y="348" class="diagram-text small-text">正規言語、CFL</text>
+  
+  <!-- Examples for RE but not decidable -->
+  <rect x="120" y="250" width="130" height="40" class="example-box"/>
+  <text x="185" y="265" class="diagram-text small-text">例: A_TM, HALT_TM</text>
+  <text x="185" y="278" class="diagram-text small-text">(REだが決定可能</text>
+  <text x="185" y="291" class="diagram-text small-text">でない)</text>
+  
+  <!-- Examples for co-RE but not decidable -->
+  <rect x="450" y="250" width="130" height="40" class="example-box"/>
+  <text x="515" y="265" class="diagram-text small-text">例: A̅_TM</text>
+  <text x="515" y="278" class="diagram-text small-text">(co-REだが決定</text>
+  <text x="515" y="291" class="diagram-text small-text">可能でない)</text>
+  
+  <!-- Examples for neither RE nor co-RE -->
+  <rect x="50" y="120" width="140" height="40" class="example-box"/>
+  <text x="120" y="135" class="diagram-text small-text">例: L_dの補集合</text>
+  <text x="120" y="148" class="diagram-text small-text">(REにも</text>
+  <text x="120" y="161" class="diagram-text small-text">属さない)</text>
+  
+  <!-- Key relationship -->
+  <rect x="180" y="450" width="340" height="60" style="fill: #f3e5f5; stroke: #7b1fa2; stroke-width: 2; rx: 8;"/>
+  <text x="350" y="470" class="diagram-text" style="fill: #7b1fa2; font-weight: bold;">重要な関係</text>
+  <text x="350" y="490" class="diagram-text small-text">L ∈ RE ∩ co-RE ⟺ L は決定可能</text>
+  <text x="350" y="505" class="diagram-text small-text">（言語Lが再帰的可算かつ補再帰的可算なら決定可能）</text>
+  
+  <!-- Relation arrow -->
+  <path d="M 350 360 Q 200 400 350 440" class="relation-arrow"/>
+  
+  <!-- Additional labels -->
+  <text x="580" y="350" class="diagram-text small-text" style="fill: #666;">認識可能だが</text>
+  <text x="580" y="365" class="diagram-text small-text" style="fill: #666;">決定不可能</text>
+  
+  <text x="120" y="350" class="diagram-text small-text" style="fill: #666;">補言語が認識可能</text>
+  <text x="120" y="365" class="diagram-text small-text" style="fill: #666;">だが決定不可能</text>
+  
+  <!-- Mathematical notation -->
+  <text x="60" y="550" class="diagram-text small-text" style="fill: #333;">注: REC ⊊ RE ⊊ すべての言語</text>
+  <text x="350" y="570" class="diagram-text small-text" style="fill: #333;">⊊ は真の包含関係を表す</text>
+</svg>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650" width="900" height="650">
+  <title>計算可能性の概念と階層</title>
+  <desc>計算可能性の基本概念、Church-Turingの提唱、計算可能性の限界を示す階層図</desc>
+  
+  <defs>
+    <style>
+      .computable-box { fill: #e8f5e8; stroke: #2e7d32; stroke-width: 2; rx: 8; }
+      .thesis-box { fill: #fff3e0; stroke: #f57c00; stroke-width: 2; rx: 8; }
+      .decidable-box { fill: #e3f2fd; stroke: #1976d2; stroke-width: 2; rx: 8; }
+      .undecidable-box { fill: #ffebee; stroke: #d32f2f; stroke-width: 2; rx: 8; }
+      .title-text { font-family: 'Inter', 'Helvetica Neue', Helvetica, sans-serif; font-size: 18px; font-weight: 700; fill: #2c3e50; text-anchor: middle; }
+      .section-title { font-family: 'Inter', 'Helvetica Neue', Helvetica, sans-serif; font-size: 14px; font-weight: 600; fill: #2c3e50; text-anchor: middle; }
+      .main-text { font-family: 'Inter', 'Helvetica Neue', Helvetica, sans-serif; font-size: 12px; font-weight: 500; fill: #2c3e50; text-anchor: middle; }
+      .detail-text { font-family: 'Inter', 'Helvetica Neue', Helvetica, sans-serif; font-size: 10px; fill: #495057; text-anchor: middle; }
+      .connection-line { stroke: #666; stroke-width: 1.5; fill: none; }
+    </style>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="900" height="650" fill="#ffffff"/>
+  
+  <!-- Main Title -->
+  <text x="450" y="30" class="title-text">計算可能性の概念と階層</text>
+  
+  <!-- Computable Functions Section -->
+  <text x="150" y="70" class="section-title">計算可能関数</text>
+  
+  <!-- Computable Function -->
+  <rect x="50" y="80" width="200" height="80" class="computable-box"/>
+  <text x="150" y="105" class="main-text">チューリング計算可能関数</text>
+  <text x="150" y="120" class="detail-text">f: Σ* → Σ*</text>
+  <text x="150" y="135" class="detail-text">・全ての入力で停止</text>
+  <text x="150" y="150" class="detail-text">・正しい出力を生成</text>
+  
+  <!-- Partial Computable Function -->
+  <rect x="50" y="180" width="200" height="80" class="computable-box"/>
+  <text x="150" y="205" class="main-text">部分計算可能関数</text>
+  <text x="150" y="220" class="detail-text">f: Σ* ⇀ Σ*</text>
+  <text x="150" y="235" class="detail-text">・定義域で停止</text>
+  <text x="150" y="250" class="detail-text">・定義域外で停止しない</text>
+  
+  <!-- Examples -->
+  <rect x="50" y="280" width="200" height="80" class="computable-box"/>
+  <text x="150" y="305" class="main-text">例:</text>
+  <text x="150" y="320" class="detail-text">・加算、乗算</text>
+  <text x="150" y="335" class="detail-text">・文字列操作</text>
+  <text x="150" y="350" class="detail-text">・ソート、探索</text>
+  
+  <!-- Church-Turing Thesis Section -->
+  <text x="450" y="70" class="section-title">Church-Turingの提唱</text>
+  
+  <!-- Thesis -->
+  <rect x="350" y="80" width="200" height="90" class="thesis-box"/>
+  <text x="450" y="105" class="main-text">直観的計算可能 ≡</text>
+  <text x="450" y="120" class="main-text">チューリング計算可能</text>
+  <text x="450" y="140" class="detail-text">・数学的定理ではない</text>
+  <text x="450" y="155" class="detail-text">・計算の本質に関する主張</text>
+  
+  <!-- Evidence -->
+  <rect x="350" y="190" width="200" height="80" class="thesis-box"/>
+  <text x="450" y="215" class="main-text">支持する証拠</text>
+  <text x="450" y="230" class="detail-text">・他の計算モデルとの等価性</text>
+  <text x="450" y="245" class="detail-text">・実用プログラムとの対応</text>
+  <text x="450" y="260" class="detail-text">・70年以上の検証</text>
+  
+  <!-- Models -->
+  <rect x="350" y="290" width="200" height="80" class="thesis-box"/>
+  <text x="450" y="315" class="main-text">等価な計算モデル</text>
+  <text x="450" y="330" class="detail-text">・λ計算 (Church)</text>
+  <text x="450" y="345" class="detail-text">・再帰関数 (Kleene)</text>
+  <text x="450" y="360" class="detail-text">・Post機械、RAM</text>
+  
+  <!-- Computability Limits Section -->
+  <text x="750" y="70" class="section-title">計算可能性の限界</text>
+  
+  <!-- Decidable -->
+  <rect x="650" y="80" width="200" height="80" class="decidable-box"/>
+  <text x="750" y="105" class="main-text">決定可能問題</text>
+  <text x="750" y="120" class="detail-text">・有限時間で判定</text>
+  <text x="750" y="135" class="detail-text">・Yes/No を確定</text>
+  <text x="750" y="150" class="detail-text">・アルゴリズムが存在</text>
+  
+  <!-- Undecidable -->
+  <rect x="650" y="180" width="200" height="80" class="undecidable-box"/>
+  <text x="750" y="205" class="main-text">決定不能問題</text>
+  <text x="750" y="220" class="detail-text">・アルゴリズムが存在しない</text>
+  <text x="750" y="235" class="detail-text">・原理的に解けない</text>
+  <text x="750" y="250" class="detail-text">・対角化論法で証明</text>
+  
+  <!-- Undecidable Examples -->
+  <rect x="650" y="280" width="200" height="80" class="undecidable-box"/>
+  <text x="750" y="305" class="main-text">決定不能な例</text>
+  <text x="750" y="320" class="detail-text">・停止問題</text>
+  <text x="750" y="335" class="detail-text">・同値問題</text>
+  <text x="750" y="350" class="detail-text">・ヒルベルト第10問題</text>
+  
+  <!-- Detailed explanation of Church-Turing Thesis -->
+  <text x="450" y="420" class="section-title">提唱の重要性と意義</text>
+  
+  <rect x="50" y="440" width="800" height="180" rx="8" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1"/>
+  
+  <text x="70" y="465" class="main-text" text-anchor="start" font-weight="600">1. 計算の普遍的定義</text>
+  <text x="90" y="480" class="detail-text" text-anchor="start">「計算可能」という概念を数学的に厳密に定義</text>
+  <text x="90" y="495" class="detail-text" text-anchor="start">異なる研究者が独立に提案したモデルが全て等価であることを発見</text>
+  
+  <text x="70" y="520" class="main-text" text-anchor="start" font-weight="600">2. アルゴリズムの限界の明確化</text>
+  <text x="90" y="535" class="detail-text" text-anchor="start">「解けない問題」の存在を理論的に証明可能に</text>
+  <text x="90" y="550" class="detail-text" text-anchor="start">計算複雑性理論（P vs NP問題など）の基礎を提供</text>
+  
+  <text x="70" y="575" class="main-text" text-anchor="start" font-weight="600">3. 現代コンピュータ科学への影響</text>
+  <text x="90" y="590" class="detail-text" text-anchor="start">プログラミング言語の設計（チューリング完全性）</text>
+  <text x="90" y="605" class="detail-text" text-anchor="start">人工知能と機械学習の理論的限界の理解</text>
+</svg>

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <title>集合演算の視覚化</title>
+  <desc>和集合、共通部分、差集合、対称差の概念を視覚的に表現した図</desc>
+  
+  <defs>
+    <style>
+      .title { font-family: 'Inter', 'Helvetica Neue', sans-serif; font-size: 16px; font-weight: 600; fill: #1a1a1a; }
+      .subtitle { font-family: 'Inter', 'Helvetica Neue', sans-serif; font-size: 14px; font-weight: 500; fill: #333; }
+      .label { font-family: 'Inter', 'Helvetica Neue', sans-serif; font-size: 12px; font-weight: 400; fill: #555; }
+      .operation { font-family: 'Inter', 'Helvetica Neue', sans-serif; font-size: 14px; font-weight: 600; fill: #2563eb; }
+      .set-a { fill: #3b82f6; fill-opacity: 0.3; stroke: #2563eb; stroke-width: 2; }
+      .set-b { fill: #ef4444; fill-opacity: 0.3; stroke: #dc2626; stroke-width: 2; }
+      .result-union { fill: #e3f2fd; stroke: #1976d2; stroke-width: 2; }
+      .result-intersection { fill: #fff3e0; stroke: #f57c00; stroke-width: 2; }
+      .result-difference { fill: #f3e5f5; stroke: #7b1fa2; stroke-width: 2; }
+      .result-symdiff { fill: #e8f5e8; stroke: #388e3c; stroke-width: 2; }
+      .arrow { fill: none; stroke: #666; stroke-width: 1.5; marker-end: url(#arrowhead); }
+      .dashed-arrow { fill: none; stroke: #666; stroke-width: 1.5; stroke-dasharray: 5,5; marker-end: url(#arrowhead); }
+    </style>
+    
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666" />
+    </marker>
+  </defs>
+  
+  <!-- Main title -->
+  <text x="400" y="30" text-anchor="middle" class="title">集合演算の視覚化</text>
+  
+  <!-- Union section -->
+  <g transform="translate(50, 80)">
+    <text x="150" y="20" text-anchor="middle" class="subtitle">和集合 A ∪ B</text>
+    
+    <!-- Set A -->
+    <circle cx="80" cy="60" r="30" class="set-a"/>
+    <text x="80" y="66" text-anchor="middle" class="label">A</text>
+    
+    <!-- Set B -->
+    <circle cx="130" cy="60" r="30" class="set-b"/>
+    <text x="130" y="66" text-anchor="middle" class="label">B</text>
+    
+    <!-- Arrow to result -->
+    <path d="M 170 60 L 220 60" class="dashed-arrow"/>
+    <text x="195" y="50" text-anchor="middle" class="label">A または B</text>
+    
+    <!-- Result -->
+    <rect x="230" y="35" width="70" height="50" rx="8" class="result-union"/>
+    <text x="265" y="65" text-anchor="middle" class="operation">A ∪ B</text>
+  </g>
+  
+  <!-- Intersection section -->
+  <g transform="translate(450, 80)">
+    <text x="150" y="20" text-anchor="middle" class="subtitle">共通部分 A ∩ B</text>
+    
+    <!-- Set A -->
+    <circle cx="80" cy="60" r="30" class="set-a"/>
+    <text x="80" y="66" text-anchor="middle" class="label">A</text>
+    
+    <!-- Set B -->
+    <circle cx="130" cy="60" r="30" class="set-b"/>
+    <text x="130" y="66" text-anchor="middle" class="label">B</text>
+    
+    <!-- Arrow to result -->
+    <path d="M 170 60 L 220 60" class="arrow"/>
+    <text x="195" y="50" text-anchor="middle" class="label">A かつ B</text>
+    
+    <!-- Result -->
+    <rect x="230" y="35" width="70" height="50" rx="8" class="result-intersection"/>
+    <text x="265" y="65" text-anchor="middle" class="operation">A ∩ B</text>
+  </g>
+  
+  <!-- Difference section -->
+  <g transform="translate(50, 250)">
+    <text x="150" y="20" text-anchor="middle" class="subtitle">差集合 A \ B</text>
+    
+    <!-- Set A -->
+    <circle cx="80" cy="60" r="30" class="set-a"/>
+    <text x="80" y="66" text-anchor="middle" class="label">A</text>
+    
+    <!-- Set B -->
+    <circle cx="130" cy="60" r="30" class="set-b"/>
+    <text x="130" y="66" text-anchor="middle" class="label">B</text>
+    
+    <!-- Arrow to result -->
+    <path d="M 170 60 L 220 60" class="arrow"/>
+    <text x="195" y="45" text-anchor="middle" class="label">A にあり</text>
+    <text x="195" y="75" text-anchor="middle" class="label">B にない</text>
+    
+    <!-- Result -->
+    <rect x="230" y="35" width="70" height="50" rx="8" class="result-difference"/>
+    <text x="265" y="65" text-anchor="middle" class="operation">A \ B</text>
+  </g>
+  
+  <!-- Symmetric difference section -->
+  <g transform="translate(450, 250)">
+    <text x="150" y="20" text-anchor="middle" class="subtitle">対称差 A Δ B</text>
+    
+    <!-- Set A -->
+    <circle cx="80" cy="60" r="30" class="set-a"/>
+    <text x="80" y="66" text-anchor="middle" class="label">A</text>
+    
+    <!-- Set B -->
+    <circle cx="130" cy="60" r="30" class="set-b"/>
+    <text x="130" y="66" text-anchor="middle" class="label">B</text>
+    
+    <!-- Arrow to result -->
+    <path d="M 170 60 L 220 60" class="dashed-arrow"/>
+    <text x="195" y="50" text-anchor="middle" class="label">排他的論理和</text>
+    
+    <!-- Result -->
+    <rect x="230" y="35" width="70" height="50" rx="8" class="result-symdiff"/>
+    <text x="265" y="65" text-anchor="middle" class="operation">A Δ B</text>
+  </g>
+  
+  <!-- Detailed explanation section -->
+  <g transform="translate(50, 420)">
+    <text x="350" y="20" text-anchor="middle" class="subtitle">集合演算の詳細説明</text>
+    
+    <!-- Union explanation -->
+    <g transform="translate(0, 40)">
+      <rect x="0" y="0" width="160" height="80" rx="8" class="result-union"/>
+      <text x="80" y="20" text-anchor="middle" class="operation">和集合 A ∪ B</text>
+      <text x="80" y="40" text-anchor="middle" class="label">= {x | x ∈ A または x ∈ B}</text>
+      <text x="80" y="60" text-anchor="middle" class="label">すべての要素を含む</text>
+    </g>
+    
+    <!-- Intersection explanation -->
+    <g transform="translate(180, 40)">
+      <rect x="0" y="0" width="160" height="80" rx="8" class="result-intersection"/>
+      <text x="80" y="20" text-anchor="middle" class="operation">共通部分 A ∩ B</text>
+      <text x="80" y="40" text-anchor="middle" class="label">= {x | x ∈ A かつ x ∈ B}</text>
+      <text x="80" y="60" text-anchor="middle" class="label">共通する要素のみ</text>
+    </g>
+    
+    <!-- Difference explanation -->
+    <g transform="translate(360, 40)">
+      <rect x="0" y="0" width="160" height="80" rx="8" class="result-difference"/>
+      <text x="80" y="20" text-anchor="middle" class="operation">差集合 A \ B</text>
+      <text x="80" y="40" text-anchor="middle" class="label">= {x | x ∈ A かつ x ∉ B}</text>
+      <text x="80" y="60" text-anchor="middle" class="label">Aにのみ属する要素</text>
+    </g>
+    
+    <!-- Symmetric difference explanation -->
+    <g transform="translate(540, 40)">
+      <rect x="0" y="0" width="160" height="80" rx="8" class="result-symdiff"/>
+      <text x="80" y="20" text-anchor="middle" class="operation">対称差 A Δ B</text>
+      <text x="80" y="40" text-anchor="middle" class="label">= (A \ B) ∪ (B \ A)</text>
+      <text x="80" y="60" text-anchor="middle" class="label">一方にのみ属する要素</text>
+    </g>
+  </g>
+</svg>

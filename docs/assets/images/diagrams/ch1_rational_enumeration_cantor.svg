@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="700" height="500" viewBox="0 0 700 500" xmlns="http://www.w3.org/2000/svg">
+  <title>有理数の可算性の証明（カントールの対角化論法）</title>
+  <desc>正の有理数を系統的に列挙する方法を示す図。分子と分母の和が小さい順に並べる</desc>
+  
+  <defs>
+    <style>
+      .title { font-family: 'Inter', 'Helvetica Neue', sans-serif; font-size: 16px; font-weight: 600; fill: #1a1a1a; }
+      .subtitle { font-family: 'Inter', 'Helvetica Neue', sans-serif; font-size: 14px; font-weight: 500; fill: #333; }
+      .fraction { font-family: 'Inter', 'Helvetica Neue', sans-serif; font-size: 12px; font-weight: 500; fill: #2563eb; }
+      .order { font-family: 'Inter', 'Helvetica Neue', sans-serif; font-size: 10px; font-weight: 400; fill: #dc2626; }
+      .label { font-family: 'Inter', 'Helvetica Neue', sans-serif; font-size: 11px; font-weight: 400; fill: #555; }
+      .skip { font-family: 'Inter', 'Helvetica Neue', sans-serif; font-size: 11px; font-weight: 400; fill: #666; text-decoration: line-through; }
+      .node { fill: #e3f2fd; stroke: #2563eb; stroke-width: 2; }
+      .skip-node { fill: #f5f5f5; stroke: #999; stroke-width: 2; stroke-dasharray: 3,3; }
+      .arrow { fill: none; stroke: #2563eb; stroke-width: 2; marker-end: url(#arrowhead); }
+      .level-arrow { fill: none; stroke: #dc2626; stroke-width: 1.5; marker-end: url(#arrowhead-red); }
+      .group-box { fill: none; stroke: #666; stroke-width: 1; stroke-dasharray: 5,5; }
+    </style>
+    
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2563eb" />
+    </marker>
+    
+    <marker id="arrowhead-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#dc2626" />
+    </marker>
+  </defs>
+  
+  <!-- Main title -->
+  <text x="350" y="30" text-anchor="middle" class="title">有理数の可算性の証明（系統的列挙法）</text>
+  
+  <!-- p+q=2 group -->
+  <g transform="translate(100, 80)">
+    <rect x="-20" y="-10" width="60" height="50" class="group-box"/>
+    <text x="10" y="5" text-anchor="middle" class="subtitle">p+q=2</text>
+    
+    <circle cx="10" cy="25" r="15" class="node"/>
+    <text x="10" y="20" text-anchor="middle" class="fraction">1/1</text>
+    <text x="10" y="35" text-anchor="middle" class="order">(1)</text>
+  </g>
+  
+  <!-- p+q=3 group -->
+  <g transform="translate(220, 80)">
+    <rect x="-30" y="-10" width="140" height="50" class="group-box"/>
+    <text x="40" y="5" text-anchor="middle" class="subtitle">p+q=3</text>
+    
+    <circle cx="10" cy="25" r="15" class="node"/>
+    <text x="10" y="20" text-anchor="middle" class="fraction">1/2</text>
+    <text x="10" y="35" text-anchor="middle" class="order">(2)</text>
+    
+    <path d="M 25 25 L 55 25" class="arrow"/>
+    
+    <circle cx="70" cy="25" r="15" class="node"/>
+    <text x="70" y="20" text-anchor="middle" class="fraction">2/1</text>
+    <text x="70" y="35" text-anchor="middle" class="order">(3)</text>
+  </g>
+  
+  <!-- p+q=4 group -->
+  <g transform="translate(120, 180)">
+    <rect x="-30" y="-10" width="200" height="50" class="group-box"/>
+    <text x="70" y="5" text-anchor="middle" class="subtitle">p+q=4</text>
+    
+    <circle cx="10" cy="25" r="15" class="node"/>
+    <text x="10" y="20" text-anchor="middle" class="fraction">1/3</text>
+    <text x="10" y="35" text-anchor="middle" class="order">(4)</text>
+    
+    <path d="M 25 25 L 55 25" class="arrow"/>
+    
+    <circle cx="70" cy="25" r="15" class="skip-node"/>
+    <text x="70" y="20" text-anchor="middle" class="skip">2/2</text>
+    <text x="70" y="35" text-anchor="middle" class="skip">skip</text>
+    
+    <path d="M 85 25 L 115 25" class="arrow"/>
+    
+    <circle cx="130" cy="25" r="15" class="node"/>
+    <text x="130" y="20" text-anchor="middle" class="fraction">3/1</text>
+    <text x="130" y="35" text-anchor="middle" class="order">(5)</text>
+  </g>
+  
+  <!-- p+q=5 group -->
+  <g transform="translate(80, 280)">
+    <rect x="-30" y="-10" width="280" height="50" class="group-box"/>
+    <text x="110" y="5" text-anchor="middle" class="subtitle">p+q=5</text>
+    
+    <circle cx="10" cy="25" r="15" class="node"/>
+    <text x="10" y="20" text-anchor="middle" class="fraction">1/4</text>
+    <text x="10" y="35" text-anchor="middle" class="order">(6)</text>
+    
+    <path d="M 25 25 L 55 25" class="arrow"/>
+    
+    <circle cx="70" cy="25" r="15" class="node"/>
+    <text x="70" y="20" text-anchor="middle" class="fraction">2/3</text>
+    <text x="70" y="35" text-anchor="middle" class="order">(7)</text>
+    
+    <path d="M 85 25 L 115 25" class="arrow"/>
+    
+    <circle cx="130" cy="25" r="15" class="node"/>
+    <text x="130" y="20" text-anchor="middle" class="fraction">3/2</text>
+    <text x="130" y="35" text-anchor="middle" class="order">(8)</text>
+    
+    <path d="M 145 25 L 175 25" class="arrow"/>
+    
+    <circle cx="190" cy="25" r="15" class="node"/>
+    <text x="190" y="20" text-anchor="middle" class="fraction">4/1</text>
+    <text x="190" y="35" text-anchor="middle" class="order">(9)</text>
+  </g>
+  
+  <!-- p+q=... group -->
+  <g transform="translate(150, 380)">
+    <rect x="-30" y="-10" width="260" height="50" class="group-box"/>
+    <text x="100" y="5" text-anchor="middle" class="subtitle">p+q=6, 7, ...</text>
+    
+    <circle cx="10" cy="25" r="15" class="node"/>
+    <text x="10" y="20" text-anchor="middle" class="fraction">1/5</text>
+    <text x="10" y="35" text-anchor="middle" class="order">(...)</text>
+    
+    <path d="M 25 25 L 55 25" class="arrow"/>
+    
+    <circle cx="70" cy="25" r="15" class="node"/>
+    <text x="70" y="18" text-anchor="middle" class="fraction">...</text>
+    
+    <path d="M 85 25 L 115 25" class="arrow"/>
+    
+    <circle cx="130" cy="25" r="15" class="node"/>
+    <text x="130" y="18" text-anchor="middle" class="fraction">...</text>
+    
+    <path d="M 145 25 L 175 25" class="arrow"/>
+    
+    <circle cx="190" cy="25" r="15" class="node"/>
+    <text x="190" y="18" text-anchor="middle" class="fraction">...</text>
+  </g>
+  
+  <!-- Level transition arrows -->
+  <path d="M 110 130 L 230 160" class="level-arrow"/>
+  <path d="M 290 130 L 250 160" class="level-arrow"/>
+  <path d="M 250 230 L 190 260" class="level-arrow"/>
+  <path d="M 210 330 L 250 360" class="level-arrow"/>
+  
+  <!-- Explanation box -->
+  <g transform="translate(450, 120)">
+    <rect x="0" y="0" width="230" height="280" fill="#f8f9fa" stroke="#ddd" stroke-width="1" rx="8"/>
+    <text x="115" y="25" text-anchor="middle" class="subtitle">列挙の規則</text>
+    
+    <text x="15" y="50" class="label">1. 分子pと分母qの和p+qが</text>
+    <text x="15" y="65" class="label">   小さい順に考える</text>
+    
+    <text x="15" y="90" class="label">2. 同じp+qのグループ内では</text>
+    <text x="15" y="105" class="label">   分子pが小さい順に並べる</text>
+    
+    <text x="15" y="130" class="label">3. 既約でない分数はスキップ</text>
+    <text x="15" y="145" class="label">   (例: 2/2 = 1/1 は重複)</text>
+    
+    <text x="15" y="170" class="label">4. この方法により、すべての</text>
+    <text x="15" y="185" class="label">   正の有理数に番号を振る</text>
+    <text x="15" y="200" class="label">   ことができる</text>
+    
+    <text x="15" y="225" class="label">5. 負の有理数と0を含めても</text>
+    <text x="15" y="240" class="label">   同様の手法で可算となる</text>
+    
+    <text x="15" y="265" class="label">∴ ℚ は可算集合である</text>
+  </g>
+</svg>

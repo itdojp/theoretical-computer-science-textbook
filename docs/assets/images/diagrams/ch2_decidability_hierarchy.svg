@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" width="1000" height="700">
+  <title>決定可能性の階層構造</title>
+  <desc>言語クラスの包含関係と決定可能性の概念を示す階層図</desc>
+  
+  <defs>
+    <style>
+      .finite-box { fill: #e8f5e8; stroke: #2e7d32; stroke-width: 2; rx: 8; }
+      .regular-box { fill: #e8f5e8; stroke: #2e7d32; stroke-width: 2; rx: 8; }
+      .cf-box { fill: #e8f5e8; stroke: #2e7d32; stroke-width: 2; rx: 8; }
+      .decidable-box { fill: #e3f2fd; stroke: #1976d2; stroke-width: 2; rx: 8; }
+      .recognizable-box { fill: #fff3e0; stroke: #f57c00; stroke-width: 2; rx: 8; }
+      .all-box { fill: #ffebee; stroke: #d32f2f; stroke-width: 2; rx: 8; }
+      .property-box { fill: #f8f9fa; stroke: #6c757d; stroke-width: 2; rx: 8; }
+      .atm-box { fill: #ffe0b2; stroke: #ff9800; stroke-width: 2; rx: 8; }
+      .reduction-box { fill: #f3e5f5; stroke: #9c27b0; stroke-width: 2; rx: 8; }
+      
+      .title-text { font-family: 'Inter', 'Helvetica Neue', Helvetica, sans-serif; font-size: 18px; font-weight: 700; fill: #2c3e50; text-anchor: middle; }
+      .section-title { font-family: 'Inter', 'Helvetica Neue', Helvetica, sans-serif; font-size: 14px; font-weight: 600; fill: #2c3e50; text-anchor: middle; }
+      .main-text { font-family: 'Inter', 'Helvetica Neue', Helvetica, sans-serif; font-size: 12px; font-weight: 500; fill: #2c3e50; text-anchor: middle; }
+      .detail-text { font-family: 'Inter', 'Helvetica Neue', Helvetica, sans-serif; font-size: 10px; fill: #495057; text-anchor: middle; }
+      .inclusion-arrow { stroke: #666; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .connection-line { stroke: #666; stroke-width: 1; fill: none; }
+    </style>
+    
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1000" height="700" fill="#ffffff"/>
+  
+  <!-- Main Title -->
+  <text x="500" y="30" class="title-text">決定可能性の階層構造</text>
+  
+  <!-- Language Class Hierarchy -->
+  <text x="250" y="70" class="section-title">言語クラスの包含関係</text>
+  
+  <!-- Finite Languages -->
+  <rect x="50" y="90" width="160" height="70" class="finite-box"/>
+  <text x="130" y="115" class="main-text">有限言語</text>
+  <text x="130" y="130" class="detail-text">・文字列の有限集合</text>
+  <text x="130" y="145" class="detail-text">・常に決定可能</text>
+  
+  <!-- Regular Languages -->
+  <rect x="50" y="180" width="160" height="70" class="regular-box"/>
+  <text x="130" y="205" class="main-text">正規言語</text>
+  <text x="130" y="220" class="detail-text">・DFA/NFAで認識</text>
+  <text x="130" y="235" class="detail-text">・正規表現で記述</text>
+  
+  <!-- Context-Free Languages -->
+  <rect x="50" y="270" width="160" height="70" class="cf-box"/>
+  <text x="130" y="295" class="main-text">文脈自由言語</text>
+  <text x="130" y="310" class="detail-text">・PDAで認識</text>
+  <text x="130" y="325" class="detail-text">・CFGで生成</text>
+  
+  <!-- Decidable Languages -->
+  <rect x="50" y="360" width="160" height="70" class="decidable-box"/>
+  <text x="130" y="385" class="main-text">決定可能言語</text>
+  <text x="130" y="400" class="detail-text">・必ず停止するTM</text>
+  <text x="130" y="415" class="detail-text">・全入力でYes/No</text>
+  
+  <!-- Recognizable Languages -->
+  <rect x="50" y="450" width="160" height="70" class="recognizable-box"/>
+  <text x="130" y="475" class="main-text">認識可能言語</text>
+  <text x="130" y="490" class="detail-text">・TMで認識</text>
+  <text x="130" y="505" class="detail-text">・停止しない場合あり</text>
+  
+  <!-- All Languages -->
+  <rect x="50" y="540" width="160" height="70" class="all-box"/>
+  <text x="130" y="565" class="main-text">全ての言語</text>
+  <text x="130" y="580" class="detail-text">・認識不能言語を含む</text>
+  <text x="130" y="595" class="detail-text">・非可算無限個</text>
+  
+  <!-- Inclusion arrows -->
+  <line x1="130" y1="160" x2="130" y2="180" class="inclusion-arrow"/>
+  <line x1="130" y1="250" x2="130" y2="270" class="inclusion-arrow"/>
+  <line x1="130" y1="340" x2="130" y2="360" class="inclusion-arrow"/>
+  <line x1="130" y1="430" x2="130" y2="450" class="inclusion-arrow"/>
+  <line x1="130" y1="520" x2="130" y2="540" class="inclusion-arrow"/>
+  
+  <!-- Decidable Language Properties -->
+  <text x="400" y="70" class="section-title">決定可能言語の性質</text>
+  
+  <!-- Closure Properties -->
+  <rect x="320" y="90" width="160" height="100" class="property-box"/>
+  <text x="400" y="115" class="main-text">閉包性</text>
+  <text x="400" y="130" class="detail-text">・和集合 ∪</text>
+  <text x="400" y="145" class="detail-text">・積集合 ∩</text>
+  <text x="400" y="160" class="detail-text">・補集合 ¯</text>
+  <text x="400" y="175" class="detail-text">・連結 ○</text>
+  
+  <!-- Decision Algorithm -->
+  <rect x="320" y="210" width="160" height="80" class="property-box"/>
+  <text x="400" y="235" class="main-text">決定アルゴリズム</text>
+  <text x="400" y="250" class="detail-text">・入力を読む</text>
+  <text x="400" y="265" class="detail-text">・有限ステップで判定</text>
+  <text x="400" y="280" class="detail-text">・必ず停止</text>
+  
+  <!-- Examples -->
+  <rect x="320" y="310" width="160" height="80" class="property-box"/>
+  <text x="400" y="335" class="main-text">例</text>
+  <text x="400" y="350" class="detail-text">・PRIME: 素数判定</text>
+  <text x="400" y="365" class="detail-text">・CONNECTED: 連結性</text>
+  <text x="400" y="380" class="detail-text">・MATCHING: マッチング</text>
+  
+  <!-- Recognizable but Undecidable -->
+  <text x="750" y="70" class="section-title">認識可能だが決定不能</text>
+  
+  <!-- ATM -->
+  <rect x="570" y="90" width="200" height="120" class="atm-box"/>
+  <text x="670" y="115" class="main-text">受理問題 ATM</text>
+  <text x="670" y="130" class="detail-text">{⟨M,w⟩ | M は w を受理}</text>
+  <text x="670" y="150" class="detail-text">・万能TMで認識可能</text>
+  <text x="670" y="165" class="detail-text">・停止問題への還元で</text>
+  <text x="670" y="180" class="detail-text">  決定不能</text>
+  <text x="670" y="195" class="detail-text">・対角化論法による証明</text>
+  
+  <!-- Complement -->
+  <rect x="570" y="230" width="200" height="80" class="atm-box"/>
+  <text x="670" y="255" class="main-text">補言語</text>
+  <text x="670" y="270" class="detail-text">ATM の補集合は認識不能</text>
+  <text x="670" y="285" class="detail-text">→ 決定不能の証明</text>
+  
+  <!-- Reduction -->
+  <rect x="570" y="330" width="200" height="80" class="reduction-box"/>
+  <text x="670" y="355" class="main-text">還元による証明</text>
+  <text x="670" y="370" class="detail-text">停止問題 → ATM</text>
+  <text x="670" y="385" class="detail-text">対角化論法</text>
+  
+  <!-- Key insight box -->
+  <rect x="320" y="450" width="450" height="120" rx="8" fill="#f0f8ff" stroke="#4682b4" stroke-width="2"/>
+  <text x="545" y="475" class="section-title">重要な洞察</text>
+  <text x="545" y="500" class="main-text">決定可能 ⟺ L と L̄ の両方が認識可能</text>
+  <text x="340" y="520" class="detail-text" text-anchor="start">• 決定可能な言語は、受理と拒否の両方が可能</text>
+  <text x="340" y="535" class="detail-text" text-anchor="start">• 認識可能だが決定不能な言語は、補言語が認識不能</text>
+  <text x="340" y="550" class="detail-text" text-anchor="start">• この差が計算の根本的な限界を示している</text>
+  
+  <!-- Connection lines -->
+  <line x1="230" y1="395" x2="320" y2="250" class="connection-line" stroke-dasharray="3,2"/>
+  <line x1="230" y1="485" x2="570" y2="170" class="connection-line" stroke-dasharray="3,2"/>
+</svg>

@@ -1,0 +1,241 @@
+<svg viewBox="0 0 1400 900" xmlns="http://www.w3.org/2000/svg">
+  <title>最大フロー最小カットの例</title>
+  <desc>フローネットワークにおける最大フロー問題と最小カット定理の視覚的説明</desc>
+  
+  <defs>
+    <style>
+      .title-text { font-family: 'Inter', 'Helvetica', sans-serif; font-size: 18px; font-weight: 600; fill: #2d3748; }
+      .section-title { font-family: 'Inter', 'Helvetica', sans-serif; font-size: 14px; font-weight: 600; fill: #4a5568; }
+      .node-text { font-family: 'Inter', 'Helvetica', sans-serif; font-size: 12px; font-weight: 600; fill: #2d3748; }
+      .flow-text { font-family: 'Inter', 'Helvetica', sans-serif; font-size: 10px; font-weight: 500; fill: #2d3748; }
+      .result-text { font-family: 'Inter', 'Helvetica', sans-serif; font-size: 11px; font-weight: 400; fill: #2d3748; }
+      .note-text { font-family: 'Inter', 'Helvetica', sans-serif; font-size: 10px; font-weight: 400; fill: #4a5568; }
+      .source-node { fill: #fed7d7; stroke: #e53e3e; stroke-width: 2.5; }
+      .sink-node { fill: #bee3f8; stroke: #3182ce; stroke-width: 2.5; }
+      .intermediate-node { fill: #f7fafc; stroke: #718096; stroke-width: 2; }
+      .set-s-node { fill: #fef5e7; stroke: #dd6b20; stroke-width: 2; }
+      .set-t-node { fill: #e6fffa; stroke: #38b2ac; stroke-width: 2; }
+      .edge { stroke: #4a5568; stroke-width: 2; fill: none; }
+      .flow-edge { stroke: #3182ce; stroke-width: 3; fill: none; }
+      .cut-edge { stroke: #e53e3e; stroke-width: 3; stroke-dasharray: 5,5; fill: none; }
+      .residual-edge { stroke: #805ad5; stroke-width: 1.5; fill: none; }
+      .residual-back-edge { stroke: #d69e2e; stroke-width: 1.5; fill: none; stroke-dasharray: 3,3; }
+    </style>
+    
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4a5568" />
+    </marker>
+    
+    <marker id="flow-arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#3182ce" />
+    </marker>
+    
+    <marker id="residual-arrowhead" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#805ad5" />
+    </marker>
+    
+    <marker id="residual-back-arrowhead" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#d69e2e" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="700" y="30" text-anchor="middle" class="title-text">最大フロー最小カットの例</text>
+  
+  <!-- Flow Network -->
+  <g id="flow-network">
+    <text x="200" y="70" text-anchor="middle" class="section-title">フローネットワーク</text>
+    
+    <!-- Nodes -->
+    <circle cx="80" cy="150" r="18" class="source-node"/>
+    <text x="80" y="155" text-anchor="middle" class="node-text">s</text>
+    
+    <circle cx="180" cy="120" r="18" class="intermediate-node"/>
+    <text x="180" y="125" text-anchor="middle" class="node-text">a</text>
+    
+    <circle cx="180" cy="180" r="18" class="intermediate-node"/>
+    <text x="180" y="185" text-anchor="middle" class="node-text">b</text>
+    
+    <circle cx="280" cy="120" r="18" class="intermediate-node"/>
+    <text x="280" y="125" text-anchor="middle" class="node-text">c</text>
+    
+    <circle cx="280" cy="180" r="18" class="intermediate-node"/>
+    <text x="280" y="185" text-anchor="middle" class="node-text">d</text>
+    
+    <circle cx="380" cy="150" r="18" class="sink-node"/>
+    <text x="380" y="155" text-anchor="middle" class="node-text">t</text>
+    
+    <!-- Edges with flow/capacity -->
+    <line x1="98" y1="145" x2="162" y2="125" class="flow-edge" marker-end="url(#flow-arrowhead)"/>
+    <text x="130" y="130" class="flow-text">16/16</text>
+    
+    <line x1="98" y1="155" x2="162" y2="175" class="flow-edge" marker-end="url(#flow-arrowhead)"/>
+    <text x="130" y="170" class="flow-text">13/13</text>
+    
+    <line x1="198" y1="125" x2="262" y2="125" class="edge" marker-end="url(#arrowhead)"/>
+    <text x="230" y="120" class="flow-text">12/12</text>
+    
+    <line x1="190" y1="135" x2="190" y2="165" class="edge" marker-end="url(#arrowhead)"/>
+    <text x="205" y="155" class="flow-text">10/12</text>
+    
+    <line x1="198" y1="175" x2="262" y2="125" class="edge" marker-end="url(#arrowhead)"/>
+    <text x="225" y="145" class="flow-text">4/9</text>
+    
+    <line x1="198" y1="180" x2="262" y2="180" class="flow-edge" marker-end="url(#flow-arrowhead)"/>
+    <text x="230" y="195" class="flow-text">14/14</text>
+    
+    <line x1="298" y1="125" x2="362" y2="145" class="edge" marker-end="url(#arrowhead)"/>
+    <text x="335" y="130" class="flow-text">7/7</text>
+    
+    <line x1="290" y1="135" x2="290" y2="165" class="edge" marker-end="url(#arrowhead)"/>
+    <text x="305" y="155" class="flow-text">9/10</text>
+    
+    <line x1="298" y1="175" x2="362" y2="155" class="flow-edge" marker-end="url(#flow-arrowhead)"/>
+    <text x="335" y="170" class="flow-text">20/20</text>
+    
+    <!-- Note -->
+    <text x="230" y="230" text-anchor="middle" class="note-text">表記: フロー/容量</text>
+  </g>
+  
+  <!-- Minimum Cut -->
+  <g id="minimum-cut">
+    <text x="650" y="70" text-anchor="middle" class="section-title">最小カット</text>
+    
+    <!-- Nodes with cut partitions -->
+    <circle cx="530" cy="150" r="18" class="set-s-node"/>
+    <text x="530" y="155" text-anchor="middle" class="node-text">s</text>
+    
+    <circle cx="630" cy="120" r="18" class="set-s-node"/>
+    <text x="630" y="125" text-anchor="middle" class="node-text">a</text>
+    
+    <circle cx="630" cy="180" r="18" class="set-s-node"/>
+    <text x="630" y="185" text-anchor="middle" class="node-text">b</text>
+    
+    <circle cx="730" cy="120" r="18" class="set-t-node"/>
+    <text x="730" y="125" text-anchor="middle" class="node-text">c</text>
+    
+    <circle cx="730" cy="180" r="18" class="set-t-node"/>
+    <text x="730" y="185" text-anchor="middle" class="node-text">d</text>
+    
+    <circle cx="830" cy="150" r="18" class="set-t-node"/>
+    <text x="830" y="155" text-anchor="middle" class="node-text">t</text>
+    
+    <!-- Cut line -->
+    <line x1="680" y1="90" x2="680" y2="210" stroke="#e53e3e" stroke-width="3" stroke-dasharray="8,4"/>
+    <text x="685" y="105" class="section-title">最小カット</text>
+    
+    <!-- Edges -->
+    <line x1="548" y1="145" x2="612" y2="125" class="edge" marker-end="url(#arrowhead)"/>
+    <line x1="548" y1="155" x2="612" y2="175" class="edge" marker-end="url(#arrowhead)"/>
+    <line x1="648" y1="125" x2="712" y2="125" class="cut-edge" marker-end="url(#arrowhead)"/>
+    <line x1="640" y1="135" x2="640" y2="165" class="edge" marker-end="url(#arrowhead)"/>
+    <line x1="648" y1="175" x2="712" y2="125" class="cut-edge" marker-end="url(#arrowhead)"/>
+    <line x1="648" y1="180" x2="712" y2="180" class="cut-edge" marker-end="url(#arrowhead)"/>
+    <line x1="748" y1="125" x2="812" y2="145" class="edge" marker-end="url(#arrowhead)"/>
+    <line x1="740" y1="135" x2="740" y2="165" class="edge" marker-end="url(#arrowhead)"/>
+    <line x1="748" y1="175" x2="812" y2="155" class="edge" marker-end="url(#arrowhead)"/>
+    
+    <!-- Set labels -->
+    <rect x="520" y="240" width="140" height="60" fill="#fef5e7" stroke="#dd6b20" stroke-width="1" rx="5"/>
+    <text x="590" y="255" text-anchor="middle" class="section-title">集合S: {s,a,b}</text>
+    
+    <rect x="720" y="240" width="140" height="60" fill="#e6fffa" stroke="#38b2ac" stroke-width="1" rx="5"/>
+    <text x="790" y="255" text-anchor="middle" class="section-title">集合T: {c,d,t}</text>
+    
+    <!-- Cut value calculation -->
+    <rect x="460" y="320" width="280" height="120" fill="#f7fafc" stroke="#e2e8f0" stroke-width="1" rx="8"/>
+    <text x="600" y="340" text-anchor="middle" class="section-title">カット容量:</text>
+    <text x="470" y="360" class="result-text">(a,c): 12</text>
+    <text x="470" y="375" class="result-text">(b,c): 9</text>
+    <text x="470" y="390" class="result-text">(b,d): 14</text>
+    <text x="470" y="405" class="result-text">合計: 35</text>
+    <text x="470" y="425" class="result-text">最大フロー値: 35</text>
+  </g>
+  
+  <!-- Residual Graph -->
+  <g id="residual-graph">
+    <text x="1100" y="70" text-anchor="middle" class="section-title">残余グラフ</text>
+    
+    <!-- Nodes -->
+    <circle cx="980" cy="150" r="18" class="source-node"/>
+    <text x="980" y="155" text-anchor="middle" class="node-text">s</text>
+    
+    <circle cx="1080" cy="120" r="18" class="intermediate-node"/>
+    <text x="1080" y="125" text-anchor="middle" class="node-text">a</text>
+    
+    <circle cx="1080" cy="180" r="18" class="intermediate-node"/>
+    <text x="1080" y="185" text-anchor="middle" class="node-text">b</text>
+    
+    <circle cx="1180" cy="120" r="18" class="intermediate-node"/>
+    <text x="1180" y="125" text-anchor="middle" class="node-text">c</text>
+    
+    <circle cx="1180" cy="180" r="18" class="intermediate-node"/>
+    <text x="1180" y="185" text-anchor="middle" class="node-text">d</text>
+    
+    <circle cx="1280" cy="150" r="18" class="sink-node"/>
+    <text x="1280" y="155" text-anchor="middle" class="node-text">t</text>
+    
+    <!-- Residual edges -->
+    <line x1="998" y1="145" x2="1062" y2="125" class="residual-edge" marker-end="url(#residual-arrowhead)"/>
+    <text x="1030" y="130" class="flow-text">0</text>
+    
+    <line x1="998" y1="155" x2="1062" y2="175" class="residual-edge" marker-end="url(#residual-arrowhead)"/>
+    <text x="1030" y="170" class="flow-text">0</text>
+    
+    <line x1="1098" y1="125" x2="1162" y2="125" class="residual-edge" marker-end="url(#residual-arrowhead)"/>
+    <text x="1130" y="120" class="flow-text">0</text>
+    
+    <line x1="1090" y1="135" x2="1090" y2="165" class="residual-edge" marker-end="url(#residual-arrowhead)"/>
+    <text x="1105" y="155" class="flow-text">2</text>
+    
+    <line x1="1070" y1="135" x2="1070" y2="165" class="residual-back-edge" marker-end="url(#residual-back-arrowhead)"/>
+    <text x="1055" y="155" class="flow-text">10</text>
+    
+    <line x1="1098" y1="175" x2="1162" y2="125" class="residual-edge" marker-end="url(#residual-arrowhead)"/>
+    <text x="1125" y="145" class="flow-text">5</text>
+    
+    <line x1="1082" y1="165" x2="1162" y2="135" class="residual-back-edge" marker-end="url(#residual-back-arrowhead)"/>
+    <text x="1115" y="155" class="flow-text">4</text>
+    
+    <line x1="1098" y1="180" x2="1162" y2="180" class="residual-edge" marker-end="url(#residual-arrowhead)"/>
+    <text x="1130" y="195" class="flow-text">0</text>
+    
+    <line x1="1198" y1="125" x2="1262" y2="145" class="residual-edge" marker-end="url(#residual-arrowhead)"/>
+    <text x="1235" y="130" class="flow-text">0</text>
+    
+    <line x1="1262" y1="135" x2="1198" y2="125" class="residual-back-edge" marker-end="url(#residual-back-arrowhead)"/>
+    <text x="1225" y="125" class="flow-text">7</text>
+    
+    <line x1="1190" y1="135" x2="1190" y2="165" class="residual-edge" marker-end="url(#residual-arrowhead)"/>
+    <text x="1205" y="155" class="flow-text">1</text>
+    
+    <line x1="1198" y1="175" x2="1262" y2="155" class="residual-edge" marker-end="url(#residual-arrowhead)"/>
+    <text x="1235" y="170" class="flow-text">0</text>
+    
+    <!-- Note for residual graph -->
+    <rect x="950" y="240" width="300" height="60" fill="#f7fafc" stroke="#e2e8f0" stroke-width="1" rx="8"/>
+    <text x="1100" y="260" text-anchor="middle" class="note-text">残余容量が0の辺は</text>
+    <text x="1100" y="275" text-anchor="middle" class="note-text">sからtへのパスに</text>
+    <text x="1100" y="290" text-anchor="middle" class="note-text">含まれない</text>
+  </g>
+  
+  <!-- Algorithm explanation -->
+  <rect x="50" y="480" width="1300" height="380" fill="#f9f9f9" stroke="#e2e8f0" stroke-width="1" rx="8"/>
+  <text x="700" y="510" text-anchor="middle" class="section-title">Ford-Fulkerson法による最大フロー計算</text>
+  
+  <text x="70" y="540" class="result-text">1. フローネットワーク: 各辺に容量c(u,v)が設定され、始点sから終点tへのフローを求める</text>
+  <text x="70" y="560" class="result-text">2. フロー条件: (a) 容量制約 0 ≤ f(u,v) ≤ c(u,v), (b) 流量保存 Σf(v,u) = Σf(u,v) (u ≠ s,t)</text>
+  <text x="70" y="580" class="result-text">3. 残余グラフGf: 各辺(u,v)に対して残余容量cf(u,v) = c(u,v) - f(u,v)を設定</text>
+  <text x="70" y="600" class="result-text">4. 増加路: 残余グラフでsからtへのパス。パス上の最小残余容量だけフローを増加可能</text>
+  <text x="70" y="620" class="result-text">5. アルゴリズム: 増加路が存在する限り、その路でフローを増加させる</text>
+  
+  <rect x="70" y="650" width="1260" height="80" fill="#e6fffa" stroke="#38b2ac" stroke-width="1" rx="6"/>
+  <text x="700" y="675" text-anchor="middle" class="section-title">最大フロー最小カット定理</text>
+  <text x="90" y="700" class="result-text">以下の条件は同値: (1) fは最大フロー, (2) 残余グラフに増加路が存在しない, (3) |f| = c(S,T)となるカット(S,T)が存在</text>
+  <text x="90" y="715" class="result-text">この例では、最大フロー値35 = 最小カット容量35であり、定理が成立している</text>
+  
+  <rect x="70" y="750" width="1260" height="80" fill="#fef5e7" stroke="#dd6b20" stroke-width="1" rx="6"/>
+  <text x="700" y="775" text-anchor="middle" class="section-title">時間複雑度と実装</text>
+  <text x="90" y="800" class="result-text">• Ford-Fulkerson法: O(E・f*) (f*は最大フロー値), Edmonds-Karp法: O(VE²), Dinicのアルゴリズム: O(V²E)</text>
+  <text x="90" y="815" class="result-text">• 応用: 最小費用最大フロー、二部マッチング、多品種フロー、ネットワーク信頼性解析</text>
+</svg>

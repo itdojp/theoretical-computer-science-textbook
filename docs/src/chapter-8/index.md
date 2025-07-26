@@ -59,50 +59,7 @@ sections:
 
 ### 8.1.3 グラフの走査
 
-```mermaid
-graph TD
-    subgraph "DFS vs BFS の探索順序"
-        subgraph "サンプルグラフ"
-            A((A)) --> B((B))
-            A --> C((C))
-            B --> D((D))
-            B --> E((E))
-            C --> F((F))
-            C --> G((G))
-            D --> H((H))
-        end
-        
-        subgraph "DFSの探索順序"
-            DA["A (1/16)"]
-            DB["B (2/9)"]
-            DC["C (10/15)"]
-            DD["D (3/8)"]
-            DE["E (5/6)"]
-            DF["F (11/12)"]
-            DG["G (13/14)"]
-            DH["H (4/7)"]
-            
-            DFS_Order["訪問順序:<br/>A → B → D → H → E<br/>→ C → F → G<br/><br/>括弧内: (開始時刻/終了時刻)"]
-        end
-        
-        subgraph "BFSの探索順序"
-            BA["A (0)"]
-            BB["B (1)"]
-            BC["C (1)"]
-            BD["D (2)"]
-            BE["E (2)"]
-            BF["F (2)"]
-            BG["G (2)"]
-            BH["H (3)"]
-            
-            BFS_Order["訪問順序:<br/>A → B,C → D,E,F,G<br/>→ H<br/><br/>括弧内: (距離)"]
-        end
-    end
-    
-    style A fill:#ffebee
-    style DA fill:#e3f2fd
-    style BA fill:#e8f5e8
-```
+![DFS vs BFS の探索順序](../../assets/images/diagrams/ch8_dfs_bfs_comparison.svg)
 
 #### 深さ優先探索（DFS）
 
@@ -177,63 +134,7 @@ S と V \ S を結ぶ辺が存在。
 
 ### 8.2.1 単一始点最短路
 
-```mermaid
-graph LR
-    subgraph "Dijkstraアルゴリズムの実行例"
-        subgraph "初期状態"
-            A1["A<br/>d=0"]
-            B1["B<br/>d=∞"]
-            C1["C<br/>d=∞"]
-            D1["D<br/>d=∞"]
-            E1["E<br/>d=∞"]
-            
-            A1 -->|"4"| B1
-            A1 -->|"2"| C1
-            B1 -->|"5"| D1
-            C1 -->|"1"| B1
-            C1 -->|"8"| D1
-            C1 -->|"10"| E1
-            D1 -->|"2"| E1
-        end
-        
-        Arrow1[" → "]
-        
-        subgraph "ステップ1: Aを処理"
-            A2["A<br/>d=0 ✓"]
-            B2["B<br/>d=4"]
-            C2["C<br/>d=2"]
-            D2["D<br/>d=∞"]
-            E2["E<br/>d=∞"]
-        end
-        
-        Arrow2[" → "]
-        
-        subgraph "ステップ2: Cを処理"
-            A3["A<br/>d=0 ✓"]
-            B3["B<br/>d=3"]
-            C3["C<br/>d=2 ✓"]
-            D3["D<br/>d=10"]
-            E3["E<br/>d=12"]
-        end
-        
-        Arrow3[" → "]
-        
-        subgraph "最終結果"
-            A4["A<br/>d=0"]
-            B4["B<br/>d=3"]
-            C4["C<br/>d=2"]
-            D4["D<br/>d=8"]
-            E4["E<br/>d=10"]
-            
-            Result["最短路:<br/>A→C: 2<br/>A→B: 3 (A-C-B)<br/>A→D: 8 (A-B-D)<br/>A→E: 10 (A-B-D-E)"]
-        end
-    end
-    
-    style A1 fill:#ffebee
-    style A2 fill:#e8f5e8
-    style C3 fill:#e8f5e8
-    style A4 fill:#e3f2fd
-```
+![Dijkstraアルゴリズムの実行例](../../assets/images/diagrams/ch8_dijkstra_algorithm_execution.svg)
 
 #### Dijkstraのアルゴリズム
 
@@ -383,83 +284,7 @@ Prim(G, w, r):
 1. 容量制約：0 ≤ f(u,v) ≤ c(u,v)
 2. 流量保存：∑_v f(v,u) = ∑_v f(u,v) （u ≠ s,t）
 
-```mermaid
-graph LR
-    subgraph "最大フロー最小カットの例"
-        subgraph "フローネットワーク"
-            S((s))
-            A((a))
-            B((b))
-            C((c))
-            D((d))
-            T((t))
-            
-            S -->|"16/16"| A
-            S -->|"13/13"| B
-            A -->|"10/12"| B
-            A -->|"12/12"| C
-            B -->|"4/9"| C
-            B -->|"14/14"| D
-            C -->|"7/7"| T
-            C -->|"9/10"| D
-            D -->|"20/20"| T
-            
-            Note1["表記: フロー/容量"]
-        end
-        
-        subgraph "最小カット"
-            S2((s))
-            A2((a))
-            B2((b))
-            C2((c))
-            D2((d))
-            T2((t))
-            
-            CutLine["最小カット"]
-            
-            S2 -.-> A2
-            S2 -.-> B2
-            A2 -.-> C2
-            B2 -.-> D2
-            C2 -.-> T2
-            D2 -.-> T2
-            
-            SetS["集合S: {s,a,b}"]
-            SetT["集合T: {c,d,t}"]
-            
-            CutValue["カット容量:<br/>(a,c): 12<br/>(b,c): 9<br/>(b,d): 14<br/>合計: 35<br/><br/>最大フロー値: 35"]
-        end
-        
-        subgraph "残余グラフ"
-            RS((s))
-            RA((a))
-            RB((b))
-            RC((c))
-            RD((d))
-            RT((t))
-            
-            RS -->|"0"| RA
-            RS -->|"0"| RB
-            RA -->|"2"| RB
-            RA <--|"10"| RB
-            RA -->|"0"| RC
-            RB -->|"5"| RC
-            RB <--|"4"| RC
-            RB -->|"0"| RD
-            RC -->|"0"| RT
-            RC <--|"7"| RT
-            RC -->|"1"| RD
-            RD -->|"0"| RT
-            
-            Note2["残余容量が0の辺は<br/>sからtへのパスに<br/>含まれない"]
-        end
-    end
-    
-    style S fill:#ffebee
-    style T fill:#e3f2fd
-    style SetS fill:#ffe0b2
-    style SetT fill:#e1f5fe
-```
+![最大フロー最小カットの例](../../assets/images/diagrams/ch8_maximum_flow_minimum_cut.svg)
 
 ### 8.4.2 Ford-Fulkerson法
 
@@ -521,68 +346,7 @@ Push-Relabel(G, s, t):
 **定義 8.5** グラフ G = (V, E) の**マッチング** M ⊆ E は、
 どの2辺も共通の端点を持たない辺集合。
 
-```mermaid
-graph TD
-    subgraph "二部グラフのマッチング"
-        subgraph "初期グラフ"
-            A1((A1))
-            A2((A2))
-            A3((A3))
-            A4((A4))
-            B1((B1))
-            B2((B2))
-            B3((B3))
-            B4((B4))
-            
-            A1 --> B1
-            A1 --> B2
-            A2 --> B1
-            A2 --> B3
-            A3 --> B2
-            A3 --> B4
-            A4 --> B3
-            A4 --> B4
-            
-            Note1["左側: X = {A1,A2,A3,A4}<br/>右側: Y = {B1,B2,B3,B4}"]
-        end
-        
-        subgraph "最大マッチング"
-            MA1((A1))
-            MA2((A2))
-            MA3((A3))
-            MA4((A4))
-            MB1((B1))
-            MB2((B2))
-            MB3((B3))
-            MB4((B4))
-            
-            MA1 -->|"M"| MB2
-            MA2 -->|"M"| MB1
-            MA3 --> MB2
-            MA3 --> MB4
-            MA4 -->|"M"| MB3
-            MA4 --> MB4
-            MA1 --> MB1
-            MA2 --> MB3
-            MA3 -->|"M"| MB4
-            
-            Note2["マッチング M = {<br/>(A1,B2), (A2,B1),<br/>(A3,B4), (A4,B3)<br/>}<br/><br/>|M| = 4 (完全マッチング)"]
-        end
-        
-        subgraph "Hallの結婚定理の検証"
-            HallCheck["任意のS ⊆ Xに対して<br/>|N(S)| ≥ |S| を確認:<br/><br/>S = {A1}: N(S) = {B1,B2}, |N(S)| = 2 ≥ 1 ✓<br/>S = {A1,A2}: N(S) = {B1,B2,B3}, |N(S)| = 3 ≥ 2 ✓<br/>...<br/>全て満たす → 完全マッチング存在"]
-        end
-    end
-    
-    style MA1 fill:#ffebee
-    style MB2 fill:#ffebee
-    style MA2 fill:#e3f2fd  
-    style MB1 fill:#e3f2fd
-    style MA3 fill:#e8f5e8
-    style MB4 fill:#e8f5e8
-    style MA4 fill:#fff3e0
-    style MB3 fill:#fff3e0
-```
+![二部グラフのマッチング](../../assets/images/diagrams/ch8_bipartite_graph_matching.svg)
 
 **定理 8.9**（Hallの結婚定理）
 二部グラフ G = (X ∪ Y, E) が X を飽和するマッチングを持つ ⟺
