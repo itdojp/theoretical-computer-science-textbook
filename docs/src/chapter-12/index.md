@@ -25,49 +25,7 @@ sections:
 
 ### 12.1.1 並行性の基本概念
 
-```mermaid
-graph TD
-    subgraph "並行計算の基本概念"
-        subgraph "並行性 vs 並列性"
-            Concurrency["並行性（Concurrency）<br/>・論理的な同時性<br/>・単一CPUでもインターリーブ<br/>・非決定性あり"]
-            
-            Parallelism["並列性（Parallelism）<br/>・物理的な同時実行<br/>・複数CPU/コア<br/>・性能向上が目的"]
-            
-            Both["両方の組み合わせ<br/>・マルチコアでの並行実行<br/>・分散システム"]
-        end
-        
-        subgraph "実行モデルの比較"
-            Sequential["逐次実行<br/>A1 → A2 → A3<br/>B1 → B2 → B3"]
-            
-            Interleaved["インターリーブ実行<br/>A1 → B1 → A2 → B2 → A3 → B3<br/>または<br/>B1 → A1 → B2 → A2 → B3 → A3"]
-            
-            Parallel_Exec["並列実行<br/>A1 || B1<br/>A2 || B2<br/>A3 || B3"]
-        end
-        
-        subgraph "通信パラダイム"
-            SharedMem["共有メモリ<br/>・共通変数へのアクセス<br/>・同期プリミティブ<br/>・競合状態の問題"]
-            
-            MessagePass["メッセージパッシング<br/>・send/receive操作<br/>・チャネル通信<br/>・デッドロックの問題"]
-            
-            Actor["アクターモデル<br/>・独立したアクター<br/>・非同期メッセージ<br/>・局所状態のみ"]
-        end
-        
-        subgraph "並行システムの問題"
-            RaceCondition["競合状態<br/>・共有データへの非同期アクセス<br/>・実行順序に依存した結果<br/>・再現困難なバグ"]
-            
-            Deadlock["デッドロック<br/>・相互に待機状態<br/>・循環的な資源依存<br/>・システム停止"]
-            
-            Starvation["飢餓状態<br/>・一部プロセスが永続的に待機<br/>・優先度による不公平<br/>・進行不能"]
-        end
-    end
-    
-    style Concurrency fill:#e3f2fd
-    style Parallelism fill:#fff3e0
-    style SharedMem fill:#e8f5e8
-    style MessagePass fill:#f3e5f5
-    style RaceCondition fill:#ffebee
-    style Deadlock fill:#ffebee
-```
+![並行計算の基本概念](../../assets/images/diagrams/ch12_concurrent_computing_models.svg)
 
 **定義 12.1** **並行システム**は、複数のプロセスが同時に実行される可能性があるシステム。
 
@@ -165,71 +123,7 @@ P R Q ならば、
 
 ### 12.3.1 基本定義
 
-```mermaid
-graph TD
-    subgraph "Petriネットによる並行システムモデリング"
-        subgraph "基本要素"
-            Places["プレース（○）<br/>・状態や条件を表す<br/>・トークンを保持<br/>・例：リソース、状態"]
-            
-            Transitions["トランジション（□）<br/>・イベントやアクションを表す<br/>・発火により状態変化<br/>・例：プロセス実行、操作"]
-            
-            Arcs["アーク（→）<br/>・プレースとトランジションを接続<br/>・重みを持つ<br/>・トークンフロー"]
-            
-            Tokens["トークン（●）<br/>・プレース内のリソース数<br/>・システムの現在状態<br/>・マーキング M(p)"]
-        end
-        
-        subgraph "相互排除の例"
-            P1["プロセス1<br/>待機"]
-            P2["プロセス2<br/>待機"]
-            Resource["共有リソース<br/>●"]
-            CS1["プロセス1<br/>クリティカル"]
-            CS2["プロセス2<br/>クリティカル"]
-            
-            T1["リソース<br/>取得1"]
-            T2["リソース<br/>取得2"]
-            T3["リソース<br/>解放1"]
-            T4["リソース<br/>解放2"]
-            
-            P1 --> T1
-            T1 --> CS1
-            CS1 --> T3
-            T3 --> P1
-            T1 --> Resource
-            Resource --> T1
-            
-            P2 --> T2
-            T2 --> CS2
-            CS2 --> T4
-            T4 --> P2
-            T2 --> Resource
-            Resource --> T2
-        end
-        
-        subgraph "発火規則"
-            EnableRule["発火可能条件<br/>すべての入力プレースに<br/>十分なトークンがある"]
-            
-            FireRule["発火効果<br/>1. 入力からトークン除去<br/>2. 出力にトークン追加<br/>3. 原子的に実行"]
-            
-            Example["例：t が発火可能<br/>•t = {p1, p2}<br/>M(p1) ≥ 1, M(p2) ≥ 1"]
-        end
-        
-        subgraph "解析可能な性質"
-            Reachability["到達可能性<br/>・特定の状態に到達可能か<br/>・R(N, M₀) の計算"]
-            
-            Boundedness["有界性<br/>・トークン数に上限があるか<br/>・メモリ使用量の保証"]
-            
-            Liveness["活性<br/>・デッドロックの回避<br/>・すべてのトランジション発火可能"]
-            
-            Invariants["不変量<br/>・P-不変量：場所の線形結合<br/>・T-不変量：遷移の発火回数"]
-        end
-    end
-    
-    style Places fill:#e3f2fd
-    style Transitions fill:#fff3e0
-    style Resource fill:#ffebee
-    style Reachability fill:#e8f5e8
-    style Liveness fill:#f3e5f5
-```
+![Petriネットによる並行システムモデリング](../../assets/images/diagrams/ch12_petri_nets_modeling.svg)
 
 **定義 12.7** **Petri ネット**は5つ組 N = (P, T, F, W, M₀)：
 - P：プレース（場所）の有限集合
@@ -416,65 +310,7 @@ Kripke 構造 M = (S, S₀, R, L)
 
 ### 12.6.2 ロックフリーアルゴリズム
 
-```mermaid
-graph TD
-    subgraph "並行データ構造の設計手法"
-        subgraph "ロックベース vs ロックフリー"
-            LockBased["ロックベース<br/>・排他制御により安全性確保<br/>・デッドロック、優先度逆転<br/>・コンテキストスイッチオーバーヘッド"]
-            
-            LockFree["ロックフリー<br/>・CAS等の原子的操作<br/>・システム全体の進行保証<br/>・ABA問題への対処必要"]
-            
-            WaitFree["ウェイトフリー<br/>・全プロセスの進行保証<br/>・最も強い進行保証<br/>・実装が複雑"]
-        end
-        
-        subgraph "CAS による ロックフリースタック"
-            Init["初期状態<br/>Top → Node1 → Node2 → null"]
-            
-            Push1["Push(NewNode)<br/>1. t = Top を読み取り"]
-            Push2["2. NewNode.next = t"]
-            Push3["3. CAS(&Top, t, NewNode)<br/>成功ならNewNodeが新しいTop"]
-            
-            Pop1["Pop()<br/>1. t = Top を読み取り"]
-            Pop2["2. t == null なら null返却"]
-            Pop3["3. CAS(&Top, t, t.next)<br/>成功なら t を返却"]
-            
-            Init --> Push1
-            Push1 --> Push2
-            Push2 --> Push3
-            
-            Init --> Pop1
-            Pop1 --> Pop2
-            Pop2 --> Pop3
-        end
-        
-        subgraph "ABA問題と対策"
-            ABA_Problem["ABA問題<br/>1. スレッドAが値Aを読み取り<br/>2. スレッドBが A→B→A に変更<br/>3. スレッドAのCASが誤って成功"]
-            
-            Solution1["対策1: ポインタタグ<br/>・ポインタに世代番号付加<br/>・ABA→A'B'A''に変化"]
-            
-            Solution2["対策2: ハザードポインタ<br/>・使用中ポインタを保護<br/>・ガベージコレクション延期"]
-            
-            Solution3["対策3: RCU<br/>・Read-Copy-Update<br/>・読み手を妨げない更新"]
-        end
-        
-        subgraph "進行性の保証レベル"
-            Obstruction["妨害自由<br/>（Obstruction-Free）<br/>単独実行なら進行"]
-            
-            LockFreeGuarantee["ロックフリー<br/>（Lock-Free）<br/>システム全体で進行"]
-            
-            WaitFreeGuarantee["ウェイトフリー<br/>（Wait-Free）<br/>各スレッドが進行"]
-            
-            Obstruction --> LockFreeGuarantee
-            LockFreeGuarantee --> WaitFreeGuarantee
-        end
-    end
-    
-    style LockBased fill:#ffebee
-    style LockFree fill:#e8f5e8
-    style WaitFree fill:#e3f2fd
-    style ABA_Problem fill:#fff3e0
-    style WaitFreeGuarantee fill:#f3e5f5
-```
+![並行データ構造の設計手法](../../assets/images/diagrams/ch12_lock_free_algorithms.svg)
 
 **定義 12.10** データ構造が**ロックフリー**⟺
 無限のステップ中で、少なくとも1つの操作が完了する。

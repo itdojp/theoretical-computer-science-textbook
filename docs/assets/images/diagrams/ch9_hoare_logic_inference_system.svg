@@ -1,0 +1,227 @@
+<svg viewBox="0 0 1400 900" xmlns="http://www.w3.org/2000/svg">
+  <title>Hoare論理の推論規則体系</title>
+  <desc>プログラムの正当性を証明するHoare論理の基本規則と応用</desc>
+  
+  <defs>
+    <style>
+      .basic-rule { fill: #e3f2fd; stroke: #2196f3; stroke-width: 2px; rx: 8px; }
+      .structural-rule { fill: #e8f5e8; stroke: #4caf50; stroke-width: 2px; rx: 8px; }
+      .advanced-rule { fill: #fff3e0; stroke: #ff9800; stroke-width: 2px; rx: 8px; }
+      .example-box { fill: #f3e5f5; stroke: #9c27b0; stroke-width: 2px; rx: 8px; }
+      .application-box { fill: #ffe0b2; stroke: #f57c00; stroke-width: 2px; rx: 8px; }
+      
+      .inference-line {
+        stroke: #333;
+        stroke-width: 2px;
+        fill: none;
+      }
+      
+      .title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 18px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #1a1a1a;
+      }
+      
+      .section-title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 14px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #333;
+      }
+      
+      .rule-title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 12px; 
+        font-weight: 600; 
+        text-anchor: start; 
+        fill: #333;
+      }
+      
+      .rule-formula { 
+        font-family: Courier, monospace;
+        font-size: 11px; 
+        font-weight: 500; 
+        text-anchor: start; 
+        fill: #333;
+      }
+      
+      .rule-formula-center { 
+        font-family: Courier, monospace;
+        font-size: 11px; 
+        font-weight: 500; 
+        text-anchor: middle; 
+        fill: #333;
+      }
+      
+      .description { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 10px; 
+        font-weight: 400; 
+        text-anchor: start; 
+        fill: #555;
+      }
+      
+      .example-text { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 9px; 
+        font-weight: 400; 
+        text-anchor: start; 
+        fill: #666;
+      }
+    </style>
+  </defs>
+  
+  <!-- Title -->
+  <text x="700" y="30" class="title">Hoare論理の推論規則体系</text>
+  
+  <!-- Basic Rules -->
+  <g id="basic-rules">
+    <text x="350" y="70" class="section-title">基本規則</text>
+    
+    <!-- Assignment Rule -->
+    <rect x="50" y="90" width="250" height="100" class="basic-rule" />
+    <text x="60" y="110" class="rule-title">代入規則 (Assignment)</text>
+    <text x="175" y="130" class="rule-formula-center">{P[e/x]} x := e {P}</text>
+    <line x1="120" y1="135" x2="230" y2="135" class="inference-line" />
+    <text x="60" y="155" class="description">事前条件で変数xを式eに置換</text>
+    <text x="60" y="170" class="description">代入後に条件Pが成立することを保証</text>
+    <text x="60" y="185" class="example-text">例: {x+1 = 5} x := x+1 {x = 5}</text>
+    
+    <!-- Sequence Rule -->
+    <rect x="350" y="90" width="250" height="100" class="basic-rule" />
+    <text x="360" y="110" class="rule-title">順次実行 (Sequence)</text>
+    <text x="365" y="125" class="rule-formula">{P} S₁ {Q}, {Q} S₂ {R}</text>
+    <line x1="365" y1="135" x2="585" y2="135" class="inference-line" />
+    <text x="410" y="150" class="rule-formula-center">{P} S₁; S₂ {R}</text>
+    <text x="360" y="170" class="description">中間条件Qを通じて合成</text>
+    <text x="360" y="185" class="example-text">例: {x=0} x:=x+1; x:=x*2 {x=2}</text>
+    
+    <!-- Conditional Rule -->
+    <rect x="650" y="90" width="300" height="100" class="basic-rule" />
+    <text x="660" y="110" class="rule-title">条件分岐 (Conditional)</text>
+    <text x="665" y="125" class="rule-formula">{P ∧ B} S₁ {Q}, {P ∧ ¬B} S₂ {Q}</text>
+    <line x1="665" y1="135" x2="935" y2="135" class="inference-line" />
+    <text x="780" y="150" class="rule-formula-center">{P} if B then S₁ else S₂ {Q}</text>
+    <text x="660" y="170" class="description">条件Bの真偽で分岐を処理</text>
+    <text x="660" y="185" class="example-text">例: {x≥0} if x>0 then y:=1 else y:=0 {y≥0}</text>
+  </g>
+  
+  <!-- Loop Rules -->
+  <g id="loop-rules">
+    <text x="350" y="230" class="section-title">ループ規則</text>
+    
+    <!-- While Rule -->
+    <rect x="100" y="250" width="350" height="120" class="structural-rule" />
+    <text x="110" y="270" class="rule-title">while規則 (While Loop)</text>
+    <text x="220" y="290" class="rule-formula-center">{I ∧ B} S {I}</text>
+    <line x1="150" y1="300" x2="350" y2="300" class="inference-line" />
+    <text x="200" y="320" class="rule-formula-center">{I} while B do S {I ∧ ¬B}</text>
+    <text x="110" y="340" class="description">Iはループ不変条件(loop invariant)</text>
+    <text x="110" y="355" class="description">• ループ開始時にIが成立</text>
+    <text x="110" y="365" class="description">• 各反復後にIが保持される</text>
+    
+    <!-- For Rule -->
+    <rect x="500" y="250" width="350" height="120" class="structural-rule" />
+    <text x="510" y="270" class="rule-title">for規則 (For Loop)</text>
+    <text x="675" y="290" class="rule-formula-center">{I ∧ i ≤ n} S; i:=i+1 {I}</text>
+    <line x1="550" y1="300" x2="800" y2="300" class="inference-line" />
+    <text x="620" y="320" class="rule-formula-center">{I ∧ i=0} for i:=0 to n do S {I ∧ i=n+1}</text>
+    <text x="510" y="340" class="description">カウンタ変数iを用いた有界ループ</text>
+    <text x="510" y="355" class="description">• 終了条件が明確</text>
+    <text x="510" y="365" class="description">• 変化量測度による終了保証</text>
+  </g>
+  
+  <!-- Structural Rules -->
+  <g id="structural-rules">
+    <text x="700" y="410" class="section-title">構造規則</text>
+    
+    <!-- Strengthening Precondition -->
+    <rect x="50" y="430" width="250" height="80" class="advanced-rule" />
+    <text x="60" y="450" class="rule-title">事前条件強化</text>
+    <text x="70" y="470" class="rule-formula">P' ⟹ P, {P} S {Q}</text>
+    <line x1="70" y1="480" x2="280" y2="480" class="inference-line" />
+    <text x="140" y="500" class="rule-formula-center">{P'} S {Q}</text>
+    
+    <!-- Weakening Postcondition -->
+    <rect x="350" y="430" width="250" height="80" class="advanced-rule" />
+    <text x="360" y="450" class="rule-title">事後条件弱化</text>
+    <text x="370" y="470" class="rule-formula">{P} S {Q}, Q ⟹ Q'</text>
+    <line x1="370" y1="480" x2="580" y2="480" class="inference-line" />
+    <text x="440" y="500" class="rule-formula-center">{P} S {Q'}</text>
+    
+    <!-- Frame Rule -->
+    <rect x="650" y="430" width="250" height="80" class="advanced-rule" />
+    <text x="660" y="450" class="rule-title">フレーム規則</text>
+    <text x="670" y="470" class="rule-formula">{P} S {Q}</text>
+    <line x1="670" y1="480" x2="880" y2="480" class="inference-line" />
+    <text x="730" y="500" class="rule-formula-center">{P * R} S {Q * R}</text>
+  </g>
+  
+  <!-- Example Proof -->
+  <g id="example-proof">
+    <rect x="50" y="550" width="650" height="200" class="example-box" />
+    <text x="375" y="575" class="section-title">証明例: 配列要素の最大値</text>
+    
+    <text x="70" y="600" class="rule-title">プログラム:</text>
+    <text x="80" y="620" class="rule-formula">max := a[0]; i := 1;</text>
+    <text x="80" y="635" class="rule-formula">while i < n do</text>
+    <text x="100" y="650" class="rule-formula">if a[i] > max then max := a[i];</text>
+    <text x="100" y="665" class="rule-formula">i := i + 1;</text>
+    
+    <text x="350" y="600" class="rule-title">仕様:</text>
+    <text x="360" y="620" class="rule-formula">事前条件: {n > 0}</text>
+    <text x="360" y="635" class="rule-formula">事後条件: {max = max(a[0..n-1])}</text>
+    
+    <text x="70" y="690" class="rule-title">ループ不変条件:</text>
+    <text x="80" y="705" class="rule-formula">I: max = max(a[0..i-1]) ∧ 1 ≤ i ≤ n</text>
+    
+    <text x="70" y="730" class="rule-title">証明の要点:</text>
+    <text x="80" y="745" class="description">1. 初期化でI成立: max=a[0], i=1なのでI成立</text>
+    <text x="80" y="755" class="description">2. ループ本体でI保持: if文により最大値更新</text>
+    <text x="80" y="565" class="description">3. 終了時にI∧¬(i<n)からmax=max(a[0..n-1])導出</text>
+  </g>
+  
+  <!-- Applications -->
+  <g id="applications-tools">
+    <rect x="750" y="550" width="600" height="200" class="application-box" />
+    <text x="1050" y="575" class="section-title">応用とツール</text>
+    
+    <text x="770" y="600" class="rule-title">プログラム検証ツール:</text>
+    <text x="780" y="615" class="example-text">• Dafny: Microsoft Research のプログラム検証言語</text>
+    <text x="780" y="630" class="example-text">• SPARK: Ada ベースの高信頼性プログラミング</text>
+    <text x="780" y="645" class="example-text">• Frama-C: C プログラムの仕様記述と検証</text>
+    <text x="780" y="660" class="example-text">• Why3: 証明支援系のプラットフォーム</text>
+    
+    <text x="770" y="685" class="rule-title">産業応用:</text>
+    <text x="780" y="700" class="example-text">• 航空宇宙: フライトコントロールソフトウェア</text>
+    <text x="780" y="715" class="example-text">• 鉄道制御: 信号システムの安全性証明</text>
+    <text x="780" y="730" class="example-text">• 医療機器: ペースメーカー制御プログラム</text>
+    <text x="780" y="745" class="example-text">• 金融システム: 決済処理の正当性保証</text>
+    
+    <text x="1100" y="600" class="rule-title">研究分野:</text>
+    <text x="1110" y="615" class="example-text">• 分離論理 (Separation Logic)</text>
+    <text x="1110" y="630" class="example-text">• 動的論理 (Dynamic Logic)</text>
+    <text x="1110" y="645" class="example-text">• 確率的Hoare論理</text>
+    <text x="1110" y="660" class="example-text">• 並行プログラム検証</text>
+    
+    <text x="1100" y="685" class="rule-title">課題と発展:</text>
+    <text x="1110" y="700" class="example-text">• 自動的不変条件生成</text>
+    <text x="1110" y="715" class="example-text">• 大規模システムへの適用</text>
+    <text x="1110" y="730" class="example-text">• ユーザビリティの向上</text>
+    <text x="1110" y="745" class="example-text">• 実行時検証との統合</text>
+  </g>
+  
+  <!-- Inference arrows and connections -->
+  <g id="connections">
+    <!-- Connect basic rules -->
+    <line x1="175" y1="190" x2="175" y2="210" stroke="#999" stroke-width="1" stroke-dasharray="3,2" />
+    <line x1="475" y1="190" x2="475" y2="210" stroke="#999" stroke-width="1" stroke-dasharray="3,2" />
+    <line x1="800" y1="190" x2="800" y2="210" stroke="#999" stroke-width="1" stroke-dasharray="3,2" />
+    
+    <!-- Connect to applications -->
+    <line x1="375" y1="750" x2="750" y2="650" stroke="#999" stroke-width="1" stroke-dasharray="3,2" />
+  </g>
+</svg>

@@ -26,62 +26,7 @@ sections:
 
 ### 11.1.1 暗号システムの定義
 
-```mermaid
-graph TD
-    subgraph "暗号システムの基本構造"
-        subgraph "対称鍵暗号"
-            SK_Alice["Alice<br/>秘密鍵 k"]
-            SK_Bob["Bob<br/>秘密鍵 k"]
-            SK_Plaintext["平文 m"]
-            SK_Cipher["暗号文 c = E_k(m)"]
-            SK_Decrypt["復号文 m = D_k(c)"]
-            
-            SK_Alice --> SK_Cipher
-            SK_Cipher --> SK_Bob
-            SK_Bob --> SK_Decrypt
-            SK_Plaintext --> SK_Alice
-            
-            SK_KeyDist["鍵配送問題<br/>共通鍵をどう共有するか？"]
-        end
-        
-        subgraph "公開鍵暗号"
-            PK_Alice["Alice<br/>公開鍵 pk, 秘密鍵 sk"]
-            PK_Bob["Bob<br/>公開鍵 pk（公開済み）"]
-            PK_Plaintext["平文 m"]
-            PK_Cipher["暗号文 c = E_pk(m)"]
-            PK_Decrypt["復号文 m = D_sk(c)"]
-            
-            PK_Alice --> PK_Cipher
-            PK_Cipher --> PK_Bob
-            PK_Bob --> PK_Decrypt
-            PK_Plaintext --> PK_Alice
-            
-            PK_KeyDist["鍵配送不要<br/>公開鍵は誰でも利用可能"]
-        end
-        
-        subgraph "安全性の分類"
-            InfoTheoSec["情報理論的安全性<br/>・完全秘匿性<br/>・計算量無制限の敵に対して安全<br/>・例: ワンタイムパッド"]
-            
-            CompSec["計算論的安全性<br/>・多項式時間の敵に対してのみ安全<br/>・実用的な安全性<br/>・例: AES, RSA"]
-            
-            Assumptions["計算量仮定<br/>・一方向関数の存在<br/>・素因数分解困難性<br/>・離散対数困難性"]
-        end
-        
-        subgraph "攻撃モデル"
-            CPA["選択平文攻撃<br/>（CPA）<br/>攻撃者が暗号化を利用可能"]
-            
-            CCA["選択暗号文攻撃<br/>（CCA）<br/>攻撃者が復号も利用可能"]
-            
-            KOA["既知平文攻撃<br/>平文と暗号文のペアを観察"]
-        end
-    end
-    
-    style SK_KeyDist fill:#ffebee
-    style PK_KeyDist fill:#e8f5e8
-    style InfoTheoSec fill:#e3f2fd
-    style CompSec fill:#fff3e0
-    style CCA fill:#f3e5f5
-```
+![暗号システムの基本構造](../../assets/images/diagrams/ch11_cryptography_basics.svg)
 
 **定義 11.1** **暗号システム**は以下の5つ組 (P, C, K, E, D) で定義される：
 - P：平文空間（plaintext space）
@@ -194,56 +139,7 @@ C_i = M_i ⊕ E_k(IV || i)
 
 ### 11.3.1 RSA 暗号
 
-```mermaid
-graph TD
-    subgraph "RSA暗号の仕組み"
-        subgraph "鍵生成"
-            Step1["1. 大きな素数 p, q を選択<br/>例: p=61, q=53"]
-            Step2["2. n = pq を計算<br/>n = 61×53 = 3233"]
-            Step3["3. φ(n) = (p-1)(q-1)<br/>φ(3233) = 60×52 = 3120"]
-            Step4["4. gcd(e, φ(n)) = 1<br/>となる e を選択<br/>例: e = 17"]
-            Step5["5. ed ≡ 1 (mod φ(n))<br/>を満たす d を計算<br/>17d ≡ 1 (mod 3120)<br/>d = 2753"]
-            
-            Step1 --> Step2
-            Step2 --> Step3
-            Step3 --> Step4
-            Step4 --> Step5
-            
-            Keys["公開鍵: (n=3233, e=17)<br/>秘密鍵: d=2753"]
-        end
-        
-        subgraph "暗号化・復号の例"
-            Message["平文 m = 123"]
-            Encrypt["暗号化: c = m^e mod n<br/>c = 123^17 mod 3233<br/>c = 855"]
-            Decrypt["復号: m = c^d mod n<br/>m = 855^2753 mod 3233<br/>m = 123"]
-            
-            Message --> Encrypt
-            Encrypt --> Decrypt
-        end
-        
-        subgraph "数学的基礎"
-            Euler["Eulerの定理:<br/>gcd(a,n)=1 なら<br/>a^φ(n) ≡ 1 (mod n)"]
-            
-            Correctness["正当性の証明:<br/>c^d = (m^e)^d = m^ed<br/>= m^(1+kφ(n))<br/>= m·(m^φ(n))^k<br/>≡ m·1^k ≡ m (mod n)"]
-            
-            Security["安全性の根拠:<br/>素因数分解困難性<br/>n = pq の p, q を<br/>求めるのは困難"]
-        end
-        
-        subgraph "実装上の注意"
-            Padding["パディング<br/>・OAEP<br/>・PSS<br/>・決定論的でない暗号化"]
-            
-            KeySize["鍵サイズ<br/>・現在: 2048 bit以上推奨<br/>・将来: 3072 bit以上<br/>・量子計算機対策"]
-            
-            Attacks["既知の攻撃<br/>・小さい e の攻撃<br/>・共通剰余数攻撃<br/>・タイミング攻撃"]
-        end
-    end
-    
-    style Step1 fill:#e3f2fd
-    style Keys fill:#fff3e0
-    style Correctness fill:#e8f5e8
-    style Security fill:#f3e5f5
-    style Attacks fill:#ffebee
-```
+![RSA暗号の仕組み](../../assets/images/diagrams/ch11_rsa_cryptosystem.svg)
 
 **設定**：
 1. 大きな素数 p, q を選択
@@ -421,78 +317,7 @@ HMAC(k, m) = H((k ⊕ opad) || H((k ⊕ ipad) || m))
 
 ### 11.6.2 ゼロ知識性
 
-```mermaid
-graph TD
-    subgraph "ゼロ知識証明の概念と応用"
-        subgraph "ゼロ知識性の定義"
-            Real["実際の対話<br/>証明者 P ↔ 検証者 V*<br/>View_V*(P,V*)(x)"]
-            
-            Simulator["シミュレータ S<br/>秘密情報なしで<br/>同じ分布を生成<br/>S(x)"]
-            
-            Indistinguishable["計算論的識別不能<br/>Real ≈c Simulated<br/>→ ゼロ知識"]
-            
-            Real --> Indistinguishable
-            Simulator --> Indistinguishable
-        end
-        
-        subgraph "グラフ同型のゼロ知識証明"
-            Setup["設定: G₀ ≅ G₁<br/>同型写像 φ は秘密"]
-            
-            Step1["1. P: π をランダム選択<br/>H = π(G₀) を送信"]
-            Step2["2. V: b ∈ {0,1} を送信"]
-            Step3["3. P: H ≅ Gb の<br/>同型写像 σ を送信"]
-            Step4["4. V: σ(Gb) = H を検証"]
-            
-            Setup --> Step1
-            Step1 --> Step2
-            Step2 --> Step3
-            Step3 --> Step4
-            
-            ZKProperty["ゼロ知識性:<br/>シミュレータは b を推測して<br/>対応する H を生成"]
-        end
-        
-        subgraph "Σプロトコル（3ラウンド）"
-            Commitment["1. コミット a<br/>P → V"]
-            Challenge["2. チャレンジ c<br/>V → P"]
-            Response["3. レスポンス z<br/>P → V"]
-            
-            Commitment --> Challenge
-            Challenge --> Response
-            
-            Properties["性質:<br/>・完全性<br/>・特殊健全性<br/>・正直検証者ゼロ知識"]
-        end
-        
-        subgraph "Schnorr知識証明の例"
-            Goal["目標: 離散対数 x<br/>（y = gˣ の x）の知識証明"]
-            
-            Sch1["1. P: r ← Zq ランダム<br/>a = gʳ を送信"]
-            Sch2["2. V: c ← Zq ランダム<br/>c を送信"]
-            Sch3["3. P: z = r + cx を送信"]
-            Sch4["4. V: gᶻ = a·yᶜ を検証"]
-            
-            Goal --> Sch1
-            Sch1 --> Sch2
-            Sch2 --> Sch3
-            Sch3 --> Sch4
-            
-            FSTransform["Fiat-Shamir変換:<br/>c = H(a || 文脈)<br/>→ 非対話型"]
-        end
-        
-        subgraph "応用分野"
-            Auth["匿名認証<br/>・身元を明かさずに<br/>資格を証明"]
-            
-            Blockchain["ブロックチェーン<br/>・zk-SNARK<br/>・プライバシー保護"]
-            
-            MPC["安全な多者計算<br/>・秘密を明かさずに<br/>計算結果を検証"]
-        end
-    end
-    
-    style Real fill:#e3f2fd
-    style Simulator fill:#fff3e0
-    style ZKProperty fill:#e8f5e8
-    style FSTransform fill:#f3e5f5
-    style Blockchain fill:#ffe0b2
-```
+![ゼロ知識証明の概念と応用](../../assets/images/diagrams/ch11_zero_knowledge_proofs.svg)
 
 **定義 11.15** 対話型証明系が**ゼロ知識**であるとは、
 すべての多項式時間検証者 V* に対して、効率的なシミュレータ S が存在して、

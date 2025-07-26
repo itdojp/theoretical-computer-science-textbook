@@ -1,0 +1,236 @@
+<svg viewBox="0 0 1400 900" xmlns="http://www.w3.org/2000/svg">
+  <title>通信路モデルと容量</title>
+  <desc>二元対称通信路、加算性白色ガウス雑音通信路、通信路容量の概念と計算</desc>
+  
+  <defs>
+    <style>
+      .bsc-model { fill: #e3f2fd; stroke: #2196f3; stroke-width: 2px; rx: 8px; }
+      .awgn-model { fill: #e8f5e8; stroke: #4caf50; stroke-width: 2px; rx: 8px; }
+      .capacity-box { fill: #fff3e0; stroke: #ff9800; stroke-width: 2px; rx: 8px; }
+      .theorem-box { fill: #f3e5f5; stroke: #9c27b0; stroke-width: 2px; rx: 8px; }
+      .example-box { fill: #ffe0b2; stroke: #f57c00; stroke-width: 2px; rx: 8px; }
+      
+      .channel-arrow { 
+        stroke: #2196f3; 
+        stroke-width: 4px; 
+        fill: none; 
+        marker-end: url(#channel-arrowhead);
+      }
+      
+      .noise-arrow { 
+        stroke: #f44336; 
+        stroke-width: 2px; 
+        stroke-dasharray: 3,2;
+        fill: none; 
+        marker-end: url(#noise-arrowhead);
+      }
+      
+      .title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 18px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #1a1a1a;
+      }
+      
+      .section-title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 14px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #333;
+      }
+      
+      .model-title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 12px; 
+        font-weight: 600; 
+        text-anchor: start; 
+        fill: #333;
+      }
+      
+      .formula { 
+        font-family: Courier, monospace;
+        font-size: 11px; 
+        font-weight: 500; 
+        text-anchor: start; 
+        fill: #333;
+      }
+      
+      .formula-center { 
+        font-family: Courier, monospace;
+        font-size: 11px; 
+        font-weight: 500; 
+        text-anchor: middle; 
+        fill: #333;
+      }
+      
+      .description { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 10px; 
+        font-weight: 400; 
+        text-anchor: start; 
+        fill: #555;
+      }
+      
+      .parameter-text { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 9px; 
+        font-weight: 400; 
+        text-anchor: start; 
+        fill: #666;
+      }
+    </style>
+    
+    <!-- Arrow markers -->
+    <marker id="channel-arrowhead" markerWidth="12" markerHeight="10" refX="11" refY="5" orient="auto">
+      <polygon points="0 0, 12 5, 0 10" fill="#2196f3" />
+    </marker>
+    <marker id="noise-arrowhead" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#f44336" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="700" y="30" class="title">通信路モデルと容量</text>
+  
+  <!-- Binary Symmetric Channel (BSC) -->
+  <g id="bsc-model">
+    <text x="350" y="70" class="section-title">二元対称通信路 (BSC)</text>
+    
+    <!-- Input -->
+    <rect x="50" y="100" width="100" height="60" class="bsc-model" />
+    <text x="100" y="125" class="model-title" text-anchor="middle">入力 X</text>
+    <text x="100" y="145" class="formula-center">X ∈ {0,1}</text>
+    
+    <!-- Channel -->
+    <rect x="200" y="100" width="150" height="60" class="bsc-model" />
+    <text x="275" y="120" class="model-title" text-anchor="middle">BSC(p)</text>
+    <text x="275" y="140" class="description" text-anchor="middle">クロスオーバー確率 p</text>
+    <text x="275" y="155" class="parameter-text" text-anchor="middle">0 ≤ p ≤ 0.5</text>
+    
+    <!-- Output -->
+    <rect x="400" y="100" width="100" height="60" class="bsc-model" />
+    <text x="450" y="125" class="model-title" text-anchor="middle">出力 Y</text>
+    <text x="450" y="145" class="formula-center">Y ∈ {0,1}</text>
+    
+    <!-- Channel arrows -->
+    <path d="M 150 130 L 190 130" class="channel-arrow" />
+    <path d="M 350 130 L 390 130" class="channel-arrow" />
+    
+    <!-- Transition probabilities -->
+    <rect x="50" y="180" width="450" height="120" class="bsc-model" />
+    <text x="60" y="200" class="model-title">遷移確率行列</text>
+    <text x="275" y="225" class="formula-center">P(Y=0|X=0) = 1-p,  P(Y=1|X=0) = p</text>
+    <text x="275" y="245" class="formula-center">P(Y=1|X=1) = 1-p,  P(Y=0|X=1) = p</text>
+    
+    <text x="60" y="270" class="description">対称性: 両方向のエラー確率が等しい</text>
+    <text x="60" y="285" class="description">p = 0: 完全な通信路（エラーなし）</text>
+    <text x="60" y="300" class="description">p = 0.5: 最悪の通信路（完全にランダム）</text>
+  </g>
+  
+  <!-- AWGN Channel -->
+  <g id="awgn-model">
+    <text x="950" y="70" class="section-title">AWGN通信路</text>
+    
+    <!-- Input -->
+    <rect x="750" y="100" width="100" height="60" class="awgn-model" />
+    <text x="800" y="125" class="model-title" text-anchor="middle">入力 X</text>
+    <text x="800" y="145" class="formula-center">連続値</text>
+    
+    <!-- Channel with noise -->
+    <rect x="900" y="100" width="150" height="60" class="awgn-model" />
+    <text x="975" y="120" class="model-title" text-anchor="middle">AWGN</text>
+    <text x="975" y="140" class="description" text-anchor="middle">Y = X + N</text>
+    <text x="975" y="155" class="parameter-text" text-anchor="middle">N ~ N(0, σ²)</text>
+    
+    <!-- Output -->
+    <rect x="1100" y="100" width="100" height="60" class="awgn-model" />
+    <text x="1150" y="125" class="model-title" text-anchor="middle">出力 Y</text>
+    <text x="1150" y="145" class="formula-center">連続値</text>
+    
+    <!-- Noise source -->
+    <rect x="950" y="180" width="100" height="40" style="fill: #ffcdd2; stroke: #f44336; stroke-width: 2px; rx: 4px;" />
+    <text x="1000" y="205" class="model-title" text-anchor="middle">雑音 N</text>
+    
+    <!-- Channel arrows -->
+    <path d="M 850 130 L 890 130" class="channel-arrow" />
+    <path d="M 1050 130 L 1090 130" class="channel-arrow" />
+    <path d="M 1000 180 L 975 160" class="noise-arrow" />
+    
+    <!-- Properties -->
+    <rect x="750" y="240" width="450" height="120" class="awgn-model" />
+    <text x="760" y="260" class="model-title">特性</text>
+    <text x="770" y="280" class="description">• N: 平均0、分散σ²のガウス雑音</text>
+    <text x="770" y="295" class="description">• 雑音は入力と独立</text>
+    <text x="770" y="310" class="description">• 連続時間・連続値の通信路</text>
+    <text x="770" y="325" class="description">• 実際の多くの通信システムのモデル</text>
+    <text x="770" y="340" class="description">• SNR = P/σ² (P: 信号電力)</text>
+  </g>
+  
+  <!-- Channel Capacity -->
+  <g id="channel-capacity">
+    <text x="350" y="400" class="section-title">通信路容量</text>
+    
+    <rect x="50" y="420" width="600" height="160" class="capacity-box" />
+    <text x="60" y="440" class="model-title">定義</text>
+    <text x="350" y="465" class="formula-center">C = max I(X;Y)</text>
+    <text x="350" y="480" class="description" text-anchor="middle">入力分布の最大化による相互情報量の最大値</text>
+    
+    <text x="60" y="510" class="model-title">BSCの容量</text>
+    <text x="70" y="530" class="formula">C_BSC = 1 - H(p) = 1 + p log₂ p + (1-p) log₂(1-p)</text>
+    <text x="70" y="545" class="description">p = 0 のとき C = 1 bit（完全通信路）</text>
+    <text x="70" y="560" class="description">p = 0.5 のとき C = 0 bit（使用不可能）</text>
+  </g>
+  
+  <!-- Shannon's Theorem -->
+  <g id="shannon-theorem">
+    <text x="1000" y="400" class="section-title">Shannonの通信路符号化定理</text>
+    
+    <rect x="700" y="420" width="600" height="160" class="theorem-box" />
+    <text x="710" y="440" class="model-title">定理の内容</text>
+    <text x="720" y="460" class="description">通信路容量 C に対して:</text>
+    <text x="730" y="480" class="description">• R < C なら、任意に小さい誤り確率で通信可能</text>
+    <text x="730" y="495" class="description">• R > C なら、誤り確率を小さくできない</text>
+    <text x="720" y="520" class="description">ここで R は情報レート（bit/チャネル使用）</text>
+    
+    <text x="710" y="550" class="model-title">実用的含意</text>
+    <text x="720" y="565" class="description">• 通信路容量は理論的上限を与える</text>
+    <text x="720" y="575" class="description">• 適切な符号化により上限に近づける</text>
+  </g>
+  
+  <!-- Capacity Examples -->
+  <g id="capacity-examples">
+    <text x="350" y="630" class="section-title">容量の具体例</text>
+    
+    <rect x="50" y="650" width="600" height="180" class="example-box" />
+    <text x="60" y="670" class="model-title">BSCの数値例</text>
+    <text x="70" y="690" class="formula">p = 0.1: C ≈ 1 - 0.469 = 0.531 bit</text>
+    <text x="70" y="705" class="formula">p = 0.01: C ≈ 1 - 0.081 = 0.919 bit</text>
+    <text x="70" y="720" class="formula">p = 0.5: C = 1 - 1 = 0 bit</text>
+    
+    <text x="60" y="750" class="model-title">AWGN通信路</text>
+    <text x="70" y="770" class="formula">C = ½ log₂(1 + SNR) bit/使用</text>
+    <text x="70" y="785" class="description">SNR = 3 (≈4.8dB): C = 1 bit/使用</text>
+    <text x="70" y="800" class="description">SNR = 15 (≈11.8dB): C = 2 bit/使用</text>
+    <text x="70" y="815" class="description">Shannon限界: 無限SNRでも有限容量</text>
+  </g>
+  
+  <!-- Practical Applications -->
+  <g id="practical-applications">
+    <text x="1000" y="630" class="section-title">実用応用</text>
+    
+    <rect x="700" y="650" width="600" height="180" class="example-box" />
+    <text x="710" y="670" class="model-title">誤り訂正符号</text>
+    <text x="720" y="690" class="description">• ハミング符号: 単一エラー訂正</text>
+    <text x="720" y="705" class="description">• Reed-Solomon符号: バースト誤り耐性</text>
+    <text x="720" y="720" class="description">• ターボ符号: Shannon限界に近い性能</text>
+    <text x="720" y="735" class="description">• LDPC符号: 実装が比較的簡単</text>
+    
+    <text x="710" y="760" class="model-title">通信システムでの利用</text>
+    <text x="720" y="780" class="description">• 衛星通信: 低SNR環境での効率的伝送</text>
+    <text x="720" y="795" class="description">• 携帯電話: フェージング対策</text>
+    <text x="720" y="810" class="description">• 光ファイバ通信: 高速大容量伝送</text>
+    <text x="720" y="825" class="description">• データストレージ: 読み取りエラー訂正</text>
+  </g>
+</svg>

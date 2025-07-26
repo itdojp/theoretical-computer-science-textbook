@@ -1,0 +1,279 @@
+<svg viewBox="0 0 1400 900" xmlns="http://www.w3.org/2000/svg">
+  <title>定理証明支援系の分類と特徴</title>
+  <desc>対話型証明支援系、自動定理証明、形式的数学の現状と応用</desc>
+  
+  <defs>
+    <style>
+      .interactive-system { fill: #e3f2fd; stroke: #2196f3; stroke-width: 2px; rx: 8px; }
+      .automated-system { fill: #e8f5e8; stroke: #4caf50; stroke-width: 2px; rx: 8px; }
+      .hybrid-system { fill: #fff3e0; stroke: #ff9800; stroke-width: 2px; rx: 8px; }
+      .feature-box { fill: #f3e5f5; stroke: #9c27b0; stroke-width: 2px; rx: 8px; }
+      .application-box { fill: #ffe0b2; stroke: #f57c00; stroke-width: 2px; rx: 8px; }
+      
+      .connection-arrow { 
+        stroke: #666; 
+        stroke-width: 2px; 
+        fill: none; 
+        marker-end: url(#connection-arrowhead);
+      }
+      
+      .feature-connection {
+        stroke: #999;
+        stroke-width: 1px;
+        stroke-dasharray: 3,2;
+        fill: none;
+      }
+      
+      .title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 18px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #1a1a1a;
+      }
+      
+      .section-title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 14px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #333;
+      }
+      
+      .system-title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 12px; 
+        font-weight: 600; 
+        text-anchor: start; 
+        fill: #333;
+      }
+      
+      .feature-title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 11px; 
+        font-weight: 600; 
+        text-anchor: start; 
+        fill: #333;
+      }
+      
+      .description { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 10px; 
+        font-weight: 400; 
+        text-anchor: start; 
+        fill: #555;
+      }
+      
+      .bullet-text { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 9px; 
+        font-weight: 400; 
+        text-anchor: start; 
+        fill: #666;
+      }
+    </style>
+    
+    <!-- Arrow marker -->
+    <marker id="connection-arrowhead" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#666" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="700" y="30" class="title">定理証明支援系の分類と特徴</text>
+  
+  <!-- Interactive Proof Assistants -->
+  <g id="interactive-systems">
+    <text x="350" y="70" class="section-title">対話型証明支援系</text>
+    
+    <!-- Coq -->
+    <rect x="50" y="90" width="200" height="120" class="interactive-system" />
+    <text x="60" y="110" class="system-title">Coq</text>
+    <text x="70" y="130" class="description">• 帰納的構成の計算 (CIC)</text>
+    <text x="70" y="145" class="description">• 依存型理論基盤</text>
+    <text x="70" y="160" class="description">• プログラム抽出機能</text>
+    <text x="70" y="175" class="description">• 強力な戦術言語</text>
+    <text x="70" y="190" class="description">• CompCert, 四色定理の証明</text>
+    
+    <!-- Isabelle/HOL -->
+    <rect x="270" y="90" width="200" height="120" class="interactive-system" />
+    <text x="280" y="110" class="system-title">Isabelle/HOL</text>
+    <text x="290" y="130" class="description">• 高階論理 (Higher-Order Logic)</text>
+    <text x="290" y="145" class="description">• sledgehammer自動化</text>
+    <text x="290" y="160" class="description">• Archive of Formal Proofs</text>
+    <text x="290" y="175" class="description">• 豊富なライブラリ</text>
+    <text x="290" y="190" class="description">• セキュリティプロトコル検証</text>
+    
+    <!-- Lean -->
+    <rect x="490" y="90" width="200" height="120" class="interactive-system" />
+    <text x="500" y="110" class="system-title">Lean</text>
+    <text x="510" y="130" class="description">• 現代的な依存型理論</text>
+    <text x="510" y="145" class="description">• mathlib数学ライブラリ</text>
+    <text x="510" y="160" class="description">• アクティブな開発コミュニティ</text>
+    <text x="510" y="175" class="description">• VS Code統合</text>
+    <text x="510" y="190" class="description">• Liquid Tensor Experiment</text>
+  </g>
+  
+  <!-- Automated Theorem Provers -->
+  <g id="automated-systems">
+    <text x="1000" y="70" class="section-title">自動定理証明系</text>
+    
+    <!-- SAT/SMT Solvers -->
+    <rect x="750" y="90" width="200" height="120" class="automated-system" />
+    <text x="760" y="110" class="system-title">SAT/SMT ソルバ</text>
+    <text x="770" y="130" class="description">• 命題論理/一階論理</text>
+    <text x="770" y="145" class="description">• Z3, CVC4, Vampire</text>
+    <text x="770" y="160" class="description">• 産業応用で高性能</text>
+    <text x="770" y="175" class="description">• ソフトウェア検証の基盤</text>
+    <text x="770" y="190" class="description">• モデル検査との統合</text>
+    
+    <!-- Resolution/Tableau -->
+    <rect x="970" y="90" width="200" height="120" class="automated-system" />
+    <text x="980" y="110" class="system-title">論理推論エンジン</text>
+    <text x="990" y="130" class="description">• 導出原理 (Resolution)</text>
+    <text x="990" y="145" class="description">• タブロー法</text>
+    <text x="990" y="160" class="description">• Prover9, E, SPASS</text>
+    <text x="990" y="175" class="description">• 数学定理の自動証明</text>
+    <text x="990" y="190" class="description">• TPTP問題ライブラリ</text>
+  </g>
+  
+  <!-- Features Comparison -->
+  <g id="features-comparison">
+    <rect x="50" y="250" width="1300" height="150" class="feature-box" />
+    <text x="700" y="275" class="section-title">システム特徴の比較</text>
+    
+    <!-- Left column: Interactive features -->
+    <text x="70" y="300" class="feature-title">対話型システムの特徴:</text>
+    <text x="80" y="320" class="bullet-text">✓ 複雑な数学定理の証明が可能</text>
+    <text x="80" y="335" class="bullet-text">✓ 人間の洞察と機械の厳密性を組み合わせ</text>
+    <text x="80" y="350" class="bullet-text">✓ 証明の段階的構築</text>
+    <text x="80" y="365" class="bullet-text">✓ ライブラリの再利用</text>
+    <text x="80" y="380" class="bullet-text">✗ 学習コストが高い</text>
+    
+    <!-- Middle column: Automated features -->
+    <text x="450" y="300" class="feature-title">自動システムの特徴:</text>
+    <text x="460" y="320" class="bullet-text">✓ 高速で確実な判定</text>
+    <text x="460" y="335" class="bullet-text">✓ 人手を必要としない</text>
+    <text x="460" y="350" class="bullet-text">✓ 大量の問題を処理</text>
+    <text x="460" y="365" class="bullet-text">✗ 扱える論理の範囲が限定</text>
+    <text x="460" y="380" class="bullet-text">✗ 複雑な数学は困難</text>
+    
+    <!-- Right column: Hybrid approaches -->
+    <text x="850" y="300" class="feature-title">統合アプローチ:</text>
+    <text x="860" y="320" class="bullet-text">• hammerツール (Isabelle sledgehammer)</text>
+    <text x="860" y="335" class="bullet-text">• 自動証明の対話的利用</text>
+    <text x="860" y="350" class="bullet-text">• SMTソルバとの統合</text>
+    <text x="860" y="365" class="bullet-text">• 機械学習による証明探索</text>
+    <text x="860" y="380" class="bullet-text">• GPT-fによる自動補完</text>
+  </g>
+  
+  <!-- Formal Mathematics -->
+  <g id="formal-mathematics">
+    <text x="350" y="450" class="section-title">形式的数学の現状</text>
+    
+    <rect x="50" y="470" width="300" height="150" class="hybrid-system" />
+    <text x="60" y="490" class="system-title">主要な形式化プロジェクト</text>
+    <text x="70" y="510" class="bullet-text">• Flyspeck Project (Kepler予想の証明)</text>
+    <text x="70" y="525" class="bullet-text">• 四色定理の完全形式化</text>
+    <text x="70" y="540" class="bullet-text">• Feit-Thompson定理</text>
+    <text x="70" y="555" class="bullet-text">• perfectoid空間理論</text>
+    <text x="70" y="570" class="bullet-text">• 学部数学の体系化</text>
+    <text x="70" y="585" class="bullet-text">• mathlib (Lean)</text>
+    <text x="70" y="600" class="bullet-text">• Mathematical Components (Coq)</text>
+    
+    <rect x="370" y="470" width="300" height="150" class="hybrid-system" />
+    <text x="380" y="490" class="system-title">課題と研究方向</text>
+    <text x="390" y="510" class="bullet-text">• 形式化のコスト削減</text>
+    <text x="390" y="525" class="bullet-text">• 自然言語からの自動変換</text>
+    <text x="390" y="540" class="bullet-text">• 証明の可読性向上</text>
+    <text x="390" y="555" class="bullet-text">• 数学者のワークフロー統合</text>
+    <text x="390" y="570" class="bullet-text">• 大規模ライブラリの管理</text>
+    <text x="390" y="585" class="bullet-text">• 異種システム間の相互運用</text>
+    <text x="390" y="600" class="bullet-text">• 教育への応用</text>
+  </g>
+  
+  <!-- Applications -->
+  <g id="applications">
+    <rect x="750" y="470" width="600" height="150" class="application-box" />
+    <text x="1050" y="495" class="section-title">産業応用と実用化</text>
+    
+    <text x="770" y="520" class="feature-title">ソフトウェア検証:</text>
+    <text x="780" y="535" class="bullet-text">• CompCert: 検証済みCコンパイラ</text>
+    <text x="780" y="550" class="bullet-text">• seL4: 検証済みマイクロカーネル</text>
+    <text x="780" y="565" class="bullet-text">• SPARK: 高信頼性Adaプログラミング</text>
+    <text x="780" y="580" class="bullet-text">• Amazon s2n: TLS実装の検証</text>
+    
+    <text x="1050" y="520" class="feature-title">ハードウェア検証:</text>
+    <text x="1060" y="535" class="bullet-text">• プロセッサ設計の正当性証明</text>
+    <text x="1060" y="550" class="bullet-text">• 暗号回路の実装検証</text>
+    <text x="1060" y="565" class="bullet-text">• フローティングポイント演算</text>
+    <text x="1060" y="580" class="bullet-text">• メモリ管理ユニット</text>
+    
+    <text x="770" y="600" class="feature-title">暗号学・セキュリティ:</text>
+    <text x="780" y="615" class="bullet-text">• プロトコルの安全性証明</text>
+    <text x="1060" y="600" class="feature-title">数学・科学計算:</text>
+    <text x="1070" y="615" class="bullet-text">• 数値解析アルゴリズムの正当性</text>
+  </g>
+  
+  <!-- Future Directions -->
+  <g id="future-directions">
+    <rect x="50" y="660" width="1300" height="180" class="feature-box" />
+    <text x="700" y="685" class="section-title">将来の発展方向</text>
+    
+    <!-- AI Integration -->
+    <text x="70" y="710" class="feature-title">AI技術との統合:</text>
+    <text x="80" y="725" class="bullet-text">• 機械学習による戦術生成</text>
+    <text x="80" y="740" class="bullet-text">• 大規模言語モデルの活用</text>
+    <text x="80" y="755" class="bullet-text">• 証明パターンの学習</text>
+    <text x="80" y="770" class="bullet-text">• 自動補題生成</text>
+    
+    <!-- Usability -->
+    <text x="350" y="710" class="feature-title">ユーザビリティ向上:</text>
+    <text x="360" y="725" class="bullet-text">• 直感的なプルーフインタフェース</text>
+    <text x="360" y="740" class="bullet-text">• 可視化ツールの発展</text>
+    <text x="360" y="755" class="bullet-text">• エラーメッセージの改善</text>
+    <text x="360" y="770" class="bullet-text">• 段階的学習システム</text>
+    
+    <!-- Scalability -->
+    <text x="650" y="710" class="feature-title">スケーラビリティ:</text>
+    <text x="660" y="725" class="bullet-text">• 分散証明システム</text>
+    <text x="660" y="740" class="bullet-text">• クラウド計算の活用</text>
+    <text x="660" y="755" class="bullet-text">• 並列証明探索</text>
+    <text x="660" y="770" class="bullet-text">• 証明の分割・合成</text>
+    
+    <!-- Applications -->
+    <text x="950" y="710" class="feature-title">新応用分野:</text>
+    <text x="960" y="725" class="bullet-text">• 金融システムの信頼性保証</text>
+    <text x="960" y="740" class="bullet-text">• 医療AIの安全性証明</text>
+    <text x="960" y="755" class="bullet-text">• 自動運転の形式検証</text>
+    <text x="960" y="770" class="bullet-text">• ブロックチェーン・スマートコントラクト</text>
+    
+    <!-- Standards -->
+    <text x="70" y="795" class="feature-title">標準化・相互運用:</text>
+    <text x="80" y="810" class="bullet-text">• 証明フォーマットの標準化</text>
+    <text x="80" y="825" class="bullet-text">• システム間での証明共有</text>
+    
+    <!-- Education -->
+    <text x="450" y="795" class="feature-title">教育・普及:</text>
+    <text x="460" y="810" class="bullet-text">• 数学教育での活用</text>
+    <text x="460" y="825" class="bullet-text">• プログラミング教育統合</text>
+    
+    <!-- Industry -->
+    <text x="850" y="795" class="feature-title">産業応用拡大:</text>
+    <text x="860" y="810" class="bullet-text">• 規制対応・認証への活用</text>
+    <text x="860" y="825" class="bullet-text">• 品質保証プロセスの統合</text>
+  </g>
+  
+  <!-- Connection lines -->
+  <g id="connections">
+    <!-- Connect systems to features -->
+    <line x1="350" y1="210" x2="350" y2="250" class="feature-connection" />
+    <line x1="850" y1="210" x2="850" y2="250" class="feature-connection" />
+    
+    <!-- Connect to applications -->
+    <line x1="400" y1="620" x2="750" y2="545" class="feature-connection" />
+    
+    <!-- Connect to future -->
+    <line x1="700" y1="620" x2="700" y2="660" class="feature-connection" />
+  </g>
+</svg>

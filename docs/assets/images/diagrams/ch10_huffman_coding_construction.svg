@@ -1,0 +1,255 @@
+<svg viewBox="0 0 1400 900" xmlns="http://www.w3.org/2000/svg">
+  <title>Huffman符号の構成例</title>
+  <desc>Huffman符号化アルゴリズムの段階的構成プロセスと最適性の証明</desc>
+  
+  <defs>
+    <style>
+      .symbol-box { fill: #e3f2fd; stroke: #2196f3; stroke-width: 2px; rx: 8px; }
+      .tree-node { fill: #e8f5e8; stroke: #4caf50; stroke-width: 2px; rx: 8px; }
+      .merge-step { fill: #fff3e0; stroke: #ff9800; stroke-width: 2px; rx: 8px; }
+      .code-result { fill: #f3e5f5; stroke: #9c27b0; stroke-width: 2px; rx: 8px; }
+      .analysis-box { fill: #ffe0b2; stroke: #f57c00; stroke-width: 2px; rx: 8px; }
+      
+      .tree-line {
+        stroke: #4caf50;
+        stroke-width: 2px;
+        fill: none;
+      }
+      
+      .merge-arrow { 
+        stroke: #ff9800; 
+        stroke-width: 3px; 
+        fill: none; 
+        marker-end: url(#merge-arrowhead);
+      }
+      
+      .title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 18px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #1a1a1a;
+      }
+      
+      .section-title { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 14px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #333;
+      }
+      
+      .symbol-text { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 12px; 
+        font-weight: 600; 
+        text-anchor: middle; 
+        fill: #333;
+      }
+      
+      .probability { 
+        font-family: Courier, monospace;
+        font-size: 10px; 
+        font-weight: 500; 
+        text-anchor: middle; 
+        fill: #666;
+      }
+      
+      .code-text { 
+        font-family: Courier, monospace;
+        font-size: 11px; 
+        font-weight: 500; 
+        text-anchor: start; 
+        fill: #333;
+      }
+      
+      .description { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 10px; 
+        font-weight: 400; 
+        text-anchor: start; 
+        fill: #555;
+      }
+      
+      .step-text { 
+        font-family: Inter, Helvetica, sans-serif;
+        font-size: 9px; 
+        font-weight: 400; 
+        text-anchor: start; 
+        fill: #666;
+      }
+    </style>
+    
+    <!-- Arrow marker -->
+    <marker id="merge-arrowhead" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0 0, 10 4, 0 8" fill="#ff9800" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="700" y="30" class="title">Huffman符号の構成例</text>
+  
+  <!-- Initial Symbols -->
+  <g id="initial-symbols">
+    <text x="350" y="70" class="section-title">初期記号と確率</text>
+    
+    <rect x="50" y="90" width="80" height="60" class="symbol-box" />
+    <text x="90" y="115" class="symbol-text">A</text>
+    <text x="90" y="135" class="probability">0.4</text>
+    
+    <rect x="150" y="90" width="80" height="60" class="symbol-box" />
+    <text x="190" y="115" class="symbol-text">B</text>
+    <text x="190" y="135" class="probability">0.2</text>
+    
+    <rect x="250" y="90" width="80" height="60" class="symbol-box" />
+    <text x="290" y="115" class="symbol-text">C</text>
+    <text x="290" y="135" class="probability">0.2</text>
+    
+    <rect x="350" y="90" width="80" height="60" class="symbol-box" />
+    <text x="390" y="115" class="symbol-text">D</text>
+    <text x="390" y="135" class="probability">0.1</text>
+    
+    <rect x="450" y="90" width="80" height="60" class="symbol-box" />
+    <text x="490" y="115" class="symbol-text">E</text>
+    <text x="490" y="135" class="probability">0.1</text>
+  </g>
+  
+  <!-- Construction Steps -->
+  <g id="construction-steps">
+    <text x="350" y="200" class="section-title">構成手順</text>
+    
+    <!-- Step 1 -->
+    <rect x="50" y="220" width="600" height="80" class="merge-step" />
+    <text x="60" y="240" class="section-title" text-anchor="start">ステップ1: 最小頻度の2つを結合</text>
+    <text x="70" y="260" class="step-text">D(0.1) と E(0.1) を結合 → 新ノード DE(0.2)</text>
+    <text x="70" y="275" class="step-text">残り: A(0.4), B(0.2), C(0.2), DE(0.2)</text>
+    <text x="70" y="290" class="step-text">0を左の子(D)に、1を右の子(E)に割り当て</text>
+    
+    <!-- Step 2 -->
+    <rect x="50" y="320" width="600" height="80" class="merge-step" />
+    <text x="60" y="340" class="section-title" text-anchor="start">ステップ2: 次の最小頻度を結合</text>
+    <text x="70" y="360" class="step-text">B(0.2) と C(0.2) を結合 → 新ノード BC(0.4)</text>
+    <text x="70" y="375" class="step-text">残り: A(0.4), DE(0.2), BC(0.4)</text>
+    <text x="70" y="390" class="step-text">0を左の子(B)に、1を右の子(C)に割り当て</text>
+    
+    <!-- Step 3 -->
+    <rect x="50" y="420" width="600" height="80" class="merge-step" />
+    <text x="60" y="440" class="section-title" text-anchor="start">ステップ3: さらに結合</text>
+    <text x="70" y="460" class="step-text">DE(0.2) と BC(0.4) を結合 → 新ノード DEBC(0.6)</text>
+    <text x="70" y="475" class="step-text">残り: A(0.4), DEBC(0.6)</text>
+    <text x="70" y="490" class="step-text">0を左の子(DE)に、1を右の子(BC)に割り当て</text>
+    
+    <!-- Step 4 -->
+    <rect x="50" y="520" width="600" height="80" class="merge-step" />
+    <text x="60" y="540" class="section-title" text-anchor="start">ステップ4: 最終結合</text>
+    <text x="70" y="560" class="step-text">A(0.4) と DEBC(0.6) を結合 → ルート(1.0)</text>
+    <text x="70" y="575" class="step-text">0を左の子(A)に、1を右の子(DEBC)に割り当て</text>
+    <text x="70" y="590" class="step-text">Huffman木の完成</text>
+  </g>
+  
+  <!-- Huffman Tree -->
+  <g id="huffman-tree">
+    <text x="1000" y="200" class="section-title">完成したHuffman木</text>
+    
+    <!-- Root -->
+    <rect x="950" y="220" width="100" height="40" class="tree-node" />
+    <text x="1000" y="245" class="symbol-text">Root(1.0)</text>
+    
+    <!-- Level 1 -->
+    <rect x="850" y="300" width="80" height="40" class="tree-node" />
+    <text x="890" y="325" class="symbol-text">A(0.4)</text>
+    
+    <rect x="1020" y="300" width="100" height="40" class="tree-node" />
+    <text x="1070" y="325" class="symbol-text">DEBC(0.6)</text>
+    
+    <!-- Level 2 -->
+    <rect x="950" y="380" width="80" height="40" class="tree-node" />
+    <text x="990" y="405" class="symbol-text">DE(0.2)</text>
+    
+    <rect x="1080" y="380" width="80" height="40" class="tree-node" />
+    <text x="1120" y="405" class="symbol-text">BC(0.4)</text>
+    
+    <!-- Level 3 -->
+    <rect x="900" y="460" width="60" height="40" class="tree-node" />
+    <text x="930" y="485" class="symbol-text">D(0.1)</text>
+    
+    <rect x="980" y="460" width="60" height="40" class="tree-node" />
+    <text x="1010" y="485" class="symbol-text">E(0.1)</text>
+    
+    <rect x="1050" y="460" width="60" height="40" class="tree-node" />
+    <text x="1080" y="485" class="symbol-text">B(0.2)</text>
+    
+    <rect x="1130" y="460" width="60" height="40" class="tree-node" />
+    <text x="1160" y="485" class="symbol-text">C(0.2)</text>
+    
+    <!-- Tree connections -->
+    <line x1="975" y1="260" x2="890" y2="300" class="tree-line" />
+    <line x1="1025" y1="260" x2="1070" y2="300" class="tree-line" />
+    <line x1="1045" y1="340" x2="990" y2="380" class="tree-line" />
+    <line x1="1095" y1="340" x2="1120" y2="380" class="tree-line" />
+    <line x1="970" y1="420" x2="930" y2="460" class="tree-line" />
+    <line x1="1010" y1="420" x2="1010" y2="460" class="tree-line" />
+    <line x1="1100" y1="420" x2="1080" y2="460" class="tree-line" />
+    <line x1="1140" y1="420" x2="1160" y2="460" class="tree-line" />
+    
+    <!-- Edge labels -->
+    <text x="920" y="285" class="step-text">0</text>
+    <text x="1050" y="285" class="step-text">1</text>
+    <text x="1010" y="365" class="step-text">0</text>
+    <text x="1105" y="365" class="step-text">1</text>
+    <text x="945" y="445" class="step-text">0</text>
+    <text x="995" y="445" class="step-text">1</text>
+    <text x="1065" y="445" class="step-text">0</text>
+    <text x="1145" y="445" class="step-text">1</text>
+  </g>
+  
+  <!-- Generated Codes -->
+  <g id="generated-codes">
+    <text x="200" y="650" class="section-title">生成された符号</text>
+    
+    <rect x="50" y="670" width="400" height="120" class="code-result" />
+    <text x="60" y="690" class="section-title" text-anchor="start">符号表</text>
+    <text x="70" y="715" class="code-text">A: 0     (長さ1, 確率0.4)</text>
+    <text x="70" y="735" class="code-text">B: 100   (長さ3, 確率0.2)</text>
+    <text x="70" y="755" class="code-text">C: 101   (長さ3, 確率0.2)</text>
+    <text x="70" y="775" class="code-text">D: 110   (長さ3, 確率0.1)</text>
+    <text x="250" y="715" class="code-text">E: 111   (長さ3, 確率0.1)</text>
+    <text x="250" y="740" class="description">プレフィクス性質:</text>
+    <text x="250" y="755" class="description">どの符号も他の符号の</text>
+    <text x="250" y="770" class="description">先頭部分でない</text>
+  </g>
+  
+  <!-- Performance Analysis -->
+  <g id="performance-analysis">
+    <text x="750" y="650" class="section-title">性能解析</text>
+    
+    <rect x="500" y="670" width="500" height="120" class="analysis-box" />
+    <text x="510" y="690" class="section-title" text-anchor="start">平均符号長の計算</text>
+    <text x="520" y="715" class="code-text">L = 0.4×1 + 0.2×3 + 0.2×3 + 0.1×3 + 0.1×3</text>
+    <text x="520" y="735" class="code-text">  = 0.4 + 0.6 + 0.6 + 0.3 + 0.3 = 2.2 bit</text>
+    
+    <text x="520" y="760" class="description">エントロピー: H = -0.4log₂0.4 - 2×0.2log₂0.2 - 2×0.1log₂0.1</text>
+    <text x="520" y="775" class="description">         ≈ 0.529 + 0.464 + 2×0.332 ≈ 2.12 bit</text>
+    
+    <text x="750" y="715" class="description">効率: H/L ≈ 96.4%</text>
+    <text x="750" y="735" class="description">冗長度: L-H ≈ 0.08 bit</text>
+    <text x="750" y="755" class="description">最適性: Huffman符号は</text>
+    <text x="750" y="770" class="description">シンボル単位で最適</text>
+  </g>
+  
+  <!-- Properties -->
+  <g id="properties">
+    <rect x="1050" y="670" width="300" height="120" class="analysis-box" />
+    <text x="1060" y="690" class="section-title" text-anchor="start">Huffman符号の性質</text>
+    <text x="1070" y="715" class="step-text">• プレフィクス符号（即座に復号可能）</text>
+    <text x="1070" y="730" class="step-text">• シンボル単位での最適性</text>
+    <text x="1070" y="745" class="step-text">• 貪欲アルゴリズムによる構成</text>
+    <text x="1070" y="760" class="step-text">• 時間複雑度: O(n log n)</text>
+    <text x="1070" y="775" class="step-text">• 実装が比較的簡単</text>
+  </g>
+  
+  <!-- Construction arrows -->
+  <g id="construction-arrows">
+    <path d="M 350 170 L 350 210" class="merge-arrow" />
+  </g>
+</svg>

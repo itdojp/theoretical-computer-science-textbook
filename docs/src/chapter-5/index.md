@@ -47,68 +47,7 @@ t_M(n) = max{M が長さ n の入力 w で実行するステップ数}
 
 ### 5.1.3 時間複雑性クラス
 
-```mermaid
-graph TD
-    subgraph "計算複雑性の階層構造"
-        subgraph "時間複雑性クラス"
-            Const["定数時間<br/>O(1)"]
-            LogTime["対数時間<br/>O(log n)"]
-            LinearTime["線形時間<br/>O(n)"]
-            Polylog["多重対数時間<br/>O(log^k n)"]
-            QuasiLinear["準線形時間<br/>O(n log n)"]
-            Quadratic["2次時間<br/>O(n²)"]
-            Polynomial["多項式時間<br/>P = ∪ₖ TIME(nᵏ)"]
-            Exponential["指数時間<br/>EXPTIME = ∪ₖ TIME(2^(nᵏ))"]
-            DoubleExp["二重指数時間<br/>2-EXPTIME"]
-            
-            Const --> LogTime
-            LogTime --> Polylog
-            Polylog --> LinearTime
-            LinearTime --> QuasiLinear
-            QuasiLinear --> Quadratic
-            Quadratic --> Polynomial
-            Polynomial --> Exponential
-            Exponential --> DoubleExp
-        end
-        
-        subgraph "空間複雑性クラス"
-            LogSpace["対数空間<br/>L = SPACE(log n)"]
-            PolySpace["多項式空間<br/>PSPACE = ∪ₖ SPACE(nᵏ)"]
-            ExpSpace["指数空間<br/>EXPSPACE"]
-            
-            LogSpace --> PolySpace
-            PolySpace --> ExpSpace
-        end
-        
-        subgraph "非決定性クラス"
-            NL_Class["NL<br/>非決定性対数空間"]
-            NP_Class["NP<br/>非決定性多項式時間"]
-            NEXPTIME["NEXPTIME<br/>非決定性指数時間"]
-            
-            NL_Class --> NP_Class
-            NP_Class --> NEXPTIME
-        end
-        
-        subgraph "主要な包含関係"
-            Inclusions["L ⊆ NL ⊆ P ⊆ NP ⊆ PSPACE<br/>⊆ EXPTIME ⊆ NEXPTIME<br/><br/>真の包含:<br/>P ⊊ EXPTIME<br/>L ⊊ PSPACE"]
-        end
-        
-        subgraph "実用的な境界"
-            Practical["実用的<br/>・線形時間<br/>・準線形時間<br/>・低次多項式時間"]
-            
-            Feasible["計算可能<br/>・多項式時間<br/>・準指数時間"]
-            
-            Intractable["非実用的<br/>・指数時間<br/>・二重指数時間以上"]
-        end
-    end
-    
-    style Polynomial fill:#e8f5e8
-    style NP_Class fill:#fff3e0
-    style PolySpace fill:#e3f2fd
-    style Exponential fill:#ffebee
-    style Practical fill:#e8f5e8
-    style Intractable fill:#ffebee
-```
+![計算複雑性の階層構造](../../assets/images/diagrams/ch5_complexity_time_hierarchy.svg)
 
 **定義 5.4** 時間構成可能関数 t: ℕ → ℕ に対して、
 **TIME**(t(n)) = {L | ある O(t(n)) 時間チューリング機械が L を決定}
@@ -206,47 +145,7 @@ L ∈ coNP ⟺ ∃多項式 p, V, w ∈ L ⟺ ∀c (|c| ≤ p(|w|) → V(w, c) =
 
 ### 5.3.1 問題の定式化
 
-```mermaid
-graph TD
-    subgraph "P vs NP 問題の構造"
-        subgraph "基本的な複雑性クラス"
-            P_Class["P（多項式時間）<br/>・決定性多項式時間<br/>・効率的に解ける問題<br/>・例: ソート、最短路、線形計画法"]
-            
-            NP_Class["NP（非決定性多項式時間）<br/>・証明書が多項式時間で検証可能<br/>・解の発見は困難かもしれない<br/>・例: SAT、巡回セールスマン、因数分解"]
-            
-            CoNP_Class["coNP<br/>・NP の補集合クラス<br/>・反例が多項式時間で検証可能<br/>・例: UNSAT、素数判定"]
-        end
-        
-        subgraph "現在の知見"
-            Known["確実に知られていること<br/>・P ⊆ NP（定義より）<br/>・P ⊊ EXPTIME（時間階層定理）<br/>・NP ⊆ PSPACE"]
-            
-            Believed["広く信じられていること<br/>・P ≠ NP<br/>・NP ≠ coNP<br/>・NP ≠ PSPACE"]
-            
-            Unknown["未解決<br/>・P vs NP<br/>・NP vs coNP<br/>・NP vs PSPACE"]
-        end
-        
-        subgraph "P = NP の含意"
-            If_P_eq_NP["もし P = NP なら...<br/>・暗号が無意味になる<br/>・最適化問題が効率的に解ける<br/>・数学的証明が自動化される<br/>・創造的活動が機械化される"]
-            
-            If_P_neq_NP["もし P ≠ NP なら...<br/>・計算に本質的限界が存在<br/>・一方向関数が存在<br/>・暗号の安全性に理論的基盤<br/>・人間の創造性に独自価値"]
-        end
-        
-        subgraph "証明の障壁"
-            Relativization["相対化障壁<br/>・オラクルを相対化した結果<br/>・Baker-Gill-Solovayの結果<br/>・単純な対角化では解決不可"]
-            
-            Natural_Proofs["自然な証明障壁<br/>・Razborov-Rudichの結果<br/>・回路下界の限界<br/>・構成的証明の困難性"]
-            
-            Algebraization["代数化障壁<br/>・Aaronson-Wigdersonの結果<br/>・代数的手法の限界"]
-        end
-    end
-    
-    style P_Class fill:#e8f5e8
-    style NP_Class fill:#fff3e0
-    style CoNP_Class fill:#e3f2fd
-    style Unknown fill:#ffebee
-    style If_P_eq_NP fill:#ffe0b2
-    style If_P_neq_NP fill:#f3e5f5
-```
+![P vs NP 問題の構造](../../assets/images/diagrams/ch5_p_vs_np_structure.svg)
 
 **P vs NP 問題**：P = NP か？
 
@@ -298,65 +197,7 @@ L を認識する非決定性多項式時間機械 N が存在。
 
 ### 5.3.4 NP完全問題の連鎖
 
-```mermaid
-graph TD
-    subgraph "NP完全性と還元の連鎖"
-        subgraph "NP完全性の概念"
-            NPComplete["NP完全問題 L<br/>1. L ∈ NP<br/>2. すべてのNP問題がLに還元可能<br/>3. Lが多項式時間で解けるならP=NP"]
-            
-            NPHard["NP困難問題 L<br/>・すべてのNP問題がLに還元可能<br/>・必ずしもNPに属さない<br/>・最適化問題などが該当"]
-            
-            Reduction["多項式時間還元<br/>A ≤_p B<br/>・Aの各インスタンスをBの<br/>インスタンスに変換<br/>・変換は多項式時間<br/>・答えが保存される"]
-        end
-        
-        subgraph "基本的なNP完全問題"
-            SAT["SAT<br/>充足可能性問題<br/>Cook-Levinの定理により<br/>最初のNP完全問題"]
-            
-            ThreeSAT["3-SAT<br/>3-充足可能性問題<br/>各節が高々3リテラル"]
-            
-            VertexCover["頂点被覆<br/>VERTEX-COVER<br/>k個以下の頂点で<br/>全辺を被覆"]
-            
-            Clique["クリーク<br/>CLIQUE<br/>k個の頂点の完全部分グラフ"]
-            
-            IndependentSet["独立集合<br/>INDEPENDENT-SET<br/>互いに隣接しない<br/>k個の頂点"]
-        end
-        
-        subgraph "グラフ理論のNP完全問題"
-            HamPath["ハミルトン路<br/>HAMILTONIAN-PATH<br/>すべての頂点を<br/>1度ずつ通る路"]
-            
-            TSP["巡回セールスマン<br/>TSP<br/>最短ハミルトン閉路"]
-            
-            GraphColoring["グラフ彩色<br/>GRAPH-COLORING<br/>k色での頂点彩色"]
-        end
-        
-        subgraph "数値・組合せ問題"
-            SubsetSum["部分集合和<br/>SUBSET-SUM<br/>目標値となる部分集合"]
-            
-            Knapsack["ナップサック<br/>KNAPSACK<br/>容量制約下での価値最大化"]
-            
-            PartitionProblem["分割問題<br/>PARTITION<br/>等しい和の2分割"]
-        end
-        
-        subgraph "還元の流れ"
-            SAT --> ThreeSAT
-            ThreeSAT --> VertexCover
-            ThreeSAT --> Clique
-            VertexCover --> HamPath
-            Clique --> IndependentSet
-            HamPath --> TSP
-            ThreeSAT --> GraphColoring
-            ThreeSAT --> SubsetSum
-            SubsetSum --> Knapsack
-            SubsetSum --> PartitionProblem
-        end
-    end
-    
-    style SAT fill:#ffebee
-    style NPComplete fill:#e8f5e8
-    style ThreeSAT fill:#fff3e0
-    style VertexCover fill:#e3f2fd
-    style TSP fill:#f3e5f5
-```
+![NP完全性と還元の連鎖](../../assets/images/diagrams/ch5_np_completeness_reduction_chain.svg)
 
 **定理 5.6** 3-SAT は NP完全である。
 
@@ -413,30 +254,7 @@ NSPACE(s(n)) ⊆ SPACE(s(n)²)
 
 **系 5.3** L ⊆ P ⊆ NP ⊆ PSPACE ⊆ EXPTIME
 
-```mermaid
-graph TD
-    subgraph "計算複雑性クラスの包含関係"
-        L[L<br/>対数空間] --> P[P<br/>多項式時間]
-        P --> NP[NP<br/>非決定性多項式時間]
-        NP --> PSPACE[PSPACE<br/>多項式空間]
-        PSPACE --> EXPTIME[EXPTIME<br/>指数時間]
-        
-        NL[NL<br/>非決定性対数空間] --> P
-        L --> NL
-        
-        coNP[coNP<br/>補NP] --> PSPACE
-        NP -.-> coNP
-        
-        BPP[BPP<br/>確率的多項式時間] --> PSPACE
-        P --> BPP
-    end
-    
-    style L fill:#e1f5fe
-    style P fill:#f3e5f5
-    style NP fill:#fff3e0
-    style PSPACE fill:#e8f5e8
-    style EXPTIME fill:#ffebee
-```
+![計算複雑性クラスの包含関係](../../assets/images/diagrams/ch5_complexity_class_inclusions.svg)
 
 ### 5.4.4 PSPACE完全性
 
