@@ -86,43 +86,7 @@ chapter: 1
   - I ∩ F = ∅（異なるデータ型は同一の変数になれない）
   - I ∪ F ⊆ 数値型変数の集合
 
-```mermaid
-flowchart TD
-    subgraph "集合演算の視覚化"
-        subgraph "和集合 A ∪ B"
-            A1((A)) 
-            B1((B))
-            A1 -.-> |"A または B"| Union["A ∪ B"]
-            B1 -.-> Union
-        end
-        
-        subgraph "共通部分 A ∩ B"
-            A2((A)) 
-            B2((B))
-            A2 --> |"A かつ B"| Intersection["A ∩ B"]
-            B2 --> Intersection
-        end
-        
-        subgraph "差集合 A \\ B"
-            A3((A)) 
-            B3((B))
-            A3 --> |"A にあり"| Difference["A \\ B"]
-            B3 --> |"B にない"| Difference
-        end
-        
-        subgraph "対称差 A Δ B"
-            A4((A)) 
-            B4((B))
-            A4 -.-> |"排他的論理和"| SymDiff["A Δ B"]
-            B4 -.-> SymDiff
-        end
-    end
-    
-    style Union fill:#e3f2fd
-    style Intersection fill:#fff3e0
-    style Difference fill:#f3e5f5
-    style SymDiff fill:#e8f5e8
-```
+![集合演算の視覚化](../../assets/images/diagrams/ch1_set_operations_detailed.svg)
 
 **定理 1.2** 任意の集合 A, B, C に対して、以下が成り立ちます：
 
@@ -173,31 +137,7 @@ A₁ × A₂ × ... × Aₙ = {(a₁, a₂, ..., aₙ) | aᵢ ∈ Aᵢ for i = 1
 *証明の概略*：正の有理数を p/q (p, q は互いに素な自然数) としたとき、p+q の値が小さい順に、p+q の値が同じものについては p の値が小さい順に並べることで、すべての正の有理数を列挙できます。
 以下にその列挙の様子を図示します。矢印の順にたどることで、すべての正の有理数を網羅的に数え上げることができます。
 
-```mermaid
-graph TD
-    subgraph "p+q=2"
-        N1_1["1/1 (1)"]
-    end
-    subgraph "p+q=3"
-        N1_2["1/2 (2)"] --> N2_1["2/1 (3)"]
-    end
-    subgraph "p+q=4"
-        N1_3["1/3 (4)"] --> N2_2["2/2 (skip)"] --> N3_1["3/1 (5)"]
-    end
-    subgraph "p+q=5"
-        N1_4["1/4 (6)"] --> N2_3["2/3 (7)"] --> N3_2["3/2 (8)"] --> N4_1["4/1 (9)"]
-    end
-    subgraph "p+q=..."
-        N1_5["1/5 (...)" ] --> N2_4["..."] --> N3_3["..."] --> N4_2["..."] --> N5_1["..."]
-    end
-
-    N1_1 --> N1_2
-    N2_1 --> N1_3
-    N3_1 --> N1_4
-    N4_1 --> N1_5
-
-    style N2_2 fill:#eee,stroke:#333,stroke-width:2px,color:#333
-```
+![有理数の可算性の証明](../../assets/images/diagrams/ch1_rational_enumeration_cantor.svg)
 
 この図では、(k) は k 番目に数えられる有理数を示します。分母と分子の和 (p+q) が小さいものから順に、和が同じ場合は分子 p が小さいものから順に並べています。既約でない分数 (例: 2/2) はスキップします。
 この列挙により、正の有理数全体に番号を振ることができます。負の有理数と0を含めても、同様の手法（たとえば、0, 正の有理数1, 負の有理数1, 正の有理数2, ... のように交互に並べる）で列挙可能であり、全体の可算性が保たれます。□
@@ -557,47 +497,7 @@ f⁻¹(b) = a ⟺ f(a) = b
 *   **多重辺**（multiple edges）: 同じ頂点対を結ぶ複数の辺。
 *   **単純グラフ**（simple graph）: ループも多重辺も持たないグラフ。とくに断りがなければ単純グラフを考えます。
 
-```mermaid
-graph LR
-    subgraph "無向グラフの例"
-        subgraph "単純グラフ"
-            A1((A)) --- B1((B))
-            B1 --- C1((C))
-            C1 --- D1((D))
-            D1 --- A1
-            A1 --- C1
-        end
-        
-        subgraph "木（Tree）"
-            A2((A)) --- B2((B))
-            A2 --- C2((C))
-            B2 --- D2((D))
-            B2 --- E2((E))
-            C2 --- F2((F))
-        end
-    end
-    
-    subgraph "有向グラフの例"
-        subgraph "DAG（非循環）"
-            A3((A)) --> B3((B))
-            A3 --> C3((C))
-            B3 --> D3((D))
-            C3 --> D3
-        end
-        
-        subgraph "強連結成分"
-            A4((A)) --> B4((B))
-            B4 --> C4((C))
-            C4 --> A4
-            C4 --> D4((D))
-        end
-    end
-    
-    style A1 fill:#e3f2fd
-    style A2 fill:#fff3e0
-    style A3 fill:#f3e5f5
-    style A4 fill:#e8f5e8
-```
+![グラフ理論の基本例](../../assets/images/diagrams/ch1_graph_examples_comprehensive.svg)
 
 **定義 1.12** 無向グラフ G において、頂点 v の**次数**（degree）deg(v) は、v に接続する辺の数です。
 有向グラフ G において、頂点 v の：

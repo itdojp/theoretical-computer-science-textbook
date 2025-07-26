@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 500" width="600" height="500">
+  <title>等価な計算モデル（1930年代）</title>
+  <desc>1930年代に独立に提案された計算モデルの等価性を示す循環図</desc>
+  
+  <defs>
+    <style>
+      .tm-box { fill: #e3f2fd; stroke: #1976d2; stroke-width: 2; rx: 12; }
+      .lambda-box { fill: #fff3e0; stroke: #f57c00; stroke-width: 2; rx: 12; }
+      .recursive-box { fill: #e8f5e8; stroke: #2e7d32; stroke-width: 2; rx: 12; }
+      .post-box { fill: #f3e5f5; stroke: #7b1fa2; stroke-width: 2; rx: 12; }
+      .title-text { font-family: 'Inter', 'Helvetica Neue', Helvetica, sans-serif; font-size: 18px; font-weight: 700; fill: #2c3e50; text-anchor: middle; }
+      .model-title { font-family: 'Inter', 'Helvetica Neue', Helvetica, sans-serif; font-size: 14px; font-weight: 600; text-anchor: middle; }
+      .model-text { font-family: 'Inter', 'Helvetica Neue', Helvetica, sans-serif; font-size: 12px; text-anchor: middle; }
+      .equivalence-arrow { stroke: #666; stroke-width: 2; fill: none; marker-end: url(#arrowhead); stroke-dasharray: 5,3; }
+      .equivalence-text { font-family: 'Inter', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11px; font-weight: 500; fill: #666; text-anchor: middle; }
+    </style>
+    
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="600" height="500" fill="#ffffff"/>
+  
+  <!-- Main Title -->
+  <text x="300" y="30" class="title-text">等価な計算モデル（1930年代）</text>
+  
+  <!-- Turing Machine -->
+  <rect x="200" y="70" width="200" height="80" class="tm-box"/>
+  <text x="300" y="95" class="model-title" fill="#1976d2">チューリング機械</text>
+  <text x="300" y="115" class="model-text" fill="#1976d2">（Turing, 1936）</text>
+  <text x="300" y="130" class="model-text" fill="#1976d2" font-size="10">抽象的計算機械</text>
+  
+  <!-- Lambda Calculus -->
+  <rect x="450" y="200" width="130" height="80" class="lambda-box"/>
+  <text x="515" y="225" class="model-title" fill="#f57c00">λ計算</text>
+  <text x="515" y="245" class="model-text" fill="#f57c00">（Church, 1936）</text>
+  <text x="515" y="260" class="model-text" fill="#f57c00" font-size="10">関数的計算</text>
+  
+  <!-- Recursive Functions -->
+  <rect x="200" y="330" width="200" height="80" class="recursive-box"/>
+  <text x="300" y="355" class="model-title" fill="#2e7d32">再帰関数</text>
+  <text x="300" y="375" class="model-text" fill="#2e7d32">（Kleene, 1936）</text>
+  <text x="300" y="390" class="model-text" fill="#2e7d32" font-size="10">数論的関数</text>
+  
+  <!-- Post Machine -->
+  <rect x="20" y="200" width="130" height="80" class="post-box"/>
+  <text x="85" y="225" class="model-title" fill="#7b1fa2">Post機械</text>
+  <text x="85" y="245" class="model-text" fill="#7b1fa2">（Post, 1936）</text>
+  <text x="85" y="260" class="model-text" fill="#7b1fa2" font-size="10">文字列書換え</text>
+  
+  <!-- Equivalence arrows forming a cycle -->
+  <!-- TM to Lambda -->
+  <path d="M 380 130 Q 450 160 450 210" class="equivalence-arrow"/>
+  <text x="420" y="170" class="equivalence-text">等価</text>
+  
+  <!-- Lambda to Recursive -->
+  <path d="M 470 280 Q 400 320 380 340" class="equivalence-arrow"/>
+  <text x="420" y="315" class="equivalence-text">等価</text>
+  
+  <!-- Recursive to Post -->
+  <path d="M 220 360 Q 150 320 150 280" class="equivalence-arrow"/>
+  <text x="180" y="315" class="equivalence-text">等価</text>
+  
+  <!-- Post to TM -->
+  <path d="M 130 210 Q 200 160 220 130" class="equivalence-arrow"/>
+  <text x="180" y="170" class="equivalence-text">等価</text>
+  
+  <!-- Central equivalence statement -->
+  <ellipse cx="300" cy="240" rx="60" ry="30" fill="#f8f9fa" stroke="#adb5bd" stroke-width="1"/>
+  <text x="300" y="235" class="model-text" font-weight="600" fill="#495057">全て</text>
+  <text x="300" y="250" class="model-text" font-weight="600" fill="#495057">等価</text>
+  
+  <!-- Additional information -->
+  <rect x="50" y="440" width="500" height="40" rx="6" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1"/>
+  <text x="300" y="460" class="model-text" font-weight="600" fill="#495057">計算可能性の統一的理解</text>
+  <text x="300" y="475" class="model-text" fill="#495057" font-size="10">異なるアプローチが同じ計算能力を持つことの発見</text>
+</svg>

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 800" width="1000" height="800">
+  <title>対角化論法と決定不能性</title>
+  <desc>対角化言語、停止問題、Riceの定理、計算可能性の階層を示す包括的な図</desc>
+  
+  <defs>
+    <style>
+      .diagonal-box { fill: #ffebee; stroke: #d32f2f; stroke-width: 2; rx: 8; }
+      .halting-box { fill: #ffebee; stroke: #d32f2f; stroke-width: 2; rx: 8; }
+      .rice-box { fill: #fff3e0; stroke: #f57c00; stroke-width: 2; rx: 8; }
+      .hierarchy-box { fill: #e3f2fd; stroke: #1976d2; stroke-width: 2; rx: 8; }
+      .contradiction-box { fill: #ffebee; stroke: #d32f2f; stroke-width: 3; rx: 8; }
+      
+      .title-text { font-family: 'Inter', 'Helvetica Neue', Helvetica, sans-serif; font-size: 18px; font-weight: 700; fill: #2c3e50; text-anchor: middle; }
+      .section-title { font-family: 'Inter', 'Helvetica Neue', Helvetica, sans-serif; font-size: 14px; font-weight: 600; fill: #2c3e50; text-anchor: middle; }
+      .main-text { font-family: 'Inter', 'Helvetica Neue', Helvetica, sans-serif; font-size: 12px; font-weight: 500; text-anchor: middle; }
+      .detail-text { font-family: 'Inter', 'Helvetica Neue', Helvetica, sans-serif; font-size: 10px; text-anchor: middle; }
+      .formula-text { font-family: 'Inter', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11px; font-weight: 500; text-anchor: middle; font-style: italic; }
+      .reduction-arrow { stroke: #9c27b0; stroke-width: 2; fill: none; marker-end: url(#purplearrow); }
+      .implication-arrow { stroke: #666; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
+    </marker>
+    
+    <marker id="purplearrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#9c27b0"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1000" height="800" fill="#ffffff"/>
+  
+  <!-- Main Title -->
+  <text x="500" y="30" class="title-text">対角化論法と決定不能性</text>
+  
+  <!-- Diagonalization Language Section -->
+  <text x="150" y="70" class="section-title">対角化言語の構成</text>
+  
+  <!-- Diagonal Language -->
+  <rect x="50" y="80" width="200" height="120" class="diagonal-box"/>
+  <text x="150" y="105" class="main-text" fill="#d32f2f">対角化言語 Ld</text>
+  <text x="150" y="120" class="formula-text" fill="#d32f2f">Ld = {⟨M⟩ | M は ⟨M⟩ を受理しない}</text>
+  <text x="150" y="140" class="detail-text" fill="#d32f2f">・自己参照の矛盾を利用</text>
+  <text x="150" y="155" class="detail-text" fill="#d32f2f">・カントールの対角線論法</text>
+  <text x="150" y="170" class="detail-text" fill="#d32f2f">・認識不能の証明</text>
+  <text x="150" y="185" class="detail-text" fill="#d32f2f">・計算理論の基礎</text>
+  
+  <!-- Self Reference -->
+  <rect x="50" y="220" width="200" height="80" class="diagonal-box"/>
+  <text x="150" y="245" class="main-text" fill="#d32f2f">自己参照の問題</text>
+  <text x="150" y="260" class="detail-text" fill="#d32f2f">機械 M が自分の記述 ⟨M⟩</text>
+  <text x="150" y="275" class="detail-text" fill="#d32f2f">を入力として受け取る</text>
+  <text x="150" y="290" class="detail-text" fill="#d32f2f">→ パラドックスの源泉</text>
+  
+  <!-- Contradiction -->
+  <rect x="50" y="320" width="200" height="100" class="contradiction-box"/>
+  <text x="150" y="345" class="main-text" fill="#d32f2f">矛盾の導出</text>
+  <text x="150" y="360" class="formula-text" fill="#d32f2f">⟨H⟩ ∈ Ld ⟺</text>
+  <text x="150" y="375" class="formula-text" fill="#d32f2f">H は ⟨H⟩ を受理しない</text>
+  <text x="150" y="390" class="detail-text" fill="#d32f2f">しかし H は Ld を認識</text>
+  <text x="150" y="405" class="detail-text" fill="#d32f2f">→ 論理的矛盾</text>
+  
+  <!-- Halting Problem Section -->
+  <text x="400" y="70" class="section-title">停止問題の決定不能性</text>
+  
+  <!-- Halting Problem -->
+  <rect x="300" y="80" width="200" height="120" class="halting-box"/>
+  <text x="400" y="105" class="main-text" fill="#d32f2f">停止問題 HALT</text>
+  <text x="400" y="120" class="formula-text" fill="#d32f2f">{⟨M,w⟩ | M は w で停止}</text>
+  <text x="400" y="140" class="detail-text" fill="#d32f2f">・最も基本的な決定不能問題</text>
+  <text x="400" y="155" class="detail-text" fill="#d32f2f">・対角化論法で証明</text>
+  <text x="400" y="170" class="detail-text" fill="#d32f2f">・パラドックス機械の構成</text>
+  <text x="400" y="185" class="detail-text" fill="#d32f2f">・自己適用による矛盾</text>
+  
+  <!-- Reduction -->
+  <rect x="300" y="220" width="200" height="90" class="halting-box"/>
+  <text x="400" y="245" class="main-text" fill="#d32f2f">還元による証明</text>
+  <text x="400" y="260" class="detail-text" fill="#d32f2f">HALT が決定可能なら</text>
+  <text x="400" y="275" class="detail-text" fill="#d32f2f">ATM も決定可能になる</text>
+  <text x="400" y="290" class="detail-text" fill="#d32f2f">しかし ATM は決定不能</text>
+  <text x="400" y="305" class="detail-text" fill="#d32f2f">→ 矛盾</text>
+  
+  <!-- Consequence -->
+  <rect x="300" y="330" width="200" height="90" class="halting-box"/>
+  <text x="400" y="355" class="main-text" fill="#d32f2f">帰結</text>
+  <text x="400" y="370" class="detail-text" fill="#d32f2f">・完全なデバッガは不可能</text>
+  <text x="400" y="385" class="detail-text" fill="#d32f2f">・プログラム検証の限界</text>
+  <text x="400" y="400" class="detail-text" fill="#d32f2f">・静的解析の限界</text>
+  <text x="400" y="415" class="detail-text" fill="#d32f2f">・ソフトウェア工学への影響</text>
+  
+  <!-- Rice's Theorem Section -->
+  <text x="750" y="70" class="section-title">Rice の定理</text>
+  
+  <!-- Rice Theorem -->
+  <rect x="650" y="80" width="200" height="110" class="rice-box"/>
+  <text x="750" y="105" class="main-text" fill="#f57c00">Rice の定理</text>
+  <text x="750" y="120" class="detail-text" fill="#f57c00">TMの計算する関数の</text>
+  <text x="750" y="135" class="detail-text" fill="#f57c00">非自明な性質は</text>
+  <text x="750" y="150" class="detail-text" fill="#f57c00">すべて決定不能</text>
+  <text x="750" y="165" class="detail-text" fill="#f57c00">・意味的性質の限界</text>
+  <text x="750" y="180" class="detail-text" fill="#f57c00">・プログラム解析の限界</text>
+  
+  <!-- Properties -->
+  <rect x="650" y="210" width="200" height="90" class="rice-box"/>
+  <text x="750" y="235" class="main-text" fill="#f57c00">決定不能な性質例</text>
+  <text x="750" y="250" class="detail-text" fill="#f57c00">・空言語の認識</text>
+  <text x="750" y="265" class="detail-text" fill="#f57c00">・有限言語の認識</text>
+  <text x="750" y="280" class="detail-text" fill="#f57c00">・特定言語の認識</text>
+  <text x="750" y="295" class="detail-text" fill="#f57c00">・関数の性質全般</text>
+  
+  <!-- Trivial Properties -->
+  <rect x="650" y="320" width="200" height="80" class="rice-box"/>
+  <text x="750" y="345" class="main-text" fill="#f57c00">自明な性質</text>
+  <text x="750" y="360" class="detail-text" fill="#f57c00">・常に真 (全てのTM)</text>
+  <text x="750" y="375" class="detail-text" fill="#f57c00">・常に偽 (TMなし)</text>
+  <text x="750" y="390" class="detail-text" fill="#f57c00">→ これらは決定可能</text>
+  
+  <!-- Computability Hierarchy Section -->
+  <text x="300" y="480" class="section-title">計算可能性の階層</text>
+  
+  <!-- Computable Level -->
+  <rect x="100" y="500" width="180" height="100" class="hierarchy-box"/>
+  <text x="190" y="525" class="main-text" fill="#1976d2">計算可能レベル</text>
+  <text x="190" y="540" class="detail-text" fill="#1976d2">・0レベル: 決定可能</text>
+  <text x="190" y="555" class="detail-text" fill="#1976d2">・1レベル: 認識可能</text>
+  <text x="190" y="570" class="detail-text" fill="#1976d2">・nレベル: n-1レベルの</text>
+  <text x="190" y="585" class="detail-text" fill="#1976d2">  オラクルを使用</text>
+  
+  <!-- Hierarchy -->
+  <rect x="320" y="500" width="180" height="100" class="hierarchy-box"/>
+  <text x="410" y="525" class="main-text" fill="#1976d2">算術階層</text>
+  <text x="410" y="540" class="detail-text" fill="#1976d2">・Σ₀, Π₀: 決定可能</text>
+  <text x="410" y="555" class="detail-text" fill="#1976d2">・Σ₁, Π₁: 認識可能</text>
+  <text x="410" y="570" class="detail-text" fill="#1976d2">・Σₙ, Πₙ: より複雑</text>
+  <text x="410" y="585" class="detail-text" fill="#1976d2">・無限の階層構造</text>
+  
+  <!-- Applications -->
+  <rect x="540" y="500" width="180" height="100" class="hierarchy-box"/>
+  <text x="630" y="525" class="main-text" fill="#1976d2">応用</text>
+  <text x="630" y="540" class="detail-text" fill="#1976d2">・計算複雑性理論</text>
+  <text x="630" y="555" class="detail-text" fill="#1976d2">・数理論理学</text>
+  <text x="630" y="570" class="detail-text" fill="#1976d2">・集合論</text>
+  <text x="630" y="585" class="detail-text" fill="#1976d2">・証明論</text>
+  
+  <!-- Reduction arrows -->
+  <line x1="250" y1="360" x2="300" y2="280" class="reduction-arrow"/>
+  <text x="275" y="315" class="detail-text" fill="#9c27b0">還元</text>
+  
+  <line x1="500" y1="280" x2="650" y2="250" class="reduction-arrow"/>
+  <text x="575" y="260" class="detail-text" fill="#9c27b0">一般化</text>
+  
+  <!-- Implication arrows -->
+  <line x1="280" y1="550" x2="320" y2="550" class="implication-arrow"/>
+  <line x1="500" y1="550" x2="540" y2="550" class="implication-arrow"/>
+  
+  <!-- Summary box -->
+  <rect x="100" y="650" width="800" height="120" rx="8" fill="#f0f8ff" stroke="#4682b4" stroke-width="2"/>
+  <text x="500" y="675" class="section-title">決定不能性の統一的理解</text>
+  <text x="120" y="700" class="main-text" text-anchor="start">1. 対角化論法の威力：</text>
+  <text x="140" y="715" class="detail-text" text-anchor="start">自己参照による矛盾構成 → カントール、ゲーデル、チューリングの共通手法</text>
+  <text x="120" y="735" class="main-text" text-anchor="start">2. 計算の本質的限界：</text>
+  <text x="140" y="750" class="detail-text" text-anchor="start">アルゴリズムでは解けない問題の存在 → プログラム解析・検証の理論的限界</text>
+</svg>

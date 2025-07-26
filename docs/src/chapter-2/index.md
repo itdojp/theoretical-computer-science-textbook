@@ -61,30 +61,7 @@ chapter: 2
 - テープの内容：10110111...
 - ヘッドの位置：5番目の記号（0）を指している
 
-```mermaid
-graph LR
-    subgraph "チューリング機械の構成"
-        subgraph "テープ"
-            T1[1] --- T2[0] --- T3[1] --- T4[1] --- T5[0] --- T6[1] --- T7[1] --- T8[1] --- T9[...]
-        end
-        
-        subgraph "制御部"
-            State[状態: q₅]
-        end
-        
-        Head[読み書きヘッド] 
-        Head -.-> T5
-        State -.-> Head
-        
-        style T5 fill:#ffeb3b
-        style State fill:#e3f2fd
-        style Head fill:#fff3e0
-    end
-    
-    subgraph "説明"
-        Info["現在状態: q₅<br/>読取り記号: 0<br/>ヘッド位置: 5"]
-    end
-```
+![チューリング機械の構成](../../assets/images/diagrams/ch2_turing_machine_configuration.svg)
 
 **定義 2.3** 構成 C₁ が構成 C₂ に**1ステップで遷移する**ことを C₁ ⊢ C₂ と表記する。
 
@@ -153,40 +130,7 @@ q₁0011 ⊢ xq₂011 ⊢ x0q₂11 ⊢ x0yq₃1 ⊢ xq₃0y1 ⊢ q₃x0y1 ⊢ xq
 
 ## 2.2 計算可能性
 
-```mermaid
-graph TD
-    subgraph "計算可能性の概念と階層"
-        subgraph "計算可能関数"
-            Computable["チューリング計算可能関数<br/>f: Σ* → Σ*<br/>・全ての入力で停止<br/>・正しい出力を生成"]
-            
-            PartialComputable["部分計算可能関数<br/>f: Σ* ⇀ Σ*<br/>・定義域で停止<br/>・定義域外で停止しない"]
-            
-            Examples["例:<br/>・加算、乗算<br/>・文字列操作<br/>・ソート、探索"]
-        end
-        
-        subgraph "Church-Turingの提唱"
-            Thesis["直観的計算可能 ≡ チューリング計算可能<br/>・数学的定理ではない<br/>・計算の本質に関する主張"]
-            
-            Evidence["支持する証拠<br/>・他の計算モデルとの等価性<br/>・実用プログラムとの対応<br/>・70年以上の検証"]
-            
-            Models["等価な計算モデル<br/>・λ計算 (Church)<br/>・再帰関数 (Kleene)<br/>・Post機械<br/>・RAM"]
-        end
-        
-        subgraph "計算可能性の限界"
-            Decidable["決定可能問題<br/>・有限時間で判定<br/>・Yes/No を確定"]
-            
-            Undecidable["決定不能問題<br/>・アルゴリズムが存在しない<br/>・原理的に解けない"]
-            
-            Examples2["決定不能な例<br/>・停止問題<br/>・同値問題<br/>・ヒルベルト第10問題"]
-        end
-    end
-    
-    style Computable fill:#e8f5e8
-    style Thesis fill:#fff3e0
-    style Decidable fill:#e3f2fd
-    style Undecidable fill:#ffebee
-    style Examples2 fill:#ffebee
-```
+![計算可能性の概念と階層](../../assets/images/diagrams/ch2_computability_hierarchy.svg)
 
 ### 2.2.1 チューリング計算可能関数
 
@@ -234,25 +178,7 @@ graph TD
 
 1. **他の計算モデルとの等価性**：
    
-   ```mermaid
-   graph TD
-       subgraph "等価な計算モデル（1930年代）"
-           TM["チューリング機械<br/>（Turing, 1936）"]
-           Lambda["λ計算<br/>（Church, 1936）"]
-           Recursive["再帰関数<br/>（Kleene, 1936）"]
-           Post["Post機械<br/>（Post, 1936）"]
-       end
-       
-       TM -.->|等価| Lambda
-       Lambda -.->|等価| Recursive
-       Recursive -.->|等価| Post
-       Post -.->|等価| TM
-       
-       style TM fill:#e3f2fd
-       style Lambda fill:#fff3e0
-       style Recursive fill:#e8f5e8
-       style Post fill:#f3e5f5
-   ```
+   ![等価な計算モデル（1930年代）](../../assets/images/diagrams/ch2_equivalent_computation_models_1930s.svg)
 
 2. **現代の計算モデルとの対応**：
    - プログラミング言語（C, Python, Java等）
@@ -273,48 +199,7 @@ graph TD
 
 ## 2.3 決定可能性
 
-```mermaid
-graph TD
-    subgraph "決定可能性の階層構造"
-        subgraph "言語クラスの包含関係"
-            Finite["有限言語<br/>・文字列の有限集合<br/>・常に決定可能"]
-            Regular["正規言語<br/>・DFA/NFAで認識<br/>・正規表現で記述"]
-            ContextFree["文脈自由言語<br/>・PDAで認識<br/>・CFGで生成"]
-            Decidable["決定可能言語<br/>・必ず停止するTM<br/>・全入力でYes/No"]
-            Recognizable["認識可能言語<br/>・TMで認識<br/>・停止しない場合あり"]
-            AllLanguages["全ての言語<br/>・認識不能言語を含む"]
-            
-            Finite --> Regular
-            Regular --> ContextFree
-            ContextFree --> Decidable
-            Decidable --> Recognizable
-            Recognizable --> AllLanguages
-        end
-        
-        subgraph "決定可能言語の性質"
-            Closure["閉包性<br/>・和集合 ∪<br/>・積集合 ∩<br/>・補集合 ¯<br/>・連結 ○<br/>・クリーネ閉包 *"]
-            
-            Algorithm["決定アルゴリズム<br/>・入力を読む<br/>・有限ステップで判定<br/>・必ず停止"]
-            
-            Examples["例<br/>・PRIME: 素数判定<br/>・CONNECTED: 連結性<br/>・MATCHING: マッチング"]
-        end
-        
-        subgraph "認識可能だが決定不能"
-            ATM["受理問題 ATM<br/>{⟨M,w⟩ | M は w を受理}<br/>・万能TMで認識可能<br/>・停止問題への還元で決定不能"]
-            
-            Complement["補言語<br/>ATM の補集合は認識不能<br/>→ 決定不能の証明"]
-            
-            Reduction["還元による証明<br/>停止問題 → ATM<br/>対角化論法"]
-        end
-    end
-    
-    style Finite fill:#e8f5e8
-    style Decidable fill:#e3f2fd
-    style Recognizable fill:#fff3e0
-    style AllLanguages fill:#ffebee
-    style ATM fill:#ffe0b2
-    style Reduction fill:#f3e5f5
-```
+![決定可能性の階層構造](../../assets/images/diagrams/ch2_decidability_hierarchy.svg)
 
 ### 2.3.1 言語と決定問題
 
@@ -383,50 +268,7 @@ w ∈ L または w ∈ L̄ のいずれかが成り立つので、M は必ず�
 
 ## 2.4 チューリング機械の変種
 
-```mermaid
-graph TD
-    subgraph "チューリング機械の変種と等価性"
-        subgraph "多テープチューリング機械"
-            MultiTape["k-テープ機械<br/>・k本の独立テープ<br/>・各テープに読み書きヘッド<br/>・δ: Q × Γᵏ → Q × Γᵏ × {L,R}ᵏ"]
-            
-            MTAdvantage["利点<br/>・プログラミングが容易<br/>・時間効率が良い<br/>・実用的なアルゴリズム"]
-            
-            MTExample["例: テープ1 = 入力<br/>テープ2 = 作業領域<br/>テープ3 = 出力"]
-        end
-        
-        subgraph "非決定性チューリング機械"
-            NTM["非決定性TM<br/>・複数の選択肢<br/>・並行計算パス<br/>・1つでも受理なら受理"]
-            
-            NTMTree["計算木<br/>分岐する計算パス<br/>幅優先探索でシミュレート"]
-            
-            NTMEquiv["等価性<br/>決定性TMでシミュレート可能<br/>指数的時間増加"]
-        end
-        
-        subgraph "その他の変種"
-            LBA["線形拘束オートマトン<br/>・入力長に比例する領域<br/>・文脈依存言語と等価"]
-            
-            PTM["確率的TM<br/>・ランダムビット使用<br/>・エラー確率あり<br/>・効率的アルゴリズム"]
-            
-            OTM["オラクルTM<br/>・外部情報源アクセス<br/>・相対的計算可能性<br/>・複雑度理論の基礎"]
-        end
-        
-        subgraph "計算能力の等価性"
-            Standard["標準TM"]
-            
-            Standard -.->|"シミュレート"| MultiTape
-            Standard -.->|"シミュレート"| NTM
-            Standard -.->|"制限"| LBA
-            
-            Equivalence["Church-Turingの提唱<br/>全ての合理的な計算モデルは<br/>チューリング機械と等価"]
-        end
-    end
-    
-    style MultiTape fill:#e3f2fd
-    style NTM fill:#fff3e0
-    style LBA fill:#f3e5f5
-    style Standard fill:#e8f5e8
-    style Equivalence fill:#ffe0b2
-```
+![チューリング機械の変種と等価性](../../assets/images/diagrams/ch2_turing_machine_variants.svg)
 
 ### 2.4.1 多テープチューリング機械
 
@@ -500,48 +342,7 @@ D は以下のように動作：
 
 ## 2.5 万能チューリング機械
 
-```mermaid
-graph TD
-    subgraph "万能チューリング機械の構成と意義"
-        subgraph "符号化の概念"
-            Encoding["チューリング機械の符号化<br/>M → ⟨M⟩<br/>・状態を番号で表現<br/>・遷移規則をリスト化<br/>・一意な文字列表現"]
-            
-            Example["符号化例<br/>状態: q₁, q₂, ...<br/>記号: a₁, a₂, ...<br/>遷移: ⟨i,j,k,l,D⟩"]
-            
-            SelfRef["自己参照<br/>機械が自分の記述を<br/>入力として受け取る"]
-        end
-        
-        subgraph "万能機械の構成"
-            UTM["万能チューリング機械 U<br/>入力: ⟨M, w⟩<br/>動作: M を w でシミュレート<br/>出力: M の計算結果"]
-            
-            ThreeTape["3テープ構成<br/>テープ1: M のテープ内容<br/>テープ2: M の遷移規則<br/>テープ3: M の現在状態"]
-            
-            SimulationStep["シミュレーション手順<br/>1. 現在状態と記号を読む<br/>2. 遷移規則を検索<br/>3. 状態更新、記号書換え<br/>4. ヘッド移動"]
-        end
-        
-        subgraph "万能性の意義"
-            StoredProgram["プログラム内蔵方式<br/>・プログラムもデータ<br/>・ソフトウェアの基礎<br/>・現代コンピュータの原理"]
-            
-            SelfModifying["自己修正プログラム<br/>・実行中に自分を変更<br/>・コンパイラ、インタープリター<br/>・人工知能の基礎"]
-            
-            Limitations["計算の限界<br/>・万能機械でも解けない問題<br/>・停止問題の決定不能性<br/>・アルゴリズムの本質的限界"]
-        end
-        
-        subgraph "応用と影響"
-            ModernCS["現代コンピュータ科学<br/>・ソフトウェア工学<br/>・プログラミング言語<br/>・オペレーティングシステム"]
-            
-            Complexity["計算量理論<br/>・P vs NP問題<br/>・時間・空間計算量<br/>・アルゴリズム設計"]
-            
-            AI["人工知能<br/>・機械学習<br/>・パターン認識<br/>・知識表現"]
-        end
-    end
-    
-    style UTM fill:#e3f2fd
-    style StoredProgram fill:#e8f5e8
-    style Limitations fill:#ffebee
-    style ModernCS fill:#fff3e0
-    style SelfRef fill:#f3e5f5
-```
+![万能チューリング機械の構成と意義](../../assets/images/diagrams/ch2_universal_turing_machine.svg)
 
 ### 2.5.1 チューリング機械の符号化
 
@@ -583,48 +384,7 @@ U の動作：
 
 ## 2.6 計算可能性の基本定理
 
-```mermaid
-graph TD
-    subgraph "対角化論法と決定不能性"
-        subgraph "対角化言語の構成"
-            DiagonalLang["対角化言語 Ld<br/>Ld = {⟨M⟩ | M は ⟨M⟩ を受理しない}<br/>・自己参照の矛盾を利用<br/>・カントールの対角線論法"]
-            
-            SelfReference["自己参照の問題<br/>機械 M が自分の記述 ⟨M⟩<br/>を入力として受け取る"]
-            
-            Contradiction["矛盾の導出<br/>⟨H⟩ ∈ Ld ⟺ H は ⟨H⟩ を受理しない<br/>しかし H は Ld を認識"]
-        end
-        
-        subgraph "停止問題の決定不能性"
-            HaltingProblem["停止問題 HALT<br/>{⟨M,w⟩ | M は w で停止}<br/>・最も基本的な決定不能問題<br/>・対角化論法で証明"]
-            
-            Reduction["還元による証明<br/>HALT が決定可能なら<br/>ATM も決定可能になる<br/>しかし ATM は決定不能"]
-            
-            Consequence["帰結<br/>・完全なデバッガは不可能<br/>・プログラム検証の限界<br/>・静的解析の限界"]
-        end
-        
-        subgraph "Rice の定理"
-            RiceTheorem["Rice の定理<br/>TMの計算する関数の<br/>非自明な性質は<br/>すべて決定不能"]
-            
-            Properties["決定不能な性質例<br/>・空言語の認識<br/>・有限言語の認識<br/>・特定言語の認識"]
-            
-            TrivialProps["自明な性質<br/>・常に真<br/>・常に偽<br/>→ これらは決定可能"]
-        end
-        
-        subgraph "計算可能性の階層"
-            ComputableLevel["計算可能レベル<br/>・0レベル: 決定可能<br/>・1レベル: 認識可能<br/>・nレベル: n-1レベルのオラクル"]
-            
-            Hierarchy["算術階層<br/>・Σ₀, Π₀: 決定可能<br/>・Σ₁, Π₁: 認識可能<br/>・Σₙ, Πₙ: より複雑"]
-            
-            Applications["応用<br/>・計算複雑性理論<br/>・数理論理学<br/>・集合論"]
-        end
-    end
-    
-    style DiagonalLang fill:#ffebee
-    style HaltingProblem fill:#ffebee
-    style RiceTheorem fill:#fff3e0
-    style ComputableLevel fill:#e3f2fd
-    style Contradiction fill:#ffebee
-```
+![対角化論法と決定不能性](../../assets/images/diagrams/ch2_diagonalization_undecidability.svg)
 
 ### 2.6.1 対角化言語
 

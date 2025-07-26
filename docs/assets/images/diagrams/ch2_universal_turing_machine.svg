@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 800" width="1000" height="800">
+  <title>万能チューリング機械の構成と意義</title>
+  <desc>万能チューリング機械の構成要素、動作原理、現代コンピュータ科学への影響を示す図</desc>
+  
+  <defs>
+    <style>
+      .encoding-box { fill: #e8f5e8; stroke: #2e7d32; stroke-width: 2; rx: 8; }
+      .utm-box { fill: #e3f2fd; stroke: #1976d2; stroke-width: 2; rx: 8; }
+      .significance-box { fill: #fff3e0; stroke: #f57c00; stroke-width: 2; rx: 8; }
+      .applications-box { fill: #f3e5f5; stroke: #7b1fa2; stroke-width: 2; rx: 8; }
+      .selfref-box { fill: #ffebee; stroke: #d32f2f; stroke-width: 2; rx: 8; }
+      
+      .title-text { font-family: 'Inter', 'Helvetica Neue', Helvetica, sans-serif; font-size: 18px; font-weight: 700; fill: #2c3e50; text-anchor: middle; }
+      .section-title { font-family: 'Inter', 'Helvetica Neue', Helvetica, sans-serif; font-size: 14px; font-weight: 600; fill: #2c3e50; text-anchor: middle; }
+      .main-text { font-family: 'Inter', 'Helvetica Neue', Helvetica, sans-serif; font-size: 12px; font-weight: 500; text-anchor: middle; }
+      .detail-text { font-family: 'Inter', 'Helvetica Neue', Helvetica, sans-serif; font-size: 10px; text-anchor: middle; }
+      .flow-arrow { stroke: #666; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .connection-line { stroke: #adb5bd; stroke-width: 1; fill: none; stroke-dasharray: 3,2; }
+    </style>
+    
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1000" height="800" fill="#ffffff"/>
+  
+  <!-- Main Title -->
+  <text x="500" y="30" class="title-text">万能チューリング機械の構成と意義</text>
+  
+  <!-- Encoding Section -->
+  <text x="150" y="70" class="section-title">符号化の概念</text>
+  
+  <!-- Encoding -->
+  <rect x="50" y="80" width="200" height="100" class="encoding-box"/>
+  <text x="150" y="105" class="main-text" fill="#2e7d32">チューリング機械の符号化</text>
+  <text x="150" y="120" class="detail-text" fill="#2e7d32">M → ⟨M⟩</text>
+  <text x="150" y="135" class="detail-text" fill="#2e7d32">・状態を番号で表現</text>
+  <text x="150" y="150" class="detail-text" fill="#2e7d32">・遷移規則をリスト化</text>
+  <text x="150" y="165" class="detail-text" fill="#2e7d32">・一意な文字列表現</text>
+  
+  <!-- Example -->
+  <rect x="50" y="200" width="200" height="80" class="encoding-box"/>
+  <text x="150" y="225" class="main-text" fill="#2e7d32">符号化例</text>
+  <text x="150" y="240" class="detail-text" fill="#2e7d32">状態: q₁, q₂, ...</text>
+  <text x="150" y="255" class="detail-text" fill="#2e7d32">記号: a₁, a₂, ...</text>
+  <text x="150" y="270" class="detail-text" fill="#2e7d32">遷移: ⟨i,j,k,l,D⟩</text>
+  
+  <!-- Self Reference -->
+  <rect x="50" y="300" width="200" height="80" class="selfref-box"/>
+  <text x="150" y="325" class="main-text" fill="#d32f2f">自己参照</text>
+  <text x="150" y="340" class="detail-text" fill="#d32f2f">機械が自分の記述を</text>
+  <text x="150" y="355" class="detail-text" fill="#d32f2f">入力として受け取る</text>
+  <text x="150" y="370" class="detail-text" fill="#d32f2f">→ 停止問題の基礎</text>
+  
+  <!-- UTM Construction Section -->
+  <text x="400" y="70" class="section-title">万能機械の構成</text>
+  
+  <!-- UTM -->
+  <rect x="300" y="80" width="200" height="110" class="utm-box"/>
+  <text x="400" y="105" class="main-text" fill="#1976d2">万能チューリング機械 U</text>
+  <text x="400" y="120" class="detail-text" fill="#1976d2">入力: ⟨M, w⟩</text>
+  <text x="400" y="135" class="detail-text" fill="#1976d2">動作: M を w でシミュレート</text>
+  <text x="400" y="150" class="detail-text" fill="#1976d2">出力: M の計算結果</text>
+  <text x="400" y="165" class="detail-text" fill="#1976d2">（受理/拒否/無限ループ）</text>
+  
+  <!-- Three Tape -->
+  <rect x="300" y="210" width="200" height="100" class="utm-box"/>
+  <text x="400" y="235" class="main-text" fill="#1976d2">3テープ構成</text>
+  <text x="400" y="250" class="detail-text" fill="#1976d2">テープ1: M のテープ内容</text>
+  <text x="400" y="265" class="detail-text" fill="#1976d2">テープ2: M の遷移規則</text>
+  <text x="400" y="280" class="detail-text" fill="#1976d2">テープ3: M の現在状態</text>
+  <text x="400" y="295" class="detail-text" fill="#1976d2">（単一テープでも可能）</text>
+  
+  <!-- Simulation Step -->
+  <rect x="300" y="330" width="200" height="100" class="utm-box"/>
+  <text x="400" y="355" class="main-text" fill="#1976d2">シミュレーション手順</text>
+  <text x="400" y="370" class="detail-text" fill="#1976d2">1. 現在状態と記号を読む</text>
+  <text x="400" y="385" class="detail-text" fill="#1976d2">2. 遷移規則を検索</text>
+  <text x="400" y="400" class="detail-text" fill="#1976d2">3. 状態更新、記号書換え</text>
+  <text x="400" y="415" class="detail-text" fill="#1976d2">4. ヘッド移動</text>
+  
+  <!-- Significance Section -->
+  <text x="750" y="70" class="section-title">万能性の意義</text>
+  
+  <!-- Stored Program -->
+  <rect x="650" y="80" width="200" height="100" class="significance-box"/>
+  <text x="750" y="105" class="main-text" fill="#f57c00">プログラム内蔵方式</text>
+  <text x="750" y="120" class="detail-text" fill="#f57c00">・プログラムもデータ</text>
+  <text x="750" y="135" class="detail-text" fill="#f57c00">・ソフトウェアの基礎</text>
+  <text x="750" y="150" class="detail-text" fill="#f57c00">・現代コンピュータの原理</text>
+  <text x="750" y="165" class="detail-text" fill="#f57c00">・フォン・ノイマン型</text>
+  
+  <!-- Self Modifying -->
+  <rect x="650" y="200" width="200" height="90" class="significance-box"/>
+  <text x="750" y="225" class="main-text" fill="#f57c00">自己修正プログラム</text>
+  <text x="750" y="240" class="detail-text" fill="#f57c00">・実行中に自分を変更</text>
+  <text x="750" y="255" class="detail-text" fill="#f57c00">・コンパイラ</text>
+  <text x="750" y="270" class="detail-text" fill="#f57c00">・インタープリター</text>
+  
+  <!-- Limitations -->
+  <rect x="650" y="310" width="200" height="90" class="selfref-box"/>
+  <text x="750" y="335" class="main-text" fill="#d32f2f">計算の限界</text>
+  <text x="750" y="350" class="detail-text" fill="#d32f2f">・万能機械でも解けない問題</text>
+  <text x="750" y="365" class="detail-text" fill="#d32f2f">・停止問題の決定不能性</text>
+  <text x="750" y="380" class="detail-text" fill="#d32f2f">・アルゴリズムの本質的限界</text>
+  
+  <!-- Applications and Impact Section -->
+  <text x="250" y="470" class="section-title">応用と影響</text>
+  
+  <!-- Modern CS -->
+  <rect x="50" y="490" width="200" height="90" class="applications-box"/>
+  <text x="150" y="515" class="main-text" fill="#7b1fa2">現代コンピュータ科学</text>
+  <text x="150" y="530" class="detail-text" fill="#7b1fa2">・ソフトウェア工学</text>
+  <text x="150" y="545" class="detail-text" fill="#7b1fa2">・プログラミング言語</text>
+  <text x="150" y="560" class="detail-text" fill="#7b1fa2">・オペレーティングシステム</text>
+  <text x="150" y="575" class="detail-text" fill="#7b1fa2">・仮想機械</text>
+  
+  <!-- Complexity -->
+  <rect x="300" y="490" width="200" height="90" class="applications-box"/>
+  <text x="400" y="515" class="main-text" fill="#7b1fa2">計算量理論</text>
+  <text x="400" y="530" class="detail-text" fill="#7b1fa2">・P vs NP問題</text>
+  <text x="400" y="545" class="detail-text" fill="#7b1fa2">・時間・空間計算量</text>
+  <text x="400" y="560" class="detail-text" fill="#7b1fa2">・アルゴリズム設計</text>
+  <text x="400" y="575" class="detail-text" fill="#7b1fa2">・複雑性クラス</text>
+  
+  <!-- AI -->
+  <rect x="550" y="490" width="200" height="90" class="applications-box"/>
+  <text x="650" y="515" class="main-text" fill="#7b1fa2">人工知能</text>
+  <text x="650" y="530" class="detail-text" fill="#7b1fa2">・機械学習</text>
+  <text x="650" y="545" class="detail-text" fill="#7b1fa2">・パターン認識</text>
+  <text x="650" y="560" class="detail-text" fill="#7b1fa2">・知識表現</text>
+  <text x="650" y="575" class="detail-text" fill="#7b1fa2">・推論システム</text>
+  
+  <!-- Flow arrows -->
+  <line x1="250" y1="140" x2="300" y2="140" class="flow-arrow"/>
+  <line x1="500" y1="140" x2="650" y2="140" class="flow-arrow"/>
+  <text x="275" y="135" class="detail-text">符号化</text>
+  <text x="575" y="135" class="detail-text">実現</text>
+  
+  <!-- Connection lines from UTM to applications -->
+  <line x1="400" y1="430" x2="150" y2="490" class="connection-line"/>
+  <line x1="400" y1="430" x2="400" y2="490" class="connection-line"/>
+  <line x1="400" y1="430" x2="650" y2="490" class="connection-line"/>
+  
+  <!-- Key insight box -->
+  <rect x="200" y="620" width="600" height="120" rx="8" fill="#f0f8ff" stroke="#4682b4" stroke-width="2"/>
+  <text x="500" y="645" class="section-title">万能チューリング機械の核心的洞察</text>
+  <text x="220" y="670" class="main-text" text-anchor="start">1. 計算とデータの統一：</text>
+  <text x="240" y="685" class="detail-text" text-anchor="start">プログラム（計算手順）もデータとして扱える → ソフトウェアの概念</text>
+  <text x="220" y="705" class="main-text" text-anchor="start">2. 計算の限界の発見：</text>
+  <text x="240" y="720" class="detail-text" text-anchor="start">万能機械でも解けない問題の存在 → 停止問題、決定不能性理論</text>
+</svg>

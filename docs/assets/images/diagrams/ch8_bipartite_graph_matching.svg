@@ -1,0 +1,201 @@
+<svg viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg">
+  <title>二部グラフのマッチング</title>
+  <desc>二部グラフにおける最大マッチング問題とHallの結婚定理の視覚的説明</desc>
+  
+  <defs>
+    <style>
+      .title-text { font-family: 'Inter', 'Helvetica', sans-serif; font-size: 18px; font-weight: 600; fill: #2d3748; }
+      .section-title { font-family: 'Inter', 'Helvetica', sans-serif; font-size: 14px; font-weight: 600; fill: #4a5568; }
+      .node-text { font-family: 'Inter', 'Helvetica', sans-serif; font-size: 12px; font-weight: 600; fill: #2d3748; }
+      .result-text { font-family: 'Inter', 'Helvetica', sans-serif; font-size: 11px; font-weight: 400; fill: #2d3748; }
+      .note-text { font-family: 'Inter', 'Helvetica', sans-serif; font-size: 10px; font-weight: 400; fill: #4a5568; }
+      .left-node { fill: #fed7d7; stroke: #e53e3e; stroke-width: 2; }
+      .right-node { fill: #bee3f8; stroke: #3182ce; stroke-width: 2; }
+      .matched-left { fill: #c6f6d5; stroke: #38a169; stroke-width: 2.5; }
+      .matched-right { fill: #c6f6d5; stroke: #38a169; stroke-width: 2.5; }
+      .edge { stroke: #718096; stroke-width: 1.5; fill: none; }
+      .matching-edge { stroke: #38a169; stroke-width: 3; fill: none; }
+      .non-matching-edge { stroke: #a0aec0; stroke-width: 1; fill: none; stroke-dasharray: 3,3; }
+    </style>
+  </defs>
+  
+  <!-- Title -->
+  <text x="600" y="30" text-anchor="middle" class="title-text">二部グラフのマッチング</text>
+  
+  <!-- Initial Graph -->
+  <g id="initial-graph">
+    <text x="200" y="70" text-anchor="middle" class="section-title">初期グラフ</text>
+    
+    <!-- Left partition -->
+    <circle cx="120" cy="120" r="18" class="left-node"/>
+    <text x="120" y="125" text-anchor="middle" class="node-text">A1</text>
+    
+    <circle cx="120" cy="160" r="18" class="left-node"/>
+    <text x="120" y="165" text-anchor="middle" class="node-text">A2</text>
+    
+    <circle cx="120" cy="200" r="18" class="left-node"/>
+    <text x="120" y="205" text-anchor="middle" class="node-text">A3</text>
+    
+    <circle cx="120" cy="240" r="18" class="left-node"/>
+    <text x="120" y="245" text-anchor="middle" class="node-text">A4</text>
+    
+    <!-- Right partition -->
+    <circle cx="280" cy="120" r="18" class="right-node"/>
+    <text x="280" y="125" text-anchor="middle" class="node-text">B1</text>
+    
+    <circle cx="280" cy="160" r="18" class="right-node"/>
+    <text x="280" y="165" text-anchor="middle" class="node-text">B2</text>
+    
+    <circle cx="280" cy="200" r="18" class="right-node"/>
+    <text x="280" y="205" text-anchor="middle" class="node-text">B3</text>
+    
+    <circle cx="280" cy="240" r="18" class="right-node"/>
+    <text x="280" y="245" text-anchor="middle" class="node-text">B4</text>
+    
+    <!-- Edges -->
+    <line x1="138" y1="120" x2="262" y2="120" class="edge"/>
+    <line x1="138" y1="120" x2="262" y2="160" class="edge"/>
+    <line x1="138" y1="160" x2="262" y2="120" class="edge"/>
+    <line x1="138" y1="160" x2="262" y2="200" class="edge"/>
+    <line x1="138" y1="200" x2="262" y2="160" class="edge"/>
+    <line x1="138" y1="200" x2="262" y2="240" class="edge"/>
+    <line x1="138" y1="240" x2="262" y2="200" class="edge"/>
+    <line x1="138" y1="240" x2="262" y2="240" class="edge"/>
+    
+    <!-- Partition labels -->
+    <rect x="40" y="280" width="320" height="40" fill="#f7fafc" stroke="#e2e8f0" stroke-width="1" rx="5"/>
+    <text x="200" y="305" text-anchor="middle" class="note-text">左側: X = {A1,A2,A3,A4}, 右側: Y = {B1,B2,B3,B4}</text>
+  </g>
+  
+  <!-- Maximum Matching -->
+  <g id="maximum-matching">
+    <text x="650" y="70" text-anchor="middle" class="section-title">最大マッチング</text>
+    
+    <!-- Left partition with matching indication -->
+    <circle cx="570" cy="120" r="18" class="matched-left"/>
+    <text x="570" y="125" text-anchor="middle" class="node-text">A1</text>
+    
+    <circle cx="570" cy="160" r="18" class="matched-left"/>
+    <text x="570" y="165" text-anchor="middle" class="node-text">A2</text>
+    
+    <circle cx="570" cy="200" r="18" class="matched-left"/>
+    <text x="570" y="205" text-anchor="middle" class="node-text">A3</text>
+    
+    <circle cx="570" cy="240" r="18" class="matched-left"/>
+    <text x="570" y="245" text-anchor="middle" class="node-text">A4</text>
+    
+    <!-- Right partition with matching indication -->
+    <circle cx="730" cy="120" r="18" class="matched-right"/>
+    <text x="730" y="125" text-anchor="middle" class="node-text">B1</text>
+    
+    <circle cx="730" cy="160" r="18" class="matched-right"/>
+    <text x="730" y="165" text-anchor="middle" class="node-text">B2</text>
+    
+    <circle cx="730" cy="200" r="18" class="matched-right"/>
+    <text x="730" y="205" text-anchor="middle" class="node-text">B3</text>
+    
+    <circle cx="730" cy="240" r="18" class="matched-right"/>
+    <text x="730" y="245" text-anchor="middle" class="node-text">B4</text>
+    
+    <!-- Matching edges -->
+    <line x1="588" y1="120" x2="712" y2="160" class="matching-edge"/>
+    <text x="650" y="135" class="note-text">M</text>
+    
+    <line x1="588" y1="160" x2="712" y2="120" class="matching-edge"/>
+    <text x="650" y="135" class="note-text">M</text>
+    
+    <line x1="588" y1="200" x2="712" y2="240" class="matching-edge"/>
+    <text x="650" y="225" class="note-text">M</text>
+    
+    <line x1="588" y1="240" x2="712" y2="200" class="matching-edge"/>
+    <text x="650" y="225" class="note-text">M</text>
+    
+    <!-- Non-matching edges -->
+    <line x1="588" y1="200" x2="712" y2="160" class="non-matching-edge"/>
+    <line x1="588" y1="200" x2="712" y2="240" class="non-matching-edge"/>
+    <line x1="588" y1="240" x2="712" y2="240" class="non-matching-edge"/>
+    <line x1="588" y1="160" x2="712" y2="200" class="non-matching-edge"/>
+    
+    <!-- Matching description -->
+    <rect x="490" y="280" width="320" height="80" fill="#f0fff4" stroke="#38a169" stroke-width="1" rx="5"/>
+    <text x="650" y="300" text-anchor="middle" class="section-title">マッチング M = {</text>
+    <text x="650" y="320" text-anchor="middle" class="result-text">(A1,B2), (A2,B1),</text>
+    <text x="650" y="335" text-anchor="middle" class="result-text">(A3,B4), (A4,B3)</text>
+    <text x="650" y="350" text-anchor="middle" class="result-text">}</text>
+    <text x="650" y="375" text-anchor="middle" class="result-text">|M| = 4 (完全マッチング)</text>
+  </g>
+  
+  <!-- Hall's Marriage Theorem Verification -->
+  <g id="hall-theorem">
+    <text x="1000" y="70" text-anchor="middle" class="section-title">Hallの結婚定理の検証</text>
+    
+    <rect x="850" y="100" width="300" height="220" fill="#f7fafc" stroke="#e2e8f0" stroke-width="1" rx="8"/>
+    <text x="1000" y="125" text-anchor="middle" class="section-title">任意のS ⊆ Xに対して</text>
+    <text x="1000" y="140" text-anchor="middle" class="section-title">|N(S)| ≥ |S| を確認:</text>
+    
+    <text x="870" y="165" class="result-text">S = {A1}: N(S) = {B1,B2}</text>
+    <text x="1070" y="165" class="result-text">|N(S)| = 2 ≥ 1 ✓</text>
+    
+    <text x="870" y="185" class="result-text">S = {A1,A2}: N(S) = {B1,B2,B3}</text>
+    <text x="1070" y="185" class="result-text">|N(S)| = 3 ≥ 2 ✓</text>
+    
+    <text x="870" y="205" class="result-text">S = {A1,A2,A3}: N(S) = {B1,B2,B3,B4}</text>
+    <text x="1070" y="205" class="result-text">|N(S)| = 4 ≥ 3 ✓</text>
+    
+    <text x="870" y="225" class="result-text">S = {A1,A2,A3,A4}: N(S) = {B1,B2,B3,B4}</text>
+    <text x="1070" y="225" class="result-text">|N(S)| = 4 ≥ 4 ✓</text>
+    
+    <text x="870" y="250" class="result-text">...</text>
+    
+    <text x="1000" y="275" text-anchor="middle" class="result-text">全て満たす → 完全マッチング存在</text>
+    
+    <text x="1000" y="310" text-anchor="middle" class="result-text">N(S): Sの隣接頂点集合</text>
+  </g>
+  
+  <!-- Algorithm and Theory Explanation -->
+  <rect x="50" y="380" width="1100" height="480" fill="#f9f9f9" stroke="#e2e8f0" stroke-width="1" rx="8"/>
+  <text x="600" y="410" text-anchor="middle" class="section-title">二部グラフマッチングの理論とアルゴリズム</text>
+  
+  <!-- Hall's Marriage Theorem -->
+  <rect x="70" y="430" width="520" height="120" fill="#e6fffa" stroke="#38b2ac" stroke-width="1" rx="6"/>
+  <text x="330" y="455" text-anchor="middle" class="section-title">Hallの結婚定理 (定理8.9)</text>
+  <text x="90" y="480" class="result-text">二部グラフ G = (X ∪ Y, E) が X を飽和するマッチングを持つ</text>
+  <text x="90" y="495" class="result-text">⟺ ∀S ⊆ X, |N(S)| ≥ |S|</text>
+  <text x="90" y="515" class="result-text">この条件は「欠陥条件」と呼ばれ、完全マッチングの</text>
+  <text x="90" y="530" class="result-text">存在に必要十分である</text>
+  
+  <!-- König-Egerváry Theorem -->
+  <rect x="610" y="430" width="520" height="120" fill="#fef5e7" stroke="#dd6b20" stroke-width="1" rx="6"/>
+  <text x="870" y="455" text-anchor="middle" class="section-title">Kőnig-Egerváryの定理 (定理8.10)</text>
+  <text x="630" y="480" class="result-text">二部グラフにおいて:</text>
+  <text x="630" y="495" class="result-text">最大マッチングのサイズ = 最小頂点被覆のサイズ</text>
+  <text x="630" y="515" class="result-text">この双対性により、マッチング問題と被覆問題が</text>
+  <text x="630" y="530" class="result-text">密接に関連していることがわかる</text>
+  
+  <!-- Algorithms -->
+  <rect x="70" y="570" width="520" height="140" fill="#f0fff4" stroke="#38a169" stroke-width="1" rx="6"/>
+  <text x="330" y="595" text-anchor="middle" class="section-title">最大マッチングアルゴリズム</text>
+  <text x="90" y="620" class="result-text">1. Hungarian法 (二部グラフ):</text>
+  <text x="110" y="635" class="result-text">最大フローへの帰着により O(|E| · √|V|) で解ける</text>
+  <text x="90" y="655" class="result-text">2. Edmondsのアルゴリズム (一般グラフ):</text>
+  <text x="110" y="670" class="result-text">花(blossom)の縮約を用いて O(|V|³) で解ける</text>
+  <text x="90" y="690" class="result-text">3. 増加路法:</text>
+  <text x="110" y="705" class="result-text">マッチングを飽和しない頂点から交互路を探索</text>
+  
+  <!-- Applications -->
+  <rect x="610" y="570" width="520" height="140" fill="#edf2f7" stroke="#4a5568" stroke-width="1" rx="6"/>
+  <text x="870" y="595" text-anchor="middle" class="section-title">マッチング問題の応用</text>
+  <text x="630" y="620" class="result-text">• 割り当て問題: 作業者と作業の最適割り当て</text>
+  <text x="630" y="635" class="result-text">• 安定マッチング: 研修医配属問題 (Gale-Shapley法)</text>
+  <text x="630" y="650" class="result-text">• ネットワークフロー: 最大フロー問題への帰着</text>
+  <text x="630" y="665" class="result-text">• グラフ理論: 辺彩色、ハミルトン路問題</text>
+  <text x="630" y="680" class="result-text">• 組合せ最適化: 最小重み完全マッチング</text>
+  <text x="630" y="695" class="result-text">• 線形代数: 行列の永続式計算</text>
+  
+  <!-- Complexity and Implementation -->
+  <rect x="70" y="730" width="1060" height="100" fill="#fed7d7" stroke="#e53e3e" stroke-width="1" rx="6"/>
+  <text x="600" y="755" text-anchor="middle" class="section-title">計算複雑度と実装のポイント</text>
+  <text x="90" y="780" class="result-text">• 二部グラフの判定: O(|V| + |E|) (2彩色可能性をDFS/BFSで確認)</text>
+  <text x="90" y="795" class="result-text">• フロー帰着による実装: 容量1の辺でsから左側、右側からtへ接続し最大フローを計算</text>
+  <text x="90" y="810" class="result-text">• メモリ効率: 隣接リスト表現で O(|V| + |E|) 空間、密グラフでは隣接行列も考慮</text>
+</svg>

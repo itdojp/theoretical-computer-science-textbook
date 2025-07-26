@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 750" width="1000" height="750">
+  <title>チューリング機械の変種と等価性</title>
+  <desc>多テープ、非決定性、線形拘束オートマトンなどの変種と標準TMとの等価性を示す図</desc>
+  
+  <defs>
+    <style>
+      .multitape-box { fill: #e3f2fd; stroke: #1976d2; stroke-width: 2; rx: 8; }
+      .ntm-box { fill: #fff3e0; stroke: #f57c00; stroke-width: 2; rx: 8; }
+      .lba-box { fill: #f3e5f5; stroke: #7b1fa2; stroke-width: 2; rx: 8; }
+      .standard-box { fill: #e8f5e8; stroke: #2e7d32; stroke-width: 2; rx: 8; }
+      .equivalence-box { fill: #ffe0b2; stroke: #ff9800; stroke-width: 2; rx: 8; }
+      
+      .title-text { font-family: 'Inter', 'Helvetica Neue', Helvetica, sans-serif; font-size: 18px; font-weight: 700; fill: #2c3e50; text-anchor: middle; }
+      .section-title { font-family: 'Inter', 'Helvetica Neue', Helvetica, sans-serif; font-size: 14px; font-weight: 600; fill: #2c3e50; text-anchor: middle; }
+      .main-text { font-family: 'Inter', 'Helvetica Neue', Helvetica, sans-serif; font-size: 12px; font-weight: 500; text-anchor: middle; }
+      .detail-text { font-family: 'Inter', 'Helvetica Neue', Helvetica, sans-serif; font-size: 10px; text-anchor: middle; }
+      .simulate-arrow { stroke: #666; stroke-width: 2; fill: none; marker-end: url(#arrowhead); stroke-dasharray: 5,3; }
+      .equivalence-arrow { stroke: #2e7d32; stroke-width: 3; fill: none; marker-end: url(#greenarrow); }
+      .simulate-text { font-family: 'Inter', 'Helvetica Neue', Helvetica, sans-serif; font-size: 10px; font-weight: 500; fill: #666; text-anchor: middle; }
+    </style>
+    
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
+    </marker>
+    
+    <marker id="greenarrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2e7d32"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1000" height="750" fill="#ffffff"/>
+  
+  <!-- Main Title -->
+  <text x="500" y="30" class="title-text">チューリング機械の変種と等価性</text>
+  
+  <!-- Multi-tape Turing Machine Section -->
+  <text x="150" y="70" class="section-title">多テープチューリング機械</text>
+  
+  <!-- Multi-tape TM -->
+  <rect x="50" y="80" width="200" height="90" class="multitape-box"/>
+  <text x="150" y="105" class="main-text" fill="#1976d2">k-テープ機械</text>
+  <text x="150" y="120" class="detail-text" fill="#1976d2">・k本の独立テープ</text>
+  <text x="150" y="135" class="detail-text" fill="#1976d2">・各テープに読み書きヘッド</text>
+  <text x="150" y="150" class="detail-text" fill="#1976d2">・δ: Q×Γᵏ→Q×Γᵏ×{L,R}ᵏ</text>
+  
+  <!-- MT Advantage -->
+  <rect x="50" y="190" width="200" height="80" class="multitape-box"/>
+  <text x="150" y="215" class="main-text" fill="#1976d2">利点</text>
+  <text x="150" y="230" class="detail-text" fill="#1976d2">・プログラミングが容易</text>
+  <text x="150" y="245" class="detail-text" fill="#1976d2">・時間効率が良い</text>
+  <text x="150" y="260" class="detail-text" fill="#1976d2">・実用的なアルゴリズム</text>
+  
+  <!-- MT Example -->
+  <rect x="50" y="290" width="200" height="80" class="multitape-box"/>
+  <text x="150" y="315" class="main-text" fill="#1976d2">例:</text>
+  <text x="150" y="330" class="detail-text" fill="#1976d2">テープ1 = 入力</text>
+  <text x="150" y="345" class="detail-text" fill="#1976d2">テープ2 = 作業領域</text>
+  <text x="150" y="360" class="detail-text" fill="#1976d2">テープ3 = 出力</text>
+  
+  <!-- Non-deterministic TM Section -->
+  <text x="400" y="70" class="section-title">非決定性チューリング機械</text>
+  
+  <!-- NTM -->
+  <rect x="300" y="80" width="200" height="90" class="ntm-box"/>
+  <text x="400" y="105" class="main-text" fill="#f57c00">非決定性TM</text>
+  <text x="400" y="120" class="detail-text" fill="#f57c00">・複数の選択肢</text>
+  <text x="400" y="135" class="detail-text" fill="#f57c00">・並行計算パス</text>
+  <text x="400" y="150" class="detail-text" fill="#f57c00">・1つでも受理なら受理</text>
+  
+  <!-- NTM Tree -->
+  <rect x="300" y="190" width="200" height="80" class="ntm-box"/>
+  <text x="400" y="215" class="main-text" fill="#f57c00">計算木</text>
+  <text x="400" y="230" class="detail-text" fill="#f57c00">分岐する計算パス</text>
+  <text x="400" y="245" class="detail-text" fill="#f57c00">幅優先探索でシミュレート</text>
+  <text x="400" y="260" class="detail-text" fill="#f57c00">指数的時間増加</text>
+  
+  <!-- NTM Equivalence -->
+  <rect x="300" y="290" width="200" height="80" class="ntm-box"/>
+  <text x="400" y="315" class="main-text" fill="#f57c00">等価性</text>
+  <text x="400" y="330" class="detail-text" fill="#f57c00">決定性TMでシミュレート可能</text>
+  <text x="400" y="345" class="detail-text" fill="#f57c00">計算木の系統的探索</text>
+  <text x="400" y="360" class="detail-text" fill="#f57c00">時間複雑度が増加</text>
+  
+  <!-- Other Variants Section -->
+  <text x="750" y="70" class="section-title">その他の変種</text>
+  
+  <!-- LBA -->
+  <rect x="650" y="80" width="200" height="90" class="lba-box"/>
+  <text x="750" y="105" class="main-text" fill="#7b1fa2">線形拘束オートマトン</text>
+  <text x="750" y="120" class="detail-text" fill="#7b1fa2">・入力長に比例する領域</text>
+  <text x="750" y="135" class="detail-text" fill="#7b1fa2">・文脈依存言語と等価</text>
+  <text x="750" y="150" class="detail-text" fill="#7b1fa2">・端記号による制限</text>
+  
+  <!-- PTM -->
+  <rect x="650" y="190" width="200" height="80" class="lba-box"/>
+  <text x="750" y="215" class="main-text" fill="#7b1fa2">確率的TM</text>
+  <text x="750" y="230" class="detail-text" fill="#7b1fa2">・ランダムビット使用</text>
+  <text x="750" y="245" class="detail-text" fill="#7b1fa2">・エラー確率あり</text>
+  <text x="750" y="260" class="detail-text" fill="#7b1fa2">・効率的アルゴリズム</text>
+  
+  <!-- OTM -->
+  <rect x="650" y="290" width="200" height="80" class="lba-box"/>
+  <text x="750" y="315" class="main-text" fill="#7b1fa2">オラクルTM</text>
+  <text x="750" y="330" class="detail-text" fill="#7b1fa2">・外部情報源アクセス</text>
+  <text x="750" y="345" class="detail-text" fill="#7b1fa2">・相対的計算可能性</text>
+  <text x="750" y="360" class="detail-text" fill="#7b1fa2">・複雑度理論の基礎</text>
+  
+  <!-- Standard TM (central) -->
+  <rect x="375" y="450" width="250" height="80" class="standard-box"/>
+  <text x="500" y="475" class="main-text" fill="#2e7d32" font-size="14px">標準チューリング機械</text>
+  <text x="500" y="495" class="detail-text" fill="#2e7d32">・1本のテープ</text>
+  <text x="500" y="510" class="detail-text" fill="#2e7d32">・決定性</text>
+  <text x="500" y="525" class="detail-text" fill="#2e7d32">・基本的な計算モデル</text>
+  
+  <!-- Equivalence Statement -->
+  <rect x="300" y="570" width="400" height="100" class="equivalence-box"/>
+  <text x="500" y="595" class="section-title" fill="#ff9800">Church-Turingの提唱</text>
+  <text x="500" y="615" class="main-text" fill="#ff9800">全ての合理的な計算モデルは</text>
+  <text x="500" y="630" class="main-text" fill="#ff9800">チューリング機械と等価</text>
+  <text x="500" y="650" class="detail-text" fill="#ff9800">計算能力は同じ、効率性は異なる</text>
+  
+  <!-- Simulation arrows -->
+  <!-- Multi-tape to Standard -->
+  <path d="M 200 350 Q 300 400 375 470" class="simulate-arrow"/>
+  <text x="280" y="410" class="simulate-text">シミュレート</text>
+  
+  <!-- NTM to Standard -->
+  <path d="M 400 370 Q 450 420 450 450" class="simulate-arrow"/>
+  <text x="430" y="410" class="simulate-text">シミュレート</text>
+  
+  <!-- LBA restriction -->
+  <path d="M 650 350 Q 580 400 550 450" class="simulate-arrow"/>
+  <text x="600" y="410" class="simulate-text">制限</text>
+  
+  <!-- Bidirectional equivalence for multi-tape and NTM -->
+  <line x1="375" y1="490" x2="250" y2="350" class="equivalence-arrow"/>
+  <line x1="450" y1="450" x2="450" y2="370" class="equivalence-arrow"/>
+  
+  <!-- Implementation details box -->
+  <rect x="50" y="420" width="200" height="120" rx="6" fill="#f8f9fa" stroke="#6c757d" stroke-width="1"/>
+  <text x="150" y="440" class="section-title">シミュレーション技法</text>
+  <text x="70" y="460" class="detail-text" text-anchor="start" font-size="9px">多テープ→単一テープ:</text>
+  <text x="70" y="475" class="detail-text" text-anchor="start" font-size="9px">• テープを複数領域に分割</text>
+  <text x="70" y="490" class="detail-text" text-anchor="start" font-size="9px">• ヘッド位置を特殊記号でマーク</text>
+  <text x="70" y="505" class="detail-text" text-anchor="start" font-size="9px">非決定性→決定性:</text>
+  <text x="70" y="520" class="detail-text" text-anchor="start" font-size="9px">• 計算木の幅優先探索</text>
+  <text x="70" y="535" class="detail-text" text-anchor="start" font-size="9px">• 系統的なパス探索</text>
+</svg>
