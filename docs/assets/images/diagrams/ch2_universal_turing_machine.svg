@@ -141,9 +141,9 @@
   <text x="575" y="135" class="detail-text">実現</text>
   
   <!-- Connection lines from UTM to applications -->
-  <line x1="400" y1="430" x2="150" y2="490" class="connection-line"/>
-  <line x1="400" y1="430" x2="400" y2="490" class="connection-line"/>
-  <line x1="400" y1="430" x2="650" y2="490" class="connection-line"/>
+  <path d="M 400 430 Q 320 460 180 490" class="connection-line"/>
+  <path d="M 400 430 L 400 490" class="connection-line"/>
+  <path d="M 400 430 Q 480 460 620 490" class="connection-line"/>
   
   <!-- Key insight box -->
   <rect x="200" y="620" width="600" height="140" rx="8" fill="#f0f8ff" stroke="#4682b4" stroke-width="2"/>

@@ -34,21 +34,21 @@
   <text x="350" y="30" class="diagram-text large-text" style="fill: #1a237e;">言語クラスの階層構造</text>
   
   <!-- All languages (outermost) -->
-  <ellipse cx="350" cy="250" rx="320" ry="180" class="all-languages"/>
+  <ellipse cx="350" cy="250" rx="300" ry="170" class="all-languages"/>
   <text x="350" y="100" class="diagram-text" style="fill: #d32f2f; font-weight: bold;">すべての言語</text>
   
   <!-- RE languages -->
-  <ellipse cx="280" cy="280" rx="220" ry="120" class="re-languages"/>
-  <text x="280" y="200" class="diagram-text" style="fill: #f57c00; font-weight: bold;">再帰的可算言語</text>
-  <text x="280" y="220" class="diagram-text small-text" style="fill: #f57c00;">(RE)</text>
+  <ellipse cx="290" cy="280" rx="200" ry="110" class="re-languages"/>
+  <text x="290" y="200" class="diagram-text" style="fill: #f57c00; font-weight: bold;">再帰的可算言語</text>
+  <text x="290" y="220" class="diagram-text small-text" style="fill: #f57c00;">(RE)</text>
   
   <!-- co-RE languages -->
-  <ellipse cx="420" cy="280" rx="220" ry="120" class="co-re-languages"/>
-  <text x="420" y="200" class="diagram-text" style="fill: #1976d2; font-weight: bold;">補再帰的可算言語</text>
-  <text x="420" y="220" class="diagram-text small-text" style="fill: #1976d2;">(co-RE)</text>
+  <ellipse cx="410" cy="280" rx="200" ry="110" class="co-re-languages"/>
+  <text x="410" y="200" class="diagram-text" style="fill: #1976d2; font-weight: bold;">補再帰的可算言語</text>
+  <text x="410" y="220" class="diagram-text small-text" style="fill: #1976d2;">(co-RE)</text>
   
   <!-- Decidable languages (intersection) -->
-  <ellipse cx="350" cy="280" rx="140" ry="80" class="decidable-languages"/>
+  <ellipse cx="350" cy="280" rx="130" ry="75" class="decidable-languages"/>
   <text x="350" y="270" class="diagram-text" style="fill: #4caf50; font-weight: bold;">決定可能言語</text>
   <text x="350" y="290" class="diagram-text small-text" style="fill: #4caf50;">(REC)</text>
   

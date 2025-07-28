@@ -90,16 +90,16 @@
   <line x1="460" y1="100" x2="710" y2="100" class="arrow"/>
   
   <!-- Reduction arrows from elements -->
-  <line x1="130" y1="200" x2="340" y2="140" class="reduction-arrow"/>
-  <line x1="130" y1="260" x2="340" y2="120" class="reduction-arrow"/>
+  <path d="M 130 200 Q 200 170 340 140" class="reduction-arrow"/>
+  <path d="M 130 260 Q 200 190 340 120" class="reduction-arrow"/>
   
   <!-- Arrows from f to reduced elements -->
-  <line x1="460" y1="120" x2="710" y2="200" class="reduction-arrow"/>
-  <line x1="460" y1="140" x2="710" y2="260" class="reduction-arrow"/>
+  <path d="M 460 120 Q 550 160 710 200" class="reduction-arrow"/>
+  <path d="M 460 140 Q 550 200 710 260" class="reduction-arrow"/>
   
   <!-- Arrows to deciders -->
-  <line x1="760" y1="220" x2="620" y2="310" class="arrow"/>
-  <line x1="760" y1="280" x2="620" y2="330" class="arrow"/>
+  <path d="M 760 220 Q 690 265 620 310" class="arrow"/>
+  <path d="M 760 280 Q 690 305 620 330" class="arrow"/>
   
   <!-- Construction arrow -->
   <line x1="540" y1="345" x2="330" y2="345" class="construction-arrow"/>
