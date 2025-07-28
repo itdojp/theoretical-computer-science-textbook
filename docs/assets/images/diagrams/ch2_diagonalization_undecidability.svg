@@ -83,7 +83,7 @@
   <text x="400" y="305" class="detail-text" fill="#d32f2f">→ 矛盾</text>
   
   <!-- Consequence -->
-  <rect x="300" y="330" width="200" height="90" class="halting-box"/>
+  <rect x="300" y="330" width="200" height="105" class="halting-box"/>
   <text x="400" y="355" class="main-text" fill="#d32f2f">帰結</text>
   <text x="400" y="370" class="detail-text" fill="#d32f2f">・完全なデバッガは不可能</text>
   <text x="400" y="385" class="detail-text" fill="#d32f2f">・プログラム検証の限界</text>
@@ -145,15 +145,15 @@
   <text x="630" y="585" class="detail-text" fill="#1976d2">・証明論</text>
   
   <!-- Reduction arrows -->
-  <line x1="250" y1="360" x2="300" y2="280" class="reduction-arrow"/>
-  <text x="260" y="310" class="detail-text" fill="#9c27b0">還元</text>
+  <path d="M 250 360 Q 270 320 300 280" class="reduction-arrow"/>
+  <text x="260" y="315" class="detail-text" fill="#9c27b0">還元</text>
   
-  <line x1="500" y1="280" x2="650" y2="250" class="reduction-arrow"/>
-  <text x="560" y="250" class="detail-text" fill="#9c27b0">一般化</text>
+  <path d="M 500 280 Q 575 260 650 250" class="reduction-arrow"/>
+  <text x="575" y="255" class="detail-text" fill="#9c27b0">一般化</text>
   
   <!-- Implication arrows -->
-  <line x1="280" y1="550" x2="320" y2="550" class="implication-arrow"/>
-  <line x1="500" y1="550" x2="540" y2="550" class="implication-arrow"/>
+  <line x1="280" y1="540" x2="320" y2="540" class="implication-arrow"/>
+  <line x1="500" y1="540" x2="540" y2="540" class="implication-arrow"/>
   
   <!-- Summary box -->
   <rect x="100" y="650" width="800" height="140" rx="8" fill="#f0f8ff" stroke="#4682b4" stroke-width="2"/>

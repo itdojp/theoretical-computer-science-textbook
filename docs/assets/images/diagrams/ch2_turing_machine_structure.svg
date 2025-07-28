@@ -137,10 +137,10 @@
   </g>
   
   <!-- Formal Definition -->
-  <rect x="750" y="90" width="400" height="490" style="fill: #f8f9fa; stroke: #6c757d; stroke-width: 2px; rx: 4px;" />
-  <text x="950" y="120" class="subtitle">チューリング機械の形式的定義</text>
+  <rect x="750" y="90" width="360" height="490" style="fill: #f8f9fa; stroke: #6c757d; stroke-width: 2px; rx: 4px;" />
+  <text x="930" y="120" class="subtitle">チューリング機械の形式的定義</text>
   
-  <text x="770" y="150" class="component-label">M = (Q, Σ, Γ, δ, q₀, qₐ, qᵣ)</text>
+  <text x="930" y="150" class="component-label" text-anchor="middle">M = (Q, Σ, Γ, δ, q₀, qₐ, qᵣ)</text>
   
   <text x="770" y="180" class="description">Q: 有限状態集合</text>
   <text x="780" y="200" class="description">例: {q₀, q₁, q₂, ..., qₙ}</text>

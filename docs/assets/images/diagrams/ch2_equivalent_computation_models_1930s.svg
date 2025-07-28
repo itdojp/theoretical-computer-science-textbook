@@ -51,22 +51,22 @@
   <text x="85" y="245" class="model-text" fill="#7b1fa2">（Post, 1936）</text>
   <text x="85" y="260" class="model-text" fill="#7b1fa2" font-size="10">文字列書換え</text>
   
-  <!-- Equivalence arrows forming a cycle -->
-  <!-- TM to Lambda -->
-  <path d="M 380 130 Q 450 160 450 210" class="equivalence-arrow"/>
-  <text x="420" y="170" class="equivalence-text">等価</text>
+  <!-- Equivalence arrows forming a cycle with symmetric outward curves -->
+  <!-- TM to Lambda (top-right) -->
+  <path d="M 380 110 Q 480 80 520 200" class="equivalence-arrow"/>
+  <text x="450" y="130" class="equivalence-text">等価</text>
   
-  <!-- Lambda to Recursive -->
-  <path d="M 470 280 Q 400 320 380 340" class="equivalence-arrow"/>
-  <text x="420" y="315" class="equivalence-text">等価</text>
+  <!-- Lambda to Recursive (bottom-right) -->
+  <path d="M 520 280 Q 480 420 380 370" class="equivalence-arrow"/>
+  <text x="450" y="340" class="equivalence-text">等価</text>
   
-  <!-- Recursive to Post -->
-  <path d="M 220 360 Q 150 320 150 280" class="equivalence-arrow"/>
-  <text x="180" y="315" class="equivalence-text">等価</text>
+  <!-- Recursive to Post (bottom-left) -->
+  <path d="M 220 370 Q 120 420 80 280" class="equivalence-arrow"/>
+  <text x="150" y="340" class="equivalence-text">等価</text>
   
-  <!-- Post to TM -->
-  <path d="M 130 210 Q 200 160 220 130" class="equivalence-arrow"/>
-  <text x="180" y="170" class="equivalence-text">等価</text>
+  <!-- Post to TM (top-left) -->
+  <path d="M 80 200 Q 120 80 220 110" class="equivalence-arrow"/>
+  <text x="150" y="130" class="equivalence-text">等価</text>
   
   <!-- Central equivalence statement -->
   <ellipse cx="300" cy="240" rx="60" ry="30" fill="#f8f9fa" stroke="#adb5bd" stroke-width="1"/>

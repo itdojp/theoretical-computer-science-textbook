@@ -121,24 +121,21 @@
   <text x="500" y="650" class="main-text" fill="#ff9800">チューリング機械と等価</text>
   <text x="500" y="670" class="detail-text" fill="#ff9800">計算能力は同じ、効率性は異なる</text>
   
-  <!-- Simulation arrows - parallel paths to avoid crossing -->
+  <!-- Simulation arrows - curved paths to avoid crossing -->
   <!-- Multi-tape to Standard -->
-  <line x1="150" y1="370" x2="150" y2="380" class="simulate-arrow"/>
-  <line x1="150" y1="380" x2="390" y2="450" class="simulate-arrow"/>
-  <text x="250" y="400" class="simulate-text">シミュレート</text>
+  <path d="M 150 370 Q 200 390 390 450" class="simulate-arrow"/>
+  <text x="260" y="405" class="simulate-text">シミュレート</text>
   
   <!-- NTM to Standard -->
-  <line x1="400" y1="370" x2="400" y2="380" class="simulate-arrow"/>
-  <line x1="400" y1="380" x2="460" y2="450" class="simulate-arrow"/>
+  <path d="M 400 370 Q 430 410 460 450" class="simulate-arrow"/>
   <text x="430" y="400" class="simulate-text">シミュレート</text>
   
   <!-- LBA restriction -->
-  <line x1="750" y1="370" x2="750" y2="380" class="simulate-arrow"/>
-  <line x1="750" y1="380" x2="580" y2="450" class="simulate-arrow"/>
-  <text x="665" y="400" class="simulate-text">制限</text>
+  <path d="M 750 370 Q 680 390 580 450" class="simulate-arrow"/>
+  <text x="675" y="405" class="simulate-text">制限</text>
   
   <!-- Bidirectional equivalence arrows -->
-  <line x1="390" y1="450" x2="270" y2="370" class="equivalence-arrow"/>
+  <path d="M 390 450 Q 320 400 270 370" class="equivalence-arrow"/>
   <line x1="460" y1="450" x2="460" y2="370" class="equivalence-arrow"/>
   
   <!-- Implementation details box -->
