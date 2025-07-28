@@ -175,7 +175,7 @@
   <path d="M 700 390 Q 750 390 800 390" class="support-flow" />
   
   <!-- Core complexity to Applied crypto (adjusted path to avoid overlapping with ch8) -->
-  <path d="M 450 330 Q 575 480 800 390" class="support-flow" />
+  <path d="M 450 330 Q 520 450 800 390" class="support-flow" />
   
   <!-- Algorithm to Concurrent -->
   <path d="M 700 320 Q 750 400 800 510" class="support-flow" />

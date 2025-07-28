@@ -168,8 +168,8 @@
     <text x="60" y="630" class="example-text">a=1, b=2, f(n)=1</text>
     <text x="60" y="645" class="example-text">log₂(1) = 0 &lt; 1のため</text>
     <text x="60" y="660" class="example-text">ケース1適用</text>
-    <text x="60" y="675" class="formula" fill="#4caf50">T(n) = Θ(1)</text>
-    <text x="60" y="690" class="explanation">※ 実際はΘ(log n)</text>
+    <text x="150" y="675" text-anchor="middle" class="formula" fill="#4caf50">T(n) = Θ(log n)</text>
+    <text x="150" y="690" text-anchor="middle" class="explanation">※ 修正済み</text>
     
     <!-- Example 2: Merge Sort -->
     <rect x="270" y="580" width="200" height="120" class="example-box" />

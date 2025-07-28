@@ -35,7 +35,7 @@
   <!-- Undirected graphs section -->
   <g transform="translate(50, 60)">
     <rect x="-20" y="-10" width="380" height="220" class="section-box"/>
-    <text x="170" y="15" text-anchor="middle" class="section-title">無向グラフの例</text>
+    <text x="190" y="15" text-anchor="middle" class="section-title">無向グラフの例</text>
     
     <!-- Simple graph -->
     <g transform="translate(90, 50)">
@@ -97,7 +97,7 @@
   <!-- Directed graphs section -->
   <g transform="translate(50, 320)">
     <rect x="-20" y="-10" width="380" height="220" class="section-box"/>
-    <text x="170" y="15" text-anchor="middle" class="section-title">有向グラフの例</text>
+    <text x="190" y="15" text-anchor="middle" class="section-title">有向グラフの例</text>
     
     <!-- DAG -->
     <g transform="translate(90, 50)">

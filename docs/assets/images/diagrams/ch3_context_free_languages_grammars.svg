@@ -70,9 +70,9 @@
     <rect x="810" y="120" width="170" height="140" fill="#ffffff" stroke="#f57c00" stroke-width="1" rx="4"/>
     <text x="895" y="140" text-anchor="middle" font-family="Inter, Helvetica, sans-serif" font-size="12" font-weight="bold" fill="#f57c00">曖昧性の問題</text>
     <text x="820" y="160" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">同じ文字列に複数の導出木</text>
-    <text x="820" y="175" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">例: a+a×aの解釈</text>
-    <text x="820" y="190" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">1. (a+a)×a</text>
-    <text x="820" y="205" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">2. a+(a×a)</text>
+    <text x="895" y="175" text-anchor="middle" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">例: a+a×aの解釈</text>
+    <text x="895" y="190" text-anchor="middle" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">1. (a+a)×a</text>
+    <text x="895" y="205" text-anchor="middle" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">2. a+(a×a)</text>
     <text x="820" y="220" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">優先順位で解決</text>
     <text x="820" y="235" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">文法の書き換えが必要</text>
     
