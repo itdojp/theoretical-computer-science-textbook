@@ -177,16 +177,16 @@
   <rect x="100" y="670" width="850" height="180" style="fill: #e8f5e9; stroke: #4caf50; stroke-width: 2px; rx: 4px;" />
   <text x="525" y="700" class="title">P = NP の含意</text>
   
-  <text x="120" y="730" class="properties-text">もし P = NP なら：</text>
-  <text x="140" y="750" class="properties-text">• RSA暗号などの公開鍵暗号が破られる</text>
-  <text x="140" y="770" class="properties-text">• すべての最適化問題が効率的に解ける</text>
-  <text x="140" y="790" class="properties-text">• 数学的証明の発見が自動化される</text>
+  <text x="140" y="730" class="properties-text">もし P = NP なら：</text>
+  <text x="160" y="750" class="properties-text">• RSA暗号などの公開鍵暗号が破られる</text>
+  <text x="160" y="770" class="properties-text">• すべての最適化問題が効率的に解ける</text>
+  <text x="160" y="790" class="properties-text">• 数学的証明の発見が自動化される</text>
   
-  <text x="500" y="730" class="properties-text">もし P ≠ NP なら：</text>
-  <text x="520" y="750" class="properties-text">• 現在の暗号が安全に使える</text>
-  <text x="520" y="770" class="properties-text">• 一部の問題は本質的に困難</text>
-  <text x="520" y="790" class="properties-text">• 創造性には計算的限界がある</text>
+  <text x="520" y="730" class="properties-text">もし P ≠ NP なら：</text>
+  <text x="540" y="750" class="properties-text">• 現在の暗号が安全に使える</text>
+  <text x="540" y="770" class="properties-text">• 一部の問題は本質的に困難</text>
+  <text x="540" y="790" class="properties-text">• 創造性には計算的限界がある</text>
   
-  <text x="120" y="820" class="properties-text">現在の予想：P ≠ NP（理論計算機科学者の98%以上が支持）</text>
-  <text x="120" y="840" class="properties-text">根拠：40年以上の研究でNP完全問題の効率的解法が見つからない</text>
+  <text x="140" y="820" class="properties-text">現在の予想：P ≠ NP（理論計算機科学者の98%以上が支持）</text>
+  <text x="140" y="840" class="properties-text">根拠：40年以上の研究でNP完全問題の効率的解法が見つからない</text>
 </svg>
