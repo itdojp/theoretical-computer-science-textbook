@@ -93,8 +93,8 @@
   <!-- Row 1: Q, Σ, Γ -->
   <rect x="50" y="140" width="240" height="70" class="component-box" />
   <text x="60" y="160" class="component-title">Q: 状態の有限集合</text>
-  <text x="60" y="175" class="component-desc">{q₀, q₁, q₂, ..., qaccept, qreject}</text>
-  <text x="60" y="190" class="component-desc">・有限個の状態　・受理・拒否状態を含む</text>
+  <text x="170" y="175" text-anchor="middle" class="component-desc">{q₀, q₁, q₂, ..., qaccept, qreject}</text>
+  <text x="170" y="190" text-anchor="middle" class="component-desc">・有限個の状態　・受理・拒否状態を含む</text>
 
   <rect x="330" y="140" width="240" height="70" class="component-box" />
   <text x="340" y="160" class="component-title">Σ: 入力アルファベット</text>

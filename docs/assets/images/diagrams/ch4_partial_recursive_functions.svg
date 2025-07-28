@@ -102,7 +102,7 @@
   <text x="400" y="525" class="diagram-text small-text">例: f(x) = μy[y > x ∧ y は偶数でない] → 常に未定義</text>
   
   <!-- Arrow from minimization to note -->
-  <path d="M 500 340 Q 520 380 400 440" stroke="#d32f2f" stroke-width="2" 
+  <path d="M 500 340 Q 520 400 400 440" stroke="#d32f2f" stroke-width="2" 
         stroke-dasharray="4,2" fill="none" marker-end="url(#arrowhead)"/>
   
   <!-- Equivalence theorem -->

@@ -157,7 +157,7 @@
     <rect x="750" y="90" width="180" height="80" class="concept-box language-box" />
     <text x="840" y="115" class="concept-title">和集合</text>
     <text x="840" y="135" class="formula">L₁ ∪ L₂</text>
-    <text x="760" y="155" class="description">いずれかの言語に属する文字列</text>
+    <text x="840" y="155" text-anchor="middle" class="description">いずれかの言語に属する文字列</text>
   </g>
   
   <!-- Concatenation -->

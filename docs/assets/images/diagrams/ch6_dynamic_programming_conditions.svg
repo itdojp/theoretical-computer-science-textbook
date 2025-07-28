@@ -181,7 +181,7 @@
   
   <!-- DP Design Process -->
   <g id="design-process">
-    <rect x="200" y="700" width="1000" height="150" style="fill: #f8f9fa; stroke: #6c757d; stroke-width: 2px; rx: 8px;" />
+    <rect x="200" y="700" width="1000" height="170" style="fill: #f8f9fa; stroke: #6c757d; stroke-width: 2px; rx: 8px;" />
     <text x="700" y="725" class="box-title">動的計画法の設計手順</text>
     
     <!-- Step boxes -->

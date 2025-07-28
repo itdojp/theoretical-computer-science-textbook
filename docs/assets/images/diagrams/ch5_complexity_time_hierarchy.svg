@@ -259,17 +259,17 @@
     <text x="925" y="345" class="section-title">理論と実践のギャップ</text>
     
     <!-- Theoretical complexity -->
-    <text x="670" y="370" class="description">理論的複雑性:</text>
-    <text x="680" y="385" class="class-notation">• 漸近的な振る舞い（n → ∞）</text>
-    <text x="680" y="400" class="class-notation">• 定数因子を無視</text>
-    <text x="680" y="415" class="class-notation">• 最悪ケースを重視</text>
+    <text x="695" y="370" class="description">理論的複雑性:</text>
+    <text x="705" y="385" class="class-notation">• 漸近的な振る舞い（n → ∞）</text>
+    <text x="705" y="400" class="class-notation">• 定数因子を無視</text>
+    <text x="705" y="415" class="class-notation">• 最悪ケースを重視</text>
     
     <!-- Practical considerations -->
-    <text x="670" y="440" class="description">実用的考慮事項:</text>
-    <text x="680" y="455" class="class-notation">• 定数因子の重要性</text>
-    <text x="680" y="470" class="class-notation">• 平均的性能</text>
-    <text x="680" y="485" class="class-notation">• キャッシュ効率、並列性</text>
-    <text x="680" y="500" class="class-notation">• 実装の複雑さ</text>
+    <text x="695" y="440" class="description">実用的考慮事項:</text>
+    <text x="705" y="455" class="class-notation">• 定数因子の重要性</text>
+    <text x="705" y="470" class="class-notation">• 平均的性能</text>
+    <text x="705" y="485" class="class-notation">• キャッシュ効率、並列性</text>
+    <text x="705" y="500" class="class-notation">• 実装の複雑さ</text>
     
     <!-- Examples of gap -->
     <text x="670" y="525" class="description">ギャップの具体例:</text>
@@ -302,6 +302,6 @@
     
     <!-- Practical boundary indicators -->
     <line x1="450" y1="185" x2="450" y2="410" stroke="#f44336" stroke-width="3" stroke-dasharray="10,5" opacity="0.7"/>
-    <text x="460" y="300" class="description" fill="#f44336" transform="rotate(90 460 300)">実用性の境界</text>
+    <text x="460" y="250" class="description" fill="#f44336" transform="rotate(90 460 250)">実用性の境界</text>
   </g>
 </svg>
