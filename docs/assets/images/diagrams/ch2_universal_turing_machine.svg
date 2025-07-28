@@ -111,8 +111,8 @@
   <text x="250" y="470" class="section-title">応用と影響</text>
   
   <!-- Modern CS -->
-  <rect x="50" y="490" width="200" height="90" class="applications-box"/>
-  <text x="150" y="515" class="main-text" fill="#7b1fa2">現代コンピュータ科学</text>
+  <rect x="80" y="490" width="200" height="90" class="applications-box"/>
+  <text x="180" y="515" class="main-text" fill="#7b1fa2">現代コンピュータ科学</text>
   <text x="150" y="530" class="detail-text" fill="#7b1fa2">・ソフトウェア工学</text>
   <text x="150" y="545" class="detail-text" fill="#7b1fa2">・プログラミング言語</text>
   <text x="150" y="560" class="detail-text" fill="#7b1fa2">・オペレーティングシステム</text>
@@ -148,10 +148,10 @@
   <!-- Key insight box -->
   <rect x="200" y="620" width="600" height="140" rx="8" fill="#f0f8ff" stroke="#4682b4" stroke-width="2"/>
   <text x="500" y="645" class="section-title">万能チューリング機械の核心的洞察</text>
-  <text x="220" y="670" class="main-text" text-anchor="start">1. 計算とデータの統一：</text>
-  <text x="240" y="685" class="detail-text" text-anchor="start">プログラム（計算手順）もデータとして扱える</text>
-  <text x="240" y="700" class="detail-text" text-anchor="start">→ ソフトウェアの概念、プログラム内蔵方式</text>
-  <text x="220" y="720" class="main-text" text-anchor="start">2. 計算の限界の発見：</text>
-  <text x="240" y="735" class="detail-text" text-anchor="start">万能機械でも解けない問題の存在</text>
-  <text x="240" y="750" class="detail-text" text-anchor="start">→ 停止問題、決定不能性理論</text>
+  <text x="500" y="670" class="main-text" text-anchor="middle">1. 計算とデータの統一：</text>
+  <text x="500" y="685" class="detail-text" text-anchor="middle">プログラム（計算手順）もデータとして扱える</text>
+  <text x="500" y="700" class="detail-text" text-anchor="middle">→ ソフトウェアの概念、プログラム内蔵方式</text>
+  <text x="500" y="720" class="main-text" text-anchor="middle">2. 計算の限界の発見：</text>
+  <text x="500" y="735" class="detail-text" text-anchor="middle">万能機械でも解けない問題の存在</text>
+  <text x="500" y="750" class="detail-text" text-anchor="middle">→ 停止問題、決定不能性理論</text>
 </svg>

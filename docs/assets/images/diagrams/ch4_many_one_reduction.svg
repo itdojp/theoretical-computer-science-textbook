@@ -90,8 +90,8 @@
   <line x1="460" y1="100" x2="710" y2="100" class="arrow"/>
   
   <!-- Reduction arrows from elements -->
-  <path d="M 130 200 Q 200 170 340 140" class="reduction-arrow"/>
-  <path d="M 130 260 Q 200 190 340 120" class="reduction-arrow"/>
+  <path d="M 130 200 Q 200 170 340 120" class="reduction-arrow"/>
+  <path d="M 130 260 Q 200 190 340 140" class="reduction-arrow"/>
   
   <!-- Arrows from f to reduced elements -->
   <path d="M 460 120 Q 550 160 710 200" class="reduction-arrow"/>

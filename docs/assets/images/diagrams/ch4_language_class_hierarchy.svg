@@ -34,11 +34,11 @@
   <text x="350" y="30" class="diagram-text large-text" style="fill: #1a237e;">言語クラスの階層構造</text>
   
   <!-- All languages (outermost) -->
-  <ellipse cx="350" cy="250" rx="300" ry="170" class="all-languages"/>
+  <ellipse cx="350" cy="250" rx="320" ry="180" class="all-languages"/>
   <text x="350" y="100" class="diagram-text" style="fill: #d32f2f; font-weight: bold;">すべての言語</text>
   
   <!-- RE languages -->
-  <ellipse cx="290" cy="280" rx="200" ry="110" class="re-languages"/>
+  <ellipse cx="280" cy="280" rx="220" ry="120" class="re-languages"/>
   <text x="290" y="200" class="diagram-text" style="fill: #f57c00; font-weight: bold;">再帰的可算言語</text>
   <text x="290" y="220" class="diagram-text small-text" style="fill: #f57c00;">(RE)</text>
   

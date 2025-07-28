@@ -112,7 +112,7 @@
   
   <!-- Contradiction arrows -->
   <path d="M 510 460 Q 530 430 560 395" class="contradiction-arrow"/>
-  <path d="M 650 420 Q 630 405 610 390" class="contradiction-arrow"/>
+  <path d="M 630 420 Q 620 405 610 390" class="contradiction-arrow"/>
   
   <!-- Contradiction labels -->
   <text x="480" y="500" class="diagram-text small-text" style="fill: #d32f2f; font-weight: bold;">矛盾！</text>
