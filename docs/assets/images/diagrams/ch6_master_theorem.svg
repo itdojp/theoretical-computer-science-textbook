@@ -221,13 +221,16 @@
     <text x="700" y="785" class="condition">f(n) vs n^(log_b a) を比較</text>
     
     <!-- Branches -->
-    <text x="300" y="825" class="condition">f(n) 小さい → ケース1</text>
-    <text x="700" y="825" class="condition">f(n) 同等 → ケース2</text>
-    <text x="1100" y="825" class="condition">f(n) 大きい → ケース3</text>
+    <text x="300" y="825" class="condition">f(n) 小さい</text>
+    <text x="300" y="840" class="condition">→ ケース1</text>
+    <text x="700" y="825" class="condition">f(n) 同等</text>
+    <text x="700" y="840" class="condition">→ ケース2</text>
+    <text x="1100" y="825" class="condition">f(n) 大きい</text>
+    <text x="1100" y="840" class="condition">→ ケース3</text>
     
     <!-- Branch arrows -->
-    <path d="M 620 800 L 350 810" class="dashed-arrow" />
-    <path d="M 700 800 L 700 810" class="dashed-arrow" />
-    <path d="M 780 800 L 1050 810" class="dashed-arrow" />
+    <path d="M 620 800 L 350 815" class="dashed-arrow" />
+    <path d="M 700 800 L 700 815" class="dashed-arrow" />
+    <path d="M 780 800 L 1050 815" class="dashed-arrow" />
   </g>
 </svg>

@@ -137,31 +137,31 @@
     <text x="1070" y="295" class="problem-desc">NP困難（NPに属さない）</text>
   </g>
   
-  <!-- Reduction arrows -->
-  <path d="M 560 160 L 420 220" class="reduction-arrow" />
-  <path d="M 350 300 L 230 360" class="reduction-arrow" />
+  <!-- Reduction arrows with curved paths to avoid crossing -->
+  <path d="M 580 160 Q 500 190 420 220" class="reduction-arrow" />
+  <path d="M 330 300 Q 270 330 230 360" class="reduction-arrow" />
   <path d="M 390 300 L 390 360" class="reduction-arrow" />
-  <path d="M 430 300 L 590 360" class="reduction-arrow" />
-  <path d="M 600 300 L 820 360" class="reduction-arrow" />
-  <path d="M 850 360 L 1030 300" class="reduction-arrow" />
+  <path d="M 450 300 Q 520 330 590 360" class="reduction-arrow" />
+  <path d="M 600 300 Q 710 320 820 360" class="reduction-arrow" />
+  <path d="M 850 360 Q 940 330 1030 300" class="reduction-arrow" />
   
   <!-- Bidirectional arrows between equivalent problems -->
-  <path d="M 280 400 L 320 400" class="reduction-arrow" />
-  <path d="M 320 420 L 280 420" class="reduction-arrow" />
-  <path d="M 500 400 L 540 400" class="reduction-arrow" />
-  <path d="M 540 420 L 500 420" class="reduction-arrow" />
+  <path d="M 280 390 L 320 390" class="reduction-arrow" />
+  <path d="M 320 410 L 280 410" class="reduction-arrow" />
+  <path d="M 500 390 L 540 390" class="reduction-arrow" />
+  <path d="M 540 410 L 500 410" class="reduction-arrow" />
   
   <!-- Reduction labels -->
-  <text x="480" y="185" class="problem-desc">≤ₚ</text>
-  <text x="270" y="335" class="problem-desc">≤ₚ</text>
+  <text x="490" y="185" class="problem-desc">≤ₚ</text>
+  <text x="280" y="330" class="problem-desc">≤ₚ</text>
   <text x="390" y="335" class="problem-desc">≤ₚ</text>
-  <text x="480" y="335" class="problem-desc">≤ₚ</text>
-  <text x="680" y="335" class="problem-desc">≤ₚ</text>
-  <text x="900" y="335" class="problem-desc">≤ₚ</text>
+  <text x="520" y="330" class="problem-desc">≤ₚ</text>
+  <text x="710" y="325" class="problem-desc">≤ₚ</text>
+  <text x="930" y="330" class="problem-desc">≤ₚ</text>
   
   <!-- Equivalence labels -->
-  <text x="300" y="450" class="problem-desc">相互還元可能</text>
-  <text x="520" y="450" class="problem-desc">相互還元可能</text>
+  <text x="300" y="460" class="problem-desc">相互還元可能</text>
+  <text x="520" y="460" class="problem-desc">相互還元可能</text>
   
   <!-- Concepts explanation -->
   <rect x="100" y="500" width="1000" height="260" style="fill: #f8f9fa; stroke: #6c757d; stroke-width: 2px; rx: 4px;" />
