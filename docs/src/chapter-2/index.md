@@ -210,9 +210,10 @@ Church-Turingの提唱は、「計算とは何か」という根本的な問い�
 
 ```python
 # 停止問題の実際的な意味
-def will_halt(program, input_data):
+def will_halt(program_code, input_value):
     """
-    この関数は原理的に完全実装不可能
+    この関数は原理的に完全実装不可能です。
+    理論的な目的でのみ使用され、停止問題の本質的な計算不可能性を示します。
     → デバッガーやIDEの限界の理論的根拠
     """
     pass

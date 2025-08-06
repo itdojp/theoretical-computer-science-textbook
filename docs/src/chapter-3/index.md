@@ -385,7 +385,7 @@ N(R₁)      ε      N(R₂)
 **実装上の考慮事項**：
 
 ```python
-# 擬似コードによる変換アルゴリズム
+# Pythonによる変換アルゴリズムの実装例
 def regex_to_nfa(regex):
     if regex == "∅":
         return create_empty_nfa()
