@@ -36,10 +36,43 @@ html {
   .sidebar-toggle {
     display: flex !important;
   }
+
+  /* Ensure header-right items remain visible on mobile */
+  .header-right {
+    display: flex !important;
+    gap: 0.5rem;
+  }
   
-  /* Overlay sidebar */
+  .header-right .search-container {
+    display: flex !important;
+  }
+  
+  .header-right .theme-toggle {
+    display: flex !important;
+  }
+
+  /* Adjust search input size for mobile */
+  .search-input {
+    width: 120px !important;
+    font-size: 14px !important;
+  }
+
+  /* Fix sidebar title size */
+  .sidebar-title {
+    font-size: 1.1rem !important;
+    line-height: 1.3 !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  .sidebar-subtitle {
+    font-size: 0.85rem !important;
+    margin-bottom: 1rem !important;
+    opacity: 0.8;
+  }
+  
+  /* Hide sidebar by default and make it overlay */
   .book-sidebar {
-    position: fixed;
+    position: fixed !important;
     top: var(--header-height);
     left: 0;
     width: 280px;
@@ -48,7 +81,7 @@ html {
     border-right: 1px solid var(--border-color);
     box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
     z-index: 1000;
-    transform: translateX(-100%);
+    transform: translateX(-100%) !important;
     transition: transform 0.3s ease;
   }
 
@@ -97,6 +130,19 @@ html {
 @media (min-width: 1025px) {
   .sidebar-toggle {
     display: none !important;
+  }
+
+  /* Desktop sidebar title styling */
+  .sidebar-title {
+    font-size: 1.2rem !important;
+    line-height: 1.3 !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  .sidebar-subtitle {
+    font-size: 0.9rem !important;
+    margin-bottom: 1.5rem !important;
+    opacity: 0.8;
   }
 }
 
