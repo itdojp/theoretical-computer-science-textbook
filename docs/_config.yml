@@ -40,5 +40,5 @@ kramdown:
     line_numbers: false
 
 # リポジトリ情報
-repository: "https://github.com/itdojp/theoretical-computer-science-textbook"
+repository: "itdojp/theoretical-computer-science-textbook"
 
