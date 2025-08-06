@@ -1,4 +1,5 @@
 ---
+layout: book
 title: "グラフ理論とネットワーク"
 subtitle: "グラフアルゴリズムと応用"
 chapter: 8

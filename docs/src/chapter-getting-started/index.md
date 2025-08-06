@@ -1,4 +1,5 @@
 ---
+layout: book
 title: "はじめ方"
 chapter: getting-started
 ---

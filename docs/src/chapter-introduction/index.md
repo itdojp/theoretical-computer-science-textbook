@@ -1,4 +1,5 @@
 ---
+layout: book
 title: "はじめに"
 chapter: introduction
 ---

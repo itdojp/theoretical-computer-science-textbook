@@ -1,4 +1,5 @@
 ---
+layout: book
 title: "情報理論"
 subtitle: "情報の定量化と符号化"
 chapter: 10

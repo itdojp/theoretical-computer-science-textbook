@@ -1,4 +1,5 @@
 ---
+layout: book
 title: "暗号理論の数学的基礎"
 subtitle: "現代暗号の理論的基盤"
 chapter: 11

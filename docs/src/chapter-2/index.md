@@ -1,4 +1,5 @@
 ---
+layout: book
 title: "第2章 計算理論の基礎"
 subtitle: "チューリング機械と計算可能性"
 description: "計算の本質的な概念とモデルを理解"

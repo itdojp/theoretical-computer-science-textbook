@@ -1,4 +1,5 @@
 ---
+layout: book
 title: "論理学・形式的手法"
 subtitle: "プログラム検証と形式仕様"
 chapter: 9

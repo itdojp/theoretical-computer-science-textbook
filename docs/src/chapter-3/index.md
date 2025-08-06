@@ -1,4 +1,5 @@
 ---
+layout: book
 title: "第3章 形式言語とオートマトン理論"
 subtitle: "正規言語から文脈自由言語まで"
 description: "形式言語の階層と対応するオートマトンを学習"

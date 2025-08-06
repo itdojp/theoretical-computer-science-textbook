@@ -1,4 +1,5 @@
 ---
+layout: book
 title: "第5章 計算複雑性理論"
 subtitle: "P対NPとNP完全性"
 description: "計算資源の観点から問題の困難さを分析"

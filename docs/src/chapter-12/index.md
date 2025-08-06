@@ -1,4 +1,5 @@
 ---
+layout: book
 title: "並行計算の理論"
 subtitle: "並列・分散システムの理論的基礎"
 chapter: 12

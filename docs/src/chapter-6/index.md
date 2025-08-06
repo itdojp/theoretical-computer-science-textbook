@@ -1,4 +1,5 @@
 ---
+layout: book
 title: "第6章 アルゴリズムの数学的解析"
 subtitle: "分割統治法、動的計画法、貪欲法"
 description: "効率的なアルゴリズムの設計と数学的解析技法"

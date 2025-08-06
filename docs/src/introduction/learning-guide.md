@@ -1,4 +1,8 @@
 ---
+layout: book
+---
+
+---
 title: "学習の進め方"
 layout: default
 ---

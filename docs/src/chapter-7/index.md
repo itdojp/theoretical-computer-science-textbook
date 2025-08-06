@@ -1,4 +1,5 @@
 ---
+layout: book
 title: "データ構造の理論"
 subtitle: "効率的なデータ操作の基盤"
 chapter: 7
