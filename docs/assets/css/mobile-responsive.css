@@ -70,9 +70,10 @@ html {
     opacity: 0.8;
   }
   
-  /* Hide sidebar by default and make it overlay */
+  /* Hide sidebar completely by default */
   .book-sidebar {
-    position: fixed !important;
+    display: none !important;
+    position: fixed;
     top: var(--header-height);
     left: 0;
     width: 280px;
@@ -81,12 +82,13 @@ html {
     border-right: 1px solid var(--border-color);
     box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
     z-index: 1000;
-    transform: translateX(-100%) !important;
+    transform: translateX(-100%);
     transition: transform 0.3s ease;
   }
 
   /* Show sidebar when toggled */
   .sidebar-toggle-checkbox:checked ~ .book-layout .book-sidebar {
+    display: block !important;
     transform: translateX(0) !important;
   }
   
