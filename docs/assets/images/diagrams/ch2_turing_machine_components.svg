@@ -1,4 +1,4 @@
-<svg viewBox="0 0 900 680" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 900 720" xmlns="http://www.w3.org/2000/svg">
   <title>チューリング機械の構成要素</title>
   <desc>チューリング機械の形式的定義と各構成要素の説明図</desc>
   
@@ -94,7 +94,7 @@
   <rect x="50" y="140" width="240" height="70" class="component-box" />
   <text x="60" y="160" class="component-title">Q: 状態の有限集合</text>
   <text x="170" y="175" text-anchor="middle" class="component-desc">{q₀, q₁, q₂, ..., qaccept, qreject}</text>
-  <text x="170" y="190" text-anchor="middle" class="component-desc">・有限個の状態　・受理・拒否状態を含む</text>
+  <text x="170" y="190" text-anchor="middle" class="component-desc">・有限個の状態・受理拒否状態含む</text>
 
   <rect x="330" y="140" width="240" height="70" class="component-box" />
   <text x="340" y="160" class="component-title">Σ: 入力アルファベット</text>
@@ -149,13 +149,14 @@
     <text x="175" y="25" class="tape-text">␣</text>
     <text x="225" y="25" class="tape-text">...</text>
     
-    <!-- Read/Write head -->
+    <!-- Read/Write head (with box) -->
+    <rect x="15" y="45" width="20" height="20" style="fill: #ffcccb; stroke: #e74c3c; stroke-width: 2px; rx: 2px;" />
     <polygon points="20,50 30,50 25,60" class="head-pointer" />
-    <text x="25" y="75" class="component-desc" text-anchor="middle">読み書きヘッド</text>
+    <text x="25" y="85" class="component-desc" text-anchor="middle">読み書きヘッド</text>
   </g>
 
-  <!-- Control unit -->
-  <g transform="translate(500, 410)">
+  <!-- Control unit (moved down) -->
+  <g transform="translate(450, 480)">
     <rect x="0" y="0" width="150" height="60" style="fill: #d4edda; stroke: #28a745; stroke-width: 2px; rx: 4px;" />
     <text x="75" y="25" class="component-title" text-anchor="middle">制御部</text>
     <text x="75" y="40" class="component-desc" text-anchor="middle">現在状態: q₁</text>
@@ -163,15 +164,15 @@
   </g>
   
   <!-- Connection line from head to control unit -->
-  <line x1="425" y1="470" x2="500" y2="440" stroke="#666" stroke-width="2" stroke-dasharray="5,5" />
-  <text x="450" y="450" class="component-desc" text-anchor="middle" style="font-size: 10px;">制御</text>
+  <line x1="225" y1="470" x2="450" y2="510" stroke="#666" stroke-width="2" stroke-dasharray="5,5" />
+  <text x="337" y="485" class="component-desc" text-anchor="middle" style="font-size: 10px;">制御信号</text>
   
   <!-- Transition explanation -->
-  <text x="200" y="500" class="component-desc">遷移例: δ(q₁, 1) = (q₂, 0, R)</text>
-  <text x="200" y="515" class="component-desc">「状態q₁で記号1を読むと、0を書いてq₂に遷移し右に移動」</text>
+  <text x="100" y="565" class="component-desc">遷移例: δ(q₁, 1) = (q₂, 0, R)</text>
+  <text x="100" y="580" class="component-desc">「状態q₁で記号1を読むと、0を書いてq₂に遷移し右に移動」</text>
 
   <!-- 7±2 rule compliant legend -->
-  <g transform="translate(50, 555)">
+  <g transform="translate(50, 595)">
     <rect x="0" y="0" width="800" height="80" style="fill: #f0f8ff; stroke: #4682b4; stroke-width: 1px; rx: 4px;" />
     <text x="400" y="20" class="subtitle">チューリング機械の動作</text>
     <text x="20" y="40" class="component-desc">1. 現在状態と読み取り記号を確認</text>
