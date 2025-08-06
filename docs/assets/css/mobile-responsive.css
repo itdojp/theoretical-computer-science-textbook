@@ -84,6 +84,7 @@ html {
     z-index: 1000;
     transform: translateX(-100%);
     transition: transform 0.3s ease;
+    pointer-events: none;
   }
 
   /* Show sidebar when toggled */
@@ -92,11 +93,9 @@ html {
     transform: translateX(0) !important;
   }
   
-  /* Ensure sidebar content is interactive */
-  .sidebar-toggle-checkbox:checked ~ .book-layout .book-sidebar .toc-link {
-    color: var(--text-secondary) !important;
+  /* Ensure sidebar content is interactive when visible */
+  .sidebar-toggle-checkbox:checked ~ .book-layout .book-sidebar {
     pointer-events: auto !important;
-    cursor: pointer !important;
   }
   
   .sidebar-toggle-checkbox:checked ~ .book-layout .book-sidebar .toc-link:hover {
@@ -114,7 +113,7 @@ html {
     position: fixed;
     inset: 0;
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 950;
+    z-index: 999;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease;
