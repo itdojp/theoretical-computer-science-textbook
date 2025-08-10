@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="900" height="600" viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: 'Noto Sans JP', sans-serif; font-size: 20px; font-weight: bold; fill: #2c3e50; }
+      .component-title { font-family: 'Noto Sans JP', sans-serif; font-size: 14px; font-weight: bold; fill: #fff; }
+      .state-text { font-family: 'Noto Sans JP', sans-serif; font-size: 12px; fill: #2c3e50; font-weight: bold; }
+      .symbol-text { font-family: 'Courier New', monospace; font-size: 14px; fill: #2c3e50; font-weight: bold; }
+      .small-text { font-family: 'Noto Sans JP', sans-serif; font-size: 10px; fill: #7f8c8d; }
+      .tape-cell { fill: #fff; stroke: #34495e; stroke-width: 2; }
+      .head-box { fill: #e74c3c; stroke: #c0392b; stroke-width: 2; }
+      .control-box { fill: #3498db; stroke: #2980b9; stroke-width: 2; }
+      .state-circle { fill: #fff; stroke: #34495e; stroke-width: 2; }
+      .accept-state { fill: #2ecc71; stroke: #27ae60; stroke-width: 3; }
+      .reject-state { fill: #e74c3c; stroke: #c0392b; stroke-width: 3; }
+      .current-state { fill: #f39c12; stroke: #e67e22; stroke-width: 3; }
+      .transition-arrow { stroke: #34495e; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .component { fill: #fff; stroke: #95a5a6; stroke-width: 1; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#34495e"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="450" y="30" class="title" text-anchor="middle">チューリングマシンの構造</text>
+
+  <!-- Tape -->
+  <g id="tape">
+    <text x="450" y="80" class="state-text" text-anchor="middle">無限テープ</text>
+    
+    <!-- Tape cells -->
+    <rect x="150" y="100" width="50" height="50" class="tape-cell"/>
+    <text x="175" y="130" class="symbol-text" text-anchor="middle">...</text>
+    
+    <rect x="200" y="100" width="50" height="50" class="tape-cell"/>
+    <text x="225" y="130" class="symbol-text" text-anchor="middle">0</text>
+    
+    <rect x="250" y="100" width="50" height="50" class="tape-cell"/>
+    <text x="275" y="130" class="symbol-text" text-anchor="middle">1</text>
+    
+    <rect x="300" y="100" width="50" height="50" class="tape-cell"/>
+    <text x="325" y="130" class="symbol-text" text-anchor="middle">1</text>
+    
+    <rect x="350" y="100" width="50" height="50" class="tape-cell"/>
+    <text x="375" y="130" class="symbol-text" text-anchor="middle">0</text>
+    
+    <rect x="400" y="100" width="50" height="50" class="tape-cell"/>
+    <text x="425" y="130" class="symbol-text" text-anchor="middle">1</text>
+    
+    <rect x="450" y="100" width="50" height="50" class="tape-cell" stroke="#e74c3c" stroke-width="3"/>
+    <text x="475" y="130" class="symbol-text" text-anchor="middle">0</text>
+    
+    <rect x="500" y="100" width="50" height="50" class="tape-cell"/>
+    <text x="525" y="130" class="symbol-text" text-anchor="middle">1</text>
+    
+    <rect x="550" y="100" width="50" height="50" class="tape-cell"/>
+    <text x="575" y="130" class="symbol-text" text-anchor="middle">0</text>
+    
+    <rect x="600" y="100" width="50" height="50" class="tape-cell"/>
+    <text x="625" y="130" class="symbol-text" text-anchor="middle">□</text>
+    
+    <rect x="650" y="100" width="50" height="50" class="tape-cell"/>
+    <text x="675" y="130" class="symbol-text" text-anchor="middle">□</text>
+    
+    <rect x="700" y="100" width="50" height="50" class="tape-cell"/>
+    <text x="725" y="130" class="symbol-text" text-anchor="middle">...</text>
+  </g>
+
+  <!-- Read/Write Head -->
+  <g id="head">
+    <polygon points="450,160 475,180 500,160" class="head-box"/>
+    <text x="475" y="200" class="state-text" text-anchor="middle">読み書きヘッド</text>
+  </g>
+
+  <!-- Control Unit -->
+  <g id="control">
+    <rect x="350" y="230" width="250" height="60" class="control-box" rx="10"/>
+    <text x="475" y="255" class="component-title" text-anchor="middle">制御部</text>
+    <text x="475" y="275" class="component-title" text-anchor="middle">現在の状態: q2</text>
+  </g>
+
+  <!-- State Transition Diagram -->
+  <g id="states">
+    <text x="450" y="330" class="state-text" text-anchor="middle">状態遷移図</text>
+    
+    <!-- Start state -->
+    <circle cx="150" cy="400" r="30" class="state-circle"/>
+    <text x="150" y="405" class="state-text" text-anchor="middle">q0</text>
+    <text x="150" y="445" class="small-text" text-anchor="middle">開始</text>
+    
+    <!-- State q1 -->
+    <circle cx="300" cy="400" r="30" class="state-circle"/>
+    <text x="300" y="405" class="state-text" text-anchor="middle">q1</text>
+    
+    <!-- State q2 (current) -->
+    <circle cx="450" cy="400" r="30" class="current-state"/>
+    <text x="450" y="405" class="state-text" text-anchor="middle">q2</text>
+    <text x="450" y="445" class="small-text" text-anchor="middle">現在</text>
+    
+    <!-- State q3 -->
+    <circle cx="600" cy="400" r="30" class="state-circle"/>
+    <text x="600" y="405" class="state-text" text-anchor="middle">q3</text>
+    
+    <!-- Accept state -->
+    <circle cx="750" cy="350" r="30" class="accept-state"/>
+    <circle cx="750" cy="350" r="25" class="accept-state"/>
+    <text x="750" y="355" class="state-text" text-anchor="middle">qa</text>
+    <text x="750" y="310" class="small-text" text-anchor="middle">受理</text>
+    
+    <!-- Reject state -->
+    <circle cx="750" cy="450" r="30" class="reject-state"/>
+    <circle cx="750" cy="450" r="25" class="reject-state"/>
+    <text x="750" y="455" class="state-text" text-anchor="middle">qr</text>
+    <text x="750" y="495" class="small-text" text-anchor="middle">拒否</text>
+    
+    <!-- Transitions -->
+    <path d="M 180 400 L 270 400" class="transition-arrow"/>
+    <text x="225" y="395" class="small-text" text-anchor="middle">0/0,R</text>
+    
+    <path d="M 330 400 L 420 400" class="transition-arrow"/>
+    <text x="375" y="395" class="small-text" text-anchor="middle">1/0,R</text>
+    
+    <path d="M 480 400 L 570 400" class="transition-arrow"/>
+    <text x="525" y="395" class="small-text" text-anchor="middle">0/1,R</text>
+    
+    <path d="M 620 380 Q 680 350 720 350" class="transition-arrow"/>
+    <text x="670" y="360" class="small-text" text-anchor="middle">□/□,R</text>
+    
+    <path d="M 620 420 Q 680 450 720 450" class="transition-arrow"/>
+    <text x="670" y="440" class="small-text" text-anchor="middle">1/1,R</text>
+    
+    <!-- Self loop -->
+    <path d="M 280 375 Q 250 340 270 375" class="transition-arrow" fill="none"/>
+    <text x="250" y="355" class="small-text" text-anchor="middle">1/1,L</text>
+  </g>
+
+  <!-- Transition Function Table -->
+  <g id="transition-table">
+    <rect x="50" y="520" width="400" height="60" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1" rx="5"/>
+    <text x="250" y="545" class="state-text" text-anchor="middle">遷移関数 δ: Q × Γ → Q × Γ × {L, R}</text>
+    <text x="60" y="565" class="small-text">δ(q, a) = (q', a', D) : 状態qで記号aを読んだら、状態q'に遷移し、a'を書いて方向Dに移動</text>
+  </g>
+
+  <!-- Formal Definition -->
+  <g id="definition">
+    <rect x="470" y="520" width="380" height="60" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1" rx="5"/>
+    <text x="660" y="545" class="state-text" text-anchor="middle">形式的定義 M = (Q, Σ, Γ, δ, q₀, qa, qr)</text>
+    <text x="480" y="565" class="small-text">Q:状態集合, Σ:入力記号, Γ:テープ記号, δ:遷移関数, q₀:初期状態, qa:受理状態, qr:拒否状態</text>
+  </g>
+</svg>

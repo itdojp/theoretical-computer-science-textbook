@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="900" height="700" viewBox="0 0 900 700" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: 'Noto Sans JP', sans-serif; font-size: 20px; font-weight: bold; fill: #2c3e50; }
+      .class-title { font-family: 'Noto Sans JP', sans-serif; font-size: 14px; font-weight: bold; fill: #fff; }
+      .section-title { font-family: 'Noto Sans JP', sans-serif; font-size: 12px; font-weight: bold; fill: #2c3e50; }
+      .text-content { font-family: 'Noto Sans JP', sans-serif; font-size: 11px; fill: #2c3e50; }
+      .small-text { font-family: 'Noto Sans JP', sans-serif; font-size: 10px; fill: #7f8c8d; }
+      .math-text { font-family: 'Times New Roman', serif; font-size: 12px; fill: #2c3e50; font-style: italic; }
+      .p-class { fill: #2ecc71; stroke: #27ae60; stroke-width: 2; opacity: 0.7; }
+      .np-class { fill: #3498db; stroke: #2980b9; stroke-width: 2; opacity: 0.7; }
+      .np-complete { fill: #e74c3c; stroke: #c0392b; stroke-width: 2; opacity: 0.7; }
+      .np-hard { fill: #9b59b6; stroke: #8e44ad; stroke-width: 2; opacity: 0.7; }
+      .pspace-class { fill: #f39c12; stroke: #e67e22; stroke-width: 2; opacity: 0.7; }
+      .exptime-class { fill: #95a5a6; stroke: #7f8c8d; stroke-width: 2; opacity: 0.7; }
+      .component { fill: #fff; stroke: #95a5a6; stroke-width: 1; }
+      .inclusion-arrow { stroke: #34495e; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#34495e"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="450" y="30" class="title" text-anchor="middle">計算複雑性クラスの階層</text>
+
+  <!-- Complexity Classes Hierarchy -->
+  <g id="hierarchy">
+    <!-- EXPTIME -->
+    <ellipse cx="450" cy="250" rx="380" ry="180" class="exptime-class"/>
+    <text x="450" y="100" class="class-title" text-anchor="middle">EXPTIME</text>
+    <text x="450" y="120" class="small-text" text-anchor="middle">指数時間</text>
+    
+    <!-- PSPACE -->
+    <ellipse cx="450" cy="270" rx="320" ry="150" class="pspace-class"/>
+    <text x="450" y="140" class="class-title" text-anchor="middle">PSPACE</text>
+    <text x="450" y="160" class="small-text" text-anchor="middle">多項式空間</text>
+    
+    <!-- NP -->
+    <ellipse cx="480" cy="290" rx="250" ry="120" class="np-class"/>
+    <text x="480" y="190" class="class-title" text-anchor="middle">NP</text>
+    <text x="480" y="210" class="small-text" text-anchor="middle">非決定性多項式時間</text>
+    
+    <!-- P -->
+    <ellipse cx="380" cy="310" rx="150" ry="80" class="p-class"/>
+    <text x="380" y="310" class="class-title" text-anchor="middle">P</text>
+    <text x="380" y="330" class="small-text" text-anchor="middle">多項式時間</text>
+    
+    <!-- NP-Complete -->
+    <ellipse cx="580" cy="320" rx="100" ry="60" class="np-complete"/>
+    <text x="580" y="320" class="class-title" text-anchor="middle">NP完全</text>
+    <text x="580" y="340" class="small-text" text-anchor="middle">NP-Complete</text>
+  </g>
+
+  <!-- P vs NP Question -->
+  <g id="pvsnp">
+    <rect x="350" y="450" width="200" height="50" fill="#fff3cd" stroke="#ffc107" stroke-width="2" rx="5"/>
+    <text x="450" y="475" class="section-title" text-anchor="middle">P = NP ?</text>
+    <text x="450" y="490" class="small-text" text-anchor="middle">ミレニアム懸賞問題</text>
+  </g>
+
+  <!-- Problem Examples -->
+  <g id="problems">
+    <!-- P Problems -->
+    <rect x="50" y="520" width="180" height="150" fill="#e6ffe6" stroke="#2ecc71" stroke-width="1" rx="5"/>
+    <text x="140" y="545" class="section-title" text-anchor="middle">P問題の例</text>
+    <text x="60" y="565" class="text-content">• ソート</text>
+    <text x="70" y="580" class="small-text">O(n log n)</text>
+    <text x="60" y="600" class="text-content">• 最短経路</text>
+    <text x="70" y="615" class="small-text">O(V²)</text>
+    <text x="60" y="635" class="text-content">• 素数判定</text>
+    <text x="70" y="650" class="small-text">O(n⁶)</text>
+    
+    <!-- NP-Complete Problems -->
+    <rect x="250" y="520" width="180" height="150" fill="#ffe6e6" stroke="#e74c3c" stroke-width="1" rx="5"/>
+    <text x="340" y="545" class="section-title" text-anchor="middle">NP完全問題の例</text>
+    <text x="260" y="565" class="text-content">• SAT問題</text>
+    <text x="270" y="580" class="small-text">充足可能性</text>
+    <text x="260" y="600" class="text-content">• 巡回セールスマン</text>
+    <text x="270" y="615" class="small-text">TSP</text>
+    <text x="260" y="635" class="text-content">• グラフ彩色</text>
+    <text x="270" y="650" class="small-text">3-彩色</text>
+    
+    <!-- NP-Hard Problems -->
+    <rect x="450" y="520" width="180" height="150" fill="#f3e6ff" stroke="#9b59b6" stroke-width="1" rx="5"/>
+    <text x="540" y="545" class="section-title" text-anchor="middle">NP困難問題の例</text>
+    <text x="460" y="565" class="text-content">• 停止問題</text>
+    <text x="470" y="580" class="small-text">決定不能</text>
+    <text x="460" y="600" class="text-content">• 最適化TSP</text>
+    <text x="470" y="615" class="small-text">最小コスト</text>
+    <text x="460" y="635" class="text-content">• ナップサック</text>
+    <text x="470" y="650" class="small-text">最適化版</text>
+    
+    <!-- Complexity Bounds -->
+    <rect x="650" y="520" width="200" height="150" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1" rx="5"/>
+    <text x="750" y="545" class="section-title" text-anchor="middle">計算量の記法</text>
+    <text x="660" y="565" class="math-text">O(1) - 定数時間</text>
+    <text x="660" y="580" class="math-text">O(log n) - 対数時間</text>
+    <text x="660" y="595" class="math-text">O(n) - 線形時間</text>
+    <text x="660" y="610" class="math-text">O(n log n) - 準線形</text>
+    <text x="660" y="625" class="math-text">O(n²) - 二乗時間</text>
+    <text x="660" y="640" class="math-text">O(n³) - 三乗時間</text>
+    <text x="660" y="655" class="math-text">O(2ⁿ) - 指数時間</text>
+  </g>
+</svg>
