@@ -20,24 +20,24 @@
 {% elsif current_path contains "src/introduction/index.md" %}
   {% assign prev_link = base_url | append: "/" %}
   {% assign prev_title = "← ホーム" %}
-  {% assign next_link = base_url | append: "/src/introduction/purpose.html" %}
+  {% assign next_link = base_url | append: "/src/introduction/purpose/" %}
   {% assign next_title = "本書の目的と構成 →" %}
 
 {% comment %} 導入部分のナビゲーション {% endcomment %}
 {% elsif current_path contains "src/introduction/purpose.md" %}
   {% assign prev_link = base_url | append: "/src/introduction/" %}
   {% assign prev_title = "← はじめに" %}
-  {% assign next_link = base_url | append: "/src/introduction/learning-guide.html" %}
+  {% assign next_link = base_url | append: "/src/introduction/learning-guide/" %}
   {% assign next_title = "学習の進め方 →" %}
 
 {% elsif current_path contains "src/introduction/learning-guide.md" %}
-  {% assign prev_link = base_url | append: "/src/introduction/purpose.html" %}
+  {% assign prev_link = base_url | append: "/src/introduction/purpose/" %}
   {% assign prev_title = "← 本書の目的と構成" %}
-  {% assign next_link = base_url | append: "/src/introduction/prerequisites.html" %}
+  {% assign next_link = base_url | append: "/src/introduction/prerequisites/" %}
   {% assign next_title = "前提知識 →" %}
 
 {% elsif current_path contains "src/introduction/prerequisites.md" %}
-  {% assign prev_link = base_url | append: "/src/introduction/learning-guide.html" %}
+  {% assign prev_link = base_url | append: "/src/introduction/learning-guide/" %}
   {% assign prev_title = "← 学習の進め方" %}
   {% assign next_link = base_url | append: "/src/chapter-1/" %}
   {% assign next_title = "第1章 →" %}
@@ -54,7 +54,7 @@
   {% endfor %}
   
   {% if current_num == 1 %}
-    {% assign prev_link = base_url | append: "/src/introduction/prerequisites.html" %}
+    {% assign prev_link = base_url | append: "/src/introduction/prerequisites/" %}
     {% assign prev_title = "← 前提知識" %}
   {% elsif current_num > 1 %}
     {% assign prev_num = current_num | minus: 1 %}
@@ -75,41 +75,41 @@
 {% elsif current_path contains "src/appendices/index.md" %}
   {% assign prev_link = base_url | append: "/src/chapter-12/" %}
   {% assign prev_title = "← 第12章" %}
-  {% assign next_link = base_url | append: "/src/appendices/a.html" %}
+  {% assign next_link = base_url | append: "/src/appendices/a/" %}
   {% assign next_title = "付録A →" %}
 
 {% elsif current_path contains "src/appendices/a.md" %}
   {% assign prev_link = base_url | append: "/src/appendices/" %}
   {% assign prev_title = "← 付録一覧" %}
-  {% assign next_link = base_url | append: "/src/appendices/b.html" %}
+  {% assign next_link = base_url | append: "/src/appendices/b/" %}
   {% assign next_title = "付録B →" %}
 
 {% elsif current_path contains "src/appendices/b.md" %}
-  {% assign prev_link = base_url | append: "/src/appendices/a.html" %}
+  {% assign prev_link = base_url | append: "/src/appendices/a/" %}
   {% assign prev_title = "← 付録A" %}
-  {% assign next_link = base_url | append: "/src/appendices/c.html" %}
+  {% assign next_link = base_url | append: "/src/appendices/c/" %}
   {% assign next_title = "付録C →" %}
 
 {% elsif current_path contains "src/appendices/c.md" %}
-  {% assign prev_link = base_url | append: "/src/appendices/b.html" %}
+  {% assign prev_link = base_url | append: "/src/appendices/b/" %}
   {% assign prev_title = "← 付録B" %}
-  {% assign next_link = base_url | append: "/src/appendices/d.html" %}
+  {% assign next_link = base_url | append: "/src/appendices/d/" %}
   {% assign next_title = "付録D →" %}
 
 {% elsif current_path contains "src/appendices/d.md" %}
-  {% assign prev_link = base_url | append: "/src/appendices/c.html" %}
+  {% assign prev_link = base_url | append: "/src/appendices/c/" %}
   {% assign prev_title = "← 付録C" %}
-  {% assign next_link = base_url | append: "/src/appendices/e.html" %}
+  {% assign next_link = base_url | append: "/src/appendices/e/" %}
   {% assign next_title = "付録E →" %}
 
 {% elsif current_path contains "src/appendices/e.md" %}
-  {% assign prev_link = base_url | append: "/src/appendices/d.html" %}
+  {% assign prev_link = base_url | append: "/src/appendices/d/" %}
   {% assign prev_title = "← 付録D" %}
-  {% assign next_link = base_url | append: "/src/appendices/f.html" %}
+  {% assign next_link = base_url | append: "/src/appendices/f/" %}
   {% assign next_title = "付録F →" %}
 
 {% elsif current_path contains "src/appendices/f.md" %}
-  {% assign prev_link = base_url | append: "/src/appendices/e.html" %}
+  {% assign prev_link = base_url | append: "/src/appendices/e/" %}
   {% assign prev_title = "← 付録E" %}
 
 {% endif %}
