@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="900" height="700" viewBox="0 0 900 700" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: 'Noto Sans JP', sans-serif; font-size: 20px; font-weight: bold; fill: #2c3e50; }
+      .automaton-title { font-family: 'Noto Sans JP', sans-serif; font-size: 14px; font-weight: bold; fill: #fff; }
+      .language-title { font-family: 'Noto Sans JP', sans-serif; font-size: 12px; font-weight: bold; fill: #2c3e50; }
+      .text-content { font-family: 'Noto Sans JP', sans-serif; font-size: 11px; fill: #2c3e50; }
+      .small-text { font-family: 'Noto Sans JP', sans-serif; font-size: 10px; fill: #7f8c8d; }
+      .example-text { font-family: 'Courier New', monospace; font-size: 10px; fill: #2c3e50; }
+      .dfa-box { fill: #2ecc71; stroke: #27ae60; stroke-width: 2; }
+      .nfa-box { fill: #3498db; stroke: #2980b9; stroke-width: 2; }
+      .pda-box { fill: #f39c12; stroke: #e67e22; stroke-width: 2; }
+      .tm-box { fill: #e74c3c; stroke: #c0392b; stroke-width: 2; }
+      .lba-box { fill: #9b59b6; stroke: #8e44ad; stroke-width: 2; }
+      .component { fill: #fff; stroke: #95a5a6; stroke-width: 1; }
+      .state-node { fill: #fff; stroke: #34495e; stroke-width: 2; }
+      .final-state { fill: #fff; stroke: #34495e; stroke-width: 2; }
+      .transition { stroke: #34495e; stroke-width: 1.5; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#34495e"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="450" y="30" class="title" text-anchor="middle">オートマトンと形式言語の階層（チョムスキー階層）</text>
+
+  <!-- Type 3: Regular Languages -->
+  <g id="regular">
+    <rect x="50" y="80" width="380" height="140" class="dfa-box" rx="10"/>
+    <text x="240" y="105" class="automaton-title" text-anchor="middle">Type 3: 正規言語</text>
+    
+    <!-- DFA Example -->
+    <g id="dfa">
+      <text x="120" y="130" class="language-title">有限オートマトン (DFA/NFA)</text>
+      
+      <circle cx="80" cy="170" r="15" class="state-node"/>
+      <text x="80" y="175" class="small-text" text-anchor="middle">q0</text>
+      
+      <circle cx="140" cy="170" r="15" class="state-node"/>
+      <text x="140" y="175" class="small-text" text-anchor="middle">q1</text>
+      
+      <circle cx="200" cy="170" r="15" class="state-node"/>
+      <circle cx="200" cy="170" r="12" class="final-state"/>
+      <text x="200" y="175" class="small-text" text-anchor="middle">q2</text>
+      
+      <path d="M 95 170 L 125 170" class="transition"/>
+      <text x="110" y="165" class="small-text" text-anchor="middle">a</text>
+      
+      <path d="M 155 170 L 185 170" class="transition"/>
+      <text x="170" y="165" class="small-text" text-anchor="middle">b</text>
+      
+      <path d="M 120 160 Q 110 140 130 160" class="transition" fill="none"/>
+      <text x="110" y="145" class="small-text" text-anchor="middle">a</text>
+    </g>
+    
+    <rect x="250" y="135" width="160" height="70" class="component" rx="3"/>
+    <text x="330" y="155" class="text-content" text-anchor="middle">例: 正規表現</text>
+    <text x="260" y="175" class="example-text">a*b+</text>
+    <text x="260" y="190" class="example-text">(ab|ba)*</text>
+    <text x="260" y="205" class="small-text">認識: 線形時間 O(n)</text>
+  </g>
+
+  <!-- Type 2: Context-Free Languages -->
+  <g id="context-free">
+    <rect x="470" y="80" width="380" height="140" class="pda-box" rx="10"/>
+    <text x="660" y="105" class="automaton-title" text-anchor="middle">Type 2: 文脈自由言語</text>
+    
+    <rect x="490" y="125" width="160" height="80" class="component" rx="3"/>
+    <text x="570" y="145" class="language-title" text-anchor="middle">プッシュダウンオートマトン</text>
+    <text x="570" y="160" class="language-title" text-anchor="middle">(PDA)</text>
+    <text x="500" y="180" class="text-content">文法: A → αβγ</text>
+    <text x="500" y="195" class="small-text">スタック付き有限オートマトン</text>
+    
+    <rect x="670" y="125" width="160" height="80" class="component" rx="3"/>
+    <text x="750" y="145" class="text-content" text-anchor="middle">例: バランス括弧</text>
+    <text x="680" y="165" class="example-text">{aⁿbⁿ | n ≥ 0}</text>
+    <text x="680" y="180" class="example-text">S → aSb | ε</text>
+    <text x="680" y="195" class="small-text">認識: O(n³) CYK法</text>
+  </g>
+
+  <!-- Type 1: Context-Sensitive Languages -->
+  <g id="context-sensitive">
+    <rect x="50" y="250" width="380" height="140" class="lba-box" rx="10"/>
+    <text x="240" y="275" class="automaton-title" text-anchor="middle">Type 1: 文脈依存言語</text>
+    
+    <rect x="70" y="295" width="160" height="80" class="component" rx="3"/>
+    <text x="150" y="315" class="language-title" text-anchor="middle">線形有界オートマトン</text>
+    <text x="150" y="330" class="language-title" text-anchor="middle">(LBA)</text>
+    <text x="80" y="350" class="text-content">文法: αAβ → αγβ</text>
+    <text x="80" y="365" class="small-text">テープ長が入力に比例</text>
+    
+    <rect x="250" y="295" width="160" height="80" class="component" rx="3"/>
+    <text x="330" y="315" class="text-content" text-anchor="middle">例: コピー言語</text>
+    <text x="260" y="335" class="example-text">{aⁿbⁿcⁿ | n ≥ 0}</text>
+    <text x="260" y="350" class="example-text">{ww | w ∈ {a,b}*}</text>
+    <text x="260" y="365" class="small-text">認識: 指数時間</text>
+  </g>
+
+  <!-- Type 0: Recursively Enumerable Languages -->
+  <g id="recursively-enumerable">
+    <rect x="470" y="250" width="380" height="140" class="tm-box" rx="10"/>
+    <text x="660" y="275" class="automaton-title" text-anchor="middle">Type 0: 再帰的可算言語</text>
+    
+    <rect x="490" y="295" width="160" height="80" class="component" rx="3"/>
+    <text x="570" y="315" class="language-title" text-anchor="middle">チューリングマシン</text>
+    <text x="570" y="330" class="language-title" text-anchor="middle">(TM)</text>
+    <text x="500" y="350" class="text-content">文法: α → β (制限なし)</text>
+    <text x="500" y="365" class="small-text">万能計算モデル</text>
+    
+    <rect x="670" y="295" width="160" height="80" class="component" rx="3"/>
+    <text x="750" y="315" class="text-content" text-anchor="middle">例: 任意の計算可能関数</text>
+    <text x="680" y="335" class="example-text">停止問題(決定不能)</text>
+    <text x="680" y="350" class="example-text">対角化言語</text>
+    <text x="680" y="365" class="small-text">認識: 決定不能な場合あり</text>
+  </g>
+
+  <!-- Chomsky Hierarchy Inclusion -->
+  <g id="inclusion">
+    <rect x="100" y="420" width="700" height="230" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1" rx="5"/>
+    <text x="450" y="445" class="language-title" text-anchor="middle">包含関係</text>
+    
+    <!-- Nested sets visualization -->
+    <ellipse cx="450" cy="530" rx="330" ry="90" fill="#ffe6e6" stroke="#e74c3c" stroke-width="2" opacity="0.3"/>
+    <text x="450" y="465" class="text-content" text-anchor="middle">Type 0: 再帰的可算言語 (RE)</text>
+    
+    <ellipse cx="450" cy="540" rx="270" ry="75" fill="#f3e6ff" stroke="#9b59b6" stroke-width="2" opacity="0.3"/>
+    <text x="450" y="485" class="text-content" text-anchor="middle">Type 1: 文脈依存言語 (CS)</text>
+    
+    <ellipse cx="450" cy="550" rx="210" ry="60" fill="#fff3cd" stroke="#f39c12" stroke-width="2" opacity="0.3"/>
+    <text x="450" y="505" class="text-content" text-anchor="middle">Type 2: 文脈自由言語 (CF)</text>
+    
+    <ellipse cx="450" cy="560" rx="150" ry="45" fill="#e6ffe6" stroke="#2ecc71" stroke-width="2" opacity="0.3"/>
+    <text x="450" y="560" class="text-content" text-anchor="middle">Type 3: 正規言語 (REG)</text>
+    
+    <!-- Properties -->
+    <text x="120" y="600" class="small-text">正規言語 ⊂ 文脈自由言語 ⊂ 文脈依存言語 ⊂ 再帰的可算言語</text>
+    <text x="120" y="620" class="small-text">DFA = NFA ⊂ PDA ⊂ LBA ⊂ TM</text>
+    <text x="120" y="640" class="small-text">各階層は真の包含関係（すべて異なる）</text>
+  </g>
+</svg>
