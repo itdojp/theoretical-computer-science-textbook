@@ -115,24 +115,22 @@
 {% endif %}
 
 {% comment %} ナビゲーションリンクの表示 {% endcomment %}
-{% if prev_link != "" or next_link != "" %}
-  <nav class="page-navigation" aria-label="ページナビゲーション">
-    <div class="nav-links">
-      {% if prev_link != "" %}
-        <a href="{{ prev_link }}" class="nav-link nav-prev">
-          {{ prev_title }}
-        </a>
-      {% else %}
-        <div class="nav-spacer"></div>
-      {% endif %}
-      
-      {% if next_link != "" %}
-        <a href="{{ next_link }}" class="nav-link nav-next">
-          {{ next_title }}
-        </a>
-      {% else %}
-        <div class="nav-spacer"></div>
-      {% endif %}
-    </div>
-  </nav>
-{% endif %}
+<nav class="page-navigation" aria-label="ページナビゲーション">
+  <div class="nav-links">
+    {% if prev_link != "" %}
+      <a href="{{ prev_link }}" class="nav-link nav-prev">
+        {{ prev_title }}
+      </a>
+    {% else %}
+      <div class="nav-spacer"></div>
+    {% endif %}
+    
+    {% if next_link != "" %}
+      <a href="{{ next_link }}" class="nav-link nav-next">
+        {{ next_title }}
+      </a>
+    {% else %}
+      <div class="nav-spacer"></div>
+    {% endif %}
+  </div>
+</nav>
