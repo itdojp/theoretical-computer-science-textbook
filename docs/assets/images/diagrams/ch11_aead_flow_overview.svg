@@ -53,9 +53,10 @@
 
     <path class="arrow" d="M 450 84 L 480 84"/>
     <path class="arrow" d="M 450 116 L 480 116"/>
-    <path class="arrow" d="M 120 54 L 480 84"/>
-    <path class="arrow" d="M 120 94 L 480 94"/>
-    <path class="arrow" d="M 120 134 L 480 116"/>
+    <!-- route long arrows as smooth curves to avoid boxes/labels -->
+    <path class="arrow" d="M 120 54 C 180 20, 420 20, 480 84"/>
+    <path class="arrow" d="M 120 94 C 200 70, 420 70, 480 94"/>
+    <path class="arrow" d="M 120 134 C 180 180, 420 160, 480 116"/>
 
     <!-- result -->
     <rect class="box good" x="640" y="70" width="80" height="28"/>
@@ -67,4 +68,3 @@
     <path class="arrow" d="M 620 100 L 640 116"/>
   </g>
 </svg>
-
