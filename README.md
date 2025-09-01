@@ -1,7 +1,7 @@
 # 理論計算機科学教科書
 
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-deployed-green)](https://itdojp.github.io/theoretical-computer-science-textbook/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://github.com/itdojp/it-engineer-knowledge-architecture/blob/main/LICENSE.md)
 [![Jekyll](https://img.shields.io/badge/Jekyll-4.3-red)](https://jekyllrb.com/)
 
 数学的基礎から始まり、計算理論、アルゴリズム、複雑性理論、そして最新の研究トピックまでを包括的にカバーする理論計算機科学の教科書。大学生、大学院生、研究者向けの体系的学習リソース。
@@ -168,7 +168,12 @@ tests/                     # テストファイル
 
 ## 📄 ライセンス
 
-[MIT License](LICENSE) - 教育・研究目的での自由な利用を許可
+本書は ITDO Inc. の統一ライセンスに従います。
+
+- ライセンス本文: https://github.com/itdojp/it-engineer-knowledge-architecture/blob/main/LICENSE.md
+- クリエイティブ・コモンズ: CC BY-NC-SA 4.0（非営利・継承・表示）
+
+商用利用をご希望の場合は、商用ライセンス契約が必要です（詳細は上記ライセンスを参照）。
 
 ## 👥 著者・コントリビューター
 
