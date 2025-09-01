@@ -6,6 +6,7 @@ layout: default
 # 付録D: 用語集・索引
 
 理論計算機科学で使用される専門用語の日英対訳と詳細な説明です。
+（主要トピックへの関連章リンクを併記しています）
 
 ## A
 
@@ -47,7 +48,7 @@ layout: default
 **チューリング機械 (Turing Machine)**
 - 理論計算機科学の基本的計算モデル
 - 無限テープ、ヘッド、状態集合から構成
-- 計算可能性の定義に使用
+- 計算可能性の定義に使用（→ 第2章: 計算理論の基礎: ../chapter-2/index.md）
 
 **Church-Turing仮説 (Church-Turing Thesis)**
 - 直感的に計算可能な関数はチューリング機械で計算可能
@@ -55,25 +56,26 @@ layout: default
 
 **複雑性クラス (Complexity Class)**
 - 同程度の計算資源で解ける問題の集合
-- P, NP, PSPACE, EXPTIME等
+- P, NP, PSPACE, EXPTIME等（→ 第5章: 計算複雑性理論: ../chapter-5/index.md）
 
 **文脈自由文法 (Context-Free Grammar)**
 - 型2文法、プッシュダウンオートマトンと対応
-- A → α の形の生成規則（Aは非終端記号）
+- A → α の形の生成規則（Aは非終端記号）（→ 第3章: 形式言語とオートマトン理論: ../chapter-3/index.md）
 
 **計算可能性 (Computability)**
 - アルゴリズムによって解ける問題の性質
-- チューリング機械による定式化
+- チューリング機械による定式化（→ 第4章: 計算可能性理論: ../chapter-4/index.md）
 
 ## D
 
 **決定可能性 (Decidability)**
 - ある問題に対してyes/noの答えを常に出力するアルゴリズムが存在する性質
 - 決定可能言語 = 再帰言語
+ - 参考: 第4章「決定不能問題」「還元可能性」（→ ../chapter-4/index.md）
 
 **決定性有限オートマトン (Deterministic Finite Automaton, DFA)**
 - 各状態・入力記号の組に対して遷移先が一意に決まるFA
-- 正規言語を認識する最も基本的な計算モデル
+- 正規言語を認識する最も基本的な計算モデル（→ 正規言語とDFA: ../chapter-3/index.md）
 
 **深さ優先探索 (Depth-First Search, DFS)**
 - グラフ探索アルゴリズムの一種
@@ -129,6 +131,7 @@ layout: default
 **グラフ (Graph)**
 - 頂点（V）と辺（E）の集合 G = (V, E)
 - 有向グラフと無向グラフがある
+- 応用と表現は第8章を参照（→ 第8章: グラフ理論とネットワーク: ../chapter-8/index.md）
 
 **貪欲法 (Greedy Algorithm)**
 - 各段階で局所的に最適な選択をする手法
@@ -151,6 +154,7 @@ layout: default
 **ハミルトン経路 (Hamiltonian Path)**
 - グラフのすべての頂点を正確に一度ずつ通る経路
 - NP完全問題
+- NP完全性の文脈は第5章を参照（→ 第5章: 計算複雑性理論: ../chapter-5/index.md）
 
 ## I
 
@@ -219,6 +223,7 @@ layout: default
 **NP完全 (NP-Complete)**
 - NPクラスに属し、NPの任意の問題から多項式時間還元可能な問題
 - SAT、クリーク問題、巡回セールスマン問題等
+- 定義と例は第5章を参照（→ 第5章: 計算複雑性理論: ../chapter-5/index.md）
 
 **非決定性有限オートマトン (Nondeterministic Finite Automaton, NFA)**
 - 各状態・入力記号の組に対して複数の遷移先を持てるFA
@@ -267,6 +272,7 @@ layout: default
 **還元 (Reduction)**
 - ある問題を別の問題に変換すること
 - 計算可能性、複雑性の研究で重要
+- 形式と用例は第5章を参照（→ 第5章: 計算複雑性理論: ../chapter-5/index.md）
 
 **正規言語 (Regular Language)**
 - 有限オートマトンで認識可能な言語
@@ -284,7 +290,7 @@ layout: default
 
 **SAT問題 (Satisfiability Problem)**
 - 論理式が充足可能かを判定する問題
-- 最初に証明されたNP完全問題
+- 最初に証明されたNP完全問題（→ 第5章: NP完全性（Cook–Levin）: ../chapter-5/index.md）
 
 **集合 (Set)**
 - 異なる要素の集まり
@@ -326,7 +332,7 @@ layout: default
 
 **検証器 (Verifier)**
 - 解候補の正当性を確認するアルゴリズム
-- NP問題の定義で使用
+- NP問題の定義で使用（→ 第5章: NPの検証的特徴付け: ../chapter-5/index.md）
 
 **頂点被覆 (Vertex Cover)**
 - グラフのすべての辺を被覆する頂点集合
@@ -352,7 +358,7 @@ layout: default
 
 **ゼロ知識証明 (Zero-Knowledge Proof)**
 - 知識を明かすことなく知識の保有を証明する手法
-- 暗号理論で重要
+- 暗号理論で重要（→ 第11章: ゼロ知識証明: ../chapter-11/index.md）
 
 ---
 
