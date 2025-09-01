@@ -54,8 +54,8 @@
     <path class="arrow" d="M 450 84 L 480 84"/>
     <path class="arrow" d="M 450 116 L 480 116"/>
     <!-- route long arrows as smooth curves to avoid boxes/labels -->
-    <path class="arrow" d="M 120 54 C 180 20, 420 20, 480 84"/>
-    <path class="arrow" d="M 120 94 C 200 70, 420 70, 480 94"/>
+    <path class="arrow" d="M 120 54 C 180 0, 420 0, 480 84"/>
+    <path class="arrow" d="M 120 94 C 200 20, 420 20, 480 94"/>
     <path class="arrow" d="M 120 134 C 180 180, 420 160, 480 116"/>
 
     <!-- result -->
