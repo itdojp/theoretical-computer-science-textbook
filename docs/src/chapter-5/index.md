@@ -46,6 +46,10 @@ t_M(n) = max{M が長さ n の入力 w で実行するステップ数}
 - 反射性：f = O(f)
 - 対称性：f = Θ(g) ⟺ g = Θ(f)
 
+直観図：代表的な計算量の増加の比較（O(1), O(log n), O(n), O(n log n), O(n²)）
+
+![Big-O 成長率の比較](../../assets/images/diagrams/ch5_big_o_growth_curves.svg)
+
 ### 5.1.3 時間複雑性クラス
 
 ![計算複雑性の階層構造](../../assets/images/diagrams/ch5_complexity_time_hierarchy.svg)

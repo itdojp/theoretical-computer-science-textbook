@@ -49,6 +49,10 @@ H(X) = -p log₂ p - (1-p) log₂(1-p) = h(p)
 
 これを**二値エントロピー関数**という。h(p) は p = 1/2 で最大値 1 をとる。
 
+直観図：二値エントロピー h(p) の曲線（底は log₂）
+
+![二値エントロピー関数 h(p) の曲線](../../assets/images/diagrams/ch10_binary_entropy_curve.svg)
+
 **定理 10.1** 離散確率変数 X について：
 0 ≤ H(X) ≤ log₂ |X|
 

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" role="img" aria-labelledby="title desc">
+  <title id="title">Big-O 成長率の比較</title>
+  <desc id="desc">O(1)、O(log n)、O(n)、O(n log n)、O(n^2) の増加曲線を同一座標上で比較した図。横軸は n、縦軸は相対的な成長量。</desc>
+
+  <defs>
+    <style>
+      .axis { stroke: #222; stroke-width: 1.5; }
+      .grid { stroke: #ddd; stroke-width: 1; }
+      .label { fill: #111; font-family: Inter, Helvetica, Arial, sans-serif; font-size: 12px; }
+      .legend { fill: #111; font-family: Inter, Helvetica, Arial, sans-serif; font-size: 12px; }
+      .c1 { stroke: #2b8a3e; stroke-width: 2.5; fill: none; }
+      .c2 { stroke: #1c7ed6; stroke-width: 2.5; fill: none; }
+      .c3 { stroke: #f08c00; stroke-width: 2.5; fill: none; }
+      .c4 { stroke: #ae3ec9; stroke-width: 2.5; fill: none; }
+      .c5 { stroke: #e03131; stroke-width: 2.5; fill: none; }
+    </style>
+  </defs>
+
+  <!-- margins -->
+  <g transform="translate(60,20)">
+    <!-- grid -->
+    <g>
+      <line class="grid" x1="0" y1="360" x2="560" y2="360"/>
+      <line class="grid" x1="0" y1="270" x2="560" y2="270"/>
+      <line class="grid" x1="0" y1="180" x2="560" y2="180"/>
+      <line class="grid" x1="0" y1="90"  x2="560" y2="90"/>
+    </g>
+
+    <!-- axes -->
+    <line class="axis" x1="0" y1="360" x2="560" y2="360"/>
+    <line class="axis" x1="0" y1="360" x2="0" y2="10"/>
+    <text class="label" x="565" y="365">n</text>
+    <text class="label" x="-10" y="12" text-anchor="end">成長</text>
+
+    <!-- Curves (schematic, not to exact scale) -->
+    <!-- O(1): nearly flat -->
+    <path class="c1" d="M0,320 L560,320"/>
+
+    <!-- O(log n): slow rise (log curve) -->
+    <path class="c2" d="M0,340 C140,330 280,310 560,260"/>
+
+    <!-- O(n): linear -->
+    <path class="c3" d="M0,350 L560,60"/>
+
+    <!-- O(n log n): superlinear smooth curve -->
+    <path class="c4" d="M0,350 C200,300 360,200 560,80"/>
+
+    <!-- O(n^2): convex upward -->
+    <path class="c5" d="M0,350 C180,340 360,280 560,20"/>
+
+    <!-- ticks -->
+    <g>
+      <text class="label" x="0" y="378">0</text>
+      <text class="label" x="180" y="378">n/3</text>
+      <text class="label" x="360" y="378">2n/3</text>
+      <text class="label" x="540" y="378">n</text>
+    </g>
+
+    <!-- legend -->
+    <g transform="translate(360,10)">
+      <rect x="0" y="0" width="190" height="90" rx="6" ry="6" fill="#f8f9fa" stroke="#ccc"/>
+      <line class="c1" x1="10" y1="18" x2="40" y2="18"/>
+      <text class="legend" x="50" y="22">O(1)</text>
+      <line class="c2" x1="10" y1="36" x2="40" y2="36"/>
+      <text class="legend" x="50" y="40">O(log n)</text>
+      <line class="c3" x1="10" y1="54" x2="40" y2="54"/>
+      <text class="legend" x="50" y="58">O(n)</text>
+      <line class="c4" x1="10" y1="72" x2="40" y2="72"/>
+      <text class="legend" x="50" y="76">O(n log n)</text>
+      <line class="c5" x1="10" y1="90" x2="40" y2="90"/>
+      <text class="legend" x="50" y="94">O(n^2)</text>
+    </g>
+
+  </g>
+</svg>
+
