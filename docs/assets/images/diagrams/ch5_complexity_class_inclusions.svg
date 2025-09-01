@@ -120,17 +120,17 @@
     
     <!-- coNP (Complement of NP) -->
     <rect x="500" y="200" width="100" height="60" class="complement-class" />
-    <text x="556" y="220" class="class-name">coNP</text>
-    <text x="556" y="235" class="class-notation">補NP</text>
-    <text x="556" y="248" class="class-notation small">NPの補集合</text>
-    <text x="556" y="261" class="class-notation small">クラス</text>
+    <text x="570" y="220" class="class-name">coNP</text>
+    <text x="570" y="235" class="class-notation">補NP</text>
+    <text x="570" y="248" class="class-notation small">NPの補集合</text>
+    <text x="570" y="261" class="class-notation small">クラス</text>
     
     <!-- BPP (Bounded-error Probabilistic Polynomial) -->
     <rect x="300" y="300" width="100" height="60" class="probabilistic-class" />
-    <text x="356" y="320" class="class-name">BPP</text>
-    <text x="356" y="333" class="class-notation small">確率的</text>
-    <text x="356" y="346" class="class-notation small">多項式時間</text>
-    <text x="356" y="350" class="class-notation">有界誤り確率</text>
+    <text x="370" y="320" class="class-name">BPP</text>
+    <text x="370" y="333" class="class-notation small">確率的</text>
+    <text x="370" y="346" class="class-notation small">多項式時間</text>
+    <text x="370" y="350" class="class-notation">有界誤り確率</text>
     
     <!-- PSPACE (Polynomial Space) -->
     <rect x="700" y="150" width="100" height="60" class="space-class" />
