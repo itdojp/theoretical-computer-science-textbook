@@ -1,6 +1,6 @@
-<svg viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg">
-  <title>計算複雑性クラスの包含関係</title>
-  <desc>L, P, NP, PSPACE, EXPTIMEなど主要な複雑性クラスの階層構造</desc>
+<svg viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">計算複雑性クラスの包含関係</title>
+  <desc id="desc">L, P, NP, PSPACE, EXPTIMEなど主要な複雑性クラスの階層構造</desc>
   
   <defs>
     <style>
@@ -44,7 +44,7 @@
       
       .inclusion-arrow {
         stroke: #2c3e50;
-        stroke-width: 3px;
+        stroke-width: 2.5px;
         fill: none;
         marker-end: url(#inclusion-arrowhead);
       }

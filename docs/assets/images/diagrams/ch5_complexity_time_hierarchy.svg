@@ -1,6 +1,6 @@
-<svg viewBox="0 0 1400 900" xmlns="http://www.w3.org/2000/svg">
-  <title>計算複雑性の階層構造</title>
-  <desc>時間複雑性、空間複雑性、非決定性クラスの包含関係と実用的境界</desc>
+<svg viewBox="0 0 1400 900" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">計算複雑性の階層構造</title>
+  <desc id="desc">時間複雑性、空間複雑性、非決定性クラスの包含関係と実用的境界</desc>
   
   <defs>
     <style>
@@ -12,7 +12,7 @@
       
       .hierarchy-arrow { 
         stroke: #666; 
-        stroke-width: 2px; 
+        stroke-width: 2.5px; 
         fill: none; 
         marker-end: url(#arrowhead);
       }
