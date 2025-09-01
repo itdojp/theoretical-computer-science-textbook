@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="900" height="700" viewBox="0 0 900 700" xmlns="http://www.w3.org/2000/svg">
+<svg width="900" height="700" viewBox="0 0 900 700" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">計算複雑性クラスの階層</title>
+  <desc id="desc">P、NP、NP完全、PSPACE、EXPTIME などの複雑性クラスの包含関係と問題例を示す概観図。</desc>
   <defs>
     <style>
       .title { font-family: 'Noto Sans JP', sans-serif; font-size: 20px; font-weight: bold; fill: #2c3e50; }

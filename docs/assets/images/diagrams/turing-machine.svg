@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="900" height="600" viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg">
+<svg width="900" height="600" viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">チューリングマシンの構造</title>
+  <desc id="desc">無限テープ、読み書きヘッド、制御装置、状態遷移など、チューリングマシンの基本構成要素を示す図。受理・拒否・現在状態の例示を含む。</desc>
   <defs>
     <style>
       .title { font-family: 'Noto Sans JP', sans-serif; font-size: 20px; font-weight: bold; fill: #2c3e50; }
