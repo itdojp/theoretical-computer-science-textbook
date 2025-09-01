@@ -131,6 +131,7 @@ layout: default
 **グラフ (Graph)**
 - 頂点（V）と辺（E）の集合 G = (V, E)
 - 有向グラフと無向グラフがある
+- 応用と表現は第8章を参照（→ 第8章: グラフ理論とネットワーク: ../chapter-8/index.md）
 
 **貪欲法 (Greedy Algorithm)**
 - 各段階で局所的に最適な選択をする手法
@@ -153,6 +154,7 @@ layout: default
 **ハミルトン経路 (Hamiltonian Path)**
 - グラフのすべての頂点を正確に一度ずつ通る経路
 - NP完全問題
+- NP完全性の文脈は第5章を参照（→ 第5章: 計算複雑性理論: ../chapter-5/index.md）
 
 ## I
 
@@ -221,6 +223,7 @@ layout: default
 **NP完全 (NP-Complete)**
 - NPクラスに属し、NPの任意の問題から多項式時間還元可能な問題
 - SAT、クリーク問題、巡回セールスマン問題等
+- 定義と例は第5章を参照（→ 第5章: 計算複雑性理論: ../chapter-5/index.md）
 
 **非決定性有限オートマトン (Nondeterministic Finite Automaton, NFA)**
 - 各状態・入力記号の組に対して複数の遷移先を持てるFA
@@ -269,6 +272,7 @@ layout: default
 **還元 (Reduction)**
 - ある問題を別の問題に変換すること
 - 計算可能性、複雑性の研究で重要
+- 形式と用例は第5章を参照（→ 第5章: 計算複雑性理論: ../chapter-5/index.md）
 
 **正規言語 (Regular Language)**
 - 有限オートマトンで認識可能な言語
