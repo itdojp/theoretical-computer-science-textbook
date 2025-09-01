@@ -62,6 +62,7 @@
         text-anchor: middle; 
         fill: #666;
       }
+      .small { font-size: 8px; }
       
       .description { 
         font-family: Inter, Helvetica, sans-serif;
@@ -100,7 +101,7 @@
     <!-- NL (Nondeterministic Log Space) -->
     <rect x="100" y="200" width="100" height="60" class="space-class" />
     <text x="150" y="220" class="class-name">NL</text>
-    <text x="150" y="235" class="class-notation">非決定性対数空間</text>
+    <text x="150" y="235" class="class-notation small">非決定性対数空間</text>
     <text x="150" y="250" class="class-notation">NSPACE(log n)</text>
     
     <!-- P (Polynomial Time) -->
@@ -112,19 +113,19 @@
     <!-- NP (Nondeterministic Polynomial Time) -->
     <rect x="500" y="100" width="100" height="60" class="non-deterministic-time" />
     <text x="550" y="120" class="class-name">NP</text>
-    <text x="550" y="135" class="class-notation">非決定性多項式時間</text>
+    <text x="550" y="135" class="class-notation small">非決定性多項式時間</text>
     <text x="550" y="150" class="class-notation">∪ₖ NTIME(nᵏ)</text>
     
     <!-- coNP (Complement of NP) -->
     <rect x="500" y="200" width="100" height="60" class="complement-class" />
     <text x="550" y="220" class="class-name">coNP</text>
     <text x="550" y="235" class="class-notation">補NP</text>
-    <text x="550" y="250" class="class-notation">NPの補集合クラス</text>
+    <text x="550" y="250" class="class-notation small">NPの補集合クラス</text>
     
     <!-- BPP (Bounded-error Probabilistic Polynomial) -->
     <rect x="300" y="300" width="100" height="60" class="probabilistic-class" />
     <text x="350" y="320" class="class-name">BPP</text>
-    <text x="350" y="335" class="class-notation">確率的多項式時間</text>
+    <text x="350" y="335" class="class-notation small">確率的多項式時間</text>
     <text x="350" y="350" class="class-notation">有界誤り確率</text>
     
     <!-- PSPACE (Polynomial Space) -->
