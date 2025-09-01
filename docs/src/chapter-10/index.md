@@ -55,7 +55,7 @@ H(X) = -p log₂ p - (1-p) log₂(1-p) = h(p)
 等号は左が X が定数のとき、右が X が一様分布のとき。
 
 *証明*：Jensen の不等式を用いる。log は凹関数なので：
-H(X) = E[-log p(X)] ≤ -log E[p(X)] = -log(1/|X|) = log |X| □
+H(X) = E[-log₂ p(X)] ≤ -log₂ E[p(X)] = -log₂(1/|X|) = log₂ |X| □
 
 ### 10.1.3 結合エントロピーと条件付きエントロピー
 
@@ -324,13 +324,13 @@ h(X) ≤ (1/2) log(2πeσ²)
 Y = X + Z、Z ~ N(0, N)
 
 **定理 10.18** 電力制約 E[X²] ≤ P の下での AWGN 通信路容量：
-C = (1/2) log(1 + P/N) [bits/channel use]
+C = (1/2) log₂(1 + P/N) [bits/channel use]
 
 ### 10.5.4 帯域制限通信路
 
 **Shannon-Hartley の定理**：
 帯域幅 W、信号電力 P、雑音電力 N の通信路容量：
-C = W log(1 + P/N) [bits/second]
+C = W log₂(1 + P/N) [bits/second]
 
 ## 10.6 情報理論の応用
 
