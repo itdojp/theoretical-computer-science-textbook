@@ -149,6 +149,15 @@ C_i = M_i ⊕ E_k(IV || i)
 （例：AES-GCM、ChaCha20-Poly1305）を優先的に用いる。安全性目標としてはIND-CPA（秘匿）
 のみならずIND-CCA（選択暗号文攻撃耐性）を考慮するのが望ましい。
 
+#### 実運用チェックリスト（要点）
+- AEADを既定に：AES-GCM または ChaCha20-Poly1305 を優先（Encrypt-then-MACの原則）
+- IV/Nonceの一意性：CBCのIVはランダム・予測不能、CTR/GCMのNonceは二度と再利用しない
+- ECBは非推奨：パターンが漏洩するため機密データでは使用しない
+- パディングオラクル対策：CBC+PKCS#7 などではMAC併用またはAEADを使用
+- 公開鍵暗号：生RSAは不可、RSA-OAEPを使用
+- 署名：DSA/ECDSA/Schnorrではkの再利用禁止、RFC 6979 等の決定的kも検討
+- 実装：定数時間化や乱数安全性（CSPRNG）などサイドチャネル対策
+
 ## 11.3 公開鍵暗号
 
 ### 11.3.1 RSA 暗号
