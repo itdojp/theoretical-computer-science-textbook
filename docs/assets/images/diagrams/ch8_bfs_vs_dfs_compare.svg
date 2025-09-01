@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" role="img" aria-labelledby="title desc">
+  <title id="title">BFS と DFS の探索順と探索木の比較</title>
+  <desc id="desc">同一グラフに対して、BFS と DFS の到達順と生成される探索木の違いを2パネルで比較した図。</desc>
+  <defs>
+    <style>
+      .label { fill: #111; font-family: Inter, Helvetica, Arial, sans-serif; font-size: 12px; }
+      .node { fill: #fff; stroke: #495057; stroke-width: 1.8; }
+      .edge { stroke: #adb5bd; stroke-width: 1.4; }
+      .tree { stroke: #228be6; stroke-width: 2.2; }
+      .order { fill: #343a40; font-size: 11px; }
+      .panel { fill: #f8f9fa; stroke: #dee2e6; }
+    </style>
+  </defs>
+
+  <!-- BFS panel -->
+  <g transform="translate(20,20)">
+    <rect class="panel" x="0" y="0" width="320" height="320" rx="8"/>
+    <text class="label" x="10" y="18">BFS</text>
+    <!-- graph -->
+    <line class="edge" x1="60" y1="60" x2="160" y2="40"/>
+    <line class="edge" x1="60" y1="60" x2="160" y2="100"/>
+    <line class="edge" x1="160" y1="40" x2="260" y2="60"/>
+    <line class="edge" x1="160" y1="100" x2="260" y2="60"/>
+    <!-- BFS tree edges -->
+    <line class="tree" x1="60" y1="60" x2="160" y2="40"/>
+    <line class="tree" x1="60" y1="60" x2="160" y2="100"/>
+    <line class="tree" x1="160" y1="40" x2="260" y2="60"/>
+    <!-- nodes -->
+    <circle class="node" cx="60" cy="60" r="14"/>
+    <text class="label" x="60" y="64" text-anchor="middle">s</text>
+    <text class="order" x="60" y="80" text-anchor="middle">1</text>
+    <circle class="node" cx="160" cy="40" r="14"/>
+    <text class="label" x="160" y="44" text-anchor="middle">a</text>
+    <text class="order" x="160" y="22" text-anchor="middle">2</text>
+    <circle class="node" cx="160" cy="100" r="14"/>
+    <text class="label" x="160" y="104" text-anchor="middle">b</text>
+    <text class="order" x="160" y="122" text-anchor="middle">3</text>
+    <circle class="node" cx="260" cy="60" r="14"/>
+    <text class="label" x="260" y="64" text-anchor="middle">t</text>
+    <text class="order" x="260" y="80" text-anchor="middle">4</text>
+  </g>
+
+  <!-- DFS panel -->
+  <g transform="translate(380,20)">
+    <rect class="panel" x="0" y="0" width="320" height="320" rx="8"/>
+    <text class="label" x="10" y="18">DFS</text>
+    <!-- graph -->
+    <line class="edge" x1="60" y1="60" x2="160" y2="40"/>
+    <line class="edge" x1="60" y1="60" x2="160" y2="100"/>
+    <line class="edge" x1="160" y1="40" x2="260" y2="60"/>
+    <line class="edge" x1="160" y1="100" x2="260" y2="60"/>
+    <!-- DFS tree edges -->
+    <line class="tree" x1="60" y1="60" x2="160" y2="40"/>
+    <line class="tree" x1="160" y1="40" x2="260" y2="60"/>
+    <!-- nodes -->
+    <circle class="node" cx="60" cy="60" r="14"/>
+    <text class="label" x="60" y="64" text-anchor="middle">s</text>
+    <text class="order" x="60" y="80" text-anchor="middle">1</text>
+    <circle class="node" cx="160" cy="40" r="14"/>
+    <text class="label" x="160" y="44" text-anchor="middle">a</text>
+    <text class="order" x="160" y="22" text-anchor="middle">2</text>
+    <circle class="node" cx="260" cy="60" r="14"/>
+    <text class="label" x="260" y="64" text-anchor="middle">t</text>
+    <text class="order" x="260" y="80" text-anchor="middle">3</text>
+    <circle class="node" cx="160" cy="100" r="14"/>
+    <text class="label" x="160" y="104" text-anchor="middle">b</text>
+    <text class="order" x="160" y="122" text-anchor="middle">4</text>
+  </g>
+</svg>
+

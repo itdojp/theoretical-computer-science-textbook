@@ -66,7 +66,9 @@ sections:
 
 ### 8.1.3 グラフの走査
 
-![DFS vs BFS の探索順序](../../assets/images/diagrams/ch8_dfs_bfs_comparison.svg)
+直観図：同一グラフに対する BFS と DFS の探索順・探索木の比較
+
+![BFS と DFS の比較](../../assets/images/diagrams/ch8_bfs_vs_dfs_compare.svg)
 
 #### 深さ優先探索（DFS）
 

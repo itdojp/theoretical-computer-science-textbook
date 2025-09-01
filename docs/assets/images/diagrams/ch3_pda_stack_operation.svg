@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" role="img" aria-labelledby="title desc">
+  <title id="title">PDA のスタック操作（括弧整合の受理例）</title>
+  <desc id="desc">入力列に対し、PDA がスタックにプッシュ/ポップして括弧の整合を確認する様子を段階的に示す模式図。</desc>
+  <defs>
+    <style>
+      .label { fill: #111; font-family: Inter, Helvetica, Arial, sans-serif; font-size: 12px; }
+      .box { fill: #f8f9fa; stroke: #adb5bd; stroke-width: 1.5; }
+      .state { fill: #fff; stroke: #495057; stroke-width: 1.5; }
+      .accept { fill: #e6fcf5; }
+      .arrow { stroke: #212529; stroke-width: 1.8; marker-end: url(#m); }
+      .stack { fill: #fff; stroke: #495057; stroke-width: 1.2; }
+      .push { fill: #74c0fc; }
+      .pop { fill: #ffc9c9; }
+    </style>
+    <marker id="m" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#212529" />
+    </marker>
+  </defs>
+
+  <!-- Panel: input and stack actions -->
+  <g transform="translate(20,20)">
+    <rect class="box" x="0" y="0" width="680" height="320" rx="8"/>
+    <text class="label" x="10" y="18">入力: ( ( ) )</text>
+
+    <!-- step 1 -->
+    <text class="label" x="20" y="50">Step 1</text>
+    <circle class="state" cx="80" cy="72" r="14"/>
+    <text class="label" x="80" y="76" text-anchor="middle">q</text>
+    <rect class="stack push" x="120" y="58" width="24" height="28"/>
+    <text class="label" x="132" y="76" text-anchor="middle">(</text>
+    <text class="label" x="160" y="76">push '('</text>
+
+    <!-- step 2 -->
+    <text class="label" x="20" y="110">Step 2</text>
+    <circle class="state" cx="80" cy="132" r="14"/>
+    <text class="label" x="80" y="136" text-anchor="middle">q</text>
+    <rect class="stack" x="120" y="118" width="24" height="28"/>
+    <rect class="stack push" x="146" y="118" width="24" height="28"/>
+    <text class="label" x="133" y="136" text-anchor="middle">(</text>
+    <text class="label" x="158" y="136" text-anchor="middle">(</text>
+    <text class="label" x="190" y="136">push '('</text>
+
+    <!-- step 3 -->
+    <text class="label" x="20" y="170">Step 3</text>
+    <circle class="state" cx="80" cy="192" r="14"/>
+    <text class="label" x="80" y="196" text-anchor="middle">q</text>
+    <rect class="stack" x="120" y="178" width="24" height="28"/>
+    <rect class="stack pop" x="146" y="178" width="24" height="28"/>
+    <text class="label" x="133" y="196" text-anchor="middle">(</text>
+    <text class="label" x="158" y="196" text-anchor="middle">)</text>
+    <text class="label" x="190" y="196">pop '('</text>
+
+    <!-- step 4 -->
+    <text class="label" x="20" y="230">Step 4</text>
+    <circle class="state accept" cx="80" cy="252" r="14"/>
+    <text class="label" x="80" y="256" text-anchor="middle">q</text>
+    <rect class="stack pop" x="120" y="238" width="24" height="28"/>
+    <text class="label" x="133" y="256" text-anchor="middle">)</text>
+    <text class="label" x="190" y="256">pop '(' → 空スタックで受理</text>
+
+  </g>
+</svg>
+
