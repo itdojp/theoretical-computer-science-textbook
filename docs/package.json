@@ -17,7 +17,7 @@
     "ja"
   ],
   "author": "ITDO Inc.",
-  "license": "MIT",
+  "license": "CC-BY-NC-SA-4.0",
   "devDependencies": {
     "markdownlint-cli": "^0.37.0",
     "markdown-link-check": "^3.11.2",
