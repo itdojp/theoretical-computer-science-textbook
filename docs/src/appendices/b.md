@@ -666,9 +666,13 @@ class WeightedGraph:
     def dijkstra(self, start):
         """
         ダイクストラ法による単一始点最短経路
-        
+
         時間複雑性: O((V + E) log V)
         空間複雑性: O(V)
+
+        注意: すべての辺重みが非負であることが前提。
+              負辺が存在するグラフには適用できません（正しく動作しません）。
+              負辺がある場合は Bellman-Ford 法を使用してください。
         """
         distances = defaultdict(lambda: sys.maxsize)
         distances[start] = 0
@@ -695,6 +699,51 @@ class WeightedGraph:
                     heapq.heappush(pq, (distance, neighbor))
         
         return dict(distances), predecessor
+
+    def bellman_ford(self, start):
+        """
+        Bellman-Ford 法による単一始点最短経路（負辺を許す）
+
+        前提: 負閉路（負の重みのサイクル）が始点から到達可能な場合、
+              最短経路距離は定義できないため検出して報告する。
+
+        時間複雑性: O(V * E)
+        空間複雑性: O(V)
+        戻り値: (dist, pred, has_negative_cycle)
+        """
+        # 初期化
+        vertices = set(self.graph.keys())
+        for adj in self.graph.values():
+            for v, _ in adj:
+                vertices.add(v)
+
+        dist = {v: float('inf') for v in vertices}
+        pred = {}
+        dist[start] = 0.0
+
+        # |V|-1 回の緩和
+        for _ in range(len(vertices) - 1):
+            updated = False
+            for u in vertices:
+                for v, w in self.graph[u]:
+                    if dist[u] + w < dist[v]:
+                        dist[v] = dist[u] + w
+                        pred[v] = u
+                        updated = True
+            if not updated:
+                break
+
+        # 負閉路検出
+        has_negative_cycle = False
+        for u in vertices:
+            for v, w in self.graph[u]:
+                if dist[u] + w < dist[v]:
+                    has_negative_cycle = True
+                    break
+            if has_negative_cycle:
+                break
+
+        return dist, pred, has_negative_cycle
     
     def get_path(self, predecessor, start, end):
         """
