@@ -1,6 +1,6 @@
-<svg viewBox="0 0 1400 800" xmlns="http://www.w3.org/2000/svg">
-  <title>計算複雑性クラスの包含関係</title>
-  <desc>時間と空間、決定性と非決定性複雑性クラス間の包含関係の図示</desc>
+<svg viewBox="0 0 1400 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">計算複雑性クラスの包含関係</title>
+  <desc id="desc">時間と空間、決定性と非決定性複雑性クラス間の包含関係の図示</desc>
   
   <defs>
     <style>
