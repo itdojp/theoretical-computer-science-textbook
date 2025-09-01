@@ -1,6 +1,6 @@
-<svg viewBox="0 0 1400 900" xmlns="http://www.w3.org/2000/svg">
-  <title>P vs NP 問題の構造</title>
-  <desc>P、NP、coNPクラスの関係と含意、未解決問題の整理</desc>
+<svg viewBox="0 0 1400 900" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">P vs NP 問題の構造</title>
+  <desc id="desc">P、NP、coNPクラスの関係と含意、未解決問題の整理</desc>
   
   <defs>
     <style>
