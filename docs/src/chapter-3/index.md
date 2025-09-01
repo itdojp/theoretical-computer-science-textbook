@@ -691,6 +691,10 @@ s = uvxyz と分解したとき、|vxy| ≤ p より、vxy は高々2種類の�
 
 ![プッシュダウンオートマトンの構造と機能](../../assets/images/diagrams/ch3_pushdown_automata_structure.svg)
 
+直観図：括弧整合を受理する PDA のスタック操作例
+
+![PDA のスタック操作（括弧整合）](../../assets/images/diagrams/ch3_pda_stack_operation.svg)
+
 ### 3.6.1 PDAの定義
 
 **定義 3.23** **プッシュダウンオートマトン**（PDA）は7つ組 P = (Q, Σ, Γ, δ, q₀, Z₀, F)：
