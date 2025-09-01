@@ -18,6 +18,7 @@
     "lint": "markdownlint 'docs/src/**/*.md' --ignore node_modules",
     "lint:light": "markdownlint 'docs/src/**/*.md' --ignore node_modules",
     "spellcheck": "echo 'Spellcheck placeholder - no actual spell checker configured'",
+    "svg:lint": "bash scripts/svg-lint.sh",
     "check-links": "markdown-link-check docs/src/**/*.md",
     "help": "echo 'Available commands:\n  npm start - Start development server\n  npm run build - Build the book\n  npm run preview - Local preview\n  npm run deploy - Deploy to GitHub Pages'"
   },
