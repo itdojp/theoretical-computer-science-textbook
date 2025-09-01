@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" role="img" aria-labelledby="title desc">
+  <title id="title">Thompson 構成法：正規表現から ε-NFA への段階的変換</title>
+  <desc id="desc">リテラル、連結、和 (+)、クリーネ閉包 (*) の各構成規則を小さなNFAブロックで示し、最終的に複合正規表現を合成する手順の概観図。</desc>
+  <defs>
+    <style>
+      .label { fill: #111; font-family: Inter, Helvetica, Arial, sans-serif; font-size: 12px; }
+      .box { fill: #f8f9fa; stroke: #adb5bd; stroke-width: 1.5; }
+      .state { fill: #fff; stroke: #495057; stroke-width: 1.5; }
+      .accept { fill: #e6fcf5; }
+      .arrow { stroke: #212529; stroke-width: 1.5; marker-end: url(#m); }
+      .earrow { stroke: #15aabf; stroke-dasharray: 4 3; stroke-width: 1.5; marker-end: url(#m2); }
+    </style>
+    <marker id="m" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#212529" />
+    </marker>
+    <marker id="m2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#15aabf" />
+    </marker>
+  </defs>
+
+  <!-- Literal -->
+  <g transform="translate(20,20)">
+    <rect class="box" x="0" y="0" width="200" height="120" rx="8"/>
+    <text class="label" x="8" y="16">リテラル `a`</text>
+    <circle class="state" cx="40" cy="70" r="14"/>
+    <circle class="state accept" cx="160" cy="70" r="14"/>
+    <line class="arrow" x1="54" y1="70" x2="146" y2="70"/>
+    <text class="label" x="96" y="62" text-anchor="middle">a</text>
+  </g>
+
+  <!-- Concatenation -->
+  <g transform="translate(260,20)">
+    <rect class="box" x="0" y="0" width="200" height="120" rx="8"/>
+    <text class="label" x="8" y="16">連結 `ab`</text>
+    <circle class="state" cx="30" cy="70" r="14"/>
+    <circle class="state" cx="100" cy="70" r="14"/>
+    <circle class="state accept" cx="170" cy="70" r="14"/>
+    <line class="arrow" x1="44" y1="70" x2="86" y2="70"/>
+    <text class="label" x="65" y="62" text-anchor="middle">a</text>
+    <line class="arrow" x1="114" y1="70" x2="156" y2="70"/>
+    <text class="label" x="135" y="62" text-anchor="middle">b</text>
+  </g>
+
+  <!-- Union -->
+  <g transform="translate(500,20)">
+    <rect class="box" x="0" y="0" width="200" height="120" rx="8"/>
+    <text class="label" x="8" y="16">和 `a+b`</text>
+    <circle class="state" cx="30" cy="70" r="14"/>
+    <circle class="state accept" cx="170" cy="40" r="14"/>
+    <circle class="state accept" cx="170" cy="100" r="14"/>
+    <line class="earrow" x1="44" y1="70" x2="156" y2="40"/>
+    <text class="label" x="102" y="52" text-anchor="middle">a</text>
+    <line class="earrow" x1="44" y1="70" x2="156" y2="100"/>
+    <text class="label" x="102" y="94" text-anchor="middle">b</text>
+  </g>
+
+  <!-- Kleene star -->
+  <g transform="translate(20,200)">
+    <rect class="box" x="0" y="0" width="320" height="120" rx="8"/>
+    <text class="label" x="8" y="16">クリーネ閉包 `a*`（ε遷移と自己ループ）</text>
+    <circle class="state" cx="40" cy="70" r="14"/>
+    <circle class="state accept" cx="280" cy="70" r="14"/>
+    <line class="earrow" x1="54" y1="70" x2="266" y2="70"/>
+    <text class="label" x="160" y="62" text-anchor="middle">ε</text>
+    <circle class="state" cx="160" cy="70" r="14"/>
+    <line class="arrow" x1="174" y1="70" x2="220" y2="70"/>
+    <text class="label" x="197" y="62" text-anchor="middle">a</text>
+    <line class="earrow" x1="220" y1="64" x2="172" y2="64"/>
+    <text class="label" x="196" y="52" text-anchor="middle">ε</text>
+    <line class="earrow" x1="154" y1="70" x2="54" y2="70"/>
+    <text class="label" x="100" y="62" text-anchor="middle">ε</text>
+    <line class="earrow" x1="266" y1="70" x2="174" y2="70"/>
+    <text class="label" x="222" y="88" text-anchor="middle">ε</text>
+  </g>
+
+  <!-- Compose note -->
+  <text class="label" x="360" y="340" text-anchor="middle">各ブロックを合成して複合正規表現の ε-NFA を構成</text>
+</svg>
+

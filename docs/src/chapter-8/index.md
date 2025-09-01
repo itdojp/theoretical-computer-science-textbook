@@ -169,6 +169,10 @@ Dijkstra(G, w, s):
 *証明*（不変条件）：S に追加される頂点の d 値は最短距離に等しい。
 帰納法により証明。□
 
+例示図：Dijkstra の逐次確定（確定集合と緩和の模式図）
+
+![Dijkstra 法の逐次確定の例](../../assets/images/diagrams/ch8_dijkstra_step_trace.svg)
+
 **時間複雑度**：
 - 二分ヒープ：O((|V| + |E|) log |V|)
 - フィボナッチヒープ：O(|V| log |V| + |E|)
@@ -592,4 +596,3 @@ Gale-Shapley(男性の選好, 女性の選好):
     - 実グラフでの性能測定と分析
 
 ---
-

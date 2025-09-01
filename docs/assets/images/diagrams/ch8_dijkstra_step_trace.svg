@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 360" role="img" aria-labelledby="title desc">
+  <title id="title">Dijkstra 法の逐次確定の例（小規模グラフ）</title>
+  <desc id="desc">始点sから他頂点への最短距離を段階的に確定する様子。確定集合Sとフロンティアの更新を模式的に示す。</desc>
+  <defs>
+    <style>
+      .label { fill: #111; font-family: Inter, Helvetica, Arial, sans-serif; font-size: 12px; }
+      .node { fill: #fff; stroke: #495057; stroke-width: 2; }
+      .fixed { fill: #e6fcf5; }
+      .frontier { fill: #fff3bf; }
+      .edge { stroke: #495057; stroke-width: 1.5; }
+      .best { stroke: #228be6; stroke-width: 2.5; }
+    </style>
+  </defs>
+
+  <!-- Panel 1 -->
+  <g transform="translate(20,20)">
+    <text class="label" x="0" y="-4">Step 1: s を確定（距離 0）</text>
+    <line class="edge" x1="60" y1="60" x2="180" y2="40"/>
+    <line class="edge" x1="60" y1="60" x2="180" y2="100"/>
+    <line class="edge" x1="180" y1="40" x2="300" y2="60"/>
+    <line class="edge" x1="180" y1="100" x2="300" y2="60"/>
+
+    <circle class="node fixed" cx="60" cy="60" r="16"/>
+    <text class="label" x="60" y="64" text-anchor="middle">s</text>
+    <circle class="node frontier" cx="180" cy="40" r="16"/>
+    <text class="label" x="180" y="44" text-anchor="middle">a</text>
+    <circle class="node frontier" cx="180" cy="100" r="16"/>
+    <text class="label" x="180" y="104" text-anchor="middle">b</text>
+    <circle class="node" cx="300" cy="60" r="16"/>
+    <text class="label" x="300" y="64" text-anchor="middle">t</text>
+
+    <text class="label" x="120" y="30">2</text>
+    <text class="label" x="120" y="110">5</text>
+  </g>
+
+  <!-- Panel 2 -->
+  <g transform="translate(20,190)">
+    <text class="label" x="0" y="-4">Step 2: a を確定（最小距離 2）</text>
+    <line class="edge" x1="60" y1="60" x2="180" y2="40"/>
+    <line class="edge" x1="60" y1="60" x2="180" y2="100"/>
+    <line class="best" x1="180" y1="40" x2="300" y2="60"/>
+    <line class="edge" x1="180" y1="100" x2="300" y2="60"/>
+
+    <circle class="node fixed" cx="60" cy="60" r="16"/>
+    <text class="label" x="60" y="64" text-anchor="middle">s</text>
+    <circle class="node fixed" cx="180" cy="40" r="16"/>
+    <text class="label" x="180" y="44" text-anchor="middle">a</text>
+    <circle class="node frontier" cx="180" cy="100" r="16"/>
+    <text class="label" x="180" y="104" text-anchor="middle">b</text>
+    <circle class="node" cx="300" cy="60" r="16"/>
+    <text class="label" x="300" y="64" text-anchor="middle">t</text>
+
+    <text class="label" x="240" y="30">3</text>
+  </g>
+
+  <!-- Panel 3 -->
+  <g transform="translate(360,20)">
+    <text class="label" x="0" y="-4">Step 3: t を確定（s→a→t = 5）</text>
+    <line class="best" x1="60" y1="60" x2="180" y2="40"/>
+    <line class="best" x1="180" y1="40" x2="300" y2="60"/>
+    <line class="edge" x1="60" y1="60" x2="180" y2="100"/>
+    <line class="edge" x1="180" y1="100" x2="300" y2="60"/>
+
+    <circle class="node fixed" cx="60" cy="60" r="16"/>
+    <text class="label" x="60" y="64" text-anchor="middle">s</text>
+    <circle class="node fixed" cx="180" cy="40" r="16"/>
+    <text class="label" x="180" y="44" text-anchor="middle">a</text>
+    <circle class="node" cx="180" cy="100" r="16"/>
+    <text class="label" x="180" y="104" text-anchor="middle">b</text>
+    <circle class="node fixed" cx="300" cy="60" r="16"/>
+    <text class="label" x="300" y="64" text-anchor="middle">t</text>
+  </g>
+</svg>
+
