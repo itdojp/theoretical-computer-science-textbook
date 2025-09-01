@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 260" role="img" aria-labelledby="title desc">
+  <title id="title">AEAD の処理フロー（GCM/ChaCha20-Poly1305）</title>
+  <desc id="desc">鍵・ノンス・追加認証データ（AD）・平文から暗号文と認証タグを生成し、復号側で検証する流れを示す。</desc>
+  <defs>
+    <style>
+      .label { fill: #111; font-family: Inter, Helvetica, Arial, sans-serif; font-size: 12px; }
+      .box { fill: #fff; stroke: #495057; stroke-width: 1.6; rx: 6px; }
+      .panel { fill: #f8f9fa; stroke: #dee2e6; }
+      .arrow { stroke: #212529; stroke-width: 1.6; marker-end: url(#m); fill: none; }
+      .good { fill: #e6fcf5; stroke: #12b886; }
+      .bad { fill: #fff5f5; stroke: #fa5252; }
+    </style>
+    <marker id="m" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#212529" />
+    </marker>
+  </defs>
+  <g transform="translate(20,20)">
+    <rect class="panel" x="0" y="0" width="720" height="200" rx="8"/>
+    <text class="label" x="10" y="16">AEAD（Encrypt-then-MAC）</text>
+
+    <!-- inputs -->
+    <rect class="box" x="20" y="40" width="100" height="28"/>
+    <text class="label" x="70" y="58" text-anchor="middle">鍵 K</text>
+    <rect class="box" x="20" y="80" width="100" height="28"/>
+    <text class="label" x="70" y="98" text-anchor="middle">ノンス N</text>
+    <rect class="box" x="20" y="120" width="100" height="28"/>
+    <text class="label" x="70" y="138" text-anchor="middle">AD</text>
+    <rect class="box" x="20" y="160" width="100" height="28"/>
+    <text class="label" x="70" y="178" text-anchor="middle">平文 M</text>
+
+    <!-- encrypt box -->
+    <rect class="box" x="160" y="60" width="140" height="80"/>
+    <text class="label" x="230" y="100" text-anchor="middle">AEAD-Encrypt</text>
+
+    <path class="arrow" d="M 120 54 L 160 90"/>
+    <path class="arrow" d="M 120 94 L 160 94"/>
+    <path class="arrow" d="M 120 134 L 160 110"/>
+    <path class="arrow" d="M 120 174 L 160 118"/>
+
+    <!-- outputs -->
+    <rect class="box" x="330" y="70" width="120" height="28"/>
+    <text class="label" x="390" y="88" text-anchor="middle">暗号文 C</text>
+    <rect class="box" x="330" y="110" width="120" height="28"/>
+    <text class="label" x="390" y="128" text-anchor="middle">タグ T</text>
+
+    <path class="arrow" d="M 300 100 L 330 84"/>
+    <path class="arrow" d="M 300 100 L 330 116"/>
+
+    <!-- verify -->
+    <rect class="box" x="480" y="60" width="140" height="80"/>
+    <text class="label" x="550" y="100" text-anchor="middle">AEAD-Decrypt+Verify</text>
+
+    <path class="arrow" d="M 450 84 L 480 84"/>
+    <path class="arrow" d="M 450 116 L 480 116"/>
+    <path class="arrow" d="M 120 54 L 480 84"/>
+    <path class="arrow" d="M 120 94 L 480 94"/>
+    <path class="arrow" d="M 120 134 L 480 116"/>
+
+    <!-- result -->
+    <rect class="box good" x="640" y="70" width="80" height="28"/>
+    <text class="label" x="680" y="88" text-anchor="middle">OK</text>
+    <rect class="box bad" x="640" y="110" width="80" height="28"/>
+    <text class="label" x="680" y="128" text-anchor="middle">NG</text>
+
+    <path class="arrow" d="M 620 100 L 640 84"/>
+    <path class="arrow" d="M 620 100 L 640 116"/>
+  </g>
+</svg>
+

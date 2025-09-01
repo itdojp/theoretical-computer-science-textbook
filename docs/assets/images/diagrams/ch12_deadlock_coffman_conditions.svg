@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 260" role="img" aria-labelledby="title desc">
+  <title id="title">デッドロックのCoffmanの4条件と資源割当グラフ</title>
+  <desc id="desc">相互排他・占有待ち・不可奪取・循環待ちの4条件と、簡単な資源割当グラフの例示。</desc>
+  <defs>
+    <style>
+      .label { fill: #111; font-family: Inter, Helvetica, Arial, sans-serif; font-size: 12px; }
+      .panel { fill: #f8f9fa; stroke: #dee2e6; }
+      .box { fill: #fff; stroke: #495057; stroke-width: 1.6; rx: 4px; }
+      .edge { stroke: #495057; stroke-width: 1.6; marker-end: url(#m); fill: none; }
+      .proc { fill: #e7f5ff; stroke: #228be6; }
+      .res { fill: #fff0f6; stroke: #d6336c; }
+    </style>
+    <marker id="m" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#495057" />
+    </marker>
+  </defs>
+  <g transform="translate(20,20)">
+    <rect class="panel" x="0" y="0" width="340" height="200" rx="8"/>
+    <text class="label" x="10" y="16">Coffmanの4条件</text>
+    <g transform="translate(10,30)">
+      <text class="label" x="0" y="16">• 相互排他</text>
+      <text class="label" x="0" y="40">• 占有待ち</text>
+      <text class="label" x="0" y="64">• 不可奪取</text>
+      <text class="label" x="0" y="88">• 循環待ち</text>
+    </g>
+  </g>
+  <g transform="translate(400,20)">
+    <rect class="panel" x="0" y="0" width="340" height="200" rx="8"/>
+    <text class="label" x="10" y="16">資源割当グラフ（デッドロック例）</text>
+    <rect class="box proc" x="40" y="60" width="70" height="28"/>
+    <text class="label" x="75" y="78" text-anchor="middle">P1</text>
+    <rect class="box res" x="160" y="60" width="70" height="28"/>
+    <text class="label" x="195" y="78" text-anchor="middle">R1</text>
+    <rect class="box proc" x="260" y="120" width="70" height="28"/>
+    <text class="label" x="295" y="138" text-anchor="middle">P2</text>
+    <rect class="box res" x="140" y="120" width="70" height="28"/>
+    <text class="label" x="175" y="138" text-anchor="middle">R2</text>
+
+    <path class="edge" d="M 110 74 L 160 74"/>
+    <path class="edge" d="M 195 88 L 195 120"/>
+    <path class="edge" d="M 230 134 L 210 134"/>
+    <path class="edge" d="M 175 120 L 175 88"/>
+  </g>
+</svg>
+

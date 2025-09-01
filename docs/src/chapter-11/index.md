@@ -122,6 +122,10 @@ n ビットを左右に分割し、ラウンド関数 F を用いて：
 注意（実運用上の重要点）：パターンがそのまま暗号文に現れるため、秘匿性が大きく損なわれる。
 機密データの暗号化にECBは基本的に使用しない（非推奨）。
 
+直観図：模様が暗号文に残る（ECBの例）
+
+![ECB でパターンが露呈する例](../../assets/images/diagrams/ch11_ecb_pattern_leak_example.svg)
+
 **CBC（Cipher Block Chaining）**：
 C_i = E_k(M_i ⊕ C_{i-1}), C_0 = IV
 
@@ -148,6 +152,10 @@ C_i = M_i ⊕ E_k(IV || i)
 推奨：機密性と完全性を同時に確保するため、Encrypt-then-MAC の原則に基づくAEAD方式
 （例：AES-GCM、ChaCha20-Poly1305）を優先的に用いる。安全性目標としてはIND-CPA（秘匿）
 のみならずIND-CCA（選択暗号文攻撃耐性）を考慮するのが望ましい。
+
+直観図：AEAD の処理フロー（鍵/ノンス/AD/平文→暗号文+タグ、検証）
+
+![AEAD の処理フロー](../../assets/images/diagrams/ch11_aead_flow_overview.svg)
 
 #### 実運用チェックリスト（要点）
 - AEADを既定に：AES-GCM または ChaCha20-Poly1305 を優先（Encrypt-then-MACの原則）

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 260" role="img" aria-labelledby="title desc">
+  <title id="title">ABA問題のイメージと緩和策の示唆</title>
+  <desc id="desc">CAS操作で参照中の値がA→B→Aと変化して検出できない問題の概念図。Hazard PointersやEpochベースの再利用抑止を示唆。</desc>
+  <defs>
+    <style>
+      .label { fill: #111; font-family: Inter, Helvetica, Arial, sans-serif; font-size: 12px; }
+      .panel { fill: #f8f9fa; stroke: #dee2e6; }
+      .box { fill: #fff; stroke: #495057; stroke-width: 1.6; rx: 4px; }
+      .arrow { stroke: #212529; stroke-width: 1.6; marker-end: url(#m); fill: none; }
+      .warn { fill: #fff5f5; stroke: #fa5252; }
+      .hint { fill: #e6fcf5; stroke: #12b886; }
+    </style>
+    <marker id="m" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#212529" />
+    </marker>
+  </defs>
+  <g transform="translate(20,20)">
+    <rect class="panel" x="0" y="0" width="720" height="200" rx="8"/>
+    <text class="label" x="10" y="16">ABA問題（CAS with A→B→A）</text>
+    <rect class="box" x="40" y="60" width="80" height="28"/>
+    <text class="label" x="80" y="78" text-anchor="middle">A</text>
+    <path class="arrow" d="M 120 74 L 180 74"/>
+    <rect class="box" x="180" y="60" width="80" height="28"/>
+    <text class="label" x="220" y="78" text-anchor="middle">B</text>
+    <path class="arrow" d="M 260 74 L 320 74"/>
+    <rect class="box" x="320" y="60" width="80" height="28"/>
+    <text class="label" x="360" y="78" text-anchor="middle">A</text>
+    <rect class="box warn" x="420" y="60" width="180" height="28"/>
+    <text class="label" x="510" y="78" text-anchor="middle">CASは変化を検出できない</text>
+
+    <rect class="box hint" x="40" y="120" width="220" height="28"/>
+    <text class="label" x="150" y="138" text-anchor="middle">Hazard Pointers / Epochで再利用抑止</text>
+  </g>
+</svg>
+
