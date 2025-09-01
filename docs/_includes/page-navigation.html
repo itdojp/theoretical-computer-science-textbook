@@ -83,6 +83,34 @@ Final fallback: derive by ordering pages with layout: book and 'order'
   {% endif %}
 {% endif %}
 
+{%- comment -%}
+Additional fallback for this book: derive by 'chapter' numeric when available
+{%- endcomment -%}
+{% if previous_page == nil and next_page == nil and prev_url == nil and next_url == nil %}
+  {% assign book_chapters = site.pages | where: 'layout', 'book' | where_exp: 'p', 'p.chapter' | sort: 'chapter' %}
+  {% assign current_index = -1 %}
+  {% for p in book_chapters %}
+    {% if page.url == p.url or page.url contains p.url %}
+      {% assign current_index = forloop.index0 %}
+      {% break %}
+    {% endif %}
+  {% endfor %}
+  {% if current_index != -1 %}
+    {% assign prev_index = current_index | minus: 1 %}
+    {% assign next_index = current_index | plus: 1 %}
+    {% if prev_index >= 0 %}
+      {% assign prev_page = book_chapters[prev_index] %}
+      {% assign prev_url = prev_page.url %}
+      {% assign prev_title = prev_page.title %}
+    {% endif %}
+    {% if next_index < book_chapters.size %}
+      {% assign next_page_o = book_chapters[next_index] %}
+      {% assign next_url = next_page_o.url %}
+      {% assign next_title = next_page_o.title %}
+    {% endif %}
+  {% endif %}
+{% endif %}
+
 <div class="page-nav">
     <!-- Previous Page -->
     <div class="page-nav-item page-nav-prev">
