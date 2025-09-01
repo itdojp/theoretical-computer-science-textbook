@@ -94,51 +94,51 @@
   <g id="basic-hierarchy">
     <!-- L (Log Space) -->
     <rect x="100" y="100" width="100" height="60" class="space-class" />
-    <text x="150" y="120" class="class-name">L</text>
-    <text x="150" y="135" class="class-notation">対数空間</text>
-    <text x="150" y="150" class="class-notation">SPACE(log n)</text>
+    <text x="156" y="120" class="class-name">L</text>
+    <text x="156" y="135" class="class-notation">対数空間</text>
+    <text x="156" y="150" class="class-notation">SPACE(log n)</text>
     
     <!-- NL (Nondeterministic Log Space) -->
     <rect x="100" y="200" width="100" height="60" class="space-class" />
-    <text x="150" y="220" class="class-name">NL</text>
-    <text x="150" y="235" class="class-notation small">非決定性対数空間</text>
-    <text x="150" y="250" class="class-notation">NSPACE(log n)</text>
+    <text x="156" y="220" class="class-name">NL</text>
+    <text x="156" y="235" class="class-notation small">非決定性対数空間</text>
+    <text x="156" y="250" class="class-notation">NSPACE(log n)</text>
     
     <!-- P (Polynomial Time) -->
     <rect x="300" y="150" width="100" height="60" class="deterministic-time" />
-    <text x="350" y="170" class="class-name">P</text>
-    <text x="350" y="185" class="class-notation">多項式時間</text>
-    <text x="350" y="200" class="class-notation">∪ₖ TIME(nᵏ)</text>
+    <text x="356" y="170" class="class-name">P</text>
+    <text x="356" y="185" class="class-notation">多項式時間</text>
+    <text x="356" y="200" class="class-notation">∪ₖ TIME(nᵏ)</text>
     
     <!-- NP (Nondeterministic Polynomial Time) -->
     <rect x="500" y="100" width="100" height="60" class="non-deterministic-time" />
-    <text x="550" y="120" class="class-name">NP</text>
-    <text x="550" y="135" class="class-notation small">非決定性多項式時間</text>
-    <text x="550" y="150" class="class-notation">∪ₖ NTIME(nᵏ)</text>
+    <text x="556" y="120" class="class-name">NP</text>
+    <text x="556" y="135" class="class-notation small">非決定性多項式時間</text>
+    <text x="556" y="150" class="class-notation">∪ₖ NTIME(nᵏ)</text>
     
     <!-- coNP (Complement of NP) -->
     <rect x="500" y="200" width="100" height="60" class="complement-class" />
-    <text x="550" y="220" class="class-name">coNP</text>
-    <text x="550" y="235" class="class-notation">補NP</text>
-    <text x="550" y="250" class="class-notation small">NPの補集合クラス</text>
+    <text x="556" y="220" class="class-name">coNP</text>
+    <text x="556" y="235" class="class-notation">補NP</text>
+    <text x="556" y="250" class="class-notation small">NPの補集合クラス</text>
     
     <!-- BPP (Bounded-error Probabilistic Polynomial) -->
     <rect x="300" y="300" width="100" height="60" class="probabilistic-class" />
-    <text x="350" y="320" class="class-name">BPP</text>
-    <text x="350" y="335" class="class-notation small">確率的多項式時間</text>
-    <text x="350" y="350" class="class-notation">有界誤り確率</text>
+    <text x="356" y="320" class="class-name">BPP</text>
+    <text x="356" y="335" class="class-notation small">確率的多項式時間</text>
+    <text x="356" y="350" class="class-notation">有界誤り確率</text>
     
     <!-- PSPACE (Polynomial Space) -->
     <rect x="700" y="150" width="100" height="60" class="space-class" />
-    <text x="750" y="170" class="class-name">PSPACE</text>
-    <text x="750" y="185" class="class-notation">多項式空間</text>
-    <text x="750" y="200" class="class-notation">∪ₖ SPACE(nᵏ)</text>
+    <text x="756" y="170" class="class-name">PSPACE</text>
+    <text x="756" y="185" class="class-notation">多項式空間</text>
+    <text x="756" y="200" class="class-notation">∪ₖ SPACE(nᵏ)</text>
     
     <!-- EXPTIME (Exponential Time) -->
     <rect x="900" y="150" width="100" height="60" class="deterministic-time" />
-    <text x="950" y="170" class="class-name">EXPTIME</text>
-    <text x="950" y="185" class="class-notation">指数時間</text>
-    <text x="950" y="200" class="class-notation">∪ₖ TIME(2^(nᵏ))</text>
+    <text x="956" y="170" class="class-name">EXPTIME</text>
+    <text x="956" y="185" class="class-notation">指数時間</text>
+    <text x="956" y="200" class="class-notation">∪ₖ TIME(2^(nᵏ))</text>
   </g>
   
   <!-- Main Inclusion Chain -->
