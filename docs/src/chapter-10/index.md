@@ -344,6 +344,10 @@ C = (1/2) log₂(1 + P/N) [bits/channel use]
 帯域幅 W、信号電力 P、雑音電力 N の通信路容量：
 C = W log₂(1 + P/N) [bits/second]
 
+直観図：AWGN 容量 C = (1/2) log₂(1+SNR) の曲線
+
+![AWGN 容量曲線](../../assets/images/diagrams/ch10_awgn_capacity_curve.svg)
+
 ## 10.6 情報理論の応用
 
 ### 10.6.1 データ圧縮への応用
