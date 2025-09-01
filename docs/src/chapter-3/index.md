@@ -269,6 +269,10 @@ NFA N = (Qₙ, Σ, δₙ, q₀, Fₙ) から DFA D = (Qᴅ, Σ, δᴅ, q₀ᴅ, 
 
 正規表現 R に対するNFA N(R) を以下の帰納的構成で作成します：
 
+直観図：Thompson 構成の各規則（リテラル・連結・和・クリーネ閉包）
+
+![Thompson 構成法：段階図](../../assets/images/diagrams/ch3_regex_to_nfa_thompson_steps.svg)
+
 **Step 1: 基本ケース**
 
 1. **空集合 ∅**:
