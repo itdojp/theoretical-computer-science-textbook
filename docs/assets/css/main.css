@@ -1,7 +1,7 @@
 /* Main CSS for Book Template */
 
 /* Import CSS-only responsive sidebar implementation */
-@import './mobile-responsive.css';
+@import url('./mobile-responsive.css');
 
 /* CSS Variables */
 :root {
