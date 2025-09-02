@@ -696,3 +696,6 @@ k 回の独立実行と多数決により、誤り確率を 2^{-Ω(k)} に削減
     - Miller-Rabin 素数判定法
     - 誤り確率の増幅実験
     - Monte Carlo vs Las Vegas アルゴリズムの比較
+直観図：変数/節ガジェットの最小例（3-SAT → 頂点被覆）
+
+![3-SAT → 頂点被覆 ガジェット例](../../assets/images/diagrams/ch5_reduction_sat_to_vertex_cover_gadget.svg)
