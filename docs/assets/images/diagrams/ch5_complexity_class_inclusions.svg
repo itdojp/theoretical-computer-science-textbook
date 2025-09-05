@@ -130,7 +130,9 @@
     <text x="370" y="320" class="class-name">BPP</text>
     <text x="370" y="333" class="class-notation small">確率的</text>
     <text x="370" y="346" class="class-notation small">多項式時間</text>
-    <text x="370" y="350" class="class-notation">有界誤り確率</text>
+    <!-- Wrap long label into two short lines for better readability -->
+    <text x="370" y="359" class="class-notation small">有界誤り</text>
+    <text x="370" y="372" class="class-notation small">確率</text>
     
     <!-- PSPACE (Polynomial Space) -->
     <rect x="700" y="150" width="100" height="60" class="space-class" />
