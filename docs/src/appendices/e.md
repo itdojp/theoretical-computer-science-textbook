@@ -36,12 +36,11 @@ RSAキー生成プロセス:
 **SQLクエリと集合演算**
 
 ```sql
--- 和集合（UNION）
 SELECT customer_id FROM online_customers
 UNION
 SELECT customer_id FROM store_customers;
 
--- 積集合（INTERSECTION） 
+-- 共通部分（intersection） 
 SELECT customer_id FROM online_customers
 INTERSECT  
 SELECT customer_id FROM store_customers;

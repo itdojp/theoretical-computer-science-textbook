@@ -268,6 +268,9 @@ BFS が O(|V| + |E|) で最短路を求める。
 
 直観図：Kruskal法とUnion-Findの流れ
 
+注: Union-Find（互いに素集合データ構造）は、集合を併合し代表元を素早く求める構造で、
+経路圧縮とランク併合により実用上ほぼ定数時間（逆アッカーマン関数 α(n) で界）を達成する。
+
 ![Kruskal法とUnion-Findの流れ](../../assets/images/diagrams/ch8_mst_kruskal_unionfind.svg)
 
 ```

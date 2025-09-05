@@ -23,13 +23,13 @@ layout: default
 - 記号の有限集合（通常Σで表記）
 - 例: Σ = {0, 1}, Σ = {a, b, c}
 
-**AND演算 (AND Operation)**
+**AND（論理積, AND Operation）**
 - 論理積、∧記号で表記
 - P ∧ Q は P と Q が共に真のときのみ真
 
 ## B
 
-**ビッグオー記法 (Big-O Notation)**
+**ビッグオー記法（Big-O Notation）**
 - 関数の上界を表す漸近記法
 - f(n) = O(g(n)): f(n)はg(n)の定数倍を漸近的に超えない
 - 時間・空間複雑性の解析に使用
@@ -68,105 +68,105 @@ layout: default
 
 ## D
 
-**決定可能性 (Decidability)**
+**決定可能性（Decidability）**
 - ある問題に対してyes/noの答えを常に出力するアルゴリズムが存在する性質
 - 決定可能言語 = 再帰言語
  - 参考: 第4章「決定不能問題」「還元可能性」（→ ../chapter-4/index.md）
 
-**決定性有限オートマトン (Deterministic Finite Automaton, DFA)**
+**決定性有限オートマトン（Deterministic Finite Automaton, DFA）**
 - 各状態・入力記号の組に対して遷移先が一意に決まるFA
 - 正規言語を認識する最も基本的な計算モデル（→ 正規言語とDFA: ../chapter-3/index.md）
 
-**深さ優先探索 (Depth-First Search, DFS)**
+**深さ優先探索（Depth-First Search, DFS）**
 - グラフ探索アルゴリズムの一種
 - スタックまたは再帰を使用
 - 時間複雑性: O(V + E)
 
-**分割統治法 (Divide and Conquer)**
+**分割統治法（Divide and Conquer）**
 - 問題を小さな部分問題に分割し、解を統合する手法
 - マージソート、クイックソート等で使用
 
-**動的計画法 (Dynamic Programming)**
+**動的計画法（Dynamic Programming）**
 - 最適部分構造を持つ問題に対する最適化手法
 - メモ化により重複計算を避ける
 
 ## E
 
-**空文字列 (Empty String)**
+**空文字列（Empty String）**
 - 長さ0の文字列、εまたはλで表記
 - すべての言語の部分集合
 
-**空集合 (Empty Set)**
+**空集合（Empty Set）**
 - 要素を含まない集合、∅で表記
 - すべての集合の部分集合
 
-**ユークリッドアルゴリズム (Euclidean Algorithm)**
+**ユークリッドアルゴリズム（Euclidean Algorithm）**
 - 最大公約数を求める効率的アルゴリズム
 - 時間複雑性: O(log min(a,b))
 
-**指数時間 (Exponential Time)**
+**指数時間（Exponential Time）**
 - 実行時間がO(2^n)等の指数関数となるアルゴリズム
 - 多くのNP完全問題の既知最良解法
 
 ## F
 
-**有限オートマトン (Finite Automaton)**
+**有限オートマトン（Finite Automaton）**
 - 有限個の状態を持つ計算装置
 - DFA（決定性）とNFA（非決定性）がある
 
-**形式言語 (Formal Language)**
+**形式言語（Formal Language）**
 - ある言語が表現するパターンを数学的に定義したもの
 - チョムスキー階層による分類
 
-**関数 (Function)**
+**関数（Function）**
 - 定義域の各要素を値域の要素に対応させる規則
 - f: A → B で表記
 
 ## G
 
-**文法 (Grammar)**
+**文法（Grammar）**
 - 言語を生成するための規則の集合
 - G = (V, T, P, S)で定義（V: 非終端記号, T: 終端記号, P: 生成規則, S: 開始記号）
 
-**グラフ (Graph)**
+**グラフ（Graph）**
 - 頂点（V）と辺（E）の集合 G = (V, E)
 - 有向グラフと無向グラフがある
 - 応用と表現は第8章を参照（→ 第8章: グラフ理論とネットワーク: ../chapter-8/index.md）
 
-**貪欲法 (Greedy Algorithm)**
+**貪欲法（Greedy Algorithm）**
 - 各段階で局所的に最適な選択をする手法
 - 最短路問題（ダイクストラ法）等で使用
 
-**最大公約数 (Greatest Common Divisor, GCD)**
+**最大公約数（Greatest Common Divisor, GCD）**
 - 2つの整数の共通約数の最大値
 - ユークリッドアルゴリズムで効率的に計算
 
 ## H
 
-**停止問題 (Halting Problem)**
+**停止問題（Halting Problem）**
 - チューリング機械が与えられた入力で停止するかを判定する問題
 - 決定不可能問題の代表例
 
-**ハッシュ関数 (Hash Function)**
+**ハッシュ関数（Hash Function）**
 - 任意サイズのデータを固定サイズの値に写像する関数
 - ハッシュテーブルで使用
 
-**ハミルトン経路 (Hamiltonian Path)**
+**ハミルトン経路（Hamiltonian Path）**
 - グラフのすべての頂点を正確に一度ずつ通る経路
 - NP完全問題
 - NP完全性の文脈は第5章を参照（→ 第5章: 計算複雑性理論: ../chapter-5/index.md）
 
 ## I
 
-**帰納法 (Induction)**
+**帰納法（Induction）**
 - 数学的帰納法: P(1) ∧ ∀k(P(k) → P(k+1)) → ∀n P(n)
 - 構造帰納法: データ構造に対する帰納的証明
 
-**単射 (Injection)**
+**単射（Injection）**
 - 異なる入力は異なる出力を持つ関数
 - ∀x,y ∈ A, f(x) = f(y) → x = y
 
-**交集合 (Intersection)**
+**共通部分（intersection）**
 - 2つの集合の共通要素の集合
 - A ∩ B = {x | x ∈ A ∧ x ∈ B}
 
@@ -253,7 +253,7 @@ layout: default
 - スタックを持つ有限オートマトン
 - 文脈自由言語を認識
 
-**ポンピング補題 (Pumping Lemma)**
+**ポンピング補題（Pumping Lemma）**
 - 言語のクラスに属さないことを証明する技法
 - 正規言語、文脈自由言語にそれぞれ存在
 
@@ -377,7 +377,7 @@ layout: default
 - ∈ (IN): 要素の所属
 - ⊆ (SUBSET): 部分集合
 - ∪ (UNION): 和集合
-- ∩ (INTERSECTION): 積集合
+- ∩ (intersection): 共通部分
 - ∅ (EMPTY): 空集合
 - × (CARTESIAN): 直積
 
