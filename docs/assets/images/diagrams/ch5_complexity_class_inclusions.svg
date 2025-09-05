@@ -261,8 +261,8 @@
   
   <!-- Visual aids for uncertain relationships -->
   <g id="legend">
-    <rect x="1050" y="80" width="300" height="120" style="fill: #fafafa; stroke: #ddd; stroke-width: 1px; rx: 4px;" />
-    <text x="1200" y="100" class="section-title" style="font-size: 12px;">凡例</text>
+    <rect x="1050" y="80" width="300" height="120" style="fill: #f8f9fa; stroke: #6c757d; stroke-width: 2px; rx: 8px;" />
+    <text x="1200" y="100" class="section-title">凡例</text>
     
     <line x1="1070" y1="115" x2="1090" y2="115" class="inclusion-arrow" />
     <text x="1100" y="120" class="description">確実な包含関係 (⊆)</text>
@@ -273,6 +273,6 @@
     <line x1="1070" y1="155" x2="1090" y2="155" class="equivalence-line" />
     <text x="1100" y="160" class="description">条件付き等価性</text>
     
-    <text x="1070" y="185" class="description" style="font-size: 8px;">階層定理により一部の真の包含は証明済み</text>
+    <text x="1070" y="185" class="description">（注）階層定理により一部の真の包含は証明済み</text>
   </g>
 </svg>
