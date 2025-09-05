@@ -152,7 +152,7 @@
   <text x="540" y="225" class="class-desc">?</text>
   
   <!-- Known facts section -->
-  <rect x="100" y="400" width="400" height="220" style="fill: #f0f8ff; stroke: #4682b4; stroke-width: 2px; rx: 4px;" />
+  <rect x="100" y="400" width="400" height="220" style="fill: #f0f8ff; stroke: #4682b4; stroke-width: 2px; rx: 8px;" />
   <text x="300" y="430" class="title">確実に知られていること</text>
   
   <text x="120" y="460" class="properties-text">• L ⊆ NL ⊆ P ⊆ NP ⊆ PSPACE ⊆ EXPTIME（定義より）</text>
@@ -163,7 +163,7 @@
   <text x="120" y="560" class="properties-text">• BPP ⊆ PSPACE（脱乱択化）</text>
   
   <!-- Open problems section -->
-  <rect x="550" y="400" width="400" height="220" style="fill: #fff3e0; stroke: #ff9800; stroke-width: 2px; rx: 4px;" />
+  <rect x="550" y="400" width="400" height="220" style="fill: #fff3e0; stroke: #ff9800; stroke-width: 2px; rx: 8px;" />
   <text x="750" y="430" class="title">未解決問題</text>
   
   <text x="570" y="460" class="properties-text">• P vs NP（ミレニアム問題）</text>
@@ -174,7 +174,7 @@
   <text x="570" y="560" class="properties-text">• BPP vs NP</text>
   
   <!-- Implications section -->
-  <rect x="100" y="670" width="850" height="180" style="fill: #e8f5e9; stroke: #4caf50; stroke-width: 2px; rx: 4px;" />
+  <rect x="100" y="670" width="850" height="180" style="fill: #e8f5e9; stroke: #4caf50; stroke-width: 2px; rx: 8px;" />
   <text x="525" y="700" class="title">P = NP の含意</text>
   
   <text x="140" y="730" class="properties-text">もし P = NP なら：</text>
