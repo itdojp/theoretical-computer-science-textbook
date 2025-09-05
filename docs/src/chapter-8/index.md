@@ -266,6 +266,10 @@ BFS が O(|V| + |E|) で最短路を求める。
 
 ### 8.3.2 Kruskalのアルゴリズム
 
+直観図：Kruskal法とUnion-Findの流れ
+
+![Kruskal法とUnion-Findの流れ](../../assets/images/diagrams/ch8_mst_kruskal_unionfind.svg)
+
 ```
 Kruskal(G, w):
     A = ∅

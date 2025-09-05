@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-labelledby="title desc">
+  <title id="title">3-SAT から 頂点被覆 へのガジェット例</title>
+  <desc id="desc">変数ガジェット（x_i と ¬x_i を結ぶ辺）と節ガジェット（節頂点から各リテラル頂点への辺）を示す最小例。</desc>
+  <defs>
+    <style>
+      .label { fill: #111; font-family: Inter, Helvetica, Arial, sans-serif; font-size: 12px; }
+      .node { fill: #fff; stroke: #495057; stroke-width: 1.8; }
+      .edge { stroke: #868e96; stroke-width: 1.6; }
+      .var { fill: #e7f5ff; stroke: #228be6; }
+      .clause { fill: #fff0f6; stroke: #d6336c; }
+    </style>
+  </defs>
+  <g transform="translate(20,20)">
+    <text class="label" x="0" y="0">変数ガジェット</text>
+    <circle class="node var" cx="80" cy="40" r="14"/>
+    <text class="label" x="80" y="44" text-anchor="middle">x₁</text>
+    <circle class="node var" cx="160" cy="40" r="14"/>
+    <text class="label" x="160" y="44" text-anchor="middle">¬x₁</text>
+    <line class="edge" x1="94" y1="40" x2="146" y2="40"/>
+
+    <circle class="node var" cx="80" cy="100" r="14"/>
+    <text class="label" x="80" y="104" text-anchor="middle">x₂</text>
+    <circle class="node var" cx="160" cy="100" r="14"/>
+    <text class="label" x="160" y="104" text-anchor="middle">¬x₂</text>
+    <line class="edge" x1="94" y1="100" x2="146" y2="100"/>
+
+    <text class="label" x="260" y="0">節ガジェット</text>
+    <circle class="node clause" cx="300" cy="70" r="14"/>
+    <text class="label" x="300" y="74" text-anchor="middle">C₁</text>
+    <line class="edge" x1="300" y1="56" x2="160" y2="40"/>
+    <line class="edge" x1="300" y1="70" x2="80" y2="40"/>
+    <line class="edge" x1="300" y1="84" x2="80" y2="100"/>
+    <text class="label" x="320" y="70">(¬x₁ ∨ x₁ ∨ x₂) 例</text>
+  </g>
+</svg>
+

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300" role="img" aria-labelledby="title desc">
+  <title id="title">Kruskal法とUnion-Findの流れ（最小全域木）</title>
+  <desc id="desc">昇順の辺を順に見て、閉路を作らなければ採用し、Union-Findで集合を合併する流れの模式図。</desc>
+  <defs>
+    <style>
+      .label { fill: #111; font-family: Inter, Helvetica, Arial, sans-serif; font-size: 12px; }
+      .panel { fill: #f8f9fa; stroke: #dee2e6; }
+      .node { fill: #fff; stroke: #495057; stroke-width: 1.6; }
+      .edge { stroke: #868e96; stroke-width: 1.6; }
+      .sel { stroke: #2b8a3e; stroke-width: 2.2; }
+      .uf { fill: #e7f5ff; stroke: #228be6; }
+      .arrow { stroke: #212529; stroke-width: 1.6; marker-end: url(#m); fill: none; }
+    </style>
+    <marker id="m" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#212529" />
+    </marker>
+  </defs>
+  <g transform="translate(20,20)">
+    <rect class="panel" x="0" y="0" width="340" height="200" rx="8"/>
+    <text class="label" x="10" y="16">グラフと辺の昇順</text>
+    <!-- graph -->
+    <circle class="node" cx="60" cy="80" r="12"/>
+    <text class="label" x="60" y="84" text-anchor="middle">A</text>
+    <circle class="node" cx="140" cy="80" r="12"/>
+    <text class="label" x="140" y="84" text-anchor="middle">B</text>
+    <circle class="node" cx="100" cy="140" r="12"/>
+    <text class="label" x="100" y="144" text-anchor="middle">C</text>
+    <line class="edge sel" x1="60" y1="80" x2="140" y2="80"/>
+    <text class="label" x="100" y="72" text-anchor="middle">1</text>
+    <line class="edge" x1="60" y1="80" x2="100" y2="140"/>
+    <text class="label" x="76" y="112" text-anchor="middle">2</text>
+    <line class="edge" x1="140" y1="80" x2="100" y2="140"/>
+    <text class="label" x="122" y="112" text-anchor="middle">3</text>
+    <text class="label" x="200" y="60">昇順: (A,B,1), (A,C,2), (B,C,3)</text>
+  </g>
+  <path class="arrow" d="M 380 120 L 420 120"/>
+  <g transform="translate(440,20)">
+    <rect class="panel" x="0" y="0" width="300" height="200" rx="8"/>
+    <text class="label" x="10" y="16">Union-Find の合併</text>
+    <rect class="uf" x="20" y="60" width="80" height="28" rx="4"/>
+    <text class="label" x="60" y="78" text-anchor="middle">{A}</text>
+    <rect class="uf" x="120" y="60" width="80" height="28" rx="4"/>
+    <text class="label" x="160" y="78" text-anchor="middle">{B}</text>
+    <rect class="uf" x="220" y="60" width="80" height="28" rx="4"/>
+    <text class="label" x="260" y="78" text-anchor="middle">{C}</text>
+    <path class="arrow" d="M 60 100 L 160 100"/>
+    <text class="label" x="110" y="96" text-anchor="middle">union(A,B)</text>
+    <rect class="uf" x="70" y="130" width="120" height="28" rx="4"/>
+    <text class="label" x="130" y="148" text-anchor="middle">{A,B}</text>
+    <rect class="uf" x="220" y="130" width="80" height="28" rx="4"/>
+    <text class="label" x="260" y="148" text-anchor="middle">{C}</text>
+  </g>
+</svg>
+
