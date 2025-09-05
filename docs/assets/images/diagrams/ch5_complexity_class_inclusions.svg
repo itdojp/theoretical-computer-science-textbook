@@ -126,7 +126,8 @@
     <text x="570" y="261" class="class-notation small">クラス</text>
     
     <!-- BPP (Bounded-error Probabilistic Polynomial) -->
-    <rect x="300" y="300" width="100" height="60" class="probabilistic-class" />
+    <!-- Increase height to accommodate wrapped labels (avoid text overflow) -->
+    <rect x="300" y="300" width="100" height="90" class="probabilistic-class" />
     <text x="370" y="320" class="class-name">BPP</text>
     <text x="370" y="333" class="class-notation small">確率的</text>
     <text x="370" y="346" class="class-notation small">多項式時間</text>
