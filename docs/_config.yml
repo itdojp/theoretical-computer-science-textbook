@@ -42,3 +42,11 @@ kramdown:
 # リポジトリ情報
 repository: "itdojp/theoretical-computer-science-textbook"
 
+
+# Defaults: use custom book layout as default
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "book"
