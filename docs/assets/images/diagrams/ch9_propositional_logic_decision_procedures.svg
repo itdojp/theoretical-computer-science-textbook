@@ -213,7 +213,7 @@
   <text x="850" y="640" class="description">産業応用可能</text>
   
   <!-- Key improvements -->
-  <text x="120" y="690" class="subtitle">DPLLの改良点</text>
+  <text x="130" y="690" class="subtitle" style="text-anchor:start">DPLLの改良点</text>
   <text x="140" y="710" class="description">• 枝刈り：早期に矛盾を検出して無駄な探索を回避</text>
   <text x="140" y="725" class="description">• ヒューリスティック：効果的な変数選択で探索効率を向上</text>
   <text x="140" y="740" class="description">• 学習：競合節を学習して同じ失敗を繰り返さない（CDCL）</text>

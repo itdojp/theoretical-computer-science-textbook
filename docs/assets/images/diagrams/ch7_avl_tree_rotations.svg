@@ -256,8 +256,8 @@
   
   <!-- Balance Factor -->
   <text x="120" y="660" class="subtitle">平衡因子</text>
-  <text x="400" y="680" text-anchor="middle" class="description">各ノードの平衡因子 = 右部分木の高さ - 左部分树の高さ</text>
-  <text x="400" y="695" text-anchor="middle" class="description">AVL木では全ノードの平衡因子が {-1, 0, 1} の範囲内</text>
+  <text x="140" y="680" class="description" style="text-anchor:start">各ノードの平衡因子 = 右部分木の高さ - 左部分树の高さ</text>
+  <text x="140" y="695" class="description" style="text-anchor:start">AVL木では全ノードの平衡因子が {-1, 0, 1} の範囲内</text>
   
   <!-- Rotation Types -->
   <text x="120" y="725" class="subtitle">回転の種類</text>
