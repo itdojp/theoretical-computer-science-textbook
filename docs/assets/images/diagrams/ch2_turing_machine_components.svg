@@ -93,8 +93,9 @@
   <!-- Row 1: Q, Σ, Γ -->
   <rect x="50" y="140" width="240" height="70" class="component-box" />
   <text x="60" y="160" class="component-title">Q: 状態の有限集合</text>
-  <text x="170" y="175" text-anchor="middle" class="component-desc">{q₀, q₁, q₂, ..., qaccept, qreject}</text>
-  <text x="170" y="190" text-anchor="middle" class="component-desc">・有限個の状態・受理拒否状態含む</text>
+  <!-- Left-align and wrap to avoid right overflow inside the box -->
+  <text x="60" y="175" class="component-desc" text-anchor="start">{q₀, q₁, q₂, ... ,</text>
+  <text x="60" y="190" class="component-desc" text-anchor="start"> qaccept, qreject}</text>
 
   <rect x="330" y="140" width="240" height="70" class="component-box" />
   <text x="340" y="160" class="component-title">Σ: 入力アルファベット</text>
