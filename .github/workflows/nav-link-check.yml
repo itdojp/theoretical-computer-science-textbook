@@ -12,20 +12,35 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Install PyYAML
+        run: python3 -m pip install --user pyyaml
+
       - name: Build URL list
         id: build
         run: |
           python3 - << 'PY'
           import os, yaml, re
           from pathlib import Path
+          import yaml
           repo = os.environ.get('GITHUB_REPOSITORY','').split('/')[-1]
           cfg = Path('docs/_config.yml') if Path('docs/_config.yml').exists() else Path('_config.yml')
           baseurl = f'/{repo}'
           if cfg.exists():
-              for line in cfg.read_text(encoding='utf-8').splitlines():
-                  if line.strip().startswith('baseurl:'):
-                      baseurl = line.split(':',1)[1].strip()
-                      break
+              try:
+                  data = yaml.safe_load(cfg.read_text(encoding='utf-8')) or {}
+                  bu = data.get('baseurl')
+                  if isinstance(bu,str) and bu.strip():
+                      baseurl = bu.strip()
+              except Exception:
+                  # Fallback to naive parse but strip quotes
+                  for line in cfg.read_text(encoding='utf-8').splitlines():
+                      if line.strip().startswith('baseurl:'):
+                          val = line.split(':',1)[1].strip()
+                          baseurl = val.strip('"\'\' ')
+                          break
+          # Ensure baseurl starts with '/'
+          if not baseurl.startswith('/'):
+              baseurl = '/' + baseurl
           def read_nav():
               y = Path('docs/_data/navigation.yml')
               if not y.exists():
@@ -69,4 +84,3 @@ jobs:
             echo "Found $failures non-200 URLs" >&2
             exit 1
           fi
-
