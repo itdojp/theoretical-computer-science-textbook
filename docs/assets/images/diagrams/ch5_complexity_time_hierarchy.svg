@@ -217,7 +217,7 @@
     <text x="325" y="445" class="section-title">実用的な境界</text>
     
     <!-- Practical -->
-    <rect x="70" y="460" width="150" height="90" style="fill: #e8f5e8; stroke: #4caf50; stroke-width: 2px; rx: 4px;" />
+    <rect x="70" y="460" width="150" height="150" style="fill: #e8f5e8; stroke: #4caf50; stroke-width: 2px; rx: 4px;" />
     <text x="145" y="480" class="class-name">実用的</text>
     <text x="80" y="500" class="description">• 線形時間 O(n)</text>
     <text x="80" y="515" class="description">• 準線形時間 O(n log n)</text>
@@ -231,7 +231,7 @@
     <text x="250" y="530" class="description">• 小さな指数 O(2^n), n ≤ 30</text>
     
     <!-- Intractable -->
-    <rect x="410" y="460" width="150" height="90" style="fill: #ffcdd2; stroke: #f44336; stroke-width: 2px; rx: 4px;" />
+    <rect x="410" y="460" width="150" height="150" style="fill: #ffcdd2; stroke: #f44336; stroke-width: 2px; rx: 4px;" />
     <text x="485" y="480" class="class-name">非実用的</text>
     <text x="420" y="500" class="description">• 指数時間 EXPTIME</text>
     <text x="420" y="515" class="description">• 二重指数時間</text>
