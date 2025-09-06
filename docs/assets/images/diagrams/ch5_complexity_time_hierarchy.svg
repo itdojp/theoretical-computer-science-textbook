@@ -224,7 +224,7 @@
     <text x="80" y="530" class="description">• 低次多項式時間 O(n²)</text>
     
     <!-- Feasible -->
-    <rect x="240" y="460" width="150" height="90" style="fill: #fff3e0; stroke: #ff9800; stroke-width: 2px; rx: 4px;" />
+    <rect x="240" y="460" width="150" height="150" style="fill: #fff3e0; stroke: #ff9800; stroke-width: 2px; rx: 4px;" />
     <text x="315" y="480" class="class-name">計算可能</text>
     <text x="250" y="500" class="description">• 多項式時間 P</text>
     <text x="250" y="515" class="description">• 準指数時間 O(2^(n^ε))</text>

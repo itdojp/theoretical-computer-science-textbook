@@ -164,7 +164,7 @@
     <!-- Example 1: Binary Search -->
     <rect x="50" y="580" width="200" height="120" class="example-box" />
     <text x="60" y="600" class="example-text">例1: 二分探索</text>
-    <text x="60" y="615" class="formula">T(n) = T(n/2) + 1</text>
+    <text x="60" y="615" class="formula" style="text-anchor:start">T(n) = T(n/2) + 1</text>
     <text x="60" y="630" class="example-text">a=1, b=2, f(n)=1</text>
     <text x="60" y="645" class="example-text">log₂(1) = 0 &lt; 1のため</text>
     <text x="60" y="660" class="example-text">ケース1適用</text>
@@ -174,7 +174,7 @@
     <!-- Example 2: Merge Sort -->
     <rect x="270" y="580" width="200" height="120" class="example-box" />
     <text x="280" y="600" class="example-text">例2: マージソート</text>
-    <text x="280" y="615" class="formula">T(n) = 2T(n/2) + n</text>
+    <text x="280" y="615" class="formula" style="text-anchor:start">T(n) = 2T(n/2) + n</text>
     <text x="280" y="630" class="example-text">a=2, b=2, f(n)=n</text>
     <text x="280" y="645" class="example-text">log₂(2) = 1 = n¹のため</text>
     <text x="280" y="660" class="example-text">ケース2適用</text>
@@ -184,7 +184,7 @@
     <!-- Example 3: Strassen's Algorithm -->
     <rect x="490" y="580" width="200" height="120" class="example-box" />
     <text x="500" y="600" class="example-text">例3: Strassen行列積</text>
-    <text x="500" y="615" class="formula">T(n) = 7T(n/2) + n²</text>
+    <text x="500" y="615" class="formula" style="text-anchor:start">T(n) = 7T(n/2) + n²</text>
     <text x="500" y="630" class="example-text">a=7, b=2, f(n)=n²</text>
     <text x="500" y="645" class="example-text">log₂(7) ≈ 2.807 > 2のため</text>
     <text x="500" y="660" class="example-text">ケース1適用</text>
@@ -194,7 +194,7 @@
     <!-- Example 4: Non-applicable case -->
     <rect x="710" y="580" width="200" height="120" class="example-box" />
     <text x="720" y="600" class="example-text">例4: 分割統治（変則）</text>
-    <text x="720" y="615" class="formula">T(n) = T(n/3) + T(2n/3) + n</text>
+    <text x="720" y="615" class="formula" style="text-anchor:start">T(n) = T(n/3) + T(2n/3) + n</text>
     <text x="720" y="630" class="example-text">分割サイズが不均等</text>
     <text x="720" y="645" class="example-text">マスター定理不適用</text>
     <text x="720" y="660" class="example-text">置換法による解析</text>
@@ -204,7 +204,7 @@
     <!-- Example 5: Quicksort average case -->
     <rect x="930" y="580" width="200" height="120" class="example-box" />
     <text x="940" y="600" class="example-text">例5: クイックソート（平均）</text>
-    <text x="940" y="615" class="formula">T(n) = 2T(n/2) + n</text>
+    <text x="940" y="615" class="formula" style="text-anchor:start">T(n) = 2T(n/2) + n</text>
     <text x="940" y="630" class="example-text">期待値による解析</text>
     <text x="940" y="645" class="example-text">a=2, b=2, f(n)=n</text>
     <text x="940" y="660" class="example-text">ケース2適用</text>
