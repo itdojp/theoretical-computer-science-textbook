@@ -133,11 +133,10 @@
   <rect x="320" y="440" width="450" height="150" rx="8" fill="#f0f8ff" stroke="#4682b4" stroke-width="2"/>
   <text x="545" y="465" class="section-title">重要な洞察</text>
   <text x="545" y="485" class="main-text">決定可能 ⟺ L と L̄ の両方が認識可能</text>
-  <!-- Left-align bullet texts to ensure they start within the panel bounds -->
-  <text x="345" y="505" class="detail-text" text-anchor="start">• 決定可能な言語は、受理と拒否の両方が可能</text>
-  <text x="345" y="520" class="detail-text" text-anchor="start">• 認識可能だが決定不能な言語は、補言語が認識不能</text>
-  <text x="345" y="535" class="detail-text" text-anchor="start">• この差が計算の根本的な限界を示している</text>
-  <text x="345" y="550" class="detail-text" text-anchor="start">• 万能チューリング機械による対角化論法が鍵となる</text>
+  <text x="545" y="505" class="detail-text" text-anchor="middle">• 決定可能な言語は、受理と拒否の両方が可能</text>
+  <text x="545" y="520" class="detail-text" text-anchor="middle">• 認識可能だが決定不能な言語は、補言語が認識不能</text>
+  <text x="545" y="535" class="detail-text" text-anchor="middle">• この差が計算の根本的な限界を示している</text>
+  <text x="545" y="550" class="detail-text" text-anchor="middle">• 万能チューリング機械による対角化論法が鍵となる</text>
   
   <!-- Connection lines -->
   <path d="M 230 395 Q 260 320 310 250" class="connection-line" stroke-dasharray="3,2"/>
