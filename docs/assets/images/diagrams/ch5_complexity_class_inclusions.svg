@@ -126,11 +126,14 @@
     <text x="570" y="261" class="class-notation small">クラス</text>
     
     <!-- BPP (Bounded-error Probabilistic Polynomial) -->
-    <rect x="300" y="300" width="100" height="60" class="probabilistic-class" />
+    <!-- Increase height to accommodate wrapped labels (avoid text overflow) -->
+    <rect x="300" y="300" width="100" height="90" class="probabilistic-class" />
     <text x="370" y="320" class="class-name">BPP</text>
     <text x="370" y="333" class="class-notation small">確率的</text>
     <text x="370" y="346" class="class-notation small">多項式時間</text>
-    <text x="370" y="350" class="class-notation">有界誤り確率</text>
+    <!-- Wrap long label into two short lines for better readability -->
+    <text x="370" y="359" class="class-notation small">有界誤り</text>
+    <text x="370" y="372" class="class-notation small">確率</text>
     
     <!-- PSPACE (Polynomial Space) -->
     <rect x="700" y="150" width="100" height="60" class="space-class" />
@@ -209,14 +212,14 @@
     <text x="350" y="445" class="section-title">確実に知られている関係</text>
     
     <text x="90" y="470" class="description">包含関係（⊆）:</text>
-    <text x="100" y="485" class="class-notation">L ⊆ NL ⊆ P ⊆ NP ⊆ PSPACE ⊆ EXPTIME</text>
-    <text x="100" y="500" class="class-notation">P ⊆ coNP ⊆ PSPACE</text>
-    <text x="100" y="515" class="class-notation">P ⊆ BPP ⊆ PSPACE</text>
+    <text x="90" y="485" class="description">L ⊆ NL ⊆ P ⊆ NP ⊆ PSPACE ⊆ EXPTIME</text>
+    <text x="90" y="500" class="description">P ⊆ coNP ⊆ PSPACE</text>
+    <text x="90" y="515" class="description">P ⊆ BPP ⊆ PSPACE</text>
     
     <text x="370" y="470" class="description">真の包含（⊊）:</text>
-    <text x="380" y="485" class="class-notation">P ⊊ EXPTIME （時間階層定理）</text>
-    <text x="380" y="500" class="class-notation">L ⊊ PSPACE （空間階層定理）</text>
-    <text x="380" y="515" class="class-notation">NL ⊊ PSPACE （Savitchの定理より）</text>
+    <text x="380" y="485" class="description">P ⊊ EXPTIME （時間階層定理）</text>
+    <text x="380" y="500" class="description">L ⊊ PSPACE （空間階層定理）</text>
+    <text x="380" y="515" class="description">NL ⊊ PSPACE （Savitchの定理より）</text>
   </g>
   
   <!-- Open Questions -->
@@ -225,14 +228,14 @@
     <text x="1025" y="445" class="section-title">未解決問題</text>
     
     <text x="740" y="470" class="description">主要な未解決問題:</text>
-    <text x="750" y="485" class="class-notation">• P vs NP （最も有名なミレニアム問題）</text>
-    <text x="750" y="500" class="class-notation">• NP vs coNP （対称性の問題）</text>
-    <text x="750" y="515" class="class-notation">• L vs P, L vs NL, NL vs P （小さなクラスの分離）</text>
+    <text x="720" y="485" class="description">• P vs NP （最も有名なミレニアム問題）</text>
+    <text x="720" y="500" class="description">• NP vs coNP （対称性の問題）</text>
+    <text x="720" y="515" class="description">• L vs P, L vs NL, NL vs P （小さなクラスの分離）</text>
     
     <text x="1120" y="470" class="description">関連する未解決問題:</text>
-    <text x="1130" y="485" class="class-notation">• NP vs PSPACE</text>
-    <text x="1130" y="500" class="class-notation">• BPP vs NP, BPP vs coNP</text>
-    <text x="1130" y="515" class="class-notation">• P vs BPP （脱ランダム化）</text>
+    <text x="1100" y="485" class="description">• NP vs PSPACE</text>
+    <text x="1100" y="500" class="description">• BPP vs NP, BPP vs coNP</text>
+    <text x="1100" y="515" class="description">• P vs BPP （脱ランダム化）</text>
   </g>
   
   <!-- Practical Implications -->
@@ -242,21 +245,21 @@
     
     <!-- Left column -->
     <text x="90" y="630" class="description">クラス分離の重要性:</text>
-    <text x="100" y="645" class="class-notation">• P ≠ NP なら現在の暗号系は安全</text>
-    <text x="100" y="660" class="class-notation">• L ≠ P なら空間効率的アルゴリズムの限界</text>
-    <text x="100" y="675" class="class-notation">• BPP = P なら完全な脱ランダム化が可能</text>
+    <text x="100" y="645" class="description">• P ≠ NP なら現在の暗号系は安全</text>
+    <text x="100" y="660" class="description">• L ≠ P なら空間効率的アルゴリズムの限界</text>
+    <text x="100" y="675" class="description">• BPP = P なら完全な脱ランダム化が可能</text>
     
     <!-- Middle column -->
     <text x="480" y="630" class="description">アルゴリズム設計への影響:</text>
-    <text x="490" y="645" class="class-notation">• NP完全問題は近似・ヒューリスティック必要</text>
-    <text x="490" y="660" class="class-notation">• PSPACE完全問題は指数時間必要</text>
-    <text x="490" y="675" class="class-notation">• BPPのランダム化の威力</text>
+    <text x="490" y="645" class="description">• NP完全問題は近似・ヒューリスティック必要</text>
+    <text x="490" y="660" class="description">• PSPACE完全問題は指数時間必要</text>
+    <text x="490" y="675" class="description">• BPPのランダム化の威力</text>
     
     <!-- Right column -->
     <text x="880" y="630" class="description">研究の方向性:</text>
-    <text x="890" y="645" class="class-notation">• 下界証明技法の開発</text>
-    <text x="890" y="660" class="class-notation">• 新しい計算モデルの探求</text>
-    <text x="890" y="675" class="class-notation">• 量子・近似・並列複雑性との関係</text>
+    <text x="890" y="645" class="description">• 下界証明技法の開発</text>
+    <text x="890" y="660" class="description">• 新しい計算モデルの探求</text>
+    <text x="890" y="675" class="description">• 量子・近似・並列複雑性との関係</text>
   </g>
   
   <!-- Visual aids for uncertain relationships -->
