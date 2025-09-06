@@ -148,10 +148,11 @@
   <!-- Key insight box -->
   <rect x="200" y="620" width="600" height="140" rx="8" fill="#f0f8ff" stroke="#4682b4" stroke-width="2"/>
   <text x="500" y="645" class="section-title">万能チューリング機械の核心的洞察</text>
-  <text x="220" y="670" class="main-text" text-anchor="start">1. 計算とデータの統一：</text>
-  <text x="240" y="685" class="detail-text" text-anchor="start">プログラム（計算手順）もデータとして扱える</text>
-  <text x="240" y="700" class="detail-text" text-anchor="start">→ ソフトウェアの概念、プログラム内蔵方式</text>
-  <text x="220" y="720" class="main-text" text-anchor="start">2. 計算の限界の発見：</text>
-  <text x="240" y="735" class="detail-text" text-anchor="start">万能機械でも解けない問題の存在</text>
-  <text x="240" y="750" class="detail-text" text-anchor="start">→ 停止問題、決定不能性理論</text>
+  <!-- increase left margin inside panel to ensure text starts well within the box -->
+  <text x="260" y="670" class="main-text" style="text-anchor:start">1. 計算とデータの統一：</text>
+  <text x="280" y="685" class="detail-text" style="text-anchor:start">プログラム（計算手順）もデータとして扱える</text>
+  <text x="280" y="700" class="detail-text" style="text-anchor:start">→ ソフトウェアの概念、プログラム内蔵方式</text>
+  <text x="260" y="720" class="main-text" style="text-anchor:start">2. 計算の限界の発見：</text>
+  <text x="280" y="735" class="detail-text" style="text-anchor:start">万能機械でも解けない問題の存在</text>
+  <text x="280" y="750" class="detail-text" style="text-anchor:start">→ 停止問題、決定不能性理論</text>
 </svg>
