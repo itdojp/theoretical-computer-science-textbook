@@ -120,28 +120,28 @@
     
     <!-- Step 1 -->
     <rect x="50" y="220" width="600" height="100" class="merge-step" />
-    <text x="70" y="240" class="section-title" text-anchor="start">ステップ1: 最小頻度の2つを結合</text>
+    <text x="70" y="240" class="section-title" text-anchor="start" style="text-anchor:start">ステップ1: 最小頻度の2つを結合</text>
     <text x="70" y="260" class="step-text">D(0.1) と E(0.1) を結合 → 新ノード DE(0.2)</text>
     <text x="70" y="275" class="step-text">残り: A(0.4), B(0.2), C(0.2), DE(0.2)</text>
     <text x="70" y="290" class="step-text">0を左の子(D)に、1を右の子(E)に割り当て</text>
     
     <!-- Step 2 -->
     <rect x="50" y="320" width="600" height="100" class="merge-step" />
-    <text x="70" y="340" class="section-title" text-anchor="start">ステップ2: 次の最小頻度を結合</text>
+    <text x="70" y="340" class="section-title" text-anchor="start" style="text-anchor:start">ステップ2: 次の最小頻度を結合</text>
     <text x="70" y="360" class="step-text">B(0.2) と C(0.2) を結合 → 新ノード BC(0.4)</text>
     <text x="70" y="375" class="step-text">残り: A(0.4), DE(0.2), BC(0.4)</text>
     <text x="70" y="390" class="step-text">0を左の子(B)に、1を右の子(C)に割り当て</text>
     
     <!-- Step 3 -->
     <rect x="50" y="420" width="600" height="100" class="merge-step" />
-    <text x="70" y="440" class="section-title" text-anchor="start">ステップ3: さらに結合</text>
+    <text x="70" y="440" class="section-title" text-anchor="start" style="text-anchor:start">ステップ3: さらに結合</text>
     <text x="70" y="460" class="step-text">DE(0.2) と BC(0.4) を結合 → 新ノード DEBC(0.6)</text>
     <text x="70" y="475" class="step-text">残り: A(0.4), DEBC(0.6)</text>
     <text x="70" y="490" class="step-text">0を左の子(DE)に、1を右の子(BC)に割り当て</text>
     
     <!-- Step 4 -->
     <rect x="50" y="520" width="600" height="100" class="merge-step" />
-    <text x="70" y="540" class="section-title" text-anchor="start">ステップ4: 最終結合</text>
+    <text x="70" y="540" class="section-title" text-anchor="start" style="text-anchor:start">ステップ4: 最終結合</text>
     <text x="70" y="560" class="step-text">A(0.4) と DEBC(0.6) を結合 → ルート(1.0)</text>
     <text x="70" y="575" class="step-text">0を左の子(A)に、1を右の子(DEBC)に割り当て</text>
     <text x="70" y="590" class="step-text">Huffman木の完成</text>
@@ -208,7 +208,7 @@
     <text x="200" y="650" class="section-title">生成された符号</text>
     
     <rect x="50" y="670" width="400" height="120" class="code-result" />
-    <text x="70" y="690" class="section-title" text-anchor="start">符号表</text>
+    <text x="70" y="690" class="section-title" text-anchor="start" style="text-anchor:start">符号表</text>
     <text x="70" y="715" class="code-text">A: 0     (長さ1, 確率0.4)</text>
     <text x="70" y="735" class="code-text">B: 100   (長さ3, 確率0.2)</text>
     <text x="70" y="755" class="code-text">C: 101   (長さ3, 確率0.2)</text>
@@ -224,7 +224,7 @@
     <text x="750" y="650" class="section-title">性能解析</text>
     
     <rect x="500" y="670" width="500" height="120" class="analysis-box" />
-    <text x="520" y="690" class="section-title" text-anchor="start">平均符号長の計算</text>
+    <text x="520" y="690" class="section-title" text-anchor="start" style="text-anchor:start">平均符号長の計算</text>
     <text x="520" y="715" class="code-text">L = 0.4×1 + 0.2×3 + 0.2×3 + 0.1×3 + 0.1×3</text>
     <text x="520" y="735" class="code-text">  = 0.4 + 0.6 + 0.6 + 0.3 + 0.3 = 2.2 bit</text>
     
@@ -240,7 +240,7 @@
   <!-- Properties -->
   <g id="properties">
     <rect x="1050" y="670" width="300" height="120" class="analysis-box" />
-    <text x="1070" y="690" class="section-title" text-anchor="start">Huffman符号の性質</text>
+    <text x="1070" y="690" class="section-title" text-anchor="start" style="text-anchor:start">Huffman符号の性質</text>
     <text x="1070" y="715" class="step-text">• プレフィクス符号（即座に復号可能）</text>
     <text x="1070" y="730" class="step-text">• シンボル単位での最適性</text>
     <text x="1070" y="745" class="step-text">• 貪欲アルゴリズムによる構成</text>
