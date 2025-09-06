@@ -159,10 +159,10 @@
   <rect x="100" y="650" width="800" height="140" rx="8" fill="#f0f8ff" stroke="#4682b4" stroke-width="2"/>
   <text x="500" y="675" class="section-title">決定不能性の統一的理解</text>
   <!-- increase left margin inside panel to ensure text starts well within the box -->
-  <text x="170" y="700" class="main-text" text-anchor="start">1. 対角化論法の威力：</text>
-  <text x="190" y="715" class="detail-text" text-anchor="start">自己参照による矛盾構成</text>
-  <text x="190" y="730" class="detail-text" text-anchor="start">→ カントール、ゲーデル、チューリングの共通手法</text>
-  <text x="170" y="750" class="main-text" text-anchor="start">2. 計算の本質的限界：</text>
-  <text x="190" y="765" class="detail-text" text-anchor="start">アルゴリズムでは解けない問題の存在</text>
-  <text x="190" y="780" class="detail-text" text-anchor="start">→ プログラム解析・検証の理論的限界</text>
+  <text x="170" y="700" class="main-text" style="text-anchor:start">1. 対角化論法の威力：</text>
+  <text x="190" y="715" class="detail-text" style="text-anchor:start">自己参照による矛盾構成</text>
+  <text x="190" y="730" class="detail-text" style="text-anchor:start">→ カントール、ゲーデル、チューリングの共通手法</text>
+  <text x="170" y="750" class="main-text" style="text-anchor:start">2. 計算の本質的限界：</text>
+  <text x="190" y="765" class="detail-text" style="text-anchor:start">アルゴリズムでは解けない問題の存在</text>
+  <text x="190" y="780" class="detail-text" style="text-anchor:start">→ プログラム解析・検証の理論的限界</text>
 </svg>
