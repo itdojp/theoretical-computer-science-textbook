@@ -217,21 +217,21 @@
     <text x="325" y="445" class="section-title">実用的な境界</text>
     
     <!-- Practical -->
-    <rect x="70" y="460" width="150" height="70" style="fill: #e8f5e8; stroke: #4caf50; stroke-width: 2px; rx: 4px;" />
+    <rect x="70" y="460" width="150" height="90" style="fill: #e8f5e8; stroke: #4caf50; stroke-width: 2px; rx: 4px;" />
     <text x="145" y="480" class="class-name">実用的</text>
     <text x="80" y="500" class="description">• 線形時間 O(n)</text>
     <text x="80" y="515" class="description">• 準線形時間 O(n log n)</text>
     <text x="80" y="530" class="description">• 低次多項式時間 O(n²)</text>
     
     <!-- Feasible -->
-    <rect x="240" y="460" width="150" height="70" style="fill: #fff3e0; stroke: #ff9800; stroke-width: 2px; rx: 4px;" />
+    <rect x="240" y="460" width="150" height="90" style="fill: #fff3e0; stroke: #ff9800; stroke-width: 2px; rx: 4px;" />
     <text x="315" y="480" class="class-name">計算可能</text>
     <text x="250" y="500" class="description">• 多項式時間 P</text>
     <text x="250" y="515" class="description">• 準指数時間 O(2^(n^ε))</text>
     <text x="250" y="530" class="description">• 小さな指数 O(2^n), n ≤ 30</text>
     
     <!-- Intractable -->
-    <rect x="410" y="460" width="150" height="70" style="fill: #ffcdd2; stroke: #f44336; stroke-width: 2px; rx: 4px;" />
+    <rect x="410" y="460" width="150" height="90" style="fill: #ffcdd2; stroke: #f44336; stroke-width: 2px; rx: 4px;" />
     <text x="485" y="480" class="class-name">非実用的</text>
     <text x="420" y="500" class="description">• 指数時間 EXPTIME</text>
     <text x="420" y="515" class="description">• 二重指数時間</text>
@@ -260,34 +260,34 @@
     
     <!-- Theoretical complexity -->
     <text x="695" y="370" class="description">理論的複雑性:</text>
-    <text x="705" y="385" class="class-notation">• 漸近的な振る舞い（n → ∞）</text>
-    <text x="705" y="400" class="class-notation">• 定数因子を無視</text>
-    <text x="705" y="415" class="class-notation">• 最悪ケースを重視</text>
+    <text x="705" y="385" class="class-notation" style="text-anchor:start">• 漸近的な振る舞い（n → ∞）</text>
+    <text x="705" y="400" class="class-notation" style="text-anchor:start">• 定数因子を無視</text>
+    <text x="705" y="415" class="class-notation" style="text-anchor:start">• 最悪ケースを重視</text>
     
     <!-- Practical considerations -->
     <text x="695" y="440" class="description">実用的考慮事項:</text>
-    <text x="705" y="455" class="class-notation">• 定数因子の重要性</text>
-    <text x="705" y="470" class="class-notation">• 平均的性能</text>
-    <text x="705" y="485" class="class-notation">• キャッシュ効率、並列性</text>
-    <text x="705" y="500" class="class-notation">• 実装の複雑さ</text>
+    <text x="705" y="455" class="class-notation" style="text-anchor:start">• 定数因子の重要性</text>
+    <text x="705" y="470" class="class-notation" style="text-anchor:start">• 平均的性能</text>
+    <text x="705" y="485" class="class-notation" style="text-anchor:start">• キャッシュ効率、並列性</text>
+    <text x="705" y="500" class="class-notation" style="text-anchor:start">• 実装の複雑さ</text>
     
     <!-- Examples of gap -->
     <text x="670" y="525" class="description">ギャップの具体例:</text>
-    <text x="680" y="540" class="class-notation">• 単体法: 指数時間だが実用的</text>
-    <text x="680" y="555" class="class-notation">• AKS素数判定: 多項式時間だが非実用的</text>
-    <text x="680" y="570" class="class-notation">• 行列乗算: 理論上O(n^2.373)、実用上O(n³)</text>
+    <text x="680" y="540" class="class-notation" style="text-anchor:start">• 単体法: 指数時間だが実用的</text>
+    <text x="680" y="555" class="class-notation" style="text-anchor:start">• AKS素数判定: 多項式時間だが非実用的</text>
+    <text x="680" y="570" class="class-notation" style="text-anchor:start">• 行列乗算: 理論上O(n^2.373)、実用上O(n³)</text>
     
     <!-- Modern trends -->
     <text x="670" y="595" class="description">現代的傾向:</text>
-    <text x="680" y="610" class="class-notation">• ビッグデータ: nが巨大（n > 10⁹）</text>
-    <text x="1000" y="370" class="class-notation">• 近似アルゴリズム</text>
-    <text x="1000" y="385" class="class-notation">• ランダム化アルゴリズム</text>
-    <text x="1000" y="400" class="class-notation">• ヒューリスティック手法</text>
-    <text x="1000" y="415" class="class-notation">• 並列・分散アルゴリズム</text>
-    <text x="1000" y="440" class="class-notation">機械学習の興隆:</text>
-    <text x="1000" y="455" class="class-notation">• 勾配降下法</text>
-    <text x="1000" y="470" class="class-notation">• 深層学習</text>
-    <text x="1000" y="485" class="class-notation">• 確率的最適化</text>
+    <text x="680" y="610" class="class-notation" style="text-anchor:start">• ビッグデータ: nが巨大（n > 10⁹）</text>
+    <text x="1000" y="370" class="class-notation" style="text-anchor:start">• 近似アルゴリズム</text>
+    <text x="1000" y="385" class="class-notation" style="text-anchor:start">• ランダム化アルゴリズム</text>
+    <text x="1000" y="400" class="class-notation" style="text-anchor:start">• ヒューリスティック手法</text>
+    <text x="1000" y="415" class="class-notation" style="text-anchor:start">• 並列・分散アルゴリズム</text>
+    <text x="1000" y="440" class="class-notation" style="text-anchor:start">機械学習の興隆:</text>
+    <text x="1000" y="455" class="class-notation" style="text-anchor:start">• 勾配降下法</text>
+    <text x="1000" y="470" class="class-notation" style="text-anchor:start">• 深層学習</text>
+    <text x="1000" y="485" class="class-notation" style="text-anchor:start">• 確率的最適化</text>
   </g>
   
   <!-- Connections between sections -->

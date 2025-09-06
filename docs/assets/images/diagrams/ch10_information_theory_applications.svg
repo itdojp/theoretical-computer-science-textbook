@@ -76,7 +76,7 @@
     <text x="350" y="70" class="section-title">データ圧縮</text>
     
     <!-- Lossless Compression -->
-    <rect x="50" y="90" width="300" height="140" class="compression-app" />
+    <rect x="50" y="90" width="300" height="170" class="compression-app" />
     <text x="60" y="110" class="app-title">損失なし圧縮</text>
     <text x="70" y="130" class="technique">• Huffman符号</text>
     <text x="80" y="145" class="description">頻度に基づく最適符号化</text>
@@ -90,7 +90,7 @@
     <text x="80" y="235" class="description">連続的な確率分布による高効率符号化</text>
     
     <!-- Lossy Compression -->
-    <rect x="380" y="90" width="300" height="140" class="compression-app" />
+    <rect x="380" y="90" width="300" height="170" class="compression-app" />
     <text x="390" y="110" class="app-title">損失あり圧縮</text>
     <text x="400" y="130" class="technique">• レート歪み理論</text>
     <text x="410" y="145" class="description">圧縮率と歪みのトレードオフ</text>
@@ -110,7 +110,7 @@
     <text x="1000" y="70" class="section-title">通信理論</text>
     
     <!-- Error Correction -->
-    <rect x="750" y="90" width="300" height="140" class="communication-app" />
+    <rect x="750" y="90" width="300" height="170" class="communication-app" />
     <text x="760" y="110" class="app-title">誤り訂正符号</text>
     <text x="770" y="130" class="technique">• ハミング符号</text>
     <text x="780" y="145" class="description">単一ビット誤り検出・訂正</text>
@@ -125,7 +125,7 @@
     <text x="780" y="245" class="example">Shannon限界に近い性能</text>
     
     <!-- Network Information Theory -->
-    <rect x="1080" y="90" width="300" height="140" class="communication-app" />
+    <rect x="1080" y="90" width="300" height="170" class="communication-app" />
     <text x="1090" y="110" class="app-title">ネットワーク情報理論</text>
     <text x="1100" y="130" class="technique">• 多元接続通信路</text>
     <text x="1110" y="145" class="description">複数送信者→単一受信者</text>
@@ -145,7 +145,7 @@
     <text x="350" y="290" class="section-title">機械学習・AI</text>
     
     <!-- Information-based Learning -->
-    <rect x="50" y="310" width="300" height="140" class="ml-app" />
+    <rect x="50" y="310" width="300" height="170" class="ml-app" />
     <text x="60" y="330" class="app-title">情報に基づく学習</text>
     <text x="70" y="350" class="technique">• 決定木学習</text>
     <text x="80" y="365" class="description">情報利得による特徴選択</text>
@@ -159,7 +159,7 @@
     <text x="80" y="455" class="description">情報ボトルネック原理</text>
     
     <!-- Deep Learning -->
-    <rect x="380" y="310" width="300" height="140" class="ml-app" />
+    <rect x="380" y="310" width="300" height="170" class="ml-app" />
     <text x="390" y="330" class="app-title">深層学習</text>
     <text x="400" y="350" class="technique">• 情報ボトルネック理論</text>
     <text x="410" y="365" class="description">DNN の学習過程の理論的説明</text>
@@ -179,7 +179,7 @@
     <text x="1000" y="290" class="section-title">暗号理論・セキュリティ</text>
     
     <!-- Information-theoretic Security -->
-    <rect x="750" y="310" width="300" height="140" class="crypto-app" />
+    <rect x="750" y="310" width="300" height="170" class="crypto-app" />
     <text x="760" y="330" class="app-title">情報理論的安全性</text>
     <text x="770" y="350" class="technique">• 完全秘匿性</text>
     <text x="780" y="365" class="description">I(M;C) = 0 (平文と暗号文が独立)</text>
@@ -193,7 +193,7 @@
     <text x="780" y="455" class="description">Shamir の閾値秘密分散法</text>
     
     <!-- Privacy and Security -->
-    <rect x="1080" y="310" width="300" height="140" class="crypto-app" />
+    <rect x="1080" y="310" width="300" height="170" class="crypto-app" />
     <text x="1090" y="330" class="app-title">プライバシー保護</text>
     <text x="1100" y="350" class="technique">• 差分プライバシー</text>
     <text x="1110" y="365" class="description">個人情報の統計的保護</text>
