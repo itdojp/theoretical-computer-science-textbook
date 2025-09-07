@@ -90,6 +90,12 @@ layout: default
 - 最適部分構造を持つ問題に対する最適化手法
 - メモ化により重複計算を避ける
 
+**学習節（Learned Clause）**
+- CDCLにおいて競合分析で導出される節。以後の探索で同じ失敗を避けるために追加される
+
+**非年代戻り（Non-chronological Backtracking）**
+- CDCLで、直前の分岐に限らず原因レベルまで戻るバックトラック戦略
+
 ## E
 
 **空文字列（Empty String）**
