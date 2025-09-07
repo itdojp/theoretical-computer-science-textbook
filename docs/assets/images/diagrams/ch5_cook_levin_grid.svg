@@ -1,0 +1,70 @@
+<svg viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Cook–Levin の直観図（テープ×時間の格子と局所制約）</title>
+  <desc id="desc">NP の受理計算（テープ×時間）を CNF の局所制約で符号化する直観図</desc>
+  <defs>
+    <style>
+      .grid { stroke: #adb5bd; stroke-width: 1; fill: none; }
+      .tcell { fill: #f8f9fa; stroke: #dee2e6; }
+      .label { font-family: Inter, Helvetica, sans-serif; font-size: 12px; fill: #333; }
+      .title { font-family: Inter, Helvetica, sans-serif; font-size: 18px; font-weight: 600; fill: #1a1a1a; text-anchor: middle; }
+      .section { font-family: Inter, Helvetica, sans-serif; font-size: 14px; font-weight: 600; fill: #2c3e50; }
+      .note { font-family: Inter, Helvetica, sans-serif; font-size: 11px; fill: #555; }
+      .cnf { fill: #fff3e0; stroke: #ff9800; stroke-width: 2; rx: 8; }
+      .ok { fill: #e8f5e9; stroke: #4caf50; stroke-width: 2; rx: 6; }
+      .bad { fill: #ffebee; stroke: #d32f2f; stroke-width: 2; rx: 6; }
+      .arrow { stroke: #6c757d; stroke-width: 2; fill: none; marker-end: url(#arr); }
+    </style>
+    <marker id="arr" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#6c757d"/>
+    </marker>
+  </defs>
+  <text x="600" y="30" class="title">Cook–Levin: テープ×時間の格子 → CNF の局所制約</text>
+  <!-- grid axes -->
+  <text x="80" y="70" class="section">テープ×時間の格子</text>
+  <text x="120" y="100" class="label">時間 t=0</text>
+  <text x="120" y="140" class="label">t=1</text>
+  <text x="120" y="180" class="label">t=2</text>
+  <text x="120" y="220" class="label">…</text>
+  <text x="220" y="85" class="label">…  i-1   i   i+1  …（テープ位置）</text>
+  <!-- draw a small 3x3 window cells -->
+  <g transform="translate(200,110)">
+    <rect x="0" y="0" width="40" height="40" class="tcell"/>
+    <rect x="40" y="0" width="40" height="40" class="tcell"/>
+    <rect x="80" y="0" width="40" height="40" class="tcell"/>
+    <rect x="0" y="40" width="40" height="40" class="tcell"/>
+    <rect x="40" y="40" width="40" height="40" class="tcell"/>
+    <rect x="80" y="40" width="40" height="40" class="tcell"/>
+    <text x="20" y="25" class="label" text-anchor="middle">a</text>
+    <text x="60" y="25" class="label" text-anchor="middle">q</text>
+    <text x="100" y="25" class="label" text-anchor="middle">b</text>
+    <text x="20" y="65" class="label" text-anchor="middle">a</text>
+    <text x="60" y="65" class="label" text-anchor="middle">r</text>
+    <text x="100" y="65" class="label" text-anchor="middle">c</text>
+    <text x="0" y="-10" class="note">時間 t</text>
+    <text x="0" y="95" class="note">時間 t+1</text>
+  </g>
+  <text x="200" y="220" class="note">3×3 の局所窓で “あり得る遷移” を制約</text>
+  <!-- CNF box -->
+  <g transform="translate(650,100)">
+    <rect x="0" y="0" width="500" height="240" class="cnf"/>
+    <text x="20" y="30" class="section" text-anchor="start">CNF 制約の例</text>
+    <rect x="20" y="50" width="460" height="40" class="ok"/>
+    <text x="30" y="75" class="note" text-anchor="start">(配置) 各セルは “一意の記号または状態” をとる（多値の排他和）</text>
+    <rect x="20" y="100" width="460" height="40" class="ok"/>
+    <text x="30" y="125" class="note" text-anchor="start">(初期) t=0 の内容は入力 w と初期状態に一致</text>
+    <rect x="20" y="150" width="460" height="40" class="ok"/>
+    <text x="30" y="175" class="note" text-anchor="start">(遷移) 任意の 3×3 窓は TM の遷移関数に整合</text>
+    <rect x="20" y="200" width="460" height="40" class="ok"/>
+    <text x="30" y="225" class="note" text-anchor="start">(受理) ある t≤p(|w|) で受理状態を含む</text>
+  </g>
+  <path d="M 360 150 L 650 180" class="arrow"/>
+  <text x="480" y="165" class="note">局所窓→CNF 節</text>
+  <!-- checklist -->
+  <g transform="translate(80,350)">
+    <text x="0" y="0" class="section" text-anchor="start">還元の作法チェックリスト</text>
+    <text x="0" y="25" class="note" text-anchor="start">• インスタンスの包み直し: (w) → φ(w) を明確に定義</text>
+    <text x="0" y="45" class="note" text-anchor="start">• サイズ管理: |φ(w)| は多項式で抑える</text>
+    <text x="0" y="65" class="note" text-anchor="start">• 受理/拒否の対応: w∈L ⇔ φ(w) が充足可能</text>
+    <text x="0" y="85" class="note" text-anchor="start">• 局所性: 遷移は局所窓のCNFで表現</text>
+  </g>
+</svg>
