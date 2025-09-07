@@ -1,0 +1,57 @@
+<svg viewBox="0 0 1200 620" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">DPLL と CDCL の対比</title>
+  <desc id="desc">DPLL と CDCL の処理の流れ・重要機能の比較（単位伝播、分岐、学習、非年代戻りなど）</desc>
+  <defs>
+    <style>
+      .panel { fill: #f8f9fa; stroke: #6c757d; stroke-width: 2; rx: 8; }
+      .box { fill: #e3f2fd; stroke: #1976d2; stroke-width: 2; rx: 6; }
+      .box2 { fill: #e8f5e9; stroke: #388e3c; stroke-width: 2; rx: 6; }
+      .warn { fill: #fff3e0; stroke: #ff9800; stroke-width: 2; rx: 6; }
+      .title { font-family: Inter, Helvetica, sans-serif; font-size: 18px; font-weight: 600; text-anchor: middle; fill: #1a1a1a; }
+      .heading { font-family: Inter, Helvetica, sans-serif; font-size: 14px; font-weight: 600; fill: #2c3e50; }
+      .text { font-family: Inter, Helvetica, sans-serif; font-size: 11px; fill: #333; }
+      .label { font-family: Inter, Helvetica, sans-serif; font-size: 12px; font-weight: 600; fill: #333; }
+      .arrow { stroke: #6c757d; stroke-width: 2; fill: none; marker-end: url(#a); }
+    </style>
+    <marker id="a" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#6c757d"/>
+    </marker>
+  </defs>
+  <text x="600" y="30" class="title">DPLL と CDCL の対比</text>
+  <!-- DPLL panel -->
+  <g transform="translate(40,60)">
+    <rect x="0" y="0" width="520" height="520" class="panel"/>
+    <text x="15" y="25" class="heading">DPLL（基本）</text>
+    <rect x="20" y="50" width="480" height="50" class="box"/>
+    <text x="30" y="80" class="text">単位伝播（Unit Propagation）を繰り返し、節を簡約</text>
+    <rect x="20" y="120" width="480" height="50" class="box"/>
+    <text x="30" y="150" class="text">純リテラル削除（Pure Literal）で節を簡約</text>
+    <rect x="20" y="190" width="480" height="50" class="box"/>
+    <text x="30" y="220" class="text">分岐（リテラルに値を仮定）</text>
+    <rect x="20" y="260" width="480" height="50" class="box"/>
+    <text x="30" y="290" class="text">矛盾でバックトラック（年代順）</text>
+    <rect x="20" y="330" width="480" height="50" class="warn"/>
+    <text x="30" y="360" class="text">戻るだけで同じ失敗を再訪し得る（学習が無い）</text>
+    <rect x="20" y="400" width="480" height="90" class="box"/>
+    <text x="30" y="430" class="text">ヒューリスティック（例: VSIDS）で分岐選択を改善する実装もある</text>
+    <text x="30" y="450" class="text">ただしアルゴリズム本体は学習節・非年代戻りを持たない</text>
+  </g>
+  <!-- CDCL panel -->
+  <g transform="translate(640,60)">
+    <rect x="0" y="0" width="520" height="520" class="panel"/>
+    <text x="15" y="25" class="heading">CDCL（実用SATソルバ）</text>
+    <rect x="20" y="50" width="480" height="50" class="box2"/>
+    <text x="30" y="80" class="text">単位伝播（反復）と矛盾検出（Implication Graph）</text>
+    <rect x="20" y="120" width="480" height="50" class="box2"/>
+    <text x="30" y="150" class="text">競合分析（Conflict Analysis）→ 学習節（Learned Clause）の追加</text>
+    <rect x="20" y="190" width="480" height="50" class="box2"/>
+    <text x="30" y="220" class="text">非年代戻り（Non-chronological Backtracking）</text>
+    <rect x="20" y="260" width="480" height="50" class="box2"/>
+    <text x="30" y="290" class="text">アクティビティに基づく分岐（VSIDSなど）</text>
+    <rect x="20" y="330" width="480" height="50" class="box2"/>
+    <text x="30" y="360" class="text">学習節のデータ構造（watch literal）で伝播を高速化</text>
+    <rect x="20" y="400" width="480" height="90" class="box2"/>
+    <text x="30" y="430" class="text">実用では restarts、clause forgetting なども併用</text>
+    <text x="30" y="450" class="text">DPLLの枠組みを拡張した実用プロトコル</text>
+  </g>
+</svg>

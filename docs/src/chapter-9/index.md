@@ -88,6 +88,10 @@ v の論理式への拡張 v̂ を帰納的に定義：
 
 ![命題論理の決定手続きの比較](../../assets/images/diagrams/ch9_propositional_logic_decision_procedures.svg)
 
+直観図：DPLL と CDCL の対比（学習・非年代戻り・VSIDS）
+
+![DPLL と CDCL の対比](../../assets/images/diagrams/ch9_dpll_cdcl_side_by_side.svg)
+
 #### 真理値表法
 時間複雑度：O(2^n · |φ|)（n は変数数）
 
