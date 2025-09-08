@@ -76,6 +76,11 @@ layout: book
 - アルゴリズムによって解ける問題の性質
 - チューリング機械による定式化（→ 第4章: 計算可能性理論: ../chapter-4/index.md）
 
+<a id="通信路容量-channel-capacity"></a>
+**通信路容量（Channel Capacity）**
+- ある通信路で任意に小さい誤り確率で伝送できる最大レート C。離散無記憶通信路では C = max_{P(X)} I(X;Y)
+- 通信路符号化定理の中心概念（→ 第10章: 情報理論: ../chapter-10/index.md）
+
 <a id="補有限-cofinite"></a>
 **補有限 (Cofinite)**
 - 補集合が有限である言語（Σ* \ L が有限）
@@ -204,6 +209,11 @@ layout: book
 - 2つの集合の共通要素の集合
 - A ∩ B = {x | x ∈ A ∧ x ∈ B}
 
+<a id="相互情報量-mutual-information"></a>
+**相互情報量（Mutual Information）**
+- 確率変数 X と Y の情報共有量：I(X;Y) = H(X) + H(Y) − H(X,Y) = H(X) − H(X|Y)
+- 情報源・通信路の依存関係や特徴量選択の評価に用いる（→ 第10章: 情報理論: ../chapter-10/index.md）
+
 ## J
 
 **結合 (Join)**
@@ -215,6 +225,11 @@ layout: book
 **Kleene閉包 (Kleene Closure)**
 - 言語Lに対するL* = L⁰ ∪ L¹ ∪ L² ∪ ...
 - 0回以上の連接
+
+<a id="クラフトの不等式-kraft-inequality"></a>
+**クラフトの不等式（Kraft–McMillan Inequality）**
+- 一意復号可能符号の符号長 l₁,…,lₙ に対し ∑ D^{-lᵢ} ≤ 1（D は符号アルファベットの基数）
+- 逆に、この不等式を満たす長さの組から瞬時符号の構成が可能（→ 第10章: 情報理論: ../chapter-10/index.md）
 
 ## L
 
@@ -233,6 +248,10 @@ layout: book
 **最長共通部分列 (Longest Common Subsequence, LCS)**
 - 2つの列の最長の共通部分列を求める問題
 - 動的計画法で O(mn) で解ける
+
+<a id="レムペル-ジブ-符号-lempel-ziv"></a>
+**Lempel–Ziv 符号（LZ 符号）**
+- 辞書ベースの可逆圧縮（LZ77, LZ78）。定常エルゴード情報源で漸近的最適性（→ 第10章: 情報理論: ../chapter-10/index.md）
 
 <a id="レベルグラフ-level-graph"></a>
 **レベルグラフ (Level Graph)**

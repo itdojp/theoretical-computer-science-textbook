@@ -30,6 +30,11 @@ sections:
 - 線形符号（生成行列、検査行列、最小距離）の基礎を説明できる
 - 連続型（微分エントロピー、AWGN）への拡張の要点を述べられる
 
+【用語の脚注】
+接頭語符号（→ ../appendices/d.md#接頭語符号-prefix-code）、AEP（→ ../appendices/d.md#AEP-asymptotic-equipartition-property）、
+相互情報量（→ ../appendices/d.md#相互情報量-mutual-information）、クラフトの不等式（→ ../appendices/d.md#クラフトの不等式-kraft-inequality）、
+通信路容量（→ ../appendices/d.md#通信路容量-channel-capacity）、Lempel–Ziv 符号（→ ../appendices/d.md#レムペル-ジブ-符号-lempel-ziv）
+
 【用語の脚注】接頭語符号（→ ../appendices/d.md#接頭語符号-prefix-code）、AEP（→ ../appendices/d.md#AEP-asymptotic-equipartition-property）
 
 ## 10.1 情報量とエントロピー
