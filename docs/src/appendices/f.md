@@ -1,6 +1,6 @@
 ---
 title: "付録F: 学習進捗チェックリスト"
-layout: default
+layout: book
 ---
 
 # 付録F: 学習進捗チェックリスト

@@ -1,6 +1,6 @@
 ---
 title: "付録D: 用語集・索引"
-layout: default
+layout: book
 ---
 
 # 付録D: 用語集・索引

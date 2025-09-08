@@ -1,6 +1,6 @@
 ---
 title: "付録B: アルゴリズム実装例"
-layout: default
+layout: book
 ---
 
 # 付録B: アルゴリズム実装例
