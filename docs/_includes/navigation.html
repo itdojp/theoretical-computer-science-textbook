@@ -1,13 +1,13 @@
 <ul class="nav-list">
   <li><a href="{{ '/' | relative_url }}">ホーム</a></li>
-  <li><a href="{{ '/src/introduction/purpose.html' | relative_url }}">導入</a></li>
+  <li><a href="{{ '/src/introduction/purpose/' | relative_url }}">導入</a></li>
   <li class="nav-dropdown">
     <a href="#" class="nav-dropdown-toggle">章</a>
     <ul class="nav-dropdown-menu">
       {% for i in (1..12) %}
-        <li><a href="{{ '/src/chapter-' | append: i | append: '/index.html' | relative_url }}">第{{ i }}章</a></li>
+        <li><a href="{{ '/src/chapter-' | append: i | append: '/' | relative_url }}">第{{ i }}章</a></li>
       {% endfor %}
     </ul>
   </li>
-  <li><a href="{{ '/src/appendices/index.html' | relative_url }}">付録</a></li>
+  <li><a href="{{ '/src/appendices/' | relative_url }}">付録</a></li>
 </ul>

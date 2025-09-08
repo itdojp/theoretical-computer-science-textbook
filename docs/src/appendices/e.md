@@ -1,6 +1,6 @@
 ---
 title: "付録E: 実世界への応用例"
-layout: default
+layout: book
 ---
 
 # 付録E: 実世界への応用例

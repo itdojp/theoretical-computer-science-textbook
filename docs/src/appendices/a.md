@@ -1,6 +1,6 @@
 ---
 title: "付録A: 数学記法ガイド"
-layout: default
+layout: book
 ---
 
 # 付録A: 数学記法ガイド
