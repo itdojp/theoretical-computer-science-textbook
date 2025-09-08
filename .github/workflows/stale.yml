@@ -1,0 +1,34 @@
+name: Auto-stale and close inactive issues
+
+on:
+  schedule:
+    - cron: '30 3 * * *' # daily at 03:30 UTC
+  workflow_dispatch:
+
+permissions:
+  issues: write
+  pull-requests: write
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/stale@v9
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          days-before-stale: 120
+          days-before-close: 14
+          remove-stale-when-updated: true
+          stale-issue-label: 'stale'
+          exempt-issue-labels: 'priority: high,security,bug,pinned,dependencies'
+          stale-issue-message: |
+            このIssueは120日間アクティビティが無かったため自動的にstaleとマークされました。
+            - まだ有効な場合はコメントを追加して維持してください（ラベルは自動で外れます）。
+            - 14日以内にアクティビティが無い場合は自動的にクローズされます。
+            例外ラベル（priority: high, security, bug, pinned, dependencies）が付いたIssueは対象外です。
+          close-issue-message: |
+            アクティビティが無かったため自動クローズされました。必要であれば再オープンしてください。
+          stale-pr-message: ''
+          close-pr-message: ''
+          operations-per-run: 200
+

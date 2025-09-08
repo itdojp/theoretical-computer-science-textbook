@@ -1,0 +1,10 @@
+# SVG a11y backlog（要 role/title(id)/desc(id)/aria-labelledby）
+
+このファイルは、`bash scripts/svg-lint-a11y.sh` の最近の実行結果に基づく未対応図版のメモです。
+最新状況はスクリプトを再実行して確認してください。
+
+最終確認日時（自動更新ではありません）: 現在の作業時点
+
+現在の状況:
+- スクリプト結果: OK（all SVGs include role/title[id]/desc/aria-labelledby）
+- 未対応0件（新規追加や外部由来のSVGが増えた場合は再実行してください）
