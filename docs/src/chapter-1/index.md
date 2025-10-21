@@ -95,7 +95,7 @@ chapter: 1
 
 ## 章末問題
 
-- 代表演習と詳細解答は付録C（第1章）を参照: ../appendices/c.md#ex-sol-ch1
+- 代表演習と詳細解答は付録C（第1章）を参照: ../appendices/c/#ex-sol-ch1
   - A ∪ B = {Java, Python, C++, JavaScript, Go}（すべての言語）
   - A ∩ B = {Python}（両方のセットに共通する言語）
   - A \\ B = {Java, C++}（Aにはあるが、Bにはない言語）

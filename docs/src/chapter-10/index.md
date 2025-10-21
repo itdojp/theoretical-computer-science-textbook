@@ -31,11 +31,11 @@ sections:
 - 連続型（微分エントロピー、AWGN）への拡張の要点を述べられる
 
 【用語の脚注】
-接頭語符号（→ ../appendices/d.md#接頭語符号-prefix-code）、AEP（→ ../appendices/d.md#AEP-asymptotic-equipartition-property）、
-相互情報量（→ ../appendices/d.md#相互情報量-mutual-information）、クラフトの不等式（→ ../appendices/d.md#クラフトの不等式-kraft-inequality）、
-通信路容量（→ ../appendices/d.md#通信路容量-channel-capacity）、Lempel–Ziv 符号（→ ../appendices/d.md#レムペル-ジブ-符号-lempel-ziv）
+接頭語符号（→ ../appendices/d/#接頭語符号-prefix-code）、AEP（→ ../appendices/d/#AEP-asymptotic-equipartition-property）、
+相互情報量（→ ../appendices/d/#相互情報量-mutual-information）、クラフトの不等式（→ ../appendices/d/#クラフトの不等式-kraft-inequality）、
+通信路容量（→ ../appendices/d/#通信路容量-channel-capacity）、Lempel–Ziv 符号（→ ../appendices/d/#レムペル-ジブ-符号-lempel-ziv）
 
-【用語の脚注】接頭語符号（→ ../appendices/d.md#接頭語符号-prefix-code）、AEP（→ ../appendices/d.md#AEP-asymptotic-equipartition-property）
+【用語の脚注】接頭語符号（→ ../appendices/d/#接頭語符号-prefix-code）、AEP（→ ../appendices/d/#AEP-asymptotic-equipartition-property）
 
 ## 10.1 情報量とエントロピー
 
@@ -57,7 +57,7 @@ I(p) = -log₂ p = log₂(1/p) [bits]
 **定義 10.2** 離散確率変数 X の**エントロピー**：
 H(X) = -∑ₓ p(x) log₂ p(x) = E[I(X)]
 
-ここで、0 log 0 = 0 と定義する（連続性による）。
+ここで、0 log₂ 0 = 0 と定義する（連続性による）。
 
 **例 10.1** 二値確率変数 X ∈ {0, 1}, P(X=1) = p のエントロピー：
 H(X) = -p log₂ p - (1-p) log₂(1-p) = h(p)
@@ -83,33 +83,34 @@ H(X) = -p log₂ p - (1-p) log₂(1-p) = h(p)
 
 - 例題と演習は本章末の課題に従う（付録Cは第6章までの掲載）
 
-*証明*：Jensen の不等式を用いる。log は凹関数なので：
+*証明*：Jensen の不等式を用いる。log₂ は凹関数なので：
 H(X) = E[-log₂ p(X)] ≤ -log₂ E[p(X)] = -log₂(1/|X|) = log₂ |X| □
 
 ### 10.1.3 結合エントロピーと条件付きエントロピー
 
 **定義 10.3** 
-- **結合エントロピー**：H(X,Y) = -∑ₓ,ᵧ p(x,y) log p(x,y)
+- **結合エントロピー**：H(X,Y) = -∑ₓ,ᵧ p(x,y) log₂ p(x,y)
 - **条件付きエントロピー**：H(Y|X) = ∑ₓ p(x)H(Y|X=x)
 
 **定理 10.2**（連鎖律）H(X,Y) = H(X) + H(Y|X)
 
 *証明*：
-H(X,Y) = -∑ₓ,ᵧ p(x,y) log p(x,y)
-       = -∑ₓ,ᵧ p(x,y) log[p(x)p(y|x)]
-       = -∑ₓ,ᵧ p(x,y) log p(x) - ∑ₓ,ᵧ p(x,y) log p(y|x)
+H(X,Y) = -∑ₓ,ᵧ p(x,y) log₂ p(x,y)
+       = -∑ₓ,ᵧ p(x,y) log₂[p(x)p(y|x)]
+       = -∑ₓ,ᵧ p(x,y) log₂ p(x) - ∑ₓ,ᵧ p(x,y) log₂ p(y|x)
        = H(X) + H(Y|X) □
 
 ### 10.1.4 相互情報量
 
 **定義 10.4** X と Y の**相互情報量**：
-I(X;Y) = ∑ₓ,ᵧ p(x,y) log [p(x,y)/(p(x)p(y))]
+I(X;Y) = ∑ₓ,ᵧ p(x,y) log₂ [p(x,y)/(p(x)p(y))]
 
 **定理 10.3** 以下の等式が成立：
 1. I(X;Y) = H(X) - H(X|Y) = H(Y) - H(Y|X)
 2. I(X;Y) = H(X) + H(Y) - H(X,Y)
 3. I(X;Y) = I(Y;X)（対称性）
 4. I(X;Y) ≥ 0（等号は X と Y が独立）
+   - 厳密には、ほぼ至る所で p(x,y) = p(x)p(y) が成り立つとき等号。
 
 【直観（“重なり”としての理解と注意）】
 - しばしば Venn 図風に、H(X), H(Y) の円の重なりが I(X;Y) と説明される。
@@ -122,12 +123,12 @@ I(X;Y) = ∑ₓ,ᵧ p(x,y) log [p(x,y)/(p(x)p(y))]
 ### 10.1.5 相対エントロピー
 
 **定義 10.5** 分布 P と Q の**相対エントロピー**（Kullback-Leibler divergence）：
-D(P||Q) = ∑ₓ p(x) log [p(x)/q(x)]
+D(P||Q) = ∑ₓ p(x) log₂ [p(x)/q(x)]
 
 **定理 10.4**（情報不等式）D(P||Q) ≥ 0、等号は P = Q のとき。
 
-*証明*：log の凹性より：
--D(P||Q) = ∑ₓ p(x) log [q(x)/p(x)] ≤ log ∑ₓ p(x) · [q(x)/p(x)] = log 1 = 0 □
+*証明*：log₂ の凹性より：
+-D(P||Q) = ∑ₓ p(x) log₂ [q(x)/p(x)] ≤ log₂ ∑ₓ p(x) · [q(x)/p(x)] = log₂ 1 = 0 □
 
 ### 10.1.6 エントロピーの性質
 
@@ -165,9 +166,9 @@ I(X;Y) ≥ I(X;Z)
 
 **定理 10.9**（情報源符号化定理）
 確率変数 X に対する一意復号可能な D 元符号の平均符号長 L について：
-L ≥ H(X) / log D
+L ≥ H(X) / log₂ D
 
-また、L < H(X) / log D + 1 を満たす瞬時符号が存在する。
+また、L < H(X) / log₂ D + 1 を満たす瞬時符号が存在する。
 
 *証明*：相対エントロピーの非負性を用いる。
 確率分布 p(x) と q(x) = D^(-l(x)) / ∑ D^(-l(x)) に対して：
@@ -178,7 +179,7 @@ D(p||q) ≥ 0 より導かれる。□
 #### Shannon 符号
 符号長を l(x) = ⌈-log_D p(x)⌉ とする。
 
-**性質**：H(X) / log D ≤ L < H(X) / log D + 1
+**性質**：H(X) / log₂ D ≤ L < H(X) / log₂ D + 1
 
 #### Huffman 符号
 
@@ -245,7 +246,7 @@ C = max_{p(x)} I(X;Y)
 **定義 10.10** レート R の (M, n) 符号：
 - M 個のメッセージ
 - ブロック長 n
-- レート R = (log M) / n
+- レート R = (log₂ M) / n
 
 **定理 10.13**（通信路符号化定理）
 任意の R < C と ε > 0 に対して、十分大きな n で
@@ -260,7 +261,7 @@ C = max_{p(x)} I(X;Y)
 ### 10.3.4 誤り指数
 
 **定義 10.11** レート R での**誤り指数**：
-E(R) = lim_{n→∞} [-1/n · log P_e^(n)]
+E(R) = lim_{n→∞} [-1/n · log₂ P_e^(n)]
 
 **定理 10.14** 0 < R < C に対して E(R) > 0。
 
@@ -345,7 +346,7 @@ C = {(f(α₁), ..., f(αₙ)) | f ∈ F_q[x], deg(f) < k}
 ### 10.5.1 微分エントロピー
 
 **定義 10.14** 連続確率変数 X の**微分エントロピー**：
-h(X) = -∫ f(x) log f(x) dx
+h(X) = -∫ f(x) log₂ f(x) dx
 
 **注意**：離散エントロピーと異なり、h(X) は負になりうる。
 
@@ -353,7 +354,7 @@ h(X) = -∫ f(x) log f(x) dx
 
 **定理 10.17** 分散 σ² に制約された分布の中で、
 ガウス分布 N(μ, σ²) が微分エントロピーを最大化：
-h(X) ≤ (1/2) log(2πeσ²)
+h(X) ≤ (1/2) log₂(2πeσ²)
 
 ### 10.5.3 ガウス通信路
 

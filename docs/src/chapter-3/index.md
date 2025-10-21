@@ -787,7 +787,7 @@ s = uvxyz と分解したとき、|vxy| ≤ p より、vxy は高々2種類の�
 
 **性質**：
 - すべての正規言語は DCFL
-- DCFL ⊊ CFL（真部分集合）
+- DCFL ⊂ CFL（真部分集合）
 - DCFL は補集合に関して閉じている
 
 ## まとめ
@@ -800,9 +800,9 @@ s = uvxyz と分解したとき、|vxy| ≤ p より、vxy は高々2種類の�
 ## 章末問題
 
 注: 章内の代表的な追加演習と詳細解答は付録Cを参照。
-- 正規言語の証明: ../appendices/c.md#ex-3-1
-- 文脈自由文法の設計: ../appendices/c.md#ex-3-2
-- CFL でない言語の証明（ポンピング補題）: ../appendices/c.md#ex-3-3
+- 正規言語の証明: ../appendices/c/#ex-3-1
+- 文脈自由文法の設計: ../appendices/c/#ex-3-2
+- CFL でない言語の証明（ポンピング補題）: ../appendices/c/#ex-3-3
 
 ### 基礎問題
 
