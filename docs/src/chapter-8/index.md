@@ -192,6 +192,22 @@ Dijkstra(G, w, s):
 - 優先度キューの選択: 実装定数因子まで含めると二分ヒープがしばしば有利。超大規模・理論性能重視ならフィボナッチヒープ。
 - 並列化: 大規模グラフではΔ-stepping等の近似並列Dijkstraが有効な場合がある。
 
+【0/1 BFS の最小実装（O(|V|+|E|)）】
+```
+ZeroOneBFS(G, w ∈ {0,1}, s):
+    for v in V: d[v] = ∞
+    d[s] = 0
+    Deque Q = {s}
+    while Q not empty:
+        u = pop_front(Q)
+        for (u,v) in Adj[u]:
+            if d[v] > d[u] + w(u,v):
+                d[v] = d[u] + w(u,v)
+                if w(u,v) == 0: push_front(Q, v)
+                else:            push_back(Q, v)
+    return d
+```
+
 #### Bellman-Fordアルゴリズム
 
 **利点**：負の重みを許容、負閉路を検出

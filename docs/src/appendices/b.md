@@ -72,7 +72,7 @@ def fast_power(base, exp, mod=None):
     """
     高速べき乗アルゴリズム
     
-    時間複雑性: O(log exp)
+    時間複雑性: 指数 e に対し O(log e)
     空間複雑性: O(1)
     """
     result = 1
@@ -165,7 +165,7 @@ class NonDeterministicFiniteAutomaton:
         """
         ε遷移の閉包を計算
         
-        時間複雑性: O(|states|^2)
+        時間複雑性: O(|Q| + |E_ε|)
         """
         closure = set(states)
         stack = list(states)
@@ -184,7 +184,7 @@ class NonDeterministicFiniteAutomaton:
         """
         文字列を処理して受理するかどうかを判定
         
-        時間複雑性: O(|input_string| * |states|^2)
+        時間複雑性: O(|w| * (|Q| + |E|))
         空間複雑性: O(|states|)
         """
         current_states = self.epsilon_closure({self.start_state})
