@@ -1,6 +1,6 @@
 ---
 layout: book
-title: "第4章 計算可能性"
+title: "第4章 計算可能性理論"
 subtitle: "決定可能性と還元可能性"
 description: "計算の本質的な限界を数学的に証明"
 chapter: 4

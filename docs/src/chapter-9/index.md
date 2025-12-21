@@ -1,6 +1,6 @@
 ---
 layout: book
-title: "論理学・形式的手法"
+title: "第9章 論理学と形式的手法"
 subtitle: "プログラム検証と形式仕様"
 chapter: 9
 description: "論理学に基づくプログラムの正当性保証"

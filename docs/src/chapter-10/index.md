@@ -1,6 +1,6 @@
 ---
 layout: book
-title: "情報理論"
+title: "第10章 情報理論"
 subtitle: "情報の定量化と符号化"
 chapter: 10
 description: "情報の数学的基礎と通信理論"

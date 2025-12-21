@@ -1,6 +1,6 @@
 ---
 layout: book
-title: "グラフ理論とネットワーク"
+title: "第8章 グラフ理論とネットワーク"
 subtitle: "グラフアルゴリズムと応用"
 chapter: 8
 description: "グラフ理論の基礎からネットワーク解析まで"
