@@ -1,11 +1,9 @@
 ---
 layout: book
+title: "前提知識"
 ---
 
----
-title: "前提知識"
-layout: default
----
+# 前提知識
 
 ## 必要な数学的基礎
 
