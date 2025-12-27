@@ -1,11 +1,9 @@
 ---
 layout: book
+title: "学習の進め方"
 ---
 
----
-title: "学習の進め方"
-layout: default
----
+# 学習の進め方
 
 ## 基本的な学習戦略
 
