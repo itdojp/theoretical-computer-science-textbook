@@ -1,11 +1,9 @@
 ---
 layout: book
+title: "本書の目的と構成"
 ---
 
----
-title: "本書の目的と構成"
-layout: default
----
+# 本書の目的と構成
 
 ## 目的
 
