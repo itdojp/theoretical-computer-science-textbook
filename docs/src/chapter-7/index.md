@@ -1,6 +1,6 @@
 ---
 layout: book
-title: "データ構造の理論"
+title: "第7章 データ構造の理論"
 subtitle: "効率的なデータ操作の基盤"
 chapter: 7
 description: "理論的観点から見たデータ構造の設計と解析"
