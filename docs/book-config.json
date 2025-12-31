@@ -27,7 +27,7 @@
         "title": "数学的基礎",
         "subtitle": "集合論、論理学、証明技法",
         "description": "計算理論の基盤となる数学的概念を学習",
-        "estimated_time": "4-6週間",
+        "estimated_time": "4〜6週間",
         "difficulty": "★★☆☆",
         "sections": [
           "集合論の基礎",
@@ -42,7 +42,7 @@
         "title": "計算理論の基礎",
         "subtitle": "チューリング機械と計算可能性",
         "description": "計算の本質的な概念とモデルを理解",
-        "estimated_time": "3-4週間",
+        "estimated_time": "3〜4週間",
         "difficulty": "★★★☆",
         "sections": [
           "計算モデルの概要",
@@ -56,7 +56,7 @@
         "title": "形式言語とオートマトン理論",
         "subtitle": "正規言語から文脈自由言語まで",
         "description": "形式言語の階層と対応するオートマトンを学習",
-        "estimated_time": "4-5週間",
+        "estimated_time": "4〜5週間",
         "difficulty": "★★★☆",
         "sections": [
           "有限オートマトン",
@@ -71,7 +71,7 @@
         "title": "計算可能性",
         "subtitle": "決定可能性と還元可能性",
         "description": "計算の限界と不可能性の理論を探求",
-        "estimated_time": "3-4週間",
+        "estimated_time": "3〜4週間",
         "difficulty": "★★★★",
         "sections": [
           "決定可能性と半決定可能性",
@@ -86,7 +86,7 @@
         "title": "計算複雑性理論",
         "subtitle": "P vs NP問題と複雑性クラス",
         "description": "計算資源の観点から問題の困難さを分析",
-        "estimated_time": "4-6週間",
+        "estimated_time": "4〜6週間",
         "difficulty": "★★★★",
         "sections": [
           "時間複雑性と空間複雑性",
@@ -102,7 +102,7 @@
         "title": "アルゴリズムの数学的解析",
         "subtitle": "設計手法と計算量解析",
         "description": "効率的なアルゴリズムの設計と解析技法",
-        "estimated_time": "5-7週間",
+        "estimated_time": "5〜7週間",
         "difficulty": "★★★☆",
         "sections": [
           "アルゴリズム設計手法",
@@ -118,7 +118,7 @@
         "title": "データ構造の理論",
         "subtitle": "効率的なデータ操作の基盤",
         "description": "理論的観点から見たデータ構造の設計と解析",
-        "estimated_time": "4-5週間",
+        "estimated_time": "4〜5週間",
         "difficulty": "★★★☆",
         "sections": [
           "基本データ構造",
@@ -134,7 +134,7 @@
         "title": "グラフ理論とネットワーク",
         "subtitle": "グラフアルゴリズムと応用",
         "description": "グラフ理論の基礎からネットワーク解析まで",
-        "estimated_time": "5-6週間",
+        "estimated_time": "5〜6週間",
         "difficulty": "★★★☆",
         "sections": [
           "グラフの基本概念",
@@ -151,7 +151,7 @@
         "title": "論理学・形式的手法",
         "subtitle": "プログラム検証と形式仕様",
         "description": "論理学に基づくプログラムの正当性保証",
-        "estimated_time": "4-5週間",
+        "estimated_time": "4〜5週間",
         "difficulty": "★★★★",
         "sections": [
           "命題論理と述語論理",
@@ -166,7 +166,7 @@
         "title": "情報理論",
         "subtitle": "情報の定量化と符号化",
         "description": "情報の数学的基礎と通信理論",
-        "estimated_time": "3-4週間",
+        "estimated_time": "3〜4週間",
         "difficulty": "★★★☆",
         "sections": [
           "情報量とエントロピー",
@@ -181,7 +181,7 @@
         "title": "暗号理論の数学的基礎",
         "subtitle": "現代暗号の理論的基盤",
         "description": "暗号システムの安全性と数学的根拠",
-        "estimated_time": "4-5週間",
+        "estimated_time": "4〜5週間",
         "difficulty": "★★★★",
         "sections": [
           "暗号の基本概念",
@@ -197,7 +197,7 @@
         "title": "並行計算の理論",
         "subtitle": "並列・分散システムの理論的基礎",
         "description": "並行計算の数学的モデルと解析",
-        "estimated_time": "3-4週間",
+        "estimated_time": "3〜4週間",
         "difficulty": "★★★★",
         "sections": [
           "並行計算モデル",
