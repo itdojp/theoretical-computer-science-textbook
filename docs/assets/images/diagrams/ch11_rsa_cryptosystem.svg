@@ -257,7 +257,7 @@
     <text x="70" y="690" class="step-title">量子計算機の脅威:</text>
     <text x="80" y="710" class="warning-text">• Shorのアルゴリズムにより多項式時間で素因数分解可能</text>
     <text x="80" y="725" class="warning-text">• 十分に大きな量子計算機が実現すれば RSA は破綻</text>
-    <text x="80" y="740" class="warning-text">• 現在の推定では2030-2040年頃に実用化の可能性</text>
+    <text x="80" y="740" class="warning-text">• 現在の推定では2030〜2040年頃に実用化の可能性</text>
     <text x="80" y="755" class="explanation">• 対策：耐量子暗号への移行が必要</text>
     
     <!-- Middle column -->

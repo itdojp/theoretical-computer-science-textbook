@@ -21,25 +21,25 @@ permalink: /
 
 ## 目次
 
-### Part I: 数学的基礎（第1-3章）
+### Part I: 数学的基礎（第1〜3章）
 
 - [第1章 数学的基礎](src/chapter-1/index.md)
 - [第2章 計算理論の基礎](src/chapter-2/index.md)
 - [第3章 形式言語とオートマトン理論](src/chapter-3/index.md)
 
-### Part II: 計算理論（第4-6章）
+### Part II: 計算理論（第4〜6章）
 
 - [第4章 計算可能性](src/chapter-4/index.md)
 - [第5章 計算複雑性理論](src/chapter-5/index.md)
 - [第6章 アルゴリズムの数学的解析](src/chapter-6/index.md)
 
-### Part III: 高度なトピック（第7-9章）
+### Part III: 高度なトピック（第7〜9章）
 
 - [第7章 データ構造の理論](src/chapter-7/index.md)
 - [第8章 グラフ理論とネットワーク](src/chapter-8/index.md)
 - [第9章 論理学・形式的手法](src/chapter-9/index.md)
 
-### Part IV: 応用理論（第10-12章）
+### Part IV: 応用理論（第10〜12章）
 
 - [第10章 情報理論](src/chapter-10/index.md)
 - [第11章 暗号理論の数学的基礎](src/chapter-11/index.md)
