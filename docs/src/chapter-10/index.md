@@ -4,7 +4,7 @@ title: "第10章 情報理論"
 subtitle: "情報の定量化と符号化"
 chapter: 10
 description: "情報の数学的基礎と通信理論"
-estimated_time: "3-4週間"
+estimated_time: "3〜4週間"
 difficulty: "★★★☆"
 sections:
   - "情報量とエントロピー"

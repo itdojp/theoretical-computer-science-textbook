@@ -4,7 +4,7 @@ title: "第12章 並行計算の理論"
 subtitle: "並列・分散システムの理論的基礎"
 chapter: 12
 description: "並行計算の数学的モデルと解析"
-estimated_time: "3-4週間"
+estimated_time: "3〜4週間"
 difficulty: "★★★★"
 sections:
   - "並行計算モデル"
