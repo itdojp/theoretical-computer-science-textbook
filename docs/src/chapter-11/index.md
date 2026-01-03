@@ -4,7 +4,7 @@ title: "第11章 暗号理論の数学的基礎"
 subtitle: "現代暗号の理論的基盤"
 chapter: 11
 description: "暗号システムの安全性と数学的根拠"
-estimated_time: "4-5週間"
+estimated_time: "4〜5週間"
 difficulty: "★★★★"
 sections:
   - "暗号の基本概念"
