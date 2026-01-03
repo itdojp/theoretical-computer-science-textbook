@@ -30,7 +30,7 @@ chapter: 5
 
 ## 章末問題
 
-- 代表演習と詳細解答は付録C（第5章）を参照: ../appendices/c/#ex-sol-ch5
+- 代表演習と詳細解答は [付録C（第5章）](../appendices/c/#ex-sol-ch5) を参照。
 
 ## 5.1 時間複雑性
 
