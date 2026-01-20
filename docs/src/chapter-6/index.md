@@ -456,6 +456,7 @@ ParallelPrefix(A[1..n]):
 ## 章末問題
 
 - 代表演習と詳細解答は [付録C（第6章）](../appendices/c/#ex-sol-ch6) を参照。
+- 追加短題（置換法の練習）: ../appendices/c/#ex-6-3
 
 ### 基礎問題
 
