@@ -1,6 +1,6 @@
 # 1. 書籍の概要
 
-- 想定読者（`docs/index.md` / `docs/src/introduction/*` の記述ベース）
+- 想定読者（`docs/index.md` / `src/introduction/*` の記述ベース）
   - 理論計算機科学を体系的に学びたい大学生・大学院生・研究者、および理論背景を押さえたいエンジニア。
   - 抽象的な定義・定理・証明を扱うため、初学者でも「数学的記法の読み慣れ」は一定程度必要（不足は導入章で補う想定）。
 - 本書で達成しようとしているゴール（`docs/index.md` の記述ベース）
@@ -10,15 +10,15 @@
 
 # 2. 現状の章構成サマリ
 
-※ `SUMMARY.md` は見当たらないため、`docs/index.md` と `docs/src/**` をベースに整理しています。
+※ `SUMMARY.md` は見当たらないため、`docs/index.md` と `src/**` をベースに整理しています。
 
 ## はじめに（導入）
 
 - 対象ファイル
-  - `docs/src/introduction/index.md`（導入ページ）
-  - `docs/src/introduction/purpose.md`（目的と構成）
-  - `docs/src/introduction/learning-guide.md`（学習の進め方）
-  - `docs/src/introduction/prerequisites.md`（前提知識）
+  - `src/introduction/index.md`（導入ページ）
+  - `src/introduction/purpose.md`（目的と構成）
+  - `src/introduction/learning-guide.md`（学習の進め方）
+  - `src/introduction/prerequisites.md`（前提知識）
 - 役割 / 主なトピック
   - 目的・構成・学習戦略・前提知識をまとめ、読者の初期条件を揃える。
 - 学習目標（要約）
