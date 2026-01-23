@@ -15,13 +15,13 @@
     "deploy": "gh-pages -d _site",
     "clean": "rm -rf _site .jekyll-cache",
     "test": "npm run lint && npm run check-links",
-    "lint": "markdownlint 'docs/**/*.md' --ignore node_modules",
-    "lint:light": "markdownlint 'docs/**/*.md' --ignore node_modules",
+    "lint": "markdownlint 'src/**/*.md' --ignore node_modules",
+    "lint:light": "markdownlint 'src/**/*.md' --ignore node_modules",
     "spellcheck": "echo 'Spellcheck placeholder - no actual spell checker configured'",
     "svg:lint": "bash scripts/svg-lint.sh",
     "svg:lint:a11y": "bash scripts/svg-lint-a11y.sh",
     "svg:inventory": "bash scripts/diagrams-inventory.sh",
-    "check-links": "markdown-link-check docs/**/*.md",
+    "check-links": "markdown-link-check src/**/*.md",
     "help": "echo 'Available commands:\n  npm start - Start development server\n  npm run build - Build the book\n  npm run preview - Local preview\n  npm run deploy - Deploy to GitHub Pages'"
   },
   "dependencies": {

@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Generate a simple inventory: SVG file -> referenced locations in docs/src
+# Generate a simple inventory: SVG file -> referenced locations in src
 ROOT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 SVG_DIR="$ROOT_DIR/docs/assets/images/diagrams"
-SRC_DIR="$ROOT_DIR/docs/src"
+SRC_DIR="$ROOT_DIR/src"
 
 echo "# Diagrams Inventory"
 echo

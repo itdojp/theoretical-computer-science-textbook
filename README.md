@@ -133,8 +133,8 @@ tests/                     # テストファイル
 
 ### コンテンツの編集
 
-1. **章の追加・編集**: `docs/src/chapter-X/index.md`
-2. **付録の編集**: `docs/src/appendices/X.md`
+1. **章の追加・編集**: `src/chapter-X/index.md`
+2. **付録の編集**: `src/appendices/X.md`
 3. **図表の作成・編集**: `docs/assets/images/diagrams/`
    - SVG図表推奨（学術品質のベクター形式）
    - 詳細は [SVG作成ガイド](SVG_CREATION_GUIDE.md) を参照
@@ -207,7 +207,7 @@ tests/                     # テストファイル
 - [Book Publishing Template](https://github.com/itdojp/book-formatter)
 - [SVG図表作成ガイド](SVG_CREATION_GUIDE.md) - 学術品質の図表作成手法
 - [ITDO Inc. 公式サイト](https://itdo.jp)
-- [理論計算機科学参考文献](docs/src/appendices/reading-list.md)
+- [理論計算機科学参考文献](src/appendices/reading-list.md)
 
 ---
 
