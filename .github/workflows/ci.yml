@@ -59,21 +59,21 @@ jobs:
         set -euo pipefail
         # Resolve baseurl (GitHub Pages project site uses /<repo> by default)
         baseurl="$(python3 - <<'PY'
-import os, re, pathlib
-cfg = pathlib.Path('docs/_config.yml')
-repo = os.environ.get('GITHUB_REPOSITORY','').split('/')[-1]
-val = ''
-if cfg.exists():
-    m = re.search(r'(?m)^baseurl:\\s*(.+)\\s*$', cfg.read_text(encoding='utf-8'))
-    if m:
-        val = m.group(1).strip().strip('\"').strip(\"'\")
-if not val:
-    val = '/' + repo
-if not val.startswith('/'):
-    val = '/' + val
-print(val)
-PY
-)"
+        import os, re, pathlib
+        cfg = pathlib.Path('docs/_config.yml')
+        repo = os.environ.get('GITHUB_REPOSITORY','').split('/')[-1]
+        val = ''
+        if cfg.exists():
+            m = re.search(r'(?m)^baseurl:\\s*(.+)\\s*$', cfg.read_text(encoding='utf-8'))
+            if m:
+                val = m.group(1).strip().strip('\"').strip(\"'\")
+        if not val:
+            val = '/' + repo
+        if not val.startswith('/'):
+            val = '/' + val
+        print(val)
+        PY
+        )"
         echo "baseurl=${baseurl}"
         # Mirror built output into _site/<baseurl>/ so absolute URLs like /<baseurl>/... resolve locally.
         if [[ -n "${baseurl}" && "${baseurl}" != "/" ]]; then
