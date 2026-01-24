@@ -1,0 +1,15 @@
+DirectoryPath: _site
+
+# PR での品質ゲートは「内部リンク + 画像」の死活に絞る（外部リンクは変動要因が大きい）
+CheckExternal: false
+
+# まずは 404/欠落ファイルを確実に検知する。アンカー検証は別途段階導入してもよい。
+CheckInternalHash: false
+
+# UI用途の href="#" を許容
+IgnoreInternalEmptyHash: true
+
+IgnoreURLs:
+  - "^mailto:"
+  - "^tel:"
+  - "^javascript:"
