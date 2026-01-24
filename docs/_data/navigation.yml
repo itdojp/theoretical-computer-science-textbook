@@ -8,7 +8,7 @@ chapters:
   path: /chapter-2/
 - title: 第3章 形式言語とオートマトン理論
   path: /chapter-3/
-- title: 第4章 計算可能性
+- title: 第4章 計算可能性理論
   path: /chapter-4/
 - title: 第5章 計算複雑性理論
   path: /chapter-5/
@@ -18,7 +18,7 @@ chapters:
   path: /chapter-7/
 - title: 第8章 グラフ理論とネットワーク
   path: /chapter-8/
-- title: 第9章 論理学・形式的手法
+- title: 第9章 論理学と形式的手法
   path: /chapter-9/
 - title: 第10章 情報理論
   path: /chapter-10/
