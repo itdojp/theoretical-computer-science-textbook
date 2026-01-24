@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="900" height="520" viewBox="0 0 900 520" xmlns="http://www.w3.org/2000/svg"
+     role="img" aria-labelledby="title" aria-describedby="desc">
+  <title id="title">Myhill–Nerode: 接頭辞で区別できる右コンテキスト</title>
+  <desc id="desc">2つの接頭辞x,yに同じ後続文字列zを連結したとき、受理/拒否が分かれる例を示し、右同値関係≡_Lと最小DFA状態数との対応を直観的に表す。</desc>
+
+  <defs>
+    <style>
+      .diagram-text { font-family: 'Inter', 'Helvetica', sans-serif; font-size: 14px; fill: #2c3e50; text-anchor: middle; }
+      .small-text { font-size: 12px; }
+      .large-text { font-size: 16px; font-weight: bold; }
+      .box { fill: #ffffff; stroke: #495057; stroke-width: 1.5; rx: 8; }
+      .input-box { fill: #fff3e0; stroke: #f57c00; stroke-width: 2; rx: 8; }
+      .suffix-box { fill: #e3f2fd; stroke: #1976d2; stroke-width: 2; rx: 8; }
+      .accept-box { fill: #e8f5e8; stroke: #4caf50; stroke-width: 2; rx: 8; }
+      .reject-box { fill: #ffebee; stroke: #d32f2f; stroke-width: 2; rx: 8; }
+      .note-box { fill: #fafafa; stroke: #9e9e9e; stroke-width: 1; rx: 8; }
+      .arrow { stroke: #333; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .dashed { stroke-dasharray: 6,3; }
+    </style>
+
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+    </marker>
+  </defs>
+
+  <rect width="900" height="520" fill="#ffffff"/>
+
+  <text x="450" y="30" class="diagram-text large-text" style="fill:#1a237e;">
+    Myhill–Nerode: 接頭辞で区別できる右コンテキスト
+  </text>
+
+  <!-- Top flow -->
+  <rect x="60" y="80" width="240" height="120" class="input-box"/>
+  <text x="180" y="108" class="diagram-text large-text" style="fill:#e65100;">接頭辞</text>
+  <text x="180" y="135" class="diagram-text">x, y ∈ Σ*</text>
+  <text x="180" y="160" class="diagram-text small-text" style="fill:#555;">例: x = 010, y = 011</text>
+  <text x="180" y="184" class="diagram-text small-text" style="fill:#555;">（区別したい2つの前半）</text>
+
+  <rect x="330" y="80" width="240" height="120" class="suffix-box"/>
+  <text x="450" y="108" class="diagram-text large-text" style="fill:#0d47a1;">後続文字列</text>
+  <text x="450" y="135" class="diagram-text">z ∈ Σ*</text>
+  <text x="450" y="160" class="diagram-text small-text" style="fill:#555;">同じ z を連結して比較</text>
+  <text x="450" y="184" class="diagram-text small-text" style="fill:#555;">xz と yz の受理を比較</text>
+
+  <path d="M 300 140 L 330 140" class="arrow"/>
+
+  <rect x="600" y="70" width="240" height="80" class="accept-box"/>
+  <text x="720" y="100" class="diagram-text large-text" style="fill:#1b5e20;">受理</text>
+  <text x="720" y="125" class="diagram-text">xz ∈ L</text>
+
+  <rect x="600" y="170" width="240" height="80" class="reject-box"/>
+  <text x="720" y="200" class="diagram-text large-text" style="fill:#b71c1c;">拒否</text>
+  <text x="720" y="225" class="diagram-text">yz ∉ L</text>
+
+  <path d="M 570 130 L 600 110" class="arrow"/>
+  <path d="M 570 150 L 600 210" class="arrow"/>
+  <text x="585" y="108" class="diagram-text small-text" style="fill:#555;">xz</text>
+  <text x="585" y="218" class="diagram-text small-text" style="fill:#555;">yz</text>
+
+  <!-- Notes -->
+  <rect x="60" y="270" width="780" height="110" class="note-box"/>
+  <text x="450" y="300" class="diagram-text large-text" style="fill:#37474f;">右同値関係（Myhill–Nerode）</text>
+  <text x="450" y="330" class="diagram-text">
+    x ≡<tspan baseline-shift="sub" font-size="11">L</tspan> y ⇔ ∀z∈Σ*, (xz∈L ↔ yz∈L)
+  </text>
+  <text x="450" y="358" class="diagram-text small-text" style="fill:#555;">
+    ある z で受理/拒否が分かれるなら x と y は同値でない（x ≢<tspan baseline-shift="sub" font-size="11">L</tspan> y）
+  </text>
+
+  <rect x="60" y="400" width="780" height="85" class="box"/>
+  <text x="450" y="432" class="diagram-text large-text" style="fill:#1a237e;">結論（対応）</text>
+  <text x="450" y="460" class="diagram-text">
+    ≡<tspan baseline-shift="sub" font-size="11">L</tspan> の同値類の数 = 最小DFAの状態数
+  </text>
+</svg>
+
