@@ -12,6 +12,8 @@ Gemfile.lock
 # Python
 .venv/
 .hypothesis/
+__pycache__/
+*.py[cod]
 
 # Node.js
 node_modules/
