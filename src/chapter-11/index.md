@@ -112,7 +112,7 @@ sections:
 **例 11.1** RC4（歴史的例）、ChaCha20
 
 注意：RC4 は歴史的なストリーム暗号であり、設計上の弱点や実運用上の脆弱性が多数報告されているため、
-現代運用では非推奨/禁止である。TLS では RFC 7465 により RC4 暗号スイートの使用が禁止されている。
+現代運用では原則非推奨である。特にTLSでは RFC 7465 により RC4 暗号スイートの使用が禁止されている。
 
 ### 11.2.2 ブロック暗号
 
@@ -269,9 +269,9 @@ E: y^2 = x^3 + ax + b （特性 ≠ 2, 3）
 
 公開鍵暗号の耐量子化に向けた標準化として、NIST は以下を FIPS として規定している。
 
-- **FIPS 203**：**ML-KEM**（Key Encapsulation Mechanism）。格子（module-lattice）に基づく鍵カプセル化方式。
-- **FIPS 204**：**ML-DSA**（Digital Signature Algorithm）。格子（module-lattice）に基づくデジタル署名。
-- **FIPS 205**：**SLH-DSA**（Stateless Hash-based Digital Signature Algorithm）。ハッシュベースのデジタル署名。
+- **FIPS 203**：**ML-KEM**（KEM）。格子（module-lattice）に基づく鍵カプセル化方式。
+- **FIPS 204**：**ML-DSA**（署名）。格子（module-lattice）に基づくデジタル署名。
+- **FIPS 205**：**SLH-DSA**（ステートレスなハッシュベース署名）。ハッシュベースのデジタル署名。
 
 実運用では、対象プロトコルに応じて KEM/署名の使い分けと、移行計画の策定が重要となる。
 
