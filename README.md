@@ -80,6 +80,7 @@
 - Git
 - Ruby 3.0以上
 - Node.js 18以上
+- Python 3.11以上（実装課題の参照実装/テスト用）
 
 #### クイックスタート
 
@@ -108,6 +109,12 @@ npm run build        # 本番ビルド
 npm run test         # テスト実行
 npm run lint         # Markdown linting
 npm run spellcheck   # スペルチェック
+```
+
+#### Python 実装課題のテスト
+
+```bash
+make test
 ```
 
 ### ファイル構成

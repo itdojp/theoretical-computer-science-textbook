@@ -25,6 +25,13 @@ jobs:
       with:
         node-version: '18'
         cache: 'npm'
+
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.12'
+        cache: 'pip'
+        cache-dependency-path: python/requirements-dev.txt
         
     - name: Install dependencies
       run: |
@@ -41,6 +48,9 @@ jobs:
     - name: Check links
       run: npm run check-links
       continue-on-error: true
+
+    - name: Python tests (pytest + Hypothesis)
+      run: make test
       
     - name: Build site (Jekyll, docs/)
       run: bundle exec jekyll build --source docs --config docs/_config.yml --destination _site
