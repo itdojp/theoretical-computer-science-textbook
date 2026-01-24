@@ -35,7 +35,7 @@ sections:
 
 ### 11.1.1 暗号システムの定義
 
-![暗号システムの基本構造](../../assets/images/diagrams/ch11_cryptography_basics.svg)
+![暗号システムの基本構造]({{ '/assets/images/diagrams/ch11_cryptography_basics.svg' | relative_url }})
 
 **定義 11.1** **暗号システム**は以下の5つ組 (P, C, K, E, D) で定義される：
 - P：平文空間（plaintext space）
@@ -142,7 +142,7 @@ n ビットを左右に分割し、ラウンド関数 F を用いて：
 
 直観図：模様が暗号文に残る（ECBの例）
 
-![ECB でパターンが露呈する例](../../assets/images/diagrams/ch11_ecb_pattern_leak_example.svg)
+![ECB でパターンが露呈する例]({{ '/assets/images/diagrams/ch11_ecb_pattern_leak_example.svg' | relative_url }})
 
 **CBC（Cipher Block Chaining）**：
 C_i = E_k(M_i ⊕ C_{i-1}), C_0 = IV
@@ -173,7 +173,7 @@ C_i = M_i ⊕ E_k(IV || i)
 
 直観図：AEAD の処理フロー（鍵/ノンス/AD/平文→暗号文+タグ、検証）
 
-![AEAD の処理フロー](../../assets/images/diagrams/ch11_aead_flow_overview.svg)
+![AEAD の処理フロー]({{ '/assets/images/diagrams/ch11_aead_flow_overview.svg' | relative_url }})
 
 #### 実運用チェックリスト（要点）
 - AEADを既定に：AES-GCM または ChaCha20-Poly1305 を優先（Encrypt-then-MACの原則）
@@ -188,7 +188,7 @@ C_i = M_i ⊕ E_k(IV || i)
 
 ### 11.3.1 RSA 暗号
 
-![RSA暗号の仕組み](../../assets/images/diagrams/ch11_rsa_cryptosystem.svg)
+![RSA暗号の仕組み]({{ '/assets/images/diagrams/ch11_rsa_cryptosystem.svg' | relative_url }})
 
 **設定**：
 1. 大きな素数 p, q を選択
@@ -379,7 +379,7 @@ HMAC(k, m) = H((k ⊕ opad) || H((k ⊕ ipad) || m))
 
 ### 11.6.2 ゼロ知識性
 
-![ゼロ知識証明の概念と応用](../../assets/images/diagrams/ch11_zero_knowledge_proofs.svg)
+![ゼロ知識証明の概念と応用]({{ '/assets/images/diagrams/ch11_zero_knowledge_proofs.svg' | relative_url }})
 
 **定義 11.15** 対話型証明系が**ゼロ知識**であるとは、
 すべての多項式時間検証者 V* に対して、効率的なシミュレータ S が存在して、

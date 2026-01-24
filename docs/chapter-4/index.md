@@ -39,7 +39,7 @@ chapter: 4
 **定義 4.1** **停止問題**（Halting Problem）は以下の言語として定義される：
 HALT_TM = {⟨M, w⟩ | M はチューリング機械で、入力 w で停止する}
 
-![停止問題の対角化論法](../../assets/images/diagrams/ch4_halting_problem_diagonalization.svg)
+![停止問題の対角化論法]({{ '/assets/images/diagrams/ch4_halting_problem_diagonalization.svg' | relative_url }})
 
 **定理 4.1** HALT_TM は決定不能である。
 
@@ -127,7 +127,7 @@ D 自身に ⟨D⟩ を入力した場合を考える：
 w ∈ A ⟺ f(w) ∈ B
 が成り立つことである。これを A ≤_m B と表記する。
 
-![多対一還元の仕組み](../../assets/images/diagrams/ch4_many_one_reduction.svg)
+![多対一還元の仕組み]({{ '/assets/images/diagrams/ch4_many_one_reduction.svg' | relative_url }})
 
 **定理 4.4** A ≤_m B かつ B が決定可能ならば、A も決定可能である。
 
@@ -222,7 +222,7 @@ B を決定するオラクルを使って A を決定する機械が存在する
 **定理 4.7** 以下の真の包含関係が成り立つ：
 決定可能言語 ⊂ 再帰的可算言語 ⊂ すべての言語
 
-![言語クラスの階層構造](../../assets/images/diagrams/ch4_language_class_hierarchy.svg)
+![言語クラスの階層構造]({{ '/assets/images/diagrams/ch4_language_class_hierarchy.svg' | relative_url }})
 
 *証明*：
 （決定可能 ⊆ 再帰的可算）定義より明らか。
@@ -305,7 +305,7 @@ M' = "入力 x に対して：
 
 したがって A_TM ≤_m L_P が成り立ち、L_P は決定不能である。□
 
-![Rice の定理の還元スキーマ（A_TM → R_P）](../../assets/images/diagrams/ch4_rice_theorem_reduction.svg)
+![Rice の定理の還元スキーマ（A_TM → R_P）]({{ '/assets/images/diagrams/ch4_rice_theorem_reduction.svg' | relative_url }})
 
 適用のコツと用語は用語集も参照（→ 付録D: 用語集・索引: ../appendices/d/#rice-の定理-rices-theorem）。
 
@@ -362,7 +362,7 @@ Riceの定理により、以下の問題はすべて決定不能：
    - h(n+1, x̄) = g(n, h(n, x̄), x̄)
 3. **最小化**：h(x̄) = μy[f(x̄, y) = 0]
 
-![部分再帰関数の構成](../../assets/images/diagrams/ch4_partial_recursive_functions.svg)
+![部分再帰関数の構成]({{ '/assets/images/diagrams/ch4_partial_recursive_functions.svg' | relative_url }})
 
 ### 4.5.2 計算可能性の同値性
 

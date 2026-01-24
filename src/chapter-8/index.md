@@ -76,7 +76,7 @@ sections:
 
 直観図：同一グラフに対する BFS と DFS の探索順・探索木の比較
 
-![BFS と DFS の比較](../../assets/images/diagrams/ch8_bfs_vs_dfs_compare.svg)
+![BFS と DFS の比較]({{ '/assets/images/diagrams/ch8_bfs_vs_dfs_compare.svg' | relative_url }})
 
 #### 深さ優先探索（DFS）
 
@@ -151,7 +151,7 @@ S と V \ S を結ぶ辺が存在。
 
 ### 8.2.1 単一始点最短路
 
-![Dijkstraアルゴリズムの実行例](../../assets/images/diagrams/ch8_dijkstra_algorithm_execution.svg)
+![Dijkstraアルゴリズムの実行例]({{ '/assets/images/diagrams/ch8_dijkstra_algorithm_execution.svg' | relative_url }})
 
 #### Dijkstraのアルゴリズム
 
@@ -181,7 +181,7 @@ Dijkstra(G, w, s):
 
 例示図：Dijkstra の逐次確定（確定集合と緩和の模式図）
 
-![Dijkstra 法の逐次確定の例](../../assets/images/diagrams/ch8_dijkstra_step_trace.svg)
+![Dijkstra 法の逐次確定の例]({{ '/assets/images/diagrams/ch8_dijkstra_step_trace.svg' | relative_url }})
 
 **時間複雑度**：
 - 二分ヒープ：O((|V| + |E|) log |V|)
@@ -287,7 +287,7 @@ BFS が O(|V| + |E|) で最短路を求める。
 注: Union-Find（互いに素集合データ構造）は、集合を併合し代表元を素早く求める構造で、
 経路圧縮とランク併合により実用上ほぼ定数時間（逆アッカーマン関数 α(n) で界）を達成する。
 
-![Kruskal法とUnion-Findの流れ](../../assets/images/diagrams/ch8_mst_kruskal_unionfind.svg)
+![Kruskal法とUnion-Findの流れ]({{ '/assets/images/diagrams/ch8_mst_kruskal_unionfind.svg' | relative_url }})
 
 ```
 Kruskal(G, w):
@@ -339,7 +339,7 @@ Prim(G, w, r):
 1. 容量制約：0 ≤ f(u,v) ≤ c(u,v)
 2. 流量保存：∑_v f(v,u) = ∑_v f(u,v) （u ≠ s,t）
 
-![最大フロー最小カットの例](../../assets/images/diagrams/ch8_maximum_flow_minimum_cut.svg)
+![最大フロー最小カットの例]({{ '/assets/images/diagrams/ch8_maximum_flow_minimum_cut.svg' | relative_url }})
 
 ### 8.4.2 Ford-Fulkerson法
 
@@ -401,7 +401,7 @@ Push-Relabel(G, s, t):
 **定義 8.5** グラフ G = (V, E) の**マッチング** M ⊆ E は、
 どの2辺も共通の端点を持たない辺集合。
 
-![二部グラフのマッチング](../../assets/images/diagrams/ch8_bipartite_graph_matching.svg)
+![二部グラフのマッチング]({{ '/assets/images/diagrams/ch8_bipartite_graph_matching.svg' | relative_url }})
 
 **定理 8.9**（Hallの結婚定理）
 二部グラフ G = (X ∪ Y, E) が X を飽和するマッチングを持つ ⟺

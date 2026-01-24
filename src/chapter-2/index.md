@@ -50,7 +50,7 @@ chapter: 2
 
 ### 2.1.2 チューリング機械の形式的定義
 
-![チューリング機械の構成要素](../../assets/images/diagrams/ch2_turing_machine_components.svg)
+![チューリング機械の構成要素]({{ '/assets/images/diagrams/ch2_turing_machine_components.svg' | relative_url }})
 
 **定義 2.1** **チューリング機械**は7つ組 M = (Q, Σ, Γ, δ, q₀, qaccept, qreject) である。ここで、各記号の意味は次のとおりである。
 
@@ -82,7 +82,7 @@ chapter: 2
 - テープの内容：10110111...
 - ヘッドの位置：5番目の記号（0）を指している
 
-![チューリング機械の構成](../../assets/images/diagrams/ch2_turing_machine_configuration.svg)
+![チューリング機械の構成]({{ '/assets/images/diagrams/ch2_turing_machine_configuration.svg' | relative_url }})
 
 **定義 2.3** 構成 C₁ が構成 C₂ に**1ステップで遷移する**ことを C₁ ⊢ C₂ と表記する。
 
@@ -168,7 +168,7 @@ q₁0011 ⊢ xq₂011 ⊢ x0q₂11 ⊢ x0yq₃1 ⊢ xq₃0y1 ⊢ q₃x0y1 ⊢ xq
 
 ## 2.2 計算可能性
 
-![計算可能性の概念と階層](../../assets/images/diagrams/ch2_computability_hierarchy.svg)
+![計算可能性の概念と階層]({{ '/assets/images/diagrams/ch2_computability_hierarchy.svg' | relative_url }})
 
 ### 2.2.1 チューリング計算可能関数
 
@@ -216,7 +216,7 @@ q₁0011 ⊢ xq₂011 ⊢ x0q₂11 ⊢ x0yq₃1 ⊢ xq₃0y1 ⊢ q₃x0y1 ⊢ xq
 
 1. **他の計算モデルとの等価性**
    
-   ![等価な計算モデル（1930年代）](../../assets/images/diagrams/ch2_equivalent_computation_models_1930s.svg)
+   ![等価な計算モデル（1930年代）]({{ '/assets/images/diagrams/ch2_equivalent_computation_models_1930s.svg' | relative_url }})
 
 2. **現代の計算モデルとの対応**
    - プログラミング言語（C, Python, Java等）
@@ -314,7 +314,7 @@ Church-Turingの提唱は、計算機科学を単なる技術分野から、数�
 
 ## 2.3 決定可能性
 
-![決定可能性の階層構造](../../assets/images/diagrams/ch2_decidability_hierarchy.svg)
+![決定可能性の階層構造]({{ '/assets/images/diagrams/ch2_decidability_hierarchy.svg' | relative_url }})
 
 ### 2.3.1 言語と決定問題
 
@@ -383,7 +383,7 @@ w ∈ L または w ∈ L̄ のいずれかが成り立つので、M は必ず�
 
 ## 2.4 チューリング機械の変種
 
-![チューリング機械の変種と等価性](../../assets/images/diagrams/ch2_turing_machine_variants.svg)
+![チューリング機械の変種と等価性]({{ '/assets/images/diagrams/ch2_turing_machine_variants.svg' | relative_url }})
 
 ### 2.4.1 多テープチューリング機械
 
@@ -457,7 +457,7 @@ D は以下のように動作する。
 
 ## 2.5 万能チューリング機械
 
-![万能チューリング機械の構成と意義](../../assets/images/diagrams/ch2_universal_turing_machine.svg)
+![万能チューリング機械の構成と意義]({{ '/assets/images/diagrams/ch2_universal_turing_machine.svg' | relative_url }})
 
 ### 2.5.1 チューリング機械の符号化
 
@@ -499,7 +499,7 @@ U の動作は次のとおりである。
 
 ## 2.6 計算可能性の基本定理
 
-![対角化論法と決定不能性](../../assets/images/diagrams/ch2_diagonalization_undecidability.svg)
+![対角化論法と決定不能性]({{ '/assets/images/diagrams/ch2_diagonalization_undecidability.svg' | relative_url }})
 
 ### 2.6.1 対角化言語
 
