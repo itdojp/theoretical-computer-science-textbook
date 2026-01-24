@@ -9,6 +9,10 @@ docs/_site/
 vendor/
 Gemfile.lock
 
+# Python
+.venv/
+.hypothesis/
+
 # Node.js
 node_modules/
 npm-debug.log*
