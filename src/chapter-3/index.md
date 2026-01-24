@@ -799,11 +799,11 @@ s = uvxyz と分解したとき、|vxy| ≤ p より、vxy は高々2種類の�
 
 ## 章末問題
 
-注: 章内の代表的な追加演習と詳細解答は付録Cを参照。
-- 正規言語の証明: ../appendices/c/#ex-3-1
-- 文脈自由文法の設計: ../appendices/c/#ex-3-2
-- CFL でない言語の証明（ポンピング補題）: ../appendices/c/#ex-3-3
-- Myhill–Nerode による非正規性の証明（追加例）: ../appendices/c/#ex-3-5
+注: 章内の代表的な追加演習と詳細解答は [付録C](../appendices/c/) を参照。
+- 正規言語の証明: [付録C（ex-3-1）](../appendices/c/#ex-3-1)
+- 文脈自由文法の設計: [付録C（ex-3-2）](../appendices/c/#ex-3-2)
+- CFL でない言語の証明（ポンピング補題）: [付録C（ex-3-3）](../appendices/c/#ex-3-3)
+- Myhill–Nerode による非正規性の証明（追加例）: [付録C（ex-3-5）](../appendices/c/#ex-3-5)
 
 ### 基礎問題
 

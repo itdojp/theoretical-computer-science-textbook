@@ -30,7 +30,7 @@ chapter: 4
 
 ## 章末問題
 
-- 代表演習と詳細解答は付録C（第4章）を参照: ../appendices/c/#ex-sol-ch4
+- 代表演習と詳細解答は [付録C（第4章）](../appendices/c/#ex-sol-ch4) を参照。
 
 ## 4.1 決定不能問題
 
@@ -307,7 +307,7 @@ M' = "入力 x に対して：
 
 ![Rice の定理の還元スキーマ（A_TM → R_P）]({{ '/assets/images/diagrams/ch4_rice_theorem_reduction.svg' | relative_url }})
 
-適用のコツと用語は用語集も参照（→ 付録D: 用語集・索引: ../appendices/d/#rice-の定理-rices-theorem）。
+適用のコツと用語は用語集も参照（→ [付録D: 用語集・索引](../appendices/d/#rice-の定理-rices-theorem)）。
 
 ### 4.4.3 Riceの定理の応用
 
@@ -322,7 +322,7 @@ Riceの定理により、以下の問題はすべて決定不能：
 これらはすべて言語の非自明な性質だからです。
 
 補足の例：
-【用語の脚注】補有限（→ ../appendices/d/#補有限-cofinite）
+【用語の脚注】補有限（→ [用語集](../appendices/d/#補有限-cofinite)）
 - 6. {⟨M⟩ | L(M) は無限}（有限性の補性質。非自明なため同様に決定不能）
 - 7. {⟨M⟩ | 固定語 w₀ が L(M) に含まれる}（特定語の包含も言語の性質であり、非自明なら決定不能）
 - 8. {⟨M⟩ | L(M) は補有限（cofinite）}（ある有限集合を除き Σ* を含む性質。非自明）
@@ -341,7 +341,7 @@ Riceの定理により、以下の問題はすべて決定不能：
 1. REGULAR_TM = {⟨M⟩ | L(M) は正規言語} が決定不能であることを、Rice の定理を用いて示せ。
 2. CONTAINS_{w₀} = {⟨M⟩ | 固定語 w₀ が L(M) に含まれる} が決定不能であることを示せ。
 
-解答スケッチは付録C（第4章）を参照: ../appendices/c.md#ex-sol-ch4
+解答スケッチは [付録C（第4章）](../appendices/c/#ex-sol-ch4) を参照。
 
 ## 4.5 計算可能関数
 

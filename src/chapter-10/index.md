@@ -31,11 +31,11 @@ sections:
 - 連続型（微分エントロピー、AWGN）への拡張の要点を述べられる
 
 【用語の脚注】
-接頭語符号（→ ../appendices/d/#接頭語符号-prefix-code）、AEP（→ ../appendices/d/#AEP-asymptotic-equipartition-property）、
-相互情報量（→ ../appendices/d/#相互情報量-mutual-information）、クラフトの不等式（→ ../appendices/d/#クラフトの不等式-kraft-inequality）、
-通信路容量（→ ../appendices/d/#通信路容量-channel-capacity）、Lempel–Ziv 符号（→ ../appendices/d/#レムペル-ジブ-符号-lempel-ziv）
+接頭語符号（→ [用語集](../appendices/d/#接頭語符号-prefix-code)）、AEP（→ [用語集](../appendices/d/#AEP-asymptotic-equipartition-property)）、
+相互情報量（→ [用語集](../appendices/d/#相互情報量-mutual-information)）、クラフトの不等式（→ [用語集](../appendices/d/#クラフトの不等式-kraft-inequality)）、
+通信路容量（→ [用語集](../appendices/d/#通信路容量-channel-capacity)）、Lempel–Ziv 符号（→ [用語集](../appendices/d/#レムペル-ジブ-符号-lempel-ziv)）
 
-【用語の脚注】接頭語符号（→ ../appendices/d/#接頭語符号-prefix-code）、AEP（→ ../appendices/d/#AEP-asymptotic-equipartition-property）
+【用語の脚注】接頭語符号（→ [用語集](../appendices/d/#接頭語符号-prefix-code)）、AEP（→ [用語集](../appendices/d/#AEP-asymptotic-equipartition-property)）
 
 ## 10.1 情報量とエントロピー
 
