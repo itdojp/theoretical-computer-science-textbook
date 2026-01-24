@@ -66,7 +66,7 @@ jobs:
         if cfg.exists():
             m = re.search(r'(?m)^baseurl:\\s*(.+)\\s*$', cfg.read_text(encoding='utf-8'))
             if m:
-                val = m.group(1).strip().strip('\"').strip(\"'\")
+                val = m.group(1).strip().strip('"').strip("'")
         if not val:
             val = '/' + repo
         if not val.startswith('/'):
