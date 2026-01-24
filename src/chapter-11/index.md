@@ -109,7 +109,10 @@ sections:
 - 暗号化：c_i = m_i ⊕ k_i
 - 復号：m_i = c_i ⊕ k_i
 
-**例 11.1** RC4、ChaCha20
+**例 11.1** RC4（歴史的例）、ChaCha20
+
+注意：RC4 は歴史的なストリーム暗号であり、設計上の弱点や実運用上の脆弱性が多数報告されているため、
+現代運用では非推奨/禁止である。TLS では RFC 7465 により RC4 暗号スイートの使用が禁止されている。
 
 ### 11.2.2 ブロック暗号
 
@@ -181,6 +184,7 @@ C_i = M_i ⊕ E_k(IV || i)
 - ECBは非推奨：パターンが漏洩するため機密データでは使用しない
 - パディングオラクル対策：CBC+PKCS#7 などではMAC併用またはAEADを使用
 - 公開鍵暗号：生RSAは不可、RSA-OAEPを使用
+- 耐量子暗号：NIST FIPS 203/204/205（ML-KEM/ML-DSA/SLH-DSA）の適用可否を整理
 - 署名：DSA/ECDSA/Schnorrではkの再利用禁止、RFC 6979 等の決定的kも検討
 - 実装：定数時間化や乱数安全性（CSPRNG）などサイドチャネル対策
 
@@ -260,6 +264,16 @@ E: y^2 = x^3 + ax + b （特性 ≠ 2, 3）
 
 **ECDH（楕円曲線 Diffie-Hellman）**：
 通常の DH を楕円曲線群上で実行。
+
+### 11.3.5 耐量子暗号（PQC）の標準化動向
+
+公開鍵暗号の耐量子化に向けた標準化として、NIST は以下を FIPS として規定している。
+
+- **FIPS 203**：**ML-KEM**（Key Encapsulation Mechanism）。格子（module-lattice）に基づく鍵カプセル化方式。
+- **FIPS 204**：**ML-DSA**（Digital Signature Algorithm）。格子（module-lattice）に基づくデジタル署名。
+- **FIPS 205**：**SLH-DSA**（Stateless Hash-based Digital Signature Algorithm）。ハッシュベースのデジタル署名。
+
+実運用では、対象プロトコルに応じて KEM/署名の使い分けと、移行計画の策定が重要となる。
 
 ## 11.4 デジタル署名
 
@@ -505,7 +519,8 @@ n 人の参加者が各自の秘密入力 x_i を持ち、
 ### 探究課題
 
 9. 量子計算機に対する耐性を持つ暗号（耐量子暗号）について調査し、
-   格子暗号、符号ベース暗号、多変数多項式暗号の原理を説明せよ。
+   NIST FIPS 203/204/205（ML-KEM/ML-DSA/SLH-DSA）の目的（KEM/署名）と
+   基盤の違い（格子/ハッシュ）を説明せよ。
 
 10. ブロックチェーンで使用される暗号技術について調査し、
     Proof of Work、Merkle 木、BLS 署名の役割を論ぜよ。
