@@ -11,6 +11,7 @@
       <li><a href="{{ '/introduction/purpose/' | relative_url }}">本書の目的と構成</a></li>
       <li><a href="{{ '/introduction/learning-guide/' | relative_url }}">学習の進め方</a></li>
       <li><a href="{{ '/introduction/prerequisites/' | relative_url }}">前提知識</a></li>
+      <li><a href="{{ '/introduction/feedback/' | relative_url }}">フィードバック（誤植・改善提案）</a></li>
     </ul>
   </div>
 
@@ -66,9 +67,15 @@
   <div class="nav-section resources">
     <h3>リソース</h3>
     <ul>
-      <li><a href="https://github.com/itdojp/theoretical-computer-science-textbook" target="_blank">💾 GitHubリポジトリ</a></li>
-      <li><a href="https://itdojp.github.io/it-engineer-knowledge-architecture/" target="_blank">📚 書籍一覧</a></li>
-      <li><a href="https://itdo.jp" target="_blank">🏢 株式会社アイティードゥ</a></li>
+      {% if site.show_github_links and site.repository %}
+        {% assign repository = site.repository | replace: "https://github.com/", "" %}
+        <li><a href="https://github.com/{{ repository }}" target="_blank" rel="noopener">💾 GitHubリポジトリ</a></li>
+      {% endif %}
+      {% if site.feedback_url %}
+        <li><a href="{{ site.feedback_url }}" target="_blank" rel="noopener">✉️ 誤植・改善提案（フィードバック）</a></li>
+      {% endif %}
+      <li><a href="https://itdojp.github.io/it-engineer-knowledge-architecture/" target="_blank" rel="noopener">📚 書籍一覧</a></li>
+      <li><a href="https://itdo.jp" target="_blank" rel="noopener">🏢 株式会社アイティードゥ</a></li>
     </ul>
   </div>
 </nav>
