@@ -42,6 +42,18 @@ kramdown:
 # リポジトリ情報
 repository: "itdojp/theoretical-computer-science-textbook"
 
+# 公開サイト向けリンク制御
+# NOTE: このリポジトリは Private のため、公開サイト上で GitHub リンクを出すと 404 になる。
+show_github_links: false
+show_edit_link: false
+
+# "Edit this page" の生成に必要な情報
+repository_branch: "main"
+repository_path_prefix: "docs"
+
+# 誤植・改善提案の導線（公開サイトから到達可能なURL）
+feedback_url: "https://c.itdo.jp/contacts-business/"
+
 
 # Defaults: use custom book layout as default
 defaults:
