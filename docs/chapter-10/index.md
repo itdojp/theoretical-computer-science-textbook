@@ -52,7 +52,7 @@ I(p) = -log₂ p = log₂(1/p) [bits]
 
 ### 10.1.2 Shannon エントロピー
 
-![情報量とエントロピーの概念](../../assets/images/diagrams/ch10_information_entropy_concepts.svg)
+![情報量とエントロピーの概念]({{ '/assets/images/diagrams/ch10_information_entropy_concepts.svg' | relative_url }})
 
 **定義 10.2** 離散確率変数 X の**エントロピー**：
 H(X) = -∑ₓ p(x) log₂ p(x) = E[I(X)]
@@ -66,7 +66,7 @@ H(X) = -p log₂ p - (1-p) log₂(1-p) = h(p)
 
 直観図：二値エントロピー h(p) の曲線（底は log₂）
 
-![二値エントロピー関数 h(p) の曲線](../../assets/images/diagrams/ch10_binary_entropy_curve.svg)
+![二値エントロピー関数 h(p) の曲線]({{ '/assets/images/diagrams/ch10_binary_entropy_curve.svg' | relative_url }})
 
 **定理 10.1** 離散確率変数 X について：
 0 ≤ H(X) ≤ log₂ |X|
@@ -183,7 +183,7 @@ D(p||q) ≥ 0 より導かれる。□
 
 #### Huffman 符号
 
-![Huffman符号の構成例](../../assets/images/diagrams/ch10_huffman_coding_construction.svg)
+![Huffman符号の構成例]({{ '/assets/images/diagrams/ch10_huffman_coding_construction.svg' | relative_url }})
 
 **アルゴリズム**（二元の場合）：
 1. 各記号を確率付きノードとする
@@ -219,7 +219,7 @@ D(p||q) ≥ 0 より導かれる。□
 
 ### 10.3.1 通信路モデル
 
-![通信路モデルと容量](../../assets/images/diagrams/ch10_channel_models_capacity.svg)
+![通信路モデルと容量]({{ '/assets/images/diagrams/ch10_channel_models_capacity.svg' | relative_url }})
 
 **定義 10.8** **離散無記憶通信路**（DMC）は、
 入力アルファベット X、出力アルファベット Y、
@@ -372,13 +372,13 @@ C = W log₂(1 + P/N) [bits/second]
 
 直観図：AWGN 容量 C = (1/2) log₂(1+SNR) の曲線
 
-![AWGN 容量曲線](../../assets/images/diagrams/ch10_awgn_capacity_curve.svg)
+![AWGN 容量曲線]({{ '/assets/images/diagrams/ch10_awgn_capacity_curve.svg' | relative_url }})
 
 ## 10.6 情報理論の応用
 
 ### 10.6.1 データ圧縮への応用
 
-![情報理論の応用分野](../../assets/images/diagrams/ch10_information_theory_applications.svg)
+![情報理論の応用分野]({{ '/assets/images/diagrams/ch10_information_theory_applications.svg' | relative_url }})
 
 **損失のある圧縮**：
 - レート歪み理論

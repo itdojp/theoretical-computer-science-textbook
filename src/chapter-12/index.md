@@ -34,7 +34,7 @@ sections:
 
 ### 12.1.1 並行性の基本概念
 
-![並行計算の基本概念](../../assets/images/diagrams/ch12_concurrent_computing_models.svg)
+![並行計算の基本概念]({{ '/assets/images/diagrams/ch12_concurrent_computing_models.svg' | relative_url }})
 
 **定義 12.1** **並行システム**は、複数のプロセスが同時に実行される可能性があるシステム。
 
@@ -142,7 +142,7 @@ P R Q ならば、
 
 ### 12.3.1 基本定義
 
-![Petriネットによる並行システムモデリング](../../assets/images/diagrams/ch12_petri_nets_modeling.svg)
+![Petriネットによる並行システムモデリング]({{ '/assets/images/diagrams/ch12_petri_nets_modeling.svg' | relative_url }})
 
 **定義 12.7** **Petri ネット**は5つ組 N = (P, T, F, W, M₀)：
 - P：プレース（場所）の有限集合
@@ -229,7 +229,7 @@ Kripke 構造 M = (S, S₀, R, L)
 
 直観図：Coffman の4条件と資源割当グラフ（デッドロック例）
 
-![デッドロックのCoffmanの4条件](../../assets/images/diagrams/ch12_deadlock_coffman_conditions.svg)
+![デッドロックのCoffmanの4条件]({{ '/assets/images/diagrams/ch12_deadlock_coffman_conditions.svg' | relative_url }})
 
 【実務メモ：デッドロックと活性阻害】
 - デッドロック（Coffman の4条件）: 相互排他・占有待ち・非奪取・循環待ち。
@@ -238,7 +238,7 @@ Kripke 構造 M = (S, S₀, R, L)
 
 直観図：ABA問題の概念図と緩和策の示唆
 
-![ABA問題の概念図](../../assets/images/diagrams/ch12_aba_problem_diagram.svg)
+![ABA問題の概念図]({{ '/assets/images/diagrams/ch12_aba_problem_diagram.svg' | relative_url }})
 - 粒度: ロック粒度と競合率のトレードオフ。読み取り多い場合はRWロックも選択肢。
 
 ## 12.5 分散アルゴリズム
@@ -348,7 +348,7 @@ Kripke 構造 M = (S, S₀, R, L)
 
 ### 12.6.2 ロックフリーアルゴリズム
 
-![並行データ構造の設計手法](../../assets/images/diagrams/ch12_lock_free_algorithms.svg)
+![並行データ構造の設計手法]({{ '/assets/images/diagrams/ch12_lock_free_algorithms.svg' | relative_url }})
 
 **定義 12.10** データ構造が**ロックフリー**⟺
 無限のステップ中で、少なくとも1つの操作が完了する。
@@ -498,7 +498,7 @@ P +_p Q：確率 p で P、確率 1-p で Q を選択
     ソフトウェア実装とハードウェア実装の得失を論ぜよ。
 直観図：happens-before（HB）関係のタイムライン
 
-![HB 関係のタイムライン](../../assets/images/diagrams/ch12_hb_relations_timeline.svg)
+![HB 関係のタイムライン]({{ '/assets/images/diagrams/ch12_hb_relations_timeline.svg' | relative_url }})
 
 11. アクターモデルについて調査し、
     共有メモリモデルとの違いと実装例（Erlang、Akka）を説明せよ。

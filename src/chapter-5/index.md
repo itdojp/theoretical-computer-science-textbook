@@ -66,11 +66,11 @@ t_M(n) = max{M が長さ n の入力 w で実行するステップ数}
 
 直観図：代表的な計算量の増加の比較（O(1), O(log n), O(n), O(n log n), O(n²)）
 
-![Big-O 成長率の比較](../../assets/images/diagrams/ch5_big_o_growth_curves.svg)
+![Big-O 成長率の比較]({{ '/assets/images/diagrams/ch5_big_o_growth_curves.svg' | relative_url }})
 
 ### 5.1.3 時間複雑性クラス
 
-![計算複雑性の階層構造](../../assets/images/diagrams/ch5_complexity_time_hierarchy.svg)
+![計算複雑性の階層構造]({{ '/assets/images/diagrams/ch5_complexity_time_hierarchy.svg' | relative_url }})
 
 **定義 5.4** 時間構成可能関数 t: ℕ → ℕ に対して、
 **TIME**(t(n)) = {L | ある O(t(n)) 時間チューリング機械が L を決定}
@@ -195,7 +195,7 @@ coNP は NP の補クラスであり、存在量化（∃）による「検証�
 
 ### 5.3.1 問題の定式化
 
-![P vs NP 問題の構造](../../assets/images/diagrams/ch5_p_vs_np_structure.svg)
+![P vs NP 問題の構造]({{ '/assets/images/diagrams/ch5_p_vs_np_structure.svg' | relative_url }})
 
 **P vs NP 問題**：P = NP か？
 
@@ -310,7 +310,7 @@ L ∈ P なので、還元と L の決定を組み合わせて A を多項式時
 
 直観図：テープ×時間の格子から CNF への局所制約
 
-![Cook–Levin の直観図（テープ×時間とCNF）](../../assets/images/diagrams/ch5_cook_levin_grid.svg)
+![Cook–Levin の直観図（テープ×時間とCNF）]({{ '/assets/images/diagrams/ch5_cook_levin_grid.svg' | relative_url }})
 
 符号化の主成分：
 1. 変数の用意
@@ -353,7 +353,7 @@ L を認識する非決定性多項式時間機械 N が存在。
 
 ### 5.3.4 NP完全問題の連鎖と還元の「気持ち」
 
-![NP完全性と還元の連鎖](../../assets/images/diagrams/ch5_np_completeness_reduction_chain.svg)
+![NP完全性と還元の連鎖]({{ '/assets/images/diagrams/ch5_np_completeness_reduction_chain.svg' | relative_url }})
 
 **還元の本質的なアイデア**
 
@@ -513,7 +513,7 @@ NSPACE(s(n)) ⊆ SPACE(s(n)²)
 
 **系 5.3** L ⊆ P ⊆ NP ⊆ PSPACE ⊆ EXPTIME
 
-![計算複雑性クラスの包含関係](../../assets/images/diagrams/ch5_complexity_class_inclusions.svg)
+![計算複雑性クラスの包含関係]({{ '/assets/images/diagrams/ch5_complexity_class_inclusions.svg' | relative_url }})
 
 ### 5.4.4 PSPACE完全性
 
@@ -734,4 +734,4 @@ k 回の独立実行と多数決により、誤り確率を 2^{-Ω(k)} に削減
     - Monte Carlo vs Las Vegas アルゴリズムの比較
 直観図：変数/節ガジェットの最小例（3-SAT → 頂点被覆）
 
-![3-SAT → 頂点被覆 ガジェット例](../../assets/images/diagrams/ch5_reduction_sat_to_vertex_cover_gadget.svg)
+![3-SAT → 頂点被覆 ガジェット例]({{ '/assets/images/diagrams/ch5_reduction_sat_to_vertex_cover_gadget.svg' | relative_url }})

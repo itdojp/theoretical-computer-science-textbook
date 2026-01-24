@@ -31,7 +31,7 @@ T(n) = max{A が入力 I に対して実行する基本演算の回数 | |I| = n
 
 最悪時間解析は性能の保証を与えるため、実用上重要です。
 
-![主要な時間複雑度クラス](../../assets/images/diagrams/ch6_complexity_classes.svg)
+![主要な時間複雑度クラス]({{ '/assets/images/diagrams/ch6_complexity_classes.svg' | relative_url }})
 
 **例 6.1** 挿入ソートの最悪時間解析
 ```
@@ -159,7 +159,7 @@ T(n) = aT(n/b) + f(n) に対して：
 3. f(n) = Ω(n^{log_b a + ε}) （ある ε > 0）かつ
    af(n/b) ≤ cf(n) （ある c < 1, 十分大きな n）ならば T(n) = Θ(f(n))
 
-![マスター定理の適用](../../assets/images/diagrams/ch6_master_theorem.svg)
+![マスター定理の適用]({{ '/assets/images/diagrams/ch6_master_theorem.svg' | relative_url }})
 
 *証明の概要*：再帰木を用いる。深さ i のレベルで：
 - ノード数：a^i
@@ -237,7 +237,7 @@ T(n) = 7T(n/2) + Θ(n²)
 
 **定義 6.6** 問題が**最適部分構造**を持つとは、最適解が部分問題の最適解を含むこと。
 
-![動的計画法の適用条件](../../assets/images/diagrams/ch6_dynamic_programming_conditions.svg)
+![動的計画法の適用条件]({{ '/assets/images/diagrams/ch6_dynamic_programming_conditions.svg' | relative_url }})
 
 **例 6.8** 最短路問題
 グラフ G で頂点 u から v への最短路 p が頂点 w を通るとき、
@@ -298,7 +298,7 @@ d[i,j] = min {
 **定義 6.7** 問題が**貪欲選択性**を持つとは、局所最適な選択を行うことで
 大域最適解を構成できること。
 
-![アルゴリズム設計パラダイムの比較](../../assets/images/diagrams/ch6_algorithm_paradigms.svg)
+![アルゴリズム設計パラダイムの比較]({{ '/assets/images/diagrams/ch6_algorithm_paradigms.svg' | relative_url }})
 
 **例 6.11** 活動選択問題
 n 個の活動 {a₁, ..., aₙ}、各活動 a_i は開始時刻 s_i と終了時刻 f_i を持つ。

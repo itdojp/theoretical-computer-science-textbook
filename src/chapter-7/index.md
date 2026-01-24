@@ -90,7 +90,7 @@ membership query（要素の存在確認）は最悪の場合 Ω(log n) 時間�
 - 先頭への挿入・削除：O(1)
 - 空間：Θ(n)
 
-![基本データ構造の比較](../../assets/images/diagrams/ch7_basic_data_structures.svg)
+![基本データ構造の比較]({{ '/assets/images/diagrams/ch7_basic_data_structures.svg' | relative_url }})
 
 **動的配列**（可変長配列）：
 倍増戦略により、挿入の償却時間 O(1) を達成。
@@ -182,7 +182,7 @@ membership query（要素の存在確認）は最悪の場合 Ω(log n) 時間�
 
 **定義 7.6** **AVL木**は、各ノードで左右の部分木の高さの差が高々1の二分探索木。
 
-![AVL木の回転操作](../../assets/images/diagrams/ch7_avl_tree_rotations.svg)
+![AVL木の回転操作]({{ '/assets/images/diagrams/ch7_avl_tree_rotations.svg' | relative_url }})
 
 **定理 7.8** n ノードの AVL木の高さ h は：
 1.44 log(n+2) - 1.328 ≤ h ≤ 1.44 log(n+1)
@@ -270,7 +270,7 @@ n 個の要素を持つスプレー木での m 回の操作の総時間は O((m 
 - `find(x)`: x を含む集合の代表元を返す
 - `union(x, y)`: x と y を含む集合を併合
 
-![Union-Findの最適化技法](../../assets/images/diagrams/ch7_union_find_optimization.svg)
+![Union-Findの最適化技法]({{ '/assets/images/diagrams/ch7_union_find_optimization.svg' | relative_url }})
 
 **最適化技法**：
 1. **経路圧縮**：find 操作中に木を平坦化
@@ -348,7 +348,7 @@ Van Emde Boas レイアウトにより、検索は O(log_B n) I/O を達成。
 **定義 7.17** **スキップリスト**は、階層的な連結リストで、
 各要素が確率的に上位レベルに昇格する。
 
-![スキップリストの構造](../../assets/images/diagrams/ch7_skip_list_structure.svg)
+![スキップリストの構造]({{ '/assets/images/diagrams/ch7_skip_list_structure.svg' | relative_url }})
 
 **定理 7.17** n 要素のスキップリストにおいて：
 - 期待空間：O(n)

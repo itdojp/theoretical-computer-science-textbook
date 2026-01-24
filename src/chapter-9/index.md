@@ -86,11 +86,11 @@ v の論理式への拡張 v̂ を帰納的に定義：
 
 ### 9.1.4 命題論理の決定手続き
 
-![命題論理の決定手続きの比較](../../assets/images/diagrams/ch9_propositional_logic_decision_procedures.svg)
+![命題論理の決定手続きの比較]({{ '/assets/images/diagrams/ch9_propositional_logic_decision_procedures.svg' | relative_url }})
 
 直観図：DPLL と CDCL の対比（学習・非年代戻り・VSIDS）
 
-![DPLL と CDCL の対比](../../assets/images/diagrams/ch9_dpll_cdcl_side_by_side.svg)
+![DPLL と CDCL の対比]({{ '/assets/images/diagrams/ch9_dpll_cdcl_side_by_side.svg' | relative_url }})
 
 #### 真理値表法
 時間複雑度：O(2^n · |φ|)（n は変数数）
@@ -227,7 +227,7 @@ Q₁x₁...Qₙxₙ ψ（Qᵢ ∈ {∀, ∃}、ψ は量化子を含まない）
 
 ### 9.3.3 モデル検査
 
-![時相論理とモデル検査](../../assets/images/diagrams/ch9_temporal_logic_model_checking.svg)
+![時相論理とモデル検査]({{ '/assets/images/diagrams/ch9_temporal_logic_model_checking.svg' | relative_url }})
 
 **定義 9.14** **モデル検査問題**：
 与えられた有限状態システム M と時相論理式 φ に対して、M ⊨ φ ?
@@ -271,7 +271,7 @@ CTLCheck(M, φ):
 
 ### 9.4.2 推論規則
 
-![Hoare論理の推論規則体系](../../assets/images/diagrams/ch9_hoare_logic_inference_system.svg)
+![Hoare論理の推論規則体系]({{ '/assets/images/diagrams/ch9_hoare_logic_inference_system.svg' | relative_url }})
 
 **基本的な推論規則**：
 
@@ -402,7 +402,7 @@ axioms:
 
 ### 9.6.1 対話型定理証明
 
-![定理証明支援系の分類と特徴](../../assets/images/diagrams/ch9_theorem_proving_systems.svg)
+![定理証明支援系の分類と特徴]({{ '/assets/images/diagrams/ch9_theorem_proving_systems.svg' | relative_url }})
 
 **主要なシステム**：
 - Coq：帰納的構成の計算（CIC）に基づく

@@ -24,7 +24,7 @@ chapter: 3
 
 ## 3.1 形式言語
 
-![形式言語の基本概念](../../assets/images/diagrams/ch3_formal_language_concepts.svg)
+![形式言語の基本概念]({{ '/assets/images/diagrams/ch3_formal_language_concepts.svg' | relative_url }})
 
 ### 3.1.1 基本定義
 
@@ -152,7 +152,7 @@ token_patterns = {
 
 ## 3.2 有限オートマトン
 
-![有限オートマトンの種類と特徴](../../assets/images/diagrams/ch3_finite_automata_overview.svg)
+![有限オートマトンの種類と特徴]({{ '/assets/images/diagrams/ch3_finite_automata_overview.svg' | relative_url }})
 
 ### 3.2.1 決定性有限オートマトン（DFA）
 
@@ -176,7 +176,7 @@ M = ({q₀, q₁}, {0, 1}, δ, q₀, {q₀}) where:
 - δ(q₀, 0) = q₁, δ(q₀, 1) = q₀
 - δ(q₁, 0) = q₀, δ(q₁, 1) = q₁
 
-![偶数個の0を認識するDFA](../../assets/images/diagrams/ch3_even_zeros_automaton.svg)
+![偶数個の0を認識するDFA]({{ '/assets/images/diagrams/ch3_even_zeros_automaton.svg' | relative_url }})
 
 状態の意味
 - q₀：これまでに読んだ0の個数が偶数（受理状態）
@@ -241,7 +241,7 @@ NFA N = (Qₙ, Σ, δₙ, q₀, Fₙ) から DFA D = (Qᴅ, Σ, δᴅ, q₀ᴅ, 
 
 ## 3.3 正規言語
 
-![正規言語と正規表現](../../assets/images/diagrams/ch3_regular_languages_expressions.svg)
+![正規言語と正規表現]({{ '/assets/images/diagrams/ch3_regular_languages_expressions.svg' | relative_url }})
 
 ### 3.3.1 正規表現
 
@@ -281,7 +281,7 @@ NFA N = (Qₙ, Σ, δₙ, q₀, Fₙ) から DFA D = (Qᴅ, Σ, δᴅ, q₀ᴅ, 
 
 直観図：Thompson 構成の各規則（リテラル・連結・和・クリーネ閉包）
 
-![Thompson 構成法：段階図](../../assets/images/diagrams/ch3_regex_to_nfa_thompson_steps.svg)
+![Thompson 構成法：段階図]({{ '/assets/images/diagrams/ch3_regex_to_nfa_thompson_steps.svg' | relative_url }})
 
 実装の注意：ε-遷移を含むため、遷移計算では ε-閉包（ε で到達可能な状態の集合）を前計算・都度適用すると効率的。
 
@@ -494,7 +494,7 @@ L₁ = L₂ ⟺ (L₁ \ L₂) ∪ (L₂ \ L₁) = ∅
 
 ## 3.4 正規言語の限界
 
-![ポンピング補題（Pumping Lemma）と限界](../../assets/images/diagrams/ch3_pumping_lemma_limitations.svg)
+![ポンピング補題（Pumping Lemma）と限界]({{ '/assets/images/diagrams/ch3_pumping_lemma_limitations.svg' | relative_url }})
 
 ### 3.4.1 ポンピング補題（Pumping Lemma）の動機と直観
 
@@ -617,11 +617,11 @@ x ≡ₘ y ならば x ≡ₗ y が示せるので、≡ₗ も有限個の同�
 
 （直観図）入力を区別できる拡張（後続文字列 z）をぶら下げたときに、異なる受理/拒否を生む先頭の接頭辞が異なる“ふるまい（右コンテキスト）”を定める。これが同値類の区別になり、その数が最小DFAの状態数に一致する。
 
-![Myhill–Nerode: 接頭辞で区別できる右コンテキスト](../../assets/images/diagrams/ch3_myhill_nerode_prefix_distinguish.svg)
+![Myhill–Nerode: 接頭辞で区別できる右コンテキスト]({{ '/assets/images/diagrams/ch3_myhill_nerode_prefix_distinguish.svg' | relative_url }})
 
 ## 3.5 文脈自由言語
 
-![文脈自由言語と文法](../../assets/images/diagrams/ch3_context_free_languages_grammars.svg)
+![文脈自由言語と文法]({{ '/assets/images/diagrams/ch3_context_free_languages_grammars.svg' | relative_url }})
 
 ### 3.5.1 文脈自由文法
 
@@ -703,11 +703,11 @@ s = uvxyz と分解したとき、|vxy| ≤ p より、vxy は高々2種類の�
 
 ## 3.6 プッシュダウンオートマトン
 
-![プッシュダウンオートマトンの構造と機能](../../assets/images/diagrams/ch3_pushdown_automata_structure.svg)
+![プッシュダウンオートマトンの構造と機能]({{ '/assets/images/diagrams/ch3_pushdown_automata_structure.svg' | relative_url }})
 
 直観図：括弧整合を受理する PDA のスタック操作例
 
-![PDA のスタック操作（括弧整合）](../../assets/images/diagrams/ch3_pda_stack_operation.svg)
+![PDA のスタック操作（括弧整合）]({{ '/assets/images/diagrams/ch3_pda_stack_operation.svg' | relative_url }})
 
 ### 3.6.1 PDAの定義
 
@@ -736,7 +736,7 @@ s = uvxyz と分解したとき、|vxy| ≤ p より、vxy は高々2種類の�
 
 直観図：最終状態受理 vs 空スタック受理
 
-![PDAの受理方式](../../assets/images/diagrams/ch3_pda_acceptance_modes.svg)
+![PDAの受理方式]({{ '/assets/images/diagrams/ch3_pda_acceptance_modes.svg' | relative_url }})
 
 **定理 3.9** 最終状態受理と空スタック受理は等価である。
 
@@ -753,7 +753,7 @@ s = uvxyz と分解したとき、|vxy| ≤ p より、vxy は高々2種類の�
 
 ## 3.7 文脈自由言語の性質
 
-![文脈自由言語の性質と限界](../../assets/images/diagrams/ch3_context_free_language_properties.svg)
+![文脈自由言語の性質と限界]({{ '/assets/images/diagrams/ch3_context_free_language_properties.svg' | relative_url }})
 
 ### 3.7.1 閉包性
 

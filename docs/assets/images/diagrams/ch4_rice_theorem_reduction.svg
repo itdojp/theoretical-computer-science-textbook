@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="900" height="540" viewBox="0 0 900 540" xmlns="http://www.w3.org/2000/svg"
+     role="img" aria-labelledby="title" aria-describedby="desc">
+  <title id="title">Rice の定理の還元スキーマ（A_TM → R_P）</title>
+  <desc id="desc">A_TM（受理問題）から、言語の意味的性質Pを判定する問題R_Pへ多対一還元する構成の直観図。D_Pが存在すればA_TMを決定できるため矛盾になることを示す。</desc>
+
+  <defs>
+    <style>
+      .diagram-text { font-family: 'Inter', 'Helvetica', sans-serif; font-size: 14px; fill: #2c3e50; text-anchor: middle; }
+      .small-text { font-size: 12px; }
+      .large-text { font-size: 16px; font-weight: bold; }
+      .input-box { fill: #fff3e0; stroke: #f57c00; stroke-width: 2; rx: 8; }
+      .function-box { fill: #f3e5f5; stroke: #7b1fa2; stroke-width: 2; rx: 8; }
+      .machine-box { fill: #e3f2fd; stroke: #1976d2; stroke-width: 2; rx: 8; }
+      .decider-box { fill: #e8f5e8; stroke: #4caf50; stroke-width: 2; rx: 8; }
+      .note-box { fill: #fafafa; stroke: #9e9e9e; stroke-width: 1; rx: 8; }
+      .arrow { stroke: #333; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .purple-arrow { stroke: #7b1fa2; stroke-width: 3; fill: none; marker-end: url(#purplehead); }
+    </style>
+
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+    </marker>
+    <marker id="purplehead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#7b1fa2" />
+    </marker>
+  </defs>
+
+  <rect width="900" height="540" fill="#ffffff"/>
+
+  <text x="450" y="30" class="diagram-text large-text" style="fill:#1a237e;">
+    Rice の定理の還元スキーマ（A_TM → R_P）
+  </text>
+
+  <!-- Input -->
+  <rect x="40" y="90" width="220" height="120" class="input-box"/>
+  <text x="150" y="118" class="diagram-text large-text" style="fill:#e65100;">入力</text>
+  <text x="150" y="145" class="diagram-text">⟨M, w⟩</text>
+  <text x="150" y="170" class="diagram-text small-text" style="fill:#555;">A_TM を判定したい</text>
+  <text x="150" y="192" class="diagram-text small-text" style="fill:#555;">（M が w を受理？）</text>
+
+  <!-- Reduction f -->
+  <rect x="290" y="70" width="320" height="160" class="function-box"/>
+  <text x="450" y="98" class="diagram-text large-text" style="fill:#4a148c;">還元 f</text>
+  <text x="450" y="123" class="diagram-text">⟨M,w⟩ ↦ ⟨M'⟩</text>
+  <text x="450" y="150" class="diagram-text small-text" style="fill:#555;">
+    M'(x): M(w) を実行し
+  </text>
+  <text x="450" y="172" class="diagram-text small-text" style="fill:#555;">
+    accept なら M<tspan baseline-shift="sub" font-size="11">yes</tspan>(x) を模倣
+  </text>
+  <text x="450" y="194" class="diagram-text small-text" style="fill:#555;">
+    reject なら M<tspan baseline-shift="sub" font-size="11">no</tspan>(x) を模倣
+  </text>
+
+  <path d="M 260 150 L 290 150" class="purple-arrow"/>
+
+  <!-- Machine M' -->
+  <rect x="640" y="90" width="220" height="120" class="machine-box"/>
+  <text x="750" y="118" class="diagram-text large-text" style="fill:#0d47a1;">構成された機械</text>
+  <text x="750" y="145" class="diagram-text">⟨M'⟩</text>
+  <text x="750" y="170" class="diagram-text small-text" style="fill:#555;">言語 L(M') が</text>
+  <text x="750" y="192" class="diagram-text small-text" style="fill:#555;">性質 P を満たす？</text>
+
+  <path d="M 610 150 L 640 150" class="arrow"/>
+
+  <!-- Decider DP -->
+  <rect x="640" y="250" width="220" height="120" class="decider-box"/>
+  <text x="750" y="278" class="diagram-text large-text" style="fill:#1b5e20;">仮定: 決定器</text>
+  <text x="750" y="305" class="diagram-text">D<tspan baseline-shift="sub" font-size="11">P</tspan>(⟨M'⟩)</text>
+  <text x="750" y="332" class="diagram-text small-text" style="fill:#555;">P なら accept</text>
+  <text x="750" y="354" class="diagram-text small-text" style="fill:#555;">¬P なら reject</text>
+
+  <path d="M 750 210 L 750 250" class="arrow"/>
+
+  <!-- Output -->
+  <rect x="40" y="250" width="220" height="120" class="note-box"/>
+  <text x="150" y="278" class="diagram-text large-text" style="fill:#37474f;">出力（決定）</text>
+  <text x="150" y="305" class="diagram-text">A_TM の答え</text>
+  <text x="150" y="332" class="diagram-text small-text" style="fill:#555;">D_P の結果を</text>
+  <text x="150" y="354" class="diagram-text small-text" style="fill:#555;">A_TM に写像</text>
+
+  <path d="M 640 310 L 260 310" class="arrow"/>
+  <path d="M 260 310 L 260 310" class="arrow" style="opacity:0;"/>
+
+  <!-- Bottom notes -->
+  <rect x="40" y="400" width="820" height="110" class="note-box"/>
+  <text x="450" y="430" class="diagram-text large-text" style="fill:#1a237e;">ポイント</text>
+  <text x="450" y="458" class="diagram-text small-text" style="fill:#555;">
+    M が w を受理 ⇒ L(M') = L<tspan baseline-shift="sub" font-size="11">yes</tspan>（P を満たす）
+  </text>
+  <text x="450" y="482" class="diagram-text small-text" style="fill:#555;">
+    M が w を受理しない ⇒ L(M') = L<tspan baseline-shift="sub" font-size="11">no</tspan>（P を満たさない）
+  </text>
+  <text x="450" y="506" class="diagram-text small-text" style="fill:#555;">
+    よって D_P が存在すれば A_TM を決定でき、A_TM の非決定可能性と矛盾
+  </text>
+</svg>
+
