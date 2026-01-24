@@ -30,7 +30,7 @@ chapter: 2
 
 ## 章末問題
 
-- 代表演習と詳細解答は付録C（第2章）を参照: ../appendices/c/#ex-sol-ch2
+- 代表演習と詳細解答は [付録C（第2章）](../appendices/c/#ex-sol-ch2) を参照。
 
 ## 2.1 計算モデル
 
