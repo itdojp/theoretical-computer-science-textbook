@@ -42,12 +42,63 @@ jobs:
       run: npm run check-links
       continue-on-error: true
       
-    - name: Build site
-      run: npm run build
+    - name: Build site (Jekyll, docs/)
+      run: bundle exec jekyll build --source docs --config docs/_config.yml --destination _site
       env:
         JEKYLL_ENV: production
         PAGES_REPO_NWO: itdojp/theoretical-computer-science-textbook
-        
+
+    - name: Install htmltest
+      run: |
+        # Intentionally installing htmltest via remote script.
+        # For stronger hardening, consider pinning a specific release + checksum verification.
+        curl -sSfL https://htmltest.wjdp.uk | bash -s -- -b ./bin
+        echo "${PWD}/bin" >> "$GITHUB_PATH"
+
+    - name: Prepare baseurl mirror (for local link check)
+      shell: bash
+      run: |
+        set -euo pipefail
+        # Resolve baseurl (GitHub Pages project site uses /<repo> by default)
+        baseurl="$(python3 - <<'PY'
+        import os, re, pathlib
+        cfg = pathlib.Path('docs/_config.yml')
+        repo_env = os.environ.get('GITHUB_REPOSITORY','')
+        repo = (repo_env.split('/')[-1] if '/' in repo_env else repo_env) or 'theoretical-computer-science-textbook'
+        val = ''
+        if cfg.exists():
+            m = re.search(r'(?m)^baseurl:\s*(.+?)\s*$', cfg.read_text(encoding='utf-8'))
+            if m:
+                val = m.group(1).strip().strip('"').strip("'")
+        if not val:
+            val = '/' + repo
+        if not val.startswith('/'):
+            val = '/' + val
+        print(val)
+        PY
+        )"
+        echo "baseurl=${baseurl}"
+        # Mirror built output into _site/<baseurl>/ so absolute URLs like /<baseurl>/... resolve locally.
+        if [[ -n "${baseurl}" && "${baseurl}" != "/" ]]; then
+          dest="_site${baseurl}"
+          mkdir -p "${dest}"
+          base_dir="${baseurl#/}"
+          # Exclude the mirrored directory itself to avoid copying _site/<baseurl> into its own subtree.
+          tar -C _site --exclude "./${base_dir}" -cf - . | tar -C "${dest}" -xf -
+        fi
+
+    - name: HTML link/image check (htmltest)
+      run: |
+        htmltest
+
+    - name: Upload htmltest report artifact
+      if: ${{ always() }}
+      uses: actions/upload-artifact@v4
+      with:
+        name: htmltest-report
+        path: tmp/.htmltest/
+        if-no-files-found: ignore
+
     - name: Test built site
       run: |
         ls -la _site/
