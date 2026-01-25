@@ -241,6 +241,21 @@ Kripke 構造 M = (S, S₀, R, L)
 ![ABA問題の概念図]({{ '/assets/images/diagrams/ch12_aba_problem_diagram.svg' | relative_url }})
 - 粒度: ロック粒度と競合率のトレードオフ。読み取り多い場合はRWロックも選択肢。
 
+### 12.4.4 最小実行例（TLA+ / TLC）
+
+ここでは、2プロセス相互排除（Peterson）を有限状態でモデル化し、安全性（相互排除）をモデル検査で確認する最小例を示します。
+
+- 例ファイル：[`Peterson.tla`]({{ '/assets/examples/formal-methods/tla/Peterson.tla' | relative_url }}), [`Peterson.cfg`]({{ '/assets/examples/formal-methods/tla/Peterson.cfg' | relative_url }})
+- 必要要件：TLC（TLA+ Toolbox または `tla2tools.jar`）、（CLI実行する場合は）Java
+
+```bash
+# tla2tools.jar を用いるCLI実行例（jarの入手/配置は環境に依存）
+cd docs/assets/examples/formal-methods/tla
+java -cp tla2tools.jar tlc2.TLC -config Peterson.cfg Peterson.tla
+```
+
+注：モデル検査の基本概念（性質の書き方、状態爆発と対策）は第9章も参照してください。
+
 ## 12.5 分散アルゴリズム
 
 ### 12.5.1 分散システムのモデル
