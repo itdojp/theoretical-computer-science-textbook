@@ -109,7 +109,11 @@ def preprocess_markdown(text: str) -> str:
     return text
 
 
-SET_DIFF_WORD_RE = re.compile(r"(?P<l>[A-Za-z0-9]+)\\\\{1,2}(?P<r>[A-Za-z0-9]+)")
+# `Q\F` のような表記（集合差/制限）を、PDF向けに安全な表記へ正規化するためのパターン。
+# `\in` などの LaTeX コマンド（右辺が小文字で始まる）には誤爆しないよう、左右とも大文字開始に限定する。
+SET_DIFF_TOKEN_RE = re.compile(
+    r"(?P<l>[A-Z][A-Za-z0-9]*)\s*\\{1,2}\s*(?P<r>[A-Z][A-Za-z0-9]*)"
+)
 
 
 def normalize_for_pdf(text: str) -> str:
@@ -135,11 +139,8 @@ def normalize_for_pdf(text: str) -> str:
             out.append(line)
             continue
 
-        # 1) "A \ B" のような空白付き（Markdown中で多い）を置換
-        line = line.replace(" \\ ", " ∖ ")
-
-        # 2) "Q\\F" / "V\\\\S" のような空白なし（単語間の演算子）を置換
-        line = SET_DIFF_WORD_RE.sub(r"\g<l> ∖ \g<r>", line)
+        # "A \\ B" / "A\\B" / "A\\\\B" を集合差記号へ正規化（PDF向け）。
+        line = SET_DIFF_TOKEN_RE.sub(r"\g<l> ∖ \g<r>", line)
 
         out.append(line)
 
