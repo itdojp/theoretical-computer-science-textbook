@@ -109,6 +109,43 @@ def preprocess_markdown(text: str) -> str:
     return text
 
 
+SET_DIFF_WORD_RE = re.compile(r"(?P<l>[A-Za-z0-9]+)\\\\{1,2}(?P<r>[A-Za-z0-9]+)")
+
+
+def normalize_for_pdf(text: str) -> str:
+    """Pandoc->LaTeX PDF のための軽量な正規化.
+
+    本文中の `Q\\F` や `A \\ B` のような「バックスラッシュを集合差/制限として使う表記」は、
+    LaTeX 出力時に `\\F` のような制御綴になりエラー/誤表示の原因になる。
+
+    PDF向けには、コードブロック以外の箇所だけを対象に、Unicode の集合差記号 `∖`（U+2216）
+    へ置換する。
+    """
+
+    in_fence = False
+    out: list[str] = []
+    for raw in text.splitlines(keepends=True):
+        line = raw
+        stripped = line.lstrip()
+        if stripped.startswith("```"):
+            in_fence = not in_fence
+            out.append(line)
+            continue
+        if in_fence:
+            out.append(line)
+            continue
+
+        # 1) "A \ B" のような空白付き（Markdown中で多い）を置換
+        line = line.replace(" \\ ", " ∖ ")
+
+        # 2) "Q\\F" / "V\\\\S" のような空白なし（単語間の演算子）を置換
+        line = SET_DIFF_WORD_RE.sub(r"\g<l> ∖ \g<r>", line)
+
+        out.append(line)
+
+    return "".join(out)
+
+
 def rewrite_images_for_pdf(text: str) -> str:
     """Rewrite local SVG image references to .pdf for LaTeX-friendly embedding."""
 
@@ -207,6 +244,7 @@ def main() -> int:
         combined_text += processed
 
     if args.target == "pdf":
+        combined_text = normalize_for_pdf(combined_text)
         svg_paths = collect_local_svg_paths(combined_text)
         ensure_svg_converted_to_pdf(docs_root, Path(args.asset_out), svg_paths)
         combined_text = rewrite_images_for_pdf(combined_text)
@@ -220,4 +258,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
