@@ -243,11 +243,11 @@
     <text x="300" y="345" class="title">検索例: 20を検索</text>
     
     <!-- Search steps -->
-    <text x="70" y="370" class="search-step">1. レベル3: -∞ → 17 (17 < 20) → +∞ (25 > 20) → 下へ</text>
+    <text x="70" y="370" class="search-step">1. レベル3: -∞ → 17 (17 &lt; 20) → +∞ (25 &gt; 20) → 下へ</text>
     
-    <text x="70" y="390" class="search-step">2. レベル2: 17 → 25 (25 > 20) → 下へ</text>
+    <text x="70" y="390" class="search-step">2. レベル2: 17 → 25 (25 &gt; 20) → 下へ</text>
     
-    <text x="70" y="410" class="search-step">3. レベル1: 17 → 25 (25 > 20) → 下へ</text>
+    <text x="70" y="410" class="search-step">3. レベル1: 17 → 25 (25 &gt; 20) → 下へ</text>
     
     <text x="70" y="430" class="search-step">4. レベル0: 17 → 20 を発見！</text>
     

@@ -188,7 +188,7 @@
     <!-- Strong RSA assumption -->
     <rect x="1070" y="360" width="280" height="80" class="security-aspect" />
     <text x="1080" y="380" class="step-title">強RSA仮定</text>
-    <text x="1080" y="400" class="explanation">任意の e > 1 に対して</text>
+    <text x="1080" y="400" class="explanation">任意の e &gt; 1 に対して</text>
     <text x="1080" y="415" class="explanation">e 乗根を求めるのは困難</text>
     <text x="1080" y="430" class="explanation">より強い安全性の根拠</text>
   </g>

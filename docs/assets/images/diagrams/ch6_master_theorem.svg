@@ -91,7 +91,7 @@
     <rect x="550" y="60" width="300" height="80" class="problem-box" />
     <text x="700" y="85" class="box-title">分割統治の再帰式</text>
     <text x="700" y="105" class="formula">T(n) = aT(n/b) + f(n)</text>
-    <text x="700" y="125" class="condition">a ≥ 1, b > 1, f(n) ≥ 0</text>
+    <text x="700" y="125" class="condition">a ≥ 1, b &gt; 1, f(n) ≥ 0</text>
   </g>
   
   <!-- Comparison Step -->
@@ -186,7 +186,7 @@
     <text x="500" y="600" class="example-text">例3: Strassen行列積</text>
     <text x="500" y="615" class="formula" style="text-anchor:start">T(n) = 7T(n/2) + n²</text>
     <text x="500" y="630" class="example-text">a=7, b=2, f(n)=n²</text>
-    <text x="500" y="645" class="example-text">log₂(7) ≈ 2.807 > 2のため</text>
+    <text x="500" y="645" class="example-text">log₂(7) ≈ 2.807 &gt; 2のため</text>
     <text x="500" y="660" class="example-text">ケース1適用</text>
     <text x="500" y="675" class="formula" fill="#4caf50">T(n) = Θ(n^2.807)</text>
     <text x="500" y="690" class="explanation">標準O(n³)より高速</text>
