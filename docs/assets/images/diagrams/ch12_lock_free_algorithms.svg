@@ -207,7 +207,7 @@
     <!-- Step 3 -->
     <rect x="520" y="460" width="160" height="60" class="concept-box cas-operation" />
     <text x="600" y="480" class="method-title">3. CAS操作</text>
-    <text x="530" y="500" class="code-text">CAS(&Top, t, NewNode)</text>
+    <text x="530" y="500" class="code-text">CAS(&amp;Top, t, NewNode)</text>
     <text x="530" y="515" class="step-text">成功ならNewNodeが新Top</text>
     
     <!-- Arrows -->
@@ -232,7 +232,7 @@
     <!-- Step 3 -->
     <rect x="750" y="460" width="160" height="60" class="concept-box cas-operation" />
     <text x="830" y="480" class="method-title">3. CAS操作</text>
-    <text x="760" y="500" class="code-text">CAS(&Top, t, t.next)</text>
+    <text x="760" y="500" class="code-text">CAS(&amp;Top, t, t.next)</text>
     <text x="760" y="515" class="step-text">成功なら t を返却</text>
     
     <!-- Arrows -->

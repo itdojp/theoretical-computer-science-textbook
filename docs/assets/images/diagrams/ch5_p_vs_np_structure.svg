@@ -281,7 +281,7 @@
     
     <text x="70" y="735" class="description">1971: Cook-Levinの定理でSATのNP完全性が証明される</text>
     <text x="70" y="750" class="description">1972: Karpが21のNP完全問題を発見</text>
-    <text x="70" y="765" class="description">1979: Garey & Johnsonの「Computers and Intractability」出版</text>
+    <text x="70" y="765" class="description">1979: Garey &amp; Johnsonの「Computers and Intractability」出版</text>
     <text x="70" y="780" class="description">2000年: Clay数学研究所がP vs NPをミレニアム問題に指定（賞金100万ドル）</text>
     
     <text x="700" y="735" class="description">1990年代: 近似困難性理論の発展（PCP定理）</text>
