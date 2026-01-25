@@ -49,6 +49,9 @@ jobs:
       run: npm run check-links
       continue-on-error: true
 
+    - name: Check index.json is up-to-date
+      run: python3 scripts/generate_index.py --check
+
     - name: Python tests (pytest + Hypothesis)
       run: make test
       
