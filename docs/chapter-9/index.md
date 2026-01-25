@@ -443,6 +443,36 @@ Qed.
 - 自動化の限界
 - 抽象化のギャップ
 
+### 9.6.4 最小実行例（SAT/SMT / 定理証明）
+
+以下は「手元で動く」最小例です。目的は (1) 充足可能性を機械判定する、(2) 短い定理を証明支援系で形式化する、の2点です。
+
+#### SAT/SMT: Z3（Python）
+
+- 例ファイル：[`sat_demo.py`]({{ '/assets/examples/formal-methods/z3/sat_demo.py' | relative_url }})
+- 必要要件：Python 3.11+、`z3-solver`（pip）
+
+```bash
+python3 -m venv .venv
+. .venv/bin/activate
+pip install z3-solver
+cd docs/assets/examples/formal-methods/z3
+python sat_demo.py
+```
+
+#### 定理証明: Lean（Lean4）
+
+- 例ファイル：[`Simple.lean`]({{ '/assets/examples/formal-methods/lean/Simple.lean' | relative_url }})
+- 必要要件：Lean4 CLI（導入手順は環境に依存するため、本書では固定しない）
+
+```bash
+# Lean4 がインストール済みの環境で
+cd docs/assets/examples/formal-methods/lean
+lean Simple.lean
+```
+
+注：モデル検査の最小例は、第12章のTLA+（TLC）例も参照してください。
+
 ## 章末問題
 
 ### 基礎問題
