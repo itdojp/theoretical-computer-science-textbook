@@ -1,0 +1,80 @@
+name: Release Artifacts
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install build dependencies (pandoc + LaTeX + SVG converter)
+        run: |
+          sudo apt-get update
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y \
+            pandoc \
+            librsvg2-bin \
+            texlive-latex-base \
+            texlive-latex-recommended \
+            texlive-latex-extra \
+            texlive-xetex \
+            texlive-lang-japanese \
+            texlive-lang-cjk \
+            texlive-fonts-recommended \
+            fonts-noto-cjk
+
+      - name: Build offline sources (Markdown)
+        run: |
+          python3 scripts/build_offline_book.py --target epub --out dist/book.epub.md
+          python3 scripts/build_offline_book.py --target pdf --out dist/book.pdf.md --asset-out dist
+
+      - name: Build EPUB
+        run: |
+          tag="${GITHUB_REF_NAME}"
+          pandoc dist/book.epub.md \
+            --toc \
+            --css docs/assets/css/epub.css \
+            --resource-path=docs \
+            -o "dist/theoretical-computer-science-textbook-${tag}.epub"
+
+      - name: Build PDF
+        run: |
+          tag="${GITHUB_REF_NAME}"
+          pandoc dist/book.pdf.md \
+            --toc \
+            --resource-path=dist \
+            --pdf-engine=xelatex \
+            -V mainfont="Noto Serif CJK JP" \
+            -o "dist/theoretical-computer-science-textbook-${tag}.pdf"
+
+      - name: Upload workflow artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: offline-artifacts
+          path: |
+            dist/theoretical-computer-science-textbook-*.pdf
+            dist/theoretical-computer-science-textbook-*.epub
+          if-no-files-found: error
+
+      - name: Create GitHub Release and upload assets
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v1
+        with:
+          generate_release_notes: true
+          files: |
+            dist/theoretical-computer-science-textbook-${{ github.ref_name }}.pdf
+            dist/theoretical-computer-science-textbook-${{ github.ref_name }}.epub
