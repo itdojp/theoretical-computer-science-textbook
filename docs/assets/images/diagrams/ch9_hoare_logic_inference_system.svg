@@ -181,7 +181,7 @@
     <text x="70" y="730" class="rule-title">証明の要点:</text>
     <text x="80" y="745" class="description">1. 初期化でI成立: max=a[0], i=1なのでI成立</text>
     <text x="80" y="755" class="description">2. ループ本体でI保持: if文により最大値更新</text>
-    <text x="80" y="565" class="description">3. 終了時にI∧¬(i<n)からmax=max(a[0..n-1])導出</text>
+    <text x="80" y="565" class="description">3. 終了時にI∧¬(i &lt; n)からmax=max(a[0..n-1])導出</text>
   </g>
   
   <!-- Applications -->
