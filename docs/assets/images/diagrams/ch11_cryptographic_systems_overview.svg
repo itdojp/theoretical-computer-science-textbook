@@ -200,7 +200,7 @@
     <text x="335" y="365" class="description">• 実用的な安全性レベル</text>
     <text x="335" y="380" class="description">• 優位性が無視できる程度に小さい</text>
     <text x="335" y="395" class="description">• 例：AES、RSA、ECC</text>
-    <text x="445" y="415" class="formula">Adv < negl(n)</text>
+    <text x="445" y="415" class="formula">Adv &lt; negl(n)</text>
     
     <!-- Computational Assumptions -->
     <rect x="590" y="310" width="260" height="120" class="concept-box security-box" />

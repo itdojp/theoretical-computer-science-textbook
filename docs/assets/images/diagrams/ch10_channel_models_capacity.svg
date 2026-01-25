@@ -190,8 +190,8 @@
     <rect x="700" y="420" width="600" height="160" class="theorem-box" />
     <text x="710" y="440" class="model-title">定理の内容</text>
     <text x="720" y="460" class="description">通信路容量 C に対して:</text>
-    <text x="730" y="480" class="description">• R < C なら、任意に小さい誤り確率で通信可能</text>
-    <text x="730" y="495" class="description">• R > C なら、誤り確率を小さくできない</text>
+    <text x="730" y="480" class="description">• R &lt; C なら、任意に小さい誤り確率で通信可能</text>
+    <text x="730" y="495" class="description">• R &gt; C なら、誤り確率を小さくできない</text>
     <text x="720" y="520" class="description">ここで R は情報レート（bit/チャネル使用）</text>
     
     <text x="710" y="550" class="model-title">実用的含意</text>

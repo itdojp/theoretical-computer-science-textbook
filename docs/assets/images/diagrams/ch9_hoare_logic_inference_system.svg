@@ -167,12 +167,12 @@
     
     <text x="70" y="600" class="rule-title">プログラム:</text>
     <text x="80" y="620" class="rule-formula">max := a[0]; i := 1;</text>
-    <text x="80" y="635" class="rule-formula">while i < n do</text>
-    <text x="100" y="650" class="rule-formula">if a[i] > max then max := a[i];</text>
+    <text x="80" y="635" class="rule-formula">while i &lt; n do</text>
+    <text x="100" y="650" class="rule-formula">if a[i] &gt; max then max := a[i];</text>
     <text x="100" y="665" class="rule-formula">i := i + 1;</text>
     
     <text x="350" y="600" class="rule-title">仕様:</text>
-    <text x="360" y="620" class="rule-formula">事前条件: {n > 0}</text>
+    <text x="360" y="620" class="rule-formula">事前条件: {n &gt; 0}</text>
     <text x="360" y="635" class="rule-formula">事後条件: {max = max(a[0..n-1])}</text>
     
     <text x="70" y="690" class="rule-title">ループ不変条件:</text>

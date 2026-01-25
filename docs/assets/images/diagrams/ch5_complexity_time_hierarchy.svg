@@ -279,7 +279,7 @@
     
     <!-- Modern trends -->
     <text x="670" y="595" class="description">現代的傾向:</text>
-    <text x="680" y="610" class="class-notation" style="text-anchor:start">• ビッグデータ: nが巨大（n > 10⁹）</text>
+    <text x="680" y="610" class="class-notation" style="text-anchor:start">• ビッグデータ: nが巨大（n &gt; 10⁹）</text>
     <text x="1000" y="370" class="class-notation" style="text-anchor:start">• 近似アルゴリズム</text>
     <text x="1000" y="385" class="class-notation" style="text-anchor:start">• ランダム化アルゴリズム</text>
     <text x="1000" y="400" class="class-notation" style="text-anchor:start">• ヒューリスティック手法</text>

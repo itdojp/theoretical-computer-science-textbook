@@ -99,7 +99,7 @@
   <text x="400" y="475" class="diagram-text" style="fill: #d32f2f; font-weight: bold;">注意: 最小化により部分関数が生じる</text>
   <text x="400" y="495" class="diagram-text small-text">最小化演算子 μy[f(x̄,y) = 0] は、条件を満たすyが存在しない場合に未定義となる</text>
   <text x="400" y="510" class="diagram-text small-text">これにより、すべての値で定義されない「部分関数」が生成される</text>
-  <text x="400" y="525" class="diagram-text small-text">例: f(x) = μy[y > x ∧ y は偶数でない] → 常に未定義</text>
+  <text x="400" y="525" class="diagram-text small-text">例: f(x) = μy[y &gt; x ∧ y は偶数でない] → 常に未定義</text>
   
   <!-- Arrow from minimization to note -->
   <path d="M 500 340 Q 520 400 400 440" stroke="#d32f2f" stroke-width="2" 

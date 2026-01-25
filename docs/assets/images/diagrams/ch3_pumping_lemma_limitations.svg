@@ -33,7 +33,7 @@
     <text x="345" y="140" text-anchor="middle" font-family="Inter, Helvetica, sans-serif" font-size="12" font-weight="bold" fill="#1976d2">条件</text>
     <text x="280" y="165" font-family="Inter, Helvetica, sans-serif" font-size="14" font-weight="bold" fill="#d32f2f">1. |xy| ≤ p</text>
     <text x="290" y="180" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#777">ループは最初のp文字以内</text>
-    <text x="280" y="200" font-family="Inter, Helvetica, sans-serif" font-size="14" font-weight="bold" fill="#d32f2f">2. |y| > 0</text>
+    <text x="280" y="200" font-family="Inter, Helvetica, sans-serif" font-size="14" font-weight="bold" fill="#d32f2f">2. |y| &gt; 0</text>
     <text x="290" y="215" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#777">ループ部分は空でない</text>
     <text x="280" y="235" font-family="Inter, Helvetica, sans-serif" font-size="14" font-weight="bold" fill="#d32f2f">3. ∀i ≥ 0, xy<tspan dy="-3" font-size="11">i</tspan><tspan dy="3">z ∈ L</tspan></text>
     <text x="290" y="250" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#777">任意回数の繰り返しが可能</text>
@@ -69,7 +69,7 @@
     <text x="780" y="160" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">r₀, r₁, ..., rₚ</text>
     <text x="780" y="175" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">鳩の巣原理で</text>
     <text x="780" y="190" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">rⱼ = rₖ</text>
-    <text x="780" y="205" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">0 ≤ j < k ≤ p</text>
+    <text x="780" y="205" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">0 ≤ j &lt; k ≤ p</text>
     
     <!-- Decomposition -->
     <rect x="910" y="120" width="120" height="140" fill="#ffffff" stroke="#1976d2" stroke-width="1" rx="4"/>

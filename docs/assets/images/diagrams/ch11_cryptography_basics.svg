@@ -170,7 +170,7 @@
     <text x="380" y="410" class="crypto-text">• 例：AES, RSA</text>
     <text x="380" y="425" class="crypto-text">• 計算量仮定に依存</text>
     <text x="380" y="440" class="crypto-text">• 現実的な運用が可能</text>
-    <text x="380" y="455" class="math-text">Pr[Attack] < negl(n)</text>
+    <text x="380" y="455" class="math-text">Pr[Attack] &lt; negl(n)</text>
     
     <!-- Computational assumptions -->
     <rect x="50" y="480" width="620" height="60" class="security-class" />
@@ -209,7 +209,7 @@
     
     <!-- Attack strength comparison -->
     <rect x="750" y="460" width="640" height="60" class="attack-model" />
-    <text x="760" y="480" class="crypto-title">攻撃の強さ：CCA > CPA > KPA</text>
+    <text x="760" y="480" class="crypto-title">攻撃の強さ：CCA &gt; CPA &gt; KPA</text>
     <text x="760" y="500" class="crypto-text">• より強い攻撃に耐性があれば、弱い攻撃にも耐性がある</text>
     <text x="760" y="515" class="crypto-text">• 実用的なシステムでは適切な攻撃モデルを想定する必要がある</text>
   </g>

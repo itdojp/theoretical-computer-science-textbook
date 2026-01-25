@@ -221,7 +221,7 @@
     <text x="460" y="760" text-anchor="middle" font-family="Inter, Helvetica, sans-serif" font-size="12" font-weight="bold" fill="#d32f2f">条件</text>
     <text x="370" y="780" font-family="Inter, Helvetica, sans-serif" font-size="11" font-weight="bold" fill="#d32f2f">1. |vxy| ≤ p</text>
     <text x="380" y="795" font-family="Inter, Helvetica, sans-serif" font-size="9" fill="#777">中央部分は短い</text>
-    <text x="370" y="810" font-family="Inter, Helvetica, sans-serif" font-size="11" font-weight="bold" fill="#d32f2f">2. |vy| > 0</text>
+    <text x="370" y="810" font-family="Inter, Helvetica, sans-serif" font-size="11" font-weight="bold" fill="#d32f2f">2. |vy| &gt; 0</text>
     <text x="380" y="825" font-family="Inter, Helvetica, sans-serif" font-size="9" fill="#777">vとyは同時に空でない</text>
     <text x="370" y="840" font-family="Inter, Helvetica, sans-serif" font-size="11" font-weight="bold" fill="#d32f2f">3. vとyを同時にpumping</text>
     

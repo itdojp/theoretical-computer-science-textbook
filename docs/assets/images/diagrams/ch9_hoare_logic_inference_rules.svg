@@ -160,7 +160,7 @@
     <rect x="50" y="460" width="600" height="100" class="rule-box example-box" />
     <text x="350" y="480" class="rule-name">ループの例：0からn-1までの和</text>
     <text x="350" y="500" class="example-text">{n ≥ 0 ∧ i = 0 ∧ sum = 0}</text>
-    <text x="350" y="515" class="example-text">while i < n do (sum := sum + i; i := i + 1)</text>
+    <text x="350" y="515" class="example-text">while i &lt; n do (sum := sum + i; i := i + 1)</text>
     <text x="350" y="530" class="example-text">{sum = 0 + 1 + ... + (n-1)}</text>
     <text x="60" y="550" class="description">不変条件: sum = 0 + 1 + ... + (i-1) ∧ 0 ≤ i ≤ n</text>
   </g>

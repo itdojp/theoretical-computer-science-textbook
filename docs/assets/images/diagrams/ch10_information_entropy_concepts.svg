@@ -89,7 +89,7 @@
     <text x="120" y="235" class="property-text">• p = 1 なら I(p) = 0（確実な事象は情報量0）</text>
     <text x="120" y="250" class="property-text">• p が小さいほど I(p) が大きい（稀な事象ほど情報価値高）</text>
     <text x="120" y="265" class="property-text">• 独立事象は加法的：I(p₁ · p₂) = I(p₁) + I(p₂)</text>
-    <text x="120" y="280" class="property-text">• 単調減少関数：p₁ < p₂ なら I(p₁) > I(p₂)</text>
+    <text x="120" y="280" class="property-text">• 単調減少関数：p₁ &lt; p₂ なら I(p₁) &gt; I(p₂)</text>
     <text x="120" y="295" class="property-text">• I(1/2) = 1 bit（コイン投げの情報量）</text>
     
     <!-- Examples -->
