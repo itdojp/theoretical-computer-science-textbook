@@ -310,7 +310,7 @@
     
     <text x="740" y="795" class="description">1971: Cook-Levin定理（SAT のNP完全性）</text>
     <text x="740" y="810" class="description">1972: Karpの21問題（基本的なNP完全問題群）</text>
-    <text x="740" y="825" class="description">1979: Garey & Johnson「Computers and Intractability」</text>
+    <text x="740" y="825" class="description">1979: Garey &amp; Johnson「Computers and Intractability」</text>
     <text x="740" y="840" class="description">1980s-: 近似困難性理論の発展</text>
     <text x="740" y="855" class="description">1990s-: PCP定理、近似限界の解明</text>
   </g>
