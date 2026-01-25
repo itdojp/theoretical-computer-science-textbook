@@ -70,9 +70,9 @@ VC次元は、仮説クラス H の「識別能力（複雑さ）」を測る代
 
 ### 本書内の導線
 
-- 計算量（最悪計算量/困難性）: [第5章 計算複雑性理論](../chapter-5/)
-- 確率・情報量・エントロピー: [第10章 情報理論](../chapter-10/)
-- 用語の整理: [付録D: 用語集・索引](../appendices/d/)
+- 計算量（最悪計算量/困難性）: [第5章 計算複雑性理論]({{ '/chapter-5/' | relative_url }})
+- 確率・情報量・エントロピー: [第10章 情報理論]({{ '/chapter-10/' | relative_url }})
+- 用語の整理: [付録D: 用語集・索引]({{ '/appendices/d/' | relative_url }})
 
 ### 参考文献（代表例）
 
@@ -81,4 +81,3 @@ VC次元は、仮説クラス H の「識別能力（複雑さ）」を測る代
 - Shalev-Shwartz, Ben-David, *Understanding Machine Learning: From Theory to Algorithms*.
 - Vapnik, *The Nature of Statistical Learning Theory*.
 - Kearns, Vazirani, *An Introduction to Computational Learning Theory*.
-
