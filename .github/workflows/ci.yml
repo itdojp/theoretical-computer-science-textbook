@@ -52,6 +52,9 @@ jobs:
     - name: Check index.json is up-to-date
       run: python3 scripts/generate_index.py --check
 
+    - name: Notation lint (math symbols / consistency)
+      run: python3 scripts/notation_lint.py
+
     - name: Smoke test offline book generation (Markdown only)
       run: python3 scripts/build_offline_book.py --target epub --out /tmp/offline-book.md
 
