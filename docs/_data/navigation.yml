@@ -41,17 +41,17 @@ chapters:
 appendices:
 - title: 付録一覧
   path: /appendices/
-- title: 付録A: 数学記法ガイド
+- title: "付録A: 数学記法ガイド"
   path: /appendices/a/
-- title: 付録B: アルゴリズム実装例
+- title: "付録B: アルゴリズム実装例"
   path: /appendices/b/
-- title: 付録C: 練習問題解答
+- title: "付録C: 練習問題解答"
   path: /appendices/c/
-- title: 付録D: 用語集・索引
+- title: "付録D: 用語集・索引"
   path: /appendices/d/
-- title: 付録E: 実世界への応用例
+- title: "付録E: 実世界への応用例"
   path: /appendices/e/
-- title: 付録F: 学習進捗チェックリスト
+- title: "付録F: 学習進捗チェックリスト"
   path: /appendices/f/
-- title: 付録G: AI/ML と理論計算機科学の接続
+- title: "付録G: AI/ML と理論計算機科学の接続"
   path: /appendices/g/
