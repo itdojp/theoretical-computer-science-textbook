@@ -1,6 +1,18 @@
 introduction:
-- title: はじめに
+- title: 導入
   path: /introduction/
+- title: 本書の目的と構成
+  path: /introduction/purpose/
+- title: 学習の進め方
+  path: /introduction/learning-guide/
+- title: 前提知識
+  path: /introduction/prerequisites/
+- title: オフライン版（PDF/EPUB）
+  path: /downloads/
+- title: 更新履歴（CHANGELOG）
+  path: /changelog/
+- title: フィードバック（誤植・改善提案）
+  path: /introduction/feedback/
 chapters:
 - title: 第1章 数学的基礎
   path: /chapter-1/
@@ -27,5 +39,19 @@ chapters:
 - title: 第12章 並行計算の理論
   path: /chapter-12/
 appendices:
-- title: 付録
+- title: 付録一覧
   path: /appendices/
+- title: "付録A: 数学記法ガイド"
+  path: /appendices/a/
+- title: "付録B: アルゴリズム実装例"
+  path: /appendices/b/
+- title: "付録C: 練習問題解答"
+  path: /appendices/c/
+- title: "付録D: 用語集・索引"
+  path: /appendices/d/
+- title: "付録E: 実世界への応用例"
+  path: /appendices/e/
+- title: "付録F: 学習進捗チェックリスト"
+  path: /appendices/f/
+- title: "付録G: AI/ML と理論計算機科学の接続"
+  path: /appendices/g/
