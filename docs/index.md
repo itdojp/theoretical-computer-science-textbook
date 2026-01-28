@@ -69,6 +69,13 @@ permalink: /
   - [付録E: 実世界への応用例](appendices/e.md)
   - [付録F: 学習進捗チェックリスト](appendices/f.md)
 
+## その他
+
+- [あとがき](afterword/index.md)
+- [更新履歴（CHANGELOG）](changelog/index.md)
+- [オフライン版（PDF/EPUB）](downloads/index.md)
+- [フィードバック（誤植・改善提案）](introduction/feedback.md)
+
 ---
 
 **著者:** ITDO Inc.  
