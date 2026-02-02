@@ -1,464 +1,284 @@
 /**
- * Search Functionality
- * Provides real-time search across book content with highlighting and keyboard navigation
+ * Search functionality
  */
 
-class SearchManager {
-    constructor() {
-        this.searchInput = null;
-        this.searchResults = null;
-        this.searchData = [];
-        this.isLoading = false;
-        this.currentResultIndex = -1;
-        this.searchTimeout = null;
-        
-        // Search configuration constants
-        this.SEARCH_CONFIG = {
-            MIN_SEARCH_LENGTH: 1,
-            DEBOUNCE_DELAY: 150,
-            MAX_RESULTS: 10,
-            MIN_PARAGRAPH_LENGTH: 20,
-            CONTENT_PREVIEW_LENGTH: 150,
-            TITLE_PREVIEW_LENGTH: 50
-        };
-        
-        // Scoring constants
-        this.SCORES = {
-            TITLE_START_MATCH: 20,
-            TITLE_EXACT_MATCH: 10,
-            TITLE_PARTIAL_MATCH: 7,
-            CONTENT_MATCH: 3,
-            CONTENT_START_BONUS: 2,
-            TYPE_CHAPTER: 5,
-            TYPE_HEADING: 3,
-            TYPE_KEYWORD: 4,
-            TYPE_DEFAULT: 1
-        };
-        
-        // Localization strings
-        this.i18n = {
-            noResults: document.documentElement.lang === 'ja' ?
-                '"{query}" に一致する結果は見つかりませんでした' :
-                'No results found for "{query}"',
-            chapter: document.documentElement.lang === 'ja' ? '章' : 'Chapter',
-            section: document.documentElement.lang === 'ja' ? '節' : 'Section'
-        };
-        
-        this.init();
+(function() {
+    'use strict';
+    
+    let searchInput;
+    let searchResults;
+    let searchIndex = [];
+    let searchTimeout;
+    
+    // Initialize elements
+    function initElements() {
+        searchInput = document.getElementById('search-input');
+        searchResults = document.getElementById('search-results');
     }
-
-    async init() {
-        this.searchInput = document.getElementById('search-input');
-        this.searchResults = document.getElementById('search-results');
+    
+    // Build search index from page content
+    function buildSearchIndex() {
+        // In a real implementation, this would be generated at build time
+        // For now, we'll create a simple index from current page
+        const content = document.querySelector('.page-content');
+        if (!content) return;
         
-        if (!this.searchInput || !this.searchResults) {
+        // Get all headings and paragraphs
+        const elements = content.querySelectorAll('h1, h2, h3, h4, h5, h6, p');
+        
+        elements.forEach((el, index) => {
+            const text = el.textContent.trim();
+            if (text) {
+                searchIndex.push({
+                    id: `search-result-${index}`,
+                    title: el.tagName.startsWith('H') ? text : text.substring(0, 50) + '...',
+                    content: text,
+                    element: el,
+                    type: el.tagName.toLowerCase()
+                });
+            }
+        });
+    }
+    
+    // Perform search
+    function performSearch(query) {
+        if (!query || query.length < 2) {
+            hideResults();
             return;
         }
-
-        await this.loadSearchData();
-        this.setupEventListeners();
-    }
-
-    async loadSearchData() {
-        if (this.isLoading) return;
         
-        this.isLoading = true;
+        const results = searchIndex.filter(item => {
+            const searchText = `${item.title} ${item.content}`.toLowerCase();
+            return searchText.includes(query.toLowerCase());
+        });
         
-        try {
-            // Get base URL for the site
-            const baseUrl = window.location.origin + window.location.pathname.replace(/[^/]*$/, '');
-            
-            // Try to load search data from a JSON file (if available)
-            try {
-                const response = await fetch(`${baseUrl}search-data.json`);
-                if (response.ok) {
-                    this.searchData = await response.json();
-                    return;
-                }
-            } catch (e) {
-                // Fall back to extracting from current page content
-            }
-            
-            // Fallback: Create search data from navigation
-            this.createSearchDataFromNavigation();
-            
-        } catch (error) {
-            console.warn('Failed to load search data:', error);
-            this.createSearchDataFromNavigation();
-        } finally {
-            this.isLoading = false;
-        }
+        displayResults(results, query);
     }
-
-    createSearchDataFromNavigation() {
-        // Extract searchable content from sidebar navigation
-        const navLinks = document.querySelectorAll('.toc-link, .toc-sublink');
-        const searchData = [];
+    
+    // Display search results
+    function displayResults(results, query) {
+        if (!searchResults) return;
         
-        navLinks.forEach(link => {
-            const title = link.textContent.trim();
-            const url = link.getAttribute('href');
-            
-            if (title && url) {
-                searchData.push({
-                    title: title,
-                    url: url,
-                    content: title, // Use title as content for basic search
-                    type: link.classList.contains('toc-sublink') ? 'subsection' : 'chapter'
-                });
-            }
-        });
-
-        // Also extract content from current page if available
-        this.addCurrentPageContent(searchData);
-        
-        // Add common search terms for IT infrastructure software
-        this.addCommonTerms(searchData);
-        
-        this.searchData = searchData;
-        this.debugLog('Search data loaded:', this.searchData.length, 'items');
-    }
-
-    addCurrentPageContent(searchData) {
-        // Extract content from the main page content
-        const pageContent = document.querySelector('.page-content, .book-content, main');
-        if (pageContent) {
-            // Extract headings and their content
-            const headings = pageContent.querySelectorAll('h1, h2, h3, h4, h5, h6');
-            headings.forEach(heading => {
-                const headingText = heading.textContent.trim();
-                const nextElement = heading.nextElementSibling;
-                let contentText = headingText;
-                
-                // Try to get some content after the heading
-                if (nextElement && nextElement.tagName === 'P') {
-                    contentText += ' ' + nextElement.textContent.substring(0, this.SEARCH_CONFIG.CONTENT_PREVIEW_LENGTH);
-                }
-                
-                searchData.push({
-                    title: headingText,
-                    url: window.location.pathname + '#' + (heading.id || ''),
-                    content: contentText,
-                    type: 'heading'
-                });
-            });
-
-            // Extract paragraphs for full-text search
-            const paragraphs = pageContent.querySelectorAll('p');
-            paragraphs.forEach((p, index) => {
-                const text = p.textContent.trim();
-                if (text.length > this.SEARCH_CONFIG.MIN_PARAGRAPH_LENGTH) {
-                    searchData.push({
-                        title: text.substring(0, this.SEARCH_CONFIG.TITLE_PREVIEW_LENGTH) + 
-                               (text.length > this.SEARCH_CONFIG.TITLE_PREVIEW_LENGTH ? '...' : ''),
-                        url: window.location.pathname,
-                        content: text,
-                        type: 'content'
-                    });
-                }
-            });
-        }
-    }
-
-    addCommonTerms(searchData) {
-        const terms = [
-            { title: 'チューリング機械', url: '/src/chapter-2/', content: '計算理論の基礎・チューリング機械・停止性', type: 'keyword' },
-            { title: '正規言語', url: '/src/chapter-3/', content: '形式言語とオートマトン・DFA/NFA・正規表現', type: 'keyword' },
-            { title: 'NP完全性', url: '/src/chapter-5/', content: '計算複雑性理論・NP/NP-hard/NP-complete・Cook-Levin', type: 'keyword' },
-            { title: '停止問題', url: '/src/chapter-4/', content: '計算可能性・決定不能性・対角化', type: 'keyword' },
-            { title: 'エントロピー', url: '/src/chapter-10/', content: '情報理論・Shannonエントロピー・通信路容量', type: 'keyword' },
-            { title: 'RSA', url: '/src/chapter-11/', content: '公開鍵暗号・RSA-OAEP・IND-CPA/IND-CCA', type: 'keyword' }
-        ];
-        searchData.push(...terms);
-    }
-
-    setupEventListenerssetupEventListeners() {
-        // Search input
-        this.searchInput.addEventListener('input', (e) => {
-            const query = e.target.value.trim();
-            this.handleSearchInput(query);
-        });
-
-        // Keyboard navigation
-        this.searchInput.addEventListener('keydown', (e) => {
-            this.handleKeyboardNavigation(e);
-        });
-
-        // Focus management
-        this.searchInput.addEventListener('focus', () => {
-            if (this.searchInput.value.trim()) {
-                this.showResults();
-            }
-        });
-
-        // Click outside to close
-        document.addEventListener('click', (e) => {
-            if (!e.target.closest('.search-container')) {
-                this.hideResults();
-            }
-        });
-
-        // Escape key to close
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                this.hideResults();
-                this.searchInput.blur();
-            }
-        });
-    }
-
-    handleSearchInput(query) {
-        // Clear previous timeout
-        if (this.searchTimeout) {
-            clearTimeout(this.searchTimeout);
-        }
-
-        // Debounce search
-        this.searchTimeout = setTimeout(() => {
-            this.performSearch(query);
-        }, this.SEARCH_CONFIG.DEBOUNCE_DELAY);
-    }
-
-    performSearch(query) {
-        if (!query || query.length < this.SEARCH_CONFIG.MIN_SEARCH_LENGTH) {
-            this.hideResults();
-            return;
-        }
-
-        const results = this.searchInData(query);
-        this.displayResults(results, query);
-    }
-
-    searchInData(query) {
-        const lowerQuery = query.toLowerCase();
-        const results = [];
-
-        this.searchData.forEach(item => {
-            const titleLower = item.title.toLowerCase();
-            const contentLower = item.content ? item.content.toLowerCase() : '';
-            
-            const titleMatch = titleLower.includes(lowerQuery);
-            const contentMatch = contentLower.includes(lowerQuery);
-            
-            // Also try partial matching for Japanese
-            const titleWords = titleLower.split(/[\s ]+/);
-            const queryWords = lowerQuery.split(/[\s ]+/);
-            const partialTitleMatch = queryWords.some(qWord => 
-                titleWords.some(tWord => tWord.includes(qWord) || qWord.includes(tWord))
-            );
-            
-            if (titleMatch || contentMatch || partialTitleMatch) {
-                // Calculate relevance score
-                let score = 0;
-                
-                // Exact title start match (highest priority)
-                if (titleLower.startsWith(lowerQuery)) {
-                    score += this.SCORES.TITLE_START_MATCH;
-                }
-                // Exact title match
-                else if (titleMatch) {
-                    score += this.SCORES.TITLE_EXACT_MATCH;
-                }
-                // Partial title match
-                else if (partialTitleMatch) {
-                    score += this.SCORES.TITLE_PARTIAL_MATCH;
-                }
-                
-                // Content match bonus
-                if (contentMatch) {
-                    score += this.SCORES.CONTENT_MATCH;
-                    // Bonus for content that starts with query
-                    if (contentLower.startsWith(lowerQuery)) {
-                        score += this.SCORES.CONTENT_START_BONUS;
-                    }
-                }
-                
-                // Type-based scoring
-                switch (item.type) {
-                    case 'chapter':
-                        score += this.SCORES.TYPE_CHAPTER;
-                        break;
-                    case 'heading':
-                        score += this.SCORES.TYPE_HEADING;
-                        break;
-                    case 'keyword':
-                        score += this.SCORES.TYPE_KEYWORD;
-                        break;
-                    default:
-                        score += this.SCORES.TYPE_DEFAULT;
-                }
-
-                results.push({
-                    ...item,
-                    score: score,
-                    highlightedTitle: this.highlightText(item.title, query),
-                    highlightedContent: item.content ? this.highlightText(item.content.substring(0, this.SEARCH_CONFIG.CONTENT_PREVIEW_LENGTH), query) : null
-                });
-            }
-        });
-
-        // Sort by relevance score and then alphabetically
-        return results.sort((a, b) => {
-            if (b.score !== a.score) {
-                return b.score - a.score;
-            }
-            return a.title.localeCompare(b.title);
-        }).slice(0, this.SEARCH_CONFIG.MAX_RESULTS);
-    }
-
-    highlightText(text, query) {
-        if (!text || !query) return text;
-        
-        const regex = new RegExp(`(${this.escapeRegex(query)})`, 'gi');
-        return text.replace(regex, '<mark>$1</mark>');
-    }
-
-    escapeRegex(string) {
-        // Escape special regex characters for safe string matching
-        const specialChars = /[.*+?^${}()|[\]\\]/g;
-        return string.replace(specialChars, '\\$&');
-    }
-
-    displayResults(results, query) {
-        this.debugLog('Displaying search results:', results.length, 'for query:', query);
-        
-        if (!results.length) {
-            this.searchResults.innerHTML = `
+        if (results.length === 0) {
+            searchResults.innerHTML = `
                 <div class="search-no-results">
-                    ${this.i18n.noResults.replace('{query}', this.escapeHtml(query))}
-                    <div style="font-size: 0.75rem; margin-top: 0.5rem; color: var(--text-muted);">
-                        "�a: ${this.searchData.length}�
-                    </div>
+                    <p>「${escapeHtml(query)}」に一致する結果が見つかりませんでした。</p>
                 </div>
             `;
-            this.showResults();
-            return;
-        }
-
-        const resultHtml = results.map((result, index) => `
-            <a href="${result.url}" 
-               class="search-result-item" 
-               data-index="${index}"
-               onclick="this.closest('.search-container').querySelector('.search-input').blur()">
-                <div class="search-result-title">${result.highlightedTitle}</div>
-                ${result.highlightedContent && result.highlightedContent !== result.highlightedTitle ? 
-                    `<div class="search-result-content">${result.highlightedContent}...</div>` : ''}
-                <div class="search-result-type">${result.type === 'chapter' ? this.i18n.chapter : this.i18n.section}</div>
-            </a>
-        `).join('');
-
-        this.searchResults.innerHTML = resultHtml;
-        this.currentResultIndex = -1;
-        this.showResults();
-    }
-
-    showResults() {
-        this.searchResults.style.display = 'block';
-    }
-
-    hideResults() {
-        this.searchResults.style.display = 'none';
-        this.currentResultIndex = -1;
-        this.clearHighlight();
-    }
-
-    handleKeyboardNavigation(e) {
-        const resultItems = this.searchResults.querySelectorAll('.search-result-item');
-        
-        if (!resultItems.length) return;
-
-        switch (e.key) {
-            case 'ArrowDown':
-                e.preventDefault();
-                this.currentResultIndex = Math.min(this.currentResultIndex + 1, resultItems.length - 1);
-                this.highlightResult();
-                break;
+        } else {
+            const resultsHtml = results.slice(0, 10).map(result => {
+                const highlightedTitle = highlightText(result.title, query);
+                const snippet = getSnippet(result.content, query);
+                const highlightedSnippet = highlightText(snippet, query);
                 
-            case 'ArrowUp':
-                e.preventDefault();
-                this.currentResultIndex = Math.max(this.currentResultIndex - 1, -1);
-                this.highlightResult();
-                break;
-                
-            case 'Enter':
-                e.preventDefault();
-                if (this.currentResultIndex >= 0 && resultItems[this.currentResultIndex]) {
-                    resultItems[this.currentResultIndex].click();
-                }
-                break;
+                return `
+                    <div class="search-result-item" data-id="${result.id}">
+                        <div class="search-result-title">${highlightedTitle}</div>
+                        <div class="search-result-snippet">${highlightedSnippet}</div>
+                    </div>
+                `;
+            }).join('');
+            
+            searchResults.innerHTML = `
+                <div class="search-results-list">
+                    ${resultsHtml}
+                </div>
+                ${results.length > 10 ? `<div class="search-more">他 ${results.length - 10} 件の結果</div>` : ''}
+            `;
+        }
+        
+        showResults();
+    }
+    
+    // Get snippet around query
+    function getSnippet(text, query) {
+        const index = text.toLowerCase().indexOf(query.toLowerCase());
+        if (index === -1) return text.substring(0, 150) + '...';
+        
+        const start = Math.max(0, index - 50);
+        const end = Math.min(text.length, index + query.length + 100);
+        
+        let snippet = text.substring(start, end);
+        if (start > 0) snippet = '...' + snippet;
+        if (end < text.length) snippet = snippet + '...';
+        
+        return snippet;
+    }
+    
+    // Highlight search term in text
+    function highlightText(text, query) {
+        const regex = new RegExp(`(${escapeRegex(query)})`, 'gi');
+        return text.replace(regex, '<mark>$1</mark>');
+    }
+    
+    // Show search results
+    function showResults() {
+        if (searchResults) {
+            searchResults.classList.add('active');
         }
     }
-
-    highlightResult() {
-        const resultItems = this.searchResults.querySelectorAll('.search-result-item');
-        
-        // Clear previous highlights
-        this.clearHighlight();
-        
-        // Highlight current result
-        if (this.currentResultIndex >= 0 && resultItems[this.currentResultIndex]) {
-            resultItems[this.currentResultIndex].classList.add('search-highlighted');
-            resultItems[this.currentResultIndex].scrollIntoView({
-                block: 'nearest',
-                behavior: 'smooth'
-            });
+    
+    // Hide search results
+    function hideResults() {
+        if (searchResults) {
+            searchResults.classList.remove('active');
         }
     }
-
-    clearHighlight() {
-        const highlighted = this.searchResults.querySelectorAll('.search-highlighted');
-        highlighted.forEach(item => item.classList.remove('search-highlighted'));
+    
+    // Handle search result click
+    function handleResultClick(e) {
+        const resultItem = e.target.closest('.search-result-item');
+        if (!resultItem) return;
+        
+        const id = resultItem.dataset.id;
+        const result = searchIndex.find(item => item.id === id);
+        
+        if (result && result.element) {
+            hideResults();
+            searchInput.value = '';
+            result.element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // Highlight the element temporarily
+            result.element.classList.add('search-highlight');
+            setTimeout(() => {
+                result.element.classList.remove('search-highlight');
+            }, 2000);
+        }
     }
-
-    escapeHtml(text) {
+    
+    // Escape HTML
+    function escapeHtml(text) {
         const div = document.createElement('div');
         div.textContent = text;
         return div.innerHTML;
     }
-
-    debugLog(...args) {
-        // Only log in development mode (when console is available and hostname is localhost)
-        if (typeof console !== 'undefined' && console.log && 
-            (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')) {
-            console.log('[SearchManager]', ...args);
+    
+    // Escape regex
+    function escapeRegex(text) {
+        return text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+    
+    // Initialize search
+    function initSearch() {
+        initElements();
+        
+        if (!searchInput || !searchResults) return;
+        
+        // Build initial search index
+        buildSearchIndex();
+        
+        // Search input handler
+        searchInput.addEventListener('input', (e) => {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(() => {
+                performSearch(e.target.value.trim());
+            }, 300);
+        });
+        
+        // Focus/blur handlers
+        searchInput.addEventListener('focus', () => {
+            if (searchInput.value.trim()) {
+                showResults();
+            }
+        });
+        
+        // Click outside to close
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.search-container')) {
+                hideResults();
+            }
+        });
+        
+        // Handle result clicks
+        searchResults.addEventListener('click', handleResultClick);
+        
+        // Handle escape key
+        searchInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                hideResults();
+                searchInput.blur();
+            }
+        });
+    }
+    
+    // Add styles
+    const styles = `
+        <style>
+        .search-results-list {
+            max-height: 400px;
+            overflow-y: auto;
         }
-    }
-
-    // Public API
-    clear() {
-        this.searchInput.value = '';
-        this.hideResults();
-    }
-
-    focus() {
-        this.searchInput.focus();
-    }
-}
-
-// Load search CSS if not already present
-if (!document.querySelector('link[href*="search.css"]')) {
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = document.querySelector('link[href*="main.css"]')?.href.replace('main.css', 'search.css') || 
-                '/assets/css/search.css';
-    document.head.appendChild(link);
-}
-
-// Initialize search manager when DOM is ready
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-        window.searchManager = new SearchManager();
-    });
-} else {
-    window.searchManager = new SearchManager();
-}
-
-// Add keyboard shortcut (Ctrl+K or Cmd+K) to focus search
-document.addEventListener('keydown', (e) => {
-    if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
-        e.preventDefault();
-        if (window.searchManager) {
-            window.searchManager.focus();
+        
+        .search-result-item {
+            padding: 0.75rem 1rem;
+            cursor: pointer;
+            border-bottom: 1px solid var(--border-color);
+            transition: var(--transition);
         }
+        
+        .search-result-item:hover {
+            background: var(--bg-secondary);
+        }
+        
+        .search-result-item:last-child {
+            border-bottom: none;
+        }
+        
+        .search-result-title {
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+            color: var(--text-primary);
+        }
+        
+        .search-result-snippet {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+        
+        .search-no-results {
+            padding: 2rem;
+            text-align: center;
+            color: var(--text-secondary);
+        }
+        
+        .search-more {
+            padding: 0.75rem 1rem;
+            text-align: center;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border-color);
+        }
+        
+        mark {
+            background: rgba(255, 235, 59, 0.4);
+            color: inherit;
+            padding: 0.125rem 0;
+            border-radius: 2px;
+        }
+        
+        [data-theme="dark"] mark {
+            background: rgba(255, 235, 59, 0.2);
+        }
+        
+        .search-highlight {
+            animation: highlight 2s ease;
+        }
+        
+        @keyframes highlight {
+            0% { background: rgba(255, 235, 59, 0.4); }
+            100% { background: transparent; }
+        }
+        </style>
+    `;
+    
+    // Inject styles
+    document.head.insertAdjacentHTML('beforeend', styles);
+    
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initSearch);
+    } else {
+        initSearch();
     }
-});
+})();
