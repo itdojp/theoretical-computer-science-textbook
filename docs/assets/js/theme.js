@@ -10,20 +10,37 @@
     const THEME_LIGHT = 'light';
     const THEME_DARK = 'dark';
     
+    function safeGetItem(key) {
+        try {
+            return localStorage.getItem(key);
+        } catch (_) {
+            return null;
+        }
+    }
+
+    function safeSetItem(key, value) {
+        try {
+            localStorage.setItem(key, value);
+        } catch (_) {}
+    }
+    
     // Get system preference
     function getSystemTheme() {
+        if (typeof window.matchMedia !== 'function') {
+            return THEME_LIGHT;
+        }
         return window.matchMedia('(prefers-color-scheme: dark)').matches ? THEME_DARK : THEME_LIGHT;
     }
     
     // Get saved theme or system preference
     function getSavedTheme() {
-        return localStorage.getItem(THEME_KEY) || getSystemTheme();
+        return safeGetItem(THEME_KEY) || getSystemTheme();
     }
     
     // Apply theme to document
     function applyTheme(theme) {
         document.documentElement.setAttribute('data-theme', theme);
-        localStorage.setItem(THEME_KEY, theme);
+        safeSetItem(THEME_KEY, theme);
     }
     
     // Toggle theme
@@ -46,12 +63,19 @@
         }
         
         // Listen for system theme changes
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-            // Only apply system theme if user hasn't set a preference
-            if (!localStorage.getItem(THEME_KEY)) {
-                applyTheme(e.matches ? THEME_DARK : THEME_LIGHT);
+        if (typeof window.matchMedia === 'function') {
+            const mq = window.matchMedia('(prefers-color-scheme: dark)');
+            const handler = (e) => {
+                if (!safeGetItem(THEME_KEY)) {
+                    applyTheme(e.matches ? THEME_DARK : THEME_LIGHT);
+                }
+            };
+            if (mq.addEventListener) {
+                mq.addEventListener('change', handler);
+            } else if (mq.addListener) {
+                mq.addListener(handler);
             }
-        });
+        }
     }
     
     // Initialize when DOM is ready

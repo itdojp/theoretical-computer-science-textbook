@@ -1,84 +1,138 @@
-<nav class="sidebar-nav">
-  <div class="sidebar-header">
-    <h2 class="sidebar-title">理論計算機科学教科書</h2>
-    <p class="sidebar-subtitle">コンピュータサイエンス基礎理論</p>
-  </div>
+<!-- Sidebar Navigation (data-driven) -->
+{% assign navigation = site.data.navigation %}
 
-  <div class="nav-section">
-    <h3>はじめに</h3>
-    <ul>
-      <li><a href="{{ '/introduction/' | relative_url }}">導入</a></li>
-      <li><a href="{{ '/introduction/purpose/' | relative_url }}">本書の目的と構成</a></li>
-      <li><a href="{{ '/introduction/learning-guide/' | relative_url }}">学習の進め方</a></li>
-      <li><a href="{{ '/introduction/prerequisites/' | relative_url }}">前提知識</a></li>
-      <li><a href="{{ '/downloads/' | relative_url }}">オフライン版（PDF/EPUB）</a></li>
-      <li><a href="{{ '/changelog/' | relative_url }}">更新履歴（CHANGELOG）</a></li>
-      <li><a href="{{ '/introduction/feedback/' | relative_url }}">フィードバック（誤植・改善提案）</a></li>
-    </ul>
-  </div>
+<div class="sidebar-content">
+    <div class="book-info">
+        <h2 class="book-title">{{ site.title | escape }}</h2>
+        {% if site.subtitle %}
+        <p class="book-subtitle">{{ site.subtitle | escape }}</p>
+        {% elsif site.description %}
+        <p class="book-subtitle">{{ site.description | escape }}</p>
+        {% endif %}
+    </div>
 
-  <div class="nav-section">
-    <h3>Part I: 数学的基礎（第1〜3章）</h3>
-    <ul>
-      <li><a href="{{ '/chapter-1/' | relative_url }}">第1章 数学的基礎</a></li>
-      <li><a href="{{ '/chapter-2/' | relative_url }}">第2章 計算理論の基礎</a></li>
-      <li><a href="{{ '/chapter-3/' | relative_url }}">第3章 形式言語とオートマトン理論</a></li>
-    </ul>
-  </div>
+    <div class="toc">
+        <h3 class="toc-title">目次</h3>
 
-  <div class="nav-section">
-    <h3>Part II: 計算理論（第4〜6章）</h3>
-    <ul>
-      <li><a href="{{ '/chapter-4/' | relative_url }}">第4章 計算可能性理論</a></li>
-      <li><a href="{{ '/chapter-5/' | relative_url }}">第5章 計算複雑性理論</a></li>
-      <li><a href="{{ '/chapter-6/' | relative_url }}">第6章 アルゴリズムの数学的解析</a></li>
-    </ul>
-  </div>
+        <div class="toc-section">
+            <ul class="toc-list">
+                <li class="toc-item">
+                    <a href="{{ '/' | relative_url }}" class="toc-link {% if page.url == '/' %}active{% endif %}">
+                        はじめに
+                    </a>
+                </li>
+            </ul>
+        </div>
 
-  <div class="nav-section">
-    <h3>Part III: 高度なトピック（第7〜9章）</h3>
-    <ul>
-      <li><a href="{{ '/chapter-7/' | relative_url }}">第7章 データ構造の理論</a></li>
-      <li><a href="{{ '/chapter-8/' | relative_url }}">第8章 グラフ理論とネットワーク</a></li>
-      <li><a href="{{ '/chapter-9/' | relative_url }}">第9章 論理学と形式的手法</a></li>
-    </ul>
-  </div>
+        {% if navigation %}
+            {% if navigation.introduction %}
+            <div class="toc-section">
+                <h4 class="toc-section-title">導入</h4>
+                <ul class="toc-list">
+                    {% for item in navigation.introduction %}
+                    <li class="toc-item">
+                        <a href="{{ item.path | relative_url }}" class="toc-link {% if page.url == item.path %}active{% endif %}" {% if page.url == item.path %}aria-current="page"{% endif %}>
+                            {{ item.title }}
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
 
-  <div class="nav-section">
-    <h3>Part IV: 応用理論（第10〜12章）</h3>
-    <ul>
-      <li><a href="{{ '/chapter-10/' | relative_url }}">第10章 情報理論</a></li>
-      <li><a href="{{ '/chapter-11/' | relative_url }}">第11章 暗号理論の数学的基礎</a></li>
-      <li><a href="{{ '/chapter-12/' | relative_url }}">第12章 並行計算の理論</a></li>
-    </ul>
-  </div>
+            {% if navigation.chapters %}
+            <div class="toc-section">
+                <h4 class="toc-section-title">本編</h4>
+                <ul class="toc-list">
+                    {% for chapter in navigation.chapters %}
+                    <li class="toc-item toc-chapter">
+                        <a href="{{ chapter.path | relative_url }}" class="toc-link {% if page.url == chapter.path or page.url contains chapter.path %}active{% endif %}" {% if page.url == chapter.path or page.url contains chapter.path %}aria-current="page"{% endif %}>
+                            {{ chapter.title }}
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
 
-  <div class="nav-section">
-    <h3>付録</h3>
-    <ul>
-      <li><a href="{{ '/appendices/' | relative_url }}">付録一覧</a></li>
-      <li><a href="{{ '/appendices/a/' | relative_url }}">付録A: 数学記法ガイド</a></li>
-      <li><a href="{{ '/appendices/b/' | relative_url }}">付録B: アルゴリズム実装例</a></li>
-      <li><a href="{{ '/appendices/c/' | relative_url }}">付録C: 練習問題解答</a></li>
-      <li><a href="{{ '/appendices/d/' | relative_url }}">付録D: 用語集・索引</a></li>
-      <li><a href="{{ '/appendices/e/' | relative_url }}">付録E: 実世界への応用例</a></li>
-      <li><a href="{{ '/appendices/f/' | relative_url }}">付録F: 学習進捗チェックリスト</a></li>
-      <li><a href="{{ '/appendices/g/' | relative_url }}">付録G: AI/ML と理論計算機科学の接続</a></li>
-    </ul>
-  </div>
+            {% if navigation.additional %}
+            <div class="toc-section">
+                <h4 class="toc-section-title">追加</h4>
+                <ul class="toc-list">
+                    {% for item in navigation.additional %}
+                    <li class="toc-item">
+                        <a href="{{ item.path | relative_url }}" class="toc-link {% if page.url == item.path or page.url contains item.path %}active{% endif %}" {% if page.url == item.path or page.url contains item.path %}aria-current="page"{% endif %}>
+                            {{ item.title }}
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
 
-  <div class="nav-section resources">
-    <h3>リソース</h3>
-    <ul>
-      {% if site.show_github_links and site.repository %}
-        {% assign repository = site.repository | replace: "https://github.com/", "" %}
-        <li><a href="https://github.com/{{ repository }}" target="_blank" rel="noopener">💾 GitHubリポジトリ</a></li>
-      {% endif %}
-      {% if site.feedback_url %}
-        <li><a href="{{ site.feedback_url }}" target="_blank" rel="noopener">✉️ 誤植・改善提案（フィードバック）</a></li>
-      {% endif %}
-      <li><a href="https://itdojp.github.io/it-engineer-knowledge-architecture/" target="_blank" rel="noopener">📚 書籍一覧</a></li>
-      <li><a href="https://itdo.jp" target="_blank" rel="noopener">🏢 株式会社アイティードゥ</a></li>
-    </ul>
-  </div>
-</nav>
+            {% if navigation.resources %}
+            <div class="toc-section">
+                <h4 class="toc-section-title">リソース</h4>
+                <ul class="toc-list">
+                    {% for item in navigation.resources %}
+                    <li class="toc-item">
+                        <a href="{{ item.path | relative_url }}" class="toc-link {% if page.url == item.path or page.url contains item.path %}active{% endif %}" {% if page.url == item.path or page.url contains item.path %}aria-current="page"{% endif %}>
+                            {{ item.title }}
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+
+            {% if navigation.appendices %}
+            <div class="toc-section">
+                <h4 class="toc-section-title">付録</h4>
+                <ul class="toc-list">
+                    {% for item in navigation.appendices %}
+                    <li class="toc-item">
+                        <a href="{{ item.path | relative_url }}" class="toc-link {% if page.url == item.path or page.url contains item.path %}active{% endif %}" {% if page.url == item.path or page.url contains item.path %}aria-current="page"{% endif %}>
+                            {{ item.title }}
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+
+            {% if navigation.afterword %}
+            <div class="toc-section">
+                <h4 class="toc-section-title">あとがき</h4>
+                <ul class="toc-list">
+                    {% for item in navigation.afterword %}
+                    <li class="toc-item">
+                        <a href="{{ item.path | relative_url }}" class="toc-link {% if page.url == item.path or page.url contains item.path %}active{% endif %}" {% if page.url == item.path or page.url contains item.path %}aria-current="page"{% endif %}>
+                            {{ item.title }}
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+        {% endif %}
+    </div>
+
+    <div class="sidebar-footer">
+        {% assign repo_url = repo_url | default: site.github.repository_url | default: site.repository_url | default: site.repository.github | default: site.repository %}
+        {% if repo_url and repo_url != '' %}
+            {% unless repo_url contains 'http' %}
+                {% assign repo_url = 'https://github.com/' | append: repo_url %}
+            {% endunless %}
+        {% endif %}
+
+        <div class="external-links">
+            {% if repo_url %}
+            <a href="{{ repo_url }}" target="_blank" rel="noopener" class="external-link">GitHub</a>
+            {% endif %}
+            {% if site.contact.email %}
+            <a href="mailto:{{ site.contact.email | escape }}" class="external-link">Contact</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
