@@ -7,6 +7,14 @@
     
     // Constants
     const THEME_KEY = 'book-theme';
+    const LEGACY_KEY = 'theme';
+    if (!localStorage.getItem(THEME_KEY)) {
+        const legacyTheme = localStorage.getItem(LEGACY_KEY);
+        if (legacyTheme) {
+            localStorage.setItem(THEME_KEY, legacyTheme);
+            localStorage.removeItem(LEGACY_KEY);
+        }
+    }
     const THEME_LIGHT = 'light';
     const THEME_DARK = 'dark';
     
