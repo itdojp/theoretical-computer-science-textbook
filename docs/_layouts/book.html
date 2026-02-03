@@ -35,10 +35,18 @@
     <script>
         (function() {
             try {
-                const k = 'book-theme';
+                const NEW_KEY = 'book-theme';
+                const OLD_KEY = 'theme';
+                if (!localStorage.getItem(NEW_KEY)) {
+                    const oldTheme = localStorage.getItem(OLD_KEY);
+                    if (oldTheme) {
+                        localStorage.setItem(NEW_KEY, oldTheme);
+                        localStorage.removeItem(OLD_KEY);
+                    }
+                }
                 let t = null;
                 try {
-                    t = localStorage.getItem(k);
+                    t = localStorage.getItem(NEW_KEY);
                     if (!t) {
                         const legacy = localStorage.getItem('theme');
                         if (legacy) {
