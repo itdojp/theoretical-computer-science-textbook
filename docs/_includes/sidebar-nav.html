@@ -31,7 +31,7 @@
                 <ul class="toc-list">
                     {% for item in navigation.introduction %}
                     <li class="toc-item">
-                        <a href="{{ item.path | relative_url }}" class="toc-link {% if page.url == item.path %}active{% endif %}">
+                        <a href="{{ item.path | relative_url }}" class="toc-link {% if page.url == item.path %}active{% endif %}" {% if page.url == item.path %}aria-current="page"{% endif %}>
                             {{ item.title }}
                         </a>
                     </li>
@@ -46,7 +46,7 @@
                 <ul class="toc-list">
                     {% for chapter in navigation.chapters %}
                     <li class="toc-item toc-chapter">
-                        <a href="{{ chapter.path | relative_url }}" class="toc-link {% if page.url == chapter.path or page.url contains chapter.path %}active{% endif %}">
+                        <a href="{{ chapter.path | relative_url }}" class="toc-link {% if page.url == chapter.path or page.url contains chapter.path %}active{% endif %}" {% if page.url == chapter.path or page.url contains chapter.path %}aria-current="page"{% endif %}>
                             {{ chapter.title }}
                         </a>
                     </li>
@@ -61,7 +61,7 @@
                 <ul class="toc-list">
                     {% for item in navigation.additional %}
                     <li class="toc-item">
-                        <a href="{{ item.path | relative_url }}" class="toc-link {% if page.url == item.path or page.url contains item.path %}active{% endif %}">
+                        <a href="{{ item.path | relative_url }}" class="toc-link {% if page.url == item.path or page.url contains item.path %}active{% endif %}" {% if page.url == item.path or page.url contains item.path %}aria-current="page"{% endif %}>
                             {{ item.title }}
                         </a>
                     </li>
@@ -76,7 +76,7 @@
                 <ul class="toc-list">
                     {% for item in navigation.resources %}
                     <li class="toc-item">
-                        <a href="{{ item.path | relative_url }}" class="toc-link {% if page.url == item.path or page.url contains item.path %}active{% endif %}">
+                        <a href="{{ item.path | relative_url }}" class="toc-link {% if page.url == item.path or page.url contains item.path %}active{% endif %}" {% if page.url == item.path or page.url contains item.path %}aria-current="page"{% endif %}>
                             {{ item.title }}
                         </a>
                     </li>
@@ -91,7 +91,7 @@
                 <ul class="toc-list">
                     {% for item in navigation.appendices %}
                     <li class="toc-item">
-                        <a href="{{ item.path | relative_url }}" class="toc-link {% if page.url == item.path or page.url contains item.path %}active{% endif %}">
+                        <a href="{{ item.path | relative_url }}" class="toc-link {% if page.url == item.path or page.url contains item.path %}active{% endif %}" {% if page.url == item.path or page.url contains item.path %}aria-current="page"{% endif %}>
                             {{ item.title }}
                         </a>
                     </li>
@@ -106,7 +106,7 @@
                 <ul class="toc-list">
                     {% for item in navigation.afterword %}
                     <li class="toc-item">
-                        <a href="{{ item.path | relative_url }}" class="toc-link {% if page.url == item.path or page.url contains item.path %}active{% endif %}">
+                        <a href="{{ item.path | relative_url }}" class="toc-link {% if page.url == item.path or page.url contains item.path %}active{% endif %}" {% if page.url == item.path or page.url contains item.path %}aria-current="page"{% endif %}>
                             {{ item.title }}
                         </a>
                     </li>
@@ -118,7 +118,7 @@
     </div>
 
     <div class="sidebar-footer">
-        {% assign repo_url = site.github.repository_url | default: site.repository_url | default: site.repository.github | default: site.repository %}
+        {% assign repo_url = repo_url | default: site.github.repository_url | default: site.repository_url | default: site.repository.github | default: site.repository %}
         {% if repo_url and repo_url != '' %}
             {% unless repo_url contains 'http' %}
                 {% assign repo_url = 'https://github.com/' | append: repo_url %}
