@@ -43,7 +43,7 @@ html {
     position: fixed;
     top: var(--header-height);
     left: 0;
-    width: var(--sidebar-width);
+    width: 280px;
     height: calc(100vh - var(--header-height));
     background: var(--bg-primary);
     border-right: 1px solid var(--border-color);
