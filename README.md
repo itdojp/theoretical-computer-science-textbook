@@ -214,7 +214,7 @@ tests/                     # テストファイル
 - [Book Publishing Template](https://github.com/itdojp/book-formatter)
 - [SVG図表作成ガイド](SVG_CREATION_GUIDE.md) - 学術品質の図表作成手法
 - [ITDO Inc. 公式サイト](https://itdo.jp)
-- [理論計算機科学参考文献](src/appendices/reading-list.md)
+- [理論計算機科学参考文献](src/appendices/g.md#参考文献代表例)
 
 ---
 
