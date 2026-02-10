@@ -1,5 +1,5 @@
 # Jekyll 開発環境用 Dockerfile
-FROM ruby:3.1-alpine
+FROM ruby:3.2-alpine
 
 # 必要なパッケージをインストール
 RUN apk add --no-cache \

@@ -5,7 +5,7 @@
   "author": "ITDO Inc.（株式会社アイティードゥ）",
   "license": "CC-BY-NC-SA-4.0",
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=20.0.0"
   },
   "scripts": {
     "start": "bundle exec jekyll serve --livereload",
