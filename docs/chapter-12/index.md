@@ -89,7 +89,7 @@ sections:
 
 **定義 12.4** **CCS の構文**：
 {: #def-12-4 }
-```
+```text
 P ::= 0                    (停止)
     | α.P                  (プレフィックス)
     | P + Q                (選択)
@@ -108,7 +108,7 @@ P ::= 0                    (停止)
 
 **遷移規則**（構造的操作意味論）：
 
-```
+```text
 (Act)   α.P --α--> P
 
 (Sum1)  前提: P --α--> P'
@@ -285,7 +285,7 @@ java -cp tla2tools.jar tlc2.TLC -config Peterson.cfg Peterson.tla
 #### リーダー選出
 
 **LCR アルゴリズム**（リング上）：
-```
+```text
 各プロセス p：
 1. 自分の ID を右隣に送信
 2. 受信した ID が自分より大きければ転送
@@ -302,7 +302,7 @@ java -cp tla2tools.jar tlc2.TLC -config Peterson.cfg Peterson.tla
 #### 相互排除
 
 **Lamport のベーカリーアルゴリズム**：
-```
+```text
 プロセス i がクリティカルセクションに入る：
 1. choosing[i] = true
 2. number[i] = max(number[0], ..., number[n-1]) + 1
@@ -383,7 +383,7 @@ java -cp tla2tools.jar tlc2.TLC -config Peterson.cfg Peterson.tla
 無限のステップ中で、少なくとも1つの操作が完了する。
 
 **CAS（Compare-and-Swap）**：
-```
+```text
 CAS(addr, old, new):
     atomically:
         if *addr == old:
@@ -394,7 +394,7 @@ CAS(addr, old, new):
 ```
 
 **例：ロックフリースタック**
-```
+```text
 Push(x):
     loop:
         t = Top
@@ -426,7 +426,7 @@ Pop():
 ### 12.7.1 π計算
 
 **構文**：
-```
+```text
 P ::= 0 | τ.P | x(y).P | x̄⟨y⟩.P | P|Q | (νx)P | !P
 ```
 
@@ -434,7 +434,7 @@ P ::= 0 | τ.P | x(y).P | x̄⟨y⟩.P | P|Q | (νx)P | !P
 チャネル名を値として送受信できる。
 
 **スコープ拡張**：
-```
+```text
 (νx)(x̄⟨z⟩.P | Q) | x(y).R → (νx)(P | Q | R[z/y])
 ```
 
@@ -489,7 +489,7 @@ P +_p Q：確率 p で P、確率 1-p で Q を選択
 
 1. 2つのプロセスが交互に実行される以下のプログラムで、
    最終的な x の値として可能なものをすべて求めよ：
-   ```
+   ```text
    共有変数: x = 0
    P1: x = x + 1; x = x + 1
    P2: x = x * 2
