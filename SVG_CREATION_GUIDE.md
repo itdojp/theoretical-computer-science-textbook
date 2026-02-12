@@ -19,7 +19,7 @@
 ## SVG作成の技術仕様
 
 ### ファイル命名規則
-```
+```text
 chX_diagram_description.svg
 ```
 - `chX`: 章番号プレフィックス（例: `ch1_`, `ch5_`, `ch12_`）

@@ -119,7 +119,7 @@ make test
 
 ### ファイル構成
 
-```
+```text
 docs/
 ├── _config.yml              # Jekyll設定
 ├── _layouts/                # レイアウトテンプレート
