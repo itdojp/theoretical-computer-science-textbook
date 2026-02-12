@@ -85,7 +85,7 @@ sections:
 
 #### 深さ優先探索（DFS）
 
-```
+```text
 DFS(G, s):
     for each v ∈ V:
         color[v] = WHITE
@@ -113,7 +113,7 @@ DFS-Visit(u):
 
 #### 幅優先探索（BFS）
 
-```
+```text
 BFS(G, s):
     for each v ∈ V \ {s}:
         color[v] = WHITE
@@ -165,7 +165,7 @@ S と V \ S を結ぶ辺が存在。
 
 **前提**：非負の辺重み
 
-```
+```text
 Dijkstra(G, w, s):
     for each v ∈ V:
         d[v] = ∞
@@ -202,7 +202,7 @@ Dijkstra(G, w, s):
 - 並列化: 大規模グラフではΔ-stepping等の近似並列Dijkstraが有効な場合がある。
 
 【0/1 BFS の最小実装（O(|V|+|E|)）】
-```
+```text
 ZeroOneBFS(G, w ∈ {0,1}, s):
     for v in V: d[v] = ∞
     d[s] = 0
@@ -221,7 +221,7 @@ ZeroOneBFS(G, w ∈ {0,1}, s):
 
 **利点**：負の重みを許容、負閉路を検出
 
-```
+```text
 Bellman-Ford(G, w, s):
     for each v ∈ V:
         d[v] = ∞
@@ -248,7 +248,7 @@ Bellman-Ford(G, w, s):
 動的計画法による解法：
 d_ij^(k) = 頂点 {1, 2, ..., k} を中継点として使う場合の i から j への最短距離
 
-```
+```text
 Floyd-Warshall(W):
     n = |V|
     D^(0) = W
@@ -300,7 +300,7 @@ BFS が O(|V| + |E|) で最短路を求める。
 
 ![Kruskal法とUnion-Findの流れ]({{ '/assets/images/diagrams/ch8_mst_kruskal_unionfind.svg' | relative_url }})
 
-```
+```text
 Kruskal(G, w):
     A = ∅
     for each v ∈ V:
@@ -317,7 +317,7 @@ Kruskal(G, w):
 
 ### 8.3.3 Primのアルゴリズム
 
-```
+```text
 Prim(G, w, r):
     for each v ∈ V:
         key[v] = ∞
@@ -356,7 +356,7 @@ Prim(G, w, r):
 
 ### 8.4.2 Ford-Fulkerson法
 
-```
+```text
 Ford-Fulkerson(G, s, t):
     for each edge (u,v) ∈ E:
         f(u,v) = 0
@@ -387,7 +387,7 @@ Ford-Fulkerson(G, s, t):
 レベルグラフを用いたブロッキングフロー：O(|V|² · |E|)
 
 #### Push-Relabel法
-```
+```text
 Push-Relabel(G, s, t):
     前処理で高さ関数とプレフローを初期化
     while 活性頂点が存在:
@@ -447,7 +447,7 @@ Push-Relabel(G, s, t):
 ### 8.5.4 安定マッチング
 
 **Gale-Shapleyアルゴリズム**：
-```
+```text
 Gale-Shapley(男性の選好, 女性の選好):
     全員を未婚に初期化
     while 未婚の男性が存在:
