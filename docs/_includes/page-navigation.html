@@ -19,7 +19,7 @@ suppress rendering of bottom navigation to unify top-page behavior.
 {%- assign _baseurl = site.baseurl | default: '' -%}
 {%- assign _page_url_n = page.url -%}
 {%- if _baseurl and _baseurl != '' -%}
-  {%- assign _page_url_n = _page_url_n | replace: _baseurl, '' -%}
+  {%- assign _page_url_n = _page_url_n | remove_first: _baseurl -%}
 {%- endif -%}
 {%- assign _is_root = false -%}
 {%- if _page_url_n == '/' or _page_url_n == '' -%}
@@ -27,59 +27,48 @@ suppress rendering of bottom navigation to unify top-page behavior.
 {%- endif -%}
 
 {%- comment -%}
-Build a flattened list from navigation data for title lookup, so we can
-display ToC titles even when order falls back to site.pages.
+Build a flattened list from navigation data:
+- `nav_items`: prev/next sequence
+- `data_items`: title lookup for prev/next labels
 
-Notes:
-- navigation.yml can include prefix/index pages like "/" or "/chapters/".
-- Some books group chapters as {part: ..., items: [...]}; we flatten those.
+Some books group chapters as `{ part: "...", items: [...] }`. We flatten one
+level of such grouping so only leaf items (having `path`/`url`) participate.
 {%- endcomment -%}
 {%- assign data_items = "" | split: "|" -%}
 {%- if navigation -%}
-  {%- assign _nav_sections = "introduction,chapters,additional,resources,appendices,afterword" | split: "," -%}
-  {%- for _sec in _nav_sections -%}
-    {%- assign _items = navigation[_sec] -%}
-    {%- if _items -%}
-      {%- for _item in _items -%}
-        {%- if _item.items -%}
-          {%- for _sub in _item.items -%}
-            {%- if _sub.path or _sub.url -%}
-              {%- assign data_items = data_items | push: _sub -%}
-            {%- endif -%}
-          {%- endfor -%}
-        {%- else -%}
-          {%- if _item.path or _item.url -%}
-            {%- assign data_items = data_items | push: _item -%}
-          {%- endif -%}
-        {%- endif -%}
-      {%- endfor -%}
-    {%- endif -%}
-  {%- endfor -%}
-{%- endif -%}
-
-{% if navigation %}
   {%- assign seq = "" | split: "|" -%}
   {%- assign _nav_sections = "introduction,chapters,additional,resources,appendices,afterword" | split: "," -%}
   {%- for _sec in _nav_sections -%}
     {%- assign _items = navigation[_sec] -%}
-    {%- if _items -%}
-      {%- for _item in _items -%}
-        {%- if _item.items -%}
-          {%- for _sub in _item.items -%}
-            {%- if _sub.path or _sub.url -%}
-              {%- assign seq = seq | push: _sub -%}
+    {%- if _items and _items.size > 0 -%}
+      {%- assign _is_grouped = false -%}
+      {%- if _items[0] and _items[0].items -%}
+        {%- assign _is_grouped = true -%}
+      {%- endif -%}
+
+      {%- if _is_grouped -%}
+        {%- assign _flat = "" | split: "|" -%}
+        {%- for _grp in _items -%}
+          {%- if _grp.items -%}
+            {%- assign _sub_items = _grp.items | where_exp: "it", "it.path or it.url" -%}
+            {%- if _sub_items and _sub_items.size > 0 -%}
+              {%- assign _flat = _flat | concat: _sub_items -%}
             {%- endif -%}
-          {%- endfor -%}
-        {%- else -%}
-          {%- if _item.path or _item.url -%}
-            {%- assign seq = seq | push: _item -%}
           {%- endif -%}
+        {%- endfor -%}
+        {%- assign seq = seq | concat: _flat -%}
+      {%- else -%}
+        {%- assign _items_f = _items | where_exp: "it", "it.path or it.url" -%}
+        {%- if _items_f and _items_f.size > 0 -%}
+          {%- assign seq = seq | concat: _items_f -%}
         {%- endif -%}
-      {%- endfor -%}
+      {%- endif -%}
     {%- endif -%}
   {%- endfor -%}
+
   {%- assign nav_items = seq -%}
-{% endif %}
+  {%- assign data_items = seq -%}
+{%- endif -%}
 
 {% if nav_items == nil or nav_items.size == 0 %}
   {%- assign ordered_pages = site.pages | where: "layout", "book" | where_exp: "p", "p.order" | sort: "order" -%}
@@ -111,13 +100,29 @@ Notes:
     {%- if item_url and item_url != '' -%}
       {%- assign item_url_n = item_url -%}
       {%- if _baseurl and _baseurl != '' -%}
-        {%- assign item_url_n = item_url_n | replace: _baseurl, '' -%}
+        {%- assign item_url_n = item_url_n | remove_first: _baseurl -%}
       {%- endif -%}
-      {%- if item_url_n and item_url_n != '' and _page_url_n contains item_url_n -%}
+      {%- if item_url_n and item_url_n != '' -%}
         {%- assign _cand_len = item_url_n | size -%}
-        {%- if _cand_len > _best_len -%}
-          {%- assign _best_len = _cand_len -%}
-          {%- assign current_index = forloop.index0 -%}
+        {%- assign _page_len = _page_url_n | size -%}
+        {%- if _page_len >= _cand_len -%}
+          {%- assign _prefix = _page_url_n | slice: 0, _cand_len -%}
+          {%- if _prefix == item_url_n -%}
+            {%- assign _is_boundary = false -%}
+            {%- if _page_len == _cand_len -%}
+              {%- assign _is_boundary = true -%}
+            {%- else -%}
+              {%- assign _next_char = _page_url_n | slice: _cand_len, 1 -%}
+              {%- if _next_char == '/' -%}
+                {%- assign _is_boundary = true -%}
+              {%- endif -%}
+            {%- endif -%}
+
+            {%- if _is_boundary and _cand_len > _best_len -%}
+              {%- assign _best_len = _cand_len -%}
+              {%- assign current_index = forloop.index0 -%}
+            {%- endif -%}
+          {%- endif -%}
         {%- endif -%}
       {%- endif -%}
     {%- endif -%}
