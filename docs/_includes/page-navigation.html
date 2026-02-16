@@ -50,18 +50,12 @@ level of such grouping so only leaf items (having `path`/`url`) participate.
         {%- assign _flat = "" | split: "|" -%}
         {%- for _grp in _items -%}
           {%- if _grp.items -%}
-            {%- assign _sub_items = _grp.items | where_exp: "it", "it.path or it.url" -%}
-            {%- if _sub_items and _sub_items.size > 0 -%}
-              {%- assign _flat = _flat | concat: _sub_items -%}
-            {%- endif -%}
+            {%- assign _flat = _flat | concat: _grp.items -%}
           {%- endif -%}
         {%- endfor -%}
         {%- assign seq = seq | concat: _flat -%}
       {%- else -%}
-        {%- assign _items_f = _items | where_exp: "it", "it.path or it.url" -%}
-        {%- if _items_f and _items_f.size > 0 -%}
-          {%- assign seq = seq | concat: _items_f -%}
-        {%- endif -%}
+        {%- assign seq = seq | concat: _items -%}
       {%- endif -%}
     {%- endif -%}
   {%- endfor -%}
