@@ -11,11 +11,11 @@
       .procedure-box { 
         rx: 4px; 
         ry: 4px; 
-        font-family: Inter, Helvetica, sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
       }
       
       .title { 
-        font-family: Inter, Helvetica, sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
         font-size: 18px; 
         font-weight: 600; 
         text-anchor: middle; 
@@ -23,7 +23,7 @@
       }
       
       .subtitle { 
-        font-family: Inter, Helvetica, sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
         font-size: 14px; 
         font-weight: 600; 
         text-anchor: middle; 
@@ -31,7 +31,7 @@
       }
       
       .step-label { 
-        font-family: Inter, Helvetica, sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
         font-size: 12px; 
         font-weight: 500; 
         text-anchor: middle; 
@@ -40,7 +40,7 @@
       }
       
       .description { 
-        font-family: Inter, Helvetica, sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
         font-size: 11px; 
         font-weight: 400; 
         text-anchor: start; 
@@ -48,7 +48,7 @@
       }
       
       .complexity-text { 
-        font-family: Courier, monospace;
+        font-family: "Monaco", "Menlo", "Ubuntu Mono", "Consolas", "source-code-pro", monospace;
         font-size: 12px; 
         font-weight: 600; 
         text-anchor: middle; 

@@ -9,11 +9,11 @@
       .lambda-box { fill: #fff3e0; stroke: #f57c00; stroke-width: 2; rx: 12; }
       .recursive-box { fill: #e8f5e8; stroke: #2e7d32; stroke-width: 2; rx: 12; }
       .post-box { fill: #f3e5f5; stroke: #7b1fa2; stroke-width: 2; rx: 12; }
-      .title-text { font-family: 'Inter', 'Helvetica Neue', Helvetica, sans-serif; font-size: 18px; font-weight: 700; fill: #2c3e50; text-anchor: middle; }
-      .model-title { font-family: 'Inter', 'Helvetica Neue', Helvetica, sans-serif; font-size: 14px; font-weight: 600; text-anchor: middle; }
-      .model-text { font-family: 'Inter', 'Helvetica Neue', Helvetica, sans-serif; font-size: 12px; text-anchor: middle; }
+      .title-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif; font-size: 18px; font-weight: 700; fill: #2c3e50; text-anchor: middle; }
+      .model-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif; font-size: 14px; font-weight: 600; text-anchor: middle; }
+      .model-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif; font-size: 12px; text-anchor: middle; }
       .equivalence-arrow { stroke: #666; stroke-width: 2; fill: none; marker-end: url(#arrowhead); stroke-dasharray: 5,3; }
-      .equivalence-text { font-family: 'Inter', 'Helvetica Neue', Helvetica, sans-serif; font-size: 11px; font-weight: 500; fill: #666; text-anchor: middle; }
+      .equivalence-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif; font-size: 11px; font-weight: 500; fill: #666; text-anchor: middle; }
     </style>
     
     <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">

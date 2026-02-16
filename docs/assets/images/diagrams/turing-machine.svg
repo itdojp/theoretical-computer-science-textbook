@@ -7,7 +7,7 @@
       .title { font-family: 'Noto Sans JP', sans-serif; font-size: 20px; font-weight: bold; fill: #2c3e50; }
       .component-title { font-family: 'Noto Sans JP', sans-serif; font-size: 14px; font-weight: bold; fill: #fff; }
       .state-text { font-family: 'Noto Sans JP', sans-serif; font-size: 12px; fill: #2c3e50; font-weight: bold; }
-      .symbol-text { font-family: 'Courier New', monospace; font-size: 14px; fill: #2c3e50; font-weight: bold; }
+      .symbol-text { font-family: "Monaco", "Menlo", "Ubuntu Mono", "Consolas", "source-code-pro", monospace; font-size: 14px; fill: #2c3e50; font-weight: bold; }
       .small-text { font-family: 'Noto Sans JP', sans-serif; font-size: 10px; fill: #7f8c8d; }
       .tape-cell { fill: #fff; stroke: #34495e; stroke-width: 2; }
       .head-box { fill: #e74c3c; stroke: #c0392b; stroke-width: 2; }

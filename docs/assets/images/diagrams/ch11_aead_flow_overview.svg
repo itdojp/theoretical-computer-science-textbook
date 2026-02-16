@@ -4,7 +4,7 @@
   <desc id="desc">鍵・ノンス・追加認証データ（AD）・平文から暗号文と認証タグを生成し、復号側で検証する流れを示す。</desc>
   <defs>
     <style>
-      .label { fill: #111; font-family: Inter, Helvetica, Arial, sans-serif; font-size: 12px; }
+      .label { fill: #111; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif; font-size: 12px; }
       .box { fill: #fff; stroke: #495057; stroke-width: 1.6; rx: 6px; }
       .panel { fill: #f8f9fa; stroke: #dee2e6; }
       .arrow { stroke: #212529; stroke-width: 1.6; marker-end: url(#m); fill: none; }

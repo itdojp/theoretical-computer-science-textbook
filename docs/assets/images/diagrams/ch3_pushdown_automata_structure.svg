@@ -7,7 +7,7 @@
   <rect width="1200" height="900" fill="#f8f9fa"/>
   
   <!-- Title -->
-  <text x="600" y="30" text-anchor="middle" font-family="Inter, Helvetica, sans-serif" font-size="24" font-weight="bold" fill="#1a1a1a">プッシュダウンオートマトンの構造と機能</text>
+  <text x="600" y="30" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="24" font-weight="bold" fill="#1a1a1a">プッシュダウンオートマトンの構造と機能</text>
   
   <!-- Main Container -->
   <rect x="20" y="50" width="1160" height="830" fill="none" stroke="#e1e5e9" stroke-width="2" rx="10"/>
@@ -15,219 +15,219 @@
   <!-- Section 1: PDA Basic Structure -->
   <g id="pda-structure">
     <rect x="40" y="80" width="560" height="220" fill="#e3f2fd" stroke="#1976d2" stroke-width="2" rx="8"/>
-    <text x="320" y="105" text-anchor="middle" font-family="Inter, Helvetica, sans-serif" font-size="18" font-weight="bold" fill="#1976d2">PDAの基本構造</text>
+    <text x="320" y="105" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="18" font-weight="bold" fill="#1976d2">PDAの基本構造</text>
     
     <!-- PDA Definition -->
     <rect x="60" y="120" width="220" height="160" fill="#ffffff" stroke="#1976d2" stroke-width="1" rx="4"/>
-    <text x="170" y="140" text-anchor="middle" font-family="Inter, Helvetica, sans-serif" font-size="12" font-weight="bold" fill="#1976d2">P = (Q, Σ, Γ, δ, q₀, Z₀, F)</text>
-    <text x="70" y="160" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">• Q: 状態集合</text>
-    <text x="70" y="175" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">• Σ: 入力アルファベット</text>
-    <text x="70" y="190" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">• Γ: スタックアルファベット</text>
-    <text x="70" y="205" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">• δ: Q×(Σ∪{ε})×Γ → P_finite(Q×Γ*)</text>
-    <text x="70" y="220" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">• q₀: 初期状態</text>
-    <text x="70" y="235" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">• Z₀: 初期スタック記号</text>
-    <text x="70" y="250" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">• F: 受理状態集合</text>
-    <text x="70" y="270" font-family="Inter, Helvetica, sans-serif" font-size="9" fill="#777">P_finiteは有限部分集合のみ</text>
+    <text x="170" y="140" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" font-weight="bold" fill="#1976d2">P = (Q, Σ, Γ, δ, q₀, Z₀, F)</text>
+    <text x="70" y="160" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">• Q: 状態集合</text>
+    <text x="70" y="175" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">• Σ: 入力アルファベット</text>
+    <text x="70" y="190" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">• Γ: スタックアルファベット</text>
+    <text x="70" y="205" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">• δ: Q×(Σ∪{ε})×Γ → P_finite(Q×Γ*)</text>
+    <text x="70" y="220" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">• q₀: 初期状態</text>
+    <text x="70" y="235" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">• Z₀: 初期スタック記号</text>
+    <text x="70" y="250" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">• F: 受理状態集合</text>
+    <text x="70" y="270" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="9" fill="#777">P_finiteは有限部分集合のみ</text>
     
     <!-- Components -->
     <rect x="290" y="120" width="150" height="160" fill="#ffffff" stroke="#1976d2" stroke-width="1" rx="4"/>
-    <text x="365" y="140" text-anchor="middle" font-family="Inter, Helvetica, sans-serif" font-size="12" font-weight="bold" fill="#1976d2">構成要素</text>
-    <text x="300" y="160" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">• 有限制御部(状態)</text>
-    <text x="310" y="175" font-family="Inter, Helvetica, sans-serif" font-size="9" fill="#777">現在の制御状態</text>
-    <text x="300" y="195" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">• 入力テープ(読み取り専用)</text>
-    <text x="310" y="210" font-family="Inter, Helvetica, sans-serif" font-size="9" fill="#777">左から右へ一方向</text>
-    <text x="300" y="230" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">• スタック(無限記憶域)</text>
-    <text x="310" y="245" font-family="Inter, Helvetica, sans-serif" font-size="9" fill="#777">LIFO構造</text>
-    <text x="310" y="260" font-family="Inter, Helvetica, sans-serif" font-size="9" fill="#777">無限の記憶容量</text>
+    <text x="365" y="140" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" font-weight="bold" fill="#1976d2">構成要素</text>
+    <text x="300" y="160" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">• 有限制御部(状態)</text>
+    <text x="310" y="175" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="9" fill="#777">現在の制御状態</text>
+    <text x="300" y="195" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">• 入力テープ(読み取り専用)</text>
+    <text x="310" y="210" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="9" fill="#777">左から右へ一方向</text>
+    <text x="300" y="230" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">• スタック(無限記憶域)</text>
+    <text x="310" y="245" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="9" fill="#777">LIFO構造</text>
+    <text x="310" y="260" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="9" fill="#777">無限の記憶容量</text>
     
     <!-- Stack Operations -->
     <rect x="450" y="120" width="140" height="160" fill="#ffffff" stroke="#1976d2" stroke-width="1" rx="4"/>
-    <text x="520" y="140" text-anchor="middle" font-family="Inter, Helvetica, sans-serif" font-size="12" font-weight="bold" fill="#1976d2">スタック操作</text>
-    <text x="460" y="160" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">• push: データを積む</text>
-    <text x="470" y="175" font-family="Inter, Helvetica, sans-serif" font-size="9" fill="#777">トップに新要素追加</text>
-    <text x="460" y="190" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">• pop: データを取り出す</text>
-    <text x="470" y="205" font-family="Inter, Helvetica, sans-serif" font-size="9" fill="#777">トップ要素を削除</text>
-    <text x="460" y="225" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">• LIFO原則</text>
-    <text x="470" y="240" font-family="Inter, Helvetica, sans-serif" font-size="9" fill="#777">Last In, First Out</text>
-    <text x="460" y="255" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">• 記憶の階層構造</text>
+    <text x="520" y="140" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" font-weight="bold" fill="#1976d2">スタック操作</text>
+    <text x="460" y="160" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">• push: データを積む</text>
+    <text x="470" y="175" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="9" fill="#777">トップに新要素追加</text>
+    <text x="460" y="190" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">• pop: データを取り出す</text>
+    <text x="470" y="205" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="9" fill="#777">トップ要素を削除</text>
+    <text x="460" y="225" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">• LIFO原則</text>
+    <text x="470" y="240" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="9" fill="#777">Last In, First Out</text>
+    <text x="460" y="255" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">• 記憶の階層構造</text>
   </g>
   
   <!-- Section 2: Visual PDA Structure -->
   <g id="visual-pda">
     <rect x="620" y="80" width="540" height="220" fill="#fff3e0" stroke="#f57c00" stroke-width="2" rx="8"/>
-    <text x="890" y="105" text-anchor="middle" font-family="Inter, Helvetica, sans-serif" font-size="18" font-weight="bold" fill="#f57c00">PDAの視覚的構造</text>
+    <text x="890" y="105" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="18" font-weight="bold" fill="#f57c00">PDAの視覚的構造</text>
     
     <!-- Input Tape -->
     <g id="input-tape">
-      <text x="650" y="135" font-family="Inter, Helvetica, sans-serif" font-size="12" font-weight="bold" fill="#333">入力テープ:</text>
+      <text x="650" y="135" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" font-weight="bold" fill="#333">入力テープ:</text>
       <rect x="740" y="120" width="25" height="20" fill="#e3f2fd" stroke="#1976d2" stroke-width="1"/>
-      <text x="752" y="133" text-anchor="middle" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#1976d2">a</text>
+      <text x="752" y="133" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#1976d2">a</text>
       <rect x="765" y="120" width="25" height="20" fill="#e3f2fd" stroke="#1976d2" stroke-width="1"/>
-      <text x="777" y="133" text-anchor="middle" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#1976d2">a</text>
+      <text x="777" y="133" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#1976d2">a</text>
       <rect x="790" y="120" width="25" height="20" fill="#ffcdd2" stroke="#d32f2f" stroke-width="2"/>
-      <text x="802" y="133" text-anchor="middle" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#d32f2f">b</text>
+      <text x="802" y="133" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#d32f2f">b</text>
       <rect x="815" y="120" width="25" height="20" fill="#e3f2fd" stroke="#1976d2" stroke-width="1"/>
-      <text x="827" y="133" text-anchor="middle" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#1976d2">b</text>
+      <text x="827" y="133" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#1976d2">b</text>
       
       <!-- Read head -->
       <polygon points="795,110 805,110 800,105" fill="#d32f2f"/>
-      <text x="800" y="102" text-anchor="middle" font-family="Inter, Helvetica, sans-serif" font-size="8" fill="#d32f2f">読取ヘッド</text>
+      <text x="800" y="102" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="8" fill="#d32f2f">読取ヘッド</text>
     </g>
     
     <!-- Finite Control -->
     <g id="finite-control">
-      <text x="650" y="170" font-family="Inter, Helvetica, sans-serif" font-size="12" font-weight="bold" fill="#333">有限制御部:</text>
+      <text x="650" y="170" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" font-weight="bold" fill="#333">有限制御部:</text>
       <circle cx="760" cy="180" r="25" fill="#ffffff" stroke="#f57c00" stroke-width="3"/>
-      <text x="760" y="185" text-anchor="middle" font-family="Inter, Helvetica, sans-serif" font-size="12" font-weight="bold" fill="#f57c00">q₁</text>
-      <text x="760" y="215" text-anchor="middle" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#777">現在状態</text>
+      <text x="760" y="185" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" font-weight="bold" fill="#f57c00">q₁</text>
+      <text x="760" y="215" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#777">現在状態</text>
     </g>
     
     <!-- Stack -->
     <g id="stack">
-      <text x="880" y="135" font-family="Inter, Helvetica, sans-serif" font-size="12" font-weight="bold" fill="#333">スタック:</text>
+      <text x="880" y="135" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" font-weight="bold" fill="#333">スタック:</text>
       
       <!-- Stack cells -->
       <rect x="950" y="145" width="30" height="20" fill="#c8e6c9" stroke="#388e3c" stroke-width="2"/>
-      <text x="965" y="158" text-anchor="middle" font-family="Inter, Helvetica, sans-serif" font-size="10" font-weight="bold" fill="#388e3c">A</text>
-      <text x="990" y="158" font-family="Inter, Helvetica, sans-serif" font-size="8" fill="#777">← トップ</text>
+      <text x="965" y="158" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" font-weight="bold" fill="#388e3c">A</text>
+      <text x="990" y="158" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="8" fill="#777">← トップ</text>
       
       <rect x="950" y="165" width="30" height="20" fill="#e8f5e8" stroke="#388e3c" stroke-width="1"/>
-      <text x="965" y="178" text-anchor="middle" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#388e3c">A</text>
+      <text x="965" y="178" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#388e3c">A</text>
       
       <rect x="950" y="185" width="30" height="20" fill="#e8f5e8" stroke="#388e3c" stroke-width="1"/>
-      <text x="965" y="198" text-anchor="middle" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#388e3c">Z₀</text>
+      <text x="965" y="198" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#388e3c">Z₀</text>
       
       <rect x="950" y="205" width="30" height="15" fill="#f5f5f5" stroke="#9e9e9e" stroke-width="1" stroke-dasharray="2,2"/>
-      <text x="965" y="214" text-anchor="middle" font-family="Inter, Helvetica, sans-serif" font-size="8" fill="#9e9e9e">...</text>
+      <text x="965" y="214" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="8" fill="#9e9e9e">...</text>
       
       <!-- Stack operations arrows -->
       <path d="M 920 150 L 945 155" fill="none" stroke="#4caf50" stroke-width="2" marker-end="url(#arrowhead-green)"/>
-      <text x="885" y="148" font-family="Inter, Helvetica, sans-serif" font-size="8" fill="#4caf50">push</text>
+      <text x="885" y="148" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="8" fill="#4caf50">push</text>
       
       <path d="M 945 175 L 920 180" fill="none" stroke="#f44336" stroke-width="2" marker-end="url(#arrowhead-red)"/>
-      <text x="885" y="183" font-family="Inter, Helvetica, sans-serif" font-size="8" fill="#f44336">pop</text>
+      <text x="885" y="183" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="8" fill="#f44336">pop</text>
     </g>
     
     <!-- Transition function illustration -->
     <g id="transition-example">
-      <text x="650" y="250" font-family="Inter, Helvetica, sans-serif" font-size="12" font-weight="bold" fill="#333">遷移例: δ(q₁, b, A) = {(q₂, ε)}</text>
-      <text x="650" y="270" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">状態q₁で入力bを読み、スタックトップAをポップして状態q₂へ</text>
-      <text x="650" y="285" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">（εはスタックに何もプッシュしないことを意味）</text>
+      <text x="650" y="250" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" font-weight="bold" fill="#333">遷移例: δ(q₁, b, A) = {(q₂, ε)}</text>
+      <text x="650" y="270" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">状態q₁で入力bを読み、スタックトップAをポップして状態q₂へ</text>
+      <text x="650" y="285" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">（εはスタックに何もプッシュしないことを意味）</text>
     </g>
   </g>
   
   <!-- Section 3: Instantaneous Description and Transitions -->
   <g id="id-transitions">
     <rect x="40" y="320" width="1120" height="180" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="2" rx="8"/>
-    <text x="600" y="345" text-anchor="middle" font-family="Inter, Helvetica, sans-serif" font-size="18" font-weight="bold" fill="#7b1fa2">瞬時記述と遷移</text>
+    <text x="600" y="345" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="18" font-weight="bold" fill="#7b1fa2">瞬時記述と遷移</text>
     
     <!-- ID Definition -->
     <rect x="60" y="360" width="200" height="120" fill="#ffffff" stroke="#7b1fa2" stroke-width="1" rx="4"/>
-    <text x="160" y="380" text-anchor="middle" font-family="Inter, Helvetica, sans-serif" font-size="12" font-weight="bold" fill="#7b1fa2">瞬時記述(ID)</text>
-    <text x="160" y="405" text-anchor="middle" font-family="Inter, Helvetica, sans-serif" font-size="12" fill="#333">(q, w, α) ∈ Q × Σ* × Γ*</text>
-    <text x="70" y="425" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">• q: 現在状態</text>
-    <text x="70" y="440" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">• w: 未読入力</text>
-    <text x="70" y="455" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">• α: スタック内容</text>
-    <text x="70" y="470" font-family="Inter, Helvetica, sans-serif" font-size="9" fill="#777">左端がトップ</text>
+    <text x="160" y="380" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" font-weight="bold" fill="#7b1fa2">瞬時記述(ID)</text>
+    <text x="160" y="405" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" fill="#333">(q, w, α) ∈ Q × Σ* × Γ*</text>
+    <text x="70" y="425" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">• q: 現在状態</text>
+    <text x="70" y="440" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">• w: 未読入力</text>
+    <text x="70" y="455" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">• α: スタック内容</text>
+    <text x="70" y="470" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="9" fill="#777">左端がトップ</text>
     
     <!-- Transition Relation -->
     <rect x="280" y="360" width="240" height="120" fill="#ffffff" stroke="#7b1fa2" stroke-width="1" rx="4"/>
-    <text x="400" y="380" text-anchor="middle" font-family="Inter, Helvetica, sans-serif" font-size="12" font-weight="bold" fill="#7b1fa2">遷移関係 ⊢</text>
-    <text x="400" y="405" text-anchor="middle" font-family="Inter, Helvetica, sans-serif" font-size="11" fill="#333">(q, aw, Zα) ⊢ (p, w, βα)</text>
-    <text x="400" y="425" text-anchor="middle" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">if (p, β) ∈ δ(q, a, Z)</text>
-    <text x="290" y="445" font-family="Inter, Helvetica, sans-serif" font-size="9" fill="#777">• Zをポップしてβをプッシュ</text>
-    <text x="290" y="460" font-family="Inter, Helvetica, sans-serif" font-size="9" fill="#777">• 入力aを消費</text>
-    <text x="290" y="470" font-family="Inter, Helvetica, sans-serif" font-size="9" fill="#777">• 状態qからpへ遷移</text>
+    <text x="400" y="380" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" font-weight="bold" fill="#7b1fa2">遷移関係 ⊢</text>
+    <text x="400" y="405" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="11" fill="#333">(q, aw, Zα) ⊢ (p, w, βα)</text>
+    <text x="400" y="425" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">if (p, β) ∈ δ(q, a, Z)</text>
+    <text x="290" y="445" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="9" fill="#777">• Zをポップしてβをプッシュ</text>
+    <text x="290" y="460" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="9" fill="#777">• 入力aを消費</text>
+    <text x="290" y="470" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="9" fill="#777">• 状態qからpへ遷移</text>
     
     <!-- Nondeterminism -->
     <rect x="540" y="360" width="200" height="120" fill="#ffffff" stroke="#7b1fa2" stroke-width="1" rx="4"/>
-    <text x="640" y="380" text-anchor="middle" font-family="Inter, Helvetica, sans-serif" font-size="12" font-weight="bold" fill="#7b1fa2">非決定性</text>
-    <text x="550" y="400" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">• 複数の選択肢可能</text>
-    <text x="550" y="415" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">• ε-遷移可能</text>
-    <text x="560" y="430" font-family="Inter, Helvetica, sans-serif" font-size="9" fill="#777">入力を消費せずに遷移</text>
-    <text x="550" y="445" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">• 推測による計算</text>
-    <text x="550" y="460" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">• 並行計算パス</text>
+    <text x="640" y="380" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" font-weight="bold" fill="#7b1fa2">非決定性</text>
+    <text x="550" y="400" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">• 複数の選択肢可能</text>
+    <text x="550" y="415" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">• ε-遷移可能</text>
+    <text x="560" y="430" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="9" fill="#777">入力を消費せずに遷移</text>
+    <text x="550" y="445" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">• 推測による計算</text>
+    <text x="550" y="460" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">• 並行計算パス</text>
     
     <!-- Example Computation -->
     <rect x="760" y="360" width="380" height="120" fill="#ffffff" stroke="#7b1fa2" stroke-width="1" rx="4"/>
-    <text x="950" y="380" text-anchor="middle" font-family="Inter, Helvetica, sans-serif" font-size="12" font-weight="bold" fill="#7b1fa2">計算例: {aⁿbⁿ | n ≥ 1}</text>
-    <text x="770" y="400" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">入力: aabb</text>
-    <text x="770" y="415" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">(q₀, aabb, Z₀) ⊢ (q₀, abb, AZ₀) ⊢ (q₀, bb, AAZ₀)</text>
-    <text x="770" y="430" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">⊢ (q₁, bb, AAZ₀) ⊢ (q₁, b, AZ₀) ⊢ (q₁, ε, Z₀)</text>
-    <text x="770" y="445" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">• aを読んでAをプッシュ</text>
-    <text x="770" y="460" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">• bを読んでAをポップ</text>
-    <text x="770" y="470" font-family="Inter, Helvetica, sans-serif" font-size="9" fill="#777">均等性をスタックで記憶</text>
+    <text x="950" y="380" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" font-weight="bold" fill="#7b1fa2">計算例: {aⁿbⁿ | n ≥ 1}</text>
+    <text x="770" y="400" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">入力: aabb</text>
+    <text x="770" y="415" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">(q₀, aabb, Z₀) ⊢ (q₀, abb, AZ₀) ⊢ (q₀, bb, AAZ₀)</text>
+    <text x="770" y="430" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">⊢ (q₁, bb, AAZ₀) ⊢ (q₁, b, AZ₀) ⊢ (q₁, ε, Z₀)</text>
+    <text x="770" y="445" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">• aを読んでAをプッシュ</text>
+    <text x="770" y="460" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">• bを読んでAをポップ</text>
+    <text x="770" y="470" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="9" fill="#777">均等性をスタックで記憶</text>
   </g>
   
   <!-- Section 4: Acceptance Methods -->
   <g id="acceptance-methods">
     <rect x="40" y="520" width="1120" height="180" fill="#e8f5e8" stroke="#388e3c" stroke-width="2" rx="8"/>
-    <text x="600" y="545" text-anchor="middle" font-family="Inter, Helvetica, sans-serif" font-size="18" font-weight="bold" fill="#388e3c">受理方式</text>
+    <text x="600" y="545" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="18" font-weight="bold" fill="#388e3c">受理方式</text>
     
     <!-- Final State Acceptance -->
     <rect x="60" y="560" width="350" height="120" fill="#ffffff" stroke="#388e3c" stroke-width="1" rx="4"/>
-    <text x="235" y="580" text-anchor="middle" font-family="Inter, Helvetica, sans-serif" font-size="12" font-weight="bold" fill="#388e3c">最終状態による受理</text>
-    <text x="235" y="605" text-anchor="middle" font-family="Inter, Helvetica, sans-serif" font-size="11" fill="#333">L(P) = {w | (q₀,w,Z₀) ⊢* (q,ε,α), q ∈ F}</text>
-    <text x="70" y="625" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">• 入力を全て読み終えた時に受理状態にいる</text>
-    <text x="70" y="640" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">• スタックの内容は問わない</text>
-    <text x="70" y="655" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">• F ≠ ∅ の場合に意味がある</text>
-    <text x="70" y="670" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">• 実装が直接的</text>
+    <text x="235" y="580" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" font-weight="bold" fill="#388e3c">最終状態による受理</text>
+    <text x="235" y="605" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="11" fill="#333">L(P) = {w | (q₀,w,Z₀) ⊢* (q,ε,α), q ∈ F}</text>
+    <text x="70" y="625" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">• 入力を全て読み終えた時に受理状態にいる</text>
+    <text x="70" y="640" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">• スタックの内容は問わない</text>
+    <text x="70" y="655" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">• F ≠ ∅ の場合に意味がある</text>
+    <text x="70" y="670" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">• 実装が直接的</text>
     
     <!-- Empty Stack Acceptance -->
     <rect x="430" y="560" width="350" height="120" fill="#ffffff" stroke="#388e3c" stroke-width="1" rx="4"/>
-    <text x="605" y="580" text-anchor="middle" font-family="Inter, Helvetica, sans-serif" font-size="12" font-weight="bold" fill="#388e3c">空スタックによる受理</text>
-    <text x="605" y="605" text-anchor="middle" font-family="Inter, Helvetica, sans-serif" font-size="11" fill="#333">N(P) = {w | (q₀,w,Z₀) ⊢* (q,ε,ε)}</text>
-    <text x="440" y="625" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">• 入力を全て読み終えた時にスタックが空</text>
-    <text x="440" y="640" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">• 状態は問わない</text>
-    <text x="440" y="655" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">• より自然な受理条件</text>
-    <text x="440" y="670" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">• CFGとの対応が明確</text>
+    <text x="605" y="580" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" font-weight="bold" fill="#388e3c">空スタックによる受理</text>
+    <text x="605" y="605" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="11" fill="#333">N(P) = {w | (q₀,w,Z₀) ⊢* (q,ε,ε)}</text>
+    <text x="440" y="625" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">• 入力を全て読み終えた時にスタックが空</text>
+    <text x="440" y="640" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">• 状態は問わない</text>
+    <text x="440" y="655" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">• より自然な受理条件</text>
+    <text x="440" y="670" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">• CFGとの対応が明確</text>
     
     <!-- Equivalence -->
     <rect x="800" y="560" width="340" height="120" fill="#ffffff" stroke="#388e3c" stroke-width="1" rx="4"/>
-    <text x="970" y="580" text-anchor="middle" font-family="Inter, Helvetica, sans-serif" font-size="12" font-weight="bold" fill="#388e3c">受理方式の等価性</text>
-    <text x="970" y="605" text-anchor="middle" font-family="Inter, Helvetica, sans-serif" font-size="12" font-weight="bold" fill="#333">最終状態受理 ≡ 空スタック受理</text>
-    <text x="810" y="625" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">相互変換アルゴリズムが存在</text>
-    <text x="810" y="640" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">• 最終状態→空スタック:</text>
-    <text x="820" y="655" font-family="Inter, Helvetica, sans-serif" font-size="9" fill="#777">受理状態からスタックを空にする遷移</text>
-    <text x="810" y="670" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">• 空スタック→最終状態:</text>
-    <text x="820" y="680" font-family="Inter, Helvetica, sans-serif" font-size="9" fill="#777">スタックが空になったら受理状態へ</text>
+    <text x="970" y="580" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" font-weight="bold" fill="#388e3c">受理方式の等価性</text>
+    <text x="970" y="605" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" font-weight="bold" fill="#333">最終状態受理 ≡ 空スタック受理</text>
+    <text x="810" y="625" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">相互変換アルゴリズムが存在</text>
+    <text x="810" y="640" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">• 最終状態→空スタック:</text>
+    <text x="820" y="655" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="9" fill="#777">受理状態からスタックを空にする遷移</text>
+    <text x="810" y="670" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">• 空スタック→最終状態:</text>
+    <text x="820" y="680" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="9" fill="#777">スタックが空になったら受理状態へ</text>
   </g>
   
   <!-- Section 5: CFG-PDA Equivalence -->
   <g id="cfg-pda-equivalence">
     <rect x="40" y="720" width="1120" height="140" fill="#fff8e1" stroke="#f9a825" stroke-width="2" rx="8"/>
-    <text x="600" y="745" text-anchor="middle" font-family="Inter, Helvetica, sans-serif" font-size="18" font-weight="bold" fill="#f9a825">CFGとPDAの等価性</text>
+    <text x="600" y="745" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="18" font-weight="bold" fill="#f9a825">CFGとPDAの等価性</text>
     
     <!-- Main Theorem -->
     <rect x="60" y="760" width="250" height="80" fill="#ffffff" stroke="#f9a825" stroke-width="1" rx="4"/>
-    <text x="185" y="780" text-anchor="middle" font-family="Inter, Helvetica, sans-serif" font-size="12" font-weight="bold" fill="#f9a825">基本定理</text>
-    <text x="185" y="805" text-anchor="middle" font-family="Inter, Helvetica, sans-serif" font-size="12" font-weight="bold" fill="#333">文脈自由言語 ≡ PDAで受理される言語</text>
-    <text x="70" y="825" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">この等価性により文脈自由言語の</text>
-    <text x="70" y="835" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">計算モデルが明確になる</text>
+    <text x="185" y="780" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" font-weight="bold" fill="#f9a825">基本定理</text>
+    <text x="185" y="805" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" font-weight="bold" fill="#333">文脈自由言語 ≡ PDAで受理される言語</text>
+    <text x="70" y="825" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">この等価性により文脈自由言語の</text>
+    <text x="70" y="835" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">計算モデルが明確になる</text>
     
     <!-- CFG to PDA -->
     <rect x="330" y="760" width="270" height="80" fill="#ffffff" stroke="#f9a825" stroke-width="1" rx="4"/>
-    <text x="465" y="780" text-anchor="middle" font-family="Inter, Helvetica, sans-serif" font-size="12" font-weight="bold" fill="#f9a825">CFG → PDA</text>
-    <text x="340" y="800" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">スタックで左導出をシミュレート:</text>
-    <text x="340" y="815" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">1. 初期記号をプッシュ</text>
-    <text x="340" y="825" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">2. 変数を生成規則で展開</text>
-    <text x="340" y="835" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">3. 終端記号をマッチング</text>
+    <text x="465" y="780" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" font-weight="bold" fill="#f9a825">CFG → PDA</text>
+    <text x="340" y="800" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">スタックで左導出をシミュレート:</text>
+    <text x="340" y="815" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">1. 初期記号をプッシュ</text>
+    <text x="340" y="825" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">2. 変数を生成規則で展開</text>
+    <text x="340" y="835" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">3. 終端記号をマッチング</text>
     
     <!-- PDA to CFG -->
     <rect x="620" y="760" width="250" height="80" fill="#ffffff" stroke="#f9a825" stroke-width="1" rx="4"/>
-    <text x="745" y="780" text-anchor="middle" font-family="Inter, Helvetica, sans-serif" font-size="12" font-weight="bold" fill="#f9a825">PDA → CFG</text>
-    <text x="630" y="800" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">変数[q,A,p]で表現:</text>
-    <text x="630" y="815" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">• 状態qでスタックトップAから</text>
-    <text x="630" y="825" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">• 状態pでAを除去する過程</text>
-    <text x="630" y="835" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">• 系統的な変換手順</text>
+    <text x="745" y="780" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" font-weight="bold" fill="#f9a825">PDA → CFG</text>
+    <text x="630" y="800" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">変数[q,A,p]で表現:</text>
+    <text x="630" y="815" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">• 状態qでスタックトップAから</text>
+    <text x="630" y="825" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">• 状態pでAを除去する過程</text>
+    <text x="630" y="835" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">• 系統的な変換手順</text>
     
     <!-- Practical Implications -->
     <rect x="890" y="760" width="250" height="80" fill="#ffffff" stroke="#f9a825" stroke-width="1" rx="4"/>
-    <text x="1015" y="780" text-anchor="middle" font-family="Inter, Helvetica, sans-serif" font-size="12" font-weight="bold" fill="#f9a825">実用的意義</text>
-    <text x="900" y="800" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">• 構文解析アルゴリズムの基礎</text>
-    <text x="900" y="815" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">• コンパイラ設計の理論的裏付け</text>
-    <text x="900" y="825" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">• プログラミング言語の処理</text>
-    <text x="900" y="835" font-family="Inter, Helvetica, sans-serif" font-size="10" fill="#555">• XMLパーサなどへの応用</text>
+    <text x="1015" y="780" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" font-weight="bold" fill="#f9a825">実用的意義</text>
+    <text x="900" y="800" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">• 構文解析アルゴリズムの基礎</text>
+    <text x="900" y="815" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">• コンパイラ設計の理論的裏付け</text>
+    <text x="900" y="825" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">• プログラミング言語の処理</text>
+    <text x="900" y="835" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">• XMLパーサなどへの応用</text>
   </g>
   
   <!-- Arrow markers -->

@@ -11,7 +11,7 @@
       .connection { stroke: #666; stroke-width: 2px; stroke-dasharray: 6,3; fill: none; }
       
       .title { 
-        font-family: Inter, Helvetica, sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
         font-size: 18px; 
         font-weight: 600; 
         text-anchor: middle; 
@@ -19,7 +19,7 @@
       }
       
       .subtitle { 
-        font-family: Inter, Helvetica, sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
         font-size: 14px; 
         font-weight: 600; 
         text-anchor: middle; 
@@ -27,7 +27,7 @@
       }
       
       .tape-symbol { 
-        font-family: Courier, monospace;
+        font-family: "Monaco", "Menlo", "Ubuntu Mono", "Consolas", "source-code-pro", monospace;
         font-size: 16px; 
         font-weight: 600; 
         text-anchor: middle; 
@@ -36,7 +36,7 @@
       }
       
       .state-text { 
-        font-family: Courier, monospace;
+        font-family: "Monaco", "Menlo", "Ubuntu Mono", "Consolas", "source-code-pro", monospace;
         font-size: 14px; 
         font-weight: 600; 
         text-anchor: middle; 
@@ -45,7 +45,7 @@
       }
       
       .description { 
-        font-family: Inter, Helvetica, sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
         font-size: 11px; 
         font-weight: 400; 
         text-anchor: start; 
@@ -53,7 +53,7 @@
       }
       
       .component-label { 
-        font-family: Inter, Helvetica, sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
         font-size: 12px; 
         font-weight: 600; 
         text-anchor: middle; 

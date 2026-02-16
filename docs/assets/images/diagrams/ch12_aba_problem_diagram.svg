@@ -4,7 +4,7 @@
   <desc id="desc">CAS操作で参照中の値がA→B→Aと変化して検出できない問題の概念図。Hazard PointersやEpochベースの再利用抑止を示唆。</desc>
   <defs>
     <style>
-      .label { fill: #111; font-family: Inter, Helvetica, Arial, sans-serif; font-size: 12px; }
+      .label { fill: #111; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif; font-size: 12px; }
       .panel { fill: #f8f9fa; stroke: #dee2e6; }
       .box { fill: #fff; stroke: #495057; stroke-width: 1.6; rx: 4px; }
       .arrow { stroke: #212529; stroke-width: 1.6; marker-end: url(#m); fill: none; }
