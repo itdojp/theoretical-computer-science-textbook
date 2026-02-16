@@ -63,6 +63,9 @@
 
         currentResults = results.slice(0, 10);
         activeIndex = -1;
+        if (searchInput) {
+            searchInput.removeAttribute('aria-activedescendant');
+        }
         
         if (results.length === 0) {
             searchResults.innerHTML = `
@@ -77,7 +80,7 @@
                 const highlightedSnippet = highlightText(snippet, query);
                 
                 return `
-                    <div class="search-result-item" role="option" tabindex="-1" aria-selected="false" data-id="${result.id}" data-index="${idx}">
+                    <div class="search-result-item" id="${result.id}" role="option" tabindex="-1" aria-selected="false" data-id="${result.id}" data-index="${idx}">
                         <div class="search-result-title">${highlightedTitle}</div>
                         <div class="search-result-snippet">${highlightedSnippet}</div>
                     </div>
@@ -85,7 +88,7 @@
             }).join('');
             
             searchResults.innerHTML = `
-                <div class="search-results-list" role="listbox" aria-label="Search results">
+                <div class="search-results-list" id="search-results-listbox" role="listbox" aria-label="Search results">
                     ${resultsHtml}
                 </div>
                 ${results.length > 10 ? `<div class="search-more">他 ${results.length - 10} 件の結果</div>` : ''}
@@ -113,6 +116,9 @@
         const el = items[activeIndex];
         el.classList.add('active');
         el.setAttribute('aria-selected', 'true');
+        if (searchInput && el.id) {
+            searchInput.setAttribute('aria-activedescendant', el.id);
+        }
         // Keep the active option visible in the scrollable list.
         try { el.scrollIntoView({ block: 'nearest' }); } catch (_) {}
     }
@@ -122,7 +128,9 @@
         if (!result || !result.element) return;
 
         hideResults();
-        searchInput.value = '';
+        if (searchInput) {
+            searchInput.value = '';
+        }
         result.element.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
         // Highlight the element temporarily
@@ -158,12 +166,20 @@
         if (searchResults) {
             searchResults.classList.add('active');
         }
+        if (searchInput) {
+            searchInput.setAttribute('aria-expanded', 'true');
+        }
     }
     
     // Hide search results
     function hideResults() {
         if (searchResults) {
             searchResults.classList.remove('active');
+        }
+        activeIndex = -1;
+        if (searchInput) {
+            searchInput.setAttribute('aria-expanded', 'false');
+            searchInput.removeAttribute('aria-activedescendant');
         }
     }
     
@@ -193,6 +209,13 @@
         initElements();
         
         if (!searchInput || !searchResults) return;
+
+        // Basic combobox/listbox ARIA wiring for keyboard + screen reader users.
+        searchInput.setAttribute('role', 'combobox');
+        searchInput.setAttribute('aria-autocomplete', 'list');
+        searchInput.setAttribute('aria-haspopup', 'listbox');
+        searchInput.setAttribute('aria-controls', 'search-results-listbox');
+        searchInput.setAttribute('aria-expanded', 'false');
         
         // Build initial search index
         buildSearchIndex();

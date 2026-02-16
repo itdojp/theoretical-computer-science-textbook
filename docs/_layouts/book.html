@@ -215,6 +215,7 @@
             var sidebar = document.getElementById('sidebar');
             var skip = document.querySelector('.skip-link');
             var main = document.getElementById('main');
+            var returnFocus = null;
 
             if (cb) cb.checked = false;
 
@@ -227,6 +228,15 @@
                     } catch (_) {
                         try { main.focus(); } catch (_) {}
                     }
+
+                    // Remove the temporary tabindex after focus moves away from the main region.
+                    var removeTabindex = function() {
+                        if (main.getAttribute('tabindex') === '-1') {
+                            main.removeAttribute('tabindex');
+                        }
+                        main.removeEventListener('blur', removeTabindex);
+                    };
+                    main.addEventListener('blur', removeTabindex);
                 });
             }
 
@@ -276,7 +286,7 @@
                         last.focus();
                     }
                 } else {
-                    if (active === last) {
+                    if (active === last || !sidebar.contains(active)) {
                         e.preventDefault();
                         first.focus();
                     }
@@ -287,9 +297,21 @@
             cb.addEventListener('change', function() {
                 sync();
                 if (cb.checked) {
+                    returnFocus = document.activeElement;
+                    if (!returnFocus || typeof returnFocus.focus !== 'function') {
+                        returnFocus = toggle;
+                    }
                     if (isMobile()) setTimeout(focusFirstInSidebar, 0);
                 } else {
-                    try { toggle.focus(); } catch (_) {}
+                    var target = returnFocus;
+                    if (!target || typeof target.focus !== 'function') {
+                        target = toggle;
+                    }
+                    if (sidebar && target && sidebar.contains(target)) {
+                        target = toggle;
+                    }
+                    try { target.focus(); } catch (_) {}
+                    returnFocus = null;
                 }
             });
 
@@ -310,7 +332,6 @@
                 if (e.key === 'Escape' && cb.checked) {
                     cb.checked = false;
                     cb.dispatchEvent(new Event('change', { bubbles: true }));
-                    try { toggle.focus(); } catch (_) {}
                 }
             });
 
