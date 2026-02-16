@@ -126,7 +126,7 @@
         {% endif %}
 
         <div class="external-links">
-            {% if repo_url %}
+            {% if repo_url and site.show_github_links != false %}
             <a href="{{ repo_url }}" target="_blank" rel="noopener" class="external-link">GitHub</a>
             {% endif %}
             {% if site.contact.email %}
@@ -135,4 +135,3 @@
         </div>
     </div>
 </div>
-

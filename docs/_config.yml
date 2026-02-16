@@ -43,9 +43,10 @@ kramdown:
 repository: "itdojp/theoretical-computer-science-textbook"
 
 # 公開サイト向けリンク制御
-# NOTE: このリポジトリは Private のため、公開サイト上で GitHub リンクを出すと 404 になる。
-show_github_links: false
-show_edit_link: false
+# NOTE: 公開サイトに GitHub リンク / "Edit this page" を表示する場合は true にする。
+#       リポジトリが private の場合など、公開したくない場合は false にする。
+show_github_links: true
+show_edit_link: true
 
 # "Edit this page" の生成に必要な情報
 repository_branch: "main"
