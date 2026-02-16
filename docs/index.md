@@ -14,10 +14,10 @@ permalink: /
 
 ## はじめに
 
-- [導入](introduction/index.md)
-  - [本書の目的と構成](introduction/purpose.md)
-  - [学習の進め方](introduction/learning-guide.md)
-  - [前提知識](introduction/prerequisites.md)
+- [導入](introduction/)
+  - [本書の目的と構成](introduction/purpose/)
+  - [学習の進め方](introduction/learning-guide/)
+  - [前提知識](introduction/prerequisites/)
 
 ## 学習成果
 
@@ -55,44 +55,44 @@ permalink: /
 
 ### Part I: 数学的基礎（第1〜3章）
 
-- [第1章 数学的基礎](chapter-1/index.md)
-- [第2章 計算理論の基礎](chapter-2/index.md)
-- [第3章 形式言語とオートマトン理論](chapter-3/index.md)
+- [第1章 数学的基礎](chapter-1/)
+- [第2章 計算理論の基礎](chapter-2/)
+- [第3章 形式言語とオートマトン理論](chapter-3/)
 
 ### Part II: 計算理論（第4〜6章）
 
-- [第4章 計算可能性](chapter-4/index.md)
-- [第5章 計算複雑性理論](chapter-5/index.md)
-- [第6章 アルゴリズムの数学的解析](chapter-6/index.md)
+- [第4章 計算可能性](chapter-4/)
+- [第5章 計算複雑性理論](chapter-5/)
+- [第6章 アルゴリズムの数学的解析](chapter-6/)
 
 ### Part III: 高度なトピック（第7〜9章）
 
-- [第7章 データ構造の理論](chapter-7/index.md)
-- [第8章 グラフ理論とネットワーク](chapter-8/index.md)
-- [第9章 論理学・形式的手法](chapter-9/index.md)
+- [第7章 データ構造の理論](chapter-7/)
+- [第8章 グラフ理論とネットワーク](chapter-8/)
+- [第9章 論理学・形式的手法](chapter-9/)
 
 ### Part IV: 応用理論（第10〜12章）
 
-- [第10章 情報理論](chapter-10/index.md)
-- [第11章 暗号理論の数学的基礎](chapter-11/index.md)
-- [第12章 並行計算の理論](chapter-12/index.md)
+- [第10章 情報理論](chapter-10/)
+- [第11章 暗号理論の数学的基礎](chapter-11/)
+- [第12章 並行計算の理論](chapter-12/)
 
 ## 付録
 
-- [付録](appendices/index.md)
-  - [付録A: 数学記法ガイド](appendices/a.md)
-  - [付録B: アルゴリズム実装例](appendices/b.md)
-  - [付録C: 練習問題解答](appendices/c.md)
-  - [付録D: 用語集・索引](appendices/d.md)
-  - [付録E: 実世界への応用例](appendices/e.md)
-  - [付録F: 学習進捗チェックリスト](appendices/f.md)
+- [付録](appendices/)
+  - [付録A: 数学記法ガイド](appendices/a/)
+  - [付録B: アルゴリズム実装例](appendices/b/)
+  - [付録C: 練習問題解答](appendices/c/)
+  - [付録D: 用語集・索引](appendices/d/)
+  - [付録E: 実世界への応用例](appendices/e/)
+  - [付録F: 学習進捗チェックリスト](appendices/f/)
 
 ## その他
 
-- [あとがき](afterword/index.md)
-- [更新履歴（CHANGELOG）](changelog/index.md)
-- [オフライン版（PDF/EPUB）](downloads/index.md)
-- [フィードバック（誤植・改善提案）](introduction/feedback.md)
+- [あとがき](afterword/)
+- [更新履歴（CHANGELOG）](changelog/)
+- [オフライン版（PDF/EPUB）](downloads/)
+- [フィードバック（誤植・改善提案）](introduction/feedback/)
 
 ---
 
