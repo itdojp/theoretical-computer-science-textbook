@@ -17,11 +17,137 @@
         searchInput = document.getElementById('search-input');
         searchResults = document.getElementById('search-results');
     }
+
+    function getSiteBasePath() {
+        // Prefer deriving baseurl from the script tag src (works for GitHub Pages project sites).
+        // Example: /<repo>/assets/js/search.js -> baseurl: /<repo>
+        try {
+            const suffix = '/assets/js/search.js';
+            const scripts = document.getElementsByTagName('script');
+            for (let i = 0; i < scripts.length; i++) {
+                const src = scripts[i].getAttribute('src') || '';
+                if (!src) continue;
+                if (!src.endsWith(suffix)) continue;
+                const u = new URL(src, window.location.href);
+                const p = u.pathname || '';
+                if (p.endsWith(suffix)) {
+                    return p.slice(0, -suffix.length);
+                }
+            }
+        } catch (_) {}
+
+        // Fallback: use empty string so root-level deployments work correctly.
+        // If you need a different baseurl, ensure the script tag src includes it.
+        return '';
+    }
+
+    async function fetchWithTimeout(url, options, timeoutMs) {
+        if (!timeoutMs || timeoutMs <= 0) {
+            return await fetch(url, options);
+        }
+
+        // Prefer AbortController when available to avoid hanging fetches.
+        if (typeof AbortController === 'function') {
+            const controller = new AbortController();
+            const timer = setTimeout(function() {
+                controller.abort();
+            }, timeoutMs);
+
+            try {
+                const finalOptions = Object.assign({}, options || {}, { signal: controller.signal });
+                const response = await fetch(url, finalOptions);
+                clearTimeout(timer);
+                return response;
+            } catch (err) {
+                clearTimeout(timer);
+                throw err;
+            }
+        }
+
+        // Fallback for older browsers: race with a timer (cannot abort the underlying request).
+        return await new Promise(function(resolve, reject) {
+            const timer = setTimeout(function() {
+                reject(new Error('fetch timeout'));
+            }, timeoutMs);
+
+            fetch(url, options).then(
+                function(response) {
+                    clearTimeout(timer);
+                    resolve(response);
+                },
+                function(err) {
+                    clearTimeout(timer);
+                    reject(err);
+                }
+            );
+        });
+    }
+
+    async function loadSearchData() {
+        const bases = [];
+        bases.push(getSiteBasePath());
+        bases.push('');
+        // Best-effort fallback for unusual deployments where the script-derived baseurl isn't available.
+        try {
+            const seg = window.location.pathname.split('/').filter(Boolean)[0];
+            if (seg) bases.push('/' + seg);
+        } catch (_) {}
+
+        // Dedupe while preserving order.
+        const candidateBases = [];
+        for (let i = 0; i < bases.length; i++) {
+            if (candidateBases.indexOf(bases[i]) !== -1) continue;
+            candidateBases.push(bases[i]);
+        }
+
+        let lastError;
+        for (let i = 0; i < candidateBases.length; i++) {
+            const base = candidateBases[i];
+            const url = `${base}/assets/search-data.json`;
+
+            try {
+                const res = await fetchWithTimeout(url, { credentials: 'same-origin' }, 8000);
+                if (!res.ok) {
+                    lastError = new Error(`failed to fetch search-data.json (${url}): ${res.status}`);
+                    continue;
+                }
+                const data = await res.json();
+                if (!data || !Array.isArray(data.items)) {
+                    lastError = new Error(`invalid search-data.json schema (${url})`);
+                    continue;
+                }
+
+                // Page-level index (title + excerpt).
+                searchIndex = data.items
+                    .map((item, idx) => {
+                        if (!item || typeof item !== 'object') return null;
+                        const title = typeof item.title === 'string' ? item.title.trim() : '';
+                        const content = typeof item.excerpt === 'string' ? item.excerpt.trim() : '';
+                        const pageUrl = typeof item.url === 'string' ? item.url.trim() : '';
+                        if (!title || !pageUrl) return null;
+                        return {
+                            id: `search-page-${idx}`,
+                            title,
+                            content,
+                            url: pageUrl,
+                            type: 'page'
+                        };
+                    })
+                    .filter(Boolean);
+                return;
+            } catch (err) {
+                lastError = err;
+            }
+        }
+
+        throw lastError || new Error('failed to load search-data.json');
+    }
     
     // Build search index from page content
     function buildSearchIndex() {
-        // In a real implementation, this would be generated at build time
-        // For now, we'll create a simple index from current page
+        searchIndex = [];
+        // Fallback: when build-time generated search-data.json cannot be loaded via loadSearchData(),
+        // build a simple index from the current page content instead.
         const content = document.querySelector('.page-content');
         if (!content) return;
         
@@ -123,14 +249,53 @@
         try { el.scrollIntoView({ block: 'nearest' }); } catch (_) {}
     }
 
+    function getSafeNavigationHref(rawUrl) {
+        if (!rawUrl || typeof rawUrl !== 'string') return null;
+
+        try {
+            const origin =
+                window.location.origin ||
+                (window.location.protocol + '//' + window.location.host);
+            const basePath = getSiteBasePath();
+            const baseHref = origin + basePath + '/';
+            const parsedUrl = new URL(rawUrl, baseHref);
+
+            const protocol = parsedUrl.protocol;
+            if (protocol !== 'http:' && protocol !== 'https:') return null;
+            if (parsedUrl.origin !== origin) return null;
+
+            // If a baseurl is detected, restrict navigation to within it.
+            if (basePath) {
+                const pathname = parsedUrl.pathname || '';
+                if (!(pathname === basePath || pathname.startsWith(basePath + '/'))) return null;
+            }
+
+            return parsedUrl.href;
+        } catch (_) {
+            return null;
+        }
+    }
+
     function selectResultById(id) {
-        const result = searchIndex.find(item => item.id === id);
-        if (!result || !result.element) return;
+        // Prefer the currently displayed results to avoid race conditions while the index is updating.
+        const result = (currentResults && currentResults.find(item => item.id === id)) ||
+            searchIndex.find(item => item.id === id);
+        if (!result) return;
 
         hideResults();
         if (searchInput) {
             searchInput.value = '';
         }
+
+        if (result.url) {
+            const safeHref = getSafeNavigationHref(result.url);
+            if (safeHref) {
+                window.location.href = safeHref;
+                return;
+            }
+        }
+
+        if (!result.element) return;
         result.element.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
         // Highlight the element temporarily
@@ -219,6 +384,23 @@
         
         // Build initial search index
         buildSearchIndex();
+
+        // Prefer a build-time generated index (whole site). Fallback to in-page index.
+        // This keeps the search usable even if fetch fails (offline, 404, etc.).
+        loadSearchData()
+            .then(() => {
+                const q = searchInput.value.trim();
+                const isNavigating =
+                    searchResults &&
+                    searchResults.classList.contains('active') &&
+                    activeIndex >= 0;
+                if (q && q.length >= 2 && !isNavigating) performSearch(q);
+            })
+            .catch((error) => {
+                if (typeof console !== 'undefined' && typeof console.warn === 'function') {
+                    console.warn('Search: failed to load search data', error);
+                }
+            });
         
         // Search input handler
         searchInput.addEventListener('input', (e) => {
