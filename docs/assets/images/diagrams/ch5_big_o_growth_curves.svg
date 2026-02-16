@@ -7,8 +7,8 @@
     <style>
       .axis { stroke: #222; stroke-width: 1.5; }
       .grid { stroke: #ddd; stroke-width: 1; }
-      .label { fill: #111; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif; font-size: 12px; }
-      .legend { fill: #111; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif; font-size: 12px; }
+      .label { fill: #111; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; font-size: 12px; }
+      .legend { fill: #111; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; font-size: 12px; }
       .c1 { stroke: #2b8a3e; stroke-width: 2.5; fill: none; }
       .c2 { stroke: #1c7ed6; stroke-width: 2.5; fill: none; }
       .c3 { stroke: #f08c00; stroke-width: 2.5; fill: none; }

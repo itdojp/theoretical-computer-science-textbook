@@ -4,7 +4,7 @@
   <desc id="desc">左に最終状態受理（受理状態への到達）、右に空スタック受理（スタックが空になる）の模式図。</desc>
   <defs>
     <style>
-      .label { fill: #111; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif; font-size: 12px; }
+      .label { fill: #111; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; font-size: 12px; }
       .panel { fill: #f8f9fa; stroke: #dee2e6; }
       .state { fill: #fff; stroke: #495057; stroke-width: 1.6; }
       .accept { fill: #e6fcf5; stroke: #12b886; }

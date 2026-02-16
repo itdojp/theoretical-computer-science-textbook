@@ -4,7 +4,7 @@
   <desc id="desc">入力列に対し、PDA がスタックにプッシュ/ポップして括弧の整合を確認する様子を段階的に示す模式図。</desc>
   <defs>
     <style>
-      .label { fill: #111; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif; font-size: 12px; }
+      .label { fill: #111; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; font-size: 12px; }
       .box { fill: #f8f9fa; stroke: #adb5bd; stroke-width: 1.5; }
       .state { fill: #fff; stroke: #495057; stroke-width: 1.5; }
       .accept { fill: #e6fcf5; }

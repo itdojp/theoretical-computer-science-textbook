@@ -4,7 +4,7 @@
   <desc id="desc">相互排他・占有待ち・不可奪取・循環待ちの4条件と、簡単な資源割当グラフの例示。</desc>
   <defs>
     <style>
-      .label { fill: #111; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif; font-size: 12px; }
+      .label { fill: #111; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; font-size: 12px; }
       .panel { fill: #f8f9fa; stroke: #dee2e6; }
       .box { fill: #fff; stroke: #495057; stroke-width: 1.6; rx: 4px; }
       .edge { stroke: #495057; stroke-width: 1.6; marker-end: url(#m); fill: none; }

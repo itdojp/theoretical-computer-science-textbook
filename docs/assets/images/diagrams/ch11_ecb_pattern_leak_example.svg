@@ -4,7 +4,7 @@
   <desc id="desc">同一平文ブロックが同一暗号文ブロックになるため、画像の模様がそのまま暗号文に残る様子の模式図。</desc>
   <defs>
     <style>
-      .label { fill: #111; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif; font-size: 12px; }
+      .label { fill: #111; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; font-size: 12px; }
       .panel { fill: #f8f9fa; stroke: #dee2e6; }
       .grid { fill: none; stroke: #ced4da; stroke-width: 1; }
       .blk { fill: #adb5bd; }

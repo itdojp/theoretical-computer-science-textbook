@@ -7,7 +7,7 @@
   <rect width="1000" height="700" fill="#f8f9fa"/>
   
   <!-- Title -->
-  <text x="500" y="30" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="22" font-weight="bold" fill="#1a1a1a">形式言語の基本概念</text>
+  <text x="500" y="30" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="22" font-weight="bold" fill="#1a1a1a">形式言語の基本概念</text>
   
   <!-- Main Container -->
   <rect x="20" y="50" width="960" height="630" fill="none" stroke="#e1e5e9" stroke-width="2" rx="10"/>
@@ -15,140 +15,140 @@
   <!-- Section 1: 言語の構成要素 -->
   <g id="language-components">
     <rect x="40" y="80" width="280" height="180" fill="#e3f2fd" stroke="#1976d2" stroke-width="2" rx="8"/>
-    <text x="180" y="105" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="16" font-weight="bold" fill="#1976d2">言語の構成要素</text>
+    <text x="180" y="105" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="16" font-weight="bold" fill="#1976d2">言語の構成要素</text>
     
     <!-- Alphabet -->
     <rect x="50" y="120" width="80" height="60" fill="#ffffff" stroke="#1976d2" stroke-width="1" rx="4"/>
-    <text x="90" y="140" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" font-weight="bold" fill="#1976d2">アルファベット Σ</text>
-    <text x="90" y="152" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">記号の有限集合</text>
-    <text x="90" y="162" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">例: {0,1}, {a,b,c}</text>
-    <text x="90" y="172" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">{漢字}</text>
+    <text x="90" y="140" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="12" font-weight="bold" fill="#1976d2">アルファベット Σ</text>
+    <text x="90" y="152" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">記号の有限集合</text>
+    <text x="90" y="162" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">例: {0,1}, {a,b,c}</text>
+    <text x="90" y="172" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">{漢字}</text>
     
     <!-- String -->
     <rect x="140" y="120" width="80" height="60" fill="#ffffff" stroke="#ff9800" stroke-width="1" rx="4"/>
-    <text x="180" y="140" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" font-weight="bold" fill="#ff9800">文字列 w</text>
-    <text x="180" y="152" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">記号の有限列</text>
-    <text x="180" y="162" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">長さ |w|</text>
-    <text x="180" y="172" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">空文字列 ε</text>
+    <text x="180" y="140" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="12" font-weight="bold" fill="#ff9800">文字列 w</text>
+    <text x="180" y="152" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">記号の有限列</text>
+    <text x="180" y="162" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">長さ |w|</text>
+    <text x="180" y="172" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">空文字列 ε</text>
     
     <!-- Language -->
     <rect x="230" y="120" width="80" height="60" fill="#ffffff" stroke="#4caf50" stroke-width="1" rx="4"/>
-    <text x="270" y="140" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" font-weight="bold" fill="#4caf50">言語 L</text>
-    <text x="270" y="152" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">文字列の集合</text>
-    <text x="270" y="162" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">L ⊆ Σ*</text>
-    <text x="270" y="172" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">無限集合も可能</text>
+    <text x="270" y="140" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="12" font-weight="bold" fill="#4caf50">言語 L</text>
+    <text x="270" y="152" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">文字列の集合</text>
+    <text x="270" y="162" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">L ⊆ Σ*</text>
+    <text x="270" y="172" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">無限集合も可能</text>
   </g>
   
   <!-- Section 2: 文字列の演算 -->
   <g id="string-operations">
     <rect x="340" y="80" width="300" height="180" fill="#fff3e0" stroke="#f57c00" stroke-width="2" rx="8"/>
-    <text x="490" y="105" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="16" font-weight="bold" fill="#f57c00">文字列の演算</text>
+    <text x="490" y="105" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="16" font-weight="bold" fill="#f57c00">文字列の演算</text>
     
     <!-- Concatenation -->
     <rect x="350" y="120" width="85" height="60" fill="#ffffff" stroke="#f57c00" stroke-width="1" rx="4"/>
-    <text x="392" y="135" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" font-weight="bold" fill="#f57c00">連結 xy</text>
-    <text x="392" y="147" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="9" fill="#555">x の後に y を続ける</text>
-    <text x="392" y="157" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="9" fill="#555">|xy| = |x| + |y|</text>
-    <text x="392" y="167" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="9" fill="#555">単位元: ε</text>
+    <text x="392" y="135" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="12" font-weight="bold" fill="#f57c00">連結 xy</text>
+    <text x="392" y="147" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="9" fill="#555">x の後に y を続ける</text>
+    <text x="392" y="157" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="9" fill="#555">|xy| = |x| + |y|</text>
+    <text x="392" y="167" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="9" fill="#555">単位元: ε</text>
     
     <!-- Power -->
     <rect x="445" y="120" width="85" height="60" fill="#ffffff" stroke="#f57c00" stroke-width="1" rx="4"/>
-    <text x="487" y="135" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" font-weight="bold" fill="#f57c00">べき乗 w<tspan dy="-3" font-size="9">n</tspan></text>
-    <text x="487" y="147" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="9" fill="#555">w<tspan dy="-3" font-size="7">0</tspan><tspan dy="3"> = ε</tspan></text>
-    <text x="487" y="157" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="9" fill="#555">w<tspan dy="-3" font-size="7">n+1</tspan><tspan dy="3"> = w</tspan><tspan dy="-3" font-size="7">n</tspan><tspan dy="3"> w</tspan></text>
-    <text x="487" y="167" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="9" fill="#555">例: abc<tspan dy="-3" font-size="7">3</tspan><tspan dy="3"> = abcabcabc</tspan></text>
+    <text x="487" y="135" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="12" font-weight="bold" fill="#f57c00">べき乗 w<tspan dy="-3" font-size="9">n</tspan></text>
+    <text x="487" y="147" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="9" fill="#555">w<tspan dy="-3" font-size="7">0</tspan><tspan dy="3"> = ε</tspan></text>
+    <text x="487" y="157" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="9" fill="#555">w<tspan dy="-3" font-size="7">n+1</tspan><tspan dy="3"> = w</tspan><tspan dy="-3" font-size="7">n</tspan><tspan dy="3"> w</tspan></text>
+    <text x="487" y="167" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="9" fill="#555">例: abc<tspan dy="-3" font-size="7">3</tspan><tspan dy="3"> = abcabcabc</tspan></text>
     
     <!-- Reverse -->
     <rect x="540" y="120" width="85" height="60" fill="#ffffff" stroke="#f57c00" stroke-width="1" rx="4"/>
-    <text x="582" y="135" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" font-weight="bold" fill="#f57c00">逆転 w<tspan dy="-3" font-size="9">R</tspan></text>
-    <text x="582" y="147" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="9" fill="#555">w = a<tspan dy="3" font-size="7">1</tspan><tspan dy="-3">a</tspan><tspan dy="3" font-size="7">2</tspan><tspan dy="-3">...a</tspan><tspan dy="3" font-size="7">n</tspan></text>
-    <text x="582" y="157" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="9" fill="#555">w<tspan dy="-3" font-size="7">R</tspan><tspan dy="3"> = a</tspan><tspan dy="3" font-size="7">n</tspan><tspan dy="-3">...a</tspan><tspan dy="3" font-size="7">2</tspan><tspan dy="-3">a</tspan><tspan dy="3" font-size="7">1</tspan></text>
-    <text x="582" y="167" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="9" fill="#555">例: abc<tspan dy="-3" font-size="7">R</tspan><tspan dy="3"> = cba</tspan></text>
+    <text x="582" y="135" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="12" font-weight="bold" fill="#f57c00">逆転 w<tspan dy="-3" font-size="9">R</tspan></text>
+    <text x="582" y="147" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="9" fill="#555">w = a<tspan dy="3" font-size="7">1</tspan><tspan dy="-3">a</tspan><tspan dy="3" font-size="7">2</tspan><tspan dy="-3">...a</tspan><tspan dy="3" font-size="7">n</tspan></text>
+    <text x="582" y="157" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="9" fill="#555">w<tspan dy="-3" font-size="7">R</tspan><tspan dy="3"> = a</tspan><tspan dy="3" font-size="7">n</tspan><tspan dy="-3">...a</tspan><tspan dy="3" font-size="7">2</tspan><tspan dy="-3">a</tspan><tspan dy="3" font-size="7">1</tspan></text>
+    <text x="582" y="167" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="9" fill="#555">例: abc<tspan dy="-3" font-size="7">R</tspan><tspan dy="3"> = cba</tspan></text>
   </g>
   
   <!-- Section 3: 言語の演算 -->
   <g id="language-operations">
     <rect x="660" y="80" width="300" height="180" fill="#e8f5e8" stroke="#388e3c" stroke-width="2" rx="8"/>
-    <text x="810" y="105" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="16" font-weight="bold" fill="#388e3c">言語の演算</text>
+    <text x="810" y="105" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="16" font-weight="bold" fill="#388e3c">言語の演算</text>
     
     <!-- Union -->
     <rect x="670" y="120" width="70" height="60" fill="#ffffff" stroke="#388e3c" stroke-width="1" rx="4"/>
-    <text x="705" y="135" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" font-weight="bold" fill="#388e3c">L<tspan dy="3" font-size="9">1</tspan><tspan dy="-3"> ∪ L</tspan><tspan dy="3" font-size="9">2</tspan></text>
-    <text x="705" y="147" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="9" fill="#555">和集合</text>
-    <text x="705" y="157" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="9" fill="#555">「または」</text>
+    <text x="705" y="135" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="12" font-weight="bold" fill="#388e3c">L<tspan dy="3" font-size="9">1</tspan><tspan dy="-3"> ∪ L</tspan><tspan dy="3" font-size="9">2</tspan></text>
+    <text x="705" y="147" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="9" fill="#555">和集合</text>
+    <text x="705" y="157" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="9" fill="#555">「または」</text>
     
     <!-- Concatenation -->
     <rect x="750" y="120" width="70" height="60" fill="#ffffff" stroke="#388e3c" stroke-width="1" rx="4"/>
-    <text x="785" y="135" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" font-weight="bold" fill="#388e3c">L<tspan dy="3" font-size="9">1</tspan><tspan dy="-3"> L</tspan><tspan dy="3" font-size="9">2</tspan></text>
-    <text x="785" y="147" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="9" fill="#555">連結</text>
-    <text x="785" y="157" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="9" fill="#555">{xy | x ∈ L<tspan dy="3" font-size="7">1</tspan><tspan dy="-3">, y ∈ L</tspan><tspan dy="3" font-size="7">2</tspan><tspan dy="-3">}</tspan></text>
+    <text x="785" y="135" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="12" font-weight="bold" fill="#388e3c">L<tspan dy="3" font-size="9">1</tspan><tspan dy="-3"> L</tspan><tspan dy="3" font-size="9">2</tspan></text>
+    <text x="785" y="147" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="9" fill="#555">連結</text>
+    <text x="785" y="157" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="9" fill="#555">{xy | x ∈ L<tspan dy="3" font-size="7">1</tspan><tspan dy="-3">, y ∈ L</tspan><tspan dy="3" font-size="7">2</tspan><tspan dy="-3">}</tspan></text>
     
     <!-- Kleene Closure -->
     <rect x="830" y="120" width="70" height="60" fill="#ffffff" stroke="#9c27b0" stroke-width="1" rx="4"/>
-    <text x="865" y="135" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" font-weight="bold" fill="#9c27b0">L*</text>
-    <text x="865" y="147" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="9" fill="#555">クリーネ閉包</text>
-    <text x="865" y="157" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="9" fill="#555">0回以上の連結</text>
-    <text x="865" y="167" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="9" fill="#555">L* = ⋃<tspan dy="3" font-size="7">n</tspan><tspan dy="-3"> L</tspan><tspan dy="-3" font-size="7">n</tspan></text>
+    <text x="865" y="135" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="12" font-weight="bold" fill="#9c27b0">L*</text>
+    <text x="865" y="147" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="9" fill="#555">クリーネ閉包</text>
+    <text x="865" y="157" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="9" fill="#555">0回以上の連結</text>
+    <text x="865" y="167" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="9" fill="#555">L* = ⋃<tspan dy="3" font-size="7">n</tspan><tspan dy="-3"> L</tspan><tspan dy="-3" font-size="7">n</tspan></text>
     
     <!-- Positive Closure -->
     <rect x="910" y="120" width="40" height="60" fill="#ffffff" stroke="#9c27b0" stroke-width="1" rx="4"/>
-    <text x="930" y="135" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" font-weight="bold" fill="#9c27b0">L<tspan dy="-3" font-size="9">+</tspan></text>
-    <text x="930" y="147" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="9" fill="#555">正閉包</text>
-    <text x="930" y="157" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="9" fill="#555">1回以上</text>
-    <text x="930" y="167" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="9" fill="#555">の連結</text>
+    <text x="930" y="135" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="12" font-weight="bold" fill="#9c27b0">L<tspan dy="-3" font-size="9">+</tspan></text>
+    <text x="930" y="147" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="9" fill="#555">正閉包</text>
+    <text x="930" y="157" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="9" fill="#555">1回以上</text>
+    <text x="930" y="167" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="9" fill="#555">の連結</text>
   </g>
   
   <!-- Section 4: Example -->
   <g id="example">
     <rect x="40" y="290" width="920" height="140" fill="#ffe0b2" stroke="#f57c00" stroke-width="2" rx="8"/>
-    <text x="500" y="315" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="16" font-weight="bold" fill="#f57c00">例: L = {0, 11}</text>
+    <text x="500" y="315" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="16" font-weight="bold" fill="#f57c00">例: L = {0, 11}</text>
     
-    <text x="80" y="340" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="14" font-weight="bold" fill="#333">演算例:</text>
+    <text x="80" y="340" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="14" font-weight="bold" fill="#333">演算例:</text>
     
-    <text x="80" y="365" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" fill="#555">L<tspan dy="-3" font-size="10">2</tspan><tspan dy="3"> = {00, 011, 110, 1111}</tspan></text>
+    <text x="80" y="365" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="12" fill="#555">L<tspan dy="-3" font-size="10">2</tspan><tspan dy="3"> = {00, 011, 110, 1111}</tspan></text>
     
-    <text x="80" y="385" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" fill="#555">L* = {ε, 0, 11, 00, 011, 110, 1111, 000, 0011, 0110, ...}</text>
+    <text x="80" y="385" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="12" fill="#555">L* = {ε, 0, 11, 00, 011, 110, 1111, 000, 0011, 0110, ...}</text>
     
-    <text x="80" y="405" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" fill="#555">L<tspan dy="-3" font-size="10">+</tspan><tspan dy="3"> = {0, 11, 00, 011, 110, 1111, 000, 0011, 0110, ...}</tspan></text>
+    <text x="80" y="405" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="12" fill="#555">L<tspan dy="-3" font-size="10">+</tspan><tspan dy="3"> = {0, 11, 00, 011, 110, 1111, 000, 0011, 0110, ...}</tspan></text>
   </g>
   
   <!-- Key Mathematical Properties -->
   <g id="properties">
     <rect x="40" y="450" width="920" height="220" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="2" rx="8"/>
-    <text x="500" y="475" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="16" font-weight="bold" fill="#7b1fa2">重要な性質</text>
+    <text x="500" y="475" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="16" font-weight="bold" fill="#7b1fa2">重要な性質</text>
     
     <!-- Concatenation Properties -->
     <g id="concat-properties">
-      <text x="80" y="505" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="14" font-weight="bold" fill="#333">連結の性質:</text>
-      <text x="100" y="525" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" fill="#555">• 結合的: (xy)z = x(yz)</text>
-      <text x="100" y="540" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" fill="#555">• 単位元: xε = εx = x</text>
-      <text x="100" y="555" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" fill="#555">• 非可換: xy ≠ yx (一般に)</text>
+      <text x="80" y="505" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="14" font-weight="bold" fill="#333">連結の性質:</text>
+      <text x="100" y="525" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="12" fill="#555">• 結合的: (xy)z = x(yz)</text>
+      <text x="100" y="540" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="12" fill="#555">• 単位元: xε = εx = x</text>
+      <text x="100" y="555" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="12" fill="#555">• 非可換: xy ≠ yx (一般に)</text>
     </g>
     
     <!-- Closure Properties -->
     <g id="closure-properties">
-      <text x="400" y="505" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="14" font-weight="bold" fill="#333">閉包の性質:</text>
-      <text x="420" y="525" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" fill="#555">• L<tspan dy="-3" font-size="10">0</tspan><tspan dy="3"> = {ε}</tspan></text>
-      <text x="420" y="540" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" fill="#555">• L<tspan dy="-3" font-size="10">+</tspan><tspan dy="3"> = LL*</tspan></text>
-      <text x="420" y="555" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" fill="#555">• L* = L<tspan dy="-3" font-size="10">+</tspan><tspan dy="3"> ∪ {ε}</tspan></text>
+      <text x="400" y="505" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="14" font-weight="bold" fill="#333">閉包の性質:</text>
+      <text x="420" y="525" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="12" fill="#555">• L<tspan dy="-3" font-size="10">0</tspan><tspan dy="3"> = {ε}</tspan></text>
+      <text x="420" y="540" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="12" fill="#555">• L<tspan dy="-3" font-size="10">+</tspan><tspan dy="3"> = LL*</tspan></text>
+      <text x="420" y="555" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="12" fill="#555">• L* = L<tspan dy="-3" font-size="10">+</tspan><tspan dy="3"> ∪ {ε}</tspan></text>
     </g>
     
     <!-- Alphabet Relations -->
     <g id="alphabet-relations">
-      <text x="80" y="590" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="14" font-weight="bold" fill="#333">アルファベットと集合の関係:</text>
-      <text x="100" y="610" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" fill="#555">• Σ<tspan dy="-3" font-size="10">*</tspan><tspan dy="3">: Σ上のすべての文字列の集合</tspan></text>
-      <text x="100" y="625" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" fill="#555">• Σ<tspan dy="-3" font-size="10">+</tspan><tspan dy="3">: Σ上の空でない文字列の集合</tspan></text>
-      <text x="100" y="640" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" fill="#555">• Σ<tspan dy="-3" font-size="10">n</tspan><tspan dy="3">: 長さnの文字列の集合</tspan></text>
-      <text x="100" y="655" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" fill="#555">• |Σ<tspan dy="-3" font-size="10">n</tspan><tspan dy="3">| = |Σ|</tspan><tspan dy="-3" font-size="10">n</tspan></text>
+      <text x="80" y="590" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="14" font-weight="bold" fill="#333">アルファベットと集合の関係:</text>
+      <text x="100" y="610" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="12" fill="#555">• Σ<tspan dy="-3" font-size="10">*</tspan><tspan dy="3">: Σ上のすべての文字列の集合</tspan></text>
+      <text x="100" y="625" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="12" fill="#555">• Σ<tspan dy="-3" font-size="10">+</tspan><tspan dy="3">: Σ上の空でない文字列の集合</tspan></text>
+      <text x="100" y="640" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="12" fill="#555">• Σ<tspan dy="-3" font-size="10">n</tspan><tspan dy="3">: 長さnの文字列の集合</tspan></text>
+      <text x="100" y="655" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="12" fill="#555">• |Σ<tspan dy="-3" font-size="10">n</tspan><tspan dy="3">| = |Σ|</tspan><tspan dy="-3" font-size="10">n</tspan></text>
     </g>
     
     <!-- Language Operations Properties -->
     <g id="language-ops-properties">
-      <text x="500" y="590" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="14" font-weight="bold" fill="#333">言語演算の性質:</text>
-      <text x="520" y="610" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" fill="#555">• 和集合、積集合は可換、結合的</text>
-      <text x="520" y="625" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" fill="#555">• 分配法則: L<tspan dy="3" font-size="10">1</tspan><tspan dy="-3">(L</tspan><tspan dy="3" font-size="10">2</tspan><tspan dy="-3"> ∪ L</tspan><tspan dy="3" font-size="10">3</tspan><tspan dy="-3">) = L</tspan><tspan dy="3" font-size="10">1</tspan><tspan dy="-3">L</tspan><tspan dy="3" font-size="10">2</tspan><tspan dy="-3"> ∪ L</tspan><tspan dy="3" font-size="10">1</tspan><tspan dy="-3">L</tspan><tspan dy="3" font-size="10">3</tspan></text>
-      <text x="520" y="640" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" fill="#555">• De Morganの法則: (L<tspan dy="3" font-size="10">1</tspan><tspan dy="-3"> ∪ L</tspan><tspan dy="3" font-size="10">2</tspan><tspan dy="-3">)ᶜ = L</tspan><tspan dy="3" font-size="10">1</tspan><tspan dy="-3">ᶜ ∩ L</tspan><tspan dy="3" font-size="10">2</tspan><tspan dy="-3">ᶜ</tspan></text>
-      <text x="520" y="655" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" fill="#555">• 吸収法則: L ∪ ∅ = L, L ∩ Σ* = L</text>
+      <text x="500" y="590" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="14" font-weight="bold" fill="#333">言語演算の性質:</text>
+      <text x="520" y="610" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="12" fill="#555">• 和集合、積集合は可換、結合的</text>
+      <text x="520" y="625" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="12" fill="#555">• 分配法則: L<tspan dy="3" font-size="10">1</tspan><tspan dy="-3">(L</tspan><tspan dy="3" font-size="10">2</tspan><tspan dy="-3"> ∪ L</tspan><tspan dy="3" font-size="10">3</tspan><tspan dy="-3">) = L</tspan><tspan dy="3" font-size="10">1</tspan><tspan dy="-3">L</tspan><tspan dy="3" font-size="10">2</tspan><tspan dy="-3"> ∪ L</tspan><tspan dy="3" font-size="10">1</tspan><tspan dy="-3">L</tspan><tspan dy="3" font-size="10">3</tspan></text>
+      <text x="520" y="640" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="12" fill="#555">• De Morganの法則: (L<tspan dy="3" font-size="10">1</tspan><tspan dy="-3"> ∪ L</tspan><tspan dy="3" font-size="10">2</tspan><tspan dy="-3">)ᶜ = L</tspan><tspan dy="3" font-size="10">1</tspan><tspan dy="-3">ᶜ ∩ L</tspan><tspan dy="3" font-size="10">2</tspan><tspan dy="-3">ᶜ</tspan></text>
+      <text x="520" y="655" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="12" fill="#555">• 吸収法則: L ∪ ∅ = L, L ∩ Σ* = L</text>
     </g>
   </g>
 </svg>
