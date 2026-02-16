@@ -65,6 +65,7 @@
     </script>
 </head>
 <body>
+    <a class="skip-link" href="#main">本文へスキップ</a>
     {% assign repo_url = site.github.repository_url | default: site.repository_url | default: site.repository.github | default: site.repository %}
     {% if repo_url and repo_url != '' %}
         {% unless repo_url contains 'http' %}
@@ -208,33 +209,112 @@
     <script defer src="{{ '/assets/js/theme.js' | relative_url }}"></script>
     <script defer src="{{ '/assets/js/search.js' | relative_url }}"></script>
     <script>
-        // Reset sidebar checkbox on page load to prevent stuck open state
-        document.addEventListener('DOMContentLoaded', function() {
-            var cb = document.getElementById('sidebar-toggle-checkbox');
-            if (cb) cb.checked = false;
-        });
-    </script>
-
-    <script>
-        // Reset sidebar checkbox and ensure keyboard toggle works for label
         document.addEventListener('DOMContentLoaded', function() {
             var cb = document.getElementById('sidebar-toggle-checkbox');
             var toggle = document.querySelector('.sidebar-toggle');
+            var sidebar = document.getElementById('sidebar');
+            var skip = document.querySelector('.skip-link');
+            var main = document.getElementById('main');
+
             if (cb) cb.checked = false;
-            if (cb && toggle) {
-                var sync = function() {
-                    toggle.setAttribute('aria-expanded', cb.checked ? 'true' : 'false');
-                };
-                sync();
-                cb.addEventListener('change', sync);
-                toggle.addEventListener('keydown', function(e) {
-                    if (e.key === ' ' || e.key === 'Enter') {
-                        e.preventDefault();
-                        cb.checked = !cb.checked;
-                        cb.dispatchEvent(new Event('change', { bubbles: true }));
+
+            // Make the skip link move focus into the main region for keyboard users.
+            if (skip && main) {
+                skip.addEventListener('click', function() {
+                    try {
+                        main.setAttribute('tabindex', '-1');
+                        main.focus({ preventScroll: true });
+                    } catch (_) {
+                        try { main.focus(); } catch (_) {}
                     }
                 });
             }
+
+            if (!cb || !toggle) return;
+
+            var isMobile = function() {
+                try {
+                    return typeof matchMedia === 'function' && matchMedia('(max-width: 1024px)').matches;
+                } catch (_) {
+                    return false;
+                }
+            };
+
+            var sync = function() {
+                toggle.setAttribute('aria-expanded', cb.checked ? 'true' : 'false');
+            };
+
+            var getSidebarFocusable = function() {
+                if (!sidebar) return [];
+                return sidebar.querySelectorAll(
+                    'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex=\"-1\"])'
+                );
+            };
+
+            var focusFirstInSidebar = function() {
+                var focusable = getSidebarFocusable();
+                if (focusable && focusable.length) focusable[0].focus();
+            };
+
+            // Keep focus inside the sidebar while it is open on mobile (basic focus trap).
+            var trapTabKey = function(e) {
+                if (e.key !== 'Tab') return;
+                if (!cb.checked) return;
+                if (!isMobile()) return;
+                if (!sidebar) return;
+
+                var focusable = getSidebarFocusable();
+                if (!focusable || !focusable.length) return;
+
+                var first = focusable[0];
+                var last = focusable[focusable.length - 1];
+                var active = document.activeElement;
+
+                if (e.shiftKey) {
+                    if (active === first || !sidebar.contains(active)) {
+                        e.preventDefault();
+                        last.focus();
+                    }
+                } else {
+                    if (active === last) {
+                        e.preventDefault();
+                        first.focus();
+                    }
+                }
+            };
+
+            sync();
+            cb.addEventListener('change', function() {
+                sync();
+                if (cb.checked) {
+                    if (isMobile()) setTimeout(focusFirstInSidebar, 0);
+                } else {
+                    try { toggle.focus(); } catch (_) {}
+                }
+            });
+
+            toggle.addEventListener('keydown', function(e) {
+                if (e.key === ' ' || e.key === 'Enter') {
+                    e.preventDefault();
+                    cb.checked = !cb.checked;
+                    cb.dispatchEvent(new Event('change', { bubbles: true }));
+                } else if (e.key === 'Escape') {
+                    if (cb.checked) {
+                        cb.checked = false;
+                        cb.dispatchEvent(new Event('change', { bubbles: true }));
+                    }
+                }
+            });
+
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && cb.checked) {
+                    cb.checked = false;
+                    cb.dispatchEvent(new Event('change', { bubbles: true }));
+                    try { toggle.focus(); } catch (_) {}
+                }
+            });
+
+            document.addEventListener('keydown', trapTabKey);
         });
     </script>
 
