@@ -8,6 +8,8 @@
     let searchInput;
     let searchResults;
     let searchIndex = [];
+    let currentResults = [];
+    let activeIndex = -1;
     let searchTimeout;
     
     // Initialize elements
@@ -58,6 +60,12 @@
     // Display search results
     function displayResults(results, query) {
         if (!searchResults) return;
+
+        currentResults = results.slice(0, 10);
+        activeIndex = -1;
+        if (searchInput) {
+            searchInput.removeAttribute('aria-activedescendant');
+        }
         
         if (results.length === 0) {
             searchResults.innerHTML = `
@@ -66,13 +74,13 @@
                 </div>
             `;
         } else {
-            const resultsHtml = results.slice(0, 10).map(result => {
+            const resultsHtml = currentResults.map((result, idx) => {
                 const highlightedTitle = highlightText(result.title, query);
                 const snippet = getSnippet(result.content, query);
                 const highlightedSnippet = highlightText(snippet, query);
                 
                 return `
-                    <div class="search-result-item" data-id="${result.id}">
+                    <div class="search-result-item" id="${result.id}" role="option" tabindex="-1" aria-selected="false" data-id="${result.id}" data-index="${idx}">
                         <div class="search-result-title">${highlightedTitle}</div>
                         <div class="search-result-snippet">${highlightedSnippet}</div>
                     </div>
@@ -80,7 +88,7 @@
             }).join('');
             
             searchResults.innerHTML = `
-                <div class="search-results-list">
+                <div class="search-results-list" id="search-results-listbox" role="listbox" aria-label="Search results">
                     ${resultsHtml}
                 </div>
                 ${results.length > 10 ? `<div class="search-more">他 ${results.length - 10} 件の結果</div>` : ''}
@@ -88,6 +96,48 @@
         }
         
         showResults();
+    }
+
+    function setActiveIndex(next) {
+        if (!searchResults) return;
+        const items = searchResults.querySelectorAll('.search-result-item');
+        if (!items || items.length === 0) return;
+
+        // Normalize index
+        if (next < 0) next = items.length - 1;
+        if (next >= items.length) next = 0;
+
+        if (activeIndex >= 0 && activeIndex < items.length) {
+            items[activeIndex].classList.remove('active');
+            items[activeIndex].setAttribute('aria-selected', 'false');
+        }
+
+        activeIndex = next;
+        const el = items[activeIndex];
+        el.classList.add('active');
+        el.setAttribute('aria-selected', 'true');
+        if (searchInput && el.id) {
+            searchInput.setAttribute('aria-activedescendant', el.id);
+        }
+        // Keep the active option visible in the scrollable list.
+        try { el.scrollIntoView({ block: 'nearest' }); } catch (_) {}
+    }
+
+    function selectResultById(id) {
+        const result = searchIndex.find(item => item.id === id);
+        if (!result || !result.element) return;
+
+        hideResults();
+        if (searchInput) {
+            searchInput.value = '';
+        }
+        result.element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+        // Highlight the element temporarily
+        result.element.classList.add('search-highlight');
+        setTimeout(() => {
+            result.element.classList.remove('search-highlight');
+        }, 2000);
     }
     
     // Get snippet around query
@@ -116,12 +166,20 @@
         if (searchResults) {
             searchResults.classList.add('active');
         }
+        if (searchInput) {
+            searchInput.setAttribute('aria-expanded', 'true');
+        }
     }
     
     // Hide search results
     function hideResults() {
         if (searchResults) {
             searchResults.classList.remove('active');
+        }
+        activeIndex = -1;
+        if (searchInput) {
+            searchInput.setAttribute('aria-expanded', 'false');
+            searchInput.removeAttribute('aria-activedescendant');
         }
     }
     
@@ -131,19 +189,7 @@
         if (!resultItem) return;
         
         const id = resultItem.dataset.id;
-        const result = searchIndex.find(item => item.id === id);
-        
-        if (result && result.element) {
-            hideResults();
-            searchInput.value = '';
-            result.element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            
-            // Highlight the element temporarily
-            result.element.classList.add('search-highlight');
-            setTimeout(() => {
-                result.element.classList.remove('search-highlight');
-            }, 2000);
-        }
+        selectResultById(id);
     }
     
     // Escape HTML
@@ -163,6 +209,13 @@
         initElements();
         
         if (!searchInput || !searchResults) return;
+
+        // Basic combobox/listbox ARIA wiring for keyboard + screen reader users.
+        searchInput.setAttribute('role', 'combobox');
+        searchInput.setAttribute('aria-autocomplete', 'list');
+        searchInput.setAttribute('aria-haspopup', 'listbox');
+        searchInput.setAttribute('aria-controls', 'search-results-listbox');
+        searchInput.setAttribute('aria-expanded', 'false');
         
         // Build initial search index
         buildSearchIndex();
@@ -197,6 +250,32 @@
             if (e.key === 'Escape') {
                 hideResults();
                 searchInput.blur();
+                return;
+            }
+
+            if (!searchResults || !searchResults.classList.contains('active')) return;
+
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                setActiveIndex(activeIndex + 1);
+                return;
+            }
+
+            if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                setActiveIndex(activeIndex - 1);
+                return;
+            }
+
+            if (e.key === 'Enter') {
+                if (activeIndex < 0) return;
+                const items = searchResults.querySelectorAll('.search-result-item');
+                if (!items || !items.length || activeIndex >= items.length) return;
+                const id = items[activeIndex].dataset.id;
+                if (id) {
+                    e.preventDefault();
+                    selectResultById(id);
+                }
             }
         });
     }
@@ -218,6 +297,10 @@
         
         .search-result-item:hover {
             background: var(--bg-secondary);
+        }
+
+        .search-result-item.active {
+            background: var(--bg-tertiary);
         }
         
         .search-result-item:last-child {
