@@ -1,6 +1,20 @@
 {
   "version": "0.2",
-  "language": "en,ja",
+  "language": "en",
+  "dictionaryDefinitions": [
+    {
+      "name": "project-words",
+      "path": "./cspell-words.txt",
+      "addWords": true
+    }
+  ],
+  "ignoreRegExpList": [
+    "/[\\u3040-\\u30FF\\u31F0-\\u31FF\\u3400-\\u9FFF\\uF900-\\uFAFF\\uFF66-\\uFF9F]+/g",
+    "/\\$[^$]*\\$/g",
+    "/\\\\\\[[\\s\\S]*?\\\\\\]/g",
+    "/\\\\\\([\\s\\S]*?\\\\\\)/g",
+    "/\\\\[A-Za-z]+/g"
+  ],
   "words": [
     "ITDO",
     "itdojp",
@@ -51,6 +65,10 @@
     "*.min.css"
   ],
   "dictionaries": [
+    "project-words",
+    "python",
+    "python-common",
+    "latex",
     "typescript",
     "node",
     "software-terms",
