@@ -25,7 +25,7 @@
       }
       
       .title { 
-        font-family: Inter, Helvetica, sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
         font-size: 18px; 
         font-weight: 600; 
         text-anchor: middle; 
@@ -33,7 +33,7 @@
       }
       
       .section-title { 
-        font-family: Inter, Helvetica, sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
         font-size: 14px; 
         font-weight: 600; 
         text-anchor: middle; 
@@ -41,7 +41,7 @@
       }
       
       .class-name { 
-        font-family: Inter, Helvetica, sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
         font-size: 12px; 
         font-weight: 600; 
         text-anchor: middle; 
@@ -49,7 +49,7 @@
       }
       
       .class-notation { 
-        font-family: Courier, monospace;
+        font-family: "Monaco", "Menlo", "Ubuntu Mono", "Consolas", "source-code-pro", monospace;
         font-size: 10px; 
         font-weight: 500; 
         text-anchor: middle; 
@@ -57,7 +57,7 @@
       }
       
       .description { 
-        font-family: Inter, Helvetica, sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
         font-size: 10px; 
         font-weight: 400; 
         text-anchor: start; 
@@ -65,7 +65,7 @@
       }
       
       .inclusion-text { 
-        font-family: Courier, monospace;
+        font-family: "Monaco", "Menlo", "Ubuntu Mono", "Consolas", "source-code-pro", monospace;
         font-size: 11px; 
         font-weight: 500; 
         text-anchor: start; 

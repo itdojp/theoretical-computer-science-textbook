@@ -5,10 +5,10 @@
     <style>
       .grid { stroke: #adb5bd; stroke-width: 1; fill: none; }
       .tcell { fill: #f8f9fa; stroke: #dee2e6; }
-      .label { font-family: Inter, Helvetica, sans-serif; font-size: 12px; fill: #333; }
-      .title { font-family: Inter, Helvetica, sans-serif; font-size: 18px; font-weight: 600; fill: #1a1a1a; text-anchor: middle; }
-      .section { font-family: Inter, Helvetica, sans-serif; font-size: 14px; font-weight: 600; fill: #2c3e50; }
-      .note { font-family: Inter, Helvetica, sans-serif; font-size: 11px; fill: #555; }
+      .label { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif; font-size: 12px; fill: #333; }
+      .title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif; font-size: 18px; font-weight: 600; fill: #1a1a1a; text-anchor: middle; }
+      .section { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif; font-size: 14px; font-weight: 600; fill: #2c3e50; }
+      .note { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif; font-size: 11px; fill: #555; }
       .cnf { fill: #fff3e0; stroke: #ff9800; stroke-width: 2; rx: 8; }
       .ok { fill: #e8f5e9; stroke: #4caf50; stroke-width: 2; rx: 6; }
       .bad { fill: #ffebee; stroke: #d32f2f; stroke-width: 2; rx: 6; }

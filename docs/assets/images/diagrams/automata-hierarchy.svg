@@ -9,7 +9,7 @@
       .language-title { font-family: 'Noto Sans JP', sans-serif; font-size: 12px; font-weight: bold; fill: #2c3e50; }
       .text-content { font-family: 'Noto Sans JP', sans-serif; font-size: 11px; fill: #2c3e50; }
       .small-text { font-family: 'Noto Sans JP', sans-serif; font-size: 10px; fill: #7f8c8d; }
-      .example-text { font-family: 'Courier New', monospace; font-size: 10px; fill: #2c3e50; }
+      .example-text { font-family: "Monaco", "Menlo", "Ubuntu Mono", "Consolas", "source-code-pro", monospace; font-size: 10px; fill: #2c3e50; }
       .dfa-box { fill: #2ecc71; stroke: #27ae60; stroke-width: 2; }
       .nfa-box { fill: #3498db; stroke: #2980b9; stroke-width: 2; }
       .pda-box { fill: #f39c12; stroke: #e67e22; stroke-width: 2; }

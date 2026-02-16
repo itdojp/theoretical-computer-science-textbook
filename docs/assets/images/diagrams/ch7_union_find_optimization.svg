@@ -15,7 +15,7 @@
       .compression-arrow { stroke: #4caf50; stroke-width: 3px; fill: none; marker-end: url(#compression-arrowhead); }
       
       .title { 
-        font-family: Inter, Helvetica, sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
         font-size: 18px; 
         font-weight: 600; 
         text-anchor: middle; 
@@ -23,7 +23,7 @@
       }
       
       .section-title { 
-        font-family: Inter, Helvetica, sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
         font-size: 14px; 
         font-weight: 600; 
         text-anchor: middle; 
@@ -31,7 +31,7 @@
       }
       
       .node-label { 
-        font-family: Inter, Helvetica, sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
         font-size: 12px; 
         font-weight: 600; 
         text-anchor: middle; 
@@ -40,7 +40,7 @@
       }
       
       .rank-label { 
-        font-family: Courier, monospace;
+        font-family: "Monaco", "Menlo", "Ubuntu Mono", "Consolas", "source-code-pro", monospace;
         font-size: 9px; 
         font-weight: 500; 
         text-anchor: middle; 
@@ -48,7 +48,7 @@
       }
       
       .description { 
-        font-family: Inter, Helvetica, sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
         font-size: 10px; 
         font-weight: 400; 
         text-anchor: start; 
@@ -56,7 +56,7 @@
       }
       
       .problem-text { 
-        font-family: Inter, Helvetica, sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
         font-size: 10px; 
         font-weight: 400; 
         text-anchor: start; 
@@ -64,7 +64,7 @@
       }
       
       .benefit-text { 
-        font-family: Inter, Helvetica, sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
         font-size: 10px; 
         font-weight: 400; 
         text-anchor: start; 
@@ -72,7 +72,7 @@
       }
       
       .complexity-text { 
-        font-family: Courier, monospace;
+        font-family: "Monaco", "Menlo", "Ubuntu Mono", "Consolas", "source-code-pro", monospace;
         font-size: 11px; 
         font-weight: 500; 
         text-anchor: start; 

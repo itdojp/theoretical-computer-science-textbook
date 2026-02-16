@@ -4,7 +4,7 @@
   <desc id="desc">2スレッドの操作列と同期イベント（ロック/アンロック）による可視性の順序付け（HB）を示す図。</desc>
   <defs>
     <style>
-      .label { fill: #111; font-family: Inter, Helvetica, Arial, sans-serif; font-size: 12px; }
+      .label { fill: #111; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif; font-size: 12px; }
       .thread { stroke: #868e96; stroke-width: 2; }
       .event { fill: #fff; stroke: #495057; stroke-width: 1.6; rx: 4px; }
       .sync { fill: #e7f5ff; stroke: #228be6; }

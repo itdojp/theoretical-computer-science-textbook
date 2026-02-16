@@ -4,7 +4,7 @@
   <desc id="desc">始点sから他頂点への最短距離を段階的に確定する様子。確定集合Sとフロンティアの更新を模式的に示す。</desc>
   <defs>
     <style>
-      .label { fill: #111; font-family: Inter, Helvetica, Arial, sans-serif; font-size: 12px; }
+      .label { fill: #111; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif; font-size: 12px; }
       .node { fill: #fff; stroke: #495057; stroke-width: 2; }
       .fixed { fill: #e6fcf5; }
       .frontier { fill: #fff3bf; }

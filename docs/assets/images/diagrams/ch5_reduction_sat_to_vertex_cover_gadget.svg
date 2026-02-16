@@ -4,7 +4,7 @@
   <desc id="desc">変数ガジェット（x_i と ¬x_i を結ぶ辺）と節ガジェット（節頂点から各リテラル頂点への辺）を示す最小例。</desc>
   <defs>
     <style>
-      .label { fill: #111; font-family: Inter, Helvetica, Arial, sans-serif; font-size: 12px; }
+      .label { fill: #111; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif; font-size: 12px; }
       .node { fill: #fff; stroke: #495057; stroke-width: 1.8; }
       .edge { stroke: #868e96; stroke-width: 1.6; }
       .var { fill: #e7f5ff; stroke: #228be6; }

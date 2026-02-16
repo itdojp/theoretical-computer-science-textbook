@@ -9,11 +9,11 @@
       .problem-box { 
         rx: 4px; 
         ry: 4px; 
-        font-family: Inter, Helvetica, sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
       }
       
       .title { 
-        font-family: Inter, Helvetica, sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
         font-size: 18px; 
         font-weight: 600; 
         text-anchor: middle; 
@@ -21,7 +21,7 @@
       }
       
       .subtitle { 
-        font-family: Inter, Helvetica, sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
         font-size: 14px; 
         font-weight: 600; 
         text-anchor: middle; 
@@ -29,7 +29,7 @@
       }
       
       .problem-name { 
-        font-family: Inter, Helvetica, sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
         font-size: 14px; 
         font-weight: 600; 
         text-anchor: middle; 
@@ -38,7 +38,7 @@
       }
       
       .problem-desc { 
-        font-family: Inter, Helvetica, sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
         font-size: 10px; 
         font-weight: 400; 
         text-anchor: middle; 
@@ -54,7 +54,7 @@
       }
       
       .concept-text {
-        font-family: Inter, Helvetica, sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
         font-size: 12px;
         font-weight: 400;
         text-anchor: start;
@@ -62,7 +62,7 @@
       }
       
       .formula {
-        font-family: Courier, monospace;
+        font-family: "Monaco", "Menlo", "Ubuntu Mono", "Consolas", "source-code-pro", monospace;
         font-size: 11px;
         font-weight: 500;
         text-anchor: start;
