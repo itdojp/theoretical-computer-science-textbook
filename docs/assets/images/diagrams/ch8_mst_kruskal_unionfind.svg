@@ -4,7 +4,7 @@
   <desc id="desc">昇順の辺を順に見て、閉路を作らなければ採用し、Union-Findで集合を合併する流れの模式図。</desc>
   <defs>
     <style>
-      .label { fill: #111; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif; font-size: 12px; }
+      .label { fill: #111; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; font-size: 12px; }
       .panel { fill: #f8f9fa; stroke: #dee2e6; }
       .node { fill: #fff; stroke: #495057; stroke-width: 1.6; }
       .edge { stroke: #868e96; stroke-width: 1.6; }

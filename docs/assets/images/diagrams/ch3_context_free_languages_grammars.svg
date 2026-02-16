@@ -7,7 +7,7 @@
   <rect width="1200" height="900" fill="#f8f9fa"/>
   
   <!-- Title -->
-  <text x="600" y="30" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="24" font-weight="bold" fill="#1a1a1a">文脈自由言語と文法</text>
+  <text x="600" y="30" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="24" font-weight="bold" fill="#1a1a1a">文脈自由言語と文法</text>
   
   <!-- Main Container -->
   <rect x="20" y="50" width="1160" height="830" fill="none" stroke="#e1e5e9" stroke-width="2" rx="10"/>
@@ -15,120 +15,120 @@
   <!-- Section 1: Context-Free Grammar -->
   <g id="cfg-definition">
     <rect x="40" y="80" width="560" height="200" fill="#e3f2fd" stroke="#1976d2" stroke-width="2" rx="8"/>
-    <text x="320" y="105" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="18" font-weight="bold" fill="#1976d2">文脈自由文法(CFG)</text>
+    <text x="320" y="105" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="18" font-weight="bold" fill="#1976d2">文脈自由文法(CFG)</text>
     
     <!-- CFG Definition -->
     <rect x="60" y="120" width="220" height="140" fill="#ffffff" stroke="#1976d2" stroke-width="1" rx="4"/>
-    <text x="170" y="140" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" font-weight="bold" fill="#1976d2">G = (V, Σ, R, S)</text>
-    <text x="70" y="160" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="11" fill="#555">• V: 変数(非終端記号)</text>
-    <text x="70" y="175" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="11" fill="#555">• Σ: 終端記号</text>
-    <text x="70" y="190" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="11" fill="#555">• R: 生成規則 A → α</text>
-    <text x="70" y="205" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="11" fill="#555">• S: 開始記号</text>
-    <text x="70" y="225" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#777">制約:</text>
-    <text x="70" y="240" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#777">V ∩ Σ = ∅</text>
-    <text x="70" y="250" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#777">A ∈ V, α ∈ (V ∪ Σ)*</text>
+    <text x="170" y="140" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="12" font-weight="bold" fill="#1976d2">G = (V, Σ, R, S)</text>
+    <text x="70" y="160" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="11" fill="#555">• V: 変数(非終端記号)</text>
+    <text x="70" y="175" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="11" fill="#555">• Σ: 終端記号</text>
+    <text x="70" y="190" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="11" fill="#555">• R: 生成規則 A → α</text>
+    <text x="70" y="205" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="11" fill="#555">• S: 開始記号</text>
+    <text x="70" y="225" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#777">制約:</text>
+    <text x="70" y="240" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#777">V ∩ Σ = ∅</text>
+    <text x="70" y="250" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#777">A ∈ V, α ∈ (V ∪ Σ)*</text>
     
     <!-- Production Rules -->
     <rect x="290" y="120" width="160" height="140" fill="#ffffff" stroke="#1976d2" stroke-width="1" rx="4"/>
-    <text x="370" y="140" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" font-weight="bold" fill="#1976d2">生成規則の例</text>
-    <text x="300" y="160" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="11" fill="#555">S → 0S1 | ε</text>
-    <text x="300" y="175" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#777">• 0ⁿ1ⁿを生成</text>
-    <text x="300" y="190" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#777">• 再帰的構造</text>
-    <text x="300" y="210" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="11" fill="#555">E → E+E | E*E</text>
-    <text x="310" y="225" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="11" fill="#555">| (E) | id</text>
-    <text x="300" y="240" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#777">• 算術式の文法</text>
-    <text x="300" y="250" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#777">• 演算子の優先順位問題</text>
+    <text x="370" y="140" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="12" font-weight="bold" fill="#1976d2">生成規則の例</text>
+    <text x="300" y="160" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="11" fill="#555">S → 0S1 | ε</text>
+    <text x="300" y="175" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#777">• 0ⁿ1ⁿを生成</text>
+    <text x="300" y="190" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#777">• 再帰的構造</text>
+    <text x="300" y="210" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="11" fill="#555">E → E+E | E*E</text>
+    <text x="310" y="225" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="11" fill="#555">| (E) | id</text>
+    <text x="300" y="240" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#777">• 算術式の文法</text>
+    <text x="300" y="250" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#777">• 演算子の優先順位問題</text>
     
     <!-- Derivation -->
     <rect x="460" y="120" width="130" height="140" fill="#ffffff" stroke="#1976d2" stroke-width="1" rx="4"/>
-    <text x="525" y="140" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" font-weight="bold" fill="#1976d2">導出過程</text>
-    <text x="470" y="160" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">直接導出:</text>
-    <text x="470" y="175" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">uAv ⇒ uαv</text>
-    <text x="470" y="190" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">導出: ⇒*の</text>
-    <text x="470" y="205" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">反射推移閉包</text>
-    <text x="470" y="220" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">左導出、右導出</text>
-    <text x="470" y="235" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">構文解析に重要</text>
+    <text x="525" y="140" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="12" font-weight="bold" fill="#1976d2">導出過程</text>
+    <text x="470" y="160" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">直接導出:</text>
+    <text x="470" y="175" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">uAv ⇒ uαv</text>
+    <text x="470" y="190" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">導出: ⇒*の</text>
+    <text x="470" y="205" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">反射推移閉包</text>
+    <text x="470" y="220" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">左導出、右導出</text>
+    <text x="470" y="235" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">構文解析に重要</text>
   </g>
   
   <!-- Section 2: Parse Trees and Ambiguity -->
   <g id="parse-trees">
     <rect x="620" y="80" width="540" height="200" fill="#fff3e0" stroke="#f57c00" stroke-width="2" rx="8"/>
-    <text x="890" y="105" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="18" font-weight="bold" fill="#f57c00">導出木と曖昧性</text>
+    <text x="890" y="105" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="18" font-weight="bold" fill="#f57c00">導出木と曖昧性</text>
     
     <!-- Parse Tree Structure -->
     <rect x="640" y="120" width="160" height="140" fill="#ffffff" stroke="#f57c00" stroke-width="1" rx="4"/>
-    <text x="720" y="140" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" font-weight="bold" fill="#f57c00">導出木の構造</text>
-    <text x="650" y="160" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">• 根: 開始記号</text>
-    <text x="650" y="175" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">• 内部ノード: 変数</text>
-    <text x="650" y="190" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">• 葉: 終端記号またはε</text>
-    <text x="650" y="205" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">• 子の関係が生成規則</text>
-    <text x="650" y="220" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">　に対応</text>
-    <text x="650" y="235" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">• 左から右への順序で</text>
-    <text x="650" y="250" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">　文字列を生成</text>
+    <text x="720" y="140" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="12" font-weight="bold" fill="#f57c00">導出木の構造</text>
+    <text x="650" y="160" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">• 根: 開始記号</text>
+    <text x="650" y="175" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">• 内部ノード: 変数</text>
+    <text x="650" y="190" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">• 葉: 終端記号またはε</text>
+    <text x="650" y="205" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">• 子の関係が生成規則</text>
+    <text x="650" y="220" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">　に対応</text>
+    <text x="650" y="235" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">• 左から右への順序で</text>
+    <text x="650" y="250" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">　文字列を生成</text>
     
     <!-- Ambiguity -->
     <rect x="810" y="120" width="170" height="140" fill="#ffffff" stroke="#f57c00" stroke-width="1" rx="4"/>
-    <text x="895" y="140" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" font-weight="bold" fill="#f57c00">曖昧性の問題</text>
-    <text x="820" y="160" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">同じ文字列に複数の導出木</text>
-    <text x="895" y="175" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">例: a+a×aの解釈</text>
-    <text x="895" y="190" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">1. (a+a)×a</text>
-    <text x="895" y="205" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">2. a+(a×a)</text>
-    <text x="820" y="220" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">優先順位で解決</text>
-    <text x="820" y="235" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">文法の書き換えが必要</text>
+    <text x="895" y="140" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="12" font-weight="bold" fill="#f57c00">曖昧性の問題</text>
+    <text x="820" y="160" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">同じ文字列に複数の導出木</text>
+    <text x="895" y="175" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">例: a+a×aの解釈</text>
+    <text x="895" y="190" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">1. (a+a)×a</text>
+    <text x="895" y="205" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">2. a+(a×a)</text>
+    <text x="820" y="220" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">優先順位で解決</text>
+    <text x="820" y="235" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">文法の書き換えが必要</text>
     
     <!-- Derivation Types -->
     <rect x="990" y="120" width="160" height="140" fill="#ffffff" stroke="#f57c00" stroke-width="1" rx="4"/>
-    <text x="1070" y="140" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" font-weight="bold" fill="#f57c00">導出の種類</text>
-    <text x="1000" y="160" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">左導出:</text>
-    <text x="1000" y="175" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">最左の変数を展開</text>
-    <text x="1000" y="190" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif" font-size="10" fill="#555">右導出:</text>
-    <text x="1000" y="205" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">最右の変数を展開</text>
-    <text x="1000" y="220" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">構文解析で重要</text>
-    <text x="1000" y="235" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">一意性の保証</text>
+    <text x="1070" y="140" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="12" font-weight="bold" fill="#f57c00">導出の種類</text>
+    <text x="1000" y="160" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">左導出:</text>
+    <text x="1000" y="175" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">最左の変数を展開</text>
+    <text x="1000" y="190" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">右導出:</text>
+    <text x="1000" y="205" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">最右の変数を展開</text>
+    <text x="1000" y="220" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">構文解析で重要</text>
+    <text x="1000" y="235" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">一意性の保証</text>
   </g>
   
   <!-- Section 3: Visual Example -->
   <g id="visual-example">
     <rect x="40" y="300" width="1120" height="180" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="2" rx="8"/>
-    <text x="600" y="325" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="18" font-weight="bold" fill="#7b1fa2">導出例: S → 0S1 | ε で 0011 を生成</text>
+    <text x="600" y="325" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="18" font-weight="bold" fill="#7b1fa2">導出例: S → 0S1 | ε で 0011 を生成</text>
     
     <!-- Derivation Sequence -->
     <g id="derivation-sequence">
-      <text x="80" y="355" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="14" font-weight="bold" fill="#333">導出過程:</text>
-      <text x="100" y="375" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" fill="#555">S ⇒ 0S1 ⇒ 00S11 ⇒ 00ε11 ⇒ 0011</text>
+      <text x="80" y="355" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="14" font-weight="bold" fill="#333">導出過程:</text>
+      <text x="100" y="375" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="12" fill="#555">S ⇒ 0S1 ⇒ 00S11 ⇒ 00ε11 ⇒ 0011</text>
     </g>
     
     <!-- Parse Tree -->
     <g id="parse-tree">
-      <text x="600" y="355" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="14" font-weight="bold" fill="#333">対応する導出木:</text>
+      <text x="600" y="355" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="14" font-weight="bold" fill="#333">対応する導出木:</text>
       
       <!-- Root S -->
       <circle cx="600" cy="385" r="12" fill="#ffffff" stroke="#7b1fa2" stroke-width="2"/>
-      <text x="600" y="390" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" font-weight="bold" fill="#7b1fa2">S</text>
+      <text x="600" y="390" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" font-weight="bold" fill="#7b1fa2">S</text>
       
       <!-- First level: 0, S, 1 -->
       <circle cx="550" cy="420" r="10" fill="#ffffff" stroke="#4caf50" stroke-width="2"/>
-      <text x="550" y="425" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="9" font-weight="bold" fill="#4caf50">0</text>
+      <text x="550" y="425" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="9" font-weight="bold" fill="#4caf50">0</text>
       
       <circle cx="600" cy="420" r="12" fill="#ffffff" stroke="#7b1fa2" stroke-width="2"/>
-      <text x="600" y="425" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" font-weight="bold" fill="#7b1fa2">S</text>
+      <text x="600" y="425" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" font-weight="bold" fill="#7b1fa2">S</text>
       
       <circle cx="650" cy="420" r="10" fill="#ffffff" stroke="#4caf50" stroke-width="2"/>
-      <text x="650" y="425" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="9" font-weight="bold" fill="#4caf50">1</text>
+      <text x="650" y="425" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="9" font-weight="bold" fill="#4caf50">1</text>
       
       <!-- Second level: 0, S, 1 -->
       <circle cx="570" cy="455" r="10" fill="#ffffff" stroke="#4caf50" stroke-width="2"/>
-      <text x="570" y="460" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="9" font-weight="bold" fill="#4caf50">0</text>
+      <text x="570" y="460" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="9" font-weight="bold" fill="#4caf50">0</text>
       
       <circle cx="600" cy="455" r="12" fill="#ffffff" stroke="#7b1fa2" stroke-width="2"/>
-      <text x="600" y="460" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" font-weight="bold" fill="#7b1fa2">S</text>
+      <text x="600" y="460" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" font-weight="bold" fill="#7b1fa2">S</text>
       
       <circle cx="630" cy="455" r="10" fill="#ffffff" stroke="#4caf50" stroke-width="2"/>
-      <text x="630" y="460" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="9" font-weight="bold" fill="#4caf50">1</text>
+      <text x="630" y="460" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="9" font-weight="bold" fill="#4caf50">1</text>
       
       <!-- Third level: ε -->
       <circle cx="600" cy="485" r="10" fill="#ffffff" stroke="#9e9e9e" stroke-width="2"/>
-      <text x="600" y="490" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="9" font-weight="bold" fill="#9e9e9e">ε</text>
+      <text x="600" y="490" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="9" font-weight="bold" fill="#9e9e9e">ε</text>
       
       <!-- Connections -->
       <path d="M 588 395 L 562 410" fill="none" stroke="#333" stroke-width="1"/>
@@ -142,104 +142,104 @@
       <path d="M 600 467 L 600 475" fill="none" stroke="#333" stroke-width="1"/>
       
       <!-- Yield -->
-      <text x="600" y="520" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" font-weight="bold" fill="#333">文字列: 0 0 ε 1 1 = 0011</text>
+      <text x="600" y="520" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="12" font-weight="bold" fill="#333">文字列: 0 0 ε 1 1 = 0011</text>
     </g>
     
     <!-- Alternative representation -->
     <g id="step-by-step">
-      <text x="850" y="355" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="14" font-weight="bold" fill="#333">段階的導出:</text>
-      <text x="870" y="375" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="11" fill="#555">1. S → 0S1 を適用</text>
-      <text x="870" y="390" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="11" fill="#555">2. 内側のS → 0S1 を適用</text>
-      <text x="870" y="405" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="11" fill="#555">3. 最内のS → ε を適用</text>
-      <text x="870" y="420" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="11" fill="#555">4. εを削除して0011を得る</text>
-      <text x="870" y="440" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#777">この文法は{0ⁿ1ⁿ | n ≥ 0}を生成</text>
-      <text x="870" y="455" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#777">正規言語を超える表現力</text>
+      <text x="850" y="355" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="14" font-weight="bold" fill="#333">段階的導出:</text>
+      <text x="870" y="375" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="11" fill="#555">1. S → 0S1 を適用</text>
+      <text x="870" y="390" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="11" fill="#555">2. 内側のS → 0S1 を適用</text>
+      <text x="870" y="405" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="11" fill="#555">3. 最内のS → ε を適用</text>
+      <text x="870" y="420" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="11" fill="#555">4. εを削除して0011を得る</text>
+      <text x="870" y="440" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#777">この文法は{0ⁿ1ⁿ | n ≥ 0}を生成</text>
+      <text x="870" y="455" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#777">正規言語を超える表現力</text>
     </g>
   </g>
   
   <!-- Section 4: Normal Forms -->
   <g id="normal-forms">
     <rect x="40" y="500" width="1120" height="180" fill="#e8f5e8" stroke="#388e3c" stroke-width="2" rx="8"/>
-    <text x="600" y="525" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="18" font-weight="bold" fill="#388e3c">標準形</text>
+    <text x="600" y="525" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="18" font-weight="bold" fill="#388e3c">標準形</text>
     
     <!-- Chomsky Normal Form -->
     <rect x="60" y="540" width="270" height="120" fill="#ffffff" stroke="#388e3c" stroke-width="1" rx="4"/>
-    <text x="195" y="560" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" font-weight="bold" fill="#388e3c">Chomsky標準形(CNF)</text>
-    <text x="70" y="580" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="11" fill="#555">A → BC (変数→2個の変数)</text>
-    <text x="70" y="595" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="11" fill="#555">A → a (変数→1個の終端記号)</text>
-    <text x="70" y="610" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="11" fill="#555">S → ε (特別な場合のみ)</text>
-    <text x="70" y="630" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#777">利点:</text>
-    <text x="70" y="645" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#777">• CYKアルゴリズムに適用</text>
-    <text x="70" y="655" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#777">• 構文解析の効率化</text>
+    <text x="195" y="560" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="12" font-weight="bold" fill="#388e3c">Chomsky標準形(CNF)</text>
+    <text x="70" y="580" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="11" fill="#555">A → BC (変数→2個の変数)</text>
+    <text x="70" y="595" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="11" fill="#555">A → a (変数→1個の終端記号)</text>
+    <text x="70" y="610" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="11" fill="#555">S → ε (特別な場合のみ)</text>
+    <text x="70" y="630" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#777">利点:</text>
+    <text x="70" y="645" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#777">• CYKアルゴリズムに適用</text>
+    <text x="70" y="655" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#777">• 構文解析の効率化</text>
     
     <!-- Greibach Normal Form -->
     <rect x="340" y="540" width="270" height="120" fill="#ffffff" stroke="#388e3c" stroke-width="1" rx="4"/>
-    <text x="475" y="560" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" font-weight="bold" fill="#388e3c">Greibach標準形(GNF)</text>
-    <text x="350" y="580" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="11" fill="#555">A → aα</text>
-    <text x="350" y="595" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="11" fill="#555">終端記号で始まる</text>
-    <text x="350" y="610" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="11" fill="#555">左再帰の除去</text>
-    <text x="350" y="630" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#777">利点:</text>
-    <text x="350" y="645" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#777">• 予測解析に適用</text>
-    <text x="350" y="655" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#777">• PDAとの対応</text>
+    <text x="475" y="560" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="12" font-weight="bold" fill="#388e3c">Greibach標準形(GNF)</text>
+    <text x="350" y="580" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="11" fill="#555">A → aα</text>
+    <text x="350" y="595" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="11" fill="#555">終端記号で始まる</text>
+    <text x="350" y="610" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="11" fill="#555">左再帰の除去</text>
+    <text x="350" y="630" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#777">利点:</text>
+    <text x="350" y="645" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#777">• 予測解析に適用</text>
+    <text x="350" y="655" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#777">• PDAとの対応</text>
     
     <!-- Conversion Algorithm -->
     <rect x="620" y="540" width="250" height="120" fill="#ffffff" stroke="#388e3c" stroke-width="1" rx="4"/>
-    <text x="745" y="560" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" font-weight="bold" fill="#388e3c">変換アルゴリズム</text>
-    <text x="630" y="580" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">1. ε-規則の除去</text>
-    <text x="630" y="595" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">2. 単位規則の除去</text>
-    <text x="630" y="610" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">3. 無用記号の除去</text>
-    <text x="630" y="625" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">4. 規則の分解</text>
-    <text x="630" y="640" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">5. 終端記号の分離</text>
-    <text x="630" y="655" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">系統的な手順で変換</text>
+    <text x="745" y="560" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="12" font-weight="bold" fill="#388e3c">変換アルゴリズム</text>
+    <text x="630" y="580" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">1. ε-規則の除去</text>
+    <text x="630" y="595" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">2. 単位規則の除去</text>
+    <text x="630" y="610" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">3. 無用記号の除去</text>
+    <text x="630" y="625" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">4. 規則の分解</text>
+    <text x="630" y="640" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">5. 終端記号の分離</text>
+    <text x="630" y="655" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">系統的な手順で変換</text>
     
     <!-- Practical Applications -->
     <rect x="880" y="540" width="270" height="120" fill="#ffffff" stroke="#388e3c" stroke-width="1" rx="4"/>
-    <text x="1015" y="560" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" font-weight="bold" fill="#388e3c">実用的意義</text>
-    <text x="890" y="580" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">CNF:</text>
-    <text x="900" y="595" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">• O(n³)構文解析</text>
-    <text x="900" y="610" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">• 動的計画法の適用</text>
-    <text x="890" y="625" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">GNF:</text>
-    <text x="900" y="640" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">• LL(1)パーサ設計</text>
-    <text x="900" y="655" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">• 効率的な実装</text>
+    <text x="1015" y="560" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="12" font-weight="bold" fill="#388e3c">実用的意義</text>
+    <text x="890" y="580" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">CNF:</text>
+    <text x="900" y="595" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">• O(n³)構文解析</text>
+    <text x="900" y="610" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">• 動的計画法の適用</text>
+    <text x="890" y="625" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">GNF:</text>
+    <text x="900" y="640" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">• LL(1)パーサ設計</text>
+    <text x="900" y="655" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">• 効率的な実装</text>
   </g>
   
   <!-- Section 5: CFL Pumping Lemma -->
   <g id="cfl-pumping">
     <rect x="40" y="700" width="1120" height="160" fill="#ffebee" stroke="#d32f2f" stroke-width="2" rx="8"/>
-    <text x="600" y="725" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="18" font-weight="bold" fill="#d32f2f">CFGのPumping補題</text>
+    <text x="600" y="725" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="18" font-weight="bold" fill="#d32f2f">CFGのPumping補題</text>
     
     <!-- CFL Pumping Statement -->
     <rect x="60" y="740" width="280" height="105" fill="#ffffff" stroke="#d32f2f" stroke-width="1" rx="4"/>
-    <text x="200" y="760" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" font-weight="bold" fill="#d32f2f">文脈自由言語のPumping補題</text>
-    <text x="70" y="780" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">十分長いs ∈ Lに対し</text>
-    <text x="70" y="795" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">s = uvxyzと分解</text>
-    <text x="70" y="810" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">uvⁱxyⁱz ∈ L (∀i ≥ 0)</text>
-    <text x="70" y="825" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">2箇所で同時にpumping</text>
+    <text x="200" y="760" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="12" font-weight="bold" fill="#d32f2f">文脈自由言語のPumping補題</text>
+    <text x="70" y="780" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">十分長いs ∈ Lに対し</text>
+    <text x="70" y="795" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">s = uvxyzと分解</text>
+    <text x="70" y="810" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">uvⁱxyⁱz ∈ L (∀i ≥ 0)</text>
+    <text x="70" y="825" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">2箇所で同時にpumping</text>
     
     <!-- CFL Conditions -->
     <rect x="360" y="740" width="200" height="105" fill="#ffffff" stroke="#d32f2f" stroke-width="1" rx="4"/>
-    <text x="460" y="760" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" font-weight="bold" fill="#d32f2f">条件</text>
-    <text x="370" y="780" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="11" font-weight="bold" fill="#d32f2f">1. |vxy| ≤ p</text>
-    <text x="380" y="795" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="9" fill="#777">中央部分は短い</text>
-    <text x="370" y="810" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="11" font-weight="bold" fill="#d32f2f">2. |vy| &gt; 0</text>
-    <text x="380" y="825" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="9" fill="#777">vとyは同時に空でない</text>
-    <text x="370" y="840" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="11" font-weight="bold" fill="#d32f2f">3. vとyを同時にpumping</text>
+    <text x="460" y="760" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="12" font-weight="bold" fill="#d32f2f">条件</text>
+    <text x="370" y="780" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="11" font-weight="bold" fill="#d32f2f">1. |vxy| ≤ p</text>
+    <text x="380" y="795" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="9" fill="#777">中央部分は短い</text>
+    <text x="370" y="810" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="11" font-weight="bold" fill="#d32f2f">2. |vy| &gt; 0</text>
+    <text x="380" y="825" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="9" fill="#777">vとyは同時に空でない</text>
+    <text x="370" y="840" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="11" font-weight="bold" fill="#d32f2f">3. vとyを同時にpumping</text>
     
     <!-- CFL Example -->
     <rect x="580" y="740" width="300" height="105" fill="#ffffff" stroke="#d32f2f" stroke-width="1" rx="4"/>
-    <text x="730" y="760" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" font-weight="bold" fill="#d32f2f">非文脈自由言語</text>
-    <text x="730" y="785" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="14" font-weight="bold" fill="#333">{aⁿbⁿcⁿ | n ≥ 0}</text>
-    <text x="590" y="805" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">3種類の文字の個数が等しい言語</text>
-    <text x="590" y="820" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">|vxy| ≤ pより、vxyは高々2種類の文字</text>
-    <text x="590" y="835" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">∴ pumpingで3文字の均等性が破れる</text>
+    <text x="730" y="760" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="12" font-weight="bold" fill="#d32f2f">非文脈自由言語</text>
+    <text x="730" y="785" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="14" font-weight="bold" fill="#333">{aⁿbⁿcⁿ | n ≥ 0}</text>
+    <text x="590" y="805" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">3種類の文字の個数が等しい言語</text>
+    <text x="590" y="820" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">|vxy| ≤ pより、vxyは高々2種類の文字</text>
+    <text x="590" y="835" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">∴ pumpingで3文字の均等性が破れる</text>
     
     <!-- Proof Intuition -->
     <rect x="900" y="740" width="240" height="105" fill="#ffffff" stroke="#d32f2f" stroke-width="1" rx="4"/>
-    <text x="1020" y="760" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="12" font-weight="bold" fill="#d32f2f">証明の直観</text>
-    <text x="910" y="780" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">CNFの導出木で考える</text>
-    <text x="910" y="795" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">十分深い木では変数が重複</text>
-    <text x="910" y="810" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">重複した変数の部分木を</text>
-    <text x="910" y="825" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">繰り返すことでpumping</text>
-    <text x="910" y="840" font-family="-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif" font-size="10" fill="#555">2箇所同時の制約が鍵</text>
+    <text x="1020" y="760" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="12" font-weight="bold" fill="#d32f2f">証明の直観</text>
+    <text x="910" y="780" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">CNFの導出木で考える</text>
+    <text x="910" y="795" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">十分深い木では変数が重複</text>
+    <text x="910" y="810" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">重複した変数の部分木を</text>
+    <text x="910" y="825" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">繰り返すことでpumping</text>
+    <text x="910" y="840" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">2箇所同時の制約が鍵</text>
   </g>
 </svg>

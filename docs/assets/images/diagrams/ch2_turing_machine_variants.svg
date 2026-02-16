@@ -11,13 +11,13 @@
       .standard-box { fill: #e8f5e8; stroke: #2e7d32; stroke-width: 2; rx: 8; }
       .equivalence-box { fill: #ffe0b2; stroke: #ff9800; stroke-width: 2; rx: 8; }
       
-      .title-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif; font-size: 18px; font-weight: 700; fill: #2c3e50; text-anchor: middle; }
-      .section-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif; font-size: 14px; font-weight: 600; fill: #2c3e50; text-anchor: middle; }
-      .main-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif; font-size: 12px; font-weight: 500; text-anchor: middle; }
-      .detail-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif; font-size: 10px; text-anchor: middle; }
+      .title-text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; font-size: 18px; font-weight: 700; fill: #2c3e50; text-anchor: middle; }
+      .section-title { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; font-size: 14px; font-weight: 600; fill: #2c3e50; text-anchor: middle; }
+      .main-text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; font-size: 12px; font-weight: 500; text-anchor: middle; }
+      .detail-text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; font-size: 10px; text-anchor: middle; }
       .simulate-arrow { stroke: #666; stroke-width: 2; fill: none; marker-end: url(#arrowhead); stroke-dasharray: 5,3; }
       .equivalence-arrow { stroke: #2e7d32; stroke-width: 3; fill: none; marker-end: url(#greenarrow); }
-      .simulate-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif; font-size: 10px; font-weight: 500; fill: #666; text-anchor: middle; }
+      .simulate-text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; font-size: 10px; font-weight: 500; fill: #666; text-anchor: middle; }
     </style>
     
     <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">

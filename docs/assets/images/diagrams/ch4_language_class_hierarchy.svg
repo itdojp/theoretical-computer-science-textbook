@@ -6,7 +6,7 @@
   
   <defs>
     <style>
-      .diagram-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif; font-size: 14px; fill: #2c3e50; text-anchor: middle; }
+      .diagram-text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; font-size: 14px; fill: #2c3e50; text-anchor: middle; }
       .small-text { font-size: 12px; }
       .large-text { font-size: 16px; font-weight: bold; }
       .all-languages { fill: #ffebee; stroke: #d32f2f; stroke-width: 3; rx: 12; }
