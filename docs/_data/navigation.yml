@@ -55,3 +55,7 @@ appendices:
   path: /appendices/f/
 - title: "付録G: AI/ML と理論計算機科学の接続"
   path: /appendices/g/
+
+afterword:
+- title: あとがき
+  path: /afterword/
