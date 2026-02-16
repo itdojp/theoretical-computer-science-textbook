@@ -17,9 +17,66 @@
         searchInput = document.getElementById('search-input');
         searchResults = document.getElementById('search-results');
     }
+
+    function getSiteBasePath() {
+        // Prefer deriving baseurl from the script tag src (works for GitHub Pages project sites).
+        // Example: /<repo>/assets/js/search.js -> baseurl: /<repo>
+        try {
+            const suffix = '/assets/js/search.js';
+            const scripts = document.getElementsByTagName('script');
+            for (let i = 0; i < scripts.length; i++) {
+                const src = scripts[i].getAttribute('src') || '';
+                if (!src) continue;
+                if (!src.endsWith(suffix)) continue;
+                const u = new URL(src, window.location.href);
+                const p = u.pathname || '';
+                if (p.endsWith(suffix)) {
+                    return p.slice(0, -suffix.length);
+                }
+            }
+        } catch (_) {}
+
+        // Fallback: first path segment (best-effort).
+        try {
+            const seg = window.location.pathname.split('/').filter(Boolean)[0];
+            return seg ? '/' + seg : '';
+        } catch (_) {
+            return '';
+        }
+    }
+
+    async function loadSearchData() {
+        const base = getSiteBasePath();
+        const url = `${base}/assets/search-data.json`;
+        const res = await fetch(url, { credentials: 'same-origin' });
+        if (!res.ok) {
+            throw new Error(`failed to fetch search-data.json: ${res.status}`);
+        }
+        const data = await res.json();
+        if (!data || !Array.isArray(data.items)) {
+            throw new Error('invalid search-data.json schema');
+        }
+
+        // Page-level index (title + excerpt).
+        searchIndex = data.items
+            .map((item, idx) => {
+                const title = String(item.title || '').trim();
+                const content = String(item.excerpt || '').trim();
+                const pageUrl = String(item.url || '').trim();
+                return {
+                    id: `search-page-${idx}`,
+                    title,
+                    content,
+                    url: pageUrl,
+                    type: 'page'
+                };
+            })
+            .filter(it => it.title && it.url);
+    }
     
     // Build search index from page content
     function buildSearchIndex() {
+        searchIndex = [];
         // In a real implementation, this would be generated at build time
         // For now, we'll create a simple index from current page
         const content = document.querySelector('.page-content');
@@ -125,12 +182,19 @@
 
     function selectResultById(id) {
         const result = searchIndex.find(item => item.id === id);
-        if (!result || !result.element) return;
+        if (!result) return;
 
         hideResults();
         if (searchInput) {
             searchInput.value = '';
         }
+
+        if (result.url) {
+            window.location.href = result.url;
+            return;
+        }
+
+        if (!result.element) return;
         result.element.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
         // Highlight the element temporarily
@@ -219,6 +283,15 @@
         
         // Build initial search index
         buildSearchIndex();
+
+        // Prefer a build-time generated index (whole site). Fallback to in-page index.
+        // This keeps the search usable even if fetch fails (offline, 404, etc.).
+        loadSearchData()
+            .then(() => {
+                const q = searchInput.value.trim();
+                if (q && q.length >= 2) performSearch(q);
+            })
+            .catch(() => {});
         
         // Search input handler
         searchInput.addEventListener('input', (e) => {
