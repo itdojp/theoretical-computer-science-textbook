@@ -2,7 +2,7 @@
 
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-deployed-green)](https://itdojp.github.io/theoretical-computer-science-textbook/)
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://github.com/itdojp/it-engineer-knowledge-architecture/blob/main/LICENSE.md)
-[![Jekyll](https://img.shields.io/badge/Jekyll-4.3-red)](https://jekyllrb.com/)
+[![Jekyll](https://img.shields.io/badge/Jekyll-3.10-red)](https://jekyllrb.com/)
 
 数学的基礎から始まり、計算理論、アルゴリズム、複雑性理論、そして最新の研究トピックまでを包括的にカバーする理論計算機科学の教科書。大学生、大学院生、研究者向けの体系的学習リソース。
 
@@ -94,9 +94,9 @@ bundle install
 npm install
 
 # ローカルサーバーを起動
-bundle exec jekyll serve --source docs
-# または
 npm run dev
+# または
+bundle exec jekyll serve --livereload --source docs --config docs/_config.yml --destination _site
 
 # ブラウザで http://localhost:4000 を開く
 ```
@@ -154,7 +154,7 @@ tests/                     # テストファイル
 
 ## 🔧 技術仕様
 
-- **静的サイトジェネレーター**: Jekyll 4.3
+- **静的サイトジェネレーター**: Jekyll 3.10.x（GitHub Pages: github-pages ~> 232）
 - **CSS フレームワーク**: カスタムCSS（Bootstrap非依存）
 - **数式レンダリング**: MathJax 3.0
 - **図表生成**: Mermaid 10

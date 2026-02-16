@@ -8,9 +8,10 @@
     "node": ">=20.0.0"
   },
   "scripts": {
-    "start": "bundle exec jekyll serve --livereload",
-    "build": "bundle exec jekyll build",
-    "build:gh-pages": "bundle exec jekyll build",
+    "dev": "bundle exec jekyll serve --livereload --source docs --config docs/_config.yml --destination _site",
+    "start": "npm run dev",
+    "build": "bundle exec jekyll build --source docs --config docs/_config.yml --destination _site",
+    "build:gh-pages": "npm run build",
     "preview": "npm run build && npx http-server _site -p 8080 --silent",
     "deploy": "gh-pages -d _site",
     "clean": "rm -rf _site .jekyll-cache",
