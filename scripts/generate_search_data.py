@@ -27,7 +27,6 @@ HTML_TAG_RE = re.compile(r"(?s)<[^>]+>")
 MD_IMAGE_RE = re.compile(r"!\[([^\]]*)\]\([^)]+\)")
 MD_LINK_RE = re.compile(r"\[([^\]]+)\]\([^)]+\)")
 HEADING_MARK_RE = re.compile(r"(?m)^#{1,6}\s+")
-FRONT_MATTER_DELIM_RE = re.compile(r"(?m)^---\s*$")
 
 
 def read_baseurl(cfg_path: Path) -> str:
