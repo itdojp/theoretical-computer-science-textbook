@@ -29,50 +29,56 @@ suppress rendering of bottom navigation to unify top-page behavior.
 {%- comment -%}
 Build a flattened list from navigation data for title lookup, so we can
 display ToC titles even when order falls back to site.pages.
+
+Notes:
+- navigation.yml can include prefix/index pages like "/" or "/chapters/".
+- Some books group chapters as {part: ..., items: [...]}; we flatten those.
 {%- endcomment -%}
 {%- assign data_items = "" | split: "|" -%}
 {%- if navigation -%}
-  {%- if navigation.introduction -%}
-    {%- assign data_items = data_items | concat: navigation.introduction -%}
-  {%- endif -%}
-  {%- if navigation.chapters -%}
-    {%- assign data_items = data_items | concat: navigation.chapters -%}
-  {%- endif -%}
-  {%- if navigation.additional -%}
-    {%- assign data_items = data_items | concat: navigation.additional -%}
-  {%- endif -%}
-  {%- if navigation.resources -%}
-    {%- assign data_items = data_items | concat: navigation.resources -%}
-  {%- endif -%}
-  {%- if navigation.appendices -%}
-    {%- assign data_items = data_items | concat: navigation.appendices -%}
-  {%- endif -%}
-  {%- if navigation.afterword -%}
-    {%- assign data_items = data_items | concat: navigation.afterword -%}
-  {%- endif -%}
+  {%- assign _nav_sections = "introduction,chapters,additional,resources,appendices,afterword" | split: "," -%}
+  {%- for _sec in _nav_sections -%}
+    {%- assign _items = navigation[_sec] -%}
+    {%- if _items -%}
+      {%- for _item in _items -%}
+        {%- if _item.items -%}
+          {%- for _sub in _item.items -%}
+            {%- if _sub.path or _sub.url -%}
+              {%- assign data_items = data_items | push: _sub -%}
+            {%- endif -%}
+          {%- endfor -%}
+        {%- else -%}
+          {%- if _item.path or _item.url -%}
+            {%- assign data_items = data_items | push: _item -%}
+          {%- endif -%}
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endif -%}
+  {%- endfor -%}
 {%- endif -%}
 
 {% if navigation %}
   {%- assign seq = "" | split: "|" -%}
-  {%- if navigation.introduction -%}
-    {%- assign seq = seq | concat: navigation.introduction -%}
-  {%- endif -%}
-  {%- if navigation.chapters -%}
-    {%- assign seq = seq | concat: navigation.chapters -%}
-  {%- endif -%}
-  {%- if navigation.additional -%}
-    {%- assign seq = seq | concat: navigation.additional -%}
-  {%- endif -%}
-  {%- if navigation.resources -%}
-    {%- assign seq = seq | concat: navigation.resources -%}
-  {%- endif -%}
-  {%- if navigation.appendices -%}
-    {%- assign seq = seq | concat: navigation.appendices -%}
-  {%- endif -%}
-  {%- if navigation.afterword -%}
-    {%- assign seq = seq | concat: navigation.afterword -%}
-  {%- endif -%}
-  {% assign nav_items = seq %}
+  {%- assign _nav_sections = "introduction,chapters,additional,resources,appendices,afterword" | split: "," -%}
+  {%- for _sec in _nav_sections -%}
+    {%- assign _items = navigation[_sec] -%}
+    {%- if _items -%}
+      {%- for _item in _items -%}
+        {%- if _item.items -%}
+          {%- for _sub in _item.items -%}
+            {%- if _sub.path or _sub.url -%}
+              {%- assign seq = seq | push: _sub -%}
+            {%- endif -%}
+          {%- endfor -%}
+        {%- else -%}
+          {%- if _item.path or _item.url -%}
+            {%- assign seq = seq | push: _item -%}
+          {%- endif -%}
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endif -%}
+  {%- endfor -%}
+  {%- assign nav_items = seq -%}
 {% endif %}
 
 {% if nav_items == nil or nav_items.size == 0 %}
@@ -93,16 +99,27 @@ display ToC titles even when order falls back to site.pages.
 {% endif %}
 
 {%- assign current_index = nil -%}
+{%- assign _best_len = 0 -%}
 {%- if nav_items and nav_items.size > 0 -%}
+  {%- comment -%}
+  Resolve current page by "best match" (longest URL match).
+  This avoids prefix/index items ("/", "/chapters/", "/appendices/", etc.)
+  capturing all pages due to `contains`.
+  {%- endcomment -%}
   {%- for item in nav_items -%}
-    {%- if item.path and item.path != '' -%}
-      {%- assign item_url = item.path -%}
-    {%- else -%}
-      {%- assign item_url = item.url -%}
-    {%- endif -%}
-    {%- if item_url == page.url or page.url contains item_url -%}
-      {%- assign current_index = forloop.index0 -%}
-      {%- break -%}
+    {%- assign item_url = item.path | default: item.url -%}
+    {%- if item_url and item_url != '' -%}
+      {%- assign item_url_n = item_url -%}
+      {%- if _baseurl and _baseurl != '' -%}
+        {%- assign item_url_n = item_url_n | replace: _baseurl, '' -%}
+      {%- endif -%}
+      {%- if item_url_n and item_url_n != '' and _page_url_n contains item_url_n -%}
+        {%- assign _cand_len = item_url_n | size -%}
+        {%- if _cand_len > _best_len -%}
+          {%- assign _best_len = _cand_len -%}
+          {%- assign current_index = forloop.index0 -%}
+        {%- endif -%}
+      {%- endif -%}
     {%- endif -%}
   {%- endfor -%}
 {%- endif -%}
@@ -196,4 +213,3 @@ display ToC titles even when order falls back to site.pages.
 .title { font-size: .9rem; opacity: .8; max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 @media (max-width: 768px) { .chapter-nav { flex-wrap: wrap; } .nav-prev, .nav-next { flex: 1 1 45%; } .nav-home { flex: 1 1 100%; order: -1; } .title { display: none; } }
 </style>
-
