@@ -266,13 +266,23 @@
                 if (sidebar) {
                     var active = sidebar.querySelector('a.toc-link.active');
                     if (active && typeof active.focus === 'function') {
-                        active.focus();
+                        try {
+                            active.focus({ preventScroll: true });
+                        } catch (_) {
+                            try { active.focus(); } catch (_) {}
+                        }
                         return;
                     }
                 }
 
                 var focusable = getSidebarFocusable();
-                if (focusable && focusable.length) focusable[0].focus();
+                if (focusable && focusable.length && typeof focusable[0].focus === 'function') {
+                    try {
+                        focusable[0].focus({ preventScroll: true });
+                    } catch (_) {
+                        try { focusable[0].focus(); } catch (_) {}
+                    }
+                }
             };
 
             // Keep focus inside the sidebar while it is open on mobile (basic focus trap).
