@@ -261,7 +261,16 @@
                 );
             };
 
-            var focusFirstInSidebar = function() {
+            var focusPreferredInSidebar = function() {
+                // Prefer focusing the current page entry so the user immediately sees where they are in the TOC.
+                if (sidebar) {
+                    var active = sidebar.querySelector('a.toc-link.active');
+                    if (active && typeof active.focus === 'function') {
+                        active.focus();
+                        return;
+                    }
+                }
+
                 var focusable = getSidebarFocusable();
                 if (focusable && focusable.length) focusable[0].focus();
             };
@@ -301,7 +310,7 @@
                     if (!returnFocus || typeof returnFocus.focus !== 'function') {
                         returnFocus = toggle;
                     }
-                    if (isMobile()) setTimeout(focusFirstInSidebar, 0);
+                    if (isMobile()) setTimeout(focusPreferredInSidebar, 0);
                 } else {
                     var target = returnFocus;
                     if (!target || typeof target.focus !== 'function') {
