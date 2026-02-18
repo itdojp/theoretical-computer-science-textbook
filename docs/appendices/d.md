@@ -211,7 +211,7 @@ layout: book
 
 <a id="相互情報量-mutual-information"></a>
 **相互情報量（Mutual Information）**
-- 確率変数 X と Y の情報共有量：I(X;Y) = H(X) + H(Y) − H(X,Y) = H(X) − H(X|Y)
+- 確率変数 X と Y の情報共有量：\(I(X;Y) = H(X) + H(Y) - H(X,Y) = H(X) - H(X \mid Y)\)
 - 情報源・通信路の依存関係や特徴量選択の評価に用いる（→ 第10章: 情報理論: ../chapter-10/index.md）
 
 ## J

@@ -164,7 +164,7 @@ C_i = E_k(M_i ⊕ C_{i-1}), C_0 = IV
 また、パディングオラクル攻撃に脆弱になり得るため、MAC併用やAEAD方式の使用を推奨。
 
 **CTR（Counter）**：
-C_i = M_i ⊕ E_k(IV || i)
+\(C_i = M_i \oplus E_k(IV \parallel i)\)
 
 注意：同一の鍵で同一ノンス/カウンタを二度使用してはならない（致命的）。
 鍵ストリーム再利用により平文差分が漏洩する。
@@ -327,7 +327,7 @@ E: y^2 = x^3 + ax + b （特性 ≠ 2, 3）
 ### 11.4.4 DSA と ECDSA
 
 **DSA（Digital Signature Algorithm）**：
-1. パラメータ：素数 p, q (q | p-1)、生成元 g
+1. パラメータ：素数 p, q（\(q \mid (p-1)\)）、生成元 g
 2. 秘密鍵：x、公開鍵：y = g^x mod p
 3. 署名生成：
    - k をランダムに選択
@@ -347,11 +347,11 @@ E: y^2 = x^3 + ax + b （特性 ≠ 2, 3）
 
 **署名生成**：
 1. r = g^k （k はランダム）
-2. c = H(r || m)
+2. \(c = H(r \parallel m)\)
 3. s = k + cx
 4. 署名：(c, s)
 
-**検証**：c = H(g^s y^{-c} || m)
+**検証**：\(c = H(g^s y^{-c} \parallel m)\)
 
 **利点**：
 - 線形性により署名集約が可能
@@ -402,7 +402,7 @@ E: y^2 = x^3 + ax + b （特性 ≠ 2, 3）
 ### 11.5.4 ハッシュ関数の応用
 
 **HMAC**（Hash-based MAC）：
-HMAC(k, m) = H((k ⊕ opad) || H((k ⊕ ipad) || m))
+\(\mathrm{HMAC}(k, m) = H((k \oplus \mathrm{opad}) \parallel H((k \oplus \mathrm{ipad}) \parallel m))\)
 
 **パスワードハッシング**：
 - salt の使用
@@ -457,7 +457,7 @@ HMAC(k, m) = H((k ⊕ opad) || H((k ⊕ ipad) || m))
 ### 11.6.5 非対話型ゼロ知識（NIZK）
 
 **Fiat-Shamir 変換**：
-チャレンジをハッシュ関数で生成：c = H(a || x)
+チャレンジをハッシュ関数で生成：\(c = H(a \parallel x)\)
 
 **応用**：
 - デジタル署名

@@ -45,6 +45,26 @@ BAD_REGEXES: list[tuple[re.Pattern[str], str]] = [
     ),
 ]
 
+BAD_INLINE_PATTERNS: list[tuple[re.Pattern[str], str]] = [
+    # Avoid raw conditional/divisibility bars inside common math-like expressions.
+    (
+        re.compile(r"\bH\([^)\n]*\|[^)\n]*\)"),
+        "Avoid raw '|' in conditional entropy notation (use TeX like \\mid).",
+    ),
+    (
+        re.compile(r"\bI\([^)\n]*\|[^)\n]*\)"),
+        "Avoid raw '|' in conditional mutual information notation (use TeX like \\mid).",
+    ),
+    (
+        re.compile(r"\bp\([^)\n]*\|[^)\n]*\)"),
+        "Avoid raw '|' in conditional probability notation (use TeX like \\mid).",
+    ),
+    (
+        re.compile(r"\bq\s*\|\s*\(?p\s*-\s*1\)?"),
+        "Avoid raw divisibility '|' (use TeX like \\mid, e.g. \\(q \\mid (p-1)\\)).",
+    ),
+]
+
 def contains_raw_bar_inside_braces(line: str) -> bool:
     """Detect a literal '|' that appears inside a {...} segment.
 
@@ -121,6 +141,13 @@ def check_file(path: Path) -> list[str]:
         if TABLE_SEPARATOR_RE.match(line_no_code):
             continue
 
+        # Avoid raw concatenation / double-bar notation, which is easy to lose in Markdown/HTML.
+        if "||" in line_no_code:
+            errors.append(
+                f"{path}:{lineno}: Avoid raw '||' (use TeX like \\\\parallel for concatenation "
+                f"or \\\\Vert for KL-style double bars)."
+            )
+
         # Regex examples should be written in inline code to avoid Markdown emphasis eating '*'.
         # We scope this narrowly to lines that mention regular expressions.
         if "正規表現" in line_no_code and re.search(r"[0-9A-Za-z)\]]\*(?!\*)", line_no_code):
@@ -134,6 +161,11 @@ def check_file(path: Path) -> list[str]:
                 f"{path}:{lineno}: Avoid raw '|' inside braces like {{x | ...}} "
                 f"(use TeX like \\mid)."
             )
+
+        for rx, msg in BAD_INLINE_PATTERNS:
+            m = rx.search(line_no_code)
+            if m:
+                errors.append(f"{path}:{lineno}: {msg} (found: {m.group(0)})")
 
         for bad, msg in BAD_SUBSTRINGS:
             if bad in line_no_code:
