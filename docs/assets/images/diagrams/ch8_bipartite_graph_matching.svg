@@ -178,7 +178,7 @@
   <text x="90" y="620" class="result-text">1. Hungarian法 (二部グラフ):</text>
   <text x="110" y="635" class="result-text">最大フローへの帰着により O(|E| · √|V|) で解ける</text>
   <text x="90" y="655" class="result-text">2. Edmondsのアルゴリズム (一般グラフ):</text>
-  <text x="110" y="670" class="result-text">花(blossom)の縮約を用いて O(|V|³) で解ける</text>
+  <text x="110" y="670" class="result-text">花(blossom)の縮約を用いて O(|V|^3) で解ける</text>
   <text x="90" y="690" class="result-text">3. 増加路法:</text>
   <text x="110" y="705" class="result-text">マッチングを飽和しない頂点から交互路を探索</text>
   

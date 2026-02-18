@@ -43,7 +43,7 @@
   <text x="167" y="105" class="main-text" fill="#1976d2">k-テープ機械</text>
   <text x="167" y="120" class="detail-text" fill="#1976d2">・k本の独立テープ</text>
   <text x="167" y="135" class="detail-text" fill="#1976d2">・各テープに読み書きヘッド</text>
-  <text x="167" y="150" class="detail-text" fill="#1976d2">・δ: Q×Γᵏ→Q×Γᵏ×{L,R}ᵏ</text>
+  <text x="167" y="150" class="detail-text" fill="#1976d2">・δ: Q×Γ^k→Q×Γ^k×{L,R}^k</text>
   
   <!-- MT Advantage -->
   <rect x="67" y="190" width="200" height="80" class="multitape-box"/>

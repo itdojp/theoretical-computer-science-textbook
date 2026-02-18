@@ -207,7 +207,7 @@ layout: book
 
 **共通部分（intersection）**
 - 2つの集合の共通要素の集合
-- A ∩ B = {x \\(\mid\\) x ∈ A ∧ x ∈ B}
+- \\(A \\cap B = \\{\\,x \\mid x \\in A \\land x \\in B\\,\\}\\)
 
 <a id="相互情報量-mutual-information"></a>
 **相互情報量（Mutual Information）**
@@ -223,7 +223,7 @@ layout: book
 ## K
 
 **Kleene閉包 (Kleene Closure)**
-- 言語Lに対するL* = L⁰ ∪ L¹ ∪ L² ∪ ...
+- 言語 L に対して \\(L^* = L^0 \\cup L^1 \\cup L^2 \\cup \\cdots\\)
 - 0回以上の連接
 
 <a id="クラフトの不等式-kraft-inequality"></a>
@@ -355,7 +355,7 @@ layout: book
 
 <a id="rice-の定理-rices-theorem"></a>
 **Rice の定理 (Rice's Theorem)**
-- チューリング機械が受理する言語 L(M) に関する任意の「非自明な」意味的性質 P に対して、{⟨M⟩ \\(\mid\\) L(M) が P を満たす} は決定不能
+- チューリング機械が受理する言語 L(M) に関する任意の「非自明な」意味的性質 P に対して、\\(\\{\\,\\langle M\\rangle \\mid L(M) \\text{ が } P \\text{ を満たす}\\,\\}\\) は決定不能
 - 非自明: P を満たす言語と満たさない言語が少なくとも1つずつ存在
 - 対象は意味的性質のみ（内部構造・状態数など構文的性質は対象外）
 - 典型例: 空言語性、有限性、正規性、ある語を含むか 等（いずれも決定不能）
@@ -417,7 +417,7 @@ layout: book
 
 **和集合 (Union)**
 - 2つの集合のいずれかに属する要素の集合
-- A ∪ B = {x \\(\mid\\) x ∈ A ∨ x ∈ B}
+- \\(A \\cup B = \\{\\,x \\mid x \\in A \\lor x \\in B\\,\\}\\)
 
 **全単射 (Bijection)**
 - 単射かつ全射の関数
@@ -493,7 +493,7 @@ layout: book
 - f: A → B: AからBへの関数
 - dom(f): 定義域
 - ran(f): 値域
-- f⁻¹: 逆関数
+- \\(f^{-1}\\): 逆関数
 - g ∘ f: 合成関数
 
 ### グラフ記号

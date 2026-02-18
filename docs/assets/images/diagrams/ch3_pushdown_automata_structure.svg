@@ -150,7 +150,7 @@
     
     <!-- Example Computation -->
     <rect x="760" y="360" width="380" height="120" fill="#ffffff" stroke="#7b1fa2" stroke-width="1" rx="4"/>
-    <text x="950" y="380" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="12" font-weight="bold" fill="#7b1fa2">計算例: {aⁿbⁿ | n ≥ 1}</text>
+    <text x="950" y="380" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="12" font-weight="bold" fill="#7b1fa2">計算例: {a^nb^n | n ≥ 1}</text>
     <text x="770" y="400" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">入力: aabb</text>
     <text x="770" y="415" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">(q₀, aabb, Z₀) ⊢ (q₀, abb, AZ₀) ⊢ (q₀, bb, AAZ₀)</text>
     <text x="770" y="430" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">⊢ (q₁, bb, AAZ₀) ⊢ (q₁, b, AZ₀) ⊢ (q₁, ε, Z₀)</text>

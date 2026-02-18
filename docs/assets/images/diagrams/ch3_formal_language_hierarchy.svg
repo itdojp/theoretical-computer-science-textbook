@@ -133,20 +133,20 @@
   <g id="powers">
     <rect x="270" y="260" width="200" height="120" class="concept-box operation-box" />
     <text x="370" y="285" class="concept-title">べき乗（Powers）</text>
-    <text x="370" y="305" class="formula">w⁰ = ε, wⁿ⁺¹ = wⁿ · w</text>
+    <text x="370" y="305" class="formula">w^0 = ε, w^(n+1) = w^n · w</text>
     <text x="290" y="330" class="description">例：w = "ab"</text>
-    <text x="290" y="345" class="example">w⁰ = ε</text>
-    <text x="290" y="360" class="example">w² = "abab"</text>
+    <text x="290" y="345" class="example">w^0 = ε</text>
+    <text x="290" y="360" class="example">w^2 = "abab"</text>
   </g>
   
   <!-- Reverse -->
   <g id="reverse">
     <rect x="490" y="260" width="200" height="120" class="concept-box operation-box" />
     <text x="590" y="285" class="concept-title">逆転（Reverse）</text>
-    <text x="590" y="305" class="formula">wᴿ</text>
+    <text x="590" y="305" class="formula">w^R</text>
     <text x="510" y="330" class="description">例：</text>
     <text x="510" y="345" class="example">w = "abc"</text>
-    <text x="510" y="360" class="example">wᴿ = "cba"</text>
+    <text x="510" y="360" class="example">w^R = "cba"</text>
   </g>
   
   <!-- Language Operations -->
@@ -192,15 +192,15 @@
   <text x="120" y="480" class="subtitle">代表的な形式言語</text>
   
   <text x="140" y="500" class="concept-title">1. 正規言語</text>
-  <text x="160" y="520" class="example">L₁ = {0ⁿ1ᵐ | n,m ≥ 0} （0の後に1が続く）</text>
+  <text x="160" y="520" class="example">L₁ = {0^n1^m | n,m ≥ 0} （0の後に1が続く）</text>
   <text x="160" y="535" class="description">有限オートマトンで認識可能</text>
   
   <text x="140" y="560" class="concept-title">2. 文脈自由言語</text>
-  <text x="160" y="580" class="example">L₂ = {0ⁿ1ⁿ | n ≥ 0} （0と1の個数が等しい）</text>
+  <text x="160" y="580" class="example">L₂ = {0^n1^n | n ≥ 0} （0と1の個数が等しい）</text>
   <text x="160" y="595" class="description">プッシュダウンオートマトンで認識可能</text>
   
   <text x="140" y="620" class="concept-title">3. 文脈依存言語</text>
-  <text x="160" y="640" class="example">L₃ = {aⁿbⁿcⁿ | n ≥ 1} （a, b, cの個数が等しい）</text>
+  <text x="160" y="640" class="example">L₃ = {a^nb^nc^n | n ≥ 1} （a, b, cの個数が等しい）</text>
   <text x="160" y="655" class="description">線形拘束オートマトンで認識可能</text>
   
   <!-- Applications -->
@@ -220,7 +220,7 @@
   
   <!-- Mathematical Properties -->
   <text x="120" y="690" class="subtitle">数学的性質</text>
-  <text x="140" y="710" class="formula">Σ* = {ε} ∪ Σ ∪ Σ² ∪ Σ³ ∪ ...</text>
+  <text x="140" y="710" class="formula">Σ* = {ε} ∪ Σ ∪ Σ^2 ∪ Σ^3 ∪ ...</text>
   <text x="140" y="730" class="description">全ての文字列の集合（可算無限）</text>
   <text x="140" y="745" class="description">形式言語は Σ* の部分集合（非可算無限個存在）</text>
 </svg>

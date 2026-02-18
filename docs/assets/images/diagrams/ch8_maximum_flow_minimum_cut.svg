@@ -236,6 +236,6 @@
   
   <rect x="70" y="750" width="1260" height="80" fill="#fef5e7" stroke="#dd6b20" stroke-width="1" rx="6"/>
   <text x="700" y="775" text-anchor="middle" class="section-title">時間複雑度と実装</text>
-  <text x="90" y="800" class="result-text">• Ford-Fulkerson法: O(E・f*) (f*は最大フロー値), Edmonds-Karp法: O(VE²), Dinicのアルゴリズム: O(V²E)</text>
+  <text x="90" y="800" class="result-text">• Ford-Fulkerson法: O(E・f*) (f*は最大フロー値), Edmonds-Karp法: O(VE^2), Dinicのアルゴリズム: O(V^2E)</text>
   <text x="90" y="815" class="result-text">• 応用: 最小費用最大フロー、二部マッチング、多品種フロー、ネットワーク信頼性解析</text>
 </svg>

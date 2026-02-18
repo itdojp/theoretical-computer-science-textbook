@@ -244,7 +244,7 @@
     <text x="1060" y="550" class="explanation">• バイナリ法</text>
     <text x="1060" y="565" class="explanation">• ウィンドウ法</text>
     <text x="1060" y="580" class="explanation">• モンゴメリ乗算</text>
-    <text x="1060" y="595" class="explanation">計算量: O(log³ n)</text>
+    <text x="1060" y="595" class="explanation">計算量: O(log^3 n)</text>
     <text x="1060" y="610" class="explanation">定数時間実装が重要</text>
   </g>
   

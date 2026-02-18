@@ -97,7 +97,7 @@
     <rect x="250" y="160" width="120" height="80" class="complexity-box complexity-p" />
     <text x="310" y="185" class="class-name">P</text>
     <text x="310" y="205" class="class-desc">多項式時間</text>
-    <text x="310" y="220" class="class-desc">∪ₖ TIME(nᵏ)</text>
+    <text x="310" y="220" class="class-desc">∪ₖ TIME(n^k)</text>
     
     <!-- BPP (Bounded-error Probabilistic P) -->
     <rect x="250" y="280" width="120" height="80" class="complexity-box complexity-p" />
@@ -109,7 +109,7 @@
     <rect x="450" y="120" width="120" height="80" class="complexity-box complexity-np" />
     <text x="510" y="145" class="class-name">NP</text>
     <text x="510" y="165" class="class-desc">非決定性多項式時間</text>
-    <text x="510" y="180" class="class-desc">NTIME(nᵏ)</text>
+    <text x="510" y="180" class="class-desc">NTIME(n^k)</text>
     
     <!-- coNP (Complement of NP) -->
     <rect x="450" y="240" width="120" height="80" class="complexity-box complexity-np" />
@@ -121,13 +121,13 @@
     <rect x="650" y="180" width="120" height="80" class="complexity-box complexity-pspace" />
     <text x="710" y="205" class="class-name">PSPACE</text>
     <text x="710" y="225" class="class-desc">多項式空間</text>
-    <text x="710" y="240" class="class-desc">∪ₖ SPACE(nᵏ)</text>
+    <text x="710" y="240" class="class-desc">∪ₖ SPACE(n^k)</text>
     
     <!-- EXPTIME (Exponential Time) -->
     <rect x="850" y="180" width="120" height="80" class="complexity-box complexity-exp" />
     <text x="910" y="205" class="class-name">EXPTIME</text>
     <text x="910" y="225" class="class-desc">指数時間</text>
-    <text x="910" y="240" class="class-desc">∪ₖ TIME(2^(nᵏ))</text>
+    <text x="910" y="240" class="class-desc">∪ₖ TIME(2^(n^k))</text>
   </g>
   
   <!-- Inclusion arrows -->

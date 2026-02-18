@@ -209,7 +209,7 @@
   
   <!-- Formal proof outline -->
   <text x="600" y="660" class="subtitle">証明の骨格</text>
-  <text x="620" y="680" class="description">Q⁺ → ℕ の全単射関数の構成</text>
+  <text x="620" y="680" class="description">Q^+ → ℕ の全単射関数の構成</text>
   <text x="620" y="700" class="description">f: 既約分数 p/q ↦ その列挙順序</text>
-  <text x="620" y="720" class="description">∴ |Q⁺| = |ℕ| = ℵ₀ (アレフ零)</text>
+  <text x="620" y="720" class="description">∴ |Q^+| = |ℕ| = ℵ₀ (アレフ零)</text>
 </svg>

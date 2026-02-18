@@ -56,7 +56,7 @@
       "url": "/theoretical-computer-science-textbook/appendices/"
     },
     {
-      "excerpt": "更新履歴（CHANGELOG） 本書の更新履歴です。タグ付けリリース（GitHub Releases）単位で更新します。 Unreleased - 次回リリースに向けた変更は、マージされたPR単位で追記します。 1.1.1 - 表記崩れ（ / 等）と定義不整合の横断修正（Issue #259） - 表記規約（Notation）の追加、およびCIでの再発防止（notation lint / HTMLチェック）を導入 1.1.0 - 付録C",
+      "excerpt": "更新履歴（CHANGELOG） 本書の更新履歴です。タグ付けリリース（GitHub Releases）単位で更新します。 Unreleased - 次回リリースに向けた変更は、マージされたPR単位で追記します。 1.1.2 - 表記・構造の最終統一（集合内包表記の数式モード統一、Unicode上付き排除、章末セクション配置の整理）（Issue #261） - 第10章：注釈重複の除去、エントロピー上界の対象（\\\\ \\\\lvert\\\\ma",
       "source_path": "docs/changelog/index.md",
       "title": "更新履歴（CHANGELOG）",
       "url": "/theoretical-computer-science-textbook/changelog/"

@@ -275,7 +275,7 @@
     <text x="290" y="550" class="example-text">ソートが支配的な場合が多い</text>
     
     <rect x="560" y="520" width="280" height="40" style="fill: #fafafa; stroke: #ccc; stroke-width: 1px;" />
-    <text x="570" y="535" class="example-text">O(n²) ~ O(n³)</text>
+    <text x="570" y="535" class="example-text">O(n^2) ~ O(n^3)</text>
     <text x="570" y="550" class="example-text">表のサイズに依存</text>
     
     <rect x="840" y="520" width="280" height="40" style="fill: #fafafa; stroke: #ccc; stroke-width: 1px;" />
@@ -292,7 +292,7 @@
     <text x="290" y="590" class="example-text">追加記憶域は最小限</text>
     
     <rect x="560" y="560" width="280" height="40" style="fill: #fafafa; stroke: #ccc; stroke-width: 1px;" />
-    <text x="570" y="575" class="example-text">O(n²) など</text>
+    <text x="570" y="575" class="example-text">O(n^2) など</text>
     <text x="570" y="590" class="example-text">DPテーブルが必要</text>
     
     <rect x="840" y="560" width="280" height="40" style="fill: #fafafa; stroke: #ccc; stroke-width: 1px;" />

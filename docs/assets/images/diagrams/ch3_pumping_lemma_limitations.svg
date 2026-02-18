@@ -160,11 +160,11 @@
     
     <!-- Example 1 -->
     <rect x="60" y="540" width="340" height="120" fill="#ffffff" stroke="#d32f2f" stroke-width="1" rx="4"/>
-    <text x="230" y="560" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="14" font-weight="bold" fill="#d32f2f">{0ⁿ1ⁿ | n ≥ 0}</text>
+    <text x="230" y="560" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="14" font-weight="bold" fill="#d32f2f">{0^n1^n | n ≥ 0}</text>
     <text x="70" y="580" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="12" font-weight="bold" fill="#333">証明:</text>
-    <text x="80" y="595" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="11" fill="#555">s = 0ᵖ1ᵖを考える</text>
+    <text x="80" y="595" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="11" fill="#555">s = 0^p1^pを考える</text>
     <text x="80" y="610" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="11" fill="#555">|xy| ≤ pより、yは0のみから構成</text>
-    <text x="80" y="625" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="11" fill="#555">xy²z = 0ᵖ⁺ᵏ1ᵖ ∉ Lとなり矛盾</text>
+    <text x="80" y="625" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="11" fill="#555">xy^2z = 0^(p+k)1^p ∉ Lとなり矛盾</text>
     <text x="80" y="640" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="11" fill="#555">∴ この言語は非正規</text>
     
     <!-- Example 2 -->
@@ -178,7 +178,7 @@
     
     <!-- Example 3 -->
     <rect x="780" y="540" width="360" height="120" fill="#ffffff" stroke="#d32f2f" stroke-width="1" rx="4"/>
-    <text x="960" y="560" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="14" font-weight="bold" fill="#d32f2f">{0ⁿ² | n ≥ 0}</text>
+    <text x="960" y="560" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="14" font-weight="bold" fill="#d32f2f">{0^(n^2) | n ≥ 0}</text>
     <text x="790" y="580" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="12" font-weight="bold" fill="#333">証明:</text>
     <text x="800" y="595" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="11" fill="#555">平方数の間隔は等差数列でない</text>
     <text x="800" y="610" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="11" fill="#555">pumpingによる等間隔増加と矛盾</text>
@@ -218,10 +218,10 @@
     
     <!-- Concrete Example -->
     <rect x="900" y="740" width="240" height="105" fill="#ffffff" stroke="#388e3c" stroke-width="1" rx="4"/>
-    <text x="1020" y="760" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="12" font-weight="bold" fill="#388e3c">具体例: {0ⁿ1ⁿ | n ≥ 0}</text>
-    <text x="910" y="780" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">0ⁱと0ʲ (i ≠ j)は区別可能:</text>
-    <text x="910" y="795" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">z = 1ⁱに対し 0ⁱ1ⁱ ∈ L だが</text>
-    <text x="910" y="810" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">0ʲ1ⁱ ∉ L (i ≠ j)</text>
+    <text x="1020" y="760" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="12" font-weight="bold" fill="#388e3c">具体例: {0^n1^n | n ≥ 0}</text>
+    <text x="910" y="780" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">0^iと0^j (i ≠ j)は区別可能:</text>
+    <text x="910" y="795" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">z = 1^iに対し 0^i1^i ∈ L だが</text>
+    <text x="910" y="810" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">0^j1^i ∉ L (i ≠ j)</text>
     <text x="910" y="825" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">∴ 無限個の同値類が存在</text>
     <text x="910" y="840" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" font-size="10" fill="#555">→ 非正規言語</text>
   </g>

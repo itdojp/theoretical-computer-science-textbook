@@ -142,7 +142,7 @@
     <rect x="900" y="100" width="150" height="60" class="awgn-model" />
     <text x="975" y="120" class="model-title" text-anchor="middle">AWGN</text>
     <text x="975" y="140" class="description" text-anchor="middle">Y = X + N</text>
-    <text x="975" y="155" class="parameter-text" text-anchor="middle">N ~ N(0, σ²)</text>
+    <text x="975" y="155" class="parameter-text" text-anchor="middle">N ~ N(0, σ^2)</text>
     
     <!-- Output -->
     <rect x="1100" y="100" width="100" height="60" class="awgn-model" />
@@ -161,11 +161,11 @@
     <!-- Properties -->
     <rect x="750" y="240" width="450" height="120" class="awgn-model" />
     <text x="760" y="260" class="model-title">特性</text>
-    <text x="770" y="280" class="description">• N: 平均0、分散σ²のガウス雑音</text>
+    <text x="770" y="280" class="description">• N: 平均0、分散σ^2のガウス雑音</text>
     <text x="770" y="295" class="description">• 雑音は入力と独立</text>
     <text x="770" y="310" class="description">• 連続時間・連続値の通信路</text>
     <text x="770" y="325" class="description">• 実際の多くの通信システムのモデル</text>
-    <text x="770" y="340" class="description">• SNR = P/σ² (P: 信号電力)</text>
+    <text x="770" y="340" class="description">• SNR = P/σ^2 (P: 信号電力)</text>
   </g>
   
   <!-- Channel Capacity -->

@@ -77,9 +77,9 @@
     
     <rect x="670" y="125" width="160" height="80" class="component" rx="3"/>
     <text x="750" y="145" class="text-content" text-anchor="middle">例: バランス括弧</text>
-    <text x="680" y="165" class="example-text">{aⁿbⁿ | n ≥ 0}</text>
+    <text x="680" y="165" class="example-text">{a^nb^n | n ≥ 0}</text>
     <text x="680" y="180" class="example-text">S → aSb | ε</text>
-    <text x="680" y="195" class="small-text">認識: O(n³) CYK法</text>
+    <text x="680" y="195" class="small-text">認識: O(n^3) CYK法</text>
   </g>
 
   <!-- Type 1: Context-Sensitive Languages -->
@@ -95,7 +95,7 @@
     
     <rect x="250" y="295" width="160" height="80" class="component" rx="3"/>
     <text x="330" y="315" class="text-content" text-anchor="middle">例: コピー言語</text>
-    <text x="260" y="335" class="example-text">{aⁿbⁿcⁿ | n ≥ 0}</text>
+    <text x="260" y="335" class="example-text">{a^nb^nc^n | n ≥ 0}</text>
     <text x="260" y="350" class="example-text">{ww | w ∈ {a,b}*}</text>
     <text x="260" y="365" class="small-text">認識: 指数時間</text>
   </g>

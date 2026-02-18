@@ -38,22 +38,22 @@ sections:
 
 **定義 8.1** **グラフ** G = (V, E) は頂点集合 V と辺集合 E から構成される。
 {: #def-8-1 }
-- 無向グラフ：E ⊆ {(u, v) \\(\mid\\) u, v ∈ V, u ≠ v}
+- 無向グラフ：\\(E \\subseteq \\{(u, v) \\mid u, v \\in V, u \\ne v\\}\\)
 - 有向グラフ：E ⊆ V × V
 
 **グラフの表現方法**：
 1. **隣接行列**：A[i,j] = 1 if (i,j) ∈ E
-   - 空間：O(\\(\lvert V\rvert\\)²)
+   - 空間：\\(O(\\lvert V\\rvert^2)\\)
    - 辺の存在確認：O(1)
-   - 全辺の走査：O(\\(\lvert V\rvert\\)²)
+   - 全辺の走査：\\(O(\\lvert V\\rvert^2)\\)
 
 2. **隣接リスト**：各頂点の隣接頂点のリスト
-   - 空間：O(\\(\lvert V\rvert\\) + \\(\lvert E\rvert\\))
+   - 空間：\\(O(\\lvert V\\rvert + \\lvert E\\rvert)\\)
    - 頂点の隣接頂点走査：O(deg(v))
-   - 全辺の走査：O(\\(\lvert V\rvert\\) + \\(\lvert E\rvert\\))
+   - 全辺の走査：\\(O(\\lvert V\\rvert + \\lvert E\\rvert)\\)
 
 【実務上の注意（表現とメモリ）】
-- 疎グラフ（\\(\lvert E\rvert\\) ≪ \\(\lvert V\rvert\\)²）では隣接リストが有利、密グラフでは隣接行列が簡潔かつ高速。
+- 疎グラフ（\\(\\lvert E\\rvert \\ll \\lvert V\\rvert^2\\)）では隣接リストが有利、密グラフでは隣接行列が簡潔かつ高速。
 - 重み付き疎グラフの大規模処理では、CSR/COO といった圧縮表現がキャッシュ効率と並列化で有利。
 - 0/1重みや単位重みでは、BFSや0-1 BFS（デック使用）で大幅な高速化が可能。
 - 有向/無向や自己ループ・多重辺の扱いを明確に（アルゴリズムの仮定に影響）。
@@ -239,7 +239,7 @@ Bellman-Ford(G, w, s):
     return d
 ```
 
-時間複雑度：O(\\(\lvert V\rvert\\) · \\(\lvert E\rvert\\))
+時間複雑度：\\(O(\\lvert V\\rvert \\cdot \\lvert E\\rvert)\\)
 
 ### 8.2.2 全点対最短路
 
@@ -259,13 +259,13 @@ Floyd-Warshall(W):
     return D^(n)
 ```
 
-時間複雑度：O(\\(\lvert V\rvert\\)³)
-空間複雑度：O(\\(\lvert V\rvert\\)²)（1つの行列を更新）
+時間複雑度：\\(O(\\lvert V\\rvert^3)\\)
+空間複雑度：\\(O(\\lvert V\\rvert^2)\\)（1つの行列を更新）
 
 ### 8.2.3 特殊なグラフでの最短路
 
 **DAG（有向非巡回グラフ）での最短路**：
-トポロジカル順序で緩和することで O(\\(\lvert V\rvert\\) + \\(\lvert E\rvert\\)) で解ける。
+トポロジカル順序で緩和することで \\(O(\\lvert V\\rvert + \\lvert E\\rvert)\\) で解ける。
 
 【グラフ実装の落とし穴】
 - インデックスの基準（0/1始まり）を混在させない。入力→内部表現の変換で統一。
@@ -275,7 +275,7 @@ Floyd-Warshall(W):
 
 **定理 8.6** 単位重み（すべての辺の重みが1）のグラフでは、
 {: #thm-8-6 }
-BFS が O(\\(\lvert V\rvert\\) + \\(\lvert E\rvert\\)) で最短路を求める。
+BFS が \\(O(\\lvert V\\rvert + \\lvert E\\rvert)\\) で最短路を求める。
 
 ## 8.3 最小全域木
 
@@ -345,10 +345,10 @@ Prim(G, w, r):
 
 **定義 8.4** **フローネットワーク** G = (V, E) は：
 {: #def-8-4 }
-- 容量関数 c: V × V → ℝ⁺
+- 容量関数 \\(c: V \\times V \\to \\mathbb{R}_{>0}\\)
 - 始点 s、終点 t
 
-**フロー** f: V × V → ℝ は以下を満たす：
+**フロー** \\(f: V \\times V \\to \\mathbb{R}\\) は以下を満たす：
 1. 容量制約：0 ≤ f(u,v) ≤ c(u,v)
 2. 流量保存：∑_v f(v,u) = ∑_v f(u,v) （u ≠ s,t）
 
@@ -381,10 +381,10 @@ Ford-Fulkerson(G, s, t):
 ### 8.4.3 効率的な実装
 
 #### Edmonds-Karp法
-増加路を BFS で見つける：O(\\(\lvert V\rvert\\) · \\(\lvert E\rvert\\)²)
+増加路を BFS で見つける：\\(O(\\lvert V\\rvert \\cdot \\lvert E\\rvert^2)\\)
 
 #### Dinicのアルゴリズム
-レベルグラフを用いたブロッキングフロー：O(\\(\lvert V\rvert\\)² · \\(\lvert E\rvert\\))
+レベルグラフを用いたブロッキングフロー：\\(O(\\lvert V\\rvert^2 \\cdot \\lvert E\\rvert)\\)
 
 #### Push-Relabel法
 ```text
@@ -398,7 +398,7 @@ Push-Relabel(G, s, t):
             Relabel(v)
 ```
 
-時間複雑度：O(\\(\lvert V\rvert\\)² · \\(\lvert E\rvert\\))
+時間複雑度：\\(O(\\lvert V\\rvert^2 \\cdot \\lvert E\\rvert)\\)
 
 ### 8.4.4 応用
 
@@ -434,7 +434,7 @@ Push-Relabel(G, s, t):
 最大フローへの帰着により O(\\(\lvert E\rvert\\) · \\(\lvert V\rvert\\)^{1/2}) で解ける。
 
 #### 一般グラフの場合（Edmondsのアルゴリズム）
-花（blossom）の縮約を用いる：O(\\(\lvert V\rvert\\)³)
+花（blossom）の縮約を用いる：\\(O(\\lvert V\\rvert^3)\\)
 
 ### 8.5.3 完全マッチング
 
@@ -461,7 +461,7 @@ Gale-Shapley(男性の選好, 女性の選好):
     return マッチング
 ```
 
-時間複雑度：O(n²)
+時間複雑度：\\(O(n^2)\\)
 
 **定理 8.12** Gale-Shapleyアルゴリズムは安定マッチングを生成し、
 {: #thm-8-12 }
@@ -563,6 +563,12 @@ Gale-Shapley(男性の選好, 女性の選好):
 
 **次数分布**：P(k) ∝ k^{-γ}（べき乗則）
 
+## まとめ
+
+- 表現の選択がアルゴリズムの計算量と実装の実効性能に直結する
+- 最短路・最大流・マッチングは応用範囲が広く、適用条件の把握が鍵
+- カット・フローの双対性や交換引数などで正当性と限界を理解する
+
 ## 章末問題
 
 - 代表演習と詳細解答は [付録C（第8章）](../appendices/c/#ex-sol-ch8) を参照。
@@ -658,15 +664,5 @@ Gale-Shapley(男性の選好, 女性の選好):
     - 最短路アルゴリズムの比較（Dijkstra, Bellman-Ford, Floyd-Warshall）
     - 最大フローアルゴリズムの比較（Ford-Fulkerson, Dinic, Push-Relabel）
     - 実グラフでの性能測定と分析
-
-## まとめ
-
-- 表現の選択がアルゴリズムの計算量と実装の実効性能に直結する
-- 最短路・最大流・マッチングは応用範囲が広く、適用条件の把握が鍵
-- カット・フローの双対性や交換引数などで正当性と限界を理解する
-
-## 章末問題
-
-- 代表演習と詳細解答は [付録C（第8章）](../appendices/c/#ex-sol-ch8) を参照。
 
 ---

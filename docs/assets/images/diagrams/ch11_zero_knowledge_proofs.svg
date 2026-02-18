@@ -187,7 +187,7 @@
     <!-- Challenge -->
     <rect x="190" y="360" width="120" height="60" class="concept-box sigma-protocol" />
     <text x="250" y="380" class="section-title">チャレンジ</text>
-    <text x="250" y="395" class="formula">c ← {0,1}ᵏ</text>
+    <text x="250" y="395" class="formula">c ← {0,1}^k</text>
     <text x="200" y="410" class="description">検証者がランダム</text>
     <text x="200" y="420" class="description">チャレンジを送信</text>
     
@@ -266,15 +266,15 @@
   <text x="515" y="620" class="section-title">シミュレータ構成</text>
   <text x="400" y="640" class="description">• チャレンジ c を先に選択</text>
   <text x="400" y="655" class="description">• z をランダムに選択</text>
-  <text x="400" y="670" class="description">• a = Com⁻¹(z, c) を逆算</text>
+  <text x="400" y="670" class="description">• a = Com^-1(z, c) を逆算</text>
   <text x="400" y="685" class="description">• 実際の証明と識別不能な分布を生成</text>
   
   <!-- Security Parameters -->
   <rect x="660" y="600" width="200" height="100" class="concept-box security-box" />
   <text x="760" y="620" class="section-title">セキュリティパラメータ</text>
-  <text x="670" y="640" class="description">• 健全性エラー確率: 2⁻ᵏ</text>
+  <text x="670" y="640" class="description">• 健全性エラー確率: 2^-k</text>
   <text x="670" y="655" class="description">• 並列合成で増幅</text>
-  <text x="670" y="670" class="description">• k回繰り返しで (1/2)ᵏ</text>
+  <text x="670" y="670" class="description">• k回繰り返しで (1/2)^k</text>
   <text x="670" y="685" class="description">• 実用的には k ≥ 80</text>
   
   <!-- Non-Interactive ZK -->

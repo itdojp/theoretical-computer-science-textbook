@@ -91,7 +91,7 @@
     <rect x="100" y="100" width="180" height="60" class="procedure-box truth-table" />
     <text x="190" y="120" class="step-label">ステップ1</text>
     <text x="190" y="135" class="step-label">すべての真理値割当を列挙</text>
-    <text x="190" y="150" class="description">2ⁿ 通りの変数割当</text>
+    <text x="190" y="150" class="description">2^n 通りの変数割当</text>
     
     <!-- Step 2 -->
     <rect x="100" y="180" width="180" height="60" class="procedure-box truth-table" />
@@ -108,7 +108,7 @@
     <!-- Complexity -->
     <rect x="100" y="340" width="180" height="80" class="procedure-box complexity-box" />
     <text x="190" y="365" class="subtitle">計算量</text>
-    <text x="190" y="385" class="complexity-text">O(2ⁿ · |φ|)</text>
+    <text x="190" y="385" class="complexity-text">O(2^n · |φ|)</text>
     <text x="110" y="405" class="description">n: 変数数, |φ|: 論理式サイズ</text>
     
     <!-- Arrows -->
@@ -186,7 +186,7 @@
   <rect x="750" y="540" width="200" height="40" fill="white" stroke="#6c757d" stroke-width="1px" />
   
   <text x="250" y="565" class="step-label">真理値表法</text>
-  <text x="450" y="565" class="complexity-text">O(2ⁿ · |φ|)</text>
+  <text x="450" y="565" class="complexity-text">O(2^n · |φ|)</text>
   <text x="650" y="565" class="complexity-text">O(n)</text>
   <text x="850" y="560" class="description">小さな問題のみ</text>
   
@@ -197,7 +197,7 @@
   <rect x="750" y="580" width="200" height="40" fill="white" stroke="#6c757d" stroke-width="1px" />
   
   <text x="250" y="605" class="step-label">DPLL</text>
-  <text x="450" y="605" class="complexity-text">O(2ⁿ) 最悪</text>
+  <text x="450" y="605" class="complexity-text">O(2^n) 最悪</text>
   <text x="650" y="605" class="complexity-text">O(n)</text>
   <text x="850" y="600" class="description">多くの実問題で効率的</text>
   

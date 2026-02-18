@@ -176,7 +176,7 @@
     <text x="280" y="600" class="example-text">例2: マージソート</text>
     <text x="280" y="615" class="formula" style="text-anchor:start">T(n) = 2T(n/2) + n</text>
     <text x="280" y="630" class="example-text">a=2, b=2, f(n)=n</text>
-    <text x="280" y="645" class="example-text">log₂(2) = 1 = n¹のため</text>
+    <text x="280" y="645" class="example-text">log₂(2) = 1 = n^1のため</text>
     <text x="280" y="660" class="example-text">ケース2適用</text>
     <text x="280" y="675" class="formula" fill="#4caf50">T(n) = Θ(n log n)</text>
     <text x="280" y="690" class="explanation">最適なソート</text>
@@ -184,12 +184,12 @@
     <!-- Example 3: Strassen's Algorithm -->
     <rect x="490" y="580" width="200" height="120" class="example-box" />
     <text x="500" y="600" class="example-text">例3: Strassen行列積</text>
-    <text x="500" y="615" class="formula" style="text-anchor:start">T(n) = 7T(n/2) + n²</text>
-    <text x="500" y="630" class="example-text">a=7, b=2, f(n)=n²</text>
+    <text x="500" y="615" class="formula" style="text-anchor:start">T(n) = 7T(n/2) + n^2</text>
+    <text x="500" y="630" class="example-text">a=7, b=2, f(n)=n^2</text>
     <text x="500" y="645" class="example-text">log₂(7) ≈ 2.807 &gt; 2のため</text>
     <text x="500" y="660" class="example-text">ケース1適用</text>
     <text x="500" y="675" class="formula" fill="#4caf50">T(n) = Θ(n^2.807)</text>
-    <text x="500" y="690" class="explanation">標準O(n³)より高速</text>
+    <text x="500" y="690" class="explanation">標準O(n^3)より高速</text>
     
     <!-- Example 4: Non-applicable case -->
     <rect x="710" y="580" width="200" height="120" class="example-box" />

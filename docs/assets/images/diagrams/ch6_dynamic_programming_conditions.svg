@@ -154,7 +154,7 @@
     <text x="360" y="570" class="example-text">• 連鎖行列積</text>
     <text x="370" y="585" class="example-text">- 最適部分構造: 部分連鎖も最適</text>
     <text x="370" y="600" class="example-text">- 重複: 同じ区間[i,j]を何度も計算</text>
-    <text x="370" y="615" class="example-text">- 部分問題数: O(n²)</text>
+    <text x="370" y="615" class="example-text">- 部分問題数: O(n^2)</text>
   </g>
   
   <!-- Non-Examples Section -->

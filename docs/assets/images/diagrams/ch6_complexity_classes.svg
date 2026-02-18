@@ -100,19 +100,19 @@
     <text x="560" y="100" class="class-label">O(n log n)</text>
     <text x="560" y="120" class="class-name">線形対数時間</text>
     
-    <!-- O(n²) - Quadratic Time -->
+    <!-- O(n^2) - Quadratic Time -->
     <rect x="650" y="80" width="120" height="60" class="complexity-class quadratic" />
-    <text x="710" y="100" class="class-label">O(n²)</text>
+    <text x="710" y="100" class="class-label">O(n^2)</text>
     <text x="710" y="120" class="class-name">2乗時間</text>
     
-    <!-- O(n³) - Cubic Time -->
+    <!-- O(n^3) - Cubic Time -->
     <rect x="800" y="80" width="120" height="60" class="complexity-class cubic" />
-    <text x="860" y="100" class="class-label">O(n³)</text>
+    <text x="860" y="100" class="class-label">O(n^3)</text>
     <text x="860" y="120" class="class-name">3乗時間</text>
     
-    <!-- O(2ⁿ) - Exponential Time -->
+    <!-- O(2^n) - Exponential Time -->
     <rect x="950" y="80" width="120" height="60" class="complexity-class exponential" />
-    <text x="1010" y="100" class="class-label">O(2ⁿ)</text>
+    <text x="1010" y="100" class="class-label">O(2^n)</text>
     <text x="1010" y="120" class="class-name">指数時間</text>
     
     <!-- O(n!) - Factorial Time -->
@@ -160,21 +160,21 @@
     <text x="510" y="230" class="example-label">・ヒープソート</text>
     <text x="510" y="245" class="example-label">・効率的ソート</text>
     
-    <!-- O(n²) Examples -->
+    <!-- O(n^2) Examples -->
     <rect x="650" y="180" width="120" height="80" style="fill: #f8f9fa; stroke: #dee2e6; stroke-width: 1px; rx: 4px;" />
     <text x="660" y="200" class="example-label">例:</text>
     <text x="660" y="215" class="example-label">・選択ソート</text>
     <text x="660" y="230" class="example-label">・バブルソート</text>
     <text x="660" y="245" class="example-label">・入れ子ループ</text>
     
-    <!-- O(n³) Examples -->
+    <!-- O(n^3) Examples -->
     <rect x="800" y="180" width="120" height="80" style="fill: #f8f9fa; stroke: #dee2e6; stroke-width: 1px; rx: 4px;" />
     <text x="810" y="200" class="example-label">例:</text>
     <text x="810" y="215" class="example-label">・行列乗算</text>
     <text x="810" y="230" class="example-label">・Floyd-Warshall</text>
     <text x="810" y="245" class="example-label">・3重ループ</text>
     
-    <!-- O(2ⁿ) Examples -->
+    <!-- O(2^n) Examples -->
     <rect x="950" y="180" width="120" height="80" style="fill: #f8f9fa; stroke: #dee2e6; stroke-width: 1px; rx: 4px;" />
     <text x="960" y="200" class="example-label">例:</text>
     <text x="960" y="215" class="example-label">・部分集合生成</text>
@@ -227,13 +227,13 @@
     <path d="M 100 680 Q 650 550 1200 420" stroke="#9c27b0" stroke-width="3" fill="none" opacity="0.8"/>
     <text x="1000" y="415" class="example-label" fill="#9c27b0">O(n log n)</text>
     
-    <!-- O(n²) -->
+    <!-- O(n^2) -->
     <path d="M 100 680 Q 300 600 1200 360" stroke="#ff5722" stroke-width="3" fill="none" opacity="0.8"/>
-    <text x="950" y="355" class="example-label" fill="#ff5722">O(n²)</text>
+    <text x="950" y="355" class="example-label" fill="#ff5722">O(n^2)</text>
     
-    <!-- O(2ⁿ) -->
+    <!-- O(2^n) -->
     <path d="M 100 680 Q 200 500 400 360" stroke="#f44336" stroke-width="3" fill="none" opacity="0.8"/>
-    <text x="350" y="355" class="example-label" fill="#f44336">O(2ⁿ)</text>
+    <text x="350" y="355" class="example-label" fill="#f44336">O(2^n)</text>
     
     <!-- Scale indicators -->
     <text x="150" y="720" class="example-label" text-anchor="middle">1</text>

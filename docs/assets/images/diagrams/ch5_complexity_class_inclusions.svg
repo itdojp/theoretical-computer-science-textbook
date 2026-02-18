@@ -109,14 +109,14 @@
     <rect x="300" y="150" width="100" height="60" class="deterministic-time" />
     <text x="356" y="170" class="class-name">P</text>
     <text x="356" y="185" class="class-notation">多項式時間</text>
-    <text x="356" y="200" class="class-notation">∪ₖ TIME(nᵏ)</text>
+    <text x="356" y="200" class="class-notation">∪ₖ TIME(n^k)</text>
     
     <!-- NP (Nondeterministic Polynomial Time) -->
     <rect x="500" y="100" width="100" height="60" class="non-deterministic-time" />
     <text x="556" y="120" class="class-name">NP</text>
     <text x="556" y="133" class="class-notation small">非決定性</text>
     <text x="556" y="146" class="class-notation small">多項式時間</text>
-    <text x="556" y="150" class="class-notation">∪ₖ NTIME(nᵏ)</text>
+    <text x="556" y="150" class="class-notation">∪ₖ NTIME(n^k)</text>
     
     <!-- coNP (Complement of NP) -->
     <rect x="500" y="200" width="100" height="60" class="complement-class" />
@@ -139,13 +139,13 @@
     <rect x="700" y="150" width="100" height="60" class="space-class" />
     <text x="756" y="170" class="class-name">PSPACE</text>
     <text x="756" y="185" class="class-notation">多項式空間</text>
-    <text x="756" y="200" class="class-notation">∪ₖ SPACE(nᵏ)</text>
+    <text x="756" y="200" class="class-notation">∪ₖ SPACE(n^k)</text>
     
     <!-- EXPTIME (Exponential Time) -->
     <rect x="900" y="150" width="100" height="60" class="deterministic-time" />
     <text x="956" y="170" class="class-name">EXPTIME</text>
     <text x="956" y="185" class="class-notation">指数時間</text>
-    <text x="956" y="200" class="class-notation">∪ₖ TIME(2^(nᵏ))</text>
+    <text x="956" y="200" class="class-notation">∪ₖ TIME(2^(n^k))</text>
   </g>
   
   <!-- Main Inclusion Chain -->
