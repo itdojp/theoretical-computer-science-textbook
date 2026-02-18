@@ -8,7 +8,7 @@
       "url": "/theoretical-computer-science-textbook/afterword/"
     },
     {
-      "excerpt": "付録A: 数学記法ガイド 本書で使用する数学記法の統一ガイドです。理論計算機科学で一般的に使用される記法に準拠しています。 集合論記号 基本記号 記号 読み 意味 例 ------ ------ ------ ----- ∈ 〜に属する 要素の所属関係 x ∈ A xはAの要素 ∉ 〜に属さない 要素の非所属関係 x ∉ A xはAの要素でない ⊆ 部分集合 集合の包含関係 A ⊆ B AはBの部分集合 ⊂ 真部分集合 真の包含関係 A",
+      "excerpt": "付録A: 数学記法ガイド 本書で使用する数学記法の統一ガイドです。理論計算機科学で一般的に使用される記法に準拠しています。 表記規約（Notation） 本書では、Markdown の解釈（ や ）による記号の欠落・意味変化を避けるため、数式・集合表記を次の規約で統一します。 - 濃度（集合の要素数）： （ の直書きはしない） - 文字列長： （ の直書きはしない） - 内包表記（集合の条件）： （ の直書きはしない） - 条件（「…と",
       "source_path": "docs/appendices/a.md",
       "title": "付録A: 数学記法ガイド",
       "url": "/theoretical-computer-science-textbook/appendices/a/"
@@ -56,7 +56,7 @@
       "url": "/theoretical-computer-science-textbook/appendices/"
     },
     {
-      "excerpt": "更新履歴（CHANGELOG） 本書の更新履歴です。タグ付けリリース（GitHub Releases）単位で更新します。 Unreleased - 次回リリースに向けた変更は、マージされたPR単位で追記します。 1.1.0 - 付録C（練習問題解答）を第7〜12章まで拡張し、章末問題の解答/調査ガイドを追加（PR #221） - サイドバー導線を改善（オフライン版/更新履歴/付録G へのリンク追加）および の監視対象を拡充（PR #22",
+      "excerpt": "更新履歴（CHANGELOG） 本書の更新履歴です。タグ付けリリース（GitHub Releases）単位で更新します。 Unreleased - 次回リリースに向けた変更は、マージされたPR単位で追記します。 1.1.1 - 表記崩れ（ / 等）と定義不整合の横断修正（Issue #259） - 表記規約（Notation）の追加、およびCIでの再発防止（notation lint / HTMLチェック）を導入 1.1.0 - 付録C",
       "source_path": "docs/changelog/index.md",
       "title": "更新履歴（CHANGELOG）",
       "url": "/theoretical-computer-science-textbook/changelog/"

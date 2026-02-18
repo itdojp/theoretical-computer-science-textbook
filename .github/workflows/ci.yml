@@ -70,6 +70,9 @@ jobs:
         JEKYLL_ENV: production
         PAGES_REPO_NWO: itdojp/theoretical-computer-science-textbook
 
+    - name: HTML notation check (post-build)
+      run: python3 scripts/html_notation_check.py --site-root _site
+
     - name: Install htmltest
       run: |
         # Intentionally installing htmltest via remote script.

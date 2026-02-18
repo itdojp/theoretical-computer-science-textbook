@@ -38,22 +38,22 @@ sections:
 
 **定義 8.1** **グラフ** G = (V, E) は頂点集合 V と辺集合 E から構成される。
 {: #def-8-1 }
-- 無向グラフ：E ⊆ {(u, v) | u, v ∈ V, u ≠ v}
+- 無向グラフ：E ⊆ {(u, v) \(\mid\) u, v ∈ V, u ≠ v}
 - 有向グラフ：E ⊆ V × V
 
 **グラフの表現方法**：
 1. **隣接行列**：A[i,j] = 1 if (i,j) ∈ E
-   - 空間：O(|V|²)
+   - 空間：O(\(\lvert V\rvert\)²)
    - 辺の存在確認：O(1)
-   - 全辺の走査：O(|V|²)
+   - 全辺の走査：O(\(\lvert V\rvert\)²)
 
 2. **隣接リスト**：各頂点の隣接頂点のリスト
-   - 空間：O(|V| + |E|)
+   - 空間：O(\(\lvert V\rvert\) + \(\lvert E\rvert\))
    - 頂点の隣接頂点走査：O(deg(v))
-   - 全辺の走査：O(|V| + |E|)
+   - 全辺の走査：O(\(\lvert V\rvert\) + \(\lvert E\rvert\))
 
 【実務上の注意（表現とメモリ）】
-- 疎グラフ（|E| ≪ |V|²）では隣接リストが有利、密グラフでは隣接行列が簡潔かつ高速。
+- 疎グラフ（\(\lvert E\rvert\) ≪ \(\lvert V\rvert\)²）では隣接リストが有利、密グラフでは隣接行列が簡潔かつ高速。
 - 重み付き疎グラフの大規模処理では、CSR/COO といった圧縮表現がキャッシュ効率と並列化で有利。
 - 0/1重みや単位重みでは、BFSや0-1 BFS（デック使用）で大幅な高速化が可能。
 - 有向/無向や自己ループ・多重辺の扱いを明確に（アルゴリズムの仮定に影響）。
@@ -62,7 +62,7 @@ sections:
 
 **定理 8.1**（握手補題）無向グラフ G = (V, E) において：
 {: #thm-8-1 }
-∑_{v∈V} deg(v) = 2|E|
+∑_{v∈V} deg(v) = 2\(\lvert E\rvert\)
 
 *証明*：各辺は両端点の次数にそれぞれ1ずつ寄与する。□
 
@@ -71,10 +71,10 @@ sections:
 
 **定理 8.2**（Eulerの公式）連結平面グラフ G = (V, E, F) において：
 {: #thm-8-2 }
-|V| − |E| + |F| = 2
+\(\lvert V\rvert\) − \(\lvert E\rvert\) + \(\lvert F\rvert\) = 2
 （F は面の集合）
 
-**系 8.2** 単純連結平面グラフ（|V| ≥ 3）において：|E| ≤ 3|V| − 6
+**系 8.2** 単純連結平面グラフ（\(\lvert V\rvert\) ≥ 3）において：\(\lvert E\rvert\) ≤ 3\(\lvert V\rvert\) − 6
 {: #cor-8-2 }
 
 ### 8.1.3 グラフの走査
@@ -107,7 +107,7 @@ DFS-Visit(u):
 ```
 
 **性質**：
-- 時間複雑度：O(|V| + |E|)
+- 時間複雑度：O(\(\lvert V\rvert\) + \(\lvert E\rvert\))
 - DFS木を生成
 - 開始時刻 d[v] と終了時刻 f[v] を記録
 
@@ -149,7 +149,7 @@ BFS(G, s):
 2. G^T（転置グラフ）で、その順序で DFS を実行
 3. 各 DFS木が強連結成分
 
-時間複雑度：O(|V| + |E|)
+時間複雑度：O(\(\lvert V\rvert\) + \(\lvert E\rvert\))
 
 **定理 8.4** 無向グラフ G が連結 ⟺ 任意の空でない真部分集合 S ⊂ V に対して、
 {: #thm-8-4 }
@@ -193,15 +193,15 @@ Dijkstra(G, w, s):
 ![Dijkstra 法の逐次確定の例]({{ '/assets/images/diagrams/ch8_dijkstra_step_trace.svg' | relative_url }})
 
 **時間複雑度**：
-- 二分ヒープ：O((|V| + |E|) log |V|)
-- フィボナッチヒープ：O(|V| log |V| + |E|)
+- 二分ヒープ：O((\(\lvert V\rvert\) + \(\lvert E\rvert\)) log \(\lvert V\rvert\))
+- フィボナッチヒープ：O(\(\lvert V\rvert\) log \(\lvert V\rvert\) + \(\lvert E\rvert\))
 
 【実務メモ（最短路）】
 - 場合分け: 負辺→Bellman-Ford/Johnson、単位重み→BFS、0/1重み→0-1 BFS、一般重み→Dijkstra。
 - 優先度キューの選択: 実装定数因子まで含めると二分ヒープがしばしば有利。超大規模・理論性能重視ならフィボナッチヒープ。
 - 並列化: 大規模グラフではΔ-stepping等の近似並列Dijkstraが有効な場合がある。
 
-【0/1 BFS の最小実装（O(|V|+|E|)）】
+【0/1 BFS の最小実装（O(\(\lvert V\rvert\)+\(\lvert E\rvert\))）】
 ```text
 ZeroOneBFS(G, w ∈ {0,1}, s):
     for v in V: d[v] = ∞
@@ -239,7 +239,7 @@ Bellman-Ford(G, w, s):
     return d
 ```
 
-時間複雑度：O(|V| · |E|)
+時間複雑度：O(\(\lvert V\rvert\) · \(\lvert E\rvert\))
 
 ### 8.2.2 全点対最短路
 
@@ -259,13 +259,13 @@ Floyd-Warshall(W):
     return D^(n)
 ```
 
-時間複雑度：O(|V|³)
-空間複雑度：O(|V|²)（1つの行列を更新）
+時間複雑度：O(\(\lvert V\rvert\)³)
+空間複雑度：O(\(\lvert V\rvert\)²)（1つの行列を更新）
 
 ### 8.2.3 特殊なグラフでの最短路
 
 **DAG（有向非巡回グラフ）での最短路**：
-トポロジカル順序で緩和することで O(|V| + |E|) で解ける。
+トポロジカル順序で緩和することで O(\(\lvert V\rvert\) + \(\lvert E\rvert\)) で解ける。
 
 【グラフ実装の落とし穴】
 - インデックスの基準（0/1始まり）を混在させない。入力→内部表現の変換で統一。
@@ -275,7 +275,7 @@ Floyd-Warshall(W):
 
 **定理 8.6** 単位重み（すべての辺の重みが1）のグラフでは、
 {: #thm-8-6 }
-BFS が O(|V| + |E|) で最短路を求める。
+BFS が O(\(\lvert V\rvert\) + \(\lvert E\rvert\)) で最短路を求める。
 
 ## 8.3 最小全域木
 
@@ -283,7 +283,7 @@ BFS が O(|V| + |E|) で最短路を求める。
 
 **定義 8.3** 連結無向グラフ G = (V, E) の**全域木**は、
 {: #def-8-3 }
-すべての頂点を含み、|V| − 1 本の辺を持つ部分グラフ。
+すべての頂点を含み、\(\lvert V\rvert\) − 1 本の辺を持つ部分グラフ。
 
 **カット性質**：グラフの任意のカット (S, V \ S) を横切る最小重み辺は、
 ある最小全域木に含まれる。
@@ -313,7 +313,7 @@ Kruskal(G, w):
     return A
 ```
 
-時間複雑度：O(|E| log |E|)
+時間複雑度：O(\(\lvert E\rvert\) log \(\lvert E\rvert\))
 
 ### 8.3.3 Primのアルゴリズム
 
@@ -333,8 +333,8 @@ Prim(G, w, r):
 ```
 
 時間複雑度：
-- 二分ヒープ：O(|E| log |V|)
-- フィボナッチヒープ：O(|E| + |V| log |V|)
+- 二分ヒープ：O(\(\lvert E\rvert\) log \(\lvert V\rvert\))
+- フィボナッチヒープ：O(\(\lvert E\rvert\) + \(\lvert V\rvert\) log \(\lvert V\rvert\))
 
 **定理 8.7** KruskalとPrimのアルゴリズムは正しく最小全域木を求める。
 {: #thm-8-7 }
@@ -376,15 +376,15 @@ Ford-Fulkerson(G, s, t):
 以下の条件は同値：
 1. f は最大フロー
 2. 残余グラフに増加路が存在しない
-3. |f| = c(S,T) となるカット (S,T) が存在
+3. \(\lvert f\rvert\) = c(S,T) となるカット (S,T) が存在
 
 ### 8.4.3 効率的な実装
 
 #### Edmonds-Karp法
-増加路を BFS で見つける：O(|V| · |E|²)
+増加路を BFS で見つける：O(\(\lvert V\rvert\) · \(\lvert E\rvert\)²)
 
 #### Dinicのアルゴリズム
-レベルグラフを用いたブロッキングフロー：O(|V|² · |E|)
+レベルグラフを用いたブロッキングフロー：O(\(\lvert V\rvert\)² · \(\lvert E\rvert\))
 
 #### Push-Relabel法
 ```text
@@ -398,7 +398,7 @@ Push-Relabel(G, s, t):
             Relabel(v)
 ```
 
-時間複雑度：O(|V|² · |E|)
+時間複雑度：O(\(\lvert V\rvert\)² · \(\lvert E\rvert\))
 
 ### 8.4.4 応用
 
@@ -421,7 +421,7 @@ Push-Relabel(G, s, t):
 **定理 8.9**（Hallの結婚定理）
 {: #thm-8-9 }
 二部グラフ G = (X ∪ Y, E) が X を飽和するマッチングを持つ ⟺
-∀S ⊆ X, |N(S)| ≥ |S|
+∀S ⊆ X, \(\lvert N(S)\rvert\) ≥ \(\lvert S\rvert\)
 （N(S) は S の隣接頂点集合）
 
 **定理 8.10**（Kőnig-Egerváryの定理）
@@ -431,17 +431,17 @@ Push-Relabel(G, s, t):
 ### 8.5.2 最大マッチングアルゴリズム
 
 #### 二部グラフの場合（Hungarian法）
-最大フローへの帰着により O(|E| · |V|^{1/2}) で解ける。
+最大フローへの帰着により O(\(\lvert E\rvert\) · \(\lvert V\rvert\)^{1/2}) で解ける。
 
 #### 一般グラフの場合（Edmondsのアルゴリズム）
-花（blossom）の縮約を用いる：O(|V|³)
+花（blossom）の縮約を用いる：O(\(\lvert V\rvert\)³)
 
 ### 8.5.3 完全マッチング
 
 **定理 8.11**（Tutteの定理）
 {: #thm-8-11 }
 グラフ G が完全マッチングを持つ ⟺
-∀S ⊆ V, o(G - S) ≤ |S|
+∀S ⊆ V, o(G - S) ≤ \(\lvert S\rvert\)
 （o(G - S) は G - S の奇数サイズ連結成分数）
 
 ### 8.5.4 安定マッチング
@@ -515,15 +515,15 @@ Gale-Shapley(男性の選好, 女性の選好):
 {: #thm-8-18 }
 グラフが平面的 ⟺ K₅ または K₃,₃ の細分を部分グラフとして含まない。
 
-**平面性判定**：O(|V|) アルゴリズムが存在。
+**平面性判定**：O(\(\lvert V\rvert\)) アルゴリズムが存在。
 
 ### 8.7.2 木構造
 
 **定理 8.19** 以下は同値：
 {: #thm-8-19 }
 1. G は木
-2. G は連結で |E| = |V| − 1
-3. G は非巡回で |E| = |V| − 1
+2. G は連結で \(\lvert E\rvert\) = \(\lvert V\rvert\) − 1
+3. G は非巡回で \(\lvert E\rvert\) = \(\lvert V\rvert\) − 1
 4. 任意の2頂点間に唯一のパスが存在
 
 ### 8.7.3 弦グラフ

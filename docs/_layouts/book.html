@@ -204,6 +204,21 @@
     <!-- Overlay for mobile sidebar (CSS-only close trigger) -->
     <label for="sidebar-toggle-checkbox" class="book-sidebar-overlay" id="sidebar-overlay" aria-label="Close sidebar"></label>
 
+    <!-- MathJax (TeX rendering) -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']],
+                packages: { '[+]': ['ams'] }
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            }
+        };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
     <!-- Lightweight code copy - no MutationObserver to prevent freeze -->
     <script async src="{{ '/assets/js/code-copy-lightweight.js' | relative_url }}"></script>
     <script defer src="{{ '/assets/js/theme.js' | relative_url }}"></script>

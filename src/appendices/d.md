@@ -207,7 +207,7 @@ layout: book
 
 **共通部分（intersection）**
 - 2つの集合の共通要素の集合
-- A ∩ B = {x | x ∈ A ∧ x ∈ B}
+- A ∩ B = {x \(\mid\) x ∈ A ∧ x ∈ B}
 
 <a id="相互情報量-mutual-information"></a>
 **相互情報量（Mutual Information）**
@@ -355,7 +355,7 @@ layout: book
 
 <a id="rice-の定理-rices-theorem"></a>
 **Rice の定理 (Rice's Theorem)**
-- チューリング機械が受理する言語 L(M) に関する任意の「非自明な」意味的性質 P に対して、{⟨M⟩ | L(M) が P を満たす} は決定不能
+- チューリング機械が受理する言語 L(M) に関する任意の「非自明な」意味的性質 P に対して、{⟨M⟩ \(\mid\) L(M) が P を満たす} は決定不能
 - 非自明: P を満たす言語と満たさない言語が少なくとも1つずつ存在
 - 対象は意味的性質のみ（内部構造・状態数など構文的性質は対象外）
 - 典型例: 空言語性、有限性、正規性、ある語を含むか 等（いずれも決定不能）
@@ -417,7 +417,7 @@ layout: book
 
 **和集合 (Union)**
 - 2つの集合のいずれかに属する要素の集合
-- A ∪ B = {x | x ∈ A ∨ x ∈ B}
+- A ∪ B = {x \(\mid\) x ∈ A ∨ x ∈ B}
 
 **全単射 (Bijection)**
 - 単射かつ全射の関数
@@ -487,7 +487,7 @@ layout: book
 - Σ (SIGMA): アルファベット
 - Σ* (SIGMA-STAR): 文字列全体
 - ε (EPSILON): 空文字列
-- |w| (LENGTH): 文字列の長さ
+- \(\lvert w\rvert\) (LENGTH): 文字列の長さ
 
 ### 関数記号
 - f: A → B: AからBへの関数
@@ -498,8 +498,8 @@ layout: book
 
 ### グラフ記号
 - G = (V,E): グラフ
-- |V|: 頂点数
-- |E|: 辺数
+- \(\lvert V\rvert\): 頂点数
+- \(\lvert E\rvert\): 辺数
 - deg(v): 頂点vの次数
 - d(u,v): 頂点間距離
 
