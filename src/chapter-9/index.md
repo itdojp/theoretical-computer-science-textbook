@@ -99,7 +99,7 @@ v の論理式への拡張 v̂ を帰納的に定義：
 ![DPLL と CDCL の対比]({{ '/assets/images/diagrams/ch9_dpll_cdcl_side_by_side.svg' | relative_url }})
 
 #### 真理値表法
-時間複雑度：O(2^n · \(\lvert φ\rvert\))（n は変数数）
+時間複雑度：O(2^n · \\(\lvert φ\rvert\\))（n は変数数）
 
 #### DPLLアルゴリズム
 ```text
@@ -267,7 +267,7 @@ CTLCheck(M, φ):
                      (CTLCheck(M, ψ₁) ∩ CTLCheck(M, EX Z))
 ```
 
-時間複雑度：O(\(\lvert φ\rvert\) · \(\lvert S\rvert\) · \(\lvert R\rvert\))（S：状態集合、R：遷移関係）
+時間複雑度：O(\\(\lvert φ\rvert\\) · \\(\lvert S\rvert\\) · \\(\lvert R\rvert\\))（S：状態集合、R：遷移関係）
 
 ### 9.3.4 公平性
 

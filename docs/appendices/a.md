@@ -42,10 +42,10 @@ layout: book
 ### 集合の記法
 
 **外延的記法**: {a, b, c, ...}
-例: \(A = \{1, 2, 3, 4, 5\}\)
+例: \\(A = \{1, 2, 3, 4, 5\}\\)
 
-**内包的記法**: \(\{x \mid P(x)\}\)  
-例: \(A = \{x \in \mathbb{N} \mid x \le 5\} = \{1, 2, 3, 4, 5\}\)
+**内包的記法**: \\(\{x \mid P(x)\}\\)  
+例: \\(A = \{x \in \mathbb{N} \mid x \le 5\} = \{1, 2, 3, 4, 5\}\\)
 
 ### Markdown上の注意（縦棒・Kleene星・減算記号）
 
@@ -104,11 +104,11 @@ layout: book
 |------|------|-----|
 | ℕ | 自然数（本書では1から） | {1, 2, 3, ...} |
 | ℕ₀ | 自然数（0を含む） | {0, 1, 2, 3, ...} |
-| ℕ₊ | 正の自然数（0を除く） | \(\{n \in \mathbb{N} \mid n > 0\}\) |
+| ℕ₊ | 正の自然数（0を除く） | \\(\{n \in \mathbb{N} \mid n > 0\}\\) |
 | ℤ | 整数 | {..., -2, -1, 0, 1, 2, ...} |
-| ℚ | 有理数 | \(\{p/q \mid p,q \in \mathbb{Z}, q \ne 0\}\) |
+| ℚ | 有理数 | \\(\{p/q \mid p,q \in \mathbb{Z}, q \ne 0\}\\) |
 | ℝ | 実数 | 実数全体 |
-| ℂ | 複素数 | \(\{a + bi \mid a,b \in \mathbb{R}\}\) |
+| ℂ | 複素数 | \\(\{a + bi \mid a,b \in \mathbb{R}\}\\) |
 
 ### 数列とその他
 
@@ -148,12 +148,12 @@ layout: book
 | 記号 | 意味 | 例 |
 |------|------|-----|
 | G = (V, E) | グラフ | V: 頂点集合, E: 辺集合 |
-| \(\lvert V\rvert\) | 頂点数 | \(n = \lvert V\rvert\) |
-| \(\lvert E\rvert\) | 辺数 | \(m = \lvert E\rvert\) |
+| \\(\lvert V\rvert\\) | 頂点数 | \\(n = \lvert V\rvert\\) |
+| \\(\lvert E\rvert\\) | 辺数 | \\(m = \lvert E\rvert\\) |
 | (u, v) | 辺 | 頂点uとvを結ぶ辺 |
 | deg(v) | 次数 | 頂点vの次数 |
-| δ(G) | 最小次数 | \(\min\{\deg(v) \mid v \in V\}\) |
-| Δ(G) | 最大次数 | \(\max\{\deg(v) \mid v \in V\}\) |
+| δ(G) | 最小次数 | \\(\min\{\deg(v) \mid v \in V\}\\) |
+| Δ(G) | 最大次数 | \\(\max\{\deg(v) \mid v \in V\}\\) |
 
 ### パス・サイクル
 
@@ -170,10 +170,10 @@ layout: book
 | 記号 | 意味 | 例 |
 |------|------|-----|
 | Σ | アルファベット | Σ = {a, b} |
-| \(\Sigma^*\) | Σ上の文字列全体 | \(\{\epsilon, a, b, aa, ab, ba, bb, \ldots\}\) |
-| \(\Sigma^+\) | Σ上の空でない文字列 | \(\Sigma^* \setminus \{\epsilon\}\) |
+| \\(\Sigma^*\\) | Σ上の文字列全体 | \\(\{\epsilon, a, b, aa, ab, ba, bb, \ldots\}\\) |
+| \\(\Sigma^+\\) | Σ上の空でない文字列 | \\(\Sigma^* \setminus \{\epsilon\}\\) |
 | ε | 空文字列 | 長さ0の文字列 |
-| \(\lvert w\rvert\) | 文字列wの長さ | \(\lvert abc\rvert = 3\) |
+| \\(\lvert w\rvert\\) | 文字列wの長さ | \\(\lvert abc\rvert = 3\\) |
 | P(Q) | 集合Qの冪集合 | δ: Q × Σ → P(Q) |
 | wᴿ | 文字列wの逆順 | (abc)ᴿ = cba |
 | L₁ ∪ L₂ | 言語の和集合 | |

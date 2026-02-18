@@ -290,7 +290,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-1/#def-1-12"
     },
     {
-      "excerpt": "\\(\\sum{v \\in V} \\deg(v) = 2\\lvert E\\rvert\\) （すべての頂点の次数の和は、辺の数の2倍に等しい） 系：次数が奇数である頂点の数は偶数個です。",
+      "excerpt": "\\\\(\\sum{v \\in V} \\deg(v) = 2\\lvert E\\rvert\\\\) （すべての頂点の次数の和は、辺の数の2倍に等しい） 系：次数が奇数である頂点の数は偶数個です。",
       "id": "thm-1-9",
       "kind": "thm",
       "label": "定理",
@@ -386,7 +386,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-1/#def-1-17"
     },
     {
-      "excerpt": "部集合 V₁ (\\(\\lvert V₁\\rvert=m\\)) と V₂ (\\(\\lvert V₂\\rvert=n\\)) を持ち、V₁ の各頂点と V₂ の各頂点の間に辺が存在する二部グラフです。",
+      "excerpt": "部集合 V₁ (\\\\(\\lvert V₁\\rvert=m\\\\)) と V₂ (\\\\(\\lvert V₂\\rvert=n\\\\)) を持ち、V₁ の各頂点と V₂ の各頂点の間に辺が存在する二部グラフです。",
       "id": "def-1-18",
       "kind": "def",
       "label": "定義",
@@ -434,7 +434,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-10/#ex-10-1"
     },
     {
-      "excerpt": "\\(0 \\le H(X) \\le \\log2 \\lvert X\\rvert\\)",
+      "excerpt": "\\\\(0 \\le H(X) \\le \\log2 \\lvert X\\rvert\\\\)",
       "id": "thm-10-1",
       "kind": "thm",
       "label": "定理",
@@ -446,7 +446,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-10/#thm-10-1"
     },
     {
-      "excerpt": "- 結合エントロピー：\\(H(X,Y) = -\\sum{x,y} p(x,y) \\log2 p(x,y)\\) - 条件付きエントロピー：\\(H(Y \\mid X) = \\sumx p(x) H(Y \\mid X=x)\\)",
+      "excerpt": "- 結合エントロピー：\\\\(H(X,Y) = -\\sum{x,y} p(x,y) \\log2 p(x,y)\\\\) - 条件付きエントロピー：\\\\(H(Y \\mid X) = \\sumx p(x) H(Y \\mid X=x)\\\\)",
       "id": "def-10-3",
       "kind": "def",
       "label": "定義",
@@ -482,7 +482,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-10/#def-10-4"
     },
     {
-      "excerpt": "1. \\(I(X;Y) = H(X) - H(X \\mid Y) = H(Y) - H(Y \\mid X)\\) 2. I(X;Y) = H(X) + H(Y) - H(X,Y) 3. I(X;Y) = I(Y;X)（対称性） 4. I(X;Y) ≥ 0（等号は X と Y が独立） - 厳密には、ほぼ至る所で p(x,y) = p(x)p(y) が成り立つとき等号。",
+      "excerpt": "1. \\\\(I(X;Y) = H(X) - H(X \\mid Y) = H(Y) - H(Y \\mid X)\\\\) 2. I(X;Y) = H(X) + H(Y) - H(X,Y) 3. I(X;Y) = I(Y;X)（対称性） 4. I(X;Y) ≥ 0（等号は X と Y が独立） - 厳密には、ほぼ至る所で p(x,y) = p(x)p(y) が成り立つとき等号。",
       "id": "thm-10-3",
       "kind": "thm",
       "label": "定理",
@@ -494,7 +494,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-10/#thm-10-3"
     },
     {
-      "excerpt": "\\(D(P \\,\\Vert\\, Q) = \\sumx p(x) \\log2 \\frac{p(x)}{q(x)}\\)",
+      "excerpt": "\\\\(D(P \\,\\Vert\\, Q) = \\sumx p(x) \\log2 \\frac{p(x)}{q(x)}\\\\)",
       "id": "def-10-5",
       "kind": "def",
       "label": "定義",
@@ -626,7 +626,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-10/#thm-10-11"
     },
     {
-      "excerpt": "入力アルファベット X、出力アルファベット Y、 遷移確率 \\(p(y \\mid x)\\) で特徴付けられる。",
+      "excerpt": "入力アルファベット X、出力アルファベット Y、 遷移確率 \\\\(p(y \\mid x)\\\\) で特徴付けられる。",
       "id": "def-10-8",
       "kind": "def",
       "label": "定義",
@@ -638,7 +638,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-10/#def-10-8"
     },
     {
-      "excerpt": "- X = Y = {0, 1} - \\(p(0 \\mid 1) = p(1 \\mid 0) = p\\)（クロスオーバー確率） - \\(p(0 \\mid 0) = p(1 \\mid 1) = 1 - p\\)",
+      "excerpt": "- X = Y = {0, 1} - \\\\(p(0 \\mid 1) = p(1 \\mid 0) = p\\\\)（クロスオーバー確率） - \\\\(p(0 \\mid 0) = p(1 \\mid 1) = 1 - p\\\\)",
       "id": "ex-10-2",
       "kind": "ex",
       "label": "例",
@@ -722,7 +722,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-10/#thm-10-14"
     },
     {
-      "excerpt": "- n：符号長 - \\(k = \\logq \\lvert C\\rvert\\)：情報記号数（次元） - d：最小距離",
+      "excerpt": "- n：符号長 - \\\\(k = \\logq \\lvert C\\rvert\\\\)：情報記号数（次元） - d：最小距離",
       "id": "def-10-12",
       "kind": "def",
       "label": "定義",
@@ -830,7 +830,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-10/#thm-10-19"
     },
     {
-      "excerpt": "- P：平文空間（plaintext space） - C：暗号文空間（ciphertext space） - K：鍵空間（key space） - E = \\(\\{Ek : P \\to C \\mid k \\in K\\}\\)：暗号化関数の族 - D = \\(\\{Dk : C \\to P \\mid k \\in K\\}\\)：復号関数の族",
+      "excerpt": "- P：平文空間（plaintext space） - C：暗号文空間（ciphertext space） - K：鍵空間（key space） - E = \\\\(\\{Ek : P \\to C \\mid k \\in K\\}\\\\)：暗号化関数の族 - D = \\\\(\\{Dk : C \\to P \\mid k \\in K\\}\\\\)：復号関数の族",
       "id": "def-11-1",
       "kind": "def",
       "label": "定義",
@@ -842,7 +842,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-11/#def-11-1"
     },
     {
-      "excerpt": "\\(\\forall m \\in P, \\forall c \\in C,\\ \\Pr[M = m \\mid C = c] = \\Pr[M = m]\\)",
+      "excerpt": "\\\\(\\forall m \\in P, \\forall c \\in C,\\ \\Pr[M = m \\mid C = c] = \\Pr[M = m]\\\\)",
       "id": "def-11-2",
       "kind": "def",
       "label": "定義",
@@ -866,7 +866,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-11/#thm-11-1"
     },
     {
-      "excerpt": "すべての多項式時間アルゴリズム A に対して、A の優位性が無視できる： \\(\\lvert \\Pr[A \\text{ が正しく推測}] - 1/\\lvert P\\rvert \\rvert < \\mathrm{negl}(n)\\)",
+      "excerpt": "すべての多項式時間アルゴリズム A に対して、A の優位性が無視できる： \\\\(\\lvert \\Pr[A \\text{ が正しく推測}] - 1/\\lvert P\\rvert \\rvert < \\mathrm{negl}(n)\\\\)",
       "id": "def-11-3",
       "kind": "def",
       "label": "定義",
@@ -890,7 +890,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-11/#def-11-4"
     },
     {
-      "excerpt": "すべての多項式時間識別器 D に対して： \\(\\lvert \\Pr[D(G(s)) = 1] - \\Pr[D(r) = 1]\\rvert < \\mathrm{negl}(n)\\)",
+      "excerpt": "すべての多項式時間識別器 D に対して： \\\\(\\lvert \\Pr[D(G(s)) = 1] - \\Pr[D(r) = 1]\\rvert < \\mathrm{negl}(n)\\\\)",
       "id": "def-11-5",
       "kind": "def",
       "label": "定義",
@@ -1454,7 +1454,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-2/#def-2-7"
     },
     {
-      "excerpt": "- PRIME = {n \\(\\mid\\) n は2進表記された素数} - CONNECTED = {⟨G⟩ \\(\\mid\\) G は連結グラフ}",
+      "excerpt": "- PRIME = {n \\\\(\\mid\\\\) n は2進表記された素数} - CONNECTED = {⟨G⟩ \\\\(\\mid\\\\) G は連結グラフ}",
       "id": "ex-2-4",
       "kind": "ex",
       "label": "例",
@@ -1478,7 +1478,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-2/#def-2-8"
     },
     {
-      "excerpt": "1. 和集合：L₁, L₂ が決定可能 → L₁ ∪ L₂ も決定可能 2. 共通部分（intersection）：L₁, L₂ が決定可能 → L₁ ∩ L₂ も決定可能 3. 補集合：L が決定可能 → \\(\\overline{L}\\) も決定可能 4. 連結：L₁, L₂ が決定可能 → L₁L₂ も決定可能 5. クリーネ閉包：L が決定可能 → L も決定可能",
+      "excerpt": "1. 和集合：L₁, L₂ が決定可能 → L₁ ∪ L₂ も決定可能 2. 共通部分（intersection）：L₁, L₂ が決定可能 → L₁ ∩ L₂ も決定可能 3. 補集合：L が決定可能 → \\\\(\\overline{L}\\\\) も決定可能 4. 連結：L₁, L₂ が決定可能 → L₁L₂ も決定可能 5. クリーネ閉包：L が決定可能 → L も決定可能",
       "id": "thm-2-1",
       "kind": "thm",
       "label": "定理",
@@ -1634,7 +1634,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-2/#thm-2-6"
     },
     {
-      "excerpt": "Ld = {⟨M⟩ \\(\\mid\\) M は ⟨M⟩ を受理しない}",
+      "excerpt": "Ld = {⟨M⟩ \\\\(\\mid\\\\) M は ⟨M⟩ を受理しない}",
       "id": "def-2-16",
       "kind": "def",
       "label": "定義",
@@ -1658,7 +1658,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-2/#thm-2-7"
     },
     {
-      "excerpt": "HALT = {⟨M, w⟩ \\(\\mid\\) M は入力 w で停止する}",
+      "excerpt": "HALT = {⟨M, w⟩ \\\\(\\mid\\\\) M は入力 w で停止する}",
       "id": "def-2-17",
       "kind": "def",
       "label": "定義",
@@ -1814,7 +1814,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-3/#def-3-6"
     },
     {
-      "excerpt": "- δ̂(q, ε) = q - δ̂(q, wa) = δ(δ̂(q, w), a)（\\(w \\in \\Sigma^, a \\in \\Sigma\\)）",
+      "excerpt": "- δ̂(q, ε) = q - δ̂(q, wa) = δ(δ̂(q, w), a)（\\\\(w \\in \\Sigma^, a \\in \\Sigma\\\\)）",
       "id": "def-3-7",
       "kind": "def",
       "label": "定義",
@@ -1826,7 +1826,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-3/#def-3-7"
     },
     {
-      "excerpt": "M が認識する言語：\\(L(M) = \\{w \\in \\Sigma^ \\mid \\hat{\\delta}(q₀, w) \\in F\\}\\)",
+      "excerpt": "M が認識する言語：\\\\(L(M) = \\{w \\in \\Sigma^ \\mid \\hat{\\delta}(q₀, w) \\in F\\}\\\\)",
       "id": "def-3-8",
       "kind": "def",
       "label": "定義",
@@ -1910,7 +1910,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-3/#def-3-12"
     },
     {
-      "excerpt": "\\(ECLOSE(q) = \\{p \\mid \\text{q から p へ ε 遷移のみで到達可能}\\}\\)",
+      "excerpt": "\\\\(ECLOSE(q) = \\{p \\mid \\text{q から p へ ε 遷移のみで到達可能}\\}\\\\)",
       "id": "def-3-13",
       "kind": "def",
       "label": "定義",
@@ -2006,7 +2006,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-3/#thm-3-4"
     },
     {
-      "excerpt": "L が正規言語ならば、ある正整数 p（pumping length）が存在して、 \\(\\lvert s\\rvert \\ge p\\) なる任意の \\(s \\in L\\) は以下を満たす分解 \\(s = xyz\\) を持つ： 1. \\(\\lvert xy\\rvert \\le p\\)（ループは文字列の前半部分にある） 2. \\(\\lvert y\\rvert > 0\\)（ループ部分は空でない） 3. すべての \\(i \\ge 0\\) に対して \\(xy^{i}z \\in L\\)（ルー",
+      "excerpt": "L が正規言語ならば、ある正整数 p（pumping length）が存在して、 \\\\(\\lvert s\\rvert \\ge p\\\\) なる任意の \\\\(s \\in L\\\\) は以下を満たす分解 \\\\(s = xyz\\\\) を持つ： 1. \\\\(\\lvert xy\\rvert \\le p\\\\)（ループは文字列の前半部分にある） 2. \\\\(\\lvert y\\rvert > 0\\\\)（ループ部分は空でない） 3. すべての \\\\(i \\ge 0\\\\) に対して \\\\(xy^{i",
       "id": "thm-3-5",
       "kind": "thm",
       "label": "定理",
@@ -2030,7 +2030,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-3/#ex-3-6"
     },
     {
-      "excerpt": "1. \\(\\{ww \\mid w \\in \\{0,1\\}^\\}\\) 2. \\(\\{0^{n^2} \\mid n \\ge 0\\}\\) 3. \\(\\{w \\in \\{0,1\\}^ \\mid w \\text{ は回文}\\}\\)",
+      "excerpt": "1. \\\\(\\{ww \\mid w \\in \\{0,1\\}^\\}\\\\) 2. \\\\(\\{0^{n^2} \\mid n \\ge 0\\}\\\\) 3. \\\\(\\{w \\in \\{0,1\\}^ \\mid w \\text{ は回文}\\}\\\\)",
       "id": "ex-3-7",
       "kind": "ex",
       "label": "例",
@@ -2042,7 +2042,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-3/#ex-3-7"
     },
     {
-      "excerpt": "\\(x \\equivL y \\iff \\forall z \\in \\Sigma^,\\ (xz \\in L \\iff yz \\in L)\\)",
+      "excerpt": "\\\\(x \\equivL y \\iff \\forall z \\in \\Sigma^,\\ (xz \\in L \\iff yz \\in L)\\\\)",
       "id": "def-3-15",
       "kind": "def",
       "label": "定義",
@@ -2090,7 +2090,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-3/#def-3-17"
     },
     {
-      "excerpt": "\\(L(G) = \\{w \\in \\Sigma^ \\mid S \\Rightarrow^{} w\\}\\)",
+      "excerpt": "\\\\(L(G) = \\{w \\in \\Sigma^ \\mid S \\Rightarrow^{} w\\}\\\\)",
       "id": "def-3-18",
       "kind": "def",
       "label": "定義",
@@ -2186,7 +2186,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-3/#def-3-22"
     },
     {
-      "excerpt": "L が文脈自由言語ならば、ある正整数 p が存在して、 \\(\\lvert s\\rvert \\ge p\\) なる任意の \\(s \\in L\\) は以下を満たす分解 \\(s = uvxyz\\) を持つ： 1. \\(\\lvert vxy\\rvert \\le p\\) 2. \\(\\lvert vy\\rvert > 0\\) 3. すべての \\(i \\ge 0\\) に対して \\(uv^{i}xy^{i}z \\in L\\)",
+      "excerpt": "L が文脈自由言語ならば、ある正整数 p が存在して、 \\\\(\\lvert s\\rvert \\ge p\\\\) なる任意の \\\\(s \\in L\\\\) は以下を満たす分解 \\\\(s = uvxyz\\\\) を持つ： 1. \\\\(\\lvert vxy\\rvert \\le p\\\\) 2. \\\\(\\lvert vy\\rvert > 0\\\\) 3. すべての \\\\(i \\ge 0\\\\) に対して \\\\(uv^{i}xy^{i}z \\in L\\\\)",
       "id": "thm-3-8",
       "kind": "thm",
       "label": "定理",
@@ -2246,7 +2246,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-3/#def-3-25"
     },
     {
-      "excerpt": "1. 最終状態による受理：\\(L(P) = \\{w \\mid (q₀, w, Z₀) \\vdash^{} (q, \\epsilon, \\alpha),\\ q \\in F\\}\\) 2. 空スタックによる受理：\\(N(P) = \\{w \\mid (q₀, w, Z₀) \\vdash^{} (q, \\epsilon, \\epsilon)\\}\\)",
+      "excerpt": "1. 最終状態による受理：\\\\(L(P) = \\{w \\mid (q₀, w, Z₀) \\vdash^{} (q, \\epsilon, \\alpha),\\ q \\in F\\}\\\\) 2. 空スタックによる受理：\\\\(N(P) = \\{w \\mid (q₀, w, Z₀) \\vdash^{} (q, \\epsilon, \\epsilon)\\}\\\\)",
       "id": "def-3-26",
       "kind": "def",
       "label": "定義",
@@ -2306,7 +2306,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-3/#ex-3-11"
     },
     {
-      "excerpt": "1. 所属問題：w ∈ L?（CYKアルゴリズム：O(n³\\(\\lvert G\\rvert\\))） 2. 空問題：L = ∅? 3. 有限性問題：L は有限？",
+      "excerpt": "1. 所属問題：w ∈ L?（CYKアルゴリズム：O(n³\\\\(\\lvert G\\rvert\\\\))） 2. 空問題：L = ∅? 3. 有限性問題：L は有限？",
       "id": "thm-3-12",
       "kind": "thm",
       "label": "定理",
@@ -2342,7 +2342,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-3/#def-3-28"
     },
     {
-      "excerpt": "HALTTM = {⟨M, w⟩ \\(\\mid\\) M はチューリング機械で、入力 w で停止する}",
+      "excerpt": "HALTTM = {⟨M, w⟩ \\\\(\\mid\\\\) M はチューリング機械で、入力 w で停止する}",
       "id": "def-4-1",
       "kind": "def",
       "label": "定義",
@@ -2366,7 +2366,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-4/#thm-4-1"
     },
     {
-      "excerpt": "Ld = {⟨M⟩ \\(\\mid\\) M は ⟨M⟩ を受理しない}",
+      "excerpt": "Ld = {⟨M⟩ \\\\(\\mid\\\\) M は ⟨M⟩ を受理しない}",
       "id": "def-4-2",
       "kind": "def",
       "label": "定義",
@@ -2390,7 +2390,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-4/#thm-4-2"
     },
     {
-      "excerpt": "ATM = {⟨M, w⟩ \\(\\mid\\) M はチューリング機械で、w を受理する}",
+      "excerpt": "ATM = {⟨M, w⟩ \\\\(\\mid\\\\) M はチューリング機械で、w を受理する}",
       "id": "def-4-3",
       "kind": "def",
       "label": "定義",
@@ -2498,7 +2498,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-4/#thm-4-7"
     },
     {
-      "excerpt": "- Σ₀ = Π₀ = 決定可能言語 - Σₙ₊₁ = {L \\(\\mid\\) L は Πₙ 言語へのオラクルで認識可能} - Πₙ₊₁ = {L \\(\\mid\\) \\(\\overline{L}\\) ∈ Σₙ₊₁}",
+      "excerpt": "- Σ₀ = Π₀ = 決定可能言語 - Σₙ₊₁ = {L \\\\(\\mid\\\\) L は Πₙ 言語へのオラクルで認識可能} - Πₙ₊₁ = {L \\\\(\\mid\\\\) \\\\(\\overline{L}\\\\) ∈ Σₙ₊₁}",
       "id": "def-4-6",
       "kind": "def",
       "label": "定義",
@@ -2594,7 +2594,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-4/#def-4-9"
     },
     {
-      "excerpt": "- P^A = {L \\(\\mid\\) ある多項式時間オラクル機械 M^A が L を決定} - NP^A = {L \\(\\mid\\) ある非決定性多項式時間オラクル機械 M^A が L を認識}",
+      "excerpt": "- P^A = {L \\\\(\\mid\\\\) ある多項式時間オラクル機械 M^A が L を決定} - NP^A = {L \\\\(\\mid\\\\) ある非決定性多項式時間オラクル機械 M^A が L を認識}",
       "id": "def-4-10",
       "kind": "def",
       "label": "定義",
@@ -2666,7 +2666,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-5/#def-5-3"
     },
     {
-      "excerpt": "TIME(t(n)) = {L \\(\\mid\\) ある O(t(n)) 時間チューリング機械が L を決定} （多くの文献では DTIME(t(n)) と表記し、本書では TIME(t(n)) と同義に扱います）",
+      "excerpt": "TIME(t(n)) = {L \\\\(\\mid\\\\) ある O(t(n)) 時間チューリング機械が L を決定} （多くの文献では DTIME(t(n)) と表記し、本書では TIME(t(n)) と同義に扱います）",
       "id": "def-5-4",
       "kind": "def",
       "label": "定義",
@@ -2762,7 +2762,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-5/#def-5-8"
     },
     {
-      "excerpt": "多項式 p と多項式時間チューリング機械 V（検証器）が存在して、 w ∈ L ⟺ ∃証明書 c（\\(\\lvert c\\rvert \\le p(\\lvert w\\rvert)\\) かつ \\(V(w, c) = \\mathrm{accept}\\)）",
+      "excerpt": "多項式 p と多項式時間チューリング機械 V（検証器）が存在して、 w ∈ L ⟺ ∃証明書 c（\\\\(\\lvert c\\rvert \\le p(\\lvert w\\rvert)\\\\) かつ \\\\(V(w, c) = \\mathrm{accept}\\\\)）",
       "id": "def-5-9",
       "kind": "def",
       "label": "定義",
@@ -3014,7 +3014,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-5/#thm-5-11"
     },
     {
-      "excerpt": "- Σ₁ᴾ完全：SAT - Π₁ᴾ完全：UNSAT - Σ₂ᴾ完全：∃∀SAT = {φ \\(\\mid\\) ∃x∀y φ(x,y) = 1} - Π₂ᴾ完全：∀∃SAT = {φ \\(\\mid\\) ∀x∃y φ(x,y) = 1}",
+      "excerpt": "- Σ₁ᴾ完全：SAT - Π₁ᴾ完全：UNSAT - Σ₂ᴾ完全：∃∀SAT = {φ \\\\(\\mid\\\\) ∃x∀y φ(x,y) = 1} - Π₂ᴾ完全：∀∃SAT = {φ \\\\(\\mid\\\\) ∀x∃y φ(x,y) = 1}",
       "id": "ex-5-3",
       "kind": "ex",
       "label": "例",
@@ -3086,7 +3086,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-5/#def-5-20"
     },
     {
-      "excerpt": "- P/poly = {L \\(\\mid\\) ある多項式 p, 各 n に対してサイズ ≤ p(n) の回路族が Ln を計算}",
+      "excerpt": "- P/poly = {L \\\\(\\mid\\\\) ある多項式 p, 各 n に対してサイズ ≤ p(n) の回路族が Ln を計算}",
       "id": "def-5-21",
       "kind": "def",
       "label": "定義",
@@ -3194,7 +3194,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-5/#thm-5-19"
     },
     {
-      "excerpt": "T(n) = max{A が入力 I に対して実行する基本演算の回数 \\(\\mid\\) \\(\\lvert I\\rvert\\) = n}",
+      "excerpt": "T(n) = max{A が入力 I に対して実行する基本演算の回数 \\\\(\\mid\\\\) \\\\(\\lvert I\\rvert\\\\) = n}",
       "id": "def-6-1",
       "kind": "def",
       "label": "定義",
@@ -3218,7 +3218,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-6/#ex-6-1"
     },
     {
-      "excerpt": "T{avg}(n) = ∑{\\(\\lvert I\\rvert\\)=n} Pr[I] · (A が I で実行する演算回数)",
+      "excerpt": "T{avg}(n) = ∑{\\\\(\\lvert I\\rvert\\\\)=n} Pr[I] · (A が I で実行する演算回数)",
       "id": "def-6-2",
       "kind": "def",
       "label": "定義",
@@ -3470,7 +3470,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-6/#thm-6-5"
     },
     {
-      "excerpt": "1. I ⊆ 2^S（I は S の部分集合族） 2. 遺伝性：B ∈ I かつ A ⊆ B ⟹ A ∈ I 3. 交換性：A, B ∈ I かつ \\(\\lvert A\\rvert\\) < \\(\\lvert B\\rvert\\) ⟹ ∃e ∈ B\\A, A ∪ {e} ∈ I",
+      "excerpt": "1. I ⊆ 2^S（I は S の部分集合族） 2. 遺伝性：B ∈ I かつ A ⊆ B ⟹ A ∈ I 3. 交換性：A, B ∈ I かつ \\\\(\\lvert A\\rvert\\\\) < \\\\(\\lvert B\\rvert\\\\) ⟹ ∃e ∈ B\\A, A ∪ {e} ∈ I",
       "id": "def-6-8",
       "kind": "def",
       "label": "定義",
@@ -3482,7 +3482,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-6/#def-6-8"
     },
     {
-      "excerpt": "S = グラフの辺集合 I = {A ⊆ S \\(\\mid\\) A は閉路を含まない}",
+      "excerpt": "S = グラフの辺集合 I = {A ⊆ S \\\\(\\mid\\\\) A は閉路を含まない}",
       "id": "ex-6-12",
       "kind": "ex",
       "label": "例",
@@ -4118,7 +4118,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-7/#thm-7-19"
     },
     {
-      "excerpt": "- 無向グラフ：E ⊆ {(u, v) \\(\\mid\\) u, v ∈ V, u ≠ v} - 有向グラフ：E ⊆ V × V",
+      "excerpt": "- 無向グラフ：E ⊆ {(u, v) \\\\(\\mid\\\\) u, v ∈ V, u ≠ v} - 有向グラフ：E ⊆ V × V",
       "id": "def-8-1",
       "kind": "def",
       "label": "定義",
@@ -4130,7 +4130,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-8/#def-8-1"
     },
     {
-      "excerpt": "∑{v∈V} deg(v) = 2\\(\\lvert E\\rvert\\)",
+      "excerpt": "∑{v∈V} deg(v) = 2\\\\(\\lvert E\\rvert\\\\)",
       "id": "thm-8-1",
       "kind": "thm",
       "label": "定理",
@@ -4154,7 +4154,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-8/#cor-8-1"
     },
     {
-      "excerpt": "\\(\\lvert V\\rvert\\) − \\(\\lvert E\\rvert\\) + \\(\\lvert F\\rvert\\) = 2 （F は面の集合）",
+      "excerpt": "\\\\(\\lvert V\\rvert\\\\) − \\\\(\\lvert E\\rvert\\\\) + \\\\(\\lvert F\\rvert\\\\) = 2 （F は面の集合）",
       "id": "thm-8-2",
       "kind": "thm",
       "label": "定理",
@@ -4226,7 +4226,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-8/#thm-8-5"
     },
     {
-      "excerpt": "BFS が O(\\(\\lvert V\\rvert\\) + \\(\\lvert E\\rvert\\)) で最短路を求める。",
+      "excerpt": "BFS が O(\\\\(\\lvert V\\rvert\\\\) + \\\\(\\lvert E\\rvert\\\\)) で最短路を求める。",
       "id": "thm-8-6",
       "kind": "thm",
       "label": "定理",
@@ -4238,7 +4238,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-8/#thm-8-6"
     },
     {
-      "excerpt": "すべての頂点を含み、\\(\\lvert V\\rvert\\) − 1 本の辺を持つ部分グラフ。",
+      "excerpt": "すべての頂点を含み、\\\\(\\lvert V\\rvert\\\\) − 1 本の辺を持つ部分グラフ。",
       "id": "def-8-3",
       "kind": "def",
       "label": "定義",
@@ -4274,7 +4274,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-8/#def-8-4"
     },
     {
-      "excerpt": "以下の条件は同値： 1. f は最大フロー 2. 残余グラフに増加路が存在しない 3. \\(\\lvert f\\rvert\\) = c(S,T) となるカット (S,T) が存在",
+      "excerpt": "以下の条件は同値： 1. f は最大フロー 2. 残余グラフに増加路が存在しない 3. \\\\(\\lvert f\\rvert\\\\) = c(S,T) となるカット (S,T) が存在",
       "id": "thm-8-8",
       "kind": "thm",
       "label": "定理",
@@ -4298,7 +4298,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-8/#def-8-5"
     },
     {
-      "excerpt": "二部グラフ G = (X ∪ Y, E) が X を飽和するマッチングを持つ ⟺ ∀S ⊆ X, \\(\\lvert N(S)\\rvert\\) ≥ \\(\\lvert S\\rvert\\) （N(S) は S の隣接頂点集合）",
+      "excerpt": "二部グラフ G = (X ∪ Y, E) が X を飽和するマッチングを持つ ⟺ ∀S ⊆ X, \\\\(\\lvert N(S)\\rvert\\\\) ≥ \\\\(\\lvert S\\rvert\\\\) （N(S) は S の隣接頂点集合）",
       "id": "thm-8-9",
       "kind": "thm",
       "label": "定理",
@@ -4322,7 +4322,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-8/#thm-8-10"
     },
     {
-      "excerpt": "グラフ G が完全マッチングを持つ ⟺ ∀S ⊆ V, o(G - S) ≤ \\(\\lvert S\\rvert\\) （o(G - S) は G - S の奇数サイズ連結成分数）",
+      "excerpt": "グラフ G が完全マッチングを持つ ⟺ ∀S ⊆ V, o(G - S) ≤ \\\\(\\lvert S\\rvert\\\\) （o(G - S) は G - S の奇数サイズ連結成分数）",
       "id": "thm-8-11",
       "kind": "thm",
       "label": "定理",
@@ -4430,7 +4430,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-8/#thm-8-18"
     },
     {
-      "excerpt": "1. G は木 2. G は連結で \\(\\lvert E\\rvert\\) = \\(\\lvert V\\rvert\\) − 1 3. G は非巡回で \\(\\lvert E\\rvert\\) = \\(\\lvert V\\rvert\\) − 1 4. 任意の2頂点間に唯一のパスが存在",
+      "excerpt": "1. G は木 2. G は連結で \\\\(\\lvert E\\rvert\\\\) = \\\\(\\lvert V\\rvert\\\\) − 1 3. G は非巡回で \\\\(\\lvert E\\rvert\\\\) = \\\\(\\lvert V\\rvert\\\\) − 1 4. 任意の2頂点間に唯一のパスが存在",
       "id": "thm-8-19",
       "kind": "thm",
       "label": "定理",
