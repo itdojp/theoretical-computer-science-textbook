@@ -31,9 +31,13 @@ RAW_DOUBLE_PIPE_RE = re.compile(r"\|\|")
 COMBINING_OVERLINE_RE = re.compile(r"[A-Za-z]\u0304|[A-Za-z]\u0305")
 MATHJAX_RE = re.compile(r"mathjax@3|tex-chtml\.js")
 
-MISSING_CONDITIONAL_H_RE = re.compile(r"\bH\(\s*[^()\s]+\s+[^()\s]+\)")
-MISSING_CONDITIONAL_I_RE = re.compile(r"\bI\(\s*[^()\s]+\s+[^()\s]+\)")
-MISSING_KL_RE = re.compile(r"\bD\(\s*[^()\s]+\s+[^()\s]+\)")
+VAR_RE = r"[A-Za-z][A-Za-z0-9]*"
+VAR_ASSIGN_RE = rf"{VAR_RE}(?:=[^)\s]+)?"
+I_FIRST_RE = rf"{VAR_RE};{VAR_RE}(?:,{VAR_RE})*"
+
+MISSING_CONDITIONAL_H_RE = re.compile(rf"\bH\(\s*{VAR_RE}\s+{VAR_ASSIGN_RE}\)")
+MISSING_CONDITIONAL_I_RE = re.compile(rf"\bI\(\s*{I_FIRST_RE}\s+{VAR_ASSIGN_RE}\)")
+MISSING_KL_RE = re.compile(rf"\bD\(\s*{VAR_RE}\s+{VAR_RE}\)")
 MISSING_DIVISIBILITY_RE = re.compile(r"\bq\s*\(p\s*-\s*1\)")
 
 
