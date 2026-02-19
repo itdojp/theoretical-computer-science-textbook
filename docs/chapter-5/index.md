@@ -30,9 +30,9 @@ chapter: 5
 {: #def-5-1 }
 M が w で停止するまでのステップ数とする。M が停止しない場合は ∞ とする。
 
-**定義 5.2** チューリング機械 M の**時間複雑度**（time complexity）t_M: ℕ → ℕ を
+**定義 5.2** チューリング機械 M の**時間複雑度**（time complexity）\\(t_M: \\mathbb{N} \\to \\mathbb{N}\\) を
 {: #def-5-2 }
-t_M(n) = max{M が長さ n の入力 w で実行するステップ数}
+\\(t_M(n) = \\max\\{\\text{M が長さ } n \\text{ の入力 } w \\text{ で実行するステップ数}\\}\\)
 と定義する。
 
 ### 5.1.2 漸近記法
@@ -65,7 +65,7 @@ t_M(n) = max{M が長さ n の入力 w で実行するステップ数}
 
 ![計算複雑性の階層構造]({{ '/assets/images/diagrams/ch5_complexity_time_hierarchy.svg' | relative_url }})
 
-**定義 5.4** 時間構成可能関数 t: ℕ → ℕ に対して、
+**定義 5.4** 時間構成可能関数 \\(t: \\mathbb{N} \\to \\mathbb{N}\\) に対して、
 {: #def-5-4 }
 **TIME**(t(n)) = \\(\\{L \\mid \\text{ある } O(t(n)) \\text{ 時間チューリング機械が } L \\text{ を決定}\\}\\)
 （多くの文献では DTIME(t(n)) と表記し、本書では TIME(t(n)) と同義に扱います）
@@ -85,12 +85,12 @@ f(n)·log f(n) = o(g(n)) ならば DTIME(f(n)) ⊂ DTIME(g(n))
 対角化対象となる機械をシミュレートし、その出力を反転する際に、g(n) のステップ数を管理するための
 ログ因子が必要になる（log の底は 2 を想定しても一般性を失わない）。□
 
-**系 5.1** P ⊂ EXPTIME
+**系 5.1** \\(\\mathrm{P} \\subsetneq \\mathrm{EXPTIME}\\)
 {: #cor-5-1 }
 
 ### 5.1.4 多テープ機械と時間複雑性
 
-**定理 5.2** k-テープチューリング機械が t(n) 時間で認識する言語は、
+**定理 5.2** k-テープチューリング機械が \\(t(n)\\) 時間で認識する言語は、
 {: #thm-5-2 }
 1-テープチューリング機械で \\(O(t(n)^2)\\) 時間で認識できる（十分大きな n で t(n) ≥ n を仮定）。
 
@@ -107,12 +107,12 @@ t(n) ステップのシミュレーションに \\(O(t(n)^2)\\) 時間かかる�
 
 **定義 5.6** 非決定性チューリング機械 N の時間複雑度を
 {: #def-5-6 }
-t_N(n) = max{N が長さ n の入力 w を受理する最短計算パスの長さ}
+\\(t_N(n) = \\max\\{\\text{N が長さ } n \\text{ の入力 } w \\text{ を受理する最短計算パスの長さ}\\}\\)
 
 **定義 5.7** **NTIME**(t(n)) = \\(\\{L \\mid \\text{ある } O(t(n)) \\text{ 時間非決定性機械が } L \\text{ を認識}\\}\\)
 {: #def-5-7 }
 
-**定義 5.8** **NP** = ⋃_{k≥0} NTIME(n^k)（非決定性多項式時間）
+**定義 5.8** \\(\\mathrm{NP} = \\bigcup_{k\\ge 0} \\mathrm{NTIME}(n^k)\\)（非決定性多項式時間）
 {: #def-5-8 }
 
 ### 5.2.2 検証による NP の特徴付け
@@ -122,7 +122,7 @@ t_N(n) = max{N が長さ n の入力 w を受理する最短計算パスの長�
 多項式 p と多項式時間チューリング機械 V（検証器）が存在して、
 w ∈ L ⟺ ∃証明書 c（\\(\lvert c\rvert \le p(\lvert w\rvert)\\) かつ \\(V(w, c) = \mathrm{accept}\\)）
 
-**定理 5.3** L ∈ NP ⟺ L は多項式時間検証可能
+**定理 5.3** \\(L \\in \\mathrm{NP}\\) \\(\\Leftrightarrow\\) L は多項式時間検証可能
 {: #thm-5-3 }
 
 *証明*：
@@ -220,10 +220,10 @@ coNP は NP の補クラスであり、存在量化（∃）による「検証�
 
 この2つの概念は似ているように見えますが、重要な違いがあります。
 
-**定義 5.11** 言語 L が**NP困難**（NP-hard）⟺ ∀A ∈ NP, A ≤_p L
+**定義 5.11** 言語 \\(L\\) が**NP困難**（NP-hard）\\(\\Leftrightarrow\\) \\(\\forall A \\in \\mathrm{NP},\\ A \\le_p L\\)
 {: #def-5-11 }
 
-**定義 5.12** 言語 L が**NP完全**（NP-complete）⟺ L ∈ NP かつ L は NP困難
+**定義 5.12** 言語 \\(L\\) が**NP完全**（NP-complete）\\(\\Leftrightarrow\\) \\(L \\in \\mathrm{NP}\\) かつ \\(L\\) は NP困難
 {: #def-5-12 }
 
 ここで ≤_p は多項式時間多対一還元を表す。
@@ -304,7 +304,7 @@ NP完全 = NP ∩ NP-hard、NP-hard は NP の外側にも内側にも存在し�
 
 この区別により、問題の「絶望度」を正確に測ることができます。
 
-**定理 5.4** L が NP完全で L ∈ P ならば P = NP
+**定理 5.4** \\(L\\) が NP完全で \\(L \\in \\mathrm{P}\\) ならば \\(\\mathrm{P} = \\mathrm{NP}\\)
 {: #thm-5-4 }
 
 *証明*：任意の A ∈ NP に対して A ≤_p L。
@@ -436,7 +436,7 @@ y ────── ¬y
 x  ¬y     ¬x  y
 ```
 
-**k = 2 + 2×2 = 6**
+\\(**k = 2 + 2×2 = 6**\\)
 
 **充足する割り当て** x=True, y=True の場合：
 - 変数ガジェットから: {x, y}
@@ -490,7 +490,7 @@ def solve_vertex_cover_via_SAT(graph, k):
 
 ### 5.4.1 空間複雑性の定義
 
-**定義 5.13** チューリング機械 M の**空間複雑度** s_M(n) を、
+**定義 5.13** チューリング機械 M の**空間複雑度** \\(s_M(n)\\) を、
 {: #def-5-13 }
 長さ n の任意の入力に対して M が使用するテープマス数の最大値とする。
 
@@ -505,7 +505,7 @@ def solve_vertex_cover_via_SAT(graph, k):
 
 ### 5.4.2 空間の基本的性質
 
-**定理 5.7**（Savitchの定理）空間構成可能関数 s(n) ≥ log n に対して、
+**定理 5.7**（Savitchの定理）空間構成可能関数 \\(s(n) \\ge \\log n\\) に対して、
 {: #thm-5-7 }
 \\(\\mathrm{NSPACE}(s(n)) \\subseteq \\mathrm{SPACE}(s(n)^2)\\)
 
@@ -513,29 +513,29 @@ def solve_vertex_cover_via_SAT(graph, k):
 構成 C₁ から C₂ への高々 2^{s(n)} ステップの計算パスの存在を、
 中間点を推測することで判定。再帰の深さは s(n)、各レベルで O(s(n)) 空間。□
 
-**系 5.2** PSPACE = NPSPACE
+**系 5.2** \\(\\mathrm{PSPACE} = \\mathrm{NPSPACE}\\)
 {: #cor-5-2 }
 
 ### 5.4.3 空間と時間の関係
 
 **定理 5.8** 
 {: #thm-5-8 }
-1. TIME(f(n)) ⊆ SPACE(f(n))
-2. SPACE(f(n)) ⊆ TIME(2^{O(f(n))})
+1. \\(TIME(f(n)) ⊆ SPACE(f(n))\\)
+2. \\(SPACE(f(n)) ⊆ TIME(2^{O(f(n))})\\)
 
 *証明*：
 (1) 時間 f(n) では高々 f(n) マスしか使えない。
 (2) s(n) 空間の機械の可能な構成数は高々 2^{O(s(n))}。
    ループを避けて計算すれば、この時間内に終了。□
 
-**系 5.3** L ⊆ P ⊆ NP ⊆ PSPACE ⊆ EXPTIME
+**系 5.3** \\(\\mathrm{L} \\subseteq \\mathrm{P} \\subseteq \\mathrm{NP} \\subseteq \\mathrm{PSPACE} \\subseteq \\mathrm{EXPTIME}\\)
 {: #cor-5-3 }
 
 ![計算複雑性クラスの包含関係]({{ '/assets/images/diagrams/ch5_complexity_class_inclusions.svg' | relative_url }})
 
 ### 5.4.4 PSPACE完全性
 
-**定義 5.16** 言語 L が**PSPACE完全** ⟺ L ∈ PSPACE かつ ∀A ∈ PSPACE, A ≤_p L
+**定義 5.16** 言語 \\(L\\) が**PSPACE完全** \\(\\Leftrightarrow\\) \\(L \\in \\mathrm{PSPACE}\\) かつ \\(\\forall A \\in \\mathrm{PSPACE},\\ A \\le_p L\\)
 {: #def-5-16 }
 
 **定理 5.9** TQBF（真量化ブール式）は PSPACE完全である。
@@ -576,7 +576,7 @@ TQBF = \\(\\{\\varphi \\mid \\varphi \\text{ は真な量化ブール式}\\}\\)
 
 **定理 5.11** 以下は同値：
 {: #thm-5-11 }
-1. PH = PSPACE
+1. \\(PH = PSPACE\\)
 2. \\(\\exists k\\, (\\mathrm{PH} = \\Sigma_k^{\\mathrm{P}})\\)
 3. \\(\\exists k\\, (\\Sigma_k^{\\mathrm{P}} = \\Sigma_{k+1}^{\\mathrm{P}})\\)
 
@@ -595,10 +595,10 @@ TQBF = \\(\\{\\varphi \\mid \\varphi \\text{ は真な量化ブール式}\\}\\)
 
 ### 5.6.1 BPP（有界誤り確率多項式時間）
 
-**定義 5.18** 言語 L ∈ **BPP** ⟺ ある確率的多項式時間機械 M が存在して：
+**定義 5.18** \\(L \\in \\mathrm{BPP}\\) \\(\\Leftrightarrow\\) ある確率的多項式時間機械 M が存在して：
 {: #def-5-18 }
-- w ∈ L ⟹ Pr[M(w) = accept] ≥ 2/3
-- w ∉ L ⟹ Pr[M(w) = accept] ≤ 1/3
+- \\(w ∈ L ⟹ Pr[M(w) = accept] ≥ 2/3\\)
+- \\(w ∉ L ⟹ Pr[M(w) = accept] ≤ 1/3\\)
 
 **定理 5.12** 誤り確率は増幅により任意に小さくできる。
 {: #thm-5-12 }
@@ -639,7 +639,7 @@ k 回の独立実行と多数決により、誤り確率を 2^{-Ω(k)} に削減
 {: #def-5-21 }
 - **P/poly** = \\(\\{L \\mid \\text{ある多項式 } p, \\text{ 各 } n \\text{ に対してサイズ } \\le p(n) \\text{ の回路族が } L_n \\text{ を計算}\\}\\)
 
-**定理 5.14** P ⊆ P/poly
+**定理 5.14** \\(\\mathrm{P} \\subseteq \\mathrm{P}/\\mathrm{poly}\\)
 {: #thm-5-14 }
 
 **定理 5.15**（Karp-Lipton）NP ⊆ P/poly ならば \\(\\mathrm{PH} = \\Sigma_2^{\\mathrm{P}}\\)
@@ -668,10 +668,10 @@ k 回の独立実行と多数決により、誤り確率を 2^{-Ω(k)} に削減
 
 ### 5.8.2 IP の能力
 
-**定理 5.17** NP ⊆ IP
+**定理 5.17** \\(\\mathrm{NP} \\subseteq \\mathrm{IP}\\)
 {: #thm-5-17 }
 
-**定理 5.18**（Shamir）IP = PSPACE
+**定理 5.18**（Shamir）\\(\\mathrm{IP} = \\mathrm{PSPACE}\\)
 {: #thm-5-18 }
 
 これは対話型証明が予想外に強力であることを示しています。
@@ -684,7 +684,7 @@ k 回の独立実行と多数決により、誤り確率を 2^{-Ω(k)} に削減
 
 形式的には、効率的なシミュレータの存在で定義される。
 
-**定理 5.19** NP ⊆ CZK（計算論的ゼロ知識）
+**定理 5.19** \\(\\mathrm{NP} \\subseteq \\mathrm{CZK}\\)（計算論的ゼロ知識）
 {: #thm-5-19 }
 （適切な暗号学的仮定の下で）
 
@@ -701,9 +701,9 @@ k 回の独立実行と多数決により、誤り確率を 2^{-Ω(k)} に削減
 ### 基礎問題
 
 1. 以下の包含関係を証明せよ：
-   (a) TIME(n) ⊂ TIME(n^2)
-   (b) L ⊆ NL ⊆ P
-   (c) NP ⊆ PSPACE
+   \\((a) TIME(n) ⊂ TIME(n^2)\\)
+   \\((b) L ⊆ NL ⊆ P\\)
+   \\((c) NP ⊆ PSPACE\\)
 
 2. 以下の問題が NP に属することを示せ：
    (a) グラフ同型問題

@@ -230,7 +230,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-1/#ex-1-7"
     },
     {
-      "excerpt": "(g ∘ f)(a) = g(f(a)) for all a ∈ A",
+      "excerpt": "\\\\((g ∘ f)(a) = g(f(a)) for all a ∈ A\\\\)",
       "id": "def-1-9",
       "kind": "def",
       "label": "定義",
@@ -482,7 +482,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-10/#def-10-4"
     },
     {
-      "excerpt": "1. \\\\(I(X;Y) = H(X) - H(X \\mid Y) = H(Y) - H(Y \\mid X)\\\\) 2. I(X;Y) = H(X) + H(Y) - H(X,Y) 3. I(X;Y) = I(Y;X)（対称性） 4. I(X;Y) ≥ 0（等号は X と Y が独立） - 厳密には、ほぼ至る所で p(x,y) = p(x)p(y) が成り立つとき等号。",
+      "excerpt": "1. \\\\(I(X;Y) = H(X) - H(X \\mid Y) = H(Y) - H(Y \\mid X)\\\\) 2. \\\\(I(X;Y) = H(X) + H(Y) - H(X,Y)\\\\) 3. I(X;Y) = I(Y;X)（対称性） 4. I(X;Y) ≥ 0（等号は X と Y が独立） - 厳密には、ほぼ至る所で p(x,y) = p(x)p(y) が成り立つとき等号。",
       "id": "thm-10-3",
       "kind": "thm",
       "label": "定理",
@@ -530,7 +530,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-10/#thm-10-5"
     },
     {
-      "excerpt": "I(X;Y) ≥ I(X;Z)",
+      "excerpt": "\\\\(I(X;Y) ≥ I(X;Z)\\\\)",
       "id": "thm-10-6",
       "kind": "thm",
       "label": "定理",
@@ -578,7 +578,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-10/#thm-10-7"
     },
     {
-      "excerpt": "一意復号可能符号の符号長 l₁, ..., lₙ は以下を満たす： ∑ᵢ D^(-lᵢ) ≤ 1",
+      "excerpt": "一意復号可能符号の符号長 l₁, ..., lₙ は以下を満たす： \\\\(∑ᵢ D^(-lᵢ) ≤ 1\\\\)",
       "id": "thm-10-8",
       "kind": "thm",
       "label": "定理",
@@ -590,7 +590,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-10/#thm-10-8"
     },
     {
-      "excerpt": "確率変数 X に対する一意復号可能な D 元符号の平均符号長 L について： L ≥ H(X) / log₂ D",
+      "excerpt": "確率変数 X に対する一意復号可能な D 元符号の平均符号長 L について： \\\\(L ≥ H(X) / log₂ D\\\\)",
       "id": "thm-10-9",
       "kind": "thm",
       "label": "定理",
@@ -638,7 +638,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-10/#def-10-8"
     },
     {
-      "excerpt": "- X = Y = {0, 1} - \\\\(p(0 \\mid 1) = p(1 \\mid 0) = p\\\\)（クロスオーバー確率） - \\\\(p(0 \\mid 0) = p(1 \\mid 1) = 1 - p\\\\)",
+      "excerpt": "- \\\\(X = Y = \\\\{0, 1\\\\}\\\\) - \\\\(p(0 \\mid 1) = p(1 \\mid 0) = p\\\\)（クロスオーバー確率） - \\\\(p(0 \\mid 0) = p(1 \\mid 1) = 1 - p\\\\)",
       "id": "ex-10-2",
       "kind": "ex",
       "label": "例",
@@ -650,7 +650,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-10/#ex-10-2"
     },
     {
-      "excerpt": "C = max{p(x)} I(X;Y)",
+      "excerpt": "\\\\(C = max{p(x)} I(X;Y)\\\\)",
       "id": "def-10-9",
       "kind": "def",
       "label": "定義",
@@ -698,7 +698,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-10/#thm-10-13"
     },
     {
-      "excerpt": "E(R) = lim{n→∞} [-1/n · log₂ Pe^(n)]",
+      "excerpt": "\\\\(E(R) = lim{n→∞} [-1/n · log₂ Pe^(n)]\\\\)",
       "id": "def-10-11",
       "kind": "def",
       "label": "定義",
@@ -734,7 +734,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-10/#def-10-12"
     },
     {
-      "excerpt": "最小距離 d の q 元 [n, k] 符号に対して： q^k ≤ q^n / ∑{i=0}^{⌊(d-1)/2⌋} C(n,i)(q-1)^i",
+      "excerpt": "最小距離 d の q 元 [n, k] 符号に対して： \\\\(q^k ≤ q^n / ∑{i=0}^{⌊(d-1)/2⌋} C(n,i)(q-1)^i\\\\)",
       "id": "thm-10-15",
       "kind": "thm",
       "label": "定理",
@@ -878,7 +878,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-11/#def-11-3"
     },
     {
-      "excerpt": "1. f は多項式時間で計算可能 2. すべての確率的多項式時間アルゴリズム A に対して： Pr[f(A(f(x))) = f(x)] < negl(n) （x は一様ランダムに選択）",
+      "excerpt": "1. f は多項式時間で計算可能 2. すべての確率的多項式時間アルゴリズム A に対して： \\\\(Pr[f(A(f(x))) = f(x)] < negl(n)\\\\) （x は一様ランダムに選択）",
       "id": "def-11-4",
       "kind": "def",
       "label": "定義",
@@ -914,7 +914,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-11/#thm-11-2"
     },
     {
-      "excerpt": "平文と XOR することで暗号化を行う： - 暗号化：ci = mi ⊕ ki - 復号：mi = ci ⊕ ki",
+      "excerpt": "平文と XOR することで暗号化を行う： - 暗号化：\\\\(ci = mi \\\\oplus ki\\\\) - 復号：\\\\(mi = ci \\\\oplus ki\\\\)",
       "id": "def-11-6",
       "kind": "def",
       "label": "定義",
@@ -938,7 +938,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-11/#ex-11-1"
     },
     {
-      "excerpt": "E: {0,1}^k × {0,1}^n → {0,1}^n",
+      "excerpt": "\\\\(E: \\\\{0,1\\\\}^k × \\\\{0,1\\\\}^n → \\\\{0,1\\\\}^n\\\\)",
       "id": "def-11-7",
       "kind": "def",
       "label": "定義",
@@ -1122,7 +1122,7 @@
       "id": "def-11-19",
       "kind": "def",
       "label": "定義",
-      "name": "(t, n) しきい値秘密分散",
+      "name": "\\\\((t, n)\\\\) しきい値秘密分散",
       "number": "11.19",
       "page_title": "第11章 暗号理論の数学的基礎",
       "page_url": "/theoretical-computer-science-textbook/chapter-11/",
@@ -1226,7 +1226,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-12/#thm-12-1"
     },
     {
-      "excerpt": "- P：プレース（場所）の有限集合 - T：トランジション（遷移）の有限集合（P ∩ T = ∅） - F ⊆ (P × T) ∪ (T × P)：フロー関係 - W: F → ℕ₊：重み関数 - M₀: P → ℕ：初期マーキング",
+      "excerpt": "- P：プレース（場所）の有限集合 - T：トランジション（遷移）の有限集合（\\\\(P \\\\cap T = \\\\emptyset\\\\)） - \\\\(F \\\\subseteq (P \\\\times T) \\\\cup (T \\\\times P)\\\\)：フロー関係 - \\\\(W: F \\\\to \\\\mathbb{N}{>0}\\\\)：重み関数 - \\\\(M0: P \\\\to \\\\mathbb{N}\\\\)：初期マーキング",
       "id": "def-12-7",
       "kind": "def",
       "label": "定義",
@@ -1238,7 +1238,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-12/#def-12-7"
     },
     {
-      "excerpt": "∀p ∈ •t, M(p) ≥ W(p, t)",
+      "excerpt": "\\\\(∀p ∈ •t, M(p) ≥ W(p, t)\\\\)",
       "id": "def-12-8",
       "kind": "def",
       "label": "定義",
@@ -1274,7 +1274,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-12/#def-12-9"
     },
     {
-      "excerpt": "合意が可能 ⟺ n > 3f",
+      "excerpt": "合意が可能 \\\\(\\\\Leftrightarrow\\\\) \\\\(n > 3f\\\\)",
       "id": "thm-12-3",
       "kind": "thm",
       "label": "定理",
@@ -1538,7 +1538,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-2/#thm-2-3"
     },
     {
-      "excerpt": "δ: Q × Γ → P(Q × Γ × {L, R})",
+      "excerpt": "\\\\(δ: Q × Γ → P(Q × Γ × \\\\{L, R\\\\})\\\\)",
       "id": "def-2-11",
       "kind": "def",
       "label": "定義",
@@ -1814,7 +1814,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-3/#def-3-6"
     },
     {
-      "excerpt": "- δ̂(q, ε) = q - δ̂(q, wa) = δ(δ̂(q, w), a)（\\\\(w \\in \\Sigma^, a \\in \\Sigma\\\\)）",
+      "excerpt": "- \\\\(δ̂(q, ε) = q\\\\) - δ̂(q, wa) = δ(δ̂(q, w), a)（\\\\(w \\in \\Sigma^, a \\in \\Sigma\\\\)）",
       "id": "def-3-7",
       "kind": "def",
       "label": "定義",
@@ -1862,7 +1862,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-3/#def-3-9"
     },
     {
-      "excerpt": "- δ̂(q, ε) = {q} - δ̂(q, wa) = ⋃ᵣ∈δ̂(q,w) δ(r, a)",
+      "excerpt": "- \\\\(δ̂(q, ε) = \\\\{q\\\\}\\\\) - \\\\(δ̂(q, wa) = ⋃ᵣ∈δ̂(q,w) δ(r, a)\\\\)",
       "id": "def-3-10",
       "kind": "def",
       "label": "定義",
@@ -2102,7 +2102,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-3/#def-3-18"
     },
     {
-      "excerpt": "G = ({S}, {0, 1}, {S → 0S1, S → ε}, S)",
+      "excerpt": "\\\\(G = (\\\\{S\\\\}, \\\\{0, 1\\\\}, \\\\{S → 0S1, S → ε\\\\}, S)\\\\)",
       "id": "ex-3-8",
       "kind": "ex",
       "label": "例",
@@ -2138,7 +2138,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-3/#def-3-20"
     },
     {
-      "excerpt": "G: E → E + E | E × E | (E) | a",
+      "excerpt": "\\\\(G: E → E + E | E × E | (E) | a\\\\)",
       "id": "ex-3-9",
       "kind": "ex",
       "label": "例",
@@ -2150,7 +2150,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-3/#ex-3-9"
     },
     {
-      "excerpt": "- A → BC（A, B, C ∈ V） - A → a（A ∈ V, a ∈ Σ） - S → ε（S が右辺に現れない場合のみ）",
+      "excerpt": "- \\\\(A → BC（A, B, C ∈ V）\\\\) - \\\\(A → a（A ∈ V, a ∈ Σ）\\\\) - S → ε（S が右辺に現れない場合のみ）",
       "id": "def-3-21",
       "kind": "def",
       "label": "定義",
@@ -2174,7 +2174,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-3/#thm-3-7"
     },
     {
-      "excerpt": "A → aα（A ∈ V, a ∈ Σ, α ∈ V）",
+      "excerpt": "\\\\(A → aα（A ∈ V, a ∈ Σ, α ∈ V）\\\\)",
       "id": "def-3-22",
       "kind": "def",
       "label": "定義",
@@ -2234,7 +2234,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-3/#def-3-24"
     },
     {
-      "excerpt": "(q, aw, Zα) ⊢ (p, w, βα) if (p, β) ∈ δ(q, a, Z)",
+      "excerpt": "\\\\((q, aw, Zα) ⊢ (p, w, βα) if (p, β) ∈ δ(q, a, Z)\\\\)",
       "id": "def-3-25",
       "kind": "def",
       "label": "定義",
@@ -2414,7 +2414,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-4/#thm-4-3"
     },
     {
-      "excerpt": "計算可能関数 f: Σ → Σ が存在して、すべての w に対して w ∈ A ⟺ f(w) ∈ B が成り立つことである。これを A ≤m B と表記する。",
+      "excerpt": "計算可能関数 f: Σ → Σ が存在して、すべての w に対して \\\\(w ∈ A ⟺ f(w) ∈ B\\\\) が成り立つことである。これを A ≤m B と表記する。",
       "id": "def-4-4",
       "kind": "def",
       "label": "定義",
@@ -2510,7 +2510,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-4/#def-4-6"
     },
     {
-      "excerpt": "1. L ∈ Σₙ 2. ある決定可能な関係 R が存在して、 x ∈ L ⟺ ∃y₁∀y₂∃y₃...Qₙyₙ R(x, y₁, ..., yₙ) （Qₙ は n が奇数なら ∃、偶数なら ∀）",
+      "excerpt": "1. \\\\(L ∈ Σₙ\\\\) 2. ある決定可能な関係 R が存在して、 \\\\(x ∈ L ⟺ ∃y₁∀y₂∃y₃...Qₙyₙ R(x, y₁, ..., yₙ)\\\\) （Qₙ は n が奇数なら ∃、偶数なら ∀）",
       "id": "thm-4-8",
       "kind": "thm",
       "label": "定理",
@@ -2606,7 +2606,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-4/#def-4-10"
     },
     {
-      "excerpt": "- P^A = NP^A - P^B ≠ NP^B",
+      "excerpt": "- \\\\(P^A = NP^A\\\\) - \\\\(P^B ≠ NP^B\\\\)",
       "id": "thm-4-12",
       "kind": "thm",
       "label": "定理",
@@ -2642,7 +2642,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-5/#def-5-1"
     },
     {
-      "excerpt": "tM(n) = max{M が長さ n の入力 w で実行するステップ数} と定義する。",
+      "excerpt": "\\\\(tM(n) = \\\\max\\\\{\\\\text{M が長さ } n \\\\text{ の入力 } w \\\\text{ で実行するステップ数}\\\\}\\\\) と定義する。",
       "id": "def-5-2",
       "kind": "def",
       "label": "定義",
@@ -2726,7 +2726,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-5/#thm-5-2"
     },
     {
-      "excerpt": "tN(n) = max{N が長さ n の入力 w を受理する最短計算パスの長さ}",
+      "excerpt": "\\\\(tN(n) = \\\\max\\\\{\\\\text{N が長さ } n \\\\text{ の入力 } w \\\\text{ を受理する最短計算パスの長さ}\\\\}\\\\)",
       "id": "def-5-6",
       "kind": "def",
       "label": "定義",
@@ -2754,7 +2754,7 @@
       "id": "def-5-8",
       "kind": "def",
       "label": "定義",
-      "name": "NP",
+      "name": null,
       "number": "5.8",
       "page_title": "第5章 計算複雑性理論",
       "page_url": "/theoretical-computer-science-textbook/chapter-5/",
@@ -2930,7 +2930,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-5/#cor-5-2"
     },
     {
-      "excerpt": "1. TIME(f(n)) ⊆ SPACE(f(n)) 2. SPACE(f(n)) ⊆ TIME(2^{O(f(n))})",
+      "excerpt": "1. \\\\(TIME(f(n)) ⊆ SPACE(f(n))\\\\) 2. \\\\(SPACE(f(n)) ⊆ TIME(2^{O(f(n))})\\\\)",
       "id": "thm-5-8",
       "kind": "thm",
       "label": "定理",
@@ -3002,7 +3002,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-5/#thm-5-10"
     },
     {
-      "excerpt": "1. PH = PSPACE 2. \\\\(\\\\exists k\\\\, (\\\\mathrm{PH} = \\\\Sigmak^{\\\\mathrm{P}})\\\\) 3. \\\\(\\\\exists k\\\\, (\\\\Sigmak^{\\\\mathrm{P}} = \\\\Sigma{k+1}^{\\\\mathrm{P}})\\\\)",
+      "excerpt": "1. \\\\(PH = PSPACE\\\\) 2. \\\\(\\\\exists k\\\\, (\\\\mathrm{PH} = \\\\Sigmak^{\\\\mathrm{P}})\\\\) 3. \\\\(\\\\exists k\\\\, (\\\\Sigmak^{\\\\mathrm{P}} = \\\\Sigma{k+1}^{\\\\mathrm{P}})\\\\)",
       "id": "thm-5-11",
       "kind": "thm",
       "label": "定理",
@@ -3026,7 +3026,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-5/#ex-5-3"
     },
     {
-      "excerpt": "- w ∈ L ⟹ Pr[M(w) = accept] ≥ 2/3 - w ∉ L ⟹ Pr[M(w) = accept] ≤ 1/3",
+      "excerpt": "- \\\\(w ∈ L ⟹ Pr[M(w) = accept] ≥ 2/3\\\\) - \\\\(w ∉ L ⟹ Pr[M(w) = accept] ≤ 1/3\\\\)",
       "id": "def-5-18",
       "kind": "def",
       "label": "定義",
@@ -3218,7 +3218,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-6/#ex-6-1"
     },
     {
-      "excerpt": "T{avg}(n) = ∑{\\\\(\\lvert I\\rvert\\\\)=n} Pr[I] · (A が I で実行する演算回数)",
+      "excerpt": "\\\\(T{avg}(n) = \\\\sum{\\\\lvert I\\\\rvert = n} \\\\Pr[I] \\\\cdot T(I)\\\\)",
       "id": "def-6-2",
       "kind": "def",
       "label": "定義",
@@ -3266,7 +3266,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-6/#ex-6-3"
     },
     {
-      "excerpt": "操作 i の償却コスト：âi = ai + Φ(Di) - Φ(D{i-1})",
+      "excerpt": "操作 i の償却コスト：\\\\(\\\\hat{a}i = ai + \\\\Phi(Di) - \\\\Phi(D{i-1})\\\\)",
       "id": "def-6-4",
       "kind": "def",
       "label": "定義",
@@ -3554,7 +3554,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-6/#ex-6-15"
     },
     {
-      "excerpt": "G(z) = ∑{n≥0} aₙ z^n",
+      "excerpt": "\\\\(G(z) = ∑{n≥0} aₙ z^n\\\\)",
       "id": "def-6-9",
       "kind": "def",
       "label": "定義",
@@ -3686,7 +3686,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-7/#thm-7-1"
     },
     {
-      "excerpt": "membership query（要素の存在確認）は最悪の場合 Ω(log n) 時間必要。",
+      "excerpt": "membership query（要素の存在確認）は最悪の場合 \\\\(\\\\Omega(\\\\log n)\\\\) 時間必要。",
       "id": "thm-7-2",
       "kind": "thm",
       "label": "定理",
@@ -3806,7 +3806,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-7/#def-7-6"
     },
     {
-      "excerpt": "1.44 log(n+2) - 1.328 ≤ h ≤ 1.44 log(n+1)",
+      "excerpt": "\\\\(1.44 log(n+2) - 1.328 ≤ h ≤ 1.44 log(n+1)\\\\)",
       "id": "thm-7-8",
       "kind": "thm",
       "label": "定理",
@@ -3854,7 +3854,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-7/#def-7-8"
     },
     {
-      "excerpt": "h ≤ logt((n+1)/2)",
+      "excerpt": "\\\\(h ≤ logt((n+1)/2)\\\\)",
       "id": "thm-7-10",
       "kind": "thm",
       "label": "定理",
@@ -4010,7 +4010,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-7/#def-7-15"
     },
     {
-      "excerpt": "- 検索：O(logB n) I/O - 挿入・削除：O(logB n) I/O",
+      "excerpt": "- 検索：\\\\(O(\\\\logB n)\\\\) I/O - 挿入・削除：\\\\(O(\\\\logB n)\\\\) I/O",
       "id": "thm-7-16",
       "kind": "thm",
       "label": "定理",
@@ -4370,7 +4370,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-8/#thm-8-13"
     },
     {
-      "excerpt": "単純グラフ G の辺彩色数 χ'(G) は： Δ(G) ≤ χ'(G) ≤ Δ(G) + 1",
+      "excerpt": "単純グラフ G の辺彩色数 χ'(G) は： \\\\(Δ(G) ≤ χ'(G) ≤ Δ(G) + 1\\\\)",
       "id": "thm-8-14",
       "kind": "thm",
       "label": "定理",
@@ -4478,7 +4478,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-9/#def-9-1"
     },
     {
-      "excerpt": "v の論理式への拡張 v̂ を帰納的に定義： - v̂(p) = v(p)（命題変数） - v̂(¬φ) = 1 - v̂(φ) - v̂(φ ∧ ψ) = min(v̂(φ), v̂(ψ)) - v̂(φ ∨ ψ) = max(v̂(φ), v̂(ψ)) - v̂(φ → ψ) = max(1 - v̂(φ), v̂(ψ)) - v̂(φ ↔ ψ) = 1 ⟺ v̂(φ) = v̂(ψ)",
+      "excerpt": "v の論理式への拡張 v̂ を帰納的に定義： - v̂(p) = v(p)（命題変数） - \\\\(v̂(¬φ) = 1 - v̂(φ)\\\\) - \\\\(v̂(φ ∧ ψ) = min(v̂(φ), v̂(ψ))\\\\) - \\\\(v̂(φ ∨ ψ) = max(v̂(φ), v̂(ψ))\\\\) - \\\\(v̂(φ → ψ) = max(1 - v̂(φ), v̂(ψ))\\\\) - \\\\(v̂(φ ↔ ψ) = 1 ⟺ v̂(φ) = v̂(ψ)\\\\)",
       "id": "def-9-2",
       "kind": "def",
       "label": "定義",

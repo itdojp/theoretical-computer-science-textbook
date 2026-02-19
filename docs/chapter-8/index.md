@@ -36,7 +36,7 @@ sections:
 
 ### 8.1.1 グラフの表現と基本概念
 
-**定義 8.1** **グラフ** G = (V, E) は頂点集合 V と辺集合 E から構成される。
+**定義 8.1** **グラフ** \\(G = (V, E)\\) は頂点集合 \\(V\\) と辺集合 \\(E\\) から構成される。
 {: #def-8-1 }
 - 無向グラフ：\\(E \\subseteq \\{(u, v) \\mid u, v \\in V, u \\ne v\\}\\)
 - 有向グラフ：E ⊆ V × V
@@ -60,7 +60,7 @@ sections:
 
 ### 8.1.2 基本的なグラフの性質
 
-**定理 8.1**（握手補題）無向グラフ G = (V, E) において：
+**定理 8.1**（握手補題）無向グラフ \\(G = (V, E)\\) において：
 {: #thm-8-1 }
 ∑_{v∈V} deg(v) = 2\\(\lvert E\rvert\\)
 
@@ -69,7 +69,7 @@ sections:
 **系 8.1** 無向グラフにおいて、奇数次数の頂点数は偶数個。
 {: #cor-8-1 }
 
-**定理 8.2**（Eulerの公式）連結平面グラフ G = (V, E, F) において：
+**定理 8.2**（Eulerの公式）連結平面グラフ \\(G = (V, E, F)\\) において：
 {: #thm-8-2 }
 \\(\lvert V\rvert\\) − \\(\lvert E\rvert\\) + \\(\lvert F\rvert\\) = 2
 （F は面の集合）
@@ -107,7 +107,7 @@ DFS-Visit(u):
 ```
 
 **性質**：
-- 時間複雑度：O(\\(\lvert V\rvert\\) + \\(\lvert E\rvert\\))
+- 時間複雑度：\\(O(\lvert V\rvert + \lvert E\rvert)\\)
 - DFS木を生成
 - 開始時刻 d[v] と終了時刻 f[v] を記録
 
@@ -149,9 +149,9 @@ BFS(G, s):
 2. G^T（転置グラフ）で、その順序で DFS を実行
 3. 各 DFS木が強連結成分
 
-時間複雑度：O(\\(\lvert V\rvert\\) + \\(\lvert E\rvert\\))
+時間複雑度：\\(O(\lvert V\rvert + \lvert E\rvert)\\)
 
-**定理 8.4** 無向グラフ G が連結 ⟺ 任意の空でない真部分集合 S ⊂ V に対して、
+**定理 8.4** 無向グラフ \\(G\\) が連結 \\(\Leftrightarrow\\) 任意の空でない真部分集合 \\(S \subset V\\) に対して、
 {: #thm-8-4 }
 S と V \ S を結ぶ辺が存在。
 
@@ -193,15 +193,15 @@ Dijkstra(G, w, s):
 ![Dijkstra 法の逐次確定の例]({{ '/assets/images/diagrams/ch8_dijkstra_step_trace.svg' | relative_url }})
 
 **時間複雑度**：
-- 二分ヒープ：O((\\(\lvert V\rvert\\) + \\(\lvert E\rvert\\)) log \\(\lvert V\rvert\\))
-- フィボナッチヒープ：O(\\(\lvert V\rvert\\) log \\(\lvert V\rvert\\) + \\(\lvert E\rvert\\))
+- 二分ヒープ：\\(O((\lvert V\rvert + \lvert E\rvert) \log \lvert V\rvert)\\)
+- フィボナッチヒープ：\\(O(\lvert V\rvert \log \lvert V\rvert + \lvert E\rvert)\\)
 
 【実務メモ（最短路）】
 - 場合分け: 負辺→Bellman-Ford/Johnson、単位重み→BFS、0/1重み→0-1 BFS、一般重み→Dijkstra。
 - 優先度キューの選択: 実装定数因子まで含めると二分ヒープがしばしば有利。超大規模・理論性能重視ならフィボナッチヒープ。
 - 並列化: 大規模グラフではΔ-stepping等の近似並列Dijkstraが有効な場合がある。
 
-【0/1 BFS の最小実装（O(\\(\lvert V\rvert\\)+\\(\lvert E\rvert\\))）】
+【0/1 BFS の最小実装（\\(O(\lvert V\rvert + \lvert E\rvert)\\)）】
 ```text
 ZeroOneBFS(G, w ∈ {0,1}, s):
     for v in V: d[v] = ∞
@@ -281,7 +281,7 @@ BFS が \\(O(\\lvert V\\rvert + \\lvert E\\rvert)\\) で最短路を求める。
 
 ### 8.3.1 最小全域木の性質
 
-**定義 8.3** 連結無向グラフ G = (V, E) の**全域木**は、
+**定義 8.3** 連結無向グラフ \\(G = (V, E)\\) の**全域木**は、
 {: #def-8-3 }
 すべての頂点を含み、\\(\lvert V\rvert\\) − 1 本の辺を持つ部分グラフ。
 
@@ -313,7 +313,7 @@ Kruskal(G, w):
     return A
 ```
 
-時間複雑度：O(\\(\lvert E\rvert\\) log \\(\lvert E\rvert\\))
+時間複雑度：\\(O(\lvert E\rvert \log \lvert E\rvert)\\)
 
 ### 8.3.3 Primのアルゴリズム
 
@@ -333,8 +333,8 @@ Prim(G, w, r):
 ```
 
 時間複雑度：
-- 二分ヒープ：O(\\(\lvert E\rvert\\) log \\(\lvert V\rvert\\))
-- フィボナッチヒープ：O(\\(\lvert E\rvert\\) + \\(\lvert V\rvert\\) log \\(\lvert V\rvert\\))
+- 二分ヒープ：\\(O(\lvert E\rvert \log \lvert V\rvert)\\)
+- フィボナッチヒープ：\\(O(\lvert E\rvert + \lvert V\rvert \log \lvert V\rvert)\\)
 
 **定理 8.7** KruskalとPrimのアルゴリズムは正しく最小全域木を求める。
 {: #thm-8-7 }
@@ -343,7 +343,7 @@ Prim(G, w, r):
 
 ### 8.4.1 最大フロー問題
 
-**定義 8.4** **フローネットワーク** G = (V, E) は：
+**定義 8.4** **フローネットワーク** \\(G = (V, E)\\) は：
 {: #def-8-4 }
 - 容量関数 \\(c: V \\times V \\to \\mathbb{R}_{>0}\\)
 - 始点 s、終点 t
@@ -412,7 +412,7 @@ Push-Relabel(G, s, t):
 
 ### 8.5.1 二部グラフのマッチング
 
-**定義 8.5** グラフ G = (V, E) の**マッチング** M ⊆ E は、
+**定義 8.5** グラフ \\(G = (V, E)\\) の**マッチング** \\(M \subseteq E\\) は、
 {: #def-8-5 }
 どの2辺も共通の端点を持たない辺集合。
 
@@ -431,7 +431,7 @@ Push-Relabel(G, s, t):
 ### 8.5.2 最大マッチングアルゴリズム
 
 #### 二部グラフの場合（Hungarian法）
-最大フローへの帰着により O(\\(\lvert E\rvert\\) · \\(\lvert V\rvert\\)^{1/2}) で解ける。
+最大フローへの帰着により \\(O(\lvert E\rvert \cdot \lvert V\rvert^{1/2})\\) で解ける。
 
 #### 一般グラフの場合（Edmondsのアルゴリズム）
 花（blossom）の縮約を用いる：\\(O(\\lvert V\\rvert^3)\\)
@@ -471,7 +471,7 @@ Gale-Shapley(男性の選好, 女性の選好):
 
 ### 8.6.1 頂点彩色
 
-**定義 8.6** グラフ G の**彩色数** χ(G) は、
+**定義 8.6** グラフ G の**彩色数** \\(\\chi(G)\\) は、
 {: #def-8-6 }
 隣接頂点が異なる色となるように頂点を彩色するのに必要な最小色数。
 
@@ -485,7 +485,7 @@ Gale-Shapley(男性の選好, 女性の選好):
 **定理 8.14**（Vizingの定理）
 {: #thm-8-14 }
 単純グラフ G の辺彩色数 χ'(G) は：
-Δ(G) ≤ χ'(G) ≤ Δ(G) + 1
+\\(Δ(G) ≤ χ'(G) ≤ Δ(G) + 1\\)
 
 ### 8.6.3 平面グラフの彩色
 
@@ -504,7 +504,7 @@ Gale-Shapley(男性の選好, 女性の選好):
 **貪欲彩色**：
 頂点を任意の順序で処理し、使用可能な最小の色を割り当てる。
 
-**定理 8.17** 適切な頂点順序により、貪欲彩色は χ(G) 色で彩色する。
+**定理 8.17** 適切な頂点順序により、貪欲彩色は \\(\\chi(G)\\) 色で彩色する。
 {: #thm-8-17 }
 
 ## 8.7 特殊なグラフクラス
@@ -515,7 +515,7 @@ Gale-Shapley(男性の選好, 女性の選好):
 {: #thm-8-18 }
 グラフが平面的 ⟺ K₅ または K₃,₃ の細分を部分グラフとして含まない。
 
-**平面性判定**：O(\\(\lvert V\rvert\\)) アルゴリズムが存在。
+**平面性判定**：\\(O(\lvert V\rvert)\\) アルゴリズムが存在。
 
 ### 8.7.2 木構造
 
@@ -528,7 +528,7 @@ Gale-Shapley(男性の選好, 女性の選好):
 
 ### 8.7.3 弦グラフ
 
-**定義 8.7** グラフが**弦グラフ**（chordal graph）⟺
+**定義 8.7** グラフが**弦グラフ**（chordal graph）\\(\Leftrightarrow\\)
 {: #def-8-7 }
 長さ4以上のすべてのサイクルが弦を持つ。
 
@@ -542,7 +542,7 @@ Gale-Shapley(男性の選好, 女性の選好):
 
 **G(n,p)**：n 頂点で各辺が独立に確率 p で存在。
 
-**定理 8.20** p = (log n + c)/n のとき：
+**定理 8.20** \\(p = (\log n + c)/n\\) のとき：
 {: #thm-8-20 }
 - c → -∞ ⟹ G(n,p) はほぼ確実に非連結
 - c → +∞ ⟹ G(n,p) はほぼ確実に連結
