@@ -69,6 +69,18 @@ INLINE_MATH_MID_TOKEN_RE = re.compile(
     r"(?:\\\(\s*\\mid\s*\\\)|\\\\\(\s*\\\\mid\s*\\\\\))"
 )
 
+DISPLAY_MATH_OPEN = r"\\["
+DISPLAY_MATH_CLOSE = r"\\]"
+INLINE_MATH_OPEN = r"\\("
+INLINE_MATH_CLOSE = r"\\)"
+
+# In Markdown sources, `\\{0,1\\}^*` tends to be fragile because `*` can be
+# eaten by Markdown emphasis parsing depending on context. Prefer `^{*}`.
+UNSAFE_KLEENE_STAR_RE = re.compile(r"\\\\\{0,1\\\\\}\^\*")
+
+# Also catch the clearly broken pattern where the exponent is missing entirely.
+MISSING_KLEENE_STAR_RE = re.compile(r"\\\\\{0,1\\\\\}\^\s*(?:\\\\\)|\\\\\]|\\\\\}|$)")
+
 BAD_SUBSTRINGS = [
     # Power set notation: keep it consistent with the guide (Appendix A).
     ("𝒫(", "Use P(A) for power set notation (avoid Unicode 𝒫)."),
@@ -294,6 +306,7 @@ def check_file(path: Path) -> list[str]:
     text = path.read_text(encoding="utf-8")
 
     in_fence = False
+    in_display_math = False
     for lineno, raw in enumerate(text.splitlines(), start=1):
         line = raw.rstrip("\n")
 
@@ -311,6 +324,46 @@ def check_file(path: Path) -> list[str]:
         # Skip Markdown table separator lines.
         if TABLE_SEPARATOR_RE.match(line_no_code):
             continue
+
+        # Reject nesting inline-math delimiters inside display-math blocks.
+        # We track display math across lines so `\\[` ... `\\]` blocks work.
+        i = 0
+        while i < len(line_no_code):
+            if line_no_code.startswith(DISPLAY_MATH_OPEN, i):
+                in_display_math = True
+                i += len(DISPLAY_MATH_OPEN)
+                continue
+            if line_no_code.startswith(DISPLAY_MATH_CLOSE, i):
+                in_display_math = False
+                i += len(DISPLAY_MATH_CLOSE)
+                continue
+            if in_display_math and line_no_code.startswith(INLINE_MATH_OPEN, i):
+                errors.append(
+                    f"{path}:{lineno}: Avoid nesting inline math {INLINE_MATH_OPEN}...{INLINE_MATH_CLOSE} "
+                    f"inside display math {DISPLAY_MATH_OPEN}...{DISPLAY_MATH_CLOSE}."
+                )
+                break
+            if in_display_math and line_no_code.startswith(INLINE_MATH_CLOSE, i):
+                errors.append(
+                    f"{path}:{lineno}: Avoid nesting inline math {INLINE_MATH_OPEN}...{INLINE_MATH_CLOSE} "
+                    f"inside display math {DISPLAY_MATH_OPEN}...{DISPLAY_MATH_CLOSE}."
+                )
+                break
+            i += 1
+
+        m = UNSAFE_KLEENE_STAR_RE.search(line_no_code)
+        if m:
+            errors.append(
+                f"{path}:{lineno}: Avoid `\\\\{{0,1\\\\}}^*` in Markdown sources; prefer `\\\\{{0,1\\\\}}^{{*}}` "
+                f"to prevent '*' being eaten by Markdown."
+            )
+
+        m = MISSING_KLEENE_STAR_RE.search(line_no_code)
+        if m:
+            errors.append(
+                f"{path}:{lineno}: Possible missing Kleene star after `\\\\{{0,1\\\\}}^` "
+                f"(use TeX like `\\\\(\\\\{{0,1\\\\}}^{{*}}\\\\)`)."
+            )
 
         m = UNICODE_SUPERSCRIPT_RE.search(line_no_code)
         if m:

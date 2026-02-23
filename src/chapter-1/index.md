@@ -244,7 +244,7 @@ r₅ = 0.d₅₁d₅₂d₅₃d₅₄d₅₅...
 
 p → q ≡ ¬p ∨ q を用いると、
 \\[
-  \\((p → q) ∧ p ∧ ¬q ≡ (¬p ∨ q) ∧ p ∧ ¬q\\)
+(p \\to q) \\land p \\land \\lnot q \\equiv (\\lnot p \\lor q) \\land p \\land \\lnot q
 \\]
 である。分配法則を用いて
 \\[
@@ -252,7 +252,7 @@ p → q ≡ ¬p ∨ q を用いると、
 \\]
 を得る。したがって
 \\[
-  \\((p → q) ∧ p ∧ ¬q ≡ (p ∧ q) ∧ ¬q ≡ p ∧ (q ∧ ¬q) ≡ p ∧ ⊥ ≡ ⊥\\)
+(p \\to q) \\land p \\land \\lnot q \\equiv (p \\land q) \\land \\lnot q \\equiv p \\land (q \\land \\lnot q) \\equiv p \\land \\bot \\equiv \\bot
 \\]
 となるため、この論理式はどの真理値割り当てでも偽となる、すなわち矛盾式である。このように、論理的同値の一覧は実際の論理式変形や証明において有用な道具として機能する。
 

@@ -578,7 +578,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-10/#thm-10-7"
     },
     {
-      "excerpt": "一意復号可能符号の符号長 l₁, ..., lₙ は以下を満たす： \\\\(∑ᵢ D^(-lᵢ) ≤ 1\\\\)",
+      "excerpt": "符号長を \\\\(l1, \\\\ldots, ln\\\\) とする。",
       "id": "thm-10-8",
       "kind": "thm",
       "label": "定理",
@@ -878,7 +878,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-11/#def-11-3"
     },
     {
-      "excerpt": "1. f は多項式時間で計算可能 2. すべての確率的多項式時間アルゴリズム A に対して： \\\\(Pr[f(A(f(x))) = f(x)] < negl(n)\\\\) （x は一様ランダムに選択）",
+      "excerpt": "1. f は多項式時間で計算可能 2. すべての確率的多項式時間アルゴリズム A に対して： \\\\(\\\\Pr[f(A(f(x))) = f(x)] < \\\\mathrm{negl}(n)\\\\) （x は一様ランダムに選択）",
       "id": "def-11-4",
       "kind": "def",
       "label": "定義",
@@ -938,7 +938,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-11/#ex-11-1"
     },
     {
-      "excerpt": "\\\\(E: \\\\{0,1\\\\}^k × \\\\{0,1\\\\}^n → \\\\{0,1\\\\}^n\\\\)",
+      "excerpt": "\\\\(E: \\\\{0,1\\\\}^k \\\\times \\\\{0,1\\\\}^n \\\\to \\\\{0,1\\\\}^n\\\\)",
       "id": "def-11-7",
       "kind": "def",
       "label": "定義",
@@ -1058,7 +1058,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-11/#thm-11-5"
     },
     {
-      "excerpt": "- 完全性：x ∈ L ⇒ Pr[(P, V)(x) = accept] ≥ 2/3 - 健全性：x ∉ L ⇒ ∀P, Pr[(P, V)(x) = accept] ≤ 1/3",
+      "excerpt": "- 完全性：\\\\(x \\\\in L \\\\Rightarrow \\\\Pr[(P, V)(x) = \\\\mathrm{accept}] \\\\ge 2/3\\\\) - 健全性：\\\\(x \\\\notin L \\\\Rightarrow \\\\forall P^{},\\\\ \\\\Pr[(P^{}, V)(x) = \\\\mathrm{accept}] \\\\le 1/3\\\\)",
       "id": "def-11-14",
       "kind": "def",
       "label": "定義",
@@ -2030,7 +2030,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-3/#ex-3-6"
     },
     {
-      "excerpt": "1. \\\\(\\\\{ww \\mid w \\in \\\\{0,1\\\\}^\\\\}\\\\) 2. \\\\(\\\\{0^{n^2} \\mid n \\ge 0\\\\}\\\\) 3. \\\\(\\\\{w \\in \\\\{0,1\\\\}^ \\mid w \\text{ は回文}\\\\}\\\\)",
+      "excerpt": "1. \\\\(\\\\{ww \\mid w \\in \\\\{0,1\\\\}^{}\\\\}\\\\) 2. \\\\(\\\\{0^{n^2} \\mid n \\ge 0\\\\}\\\\) 3. \\\\(\\\\{w \\in \\\\{0,1\\\\}^{} \\mid w \\text{ は回文}\\\\}\\\\)",
       "id": "ex-3-7",
       "kind": "ex",
       "label": "例",
