@@ -482,7 +482,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-10/#def-10-4"
     },
     {
-      "excerpt": "1. \\\\(I(X;Y) = H(X) - H(X \\mid Y) = H(Y) - H(Y \\mid X)\\\\) 2. \\\\(I(X;Y) = H(X) + H(Y) - H(X,Y)\\\\) 3. I(X;Y) = I(Y;X)（対称性） 4. I(X;Y) ≥ 0（等号は X と Y が独立） - 厳密には、ほぼ至る所で p(x,y) = p(x)p(y) が成り立つとき等号。",
+      "excerpt": "1. \\\\(I(X;Y) = H(X) - H(X \\mid Y) = H(Y) - H(Y \\mid X)\\\\) 2. \\\\(I(X;Y) = H(X) + H(Y) - H(X,Y)\\\\) 3. \\\\(I(X;Y) = I(Y;X)\\\\)（対称性） 4. \\\\(I(X;Y) \\\\ge 0\\\\)（等号は X と Y が独立） - 厳密には、ほぼ至る所で p(x,y) = p(x)p(y) が成り立つとき等号。",
       "id": "thm-10-3",
       "kind": "thm",
       "label": "定理",
@@ -530,7 +530,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-10/#thm-10-5"
     },
     {
-      "excerpt": "\\\\(I(X;Y) ≥ I(X;Z)\\\\)",
+      "excerpt": "\\\\(I(X;Y) \\\\ge I(X;Z)\\\\)",
       "id": "thm-10-6",
       "kind": "thm",
       "label": "定理",
@@ -542,7 +542,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-10/#thm-10-6"
     },
     {
-      "excerpt": "写像 C: X → D （D は D の有限文字列の集合）。",
+      "excerpt": "写像 \\\\(C: X \\\\to D^{\\\\ast}\\\\)（\\\\(D^{\\\\ast}\\\\) は D の有限文字列の集合）。",
       "id": "def-10-6",
       "kind": "def",
       "label": "定義",
@@ -554,7 +554,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-10/#def-10-6"
     },
     {
-      "excerpt": "- 非特異符号：C は単射 - 一意復号可能：C の拡張 C: X → D が単射 - 瞬時符号（prefix-free）：どの符号語も他の符号語の接頭辞でない",
+      "excerpt": "- 非特異符号：\\\\(C\\\\) は単射 - 一意復号可能：\\\\(C\\\\) の拡張 \\\\(C^{\\\\ast}: X^{\\\\ast} \\\\to D^{\\\\ast}\\\\) が単射 - 瞬時符号（prefix-free）：どの符号語も他の符号語の接頭辞でない",
       "id": "def-10-7",
       "kind": "def",
       "label": "定義",
@@ -590,7 +590,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-10/#thm-10-8"
     },
     {
-      "excerpt": "確率変数 X に対する一意復号可能な D 元符号の平均符号長 L について： \\\\(L ≥ H(X) / log₂ D\\\\)",
+      "excerpt": "確率変数 X に対する一意復号可能な D 元符号の平均符号長 L について： \\\\(L \\\\ge \\\\frac{H(X)}{\\\\log2 D}\\\\)",
       "id": "thm-10-9",
       "kind": "thm",
       "label": "定理",
@@ -650,7 +650,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-10/#ex-10-2"
     },
     {
-      "excerpt": "\\\\(C = max{p(x)} I(X;Y)\\\\)",
+      "excerpt": "\\\\(C = \\\\max{p(x)} I(X;Y)\\\\)",
       "id": "def-10-9",
       "kind": "def",
       "label": "定義",
@@ -674,7 +674,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-10/#thm-10-12"
     },
     {
-      "excerpt": "- M 個のメッセージ - ブロック長 n - レート R = (log₂ M) / n",
+      "excerpt": "- M 個のメッセージ - ブロック長 n - レート \\\\(R = \\\\frac{\\\\log2 M}{n}\\\\)",
       "id": "def-10-10",
       "kind": "def",
       "label": "定義",
@@ -698,7 +698,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-10/#thm-10-13"
     },
     {
-      "excerpt": "\\\\(E(R) = lim{n→∞} [-1/n · log₂ Pe^(n)]\\\\)",
+      "excerpt": "\\\\(E(R) = \\\\lim{n\\\\to\\\\infty} \\\\left[-\\\\frac{1}{n} \\\\cdot \\\\log2 Pe^{(n)}\\\\right]\\\\)",
       "id": "def-10-11",
       "kind": "def",
       "label": "定義",
@@ -734,7 +734,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-10/#def-10-12"
     },
     {
-      "excerpt": "最小距離 d の q 元 [n, k] 符号に対して： \\\\(q^k ≤ q^n / ∑{i=0}^{⌊(d-1)/2⌋} C(n,i)(q-1)^i\\\\)",
+      "excerpt": "最小距離 d の q 元 [n, k] 符号に対して： \\\\(q^k \\\\le \\\\frac{q^n}{\\\\sum{i=0}^{\\\\lfloor (d-1)/2 \\\\rfloor} C(n,i)(q-1)^i}\\\\)",
       "id": "thm-10-15",
       "kind": "thm",
       "label": "定理",
@@ -746,7 +746,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-10/#thm-10-15"
     },
     {
-      "excerpt": "[n, k, d] 符号に対して：d ≤ n - k + 1",
+      "excerpt": "[n, k, d] 符号に対して：\\\\(d \\\\le n - k + 1\\\\)",
       "id": "thm-10-16",
       "kind": "thm",
       "label": "定理",
@@ -986,7 +986,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-11/#def-11-9"
     },
     {
-      "excerpt": "E: y^2 = x^3 + ax + b （特性 ≠ 2, 3）",
+      "excerpt": "\\\\(E: y^2 = x^3 + ax + b\\\\)（特性 \\\\(\\\\ne 2, 3\\\\)）",
       "id": "def-11-10",
       "kind": "def",
       "label": "定義",
@@ -998,7 +998,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-11/#def-11-10"
     },
     {
-      "excerpt": "- KeyGen(1^n) → (pk, sk)：鍵生成 - Sign(sk, m) → σ：署名生成 - Verify(pk, m, σ) → {0, 1}：署名検証",
+      "excerpt": "- \\\\(\\\\mathrm{KeyGen}(1^n) \\\\to (pk, sk)\\\\)：鍵生成 - \\\\(\\\\mathrm{Sign}(sk, m) \\\\to \\\\sigma\\\\)：署名生成 - \\\\(\\\\mathrm{Verify}(pk, m, \\\\sigma) \\\\to \\\\{0, 1\\\\}\\\\)：署名検証",
       "id": "def-11-11",
       "kind": "def",
       "label": "定義",
@@ -1070,7 +1070,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-11/#def-11-14"
     },
     {
-      "excerpt": "すべての多項式時間検証者 V に対して、効率的なシミュレータ S が存在して、 以下の分布が計算論的に識別不能： - View{V}(P, V)(x)：実際の対話の記録 - S(x)：シミュレータの出力",
+      "excerpt": "すべての多項式時間検証者 \\\\(V^{\\\\ast}\\\\) に対して、効率的なシミュレータ S が存在して、 以下の分布が計算論的に識別不能： - \\\\(\\\\mathrm{View}{V^{\\\\ast}}(P, V^{\\\\ast})(x)\\\\)：実際の対話の記録 - S(x)：シミュレータの出力",
       "id": "def-11-15",
       "kind": "def",
       "label": "定義",
@@ -1082,7 +1082,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-11/#def-11-15"
     },
     {
-      "excerpt": "1. P → V：コミットメント a 2. V → P：チャレンジ c 3. P → V：レスポンス z",
+      "excerpt": "1. \\\\(P \\\\to V\\\\)：コミットメント \\\\(a\\\\) 2. \\\\(V \\\\to P\\\\)：チャレンジ \\\\(c\\\\) 3. \\\\(P \\\\to V\\\\)：レスポンス \\\\(z\\\\)",
       "id": "def-11-16",
       "kind": "def",
       "label": "定義",

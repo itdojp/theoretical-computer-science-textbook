@@ -81,6 +81,34 @@ UNSAFE_CARET_STAR_RE = re.compile(r"\^\*|\^\{\*\}")
 # Also catch the clearly broken pattern where the exponent is missing entirely.
 MISSING_KLEENE_STAR_RE = re.compile(r"\\\\\{0,1\\\\\}\^\s*(?:\\\\\)|\\\\\]|\\\\\}|$)")
 
+# In prose, a bare `C*` / `X*` / `D*` etc is fragile because `*` can be eaten by
+# Markdown emphasis parsing when another `*` appears later in the same line.
+ALNUM_STAR_RE = re.compile(r"[0-9A-Za-z]\*(?!\*)")
+
+# Keep Chapter 10/11 math notation strict (Issue #263 scope).
+STRICT_CHAPTER_PATHS = {
+    "docs/chapter-10/index.md",
+    "docs/chapter-11/index.md",
+    "src/chapter-10/index.md",
+    "src/chapter-11/index.md",
+}
+
+STRICT_BAD_SUBSTRINGS = [
+    ("log₂", "Use TeX like `\\\\log_2` (avoid Unicode log₂)."),
+    ("∑", "Use TeX like `\\\\sum` (avoid Unicode ∑)."),
+    ("≥", "Use TeX like `\\\\ge` (avoid Unicode ≥)."),
+    ("≤", "Use TeX like `\\\\le` (avoid Unicode ≤)."),
+    ("→", "Use TeX like `\\\\to` or rewrite prose (avoid Unicode →)."),
+    ("·", "Use TeX like `\\\\cdot` (avoid Unicode ·)."),
+    ("⊕", "Use TeX like `\\\\oplus` (avoid Unicode ⊕)."),
+    ("≡", "Use TeX like `\\\\equiv` (avoid Unicode ≡)."),
+    ("≠", "Use TeX like `\\\\ne` (avoid Unicode ≠)."),
+    ("⌈", "Use TeX like `\\\\lceil`/`\\\\rceil` (avoid Unicode ⌈ ⌉)."),
+    ("⌉", "Use TeX like `\\\\lceil`/`\\\\rceil` (avoid Unicode ⌈ ⌉)."),
+    ("⌊", "Use TeX like `\\\\lfloor`/`\\\\rfloor` (avoid Unicode ⌊ ⌋)."),
+    ("⌋", "Use TeX like `\\\\lfloor`/`\\\\rfloor` (avoid Unicode ⌊ ⌋)."),
+]
+
 BAD_SUBSTRINGS = [
     # Power set notation: keep it consistent with the guide (Appendix A).
     ("𝒫(", "Use P(A) for power set notation (avoid Unicode 𝒫)."),
@@ -324,6 +352,19 @@ def check_file(path: Path) -> list[str]:
         # Skip Markdown table separator lines.
         if TABLE_SEPARATOR_RE.match(line_no_code):
             continue
+
+        if path.as_posix() in STRICT_CHAPTER_PATHS:
+            for bad, msg in STRICT_BAD_SUBSTRINGS:
+                if bad in line_no_code:
+                    errors.append(f"{path}:{lineno}: {msg} (found: {bad})")
+
+            m = ALNUM_STAR_RE.search(line_no_code)
+            if m:
+                errors.append(
+                    f"{path}:{lineno}: Avoid bare '*' after alphanumerics like `C*`/`X*`/`D*`; "
+                    f"prefer TeX in math mode (e.g. `\\\\(C^{{\\\\ast}}\\\\)`). "
+                    f"(found: {m.group(0)})"
+                )
 
         # Reject nesting inline-math delimiters inside display-math blocks.
         # We track display math across lines so `\\[` ... `\\]` blocks work.
