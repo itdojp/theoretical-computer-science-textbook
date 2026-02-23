@@ -74,9 +74,9 @@ DISPLAY_MATH_CLOSE = r"\\]"
 INLINE_MATH_OPEN = r"\\("
 INLINE_MATH_CLOSE = r"\\)"
 
-# In Markdown sources, `\\{0,1\\}^*` tends to be fragile because `*` can be
-# eaten by Markdown emphasis parsing depending on context. Prefer `^{*}`.
-UNSAFE_KLEENE_STAR_RE = re.compile(r"\\\\\{0,1\\\\\}\^\*")
+# In Markdown sources, `*` is parsed as emphasis, and this can corrupt math like
+# `^*` / `^{*}` (e.g. rendering `^{<em>}` in the built HTML). Prefer TeX `\ast`.
+UNSAFE_CARET_STAR_RE = re.compile(r"\^\*|\^\{\*\}")
 
 # Also catch the clearly broken pattern where the exponent is missing entirely.
 MISSING_KLEENE_STAR_RE = re.compile(r"\\\\\{0,1\\\\\}\^\s*(?:\\\\\)|\\\\\]|\\\\\}|$)")
@@ -351,18 +351,18 @@ def check_file(path: Path) -> list[str]:
                 break
             i += 1
 
-        m = UNSAFE_KLEENE_STAR_RE.search(line_no_code)
+        m = UNSAFE_CARET_STAR_RE.search(line_no_code)
         if m:
             errors.append(
-                f"{path}:{lineno}: Avoid `\\\\{{0,1\\\\}}^*` in Markdown sources; prefer `\\\\{{0,1\\\\}}^{{*}}` "
-                f"to prevent '*' being eaten by Markdown."
+                f"{path}:{lineno}: Avoid `^*` / `^{{*}}` in Markdown sources; prefer TeX `^{{\\ast}}` "
+                f"(e.g. `\\\\(\\Sigma^{{\\ast}}\\\\)`), to prevent '*' being eaten by Markdown."
             )
 
         m = MISSING_KLEENE_STAR_RE.search(line_no_code)
         if m:
             errors.append(
                 f"{path}:{lineno}: Possible missing Kleene star after `\\\\{{0,1\\\\}}^` "
-                f"(use TeX like `\\\\(\\\\{{0,1\\\\}}^{{*}}\\\\)`)."
+                f"(use TeX like `\\\\(\\\\{{0,1\\\\}}^{{\\ast}}\\\\)`)."
             )
 
         m = UNICODE_SUPERSCRIPT_RE.search(line_no_code)

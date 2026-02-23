@@ -223,7 +223,7 @@ layout: book
 ## K
 
 **Kleene閉包 (Kleene Closure)**
-- 言語 L に対して \\(L^* = L^0 \\cup L^1 \\cup L^2 \\cup \\cdots\\)
+- 言語 L に対して \\(L^{\ast} = L^0 \\cup L^1 \\cup L^2 \\cup \\cdots\\)
 - 0回以上の連接
 
 <a id="クラフトの不等式-kraft-inequality"></a>

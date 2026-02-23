@@ -458,7 +458,7 @@ Riceの定理により、以下の問題はすべて決定不能：
 
 2. A_TM から以下の言語への多対一還元を構成せよ：
    (a) REGULAR_TM = \\(\\{\\langle M\\rangle \\mid L(M) \\text{ は正規言語}\\}\\)
-   (b) ALL_TM = \\(\\{\\langle M\\rangle \\mid L(M) = \\Sigma^*\\}\\)
+   (b) ALL_TM = \\(\\{\\langle M\\rangle \\mid L(M) = \\Sigma^{\ast}\\}\\)
 
 3. L₁, L₂ が認識可能ならば L₁ ∪ L₂ も認識可能であることを証明せよ。
 
