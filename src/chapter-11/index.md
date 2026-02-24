@@ -187,7 +187,7 @@ n ビットを左右に分割し、ラウンド関数 F を用いて：
 - パディングオラクル対策：CBC+PKCS#7 などではMAC併用またはAEADを使用
 - 公開鍵暗号：生RSAは不可、RSA-OAEPを使用
 - 耐量子暗号：NIST [FIPS 203](https://csrc.nist.gov/pubs/fips/203/final)/[FIPS 204](https://csrc.nist.gov/pubs/fips/204/final)/[FIPS 205](https://csrc.nist.gov/pubs/fips/205/final)（ML-KEM/ML-DSA/SLH-DSA）の適用可否を整理（ハイブリッド構成の要否、crypto-agility、性能・鍵サイズ、互換性・運用リスク）
-- 署名：DSA/ECDSA/Schnorrではkの再利用禁止、RFC 6979 等の決定的kも検討
+- 署名：DSA/ECDSA/Schnorrではkの再利用禁止、[RFC 6979](https://www.rfc-editor.org/rfc/rfc6979) 等の決定的kも検討
 - 実装：定数時間化や乱数安全性（CSPRNG）などサイドチャネル対策
 
 ## 11.3 公開鍵暗号
@@ -330,7 +330,7 @@ g^a, g^b から g^{ab} を計算するのは困難。
 【運用上の重要注意（乱数・ノンスk）】
 - 署名ごとに新鮮な乱数 k を安全に生成し、決して再利用してはならない。
   - k の再利用やバイアスは秘密鍵 x の漏洩に直結（実事件多数）
-- 乱数生成器に依存しないための実務的対策として、RFC 6979 の「決定的k（deterministic k）」を採用する方法が広く用いられる。
+- 乱数生成器に依存しないための実務的対策として、[RFC 6979](https://www.rfc-editor.org/rfc/rfc6979) の「決定的k（deterministic k）」を採用する方法が広く用いられる。
 - 実装ではサイドチャネル（タイミング、キャッシュ）対策も考慮する。
 
 ### 11.4.5 Schnorr 署名

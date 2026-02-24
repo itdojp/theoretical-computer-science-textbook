@@ -734,7 +734,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-10/#def-10-12"
     },
     {
-      "excerpt": "最小距離 d の q 元 [n, k] 符号に対して： \\\\(q^k \\\\le \\\\frac{q^n}{\\\\sum{i=0}^{\\\\lfloor (d-1)/2 \\\\rfloor} C(n,i)(q-1)^i}\\\\)",
+      "excerpt": "最小距離 d の q 元 [n, k] 符号に対して： \\\\(q^k \\\\le \\\\frac{q^n}{\\\\sum{i=0}^{\\\\lfloor (d-1)/2 \\\\rfloor} \\\\binom{n}{i}(q-1)^i}\\\\)",
       "id": "thm-10-15",
       "kind": "thm",
       "label": "定理",
@@ -1850,7 +1850,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-3/#ex-3-2"
     },
     {
-      "excerpt": "- Q, Σ, q₀, F は DFA と同じ - δ: Q × Σ → P(Q)：遷移関数（P(Q) は Q の冪集合）",
+      "excerpt": "- Q, Σ, q₀, F は DFA と同じ - \\\\(\\\\delta: Q \\\\times \\\\Sigma \\\\to \\\\mathcal{P}(Q)\\\\)：遷移関数（\\\\(\\\\mathcal{P}(Q)\\\\) は Q の冪集合）",
       "id": "def-3-9",
       "kind": "def",
       "label": "定義",
@@ -1898,7 +1898,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-3/#ex-3-3"
     },
     {
-      "excerpt": "遷移関数：δ: Q × (Σ ∪ {ε}) → P(Q)",
+      "excerpt": "遷移関数：\\\\(\\\\delta: Q \\\\times (\\\\Sigma \\\\cup \\\\{\\\\epsilon\\\\}) \\\\to \\\\mathcal{P}(Q)\\\\)",
       "id": "def-3-12",
       "kind": "def",
       "label": "定義",
@@ -2210,7 +2210,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-3/#ex-3-10"
     },
     {
-      "excerpt": "- Q：状態の有限集合 - Σ：入力アルファベット - Γ：スタックアルファベット - δ: Q × (Σ ∪ {ε}) × Γ → P(Q × Γ)：遷移関数（Pは冪集合、有限部分集合のみを返す） - q₀ ∈ Q：初期状態 - Z₀ ∈ Γ：初期スタック記号 - F ⊆ Q：受理状態の集合",
+      "excerpt": "- Q：状態の有限集合 - Σ：入力アルファベット - Γ：スタックアルファベット - \\\\(\\\\delta: Q \\\\times (\\\\Sigma \\\\cup \\\\{\\\\epsilon\\\\}) \\\\times \\\\Gamma \\\\to \\\\mathcal{P}(Q \\\\times \\\\Gamma^{\\\\ast})\\\\)：遷移関数（\\\\(\\\\mathcal{P}\\\\) は冪集合、有限部分集合のみを返す） - q₀ ∈ Q：初期状態 - Z₀ ∈ Γ：初期スタック記号 - F",
       "id": "def-3-23",
       "kind": "def",
       "label": "定義",

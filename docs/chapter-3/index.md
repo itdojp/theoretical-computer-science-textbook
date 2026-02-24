@@ -197,11 +197,11 @@ M が認識する言語：\\(L(M) = \\{w \in \Sigma^{\ast} \mid \hat{\delta}(q�
 **定義 3.9** **非決定性有限オートマトン**（Nondeterministic Finite Automaton, NFA）は5つ組 \\(M = (Q, \Sigma, \delta, q_0, F)\\) である。ここで、次のとおりとする。
 {: #def-3-9 }
 - Q, Σ, q₀, F は DFA と同じ
-- δ: Q × Σ → P(Q)：遷移関数（P(Q) は Q の冪集合）
+- \\(\\delta: Q \\times \\Sigma \\to \\mathcal{P}(Q)\\)：遷移関数（\\(\\mathcal{P}(Q)\\) は Q の冪集合）
 
 本節では ε を許さない NFA を扱う（ε を含む拡張は次節の ε-NFA として分けて導入し、最終的に通常の NFA に変換する）。
 
-**定義 3.10** NFA M の拡張遷移関数 δ̂: Q × \\(\Sigma^{\ast}\\) → P(Q) を次のように定義する。
+**定義 3.10** NFA M の拡張遷移関数 δ̂: Q × \\(\Sigma^{\ast}\\) → \\(\\mathcal{P}(Q)\\) を次のように定義する。
 {: #def-3-10 }
 - \\(δ̂(q, ε) = \\{q\\}\\)
 - \\(δ̂(q, wa) = ⋃ᵣ∈δ̂(q,w) δ(r, a)\\)
@@ -226,7 +226,7 @@ M が認識する言語：\\(L(M) = \\{w \in \Sigma^{\ast} \mid \hat{\delta}(q�
 
 **定義 3.12** **ε-NFA** は、空文字列 ε での遷移を許す NFA である。
 {: #def-3-12 }
-遷移関数：δ: Q × (Σ ∪ {ε}) → P(Q)
+遷移関数：\\(\\delta: Q \\times (\\Sigma \\cup \\{\\epsilon\\}) \\to \\mathcal{P}(Q)\\)
 
 **定義 3.13** 状態 q の**ε-閉包** \\(ECLOSE(q)\\)：
 {: #def-3-13 }
@@ -248,6 +248,7 @@ M が認識する言語：\\(L(M) = \\{w \in \Sigma^{\ast} \mid \hat{\delta}(q�
 *証明*（部分集合構成法）：
 NFA \\(N = (Q_N, \\Sigma, \\delta_N, q_0, F_N)\\) から DFA \\(D = (Q_D, \\Sigma, \\delta_D, q_{0,D}, F_D)\\) を構成：
 - \\(Q_D = P(Q_N)\\)（N の状態集合の冪集合）
+- \\(Q_D = \\mathcal{P}(Q_N)\\)（N の状態集合の冪集合）
 - \\(q_{0,D} = \\{q_0\\}\\)
 - \\(F_D = \\{\\,R \\subseteq Q_N \\mid R \\cap F_N \\ne \\emptyset\\,\\}\\)
 - \\(\\delta_D(R, a) = \\bigcup_{q \\in R} \\delta_N(q, a)\\)
@@ -756,7 +757,7 @@ s = uvxyz と分解したとき、\\(\lvert vxy\rvert \le p\\) より、vxy は�
 - Q：状態の有限集合
 - Σ：入力アルファベット
 - Γ：スタックアルファベット
-- δ: Q × (Σ ∪ {ε}) × Γ → P(Q × Γ*)：遷移関数（Pは冪集合、有限部分集合のみを返す）
+- \\(\\delta: Q \\times (\\Sigma \\cup \\{\\epsilon\\}) \\times \\Gamma \\to \\mathcal{P}(Q \\times \\Gamma^{\\ast})\\)：遷移関数（\\(\\mathcal{P}\\) は冪集合、有限部分集合のみを返す）
 - q₀ ∈ Q：初期状態
 - Z₀ ∈ Γ：初期スタック記号
 - F ⊆ Q：受理状態の集合

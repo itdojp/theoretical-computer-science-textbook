@@ -120,9 +120,9 @@ STRICT_BAD_SUBSTRINGS = [
 BAD_SUBSTRINGS = [
     ("’", "Avoid Unicode right single quotation mark U+2019 (’); use ASCII ' or TeX like `\\\\prime`."),
     # Power set notation: keep it consistent with the guide (Appendix A).
-    ("𝒫(", "Use P(A) for power set notation (avoid Unicode 𝒫)."),
-    ("𝒫（", "Use P(A) for power set notation (avoid Unicode 𝒫)."),
-    ("𝒫{", "Use P(A) for power set notation (avoid Unicode 𝒫)."),
+    ("𝒫(", "Use TeX like `\\\\mathcal{P}(A)` for power sets (avoid Unicode 𝒫)."),
+    ("𝒫（", "Use TeX like `\\\\mathcal{P}(A)` for power sets (avoid Unicode 𝒫)."),
+    ("𝒫{", "Use TeX like `\\\\mathcal{P}(A)` for power sets (avoid Unicode 𝒫)."),
     # Minus sign in prose math: prefer U+2212 with surrounding spaces.
     ("|V| -", "Use U+2212 minus with spaces: |V| − ... (not |V| - ...)."),
     ("|E| -", "Use U+2212 minus with spaces: |E| − ... (not |E| - ...)."),
