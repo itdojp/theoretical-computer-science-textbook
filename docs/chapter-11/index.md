@@ -111,7 +111,7 @@ sections:
 {: #ex-11-1 }
 
 注意：RC4 は歴史的なストリーム暗号であり、設計上の弱点や実運用上の脆弱性が多数報告されているため、
-現代運用では原則非推奨である。特にTLSでは RFC 7465 により RC4 暗号スイートの使用が禁止されている。
+現代運用では原則非推奨である。特にTLSでは [RFC 7465](https://www.rfc-editor.org/rfc/rfc7465.html) により RC4 暗号スイートの使用が禁止されている。
 
 ### 11.2.2 ブロック暗号
 
@@ -186,7 +186,7 @@ n ビットを左右に分割し、ラウンド関数 F を用いて：
 - ECBは非推奨：パターンが漏洩するため機密データでは使用しない
 - パディングオラクル対策：CBC+PKCS#7 などではMAC併用またはAEADを使用
 - 公開鍵暗号：生RSAは不可、RSA-OAEPを使用
-- 耐量子暗号：NIST FIPS 203/204/205（ML-KEM/ML-DSA/SLH-DSA）の適用可否を整理（ハイブリッド構成の要否、crypto-agility、性能・鍵サイズ、互換性・運用リスク）
+- 耐量子暗号：NIST [FIPS 203](https://csrc.nist.gov/pubs/fips/203/final)/[FIPS 204](https://csrc.nist.gov/pubs/fips/204/final)/[FIPS 205](https://csrc.nist.gov/pubs/fips/205/final)（ML-KEM/ML-DSA/SLH-DSA）の適用可否を整理（ハイブリッド構成の要否、crypto-agility、性能・鍵サイズ、互換性・運用リスク）
 - 署名：DSA/ECDSA/Schnorrではkの再利用禁止、RFC 6979 等の決定的kも検討
 - 実装：定数時間化や乱数安全性（CSPRNG）などサイドチャネル対策
 
@@ -273,9 +273,9 @@ g^a, g^b から g^{ab} を計算するのは困難。
 
 公開鍵暗号の耐量子化に向けた標準化として、NIST は以下を FIPS として規定している。
 
-- **FIPS 203**：**ML-KEM**（KEM）。格子（module-lattice）に基づく鍵カプセル化方式。
-- **FIPS 204**：**ML-DSA**（署名）。格子（module-lattice）に基づくデジタル署名。
-- **FIPS 205**：**SLH-DSA**（ステートレスなハッシュベース署名）。ハッシュベースのデジタル署名。
+- **[FIPS 203](https://csrc.nist.gov/pubs/fips/203/final)**：**ML-KEM**（KEM）。格子（module-lattice）に基づく鍵カプセル化方式。
+- **[FIPS 204](https://csrc.nist.gov/pubs/fips/204/final)**：**ML-DSA**（署名）。格子（module-lattice）に基づくデジタル署名。
+- **[FIPS 205](https://csrc.nist.gov/pubs/fips/205/final)**：**SLH-DSA**（ステートレスなハッシュベース署名）。ハッシュベースのデジタル署名。
 
 実運用では、対象プロトコルに応じて KEM/署名の使い分けと、移行計画の策定が重要となる。
 
@@ -360,9 +360,9 @@ g^a, g^b から g^{ab} を計算するのは困難。
 
 1. **一方向性**：y が与えられたとき、H(x) = y となる x を見つけるのは困難
 
-2. **第二原像困難性**：x が与えられたとき、\\(x \\ne x'\\) かつ \\(H(x) = H(x')\\) となる x' を見つけるのは困難
+2. **第二原像困難性**：x が与えられたとき、\\(x \\ne x^{\\prime}\\) かつ \\(H(x) = H(x^{\\prime})\\) となる \\(x^{\\prime}\\) を見つけるのは困難
 
-3. **衝突困難性**：H(x) = H(x') となる異なる x, x' を見つけるのは困難
+3. **衝突困難性**：\\(H(x) = H(x^{\\prime})\\) となる異なる \\(x, x^{\\prime}\\) を見つけるのは困難
 
 **定理 11.4** 衝突困難性 ⇒ 第二原像困難性 ⇒ 一方向性
 {: #thm-11-4 }
@@ -549,7 +549,7 @@ n 人の参加者が各自の秘密入力 x_i を持ち、
 ### 探究課題
 
 9. 量子計算機に対する耐性を持つ暗号（耐量子暗号）について調査し、
-   NIST FIPS 203/204/205（ML-KEM/ML-DSA/SLH-DSA）の目的（KEM/署名）と
+   NIST [FIPS 203](https://csrc.nist.gov/pubs/fips/203/final)/[FIPS 204](https://csrc.nist.gov/pubs/fips/204/final)/[FIPS 205](https://csrc.nist.gov/pubs/fips/205/final)（ML-KEM/ML-DSA/SLH-DSA）の目的（KEM/署名）と
    基盤の違い（格子/ハッシュ）を説明せよ。
 
 10. ブロックチェーンで使用される暗号技術について調査し、

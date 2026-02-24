@@ -1406,7 +1406,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-2/#ex-2-2"
     },
     {
-      "excerpt": "- すべての w ∈ Σ に対して - M を入力 w で開始すると - M は停止し、テープ上に f(w) のみが残る",
+      "excerpt": "- すべての \\\\(w \\in \\Sigma^{\\ast}\\\\) に対して - M を入力 w で開始すると - M は停止し、テープ上に f(w) のみが残る",
       "id": "def-2-5",
       "kind": "def",
       "label": "定義",
@@ -1478,7 +1478,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-2/#def-2-8"
     },
     {
-      "excerpt": "1. 和集合：L₁, L₂ が決定可能 → L₁ ∪ L₂ も決定可能 2. 共通部分（intersection）：L₁, L₂ が決定可能 → L₁ ∩ L₂ も決定可能 3. 補集合：L が決定可能 → \\\\(\\overline{L}\\\\) も決定可能 4. 連結：L₁, L₂ が決定可能 → L₁L₂ も決定可能 5. クリーネ閉包：L が決定可能 → L も決定可能",
+      "excerpt": "1. 和集合：L₁, L₂ が決定可能 → L₁ ∪ L₂ も決定可能 2. 共通部分（intersection）：L₁, L₂ が決定可能 → L₁ ∩ L₂ も決定可能 3. 補集合：L が決定可能 → \\\\(\\overline{L}\\\\) も決定可能 4. 連結：L₁, L₂ が決定可能 → L₁L₂ も決定可能 5. クリーネ閉包：L が決定可能 → \\\\(L^{\\ast}\\\\) も決定可能",
       "id": "thm-2-1",
       "kind": "thm",
       "label": "定理",

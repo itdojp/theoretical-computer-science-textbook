@@ -93,6 +93,14 @@ STRICT_CHAPTER_PATHS = {
     "src/chapter-11/index.md",
 }
 
+# Keep Chapter 2 and Appendix A notation aligned with the guide (Issue #264 scope).
+KLEENE_STAR_STRICT_PATHS = {
+    "docs/chapter-2/index.md",
+    "docs/appendices/a.md",
+    "src/chapter-2/index.md",
+    "src/appendices/a.md",
+}
+
 STRICT_BAD_SUBSTRINGS = [
     ("log₂", "Use TeX like `\\\\log_2` (avoid Unicode log₂)."),
     ("∑", "Use TeX like `\\\\sum` (avoid Unicode ∑)."),
@@ -110,6 +118,7 @@ STRICT_BAD_SUBSTRINGS = [
 ]
 
 BAD_SUBSTRINGS = [
+    ("’", "Avoid Unicode right single quotation mark U+2019 (’); use ASCII ' or TeX like `\\\\prime`."),
     # Power set notation: keep it consistent with the guide (Appendix A).
     ("𝒫(", "Use P(A) for power set notation (avoid Unicode 𝒫)."),
     ("𝒫（", "Use P(A) for power set notation (avoid Unicode 𝒫)."),
@@ -364,6 +373,16 @@ def check_file(path: Path) -> list[str]:
                     f"{path}:{lineno}: Avoid bare '*' after alphanumerics like `C*`/`X*`/`D*`; "
                     f"prefer TeX in math mode (e.g. `\\\\(C^{{\\\\ast}}\\\\)`). "
                     f"(found: {m.group(0)})"
+                )
+
+        if path.as_posix() in KLEENE_STAR_STRICT_PATHS:
+            if "Σ*" in line_no_code:
+                errors.append(
+                    f"{path}:{lineno}: Avoid raw 'Σ*' (use TeX like `\\\\(\\\\Sigma^{{\\\\ast}}\\\\)`)."
+                )
+            if "{0,1}*" in line_no_code:
+                errors.append(
+                    f"{path}:{lineno}: Avoid raw '{{0,1}}*' (use TeX like `\\\\(\\\\{{0,1\\\\}}^{{\\\\ast}}\\\\)`)."
                 )
 
         # Reject nesting inline-math delimiters inside display-math blocks.

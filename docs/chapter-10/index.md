@@ -79,7 +79,7 @@ sections:
 \\[
 \begin{aligned}
 D(P_X \Vert U)
-&= \sum_{x\in\mathcal{X}} p(x)\log_2 \frac{p(x)}{1/\lvert\mathcal{X}\rvert} \\\\
+&= \sum_{x\in\mathcal{X}} p(x)\log_2 \frac{p(x)}{1/\lvert\mathcal{X}\rvert} \\\\{}
 &= -H(X) + \log_2 \lvert\mathcal{X}\rvert \ge 0.
 \end{aligned}
 \\]
@@ -99,9 +99,9 @@ D(P_X \Vert U)
 
 \\[
 \begin{aligned}
-H(X,Y) &= -\sum_{x,y} p(x,y) \log_2 p(x,y) \\
-       &= -\sum_{x,y} p(x,y) \log_2\bigl(p(x)p(y \mid x)\bigr) \\
-       &= -\sum_{x,y} p(x,y) \log_2 p(x) - \sum_{x,y} p(x,y) \log_2 p(y \mid x) \\
+H(X,Y) &= -\sum_{x,y} p(x,y) \log_2 p(x,y) \\\\{}
+       &= -\sum_{x,y} p(x,y) \log_2\bigl(p(x)p(y \mid x)\bigr) \\\\{}
+       &= -\sum_{x,y} p(x,y) \log_2 p(x) - \sum_{x,y} p(x,y) \log_2 p(y \mid x) \\\\{}
        &= H(X) + H(Y \mid X)
 \end{aligned}
 \\]
@@ -142,8 +142,8 @@ H(X,Y) &= -\sum_{x,y} p(x,y) \log_2 p(x,y) \\
 
 \\[
 \begin{aligned}
--D(P \,\Vert\, Q) &= \sum_x p(x) \log_2 \frac{q(x)}{p(x)} \\
-&\le \log_2 \sum_x p(x) \cdot \frac{q(x)}{p(x)} \\
+-D(P \,\Vert\, Q) &= \sum_x p(x) \log_2 \frac{q(x)}{p(x)} \\\\{}
+&\le \log_2 \sum_x p(x) \cdot \frac{q(x)}{p(x)} \\\\{}
 &= \log_2 1 = 0
 \end{aligned}
 \\]
@@ -209,7 +209,7 @@ S^k
 また、\\(L < \\frac{H(X)}{\\log_2 D} + 1\\) を満たす瞬時符号が存在する。
 
 *証明*：相対エントロピーの非負性を用いる。
-確率分布 \\(p(x)\\) と \\(q(x) = \\frac{D^{-l(x)}}{\\sum_{x' \\in X} D^{-l(x')}}\\) に対して：
+確率分布 \\(p(x)\\) と \\(q(x) = \\frac{D^{-l(x)}}{\\sum_{x^{\\prime} \\in X} D^{-l(x^{\\prime})}}\\) に対して：
 \\(D(p \,\Vert\, q) \ge 0\\) より導かれる。□
 
 ### 10.2.4 最適符号
