@@ -1946,7 +1946,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-3/#thm-3-1"
     },
     {
-      "excerpt": "1. ∅ は正規表現（言語 ∅ を表す） 2. ε は正規表現（言語 {ε} を表す） 3. a ∈ Σ に対して、a は正規表現（言語 {a} を表す） 4. R₁, R₂ が正規表現なら、以下も正規表現： - (R₁ + R₂)：和集合 L(R₁) ∪ L(R₂) を表す - (R₁R₂)：連結 L(R₁)L(R₂) を表す - (R₁)：クリーネ閉包 L(R₁) を表す",
+      "excerpt": "1. ∅ は正規表現（言語 ∅ を表す） 2. ε は正規表現（言語 {ε} を表す） 3. a ∈ Σ に対して、a は正規表現（言語 {a} を表す） 4. \\\\(R1\\\\), \\\\(R2\\\\) が正規表現なら、以下も正規表現： - (R1 + R2)：和集合 L(R1) ∪ L(R2) を表す - (R1R2)：連結 L(R1)L(R2) を表す - (R1)：クリーネ閉包 L(R1) を表す",
       "id": "def-3-14",
       "kind": "def",
       "label": "定義",
@@ -1994,7 +1994,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-3/#thm-3-3"
     },
     {
-      "excerpt": "1. 所属問題：w ∈ L? 2. 空問題：L = ∅? 3. 有限性問題：L は有限？ 4. 等価性問題：L₁ = L₂?",
+      "excerpt": "1. 所属問題：w ∈ L? 2. 空問題：L = ∅? 3. 有限性問題：L は有限？ 4. 等価性問題：\\\\(L1 = L2\\\\)?",
       "id": "thm-3-4",
       "kind": "thm",
       "label": "定理",
@@ -2054,7 +2054,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-3/#def-3-15"
     },
     {
-      "excerpt": "言語 L が正規言語 ⟺ ≡ₗ の同値類の個数が有限",
+      "excerpt": "言語 L が正規言語 ⟺ \\\\(\\\\equivL\\\\) の同値類の個数が有限",
       "id": "thm-3-6",
       "kind": "thm",
       "label": "定理",
@@ -2114,7 +2114,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-3/#ex-3-8"
     },
     {
-      "excerpt": "1. 各内部節点は変数でラベル付け 2. 各葉は終端記号または ε でラベル付け 3. 根は開始記号でラベル付け 4. 内部節点 A の子が B₁, ..., Bₖ なら A → B₁...Bₖ ∈ R",
+      "excerpt": "1. 各内部節点は変数でラベル付け 2. 各葉は終端記号または ε でラベル付け 3. 根は開始記号でラベル付け 4. 内部節点 A の子が \\\\(B1, \\\\ldots, Bk\\\\) なら \\\\(A \\\\to B1\\\\cdots Bk \\\\in R\\\\)",
       "id": "def-3-19",
       "kind": "def",
       "label": "定義",
@@ -2210,7 +2210,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-3/#ex-3-10"
     },
     {
-      "excerpt": "- Q：状態の有限集合 - Σ：入力アルファベット - Γ：スタックアルファベット - \\\\(\\\\delta: Q \\\\times (\\\\Sigma \\\\cup \\\\{\\\\epsilon\\\\}) \\\\times \\\\Gamma \\\\to \\\\mathcal{P}(Q \\\\times \\\\Gamma^{\\\\ast})\\\\)：遷移関数（\\\\(\\\\mathcal{P}\\\\) は冪集合、有限部分集合のみを返す） - \\\\(q0 \\\\in Q\\\\)：初期状態 - Z₀ ∈ Γ：初期スタ",
+      "excerpt": "- Q：状態の有限集合 - Σ：入力アルファベット - Γ：スタックアルファベット - \\\\(\\\\delta: Q \\\\times (\\\\Sigma \\\\cup \\\\{\\\\epsilon\\\\}) \\\\times \\\\Gamma \\\\to \\\\mathcal{P}(Q \\\\times \\\\Gamma^{\\\\ast})\\\\)：遷移関数（\\\\(\\\\mathcal{P}\\\\) は冪集合、有限部分集合のみを返す） - \\\\(q0 \\\\in Q\\\\)：初期状態 - \\\\(Z0 \\\\in",
       "id": "def-3-23",
       "kind": "def",
       "label": "定義",
@@ -2498,7 +2498,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-4/#thm-4-7"
     },
     {
-      "excerpt": "- Σ₀ = Π₀ = 決定可能言語 - \\\\(\\\\Sigma{n+1} = \\\\{L \\\\mid L \\\\text{ は } \\\\Pin \\\\text{ 言語へのオラクルで認識可能}\\\\}\\\\) - \\\\(\\\\Pi{n+1} = \\\\{L \\\\mid \\\\overline{L} \\\\in \\\\Sigma{n+1}\\\\}\\\\)",
+      "excerpt": "- \\\\(\\\\Sigma0 = \\\\Pi0\\\\)：決定可能言語 - \\\\(\\\\Sigma{n+1} = \\\\{L \\\\mid L \\\\text{ は } \\\\Pin \\\\text{ 言語へのオラクルで認識可能}\\\\}\\\\) - \\\\(\\\\Pi{n+1} = \\\\{L \\\\mid \\\\overline{L} \\\\in \\\\Sigma{n+1}\\\\}\\\\)",
       "id": "def-4-6",
       "kind": "def",
       "label": "定義",
@@ -2510,7 +2510,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-4/#def-4-6"
     },
     {
-      "excerpt": "1. \\\\(L ∈ Σₙ\\\\) 2. ある決定可能な関係 R が存在して、 \\\\(x ∈ L ⟺ ∃y₁∀y₂∃y₃...Qₙyₙ R(x, y₁, ..., yₙ)\\\\) （Qₙ は n が奇数なら ∃、偶数なら ∀）",
+      "excerpt": "1. \\\\(L \\\\in \\\\Sigman\\\\) 2. ある決定可能な関係 R が存在して、 \\\\(x \\\\in L ⟺ \\\\exists y1\\\\forall y2\\\\exists y3\\\\cdots Qnyn\\\\, R(x, y1, \\\\ldots, yn)\\\\) （\\\\(Qn\\\\) は n が奇数なら \\\\(\\\\exists\\\\)、偶数なら \\\\(\\\\forall\\\\)）",
       "id": "thm-4-8",
       "kind": "thm",
       "label": "定理",
@@ -2522,7 +2522,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-4/#thm-4-8"
     },
     {
-      "excerpt": "- ある機械 M₁ に対して L(M₁) は性質 P を持つ - ある機械 M₂ に対して L(M₂) は性質 P を持たない ことである。",
+      "excerpt": "- ある機械 \\\\(M1\\\\) に対して \\\\(L(M1)\\\\) は性質 \\\\(P\\\\) を持つ - ある機械 \\\\(M2\\\\) に対して \\\\(L(M2)\\\\) は性質 \\\\(P\\\\) を持たない ことである。",
       "id": "def-4-7",
       "kind": "def",
       "label": "定義",
@@ -2570,7 +2570,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-4/#thm-4-10"
     },
     {
-      "excerpt": "ある n が存在して φₙ = φ{f(n)} となる。",
+      "excerpt": "ある n が存在して \\\\(\\\\varphin = \\\\varphi{f(n)}\\\\) となる。",
       "id": "thm-4-11",
       "kind": "thm",
       "label": "定理",

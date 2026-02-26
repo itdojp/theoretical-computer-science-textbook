@@ -74,6 +74,11 @@ DISPLAY_MATH_CLOSE = r"\\]"
 INLINE_MATH_OPEN = r"\\("
 INLINE_MATH_CLOSE = r"\\)"
 
+# Unicode subscripts are discouraged in prose/math (prefer TeX `_`), but the
+# repository is being migrated incrementally. Keep this strict only for a small
+# set of files so CI remains stable.
+UNICODE_SUBSCRIPT_RE = re.compile(r"[\u2080-\u209F\u1D62-\u1D6A\u2C7C]")
+
 # In Markdown sources, `*` is parsed as emphasis, and this can corrupt math like
 # `^*` / `^{*}` (e.g. rendering `^{<em>}` in the built HTML). Prefer TeX `\ast`.
 UNSAFE_CARET_STAR_RE = re.compile(r"\^\*|\^\{\*\}")
@@ -106,6 +111,16 @@ TM_NOTATION_STRICT_PATHS = {
     "docs/appendices/a.md",
     "src/chapter-2/index.md",
     "src/appendices/a.md",
+}
+
+# Keep Chapter 3/4 and Appendix C free of Unicode subscripts/superscripts (Issue #268 scope).
+UNICODE_SUBSCRIPT_STRICT_PATHS = {
+    "docs/chapter-3/index.md",
+    "docs/chapter-4/index.md",
+    "docs/appendices/c.md",
+    "src/chapter-3/index.md",
+    "src/chapter-4/index.md",
+    "src/appendices/c.md",
 }
 
 Q_UNICODE_SUBSCRIPT_RE = re.compile(r"q[₀-₉]")
@@ -459,6 +474,14 @@ def check_file(path: Path) -> list[str]:
                 f"{path}:{lineno}: Avoid Unicode superscripts (use TeX like ^{{...}} / ASCII like ^...): "
                 f"{m.group(0)}"
             )
+
+        if path.as_posix() in UNICODE_SUBSCRIPT_STRICT_PATHS:
+            m = UNICODE_SUBSCRIPT_RE.search(line_no_code)
+            if m:
+                errors.append(
+                    f"{path}:{lineno}: Avoid Unicode subscripts (use TeX like _{{...}} / ASCII like _...): "
+                    f"{m.group(0)}"
+                )
 
         # Avoid raw concatenation / double-bar notation, which is easy to lose in Markdown/HTML.
         if "||" in line_no_code:
