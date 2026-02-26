@@ -5,13 +5,13 @@ title: "オフライン版（PDF/EPUB）"
 
 # オフライン版（PDF/EPUB）
 
-本書は、GitHub Releases にて PDF/EPUB のオフライン版を配布します。
+本書のオフライン版（PDF/EPUB）は、現時点では GitHub Releases では配布していません（GitHub Releases/Tags は未運用）。必要な場合は、下記の手順でローカル生成してください。
 
-## 入手方法（推奨）
+## 入手方法
 
-- GitHub Releases: `itdojp/theoretical-computer-science-textbook` の Releases から取得してください。
+- ローカル生成（開発者向け）: 下記「ローカルでの生成」を参照してください。
+- 将来的な配布先: GitHub Releases（配布開始後に掲載）
   - `https://github.com/itdojp/theoretical-computer-science-textbook/releases`
-  - リポジトリが Private の場合、アクセス権限がないと閲覧できません。
 
 ## 生成物
 
