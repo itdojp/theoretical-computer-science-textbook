@@ -117,10 +117,14 @@ TM_NOTATION_STRICT_PATHS = {
 UNICODE_SUBSCRIPT_STRICT_PATHS = {
     "docs/chapter-3/index.md",
     "docs/chapter-4/index.md",
+    "docs/appendices/a.md",
     "docs/appendices/c.md",
+    "docs/appendices/d.md",
     "src/chapter-3/index.md",
     "src/chapter-4/index.md",
+    "src/appendices/a.md",
     "src/appendices/c.md",
+    "src/appendices/d.md",
 }
 
 Q_UNICODE_SUBSCRIPT_RE = re.compile(r"q[₀-₉]")

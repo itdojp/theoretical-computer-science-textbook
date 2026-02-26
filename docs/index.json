@@ -2342,7 +2342,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-3/#def-3-28"
     },
     {
-      "excerpt": "HALTTM = \\\\(\\\\{\\\\langle M,w\\\\rangle \\\\mid M \\\\text{ はチューリング機械で、入力 } w \\\\text{ で停止する}\\\\}\\\\)",
+      "excerpt": "\\\\(HALT{TM} = \\\\{\\\\langle M,w\\\\rangle \\\\mid M \\\\text{ はチューリング機械で、入力 } w \\\\text{ で停止する}\\\\}\\\\)",
       "id": "def-4-1",
       "kind": "def",
       "label": "定義",
@@ -2390,7 +2390,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-4/#thm-4-2"
     },
     {
-      "excerpt": "ATM = \\\\(\\\\{\\\\langle M,w\\\\rangle \\\\mid M \\\\text{ はチューリング機械で、} w \\\\text{ を受理する}\\\\}\\\\)",
+      "excerpt": "\\\\(A{TM} = \\\\{\\\\langle M,w\\\\rangle \\\\mid M \\\\text{ はチューリング機械で、} w \\\\text{ を受理する}\\\\}\\\\)",
       "id": "def-4-3",
       "kind": "def",
       "label": "定義",
@@ -2414,7 +2414,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-4/#thm-4-3"
     },
     {
-      "excerpt": "計算可能関数 f: Σ → Σ が存在して、すべての w に対して \\\\(w ∈ A ⟺ f(w) ∈ B\\\\) が成り立つことである。これを A ≤m B と表記する。",
+      "excerpt": "計算可能関数 \\\\(f: \\\\Sigma^{\\\\ast} \\\\to \\\\Sigma^{\\\\ast}\\\\) が存在して、すべての \\\\(w\\\\) に対して \\\\(w \\\\in A \\\\iff f(w) \\\\in B\\\\) が成り立つことである。これを \\\\(A \\\\lem B\\\\) と表記する。",
       "id": "def-4-4",
       "kind": "def",
       "label": "定義",
@@ -2474,7 +2474,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-4/#thm-4-6"
     },
     {
-      "excerpt": "B を決定するオラクルを使って A を決定する機械が存在することである。 これを A ≤T B と表記する。",
+      "excerpt": "B を決定するオラクルを使って A を決定する機械が存在することである。 これを \\\\(A \\\\leT B\\\\) と表記する。",
       "id": "def-4-5",
       "kind": "def",
       "label": "定義",
@@ -2618,7 +2618,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-4/#thm-4-12"
     },
     {
-      "excerpt": "- A ≡T B ⟺ A ≤T B かつ B ≤T A",
+      "excerpt": "- \\\\(A \\\\equivT B\\\\) は \\\\(A \\\\leT B\\\\) かつ \\\\(B \\\\leT A\\\\) が成り立つこと",
       "id": "def-4-11",
       "kind": "def",
       "label": "定義",
