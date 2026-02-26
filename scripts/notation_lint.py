@@ -101,6 +101,15 @@ KLEENE_STAR_STRICT_PATHS = {
     "src/appendices/a.md",
 }
 
+TM_NOTATION_STRICT_PATHS = {
+    "docs/chapter-2/index.md",
+    "docs/appendices/a.md",
+    "src/chapter-2/index.md",
+    "src/appendices/a.md",
+}
+
+Q_UNICODE_SUBSCRIPT_RE = re.compile(r"q[₀-₉]")
+
 STRICT_BAD_SUBSTRINGS = [
     ("log₂", "Use TeX like `\\\\log_2` (avoid Unicode log₂)."),
     ("∑", "Use TeX like `\\\\sum` (avoid Unicode ∑)."),
@@ -383,6 +392,25 @@ def check_file(path: Path) -> list[str]:
             if "{0,1}*" in line_no_code:
                 errors.append(
                     f"{path}:{lineno}: Avoid raw '{{0,1}}*' (use TeX like `\\\\(\\\\{{0,1\\\\}}^{{\\\\ast}}\\\\)`)."
+                )
+
+        if path.as_posix() in TM_NOTATION_STRICT_PATHS:
+            m = Q_UNICODE_SUBSCRIPT_RE.search(line_no_code)
+            if m:
+                errors.append(
+                    f"{path}:{lineno}: Avoid Unicode subscript state notation like '{m.group(0)}' (use TeX like `q_0`/`q_1`)."
+                )
+            if "qaccept" in line_no_code:
+                errors.append(
+                    f"{path}:{lineno}: Avoid 'qaccept' (use TeX like `q_{{\\\\mathrm{{accept}}}}`)."
+                )
+            if "qreject" in line_no_code:
+                errors.append(
+                    f"{path}:{lineno}: Avoid 'qreject' (use TeX like `q_{{\\\\mathrm{{reject}}}}`)."
+                )
+            if "⇀" in line_no_code:
+                errors.append(
+                    f"{path}:{lineno}: Avoid Unicode partial function arrow '⇀' (use TeX like `\\\\rightharpoonup`)."
                 )
 
         # Reject nesting inline-math delimiters inside display-math blocks.

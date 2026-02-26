@@ -42,20 +42,20 @@ chapter: 2
 
 ![チューリング機械の構成要素]({{ '/assets/images/diagrams/ch2_turing_machine_components.svg' | relative_url }})
 
-**定義 2.1** **チューリング機械**は7つ組 \\(M = (Q, \Sigma, \Gamma, \delta, q_0, q_{accept}, q_{reject})\\) である。ここで、各記号の意味は次のとおりである。
+**定義 2.1** **チューリング機械**は7つ組 \\(M=(Q, \Sigma, \Gamma, \delta, q_0, q_{\mathrm{accept}}, q_{\mathrm{reject}})\\) である。ここで、各記号の意味は次のとおりである。
 {: #def-2-1 }
 
-- Q：状態の有限集合
-- Σ：入力アルファベット（空白記号 ␣ を含まない）
-- Γ：テープアルファベット（␣ ∈ Γ かつ Σ ⊆ Γ）
-- δ：Q × Γ ⇀ Q × Γ × {L, R}：遷移関数（部分関数）
-- q₀ ∈ Q：初期状態
-- qaccept ∈ Q：受理状態
-- qreject ∈ Q：拒否状態（qaccept ≠ qreject）
+- \\(Q\\)：状態の有限集合
+- \\(\Sigma\\)：入力アルファベット（空白記号 ␣ を含まない）
+- \\(\Gamma\\)：テープアルファベット（\\(␣ \in \Gamma\\) かつ \\(\Sigma \subseteq \Gamma\\)）
+- \\(\\delta: Q \\times \\Gamma \\rightharpoonup Q \\times \\Gamma \\times \\{L, R\\}\\)：遷移関数（部分関数）
+- \\(q_0 \in Q\\)：初期状態
+- \\(q_{\mathrm{accept}} \in Q\\)：受理状態
+- \\(q_{\mathrm{reject}} \in Q\\)：拒否状態（\\(q_{\mathrm{accept}} \\ne q_{\mathrm{reject}}\\)）
 
-本書では、受理状態 qaccept および拒否状態 qreject では δ を未定義とし、その時点で停止（halt）すると定義します。
+本書では、受理状態 \\(q_{\mathrm{accept}}\\) および拒否状態 \\(q_{\mathrm{reject}}\\) では \\(\\delta\\) を未定義とし、その時点で停止（halt）すると定義します。
 
-遷移関数 δ(q, a) = (r, b, X) は（δ(q, a) が定義されるとき）次を意味する。
+遷移関数 \\(\\delta(q, a) = (r, b, X)\\) は（\\(\\delta(q, a)\\) が定義されるとき）次を意味する。
 - 状態 q で記号 a を読んだとき
 - 状態 r に遷移し
 - 記号 b を書き込み
@@ -71,9 +71,9 @@ chapter: 2
 - uv はテープの内容（空白でない部分）
 - ヘッドは v の最初の記号を指している（v が空なら空白を指している）
 
-**例 2.1** 構成 1011q₅0111 は次のとおりである。
+**例 2.1** 構成 \\(1011q_50111\\) は次のとおりである。
 {: #ex-2-1 }
-- 現在の状態：q₅
+- 現在の状態：\\(q_5\\)
 - テープの内容：10110111...
 - ヘッドの位置：5番目の記号（0）を指している
 
@@ -110,14 +110,14 @@ chapter: 2
 
 **定義 2.4** チューリング機械 M が入力 w を**受理する**とは次のとおりである。
 {: #def-2-4 }
-- 初期構成 q₀w から始めて
-- 受理状態を含む構成に到達すること
+- 初期構成 \\(q_0w\\) から始めて
+- 受理状態 \\(q_{\mathrm{accept}}\\) を含む構成に到達すること
 
 M が w を**拒否する**とは次のとおりである。
-- 拒否状態を含む構成に到達すること
+- 拒否状態 \\(q_{\mathrm{reject}}\\) を含む構成に到達すること
 
 M が w で**停止する**とは次のとおりである。
-- 受理または拒否すること（本書の定義では、受理状態・拒否状態では δ が未定義なのでその時点で停止する）
+- 受理または拒否すること（本書の定義では、受理状態・拒否状態では \\(\\delta\\) が未定義なのでその時点で停止する）
 
 ### 2.1.4 チューリング機械の例
 
@@ -133,36 +133,38 @@ M が w で**停止する**とは次のとおりである。
 4. すべての0と1が対応したら受理、そうでなければ拒否
 
 **形式的な記述**
-\\(M = (Q, \\Sigma, \\Gamma, \\delta, q_1, q_{\\mathrm{accept}}, q_{\\mathrm{reject}})\\)。ここで：
-- \\(Q = \\{q_1, q_2, q_3, q_4, q_5, q_{\\mathrm{accept}}, q_{\\mathrm{reject}}\\}\\)
-- \\(\\Sigma = \\{0, 1\\}\\)
-- \\(\\Gamma = \\{0, 1, x, y, ␣\\}\\)
+\\(M = (Q, \Sigma, \Gamma, \delta, q_1, q_{\mathrm{accept}}, q_{\mathrm{reject}})\\)。ここで：
+- \\(Q = \\{q_1, q_2, q_3, q_4, q_5, q_{\mathrm{accept}}, q_{\mathrm{reject}}\\}\\)
+- \\(\Sigma = \\{0, 1\\}\\)
+- \\(\Gamma = \\{0, 1, x, y, ␣\\}\\)
 
 遷移関数 \\(\\delta\\) は次のとおりである。
 ```text
-δ(q₁, 0) = (q₂, x, R)  // 0をxに変えて右へ
-δ(q₁, y) = (q₁, y, R)  // yをスキップ
-δ(q₁, ␣) = (qaccept, ␣, R)  // すべて処理済みなら受理
+δ(q_1, 0) = (q_2, x, R)  // 0をxに変えて右へ
+δ(q_1, y) = (q_1, y, R)  // yをスキップ
+δ(q_1, ␣) = (q_accept, ␣, R)  // すべて処理済みなら受理
 
-δ(q₂, 0) = (q₂, 0, R)  // 0をスキップ
-δ(q₂, y) = (q₂, y, R)  // yをスキップ
-δ(q₂, 1) = (q₃, y, L)  // 1をyに変えて左へ
+δ(q_2, 0) = (q_2, 0, R)  // 0をスキップ
+δ(q_2, y) = (q_2, y, R)  // yをスキップ
+δ(q_2, 1) = (q_3, y, L)  // 1をyに変えて左へ
 
-δ(q₃, 0) = (q₃, 0, L)  // 0をスキップして左へ
-δ(q₃, y) = (q₃, y, L)  // yをスキップして左へ
-δ(q₃, x) = (q₁, x, R)  // xに到達したら右へ
+δ(q_3, 0) = (q_3, 0, L)  // 0をスキップして左へ
+δ(q_3, y) = (q_3, y, L)  // yをスキップして左へ
+δ(q_3, x) = (q_1, x, R)  // xに到達したら右へ
 
 // エラー処理
-δ(q₁, 1) = (qreject, 1, R)
-δ(q₂, ␣) = (qreject, ␣, R)
+δ(q_1, 1) = (q_reject, 1, R)
+δ(q_2, ␣) = (q_reject, ␣, R)
 ```
 
-**計算例**：入力 "0011" に対する計算過程
-```text
-q₁0011 ⊢ xq₂011 ⊢ x0q₂11 ⊢ x0yq₃1 ⊢ xq₃0y1 ⊢ q₃x0y1 ⊢ xq₁0y1 
-⊢ xxq₂y1 ⊢ xxyq₂1 ⊢ xxyyq₃ ⊢ xxyq₃y ⊢ xxq₃yy ⊢ xq₃xyy 
-⊢ xxq₁yy ⊢ xxyq₁y ⊢ xxyyq₁ ⊢ xxyy␣qaccept
-```
+**計算例**：入力 \\(0011\\) に対する計算過程
+\\[
+\begin{aligned}
+q_10011 &\vdash xq_2011 \vdash x0q_211 \vdash x0yq_31 \vdash xq_30y1 \vdash q_3x0y1 \vdash xq_10y1 \\\\{}
+&\vdash xxq_2y1 \vdash xxyq_21 \vdash xxyyq_3 \vdash xxyq_3y \vdash xxq_3yy \vdash xq_3xyy \\\\{}
+&\vdash xxq_1yy \vdash xxyq_1y \vdash xxyyq_1 \vdash xxyy␣q_{\mathrm{accept}}
+\end{aligned}
+\\]
 
 ## 2.2 計算可能性
 
@@ -483,13 +485,13 @@ D は以下のように動作する。
 
 チューリング機械自体を文字列として表現できます。
 
-**定義 2.15** チューリング機械 \\(M = (Q, \Sigma, \Gamma, \delta, q_0, q_{accept}, q_{reject})\\) の**符号化** \\(\langle M\rangle\\) は、M の構造を一意に表現する文字列である。
+**定義 2.15** チューリング機械 \\(M=(Q, \Sigma, \Gamma, \delta, q_0, q_{\mathrm{accept}}, q_{\mathrm{reject}})\\) の**符号化** \\(\langle M\rangle\\) は、M の構造を一意に表現する文字列である。
 {: #def-2-15 }
 
 符号化の例は次のとおりである。
-- 状態を q₁, q₂, ..., qₙ と番号付け
-- 記号を a₁, a₂, ..., aₘ と番号付け
-- 遷移 δ(qᵢ, aⱼ) = (qₖ, aₗ, D) を ⟨i, j, k, l, D⟩ として符号化
+- 状態を \\(q_1, q_2, \\ldots, q_n\\) と番号付け
+- 記号を \\(a_1, a_2, \\ldots, a_m\\) と番号付け
+- 遷移 \\(\\delta(q_i, a_j) = (q_k, a_l, D)\\) を \\(\\langle i, j, k, l, D\\rangle\\) として符号化
 
 ### 2.5.2 万能チューリング機械の構成
 

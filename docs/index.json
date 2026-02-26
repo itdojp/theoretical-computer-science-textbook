@@ -1358,7 +1358,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-2/#def-2-2"
     },
     {
-      "excerpt": "- 現在の状態：q₅ - テープの内容：10110111... - ヘッドの位置：5番目の記号（0）を指している",
+      "excerpt": "- 現在の状態：\\\\(q5\\\\) - テープの内容：10110111... - ヘッドの位置：5番目の記号（0）を指している",
       "id": "ex-2-1",
       "kind": "ex",
       "label": "例",
@@ -1382,7 +1382,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-2/#def-2-3"
     },
     {
-      "excerpt": "- 初期構成 q₀w から始めて - 受理状態を含む構成に到達すること",
+      "excerpt": "- 初期構成 \\\\(q0w\\\\) から始めて - 受理状態 \\\\(q{\\mathrm{accept}}\\\\) を含む構成に到達すること",
       "id": "def-2-4",
       "kind": "def",
       "label": "定義",

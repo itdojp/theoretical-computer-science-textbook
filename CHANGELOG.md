@@ -1,6 +1,6 @@
 # CHANGELOG
 
-本書の更新履歴です。タグ付けリリース（GitHub Releases）単位で更新します。
+本書の更新履歴です。GitHub Pages に公開されている main ブランチの内容に合わせて更新します（GitHub Releases/Tags は現時点では未運用）。
 
 ## Unreleased
 
