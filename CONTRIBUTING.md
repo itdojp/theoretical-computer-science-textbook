@@ -57,3 +57,7 @@
 
 **株式会社アイティードゥ（ITDO Inc.）**  
 Email: knowledge@itdo.jp
+
+## ✍️ 記法の注意（抜粋）
+
+- prime（ダッシュ）は ASCII `'` に依存せず、TeX の `^{\\prime}` / `\\prime` を使用してください（ソースは `scripts/notation_lint.py`、ビルド後HTMLは `scripts/html_notation_check.py` で回帰検出します）。

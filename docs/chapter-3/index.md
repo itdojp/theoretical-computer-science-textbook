@@ -237,8 +237,8 @@ M が認識する言語：\\(L(M) = \\{w \in \Sigma^{\ast} \mid \hat{\delta}(q_0
 **例 3.4** ε-NFA から通常の NFA への変換
 {: #ex-3-4 }
 
-ε-NFA の遷移関数 \\(\\delta\\) から、等価な NFA の遷移関数 \\(\\delta'\\) を構成：
-\\(\\delta'(q, a) = ECLOSE(\\bigcup_{r \\in ECLOSE(q)} \\delta(r, a))\\)
+ε-NFA の遷移関数 \\(\\delta\\) から、等価な NFA の遷移関数 \\(\\delta^{\\prime}\\) を構成：
+\\(\\delta^{\\prime}(q, a) = ECLOSE(\\bigcup_{r \\in ECLOSE(q)} \\delta(r, a))\\)
 
 ### 3.2.4 DFAとNFAの等価性
 

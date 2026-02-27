@@ -290,19 +290,19 @@ Myhill–Nerode の定理より、L が正規言語であるための必要十�
 
 \\(A_{TM} = \\{\\,\\langle M, w\\rangle \\mid M \\text{ は入力 } w \\text{ で停止し受理する}\\,\\}\\)
 
-還元関数f: ⟨M,w⟩ → ⟨M'⟩を以下のように構成：
+還元関数 \\(f: \\langle M,w\\rangle \\to \\langle M^{\\prime}\\rangle\\) を以下のように構成：
 
-**M'の動作**（入力x）:
+**\\(M^{\\prime}\\) の動作**（入力 x）:
 1. xを無視してwをテープに書く
 2. Mをw上でシミュレート
 3. Mがwを受理すれば受理
 4. Mがwを拒否すれば拒否
 
 **解析**:
-- ⟨M,w⟩ ∈ \\(A_{TM}\\) ⟺ Mはwを受理 ⟺ M'はすべての入力を受理 ⟺ L(M') ≠ ∅ ⟺ ⟨M'⟩ ∉ EMPTY
-- ⟨M,w⟩ ∉ \\(A_{TM}\\) ⟺ Mはwを受理しない ⟺ M'はどの入力も受理しない ⟺ L(M') = ∅ ⟺ ⟨M'⟩ ∈ EMPTY
+- \\(\\langle M,w\\rangle \\in A_{TM}\\) ⟺ Mはwを受理 ⟺ \\(M^{\\prime}\\) はすべての入力を受理 ⟺ \\(L(M^{\\prime}) \\ne \\emptyset\\) ⟺ \\(\\langle M^{\\prime}\\rangle \\notin \\mathrm{EMPTY}\\)
+- \\(\\langle M,w\\rangle \\notin A_{TM}\\) ⟺ Mはwを受理しない ⟺ \\(M^{\\prime}\\) はどの入力も受理しない ⟺ \\(L(M^{\\prime}) = \\emptyset\\) ⟺ \\(\\langle M^{\\prime}\\rangle \\in \\mathrm{EMPTY}\\)
 
-よって⟨M,w⟩ ∈ \\(A_{TM}\\) ⟺ ⟨M'⟩ ∉ EMPTY。
+よって \\(\\langle M,w\\rangle \\in A_{TM}\\) ⟺ \\(\\langle M^{\\prime}\\rangle \\notin \\mathrm{EMPTY}\\)。
 
 \\(A_{TM}\\) が決定不可能でこの還元が計算可能なので、EMPTYも決定不可能である。□
 
@@ -352,9 +352,9 @@ P は言語の意味的性質であり、非自明（\\(\\Sigma^{\\ast}\\) は�
 
 【解答の骨子】
 - 目的: \\(A \\le_m B\\)。\\(A = A_{TM}\\)、\\(B = \\overline{E_{TM}}\\) または \\(B = ALL_{TM}\\)。
-- f の定義（例: ⟨M,w⟩ ↦ ⟨M'⟩）: M' は x を無視して M を w でシミュレート、M が受理なら受理（\\(\overline{E_{TM}}\\) 向けは受理/拒否で L(M')≠∅ を実現）。
-- (⇒): ⟨M,w⟩ ∈ \\(A_{TM}\\) ⇒ M' の言語が非空（または \\(\\Sigma^{\\ast}\\)） ⇒ f(⟨M,w⟩) ∈ B。
-- (⇐): f(⟨M,w⟩) ∈ B ⇒ M' が非空（または全受理） ⇒ M が w を受理 ⇒ ⟨M,w⟩ ∈ A。
+- f の定義（例: \\(\\langle M,w\\rangle \\mapsto \\langle M^{\\prime}\\rangle\\)）: \\(M^{\\prime}\\) は x を無視して M を w でシミュレート、M が受理なら受理（\\(\\overline{E_{TM}}\\) 向けは受理/拒否で \\(L(M^{\\prime}) \\ne \\emptyset\\) を実現）。
+- (⇒): \\(\\langle M,w\\rangle \\in A_{TM}\\) ⇒ \\(M^{\\prime}\\) の言語が非空（または \\(\\Sigma^{\\ast}\\)） ⇒ \\(f(\\langle M,w\\rangle) \\in B\\)。
+- (⇐): \\(f(\\langle M,w\\rangle) \\in B\\) ⇒ \\(M^{\\prime}\\) が非空（または全受理） ⇒ M が w を受理 ⇒ \\(\\langle M,w\\rangle \\in A\\)。
 - 計算可能性: f は構成に基づく決定的変換で計算可能（サイズ増も多項式）。
 
 ### 練習問題4.5 FINITE_TM の非決定可能性（Rice）
@@ -385,16 +385,16 @@ P は言語の意味的性質であり、非自明（\\(\\Sigma^{\\ast}\\) は�
 
 **P ⊆ NP の証明**:
 L ∈ Pとする。Lを多項式時間で決定するTM Mが存在する。
-以下の非決定性TM M'を構成：
-- M'は入力xに対してMを実行し、Mと同じ結果を返す
-- M'の実行時間はMと同じで多項式時間
+以下の非決定性TM \\(M^{\\prime}\\) を構成：
+- \\(M^{\\prime}\\) は入力 x に対して M を実行し、M と同じ結果を返す
+- \\(M^{\\prime}\\) の実行時間は M と同じで多項式時間
 
 よってL ∈ NP。□
 
 **NP ⊆ PSPACE の証明**:
 L ∈ NPとする。Lを多項式時間で検証するTM Vが存在し、証拠yの長さはp(\\(\lvert x\rvert\\))以下（pは多項式）。
 
-以下のPSPACE TM M'を構成：
+以下のPSPACE TM \\(M^{\\prime}\\) を構成：
 - 入力x（長さn）について
 - 長さp(n)以下のすべての文字列yを列挙（指数的に多い）
 - 各yについてV(x,y)を実行し、受理すれば受理
@@ -523,7 +523,7 @@ G にサイズ k のクリークが存在する ⇔ Ḡ にサイズ k の独立
 以上より、(G,k) を (Ḡ, \\(\lvert V\rvert\\) − k) に写す写像は \\(CLIQUE \\le_p \\mathrm{VERTEX\\text{-}COVER}\\) の多項式時間還元を与える。
 
 **サイズ管理**:
-- \\(\lvert V'\rvert\\) = \\(\lvert V\rvert\\)
+- \\(\\lvert V^{\\prime}\\rvert = \\lvert V\\rvert\\)
 - 補グラフの構成は \\(O(\\lvert V\\rvert^2)\\) 時間で可能（全ての頂点対を走査して辺の有無を反転）
 - k' = \\(\lvert V\rvert\\) − k は線形で計算できる
 

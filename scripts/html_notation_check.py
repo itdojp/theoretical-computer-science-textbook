@@ -40,6 +40,9 @@ MISSING_CONDITIONAL_I_RE = re.compile(rf"\bI\(\s*{I_FIRST_RE}\s+{VAR_ASSIGN_RE}\
 MISSING_KL_RE = re.compile(rf"\bD\(\s*{VAR_RE}\s+{VAR_RE}\)")
 MISSING_DIVISIBILITY_RE = re.compile(r"\bq\s*\(p\s*-\s*1\)")
 
+TEX_COMMAND_SMART_QUOTE_RE = re.compile(r"\\[A-Za-z]+’")
+TRAILING_PRIME_SMART_QUOTE_RE = re.compile(r"[A-Za-z]’(?![A-Za-z])")
+
 
 def iter_html_files(root: Path) -> list[Path]:
     return sorted(root.rglob("*.html"), key=lambda p: p.as_posix())
@@ -106,6 +109,18 @@ def main() -> int:
         m = MISSING_DIVISIBILITY_RE.search(visible)
         if m:
             errors.append(f"{html}: possible missing divisibility symbol near: {m.group(0)}")
+
+        # Issue #272: smart-quote conversion can leak U+2019 (’) into TeX, e.g. \delta’ or M’.
+        # This can break MathJax/TeX parsing, so we detect it in built HTML (post-scrub).
+        m = TEX_COMMAND_SMART_QUOTE_RE.search(visible)
+        if m:
+            ctx = visible[max(0, m.start() - 30) : min(len(visible), m.end() + 30)]
+            errors.append(f"{html}: U+2019 (’) found after TeX command (smart quotes?): {m.group(0)} (ctx: {ctx})")
+
+        m = TRAILING_PRIME_SMART_QUOTE_RE.search(visible)
+        if m:
+            ctx = visible[max(0, m.start() - 30) : min(len(visible), m.end() + 30)]
+            errors.append(f"{html}: U+2019 (’) looks like a prime inside TeX/prose: {m.group(0)} (ctx: {ctx})")
 
     if not found_mathjax:
         errors.append("MathJax not found in built HTML (expected mathjax@3 / tex-chtml.js).")

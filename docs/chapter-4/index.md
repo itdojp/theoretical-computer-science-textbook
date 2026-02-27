@@ -153,7 +153,7 @@ f は計算可能で M_B は必ず停止するので、M_A も必ず停止する
 *証明*：\\(A_{TM} \\le_m \\overline{E_{TM}}\\) を示す（\\(\\overline{E_{TM}}\\) は \\(E_{TM}\\) の補集合）。
 
 還元関数 f を以下のように定義する：
-入力 ⟨M, w⟩ に対して、f(⟨M, w⟩) = ⟨M'⟩ ここで M' は：
+入力 \\(\\langle M, w\\rangle\\) に対して、\\(f(\\langle M, w\\rangle) = \\langle M^{\\prime}\\rangle\\)。ここで \\(M^{\\prime}\\) は：
 
 ```text
 M' = "入力 x に対して：
@@ -163,8 +163,8 @@ M' = "入力 x に対して：
 ```
 
 このとき：
-- M が w を受理する ⟺ L(M') = {w} ≠ ∅ ⟺ ⟨M'⟩ ∈ \\(\overline{E_{TM}}\\)
-- M が w を受理しない ⟺ L(M') = ∅ ⟺ ⟨M'⟩ ∉ \\(\overline{E_{TM}}\\)
+- M が w を受理する ⟺ \\(L(M^{\\prime}) = \\{w\\} \\ne \\emptyset\\) ⟺ \\(\\langle M^{\\prime}\\rangle \\in \\overline{E_{TM}}\\)
+- M が w を受理しない ⟺ \\(L(M^{\\prime}) = \\emptyset\\) ⟺ \\(\\langle M^{\\prime}\\rangle \\notin \\overline{E_{TM}}\\)
 
 したがって \\(A_{TM} \\le_m \\overline{E_{TM}}\\) が成り立ち、\\(\\overline{E_{TM}}\\) は決定不能。
 よって \\(E_{TM}\\) も決定不能である。□
@@ -234,7 +234,7 @@ B を決定するオラクルを使って A を決定する機械が存在する
 
 （再帰的可算 ⊂ すべて）L_d の補集合 \\(\overline{L_d}\\) を考える。
 \\(\overline{L_d}\\) が再帰的可算と仮定すると、それを認識する機械 M が存在する。
-以下の機械 M' を構成する：
+以下の機械 \\(M^{\\prime}\\) を構成する：
 
 ```text
 M' = "入力 ⟨N⟩ に対して：
@@ -243,7 +243,7 @@ M' = "入力 ⟨N⟩ に対して：
 3. （M が accept しなければ永遠に動作）"
 ```
 
-M' は L_d を認識することになるが、これは L_d が認識可能でないことに矛盾。
+\\(M^{\\prime}\\) は L_d を認識することになるが、これは L_d が認識可能でないことに矛盾。
 したがって \\(\overline{L_d}\\) は再帰的可算でない。□
 
 ### 4.3.2 言語の算術階層
@@ -295,7 +295,7 @@ P が言語の非自明な性質ならば、L_P は決定不能である。
 \\(A_{TM} \\le_m L_P\\) を示す。
 
 還元関数 f を以下のように定義する：
-入力 ⟨M, w⟩ に対して、f(⟨M, w⟩) = ⟨M'⟩ ここで M' は：
+入力 \\(\\langle M, w\\rangle\\) に対して、\\(f(\\langle M, w\\rangle) = \\langle M^{\\prime}\\rangle\\)。ここで \\(M^{\\prime}\\) は：
 
 ```text
 M' = "入力 x に対して：
@@ -305,10 +305,10 @@ M' = "入力 x に対して：
 ```
 
 このとき：
-- M が w を受理する場合：L(M') = L(M_L) = L
-  L は性質 P を持つので ⟨M'⟩ ∈ L_P
-- M が w を受理しない場合：L(M') = ∅
-  ∅ は性質 P を持たないので ⟨M'⟩ ∉ L_P
+- M が w を受理する場合：\\(L(M^{\\prime}) = L(M_L) = L\\)
+  L は性質 P を持つので \\(\\langle M^{\\prime}\\rangle \\in L_P\\)
+- M が w を受理しない場合：\\(L(M^{\\prime}) = \\emptyset\\)
+  \\(\\emptyset\\) は性質 P を持たないので \\(\\langle M^{\\prime}\\rangle \\notin L_P\\)
 
 したがって \\(A_{TM} \\le_m L_P\\) が成り立ち、\\(L_P\\) は決定不能である。□
 

@@ -228,6 +228,7 @@ def scan_math_delimiters_forbidden_chars(
     in_inline_math = False
     found_math_star = False
     found_math_u2019 = False
+    found_math_ascii_apostrophe = False
     found_nested_inline_delim_in_display = False
 
     i = 0
@@ -275,6 +276,8 @@ def scan_math_delimiters_forbidden_chars(
             ch = line[i]
             if ch == "*":
                 found_math_star = True
+            elif ch == "'":
+                found_math_ascii_apostrophe = True
             elif ch == "’":
                 found_math_u2019 = True
 
@@ -290,6 +293,12 @@ def scan_math_delimiters_forbidden_chars(
         errors.append(
             f"{path}:{lineno}: Avoid U+2019 (’) inside math regions; "
             f"use ASCII ' or TeX like `\\\\prime`/`^{{\\\\prime}}`."
+        )
+
+    if found_math_ascii_apostrophe:
+        errors.append(
+            f"{path}:{lineno}: Avoid ASCII apostrophe (') inside math regions; "
+            f"use TeX like `\\\\prime`/`^{{\\\\prime}}` to prevent smart-quote conversion in HTML."
         )
 
     if found_math_star:
