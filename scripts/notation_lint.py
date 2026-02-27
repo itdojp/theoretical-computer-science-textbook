@@ -117,6 +117,21 @@ TM_NOTATION_STRICT_PATHS = {
     "src/appendices/a.md",
 }
 
+# Keep Chapter 3 / Appendix C CFG notation TeX-only (Issue #273 scope).
+CFG_NOTATION_STRICT_PATHS = {
+    "docs/chapter-3/index.md",
+    "docs/appendices/c.md",
+    "src/chapter-3/index.md",
+    "src/appendices/c.md",
+}
+
+CFG_NOTATION_STRICT_BAD_SUBSTRINGS = [
+    ("≥", "Use TeX like `\\\\ge` (avoid Unicode ≥)."),
+    ("≤", "Use TeX like `\\\\le` (avoid Unicode ≤)."),
+    ("→", "Use TeX like `\\\\to` or rewrite prose (avoid Unicode →)."),
+    ("⇒", "Use TeX like `\\\\Rightarrow` or rewrite prose (avoid Unicode ⇒)."),
+]
+
 # Notation lint should prevent reintroducing a few problematic substrings
 # repository-wide (Issue #270).
 RAW_BAD_SUBSTRINGS = [
@@ -558,6 +573,11 @@ def check_file(path: Path) -> list[str]:
                 errors.append(
                     f"{path}:{lineno}: Avoid Unicode partial function arrow '⇀' (use TeX like `\\\\rightharpoonup`)."
                 )
+
+        if path.as_posix() in CFG_NOTATION_STRICT_PATHS:
+            for bad, msg in CFG_NOTATION_STRICT_BAD_SUBSTRINGS:
+                if bad in line_no_code:
+                    errors.append(f"{path}:{lineno}: {msg} (found: {bad})")
 
         math_errors, in_display_math, in_dollar_math = scan_math_delimiters_forbidden_chars(
             path,

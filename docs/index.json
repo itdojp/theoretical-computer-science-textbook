@@ -1946,7 +1946,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-3/#thm-3-1"
     },
     {
-      "excerpt": "1. ∅ は正規表現（言語 ∅ を表す） 2. ε は正規表現（言語 {ε} を表す） 3. a ∈ Σ に対して、a は正規表現（言語 {a} を表す） 4. \\\\(R1\\\\), \\\\(R2\\\\) が正規表現なら、以下も正規表現： - (R1 + R2)：和集合 L(R1) ∪ L(R2) を表す - (R1R2)：連結 L(R1)L(R2) を表す - (R1)：クリーネ閉包 L(R1) を表す",
+      "excerpt": "1. ∅ は正規表現（言語 ∅ を表す） 2. ε は正規表現（言語 {ε} を表す） 3. a ∈ Σ に対して、a は正規表現（言語 {a} を表す） 4. \\\\(R1\\\\), \\\\(R2\\\\) が正規表現なら、以下も正規表現： - (R1 + R2)：和集合 L(R1) ∪ L(R2) を表す - (R1R2)：連結 L(R1)L(R2) を表す - (R1)：クリーネ閉包 \\\\(L(R1)^{\\\\ast}\\\\) を表す",
       "id": "def-3-14",
       "kind": "def",
       "label": "定義",
@@ -2066,7 +2066,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-3/#thm-3-6"
     },
     {
-      "excerpt": "- V：変数（非終端記号）の有限集合 - Σ：終端記号の有限集合（V ∩ Σ = ∅） - R：生成規則の有限集合。各規則は A → α の形（A ∈ V, α ∈ (V ∪ Σ)） - S ∈ V：開始記号",
+      "excerpt": "- V：変数（非終端記号）の有限集合 - Σ：終端記号の有限集合（V ∩ Σ = ∅） - R：生成規則の有限集合。各規則は \\\\(A \\\\to \\\\alpha\\\\) の形（\\\\(A \\\\in V\\\\), \\\\(\\\\alpha \\\\in (V \\\\cup \\\\Sigma)^{\\\\ast}\\\\)） - S ∈ V：開始記号",
       "id": "def-3-16",
       "kind": "def",
       "label": "定義",
@@ -2078,7 +2078,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-3/#def-3-16"
     },
     {
-      "excerpt": "- 直接導出：\\\\(A \\\\to \\\\alpha \\\\in R\\\\) のとき \\\\(uAv \\\\Rightarrow u\\\\alpha v\\\\) - 導出：⇒ は ⇒ の反射推移閉包 - 左導出：常に最左の変数を展開 - 右導出：常に最右の変数を展開",
+      "excerpt": "- 直接導出：\\\\(A \\\\to \\\\alpha \\\\in R\\\\) のとき \\\\(uAv \\\\Rightarrow u\\\\alpha v\\\\) - 導出：\\\\(\\\\Rightarrow^{\\\\ast}\\\\) は \\\\(\\\\Rightarrow\\\\) の反射推移閉包 - 左導出：常に最左の変数を展開 - 右導出：常に最右の変数を展開",
       "id": "def-3-17",
       "kind": "def",
       "label": "定義",
@@ -2102,7 +2102,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-3/#def-3-18"
     },
     {
-      "excerpt": "\\\\(G = (\\\\{S\\\\}, \\\\{0, 1\\\\}, \\\\{S → 0S1, S → ε\\\\}, S)\\\\)",
+      "excerpt": "\\\\(G = (\\\\{S\\\\}, \\\\{0, 1\\\\}, \\\\{S \\\\to 0S1, S \\\\to \\\\varepsilon\\\\}, S)\\\\)",
       "id": "ex-3-8",
       "kind": "ex",
       "label": "例",
@@ -2138,7 +2138,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-3/#def-3-20"
     },
     {
-      "excerpt": "\\\\(G: E → E + E | E × E | (E) | a\\\\)",
+      "excerpt": "\\\\(G: E \\\\to E + E \\\\mid E \\\\times E \\\\mid (E) \\\\mid a\\\\)",
       "id": "ex-3-9",
       "kind": "ex",
       "label": "例",
@@ -2150,7 +2150,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-3/#ex-3-9"
     },
     {
-      "excerpt": "- \\\\(A → BC（A, B, C ∈ V）\\\\) - \\\\(A → a（A ∈ V, a ∈ Σ）\\\\) - S → ε（S が右辺に現れない場合のみ）",
+      "excerpt": "- \\\\(A \\\\to BC\\\\)（\\\\(A, B, C \\\\in V\\\\)） - \\\\(A \\\\to a\\\\)（\\\\(A \\\\in V, a \\\\in \\\\Sigma\\\\)） - \\\\(S \\\\to \\\\varepsilon\\\\)（S が右辺に現れない場合のみ）",
       "id": "def-3-21",
       "kind": "def",
       "label": "定義",
@@ -2174,7 +2174,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-3/#thm-3-7"
     },
     {
-      "excerpt": "\\\\(A → aα（A ∈ V, a ∈ Σ, α ∈ V）\\\\)",
+      "excerpt": "\\\\(A \\\\to a\\\\alpha\\\\)（\\\\(A \\\\in V\\\\), \\\\(a \\\\in \\\\Sigma\\\\), \\\\(\\\\alpha \\\\in V^{\\\\ast}\\\\)）",
       "id": "def-3-22",
       "kind": "def",
       "label": "定義",
@@ -4370,7 +4370,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-8/#thm-8-13"
     },
     {
-      "excerpt": "単純グラフ G の辺彩色数 χ'(G) は： \\\\(Δ(G) ≤ χ'(G) ≤ Δ(G) + 1\\\\)",
+      "excerpt": "単純グラフ G の辺彩色数 χ'(G) は： \\\\(\\\\Delta(G) \\\\le \\\\chi^{\\\\prime}(G) \\\\le \\\\Delta(G) + 1\\\\)",
       "id": "thm-8-14",
       "kind": "thm",
       "label": "定理",
