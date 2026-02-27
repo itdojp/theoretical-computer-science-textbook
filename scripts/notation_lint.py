@@ -73,6 +73,12 @@ DISPLAY_MATH_OPEN = r"\\["
 DISPLAY_MATH_CLOSE = r"\\]"
 INLINE_MATH_OPEN = r"\\("
 INLINE_MATH_CLOSE = r"\\)"
+DOLLAR_MATH_DELIM = "$$"
+
+DISPLAY_MATH_OPEN_TOKENS = [r"\[", DISPLAY_MATH_OPEN]
+DISPLAY_MATH_CLOSE_TOKENS = [r"\]", DISPLAY_MATH_CLOSE]
+INLINE_MATH_OPEN_TOKENS = [r"\(", INLINE_MATH_OPEN]
+INLINE_MATH_CLOSE_TOKENS = [r"\)", INLINE_MATH_CLOSE]
 
 # Unicode subscripts are discouraged in prose/math (prefer TeX `_`).
 UNICODE_SUBSCRIPT_RE = re.compile(r"[\u2080-\u209F\u1D62-\u1D6A\u2C7C]")
@@ -189,6 +195,110 @@ BAD_INLINE_PATTERNS: list[tuple[re.Pattern[str], str]] = [
         "Avoid raw divisibility '|' (use TeX like \\mid, e.g. \\(q \\mid (p-1)\\)).",
     ),
 ]
+
+TYPICAL_DUPLICATED_TOKEN_PATTERNS: list[tuple[re.Pattern[str], str]] = [
+    (re.compile(r"\bL\s+L\b"), "Possible duplicated token 'L L' (typo)."),
+    (re.compile(r"∅\s+∅"), "Possible duplicated token '∅ ∅' (typo)."),
+]
+
+def scan_math_delimiters_forbidden_chars(
+    path: Path,
+    lineno: int,
+    line: str,
+    *,
+    in_display_math: bool,
+    in_dollar_math: bool,
+) -> tuple[list[str], bool, bool]:
+    """Scan math-delimited regions and reject fragile characters inside them.
+
+    Issue #271: forbid raw '*' and U+2019 inside math regions to prevent Markdown
+    emphasis parsing from corrupting notation. Inline code spans are expected to
+    be stripped before calling this function.
+    """
+
+    def match_any_token(pos: int, tokens: list[str]):
+        for tok in tokens:
+            if line.startswith(tok, pos):
+                return tok
+        return None
+
+    errors: list[str] = []
+
+    # Inline math is treated as line-local in this linter.
+    in_inline_math = False
+    found_math_star = False
+    found_math_u2019 = False
+    found_nested_inline_delim_in_display = False
+
+    i = 0
+    n = len(line)
+    while i < n:
+        if not in_inline_math and not in_dollar_math and not in_display_math:
+            tok = match_any_token(i, DISPLAY_MATH_OPEN_TOKENS)
+            if tok is not None:
+                in_display_math = True
+                i += len(tok)
+                continue
+
+        if in_display_math and not in_inline_math and not in_dollar_math:
+            tok = match_any_token(i, DISPLAY_MATH_CLOSE_TOKENS)
+            if tok is not None:
+                in_display_math = False
+                i += len(tok)
+                continue
+            tok = match_any_token(i, INLINE_MATH_OPEN_TOKENS + INLINE_MATH_CLOSE_TOKENS)
+            if tok is not None:
+                found_nested_inline_delim_in_display = True
+                i += len(tok)
+                continue
+
+        if not in_inline_math and not in_display_math and line.startswith(DOLLAR_MATH_DELIM, i):
+            in_dollar_math = not in_dollar_math
+            i += len(DOLLAR_MATH_DELIM)
+            continue
+
+        if not in_display_math and not in_dollar_math:
+            if not in_inline_math:
+                tok = match_any_token(i, INLINE_MATH_OPEN_TOKENS)
+                if tok is not None:
+                    in_inline_math = True
+                    i += len(tok)
+                    continue
+            else:
+                tok = match_any_token(i, INLINE_MATH_CLOSE_TOKENS)
+                if tok is not None:
+                    in_inline_math = False
+                    i += len(tok)
+                    continue
+
+        if in_display_math or in_dollar_math or in_inline_math:
+            ch = line[i]
+            if ch == "*":
+                found_math_star = True
+            elif ch == "’":
+                found_math_u2019 = True
+
+        i += 1
+
+    if found_nested_inline_delim_in_display:
+        errors.append(
+            f"{path}:{lineno}: Avoid nesting inline math {INLINE_MATH_OPEN}...{INLINE_MATH_CLOSE} "
+            f"inside display math {DISPLAY_MATH_OPEN}...{DISPLAY_MATH_CLOSE}."
+        )
+
+    if found_math_u2019:
+        errors.append(
+            f"{path}:{lineno}: Avoid U+2019 (’) inside math regions; "
+            f"use ASCII ' or TeX like `\\\\prime`/`^{{\\\\prime}}`."
+        )
+
+    if found_math_star:
+        errors.append(
+            f"{path}:{lineno}: Avoid raw '*' inside math regions; "
+            f"use TeX like `^{{\\\\ast}}` for Kleene closure, or `\\\\cdot`/`\\\\times` for multiplication."
+        )
+
+    return errors, in_display_math, in_dollar_math
 
 def contains_inline_math_mid_inside_braces(line: str) -> bool:
     """Detect an inline-math-only \\mid token inside a {...} segment.
@@ -363,6 +473,7 @@ def check_file(path: Path) -> list[str]:
 
     in_fence = False
     in_display_math = False
+    in_dollar_math = False
     for lineno, raw in enumerate(text.splitlines(), start=1):
         line = raw.rstrip("\n")
 
@@ -439,31 +550,19 @@ def check_file(path: Path) -> list[str]:
                     f"{path}:{lineno}: Avoid Unicode partial function arrow '⇀' (use TeX like `\\\\rightharpoonup`)."
                 )
 
-        # Reject nesting inline-math delimiters inside display-math blocks.
-        # We track display math across lines so `\\[` ... `\\]` blocks work.
-        i = 0
-        while i < len(line_no_code):
-            if line_no_code.startswith(DISPLAY_MATH_OPEN, i):
-                in_display_math = True
-                i += len(DISPLAY_MATH_OPEN)
-                continue
-            if line_no_code.startswith(DISPLAY_MATH_CLOSE, i):
-                in_display_math = False
-                i += len(DISPLAY_MATH_CLOSE)
-                continue
-            if in_display_math and line_no_code.startswith(INLINE_MATH_OPEN, i):
-                errors.append(
-                    f"{path}:{lineno}: Avoid nesting inline math {INLINE_MATH_OPEN}...{INLINE_MATH_CLOSE} "
-                    f"inside display math {DISPLAY_MATH_OPEN}...{DISPLAY_MATH_CLOSE}."
-                )
-                break
-            if in_display_math and line_no_code.startswith(INLINE_MATH_CLOSE, i):
-                errors.append(
-                    f"{path}:{lineno}: Avoid nesting inline math {INLINE_MATH_OPEN}...{INLINE_MATH_CLOSE} "
-                    f"inside display math {DISPLAY_MATH_OPEN}...{DISPLAY_MATH_CLOSE}."
-                )
-                break
-            i += 1
+        math_errors, in_display_math, in_dollar_math = scan_math_delimiters_forbidden_chars(
+            path,
+            lineno,
+            line_no_code,
+            in_display_math=in_display_math,
+            in_dollar_math=in_dollar_math,
+        )
+        errors.extend(math_errors)
+
+        for rx, msg in TYPICAL_DUPLICATED_TOKEN_PATTERNS:
+            m = rx.search(line_no_code)
+            if m:
+                errors.append(f"{path}:{lineno}: {msg} (found: {m.group(0)})")
 
         m = UNSAFE_CARET_STAR_RE.search(line_no_code)
         if m:

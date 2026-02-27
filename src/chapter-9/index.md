@@ -511,7 +511,7 @@ lean Simple.lean
    \\((b) ¬∀x∃y(P(x, y) ↔ ¬∃z Q(y, z))\\)
 
 3. 以下の Hoare 三つ組を証明せよ：
-   \\((a) \\{x = n ∧ n ≥ 0\\} y := 1; while x > 0 do (y := y * x; x := x - 1) \\{y = n!\\}\\)
+   \\((a) \\{x = n ∧ n ≥ 0\\} y := 1; while x > 0 do (y := y \\cdot x; x := x - 1) \\{y = n!\\}\\)
    \\((b) \\{true\\} x := a; y := b; z := x; x := y; y := z \\{x = b ∧ y = a\\}\\)
 
 4. CTL 式 AG(request → AF grant) の意味を説明し、

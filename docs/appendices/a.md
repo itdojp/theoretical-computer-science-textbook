@@ -82,7 +82,7 @@ layout: book
 
 | 記号 | 意味 | 例 |
 |------|------|-----|
-| f: A → B | AからBへの関数 | \\(f: \\mathbb{N} \\to \\mathbb{N}\\) |
+| \\(f: A \\to B\\) | AからBへの関数 | \\(f: \\mathbb{N} \\to \\mathbb{N}\\) |
 | f(x) | xのfによる像 | f(3) = 9 |
 | dom(f) | fの定義域 | dom(f) = A |
 | ran(f) | fの値域 | ran(f) ⊆ B |
