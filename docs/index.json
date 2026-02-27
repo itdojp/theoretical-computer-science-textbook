@@ -1190,7 +1190,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-12/#def-12-4"
     },
     {
-      "excerpt": "P R Q ならば、 1. P --α--> P' ⇒ ∃Q', Q --α--> Q' かつ P' R Q' 2. Q --α--> Q' ⇒ ∃P', P --α--> P' かつ P' R Q'",
+      "excerpt": "\\\\(P\\\\,R\\\\,Q\\\\) ならば、 1. P --α--> \\\\(P^{\\\\prime}\\\\) ⇒ ∃\\\\(Q^{\\\\prime}\\\\), Q --α--> \\\\(Q^{\\\\prime}\\\\) かつ \\\\(P^{\\\\prime}\\\\,R\\\\,Q^{\\\\prime}\\\\) 2. Q --α--> \\\\(Q^{\\\\prime}\\\\) ⇒ ∃\\\\(P^{\\\\prime}\\\\), P --α--> \\\\(P^{\\\\prime}\\\\) かつ \\\\(P^{\\\\prime}\\\\,R\\",
       "id": "def-12-5",
       "kind": "def",
       "label": "定義",
