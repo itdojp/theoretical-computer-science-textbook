@@ -230,7 +230,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-1/#ex-1-7"
     },
     {
-      "excerpt": "\\\\((g ∘ f)(a) = g(f(a)) for all a ∈ A\\\\)",
+      "excerpt": "任意の \\\\(a \\\\in A\\\\) に対して \\\\((g \\\\circ f)(a) = g(f(a))\\\\) と定義します。",
       "id": "def-1-9",
       "kind": "def",
       "label": "定義",
@@ -350,7 +350,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-1/#thm-1-10"
     },
     {
-      "excerpt": "頂点集合 V を V₁ と V₂ の2つの互いに素な部分集合に分割でき (V = V₁ ∪ V₂ かつ V₁ ∩ V₂ = ∅)、 すべての辺が V₁ と V₂ の間を結ぶことです。 (V₁, V₂) を二部グラフの部集合（partite sets）といいます。",
+      "excerpt": "頂点集合 V を \\\\(V1\\\\) と \\\\(V2\\\\) の2つの互いに素な部分集合に分割でき（\\\\(V = V1 \\\\cup V2\\\\) かつ \\\\(V1 \\\\cap V2 = \\\\emptyset\\\\)）、 すべての辺が \\\\(V1\\\\) と \\\\(V2\\\\) の間を結ぶことです。 \\\\((V1, V2)\\\\) を二部グラフの部集合（partite sets）といいます。",
       "id": "def-1-16",
       "kind": "def",
       "label": "定義",
@@ -386,7 +386,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-1/#def-1-17"
     },
     {
-      "excerpt": "部集合 V₁ (\\\\(\\lvert V₁\\rvert=m\\\\)) と V₂ (\\\\(\\lvert V₂\\rvert=n\\\\)) を持ち、V₁ の各頂点と V₂ の各頂点の間に辺が存在する二部グラフです。",
+      "excerpt": "部集合 \\\\(V1\\\\)（\\\\(\\\\lvert V1\\\\rvert = m\\\\)）と \\\\(V2\\\\)（\\\\(\\\\lvert V2\\\\rvert = n\\\\)）を持ち、\\\\(V1\\\\) の各頂点と \\\\(V2\\\\) の各頂点の間に辺が存在する二部グラフです。",
       "id": "def-1-18",
       "kind": "def",
       "label": "定義",
@@ -1478,7 +1478,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-2/#def-2-8"
     },
     {
-      "excerpt": "1. 和集合：L₁, L₂ が決定可能 → L₁ ∪ L₂ も決定可能 2. 共通部分（intersection）：L₁, L₂ が決定可能 → L₁ ∩ L₂ も決定可能 3. 補集合：L が決定可能 → \\\\(\\overline{L}\\\\) も決定可能 4. 連結：L₁, L₂ が決定可能 → L₁L₂ も決定可能 5. クリーネ閉包：L が決定可能 → \\\\(L^{\\ast}\\\\) も決定可能",
+      "excerpt": "1. 和集合：\\\\(L1, L2\\\\) が決定可能 → \\\\(L1 \\\\cup L2\\\\) も決定可能 2. 共通部分（intersection）：\\\\(L1, L2\\\\) が決定可能 → \\\\(L1 \\\\cap L2\\\\) も決定可能 3. 補集合：L が決定可能 → \\\\(\\overline{L}\\\\) も決定可能 4. 連結：\\\\(L1, L2\\\\) が決定可能 → \\\\(L1L2\\\\) も決定可能 5. クリーネ閉包：L が決定可能 → \\\\(L^{\\ast}\\\\)",
       "id": "thm-2-1",
       "kind": "thm",
       "label": "定理",
@@ -2078,7 +2078,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-3/#def-3-16"
     },
     {
-      "excerpt": "- 直接導出：uAv ⇒ uαv if A → α ∈ R - 導出：⇒ は ⇒ の反射推移閉包 - 左導出：常に最左の変数を展開 - 右導出：常に最右の変数を展開",
+      "excerpt": "- 直接導出：\\\\(A \\\\to \\\\alpha \\\\in R\\\\) のとき \\\\(uAv \\\\Rightarrow u\\\\alpha v\\\\) - 導出：⇒ は ⇒ の反射推移閉包 - 左導出：常に最左の変数を展開 - 右導出：常に最右の変数を展開",
       "id": "def-3-17",
       "kind": "def",
       "label": "定義",
@@ -2234,7 +2234,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-3/#def-3-24"
     },
     {
-      "excerpt": "\\\\((q, aw, Zα) ⊢ (p, w, βα) if (p, β) ∈ δ(q, a, Z)\\\\)",
+      "excerpt": "\\\\((q, aw, Z\\\\alpha) \\\\vdash (p, w, \\\\beta\\\\alpha)\\\\) は \\\\((p, \\\\beta) \\\\in \\\\delta(q, a, Z)\\\\) のときに成り立つ。",
       "id": "def-3-25",
       "kind": "def",
       "label": "定義",
@@ -3446,7 +3446,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-6/#def-6-7"
     },
     {
-      "excerpt": "n 個の活動 {a₁, ..., aₙ}、各活動 ai は開始時刻 si と終了時刻 fi を持つ。 目標：重ならない活動の最大集合を選択。",
+      "excerpt": "n 個の活動 \\\\(\\\\{a1, \\\\ldots, an\\\\}\\\\)、各活動 \\\\(ai\\\\) は開始時刻 \\\\(si\\\\) と終了時刻 \\\\(fi\\\\) を持つ。 目標：重ならない活動の最大集合を選択。",
       "id": "ex-6-11",
       "kind": "ex",
       "label": "例",
@@ -3554,7 +3554,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-6/#ex-6-15"
     },
     {
-      "excerpt": "\\\\(G(z) = ∑{n≥0} aₙ z^n\\\\)",
+      "excerpt": "\\\\(G(z) = \\\\sum{n \\\\ge 0} an z^n\\\\)",
       "id": "def-6-9",
       "kind": "def",
       "label": "定義",
@@ -3566,7 +3566,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-6/#def-6-9"
     },
     {
-      "excerpt": "Catalan数 Cₙ：n組の括弧の正しい並べ方の数",
+      "excerpt": "Catalan数 \\\\(Cn\\\\)：n組の括弧の正しい並べ方の数",
       "id": "ex-6-16",
       "kind": "ex",
       "label": "例",
@@ -3626,7 +3626,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-6/#thm-6-10"
     },
     {
-      "excerpt": "入力：a₁, a₂, ..., aₙ 出力：s₁ = a₁, s₂ = a₁ + a₂, ..., sₙ = a₁ + ... + aₙ",
+      "excerpt": "入力：\\\\(a1, a2, \\\\ldots, an\\\\) 出力：\\\\(s1 = a1,\\\\ s2 = a1 + a2,\\\\ \\\\ldots,\\\\ sn = a1 + \\\\cdots + an\\\\)",
       "id": "ex-6-18",
       "kind": "ex",
       "label": "例",
@@ -4418,7 +4418,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-8/#thm-8-17"
     },
     {
-      "excerpt": "グラフが平面的 ⟺ K₅ または K₃,₃ の細分を部分グラフとして含まない。",
+      "excerpt": "グラフが平面的 ⟺ \\\\(K5\\\\) または \\\\(K{3,3}\\\\) の細分を部分グラフとして含まない。",
       "id": "thm-8-18",
       "kind": "thm",
       "label": "定理",
@@ -4574,7 +4574,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-9/#thm-9-2"
     },
     {
-      "excerpt": "Σ ⊨ φ ⟺ ある有限部分集合 Σ₀ ⊆ Σ に対して Σ₀ ⊨ φ",
+      "excerpt": "\\\\(\\\\Sigma \\\\models \\\\varphi\\\\) ⟺ ある有限部分集合 \\\\(\\\\Sigma0 \\\\subseteq \\\\Sigma\\\\) に対して \\\\(\\\\Sigma0 \\\\models \\\\varphi\\\\)",
       "id": "thm-9-3",
       "kind": "thm",
       "label": "定理",
@@ -4622,7 +4622,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-9/#def-9-10"
     },
     {
-      "excerpt": "Q₁x₁...Qₙxₙ ψ（Qᵢ ∈ {∀, ∃}、ψ は量化子を含まない）",
+      "excerpt": "\\\\(Q1 x1 \\\\cdots Qn xn\\\\, \\\\psi\\\\)（\\\\(Qi \\\\in \\\\{\\\\forall, \\\\exists\\\\}\\\\)、\\\\(\\\\psi\\\\) は量化子を含まない）",
       "id": "thm-9-4",
       "kind": "thm",
       "label": "定理",

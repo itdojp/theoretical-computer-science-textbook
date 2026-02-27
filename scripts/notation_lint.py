@@ -74,9 +74,7 @@ DISPLAY_MATH_CLOSE = r"\\]"
 INLINE_MATH_OPEN = r"\\("
 INLINE_MATH_CLOSE = r"\\)"
 
-# Unicode subscripts are discouraged in prose/math (prefer TeX `_`), but the
-# repository is being migrated incrementally. Keep this strict only for a small
-# set of files so CI remains stable.
+# Unicode subscripts are discouraged in prose/math (prefer TeX `_`).
 UNICODE_SUBSCRIPT_RE = re.compile(r"[\u2080-\u209F\u1D62-\u1D6A\u2C7C]")
 
 # In Markdown sources, `*` is parsed as emphasis, and this can corrupt math like
@@ -113,19 +111,13 @@ TM_NOTATION_STRICT_PATHS = {
     "src/appendices/a.md",
 }
 
-# Keep Chapter 3/4 and Appendix C free of Unicode subscripts/superscripts (Issue #268 scope).
-UNICODE_SUBSCRIPT_STRICT_PATHS = {
-    "docs/chapter-3/index.md",
-    "docs/chapter-4/index.md",
-    "docs/appendices/a.md",
-    "docs/appendices/c.md",
-    "docs/appendices/d.md",
-    "src/chapter-3/index.md",
-    "src/chapter-4/index.md",
-    "src/appendices/a.md",
-    "src/appendices/c.md",
-    "src/appendices/d.md",
-}
+# Notation lint should prevent reintroducing a few problematic substrings
+# repository-wide (Issue #270).
+RAW_BAD_SUBSTRINGS = [
+    ("’", "Avoid Unicode right single quotation mark U+2019 (’); use ASCII ' or TeX like `\\\\prime`."),
+    ("Σ*", "Avoid raw 'Σ*' (use TeX like `\\\\(\\\\Sigma^{\\\\ast}\\\\)`)."),
+    ("for all", "Avoid raw 'for all' (use `\\\\forall` or rewrite prose in Japanese)."),
+]
 
 Q_UNICODE_SUBSCRIPT_RE = re.compile(r"q[₀-₉]")
 
@@ -146,7 +138,6 @@ STRICT_BAD_SUBSTRINGS = [
 ]
 
 BAD_SUBSTRINGS = [
-    ("’", "Avoid Unicode right single quotation mark U+2019 (’); use ASCII ' or TeX like `\\\\prime`."),
     # Power set notation: keep it consistent with the guide (Appendix A).
     ("𝒫(", "Use TeX like `\\\\mathcal{P}(A)` for power sets (avoid Unicode 𝒫)."),
     ("𝒫（", "Use TeX like `\\\\mathcal{P}(A)` for power sets (avoid Unicode 𝒫)."),
@@ -375,6 +366,26 @@ def check_file(path: Path) -> list[str]:
     for lineno, raw in enumerate(text.splitlines(), start=1):
         line = raw.rstrip("\n")
 
+        # Enforce a few raw patterns even in fenced code / inline code spans,
+        # to match the repository-level acceptance criteria (Issue #270).
+        for bad, msg in RAW_BAD_SUBSTRINGS:
+            if bad in line:
+                errors.append(f"{path}:{lineno}: {msg} (found: {bad})")
+
+        m = UNICODE_SUBSCRIPT_RE.search(line)
+        if m:
+            errors.append(
+                f"{path}:{lineno}: Avoid Unicode subscripts (use TeX like _{{...}} / ASCII like _...): "
+                f"{m.group(0)}"
+            )
+
+        m = UNICODE_SUPERSCRIPT_RE.search(line)
+        if m:
+            errors.append(
+                f"{path}:{lineno}: Avoid Unicode superscripts (use TeX like ^{{...}} / ASCII like ^...): "
+                f"{m.group(0)}"
+            )
+
         # Skip fenced code blocks.
         stripped = line.lstrip()
         if stripped.startswith("```"):
@@ -404,10 +415,6 @@ def check_file(path: Path) -> list[str]:
                 )
 
         if path.as_posix() in KLEENE_STAR_STRICT_PATHS:
-            if "Σ*" in line_no_code:
-                errors.append(
-                    f"{path}:{lineno}: Avoid raw 'Σ*' (use TeX like `\\\\(\\\\Sigma^{{\\\\ast}}\\\\)`)."
-                )
             if "{0,1}*" in line_no_code:
                 errors.append(
                     f"{path}:{lineno}: Avoid raw '{{0,1}}*' (use TeX like `\\\\(\\\\{{0,1\\\\}}^{{\\\\ast}}\\\\)`)."
@@ -472,20 +479,11 @@ def check_file(path: Path) -> list[str]:
                 f"(use TeX like `\\\\(\\\\{{0,1\\\\}}^{{\\ast}}\\\\)`)."
             )
 
-        m = UNICODE_SUPERSCRIPT_RE.search(line_no_code)
-        if m:
+        if ") if (" in line_no_code:
             errors.append(
-                f"{path}:{lineno}: Avoid Unicode superscripts (use TeX like ^{{...}} / ASCII like ^...): "
-                f"{m.group(0)}"
+                f"{path}:{lineno}: Avoid raw 'if' inside math-like expressions; "
+                f"use TeX like `\\\\text{{...}}` or rewrite prose in Japanese."
             )
-
-        if path.as_posix() in UNICODE_SUBSCRIPT_STRICT_PATHS:
-            m = UNICODE_SUBSCRIPT_RE.search(line_no_code)
-            if m:
-                errors.append(
-                    f"{path}:{lineno}: Avoid Unicode subscripts (use TeX like _{{...}} / ASCII like _...): "
-                    f"{m.group(0)}"
-                )
 
         # Avoid raw concatenation / double-bar notation, which is easy to lose in Markdown/HTML.
         if "||" in line_no_code:

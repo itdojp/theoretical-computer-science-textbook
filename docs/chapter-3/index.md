@@ -662,7 +662,7 @@ s = \\(0^p1^p\\) を考える。\\(\lvert s\rvert = 2p \ge p\\) なので、s = 
 
 **定義 3.17** **導出**（derivation）：
 {: #def-3-17 }
-- 直接導出：uAv ⇒ uαv if A → α ∈ R
+- 直接導出：\\(A \\to \\alpha \\in R\\) のとき \\(uAv \\Rightarrow u\\alpha v\\)
 - 導出：⇒* は ⇒ の反射推移閉包
 - 左導出：常に最左の変数を展開
 - 右導出：常に最右の変数を展開
@@ -769,7 +769,7 @@ s = uvxyz と分解したとき、\\(\lvert vxy\rvert \le p\\) より、vxy は�
 
 **定義 3.25** 1ステップ遷移 \\(\vdash\\)：
 {: #def-3-25 }
-\\((q, aw, Zα) ⊢ (p, w, βα) if (p, β) ∈ δ(q, a, Z)\\)
+\\((q, aw, Z\\alpha) \\vdash (p, w, \\beta\\alpha)\\) は \\((p, \\beta) \\in \\delta(q, a, Z)\\) のときに成り立つ。
 
 ### 3.6.2 PDAの受理方式
 

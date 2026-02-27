@@ -123,7 +123,7 @@ DPLL(φ, v):
 
 **定理 9.3**（コンパクト性定理）
 {: #thm-9-3 }
-Σ ⊨ φ ⟺ ある有限部分集合 Σ₀ ⊆ Σ に対して Σ₀ ⊨ φ
+\\(\\Sigma \\models \\varphi\\) ⟺ ある有限部分集合 \\(\\Sigma_0 \\subseteq \\Sigma\\) に対して \\(\\Sigma_0 \\models \\varphi\\)
 
 *証明の概要*：完全性定理を用いて、構文的証明の有限性から導く。□
 
@@ -144,10 +144,10 @@ DPLL(φ, v):
 
 **項**の帰納的定義：
 1. 変数と定数は項
-2. t₁, ..., tₙ が項で f が n 項関数なら f(t₁, ..., tₙ) は項
+2. \\(t_1, \\ldots, t_n\\) が項で \\(f\\) が \\(n\\) 項関数なら \\(f(t_1, \\ldots, t_n)\\) は項
 
 **論理式**の帰納的定義：
-1. t₁, ..., tₙ が項で P が n 項述語なら P(t₁, ..., tₙ) は原子式
+1. \\(t_1, \\ldots, t_n\\) が項で \\(P\\) が \\(n\\) 項述語なら \\(P(t_1, \\ldots, t_n)\\) は原子式
 2. φ, ψ が論理式なら ¬φ, (φ ∧ ψ) なども論理式
 3. φ が論理式で x が変数なら ∀x φ, ∃x φ も論理式
 
@@ -168,7 +168,7 @@ DPLL(φ, v):
 
 **定理 9.4** すべての一階論理式は等価な前束標準形に変換可能：
 {: #thm-9-4 }
-Q₁x₁...Qₙxₙ ψ（Qᵢ ∈ {∀, ∃}、ψ は量化子を含まない）
+\\(Q_1 x_1 \\cdots Q_n x_n\\, \\psi\\)（\\(Q_i \\in \\{\\forall, \\exists\\}\\)、\\(\\psi\\) は量化子を含まない）
 
 *変換手順*：
 1. 束縛変数の改名
@@ -216,7 +216,7 @@ Q₁x₁...Qₙxₙ ψ（Qᵢ ∈ {∀, ∃}、ψ は量化子を含まない）
 - φ, ψ が LTL 式なら ¬φ, φ ∧ ψ も LTL 式
 - φ が LTL 式なら ○φ, □φ, ◇φ, φ U ψ も LTL 式
 
-**意味論**：無限列 π = s₀s₁s₂... 上で定義
+**意味論**：無限列 \\(\\pi = s_0s_1s_2\\ldots\\) 上で定義
 - π, i ⊨ ○φ ⟺ π, i+1 ⊨ φ（次の状態）
 - π, i ⊨ □φ ⟺ ∀j ≥ i, π, j ⊨ φ（常に）
 - π, i ⊨ ◇φ ⟺ ∃j ≥ i, π, j ⊨ φ（いつか）
@@ -249,12 +249,12 @@ CTLCheck(M, φ):
     case φ of
         p: return {s | p ∈ L(s)}
         ¬ψ: return S \ CTLCheck(M, ψ)
-        ψ₁ ∧ ψ₂: return CTLCheck(M, ψ₁) ∩ CTLCheck(M, ψ₂)
+        ψ1 ∧ ψ2: return CTLCheck(M, ψ1) ∩ CTLCheck(M, ψ2)
         EX ψ: return {s | ∃s', s → s' ∧ s' ∈ CTLCheck(M, ψ)}
         EF ψ: return 最小不動点 Z. CTLCheck(M, ψ) ∪ CTLCheck(M, EX Z)
         EG ψ: return 最大不動点 Z. CTLCheck(M, ψ) ∩ CTLCheck(M, EX Z)
-        E[ψ₁ U ψ₂]: return 最小不動点 Z. CTLCheck(M, ψ₂) ∪ 
-                     (CTLCheck(M, ψ₁) ∩ CTLCheck(M, EX Z))
+        E[ψ1 U ψ2]: return 最小不動点 Z. CTLCheck(M, ψ2) ∪ 
+                     (CTLCheck(M, ψ1) ∩ CTLCheck(M, EX Z))
 ```
 
 時間複雑度：\\(O(\lvert φ\rvert \\cdot \lvert S\rvert \\cdot \lvert R\rvert)\\)（S：状態集合、R：遷移関係）
@@ -295,14 +295,14 @@ CTLCheck(M, φ):
 
 2. **順次実行**：
    ```text
-   前提: {P} S₁ {Q}, {Q} S₂ {R}
-   結論: {P} S₁; S₂ {R}
+	   前提: {P} S1 {Q}, {Q} S2 {R}
+	   結論: {P} S1; S2 {R}
    ```
 
 3. **条件分岐**：
    ```text
-   前提: {P ∧ B} S₁ {Q}, {P ∧ ¬B} S₂ {Q}
-   結論: {P} if B then S₁ else S₂ {Q}
+	   前提: {P ∧ B} S1 {Q}, {P ∧ ¬B} S2 {Q}
+	   結論: {P} if B then S1 else S2 {Q}
    ```
 
 4. **ループ**：
@@ -326,8 +326,8 @@ S の実行後に Q を保証する最も弱い事前条件
 
 **計算規則**：
 - \\(wp(x := e, Q) = Q[e/x]\\)
-- \\(wp(S₁; S₂, Q) = wp(S₁, wp(S₂, Q))\\)
-- \\(wp(if B then S₁ else S₂, Q) = (B → wp(S₁, Q)) ∧ (¬B → wp(S₂, Q))\\)
+- \\(wp(S_1; S_2, Q) = wp(S_1, wp(S_2, Q))\\)
+- \\(wp(if B then S_1 else S_2, Q) = (B → wp(S_1, Q)) ∧ (¬B → wp(S_2, Q))\\)
 - wp(while B do S, Q) = 最小不動点（一般には計算不能）
 
 ### 9.4.4 プログラムの全正当性

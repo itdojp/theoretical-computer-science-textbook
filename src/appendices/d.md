@@ -83,7 +83,7 @@ layout: book
 
 <a id="補有限-cofinite"></a>
 **補有限 (Cofinite)**
-- 補集合が有限である言語（Σ* \ L が有限）
+- 補集合が有限である言語（\\(\\Sigma^{\\ast} \\setminus L\\) が有限）
 - 例: L が「有限に多くの語を除いてすべてを含む」場合
 - Rice の定理の例として登場（→ [第4章: 計算可能性理論](../chapter-4/index.md)）
 
@@ -235,7 +235,7 @@ layout: book
 
 **言語 (Language)**
 - アルファベット上の文字列の集合
-- L ⊆ Σ*
+- \\(L \\subseteq \\Sigma^{\\ast}\\)
 
 **線形探索 (Linear Search)**
 - 配列を先頭から順番に探索するアルゴリズム
@@ -485,16 +485,16 @@ layout: book
 
 ### 形式言語記号
 - Σ (SIGMA): アルファベット
-- Σ* (SIGMA-STAR): 文字列全体
+- \\(\\Sigma^{\\ast}\\) (SIGMA-STAR): 文字列全体
 - ε (EPSILON): 空文字列
 - \\(\lvert w\rvert\\) (LENGTH): 文字列の長さ
 
 ### 関数記号
-- f: A → B: AからBへの関数
+- \\(f: A \\to B\\): AからBへの関数
 - dom(f): 定義域
 - ran(f): 値域
 - \\(f^{-1}\\): 逆関数
-- g ∘ f: 合成関数
+- \\(g \\circ f\\): 合成関数
 
 ### グラフ記号
 - G = (V,E): グラフ
