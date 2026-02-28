@@ -1,5 +1,5 @@
 introduction:
-- title: 導入
+- title: はじめに
   path: /introduction/
 - title: 本書の目的と構成
   path: /introduction/purpose/
@@ -39,7 +39,7 @@ chapters:
 - title: 第12章 並行計算の理論
   path: /chapter-12/
 appendices:
-- title: 付録一覧
+- title: 付録
   path: /appendices/
 - title: "付録A: 数学記法ガイド"
   path: /appendices/a/
