@@ -310,7 +310,7 @@ M' = "入力 x に対して：
 
 したがって \\(A_{TM} \\le_m L_P\\) が成り立ち、\\(L_P\\) は決定不能である。□
 
-![Rice の定理の還元スキーマ（A_{TM} → R_P）]({{ '/assets/images/diagrams/ch4_rice_theorem_reduction.svg' | relative_url }})
+![Rice の定理の還元スキーマ（A_{TM} から R_P への還元）]({{ '/assets/images/diagrams/ch4_rice_theorem_reduction.svg' | relative_url }})
 
 適用のコツと用語は用語集も参照（→ [付録D: 用語集・索引](../appendices/d/#rice-の定理-rices-theorem)）。
 
@@ -328,10 +328,12 @@ Riceの定理により、以下の問題はすべて決定不能：
 
 補足の例：
 
-**用語の脚注: 補有限（cofinite）**（→ [用語集](../appendices/d/#補有限-cofinite)）
-- 6. \\(\\{\\langle M\\rangle \\mid L(M) \\text{ は無限}\\}\\)（有限性の補性質。非自明なため同様に決定不能）
-- 7. \\(\\{\\langle M\\rangle \\mid w_0 \\in L(M)\\}\\)（特定語の包含も言語の性質であり、非自明なら決定不能）
-- 8. \\(\\{\\langle M\\rangle \\mid L(M) \\text{ は補有限（cofinite）}\\}\\)（ある有限集合を除き \\(\\Sigma^{\\ast}\\) を含む性質。非自明）
+【用語の脚注】
+補有限（cofinite）：[用語集](../appendices/d/#補有限-cofinite)
+
+6. \\(\\{\\langle M\\rangle \\mid L(M) \\text{ は無限}\\}\\)（有限性の補性質。非自明なため同様に決定不能）
+7. \\(\\{\\langle M\\rangle \\mid w_0 \\in L(M)\\}\\)（特定語の包含も言語の性質であり、非自明なら決定不能）
+8. \\(\\{\\langle M\\rangle \\mid L(M) \\text{ は補有限（cofinite）}\\}\\)（ある有限集合を除き \\(\\Sigma^{\\ast}\\) を含む性質。非自明）
 
 #### Rice の適用チェックリスト
 - 性質は L(M)（言語）にのみ依存するか（意味的性質）

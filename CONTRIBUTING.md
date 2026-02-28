@@ -60,4 +60,5 @@ Email: knowledge@itdo.jp
 
 ## ✍️ 記法の注意（抜粋）
 
+- 数式は原則 TeX（`\\(...\\)` / `\\[...\\]`）で記述し、Unicode 記号（例: `∑`, `⋃`, `ℕ`）や疑似LaTeX（例: `∑_{...}`）は避けてください。例外として `docs/appendices/d.md`（記号索引）は Unicode を許容します。
 - prime（ダッシュ）は ASCII `'` に依存せず、TeX の `^{\\prime}` / `\\prime` を使用してください（ソースは `scripts/notation_lint.py`、ビルド後HTMLは `scripts/html_notation_check.py` で回帰検出します）。

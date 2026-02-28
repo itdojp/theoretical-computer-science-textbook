@@ -62,7 +62,7 @@ sections:
 
 **定理 8.1**（握手補題）無向グラフ \\(G = (V, E)\\) において：
 {: #thm-8-1 }
-∑_{v∈V} deg(v) = 2\\(\lvert E\rvert\\)
+\\(\\sum_{v \\in V} \\deg(v) = 2\\lvert E\\rvert\\)
 
 *証明*：各辺は両端点の次数にそれぞれ1ずつ寄与する。□
 
@@ -350,7 +350,7 @@ Prim(G, w, r):
 
 **フロー** \\(f: V \\times V \\to \\mathbb{R}\\) は以下を満たす：
 1. 容量制約：0 ≤ f(u,v) ≤ c(u,v)
-2. 流量保存：∑_v f(v,u) = ∑_v f(u,v) （u ≠ s,t）
+2. 流量保存：\\(\\sum_v f(v,u) = \\sum_v f(u,v)\\)（\\(u \\ne s,t\\)）
 
 ![最大フロー最小カットの例]({{ '/assets/images/diagrams/ch8_maximum_flow_minimum_cut.svg' | relative_url }})
 

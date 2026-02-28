@@ -147,7 +147,7 @@ membership query（要素の存在確認）は最悪の場合 \\(\\Omega(\\log n
 *証明*：高さ h のノードは高々 ⌈n/2^{h+1}⌉ 個。
 各ノードでの仕事量は O(h)。
 
-総仕事量 = ∑_{h=0}^{⌊log n⌋} ⌈n/2^{h+1}⌉ · O(h) = O(n∑_{h=0}^∞ h/2^h) = O(n) □
+総仕事量 = \\(\\sum_{h=0}^{\\lfloor \\log n \\rfloor} \\left\\lceil \\frac{n}{2^{h+1}} \\right\\rceil \\cdot O(h) = O\\left(n\\sum_{h=0}^{\\infty} \\frac{h}{2^h}\\right) = O(n)\\) □
 
 ### 7.2.4 ハッシュ表
 
@@ -263,7 +263,7 @@ x を根とする部分木は少なくとも 2^{bh(x)} - 1 個の内部ノード
 {: #thm-7-11 }
 n 個の要素を持つスプレー木での m 回の操作の総時間は O((m + n) log n)。
 
-*証明*：ポテンシャル関数 Φ = ∑_v log(size(v)) を用いた償却解析。□
+*証明*：ポテンシャル関数 \\(\\Phi = \\sum_v \\log(\\mathrm{size}(v))\\) を用いた償却解析。□
 
 ## 7.4 高度なデータ構造
 
