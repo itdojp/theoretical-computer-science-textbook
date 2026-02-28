@@ -6,6 +6,8 @@ This is a lightweight, stdlib-only checker intended for CI.
 Checks (outside fenced code blocks and inline code):
 - Broken list markers like "* 1." or "- 1." (bullet + ordered marker).
 - LaTeX typo: "\\mathbb{R}{\\ge 0}" (should be "\\mathbb{R}_{\\ge 0}").
+- LaTeX aligned line breaks: within "\\begin{aligned}...\\end{aligned}", reject lines ending with "\\"
+  (use "\\\\").
 - Unicode sum symbol "∑" (use TeX "\\sum" inside math mode instead).
 - Callout markers "〖...〗" (enforce consistent Markdown callout format).
 
@@ -29,6 +31,11 @@ MATHBB_R_GE0_TYPO_RE = re.compile(r"\\\\mathbb\{R\}\{\s*\\\\ge\s*0\s*\}")
 UNICODE_SUM_RE = re.compile("∑")
 CALLOUT_MARKER_RE = re.compile(r"[〖〗]")
 
+ALIGNED_BEGIN_RE = re.compile(r"\\\\begin\{aligned\}")
+ALIGNED_END_RE = re.compile(r"\\\\end\{aligned\}")
+ALIGNED_LINEBREAK_BAD_RE = re.compile(r"(?<!\\)\\\\\s*$")
+ALIGNED_LINEBREAK_SINGLE_RE = re.compile(r"(?<!\\)\\\s*$")
+
 DEFAULT_EXCLUDE = {
     "docs/appendices/d.md",  # symbol index: Unicode-heavy by design
 }
@@ -41,6 +48,7 @@ def iter_markdown_files(docs_root: Path) -> list[Path]:
 def check_markdown(md: Path) -> list[str]:
     errors: list[str] = []
     in_fence = False
+    in_aligned = False
 
     for lineno, line in enumerate(md.read_text(encoding="utf-8", errors="replace").splitlines(), start=1):
         if FENCE_START_RE.match(line):
@@ -51,17 +59,28 @@ def check_markdown(md: Path) -> list[str]:
 
         probe = INLINE_CODE_RE.sub("", line)
 
+        if ALIGNED_BEGIN_RE.search(probe):
+            in_aligned = True
+
         if BROKEN_BULLET_ORDERED_RE.search(probe):
             errors.append(f"{md}:{lineno}: broken list marker (use ordered list, not bullet+number): {line.strip()}")
 
         if MATHBB_R_GE0_TYPO_RE.search(probe):
             errors.append(f"{md}:{lineno}: LaTeX typo: \\\\mathbb{{R}}{{\\\\ge 0}} (use \\\\mathbb{{R}}_{{\\\\ge 0}})")
 
+        if in_aligned and (ALIGNED_LINEBREAK_BAD_RE.search(probe) or ALIGNED_LINEBREAK_SINGLE_RE.search(probe)):
+            errors.append(
+                f"{md}:{lineno}: aligned line break ends with \\\\ (use \\\\\\\\ for line breaks in aligned): {line.strip()}"
+            )
+
         if UNICODE_SUM_RE.search(probe):
             errors.append(f"{md}:{lineno}: unicode sum '∑' found (use TeX \\\\sum inside math mode)")
 
         if CALLOUT_MARKER_RE.search(probe):
             errors.append(f"{md}:{lineno}: callout marker '〖〗' found (use consistent Markdown callout format)")
+
+        if ALIGNED_END_RE.search(probe):
+            in_aligned = False
 
     return errors
 
@@ -104,4 +123,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

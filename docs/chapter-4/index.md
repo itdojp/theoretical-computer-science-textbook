@@ -37,8 +37,8 @@ chapter: 4
 
 *証明*：\\(HALT_{TM}\\) が決定可能と仮定し、それを決定する機械を H とする。
 H は以下のように動作する：
-- H(⟨M, w⟩) = accept if M は w で停止
-- H(⟨M, w⟩) = reject if M は w で停止しない
+- H(⟨M, w⟩) = accept（M が w で停止する場合）
+- H(⟨M, w⟩) = reject（M が w で停止しない場合）
 
 ここで、以下の機械 D を構成する：
 ```text
@@ -188,7 +188,7 @@ M' = "入力 x に対して：
 還元 \\(A \\le_m B\\) を構成する際の基本手順を簡潔にまとめる。
 
 【チェックリスト】
-- 目的の結論: \\(A \\le_m B\\) を示す（Aが難→Bも難）。
+- 目的の結論: \\(A \\le_m B\\) を示す（Aが難ならBも難）。
 - 還元関数 f は計算可能（多項式時間で十分）。
 - 任意の w に対し w ∈ A ⇔ f(w) ∈ B を成立させる。
 
@@ -312,7 +312,7 @@ M' = "入力 x に対して：
 
 ![Rice の定理の還元スキーマ（A_{TM} から R_P への還元）]({{ '/assets/images/diagrams/ch4_rice_theorem_reduction.svg' | relative_url }})
 
-適用のコツと用語は用語集も参照（→ [付録D: 用語集・索引](../appendices/d/#rice-の定理-rices-theorem)）。
+適用のコツと用語は用語集も参照（参照: [付録D: 用語集・索引](../appendices/d/#rice-の定理-rices-theorem)）。
 
 ### 4.4.3 Riceの定理の応用
 
