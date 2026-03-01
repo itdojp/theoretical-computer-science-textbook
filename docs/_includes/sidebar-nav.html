@@ -18,7 +18,7 @@
             <ul class="toc-list">
                 <li class="toc-item">
                     <a href="{{ '/' | relative_url }}" class="toc-link {% if page.url == '/' %}active{% endif %}">
-                        はじめに
+                        {{ site.title | escape }}
                     </a>
                 </li>
             </ul>
@@ -86,15 +86,22 @@
             {% endif %}
 
             {% if navigation.appendices %}
+            {% assign appendices_index = navigation.appendices | first %}
             <div class="toc-section">
-                <h4 class="toc-section-title">付録</h4>
+                <h4 class="toc-section-title">
+                    <a href="{{ appendices_index.path | relative_url }}" class="toc-link {% if page.url == appendices_index.path or page.url contains appendices_index.path %}active{% endif %}" {% if page.url == appendices_index.path or page.url contains appendices_index.path %}aria-current="page"{% endif %}>
+                        {{ appendices_index.title }}
+                    </a>
+                </h4>
                 <ul class="toc-list">
                     {% for item in navigation.appendices %}
+                    {% unless forloop.first %}
                     <li class="toc-item">
                         <a href="{{ item.path | relative_url }}" class="toc-link {% if page.url == item.path or page.url contains item.path %}active{% endif %}" {% if page.url == item.path or page.url contains item.path %}aria-current="page"{% endif %}>
                             {{ item.title }}
                         </a>
                     </li>
+                    {% endunless %}
                     {% endfor %}
                 </ul>
             </div>
