@@ -32,6 +32,8 @@ chapter: 4
 
 ![停止問題の対角化論法]({{ '/assets/images/diagrams/ch4_halting_problem_diagonalization.svg' | relative_url }})
 
+図は、仮想的な停止判定機械 H を仮定したときに対角化機械 D を構成して矛盾を導く流れを可視化したものである。
+
 **定理 4.1** \\(HALT_{TM}\\) は決定不能である。
 {: #thm-4-1 }
 
