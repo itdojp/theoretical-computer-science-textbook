@@ -3686,11 +3686,11 @@
       "url": "/theoretical-computer-science-textbook/chapter-7/#thm-7-1"
     },
     {
-      "excerpt": "membership query（要素の存在確認）は最悪の場合 \\\\(\\\\Omega(\\\\log n)\\\\) 時間必要。",
+      "excerpt": "membership query（要素の存在確認）は最悪の場合 \\\\(\\\\Omega(\\\\log n)\\\\) 回の比較を要する。",
       "id": "thm-7-2",
       "kind": "thm",
       "label": "定理",
-      "name": "情報理論的下界",
+      "name": "比較ベース辞書の下界",
       "number": "7.2",
       "page_title": "第7章 データ構造の理論",
       "page_url": "/theoretical-computer-science-textbook/chapter-7/",

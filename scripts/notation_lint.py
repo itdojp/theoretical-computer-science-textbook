@@ -138,6 +138,10 @@ RAW_BAD_SUBSTRINGS = [
     ("’", "Avoid Unicode right single quotation mark U+2019 (’); use ASCII ' or TeX like `\\\\prime`."),
     ("Σ*", "Avoid raw 'Σ*' (use TeX like `\\\\(\\\\Sigma^{\\\\ast}\\\\)`)."),
     ("for all", "Avoid raw 'for all' (use `\\\\forall` or rewrite prose in Japanese)."),
+    (
+        "\\mathbb{R}{\\ge 0}",
+        "Avoid `\\\\mathbb{R}{\\\\ge 0}`; use `\\\\mathbb{R}_{\\\\ge 0}`.",
+    ),
 ]
 
 Q_UNICODE_SUBSCRIPT_RE = re.compile(r"q[₀-₉]")
@@ -179,6 +183,10 @@ INLINE_CODE_RE = re.compile(r"`[^`]+`")
 TABLE_SEPARATOR_RE = re.compile(r"^\s*\|?(?:\s*:?-{3,}:?\s*\|)+\s*:?-{3,}:?\s*\|?\s*$")
 
 BAD_REGEXES: list[tuple[re.Pattern[str], str]] = [
+    (
+        re.compile(r"〖[^〗]*〗|〖|〗"),
+        "Avoid legacy custom callout labels like `〖...〗`; use Markdown headings or bold labels.",
+    ),
     # Avoid combining overline/macron characters like "L̄" or "L̅".
     (
         re.compile(r"[A-Za-z]\u0304|[A-Za-z]\u0305"),
