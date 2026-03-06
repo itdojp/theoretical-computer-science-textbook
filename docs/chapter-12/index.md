@@ -111,8 +111,8 @@ P2: r2 = x; x = r2 + 1
 Client: send(Server, ("square", 5))
         receive(Server) = 25
 
-Server: msg = receive(Client)
-        send(Client, msg[1] * msg[1])
+Server: ("square", n) = receive(Client)
+        send(Client, n * n)
 ```
 同期通信なら送受信は同時に成立し、非同期通信なら送信済みメッセージがキューに蓄積されて後で受信されます。
 
