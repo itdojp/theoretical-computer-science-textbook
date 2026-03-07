@@ -132,6 +132,23 @@ CFG_NOTATION_STRICT_BAD_SUBSTRINGS = [
     ("⇒", "Use TeX like `\\\\Rightarrow` or rewrite prose (avoid Unicode ⇒)."),
 ]
 
+CALLOUT_FREE_PATHS = {
+    "docs/chapter-4/index.md",
+    "docs/chapter-7/index.md",
+    "docs/appendices/c.md",
+    "src/chapter-4/index.md",
+    "src/chapter-7/index.md",
+    "src/appendices/c.md",
+}
+
+MATHBB_R_GE0_TYPO_PATHS = {
+    "docs/appendices/c.md",
+    "src/appendices/c.md",
+}
+
+CUSTOM_CALLOUT_RE = re.compile(r"[【】〖〗]")
+MATHBB_R_GE0_TYPO_RE = re.compile(r"\\\\mathbb\{R\}\{\s*\\\\ge\s*0\s*\}")
+
 # Notation lint should prevent reintroducing a few problematic substrings
 # repository-wide (Issue #270).
 RAW_BAD_SUBSTRINGS = [
@@ -578,6 +595,21 @@ def check_file(path: Path) -> list[str]:
             for bad, msg in CFG_NOTATION_STRICT_BAD_SUBSTRINGS:
                 if bad in line_no_code:
                     errors.append(f"{path}:{lineno}: {msg} (found: {bad})")
+
+        if path.as_posix() in CALLOUT_FREE_PATHS:
+            m = CUSTOM_CALLOUT_RE.search(line_no_code)
+            if m:
+                errors.append(
+                    f"{path}:{lineno}: Avoid custom full-width callout markers like '{m.group(0)}'; "
+                    f"use Markdown headings or bold labels instead."
+                )
+
+        if path.as_posix() in MATHBB_R_GE0_TYPO_PATHS:
+            if MATHBB_R_GE0_TYPO_RE.search(line_no_code):
+                errors.append(
+                    f"{path}:{lineno}: Avoid `\\\\mathbb{{R}}{{\\\\ge 0}}`; "
+                    f"use `\\\\mathbb{{R}}_{{\\\\ge 0}}`."
+                )
 
         math_errors, in_display_math, in_dollar_math = scan_math_delimiters_forbidden_chars(
             path,
