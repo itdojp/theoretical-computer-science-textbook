@@ -133,9 +133,11 @@ CFG_NOTATION_STRICT_BAD_SUBSTRINGS = [
 ]
 
 CALLOUT_FREE_PATHS = {
+    "docs/chapter-3/index.md",
     "docs/chapter-4/index.md",
     "docs/chapter-7/index.md",
     "docs/appendices/c.md",
+    "src/chapter-3/index.md",
     "src/chapter-4/index.md",
     "src/chapter-7/index.md",
     "src/appendices/c.md",
@@ -146,8 +148,17 @@ MATHBB_R_GE0_TYPO_PATHS = {
     "src/appendices/c.md",
 }
 
+MYHILL_NERODE_NOTATION_PATHS = {
+    "docs/chapter-3/index.md",
+    "docs/appendices/c.md",
+    "src/chapter-3/index.md",
+    "src/appendices/c.md",
+}
+
 CUSTOM_CALLOUT_RE = re.compile(r"[【】〖〗]")
 MATHBB_R_GE0_TYPO_RE = re.compile(r"\\\\mathbb\{R\}\{\s*\\\\ge\s*0\s*\}")
+NE_L_TYPO_RE = re.compile(r"\\\\ne_L\b")
+MYHILL_NEROD_TYPO_RE = re.compile(r"Myhill-Nerod(?!e)")
 
 # Notation lint should prevent reintroducing a few problematic substrings
 # repository-wide (Issue #270).
@@ -609,6 +620,18 @@ def check_file(path: Path) -> list[str]:
                 errors.append(
                     f"{path}:{lineno}: Avoid `\\\\mathbb{{R}}{{\\\\ge 0}}`; "
                     f"use `\\\\mathbb{{R}}_{{\\\\ge 0}}`."
+                )
+
+        if path.as_posix() in MYHILL_NERODE_NOTATION_PATHS:
+            if NE_L_TYPO_RE.search(line_no_code):
+                errors.append(
+                    f"{path}:{lineno}: Avoid `\\\\ne_L`; "
+                    f"use `\\\\not\\\\equiv_L` for the Myhill–Nerode relation."
+                )
+            if MYHILL_NEROD_TYPO_RE.search(line_no_code):
+                errors.append(
+                    f"{path}:{lineno}: Avoid `Myhill-Nerod`; "
+                    f"use `Myhill–Nerode` consistently."
                 )
 
         math_errors, in_display_math, in_dollar_math = scan_math_delimiters_forbidden_chars(

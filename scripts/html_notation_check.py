@@ -30,6 +30,7 @@ RAW_SET_BUILDER_RE = re.compile(r"\{[^{}]*\|[^{}]*\}")
 RAW_DOUBLE_PIPE_RE = re.compile(r"\|\|")
 COMBINING_OVERLINE_RE = re.compile(r"[A-Za-z]\u0304|[A-Za-z]\u0305")
 MATHJAX_RE = re.compile(r"mathjax@3|tex-chtml\.js")
+MATHBB_R_GE0_TYPO_RE = re.compile(r"\\mathbb\{R\}\{\s*\\ge\s*0\s*\}")
 
 VAR_RE = r"[A-Za-z][A-Za-z0-9]*"
 VAR_ASSIGN_RE = rf"{VAR_RE}(?:=[^)\s]+)?"
@@ -74,6 +75,10 @@ def main() -> int:
 
         if MATHJAX_RE.search(text):
             found_mathjax = True
+
+        m = MATHBB_R_GE0_TYPO_RE.search(text)
+        if m:
+            errors.append(f"{html}: LaTeX typo found in built HTML: {m.group(0)} (use \\mathbb{{R}}_{{\\ge 0}})")
 
         scrubbed = SCRUB_RE.sub(" ", text)
         visible = visible_text(scrubbed)

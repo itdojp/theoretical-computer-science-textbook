@@ -125,23 +125,26 @@ docs/
 ├── _layouts/                # レイアウトテンプレート
 ├── _includes/               # 共通パーツ
 ├── assets/                  # CSS/JS/画像
-├── src/
-│   ├── introduction/        # 導入部
-│   ├── chapter-1/          # 第1章
-│   ├── ...                 # 第2〜12章
-│   └── appendices/         # 付録
-├── index.md                # メインページ
-└── package.json            # NPM設定
+├── chapter-1/               # 第1章
+├── ...                      # 第2〜12章
+├── appendices/              # 付録
+├── index.md                 # メインページ
+└── package.json             # NPM設定
 
-scripts/                    # ビルドスクリプト
-templates/                  # テンプレートファイル
-tests/                     # テストファイル
+src/
+├── chapter-1/               # 章コンテンツの同期ミラー
+├── ...                      # 第2〜12章
+└── appendices/              # 付録コンテンツの同期ミラー
+
+scripts/                     # ビルドスクリプト
+templates/                   # テンプレートファイル
+tests/                       # テストファイル
 ```
 
 ### コンテンツの編集
 
-1. **章の追加・編集**: `src/chapter-X/index.md`
-2. **付録の編集**: `src/appendices/X.md`
+1. **GitHub Pages / Jekyll の build source**: `docs/chapter-X/index.md` / `docs/appendices/X.md`
+2. **同期ミラーの更新**: 対応する `src/chapter-X/index.md` / `src/appendices/X.md` も同内容に保つ
 3. **図表の作成・編集**: `docs/assets/images/diagrams/`
    - SVG図表推奨（学術品質のベクター形式）
    - 詳細は [SVG作成ガイド](SVG_CREATION_GUIDE.md) を参照
