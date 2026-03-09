@@ -76,11 +76,12 @@ def main() -> int:
         if MATHJAX_RE.search(text):
             found_mathjax = True
 
-        m = MATHBB_R_GE0_TYPO_RE.search(text)
+        scrubbed = SCRUB_RE.sub(" ", text)
+
+        m = MATHBB_R_GE0_TYPO_RE.search(scrubbed)
         if m:
             errors.append(f"{html}: LaTeX typo found in built HTML: {m.group(0)} (use \\mathbb{{R}}_{{\\ge 0}})")
 
-        scrubbed = SCRUB_RE.sub(" ", text)
         visible = visible_text(scrubbed)
 
         m = COMBINING_OVERLINE_RE.search(visible)
