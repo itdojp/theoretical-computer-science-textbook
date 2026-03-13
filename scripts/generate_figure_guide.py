@@ -248,8 +248,8 @@ def render_markdown(entries: list[FigureEntry]) -> str:
         out.append(f"#### {chapter_title}（{chapter_counts[chapter_num]} 図）")
         for entry in chapter_entries:
             section_anchor = slugify_heading(entry.section_title)
-            chapter_link = f"../chapter-{entry.chapter_num}/#{section_anchor}"
-            svg_link = f"../{entry.asset_path}"
+            chapter_link = "{{ '" + f"/chapter-{entry.chapter_num}/#{section_anchor}" + "' | relative_url }}"
+            svg_link = "{{ '" + f"/{entry.asset_path}" + "' | relative_url }}"
             bullet = (
                 f"- **{entry.role}**: [{entry.alt_text}]({chapter_link})"
                 f" — 節: `{entry.section_title}` / [SVG]({svg_link})"

@@ -33,8 +33,8 @@ def test_render_markdown_lists_figures_with_role_and_links() -> None:
 
     assert "総図版数: 1" in rendered
     assert "Part I: 数学的基礎: 1 図" in rendered
-    assert "[Thompson 構成法：段階図](../chapter-3/#32-正規言語と正規表現)" in rendered
-    assert "[SVG](../assets/images/diagrams/ch3_regex_to_nfa_thompson_steps.svg)" in rendered
+    assert "[Thompson 構成法：段階図]({{ '/chapter-3/#32-正規言語と正規表現' | relative_url }})" in rendered
+    assert "[SVG]({{ '/assets/images/diagrams/ch3_regex_to_nfa_thompson_steps.svg' | relative_url }})" in rendered
     assert "本文ラベル: `Thompson 構成の各規則`" in rendered
 
 
