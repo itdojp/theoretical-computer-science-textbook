@@ -145,18 +145,22 @@
 
                 <!-- Page Content -->
                 <article class="page-content">
+                    {% assign has_sections = false %}
+                    {% if page.sections != nil and page.sections != empty %}
+                        {% assign has_sections = true %}
+                    {% endif %}
                     {% assign has_chapter_profile = false %}
                     {% if page.chapter %}
-                        {% if page.estimated_time or page.difficulty or page.sections %}
+                        {% if page.estimated_time or page.difficulty or has_sections %}
                             {% assign has_chapter_profile = true %}
                         {% endif %}
                     {% endif %}
 
                     {% if has_chapter_profile %}
                         {% capture chapter_profile_html %}
-                        <div class="chapter-profile" aria-label="章プロフィール">
+                        <section class="chapter-profile" aria-labelledby="chapter-profile-heading">
                             <div class="chapter-profile-head">
-                                <p class="chapter-profile-eyebrow">章プロフィール</p>
+                                <p class="chapter-profile-eyebrow" id="chapter-profile-heading">章プロフィール</p>
                                 {% if page.subtitle %}
                                 <p class="chapter-profile-subtitle">{{ page.subtitle | escape }}</p>
                                 {% endif %}
@@ -174,14 +178,14 @@
                                     <span class="chapter-profile-value">{{ page.difficulty | escape }}</span>
                                 </div>
                                 {% endif %}
-                                {% if page.sections %}
+                                {% if has_sections %}
                                 <div class="chapter-profile-item">
                                     <span class="chapter-profile-label">章構成</span>
                                     <span class="chapter-profile-value">{{ page.sections | size }}節</span>
                                 </div>
                                 {% endif %}
                             </div>
-                            {% if page.sections %}
+                            {% if has_sections %}
                             <div class="chapter-profile-topics">
                                 <p class="chapter-profile-topics-label">主要トピック</p>
                                 <ul class="chapter-profile-sections">
@@ -191,7 +195,7 @@
                                 </ul>
                             </div>
                             {% endif %}
-                        </div>
+                        </section>
                         {% endcapture %}
                         {% assign h1_close = '</h1>' %}
                         {% assign chapter_profile_replacement = h1_close | append: chapter_profile_html %}
