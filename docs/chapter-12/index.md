@@ -605,6 +605,15 @@ P +_p Q：確率 p で P、確率 1-p で Q を選択
 - 不可能性・下界・整合性モデルを理解して実装上のトレードオフを設計
 - 検証手法（モデル検査・定理証明）を適用して品質を担保
 
+### 参考文献と次の一歩
+
+- **標準**: Nancy A. Lynch, 『Distributed Algorithms』. 分散アルゴリズム、不可能性、正当性証明の標準的な参照先です。
+- **並列実装**: Maurice Herlihy, Nir Shavit, 『The Art of Multiprocessor Programming』. 共有メモリ並行性と lock-free / wait-free の設計感覚を補えます。
+- **検証**: Christel Baier, Joost-Pieter Katoen, 『Principles of Model Checking』. 状態遷移系とモデル検査の側面を深めたい読者向けです。
+- **過程代数**: Robin Milner, 『Communication and Concurrency』. CCS 系の見方を原典に近い形で確認できます。
+- **出典メモ**: Lamport の論理時計、Fischer–Lynch–Paterson の不可能性結果は、本章の分散・並行計算の見取り図を支える古典です。モデルによって何が可能で何が不可能かを切り分ける姿勢が重要です。
+- **次の一歩**: 仕様記述と検証の言葉へ戻るなら第9章、実世界の応用像や学習計画へ接続したいなら [付録E](../appendices/e/) と [付録F](../appendices/f/) を参照してください。
+
 ## 章末問題
 
 - 代表演習と詳細解答は [付録C（第12章）](../appendices/c/#ex-sol-ch12) を参照。

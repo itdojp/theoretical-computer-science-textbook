@@ -499,6 +499,14 @@ ParallelPrefix(A[1..n]):
 
 第6章で学んだ解析技法は、アルゴリズムだけでなくデータ構造の良し悪しを比較するための共通言語でもあります。次章ではその道具を使って、操作列に対する性能保証と不変量設計を中心にデータ構造を読みます。
 
+### 参考文献と次の一歩
+
+- **標準**: Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein, 『Introduction to Algorithms』. 代表アルゴリズムと解析手法を横断的に確認できます。
+- **設計**: Jon Kleinberg, Éva Tardos, 『Algorithm Design』. 分割統治・動的計画法・貪欲法の設計判断を、具体例ベースで追うのに向いています。
+- **解析**: Robert Sedgewick, Philippe Flajolet, 『An Introduction to the Analysis of Algorithms』. 母関数や平均計算量まで含めて解析を深めたい読者向けです。
+- **出典メモ**: 本章の漸近解析・再帰式・償却解析は、アルゴリズム論の標準教科書群で共通化された手法をベースにしています。実装側の感覚へ戻したいときは [付録B](../appendices/b/) を併用してください。
+- **次の一歩**: 解析手法をデータ構造へ適用するなら第7章、グラフアルゴリズムへ広げるなら第8章が自然です。コードと理論の往復には [付録B](../appendices/b/) が最も近い補助線になります。
+
 ## 章末問題
 
 - 代表演習と詳細解答は [付録C（第6章）](../appendices/c/#ex-sol-ch6) を参照。

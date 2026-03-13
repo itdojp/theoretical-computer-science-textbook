@@ -853,6 +853,13 @@ s = uvxyz と分解したとき、\\(\lvert vxy\rvert \le p\\) より、vxy は�
 
 第3章で見たのは、計算モデルごとの表現力の差でした。次章ではその視点をさらに押し進め、そもそもどのモデルでも解けない問題が存在することを、対角化と還元によって示します。
 
+### 参考文献と次の一歩
+
+- **標準**: John E. Hopcroft, Rajeev Motwani, Jeffrey D. Ullman, 『Introduction to Automata Theory, Languages, and Computation』. DFA/NFA/CFG/PDA を体系的に学ぶための定番です。
+- **補助**: Dexter C. Kozen, 『Automata and Computability』. 証明の密度を保ちつつ、オートマトンから計算可能性までを短く見通したい読者に向いています。
+- **出典メモ**: 正規言語の特徴づけでは Myhill と Nerode の古典的結果が中核にあります。非正規性の証明戦略を固めたい場合は、本章の Myhill–Nerode とポンピング補題を比較しながら読むのが有効です。
+- **次の一歩**: 形式言語の表現力から計算不能性へ視野を広げるなら第4章へ進んでください。証明の手を動かしたい場合は [付録C（第3章の追加演習）](../appendices/c/#ex-3-5) が最短の復習導線です。
+
 ## 章末問題
 
 注: 章内の代表的な追加演習と詳細解答は [付録C](../appendices/c/) を参照。

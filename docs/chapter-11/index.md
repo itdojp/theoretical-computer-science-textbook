@@ -516,6 +516,14 @@ n 人の参加者が各自の秘密入力 x_i を持ち、
 
 暗号で見た adversary・プロトコル・安全性の視点は、複数主体が相互作用する並行計算にもつながります。次章では共有メモリと分散環境へ舞台を広げ、正当性と不可能性を同時に扱う方法を学びます。
 
+### 参考文献と次の一歩
+
+- **標準**: Jonathan Katz, Yehuda Lindell, 『Introduction to Modern Cryptography』. 現代暗号を計算量的安全性の立場から学ぶための定番教科書です。
+- **ハンドブック**: Alfred J. Menezes, Paul C. van Oorschot, Scott A. Vanstone, 『Handbook of Applied Cryptography』. 実務寄りのプリミティブと標準的構成を引き直す際の参照先になります。
+- **発展**: Oded Goldreich, 『Foundations of Cryptography』. 証明ベースの暗号理論をより厳密に掘り下げたい読者向けです。
+- **出典メモ**: 鍵共有の転換点は Diffie–Hellman、公開鍵暗号の代表例は RSA、意味論的安全性の整理は Goldwasser–Micali によって与えられました。本章はそれらを現代的な安全性 notion へ接続する構成です。
+- **次の一歩**: 安全性仮定の背景を整理し直したい場合は第5章へ戻って複雑性の見方を確認してください。実システムへの接続を意識するなら第12章や [付録E](../appendices/e/) の応用例と併読するのが有効です。
+
 ## 章末問題
 
 - 代表演習と詳細解答は [付録C（第11章）](../appendices/c/#ex-sol-ch11) を参照。
