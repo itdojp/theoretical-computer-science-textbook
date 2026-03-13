@@ -43,6 +43,12 @@ MISSING_DIVISIBILITY_RE = re.compile(r"\bq\s*\(p\s*-\s*1\)")
 
 TEX_COMMAND_SMART_QUOTE_RE = re.compile(r"\\[A-Za-z]+’")
 TRAILING_PRIME_SMART_QUOTE_RE = re.compile(r"[A-Za-z]’(?![A-Za-z])")
+TEX_INLINE_OPEN = (r"\(", r"\[")
+TEX_INLINE_CLOSE = {
+    r"\(": r"\)",
+    r"\[": r"\]",
+}
+MATH_MARKUP_LEAK_TAGS = ("<em>", "</em>", "<strong>", "</strong>")
 
 
 def iter_html_files(root: Path) -> list[Path]:
@@ -55,6 +61,24 @@ def visible_text(text: str) -> str:
     out = html.unescape(out)
     out = WS_RE.sub(" ", out).strip()
     return out
+
+
+def find_mathbb_markup_inside_tex(text: str) -> str | None:
+    for open_tok in TEX_INLINE_OPEN:
+        close_tok = TEX_INLINE_CLOSE[open_tok]
+        start = 0
+        while True:
+            left = text.find(open_tok, start)
+            if left == -1:
+                break
+            right = text.find(close_tok, left + len(open_tok))
+            if right == -1:
+                break
+            segment = text[left : right + len(close_tok)]
+            if "\\mathbb{" in segment and any(tag in segment for tag in MATH_MARKUP_LEAK_TAGS):
+                return segment[:160]
+            start = right + len(close_tok)
+    return None
 
 
 def main() -> int:
@@ -81,6 +105,13 @@ def main() -> int:
         m = MATHBB_R_GE0_TYPO_RE.search(scrubbed)
         if m:
             errors.append(f"{html}: LaTeX typo found in built HTML: {m.group(0)} (use \\mathbb{{R}}_{{\\ge 0}})")
+
+        leak = find_mathbb_markup_inside_tex(scrubbed)
+        if leak:
+            errors.append(
+                f"{html}: markdown/HTML markup leaked into \\mathbb{{...}} TeX span: {leak} "
+                "(rewrite source or verify build so \\mathbb subscripts are not split by <em>/<strong>)."
+            )
 
         visible = visible_text(scrubbed)
 
