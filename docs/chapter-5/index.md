@@ -700,6 +700,13 @@ k 回の独立実行と多数決により、誤り確率を 2^{-Ω(k)} に削減
 
 補助資料を併用するなら、手を動かす確認は [付録B](../appendices/b/) の第5章節、現実の接続は [付録E](../appendices/e/) の第5章節、理解確認は [付録F](../appendices/f/) の第5章節を参照してください。
 
+### 参考文献と次の一歩
+
+- **標準**: Sanjeev Arora, Boaz Barak, 『Computational Complexity: A Modern Approach』. 現代的な複雑性理論の全体像をつかむための標準書です。
+- **古典**: Michael R. Garey, David S. Johnson, 『Computers and Intractability』. NP 完全問題の代表例と還元カタログを確認したいときの原点です。
+- **補助**: Christos H. Papadimitriou, 『Computational Complexity』. 複雑性クラスの見取り図と証明の手筋を、より理論寄りに追いたい読者向けです。
+- **出典メモ**: SAT の NP 完全性は Cook、問題族への展開は Karp の古典的結果に基づきます。本章の難しさ比較は、その後の複雑性理論で標準化された還元の枠組みを採用しています。
+- **次の一歩**: 個々のアルゴリズムの性能保証に降りるなら第6章へ、学習理論との接点を見たいなら [付録G](../appendices/g/) を参照してください。
 ## 章末問題
 
 - 代表演習と詳細解答は [付録C（第5章）](../appendices/c/#ex-sol-ch5) を参照。

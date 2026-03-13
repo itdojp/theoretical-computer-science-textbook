@@ -441,6 +441,13 @@ Van Emde Boas レイアウトにより、検索は O(log_B n) I/O を達成。
 
 補助資料を併用するなら、理論の使われ方は [付録E](../appendices/e/) の第7章節、理解確認は [付録F](../appendices/f/) の第7章節を参照してください。
 
+### 参考文献と次の一歩
+
+- **標準**: Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein, 『Introduction to Algorithms』. 平衡木、ヒープ、ハッシュ表、Union-Find の基礎を一通り確認できます。
+- **理論**: Robert E. Tarjan, 『Data Structures and Network Algorithms』. 償却解析やデータ構造の理論的保証をもう一段深く読みたい読者向けです。
+- **補助**: Kurt Mehlhorn, Peter Sanders, 『Algorithms and Data Structures: The Basic Toolbox』. 実装感覚を残しつつ理論的整理へ接続したいときに有用です。
+- **出典メモ**: Union-Find の償却解析や lower bound の議論は、モデル依存性を意識して読む必要があります。本章でも比較ベース・期待計算量・償却計算量を意図的に区別しています。
+- **次の一歩**: データ構造が実際の最短路・探索・最小全域木にどう効くかを見たい場合は第8章へ進んでください。実装イメージを補いたい読者は [付録B](../appendices/b/) を併用すると理解が安定します。
 ## 章末問題
 
 - 代表演習と詳細解答は [付録C（第7章）](../appendices/c/#ex-sol-ch7) を参照。
