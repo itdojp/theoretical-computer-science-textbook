@@ -21,6 +21,32 @@
         }
       ]
     },
+    "parts": [
+      {
+        "id": "part-1",
+        "title": "Part I: 数学的基礎",
+        "opener_file": "part-1/index.md",
+        "chapters": ["1", "2", "3"]
+      },
+      {
+        "id": "part-2",
+        "title": "Part II: 計算理論",
+        "opener_file": "part-2/index.md",
+        "chapters": ["4", "5", "6"]
+      },
+      {
+        "id": "part-3",
+        "title": "Part III: 高度なトピック",
+        "opener_file": "part-3/index.md",
+        "chapters": ["7", "8", "9"]
+      },
+      {
+        "id": "part-4",
+        "title": "Part IV: 応用理論",
+        "opener_file": "part-4/index.md",
+        "chapters": ["10", "11", "12"]
+      }
+    ],
     "chapters": [
       {
         "id": "1",

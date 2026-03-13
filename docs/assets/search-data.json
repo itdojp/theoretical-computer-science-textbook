@@ -174,6 +174,30 @@
       "source_path": "docs/introduction/purpose.md",
       "title": "本書の目的と構成",
       "url": "/theoretical-computer-science-textbook/introduction/purpose/"
+    },
+    {
+      "excerpt": "Part I 数学的基礎 このパートは、本書全体で使う言葉と読み方をそろえる入口です。第1章〜第3章を通じて、集合・論理・証明・計算モデル・形式言語という基礎語彙を共有し、後続の「何が計算できるか」「どこまで効率化できるか」という議論を読める状態を作ります。 このパートで得るもの - 定義・定理・証明を読むための最小限の数学的共通語彙 - 計算を機械として表現する視点と、その能力を言語として比較する視点 - 第4章以降で前提になる「モデ",
+      "source_path": "docs/part-1/index.md",
+      "title": "Part I 数学的基礎",
+      "url": "/theoretical-computer-science-textbook/part-1/"
+    },
+    {
+      "excerpt": "Part II 計算理論 このパートは、本書の中核です。Part I でそろえた計算モデルと言語の視点を使って、「解ける問題と解けない問題」「解けるとしてどの程度の資源が要るか」「個々のアルゴリズムをどう評価するか」を連続した問いとして整理します。 このパートで得るもの - 決定可能性・還元・複雑性クラスの基本的な読み方 - 不可能性の証明と効率性の議論を混同せずに読むための枠組み - 第7章以降で使う計算量解析の共通言語 なぜこの順番",
+      "source_path": "docs/part-2/index.md",
+      "title": "Part II 計算理論",
+      "url": "/theoretical-computer-science-textbook/part-2/"
+    },
+    {
+      "excerpt": "Part III 高度なトピック このパートでは、Part II までで整えた解析の道具を、より構造のある対象へ適用します。抽象的な理論が、データ構造・ネットワーク・形式仕様の設計判断にどう効くかを読むパートです。 このパートで得るもの - 操作列・グラフ構造・論理式という異なる表現対象を、同じ理論的視点で比較する力 - 不変量、表現、検証可能性といった設計上の観点 - 実装寄りの章と検証寄りの章を同じ地図の上に置く感覚 なぜこの順番か",
+      "source_path": "docs/part-3/index.md",
+      "title": "Part III 高度なトピック",
+      "url": "/theoretical-computer-science-textbook/part-3/"
+    },
+    {
+      "excerpt": "Part IV 応用理論 このパートは、本書の後半で扱った理論が、個別領域でどのように意味を持つかを示す出口です。情報の定量化、安全な通信、複数主体の相互作用という異なる題材を通じて、理論計算機科学の射程を具体化します。 このパートで得るもの - 情報量・安全性・正当性を数学的に表す代表的な枠組み - 確率、数論、論理、複雑性が実際の応用領域でどう再利用されるかという見取り図 - 研究・実務で専門分野へ進む際の起点 なぜこの順番か 1.",
+      "source_path": "docs/part-4/index.md",
+      "title": "Part IV 応用理論",
+      "url": "/theoretical-computer-science-textbook/part-4/"
     }
   ],
   "schema_version": 1

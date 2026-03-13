@@ -14,30 +14,46 @@ introduction:
 - title: フィードバック（誤植・改善提案）
   path: /introduction/feedback/
 chapters:
-- title: 第1章 数学的基礎
-  path: /chapter-1/
-- title: 第2章 計算理論の基礎
-  path: /chapter-2/
-- title: 第3章 形式言語とオートマトン理論
-  path: /chapter-3/
-- title: 第4章 計算可能性理論
-  path: /chapter-4/
-- title: 第5章 計算複雑性理論
-  path: /chapter-5/
-- title: 第6章 アルゴリズムの数学的解析
-  path: /chapter-6/
-- title: 第7章 データ構造の理論
-  path: /chapter-7/
-- title: 第8章 グラフ理論とネットワーク
-  path: /chapter-8/
-- title: 第9章 論理学と形式的手法
-  path: /chapter-9/
-- title: 第10章 情報理論
-  path: /chapter-10/
-- title: 第11章 暗号理論の数学的基礎
-  path: /chapter-11/
-- title: 第12章 並行計算の理論
-  path: /chapter-12/
+- title: "Part I: 数学的基礎"
+  items:
+  - title: Part I の狙いと読み方
+    path: /part-1/
+  - title: 第1章 数学的基礎
+    path: /chapter-1/
+  - title: 第2章 計算理論の基礎
+    path: /chapter-2/
+  - title: 第3章 形式言語とオートマトン理論
+    path: /chapter-3/
+- title: "Part II: 計算理論"
+  items:
+  - title: Part II の狙いと読み方
+    path: /part-2/
+  - title: 第4章 計算可能性理論
+    path: /chapter-4/
+  - title: 第5章 計算複雑性理論
+    path: /chapter-5/
+  - title: 第6章 アルゴリズムの数学的解析
+    path: /chapter-6/
+- title: "Part III: 高度なトピック"
+  items:
+  - title: Part III の狙いと読み方
+    path: /part-3/
+  - title: 第7章 データ構造の理論
+    path: /chapter-7/
+  - title: 第8章 グラフ理論とネットワーク
+    path: /chapter-8/
+  - title: 第9章 論理学と形式的手法
+    path: /chapter-9/
+- title: "Part IV: 応用理論"
+  items:
+  - title: Part IV の狙いと読み方
+    path: /part-4/
+  - title: 第10章 情報理論
+    path: /chapter-10/
+  - title: 第11章 暗号理論の数学的基礎
+    path: /chapter-11/
+  - title: 第12章 並行計算の理論
+    path: /chapter-12/
 appendices:
 - title: 付録
   path: /appendices/

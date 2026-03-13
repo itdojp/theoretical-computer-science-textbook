@@ -82,10 +82,21 @@ def build_source_file_list(docs_root: Path, cfg: dict) -> list[Path]:
         if rel:
             out.append(docs_root / rel)
 
-    for ch in structure.get("chapters", []):
-        cid = str(ch.get("id", "")).strip()
-        if cid:
-            out.append(docs_root / f"chapter-{cid}/index.md")
+    parts = structure.get("parts", [])
+    if parts:
+        for part in parts:
+            opener = str(part.get("opener_file", "")).strip()
+            if opener:
+                out.append(docs_root / opener)
+            for cid in part.get("chapters", []):
+                chapter_id = str(cid).strip()
+                if chapter_id:
+                    out.append(docs_root / f"chapter-{chapter_id}/index.md")
+    else:
+        for ch in structure.get("chapters", []):
+            cid = str(ch.get("id", "")).strip()
+            if cid:
+                out.append(docs_root / f"chapter-{cid}/index.md")
 
     # Appendices
     out.append(docs_root / "appendices/index.md")
