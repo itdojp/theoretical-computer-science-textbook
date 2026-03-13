@@ -109,6 +109,7 @@ RDBMS
 RSAES
 Rado
 Rényi
+UPPAAL
 Satisfiability
 Savitch
 Sbbb
