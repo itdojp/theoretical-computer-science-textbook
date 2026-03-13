@@ -860,6 +860,7 @@ s = uvxyz と分解したとき、\\(\lvert vxy\rvert \le p\\) より、vxy は�
 
 ### 参考文献と次の一歩
 
+- **図版の再参照**: 本章の図をまとめて見返したいときは [付録H: 図版ガイドと図一覧](../appendices/h/) を参照してください。
 - **標準**: John E. Hopcroft, Rajeev Motwani, Jeffrey D. Ullman, 『Introduction to Automata Theory, Languages, and Computation』. DFA/NFA/CFG/PDA を体系的に学ぶための定番です。
 - **補助**: Dexter C. Kozen, 『Automata and Computability』. 証明の密度を保ちつつ、オートマトンから計算可能性までを短く見通したい読者に向いています。
 - **出典メモ**: 正規言語の特徴づけでは Myhill と Nerode の古典的結果が中核にあります。非正規性の証明戦略を固めたい場合は、本章の Myhill–Nerode とポンピング補題を比較しながら読むのが有効です。

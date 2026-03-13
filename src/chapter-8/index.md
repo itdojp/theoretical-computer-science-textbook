@@ -580,6 +580,7 @@ Gale-Shapley(男性の選好, 女性の選好):
 
 ### 参考文献と次の一歩
 
+- **図版の再参照**: 本章の図をまとめて見返したいときは [付録H: 図版ガイドと図一覧](../appendices/h/) を参照してください。
 - **標準**: Adrian Bondy, U. S. R. Murty, 『Graph Theory』. グラフ理論の基本概念から定理までを整理して復習できます。
 - **ネットワーク**: Ravindra K. Ahuja, Thomas L. Magnanti, James B. Orlin, 『Network Flows』. 最短路・最大流・最小費用流を体系的に深掘りしたい読者向けです。
 - **アルゴリズム**: Jon Kleinberg, Éva Tardos, 『Algorithm Design』. グラフ問題の設計判断と実用上の典型例を追いやすい標準書です。

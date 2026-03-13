@@ -102,6 +102,8 @@ permalink: /
   - [付録D: 用語集・索引](appendices/d/)
   - [付録E: 実世界への応用例](appendices/e/)
   - [付録F: 学習進捗チェックリスト](appendices/f/)
+  - [付録G: AI/ML と理論計算機科学の接続](appendices/g/)
+  - [付録H: 図版ガイドと図一覧](appendices/h/)
 
 ## その他
 

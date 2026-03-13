@@ -614,6 +614,7 @@ P +_p Q：確率 p で P、確率 1-p で Q を選択
 
 ### 参考文献と次の一歩
 
+- **図版の再参照**: 本章の図をまとめて見返したいときは [付録H: 図版ガイドと図一覧](../appendices/h/) を参照してください。
 - **標準**: Nancy A. Lynch, 『Distributed Algorithms』. 分散アルゴリズム、不可能性、正当性証明の標準的な参照先です。
 - **並列実装**: Maurice Herlihy, Nir Shavit, 『The Art of Multiprocessor Programming』. 共有メモリ並行性と lock-free / wait-free の設計感覚を補えます。
 - **検証**: Christel Baier, Joost-Pieter Katoen, 『Principles of Model Checking』. 状態遷移系とモデル検査の側面を深めたい読者向けです。

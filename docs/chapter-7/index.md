@@ -443,6 +443,7 @@ Van Emde Boas レイアウトにより、検索は O(log_B n) I/O を達成。
 
 ### 参考文献と次の一歩
 
+- **図版の再参照**: 本章の図をまとめて見返したいときは [付録H: 図版ガイドと図一覧](../appendices/h/) を参照してください。
 - **標準**: Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein, 『Introduction to Algorithms』. 平衡木、ヒープ、ハッシュ表、Union-Find の基礎を一通り確認できます。
 - **理論**: Robert E. Tarjan, 『Data Structures and Network Algorithms』. 償却解析やデータ構造の理論的保証をもう一段深く読みたい読者向けです。
 - **補助**: Kurt Mehlhorn, Peter Sanders, 『Algorithms and Data Structures: The Basic Toolbox』. 実装感覚を残しつつ理論的整理へ接続したいときに有用です。

@@ -523,6 +523,7 @@ n 人の参加者が各自の秘密入力 x_i を持ち、
 
 ### 参考文献と次の一歩
 
+- **図版の再参照**: 本章の図をまとめて見返したいときは [付録H: 図版ガイドと図一覧](../appendices/h/) を参照してください。
 - **標準**: Jonathan Katz, Yehuda Lindell, 『Introduction to Modern Cryptography』. 現代暗号を計算量的安全性の立場から学ぶための定番教科書です。
 - **ハンドブック**: Alfred J. Menezes, Paul C. van Oorschot, Scott A. Vanstone, 『Handbook of Applied Cryptography』. 実務寄りのプリミティブと標準的構成を引き直す際の参照先になります。
 - **発展**: Oded Goldreich, 『Foundations of Cryptography』. 証明ベースの暗号理論をより厳密に掘り下げたい読者向けです。

@@ -71,6 +71,8 @@ appendices:
   path: /appendices/f/
 - title: "付録G: AI/ML と理論計算機科学の接続"
   path: /appendices/g/
+- title: "付録H: 図版ガイドと図一覧"
+  path: /appendices/h/
 
 afterword:
 - title: あとがき
