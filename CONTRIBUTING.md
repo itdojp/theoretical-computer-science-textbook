@@ -39,11 +39,18 @@
 ## 最低限の検証
 
 本文や付録を更新した場合は、原則として次を実行してください。
+`generate_search_data.py` / `generate_index.py` は生成系コマンド、`--check` 付きは生成漏れ検知用です。生成物が変わる変更では、まず生成し、その後に `--check` で差分が残っていないことを確認してください。
 
 ```bash
+# 生成が必要なもの
 python3 scripts/generate_search_data.py
+python3 scripts/generate_index.py
+
+# 生成漏れチェック
 python3 scripts/generate_search_data.py --check
 python3 scripts/generate_index.py --check
+
+# 本文・ビルド検証
 python3 scripts/docs_regression_lint.py
 python3 scripts/notation_lint.py
 bundle exec jekyll build --source docs --config docs/_config.yml --destination _site
