@@ -4,6 +4,14 @@ title: "第1章 数学的基礎"
 subtitle: "集合論、論理学、証明技法"
 description: "計算理論の基盤となる数学的概念を学習"
 chapter: 1
+estimated_time: "3〜4週間"
+difficulty: "★★☆☆"
+sections:
+  - "集合論"
+  - "論理学"
+  - "証明技法"
+  - "関係と関数"
+  - "グラフ理論の基礎"
 ---
 
 # 第1章 数学的基礎
