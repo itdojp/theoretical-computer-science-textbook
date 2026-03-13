@@ -35,7 +35,9 @@ def test_render_markdown_lists_figures_with_role_and_links() -> None:
     assert "Part I: 数学的基礎: 1 図" in rendered
     assert "[Thompson 構成法：段階図]({{ '/chapter-3/#32-正規言語と正規表現' | relative_url }})" in rendered
     assert "[SVG]({{ '/assets/images/diagrams/ch3_regex_to_nfa_thompson_steps.svg' | relative_url }})" in rendered
-    assert "本文ラベル: `Thompson 構成の各規則`" in rendered
+    assert "節: 「3.2 正規言語と正規表現」" in rendered
+    assert "本文ラベル: 「Thompson 構成の各規則」" in rendered
+    assert "`Thompson 構成の各規則`" not in rendered
 
 
 def test_slugify_heading_matches_kramdown_style_for_used_headings() -> None:
@@ -43,6 +45,12 @@ def test_slugify_heading_matches_kramdown_style_for_used_headings() -> None:
 
     assert m.slugify_heading("3.3.2 正規表現からNFAへの変換プロセス") == "332-正規表現からnfaへの変換プロセス"
     assert m.slugify_heading("最小DFAとの関係（実務的な見方）") == "最小dfaとの関係実務的な見方"
+
+
+def test_format_quoted_text_wraps_plain_text_without_code_span() -> None:
+    m = _load_generate_figure_guide()
+
+    assert m.format_quoted_text("AWGN 容量 \\(C = \\frac{1}{2} \\log_2(1+\\mathrm{SNR})\\) の曲線") == "「AWGN 容量 \\(C = \\frac{1}{2} \\log_2(1+\\mathrm{SNR})\\) の曲線」"
 
 
 def test_main_check_detects_outdated_generated_files(tmp_path, monkeypatch) -> None:

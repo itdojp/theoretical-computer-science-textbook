@@ -101,6 +101,10 @@ def slugify_heading(text: str) -> str:
     return re.sub(r"-+", "-", slug).strip("-")
 
 
+def format_quoted_text(text: str) -> str:
+    return f"「{text.strip()}」"
+
+
 def infer_role(lines: list[str], image_line_index: int) -> tuple[str, str | None]:
     for idx in range(image_line_index - 1, -1, -1):
         stripped = lines[idx].strip()
@@ -252,10 +256,10 @@ def render_markdown(entries: list[FigureEntry]) -> str:
             svg_link = "{{ '" + f"/{entry.asset_path}" + "' | relative_url }}"
             bullet = (
                 f"- **{entry.role}**: [{entry.alt_text}]({chapter_link})"
-                f" — 節: `{entry.section_title}` / [SVG]({svg_link})"
+                f" — 節: {format_quoted_text(entry.section_title)} / [SVG]({svg_link})"
             )
             if entry.lead_text:
-                bullet += f" / 本文ラベル: `{entry.lead_text}`"
+                bullet += f" / 本文ラベル: {format_quoted_text(entry.lead_text)}"
             out.append(bullet)
         out.append("")
 
