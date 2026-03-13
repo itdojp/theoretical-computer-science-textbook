@@ -1,64 +1,101 @@
 # コントリビューションガイド
 
-株式会社アイティードゥ（ITDO Inc.）の書籍プロジェクトへのご協力ありがとうございます。
+この文書は contributor 向けです。読者として本書を利用したい場合は、まず公開サイトを参照してください。
 
-## 📋 コントリビューション方針
+- 公開サイト: https://itdojp.github.io/theoretical-computer-science-textbook/
+- フィードバック窓口: https://itdojp.github.io/theoretical-computer-science-textbook/introduction/feedback/
 
-### 非営利コントリビューション
-以下のコントリビューションは歓迎いたします。
+## 受け付けるコントリビューション
 
-- **誤字脱字の修正**
-- **技術的な間違いの指摘**
-- **翻訳・多言語化**
-- **アクセシビリティ改善**
-- **学習効果向上のための提案**
+- 誤字脱字、数式、記法、リンク切れの修正
+- 技術的な誤りや説明不足の修正
+- 学習導線、索引、図表、付録の改善
+- アクセシビリティ、検索性、ナビゲーションの改善
+- 実装課題、ビルド、CI、検証スクリプトの改善
 
-### 商用利用を伴うコントリビューション
+## 事前に理解しておくべきこと
 
-商用目的でのコントリビューション（企業研修での利用等）をお考えの場合は、
-事前に commercial_license Issue での相談をお願いいたします。
+### build source と同期ミラー
 
-## 🤝 コントリビューション手順
+- `docs/` が GitHub Pages / Jekyll の build source です。
+- `src/` は同期ミラーです。本文を編集したら、対応する `src/` 側も同内容に保ってください。
+- 図表は主に `docs/assets/images/diagrams/` にあります。
+- 生成スクリプトは `scripts/` にあります。
 
-1. **Issue作成** - 改善提案や問題報告
-2. **Fork & Clone** - リポジトリをフォーク
-3. **ブランチ作成** - 作業用ブランチを作成
-4. **変更実装** - 修正・改善を実装
-5. **プルリクエスト** - 変更内容を提出
-6. **レビュー** - 内容確認・調整
-7. **マージ** - 変更の取り込み
+### 読者向け導線との切り分け
 
-## 📝 ライセンス同意
+- README は「読む人」と「直す人」の入口を分けています。
+- contributor 向けの運用説明は README に過剰に増やさず、この文書へ集約してください。
+- 公開版の promise や読者案内を変更する場合は、公開サイト側との整合も同時に確認してください。
 
-コントリビューションを行うことで、以下に同意したものとみなします。
+## 推奨ワークフロー
+
+1. 関連 Issue を確認し、必要なら先に論点を整理する
+2. `main` から作業ブランチを切る
+3. `docs/` を編集し、必要な `src/` ミラーを同期する
+4. 影響範囲に応じて生成・検証コマンドを実行する
+5. 変更概要と検証結果を添えて Pull Request を作成する
+
+## 最低限の検証
+
+本文や付録を更新した場合は、原則として次を実行してください。
+
+```bash
+python3 scripts/generate_search_data.py
+python3 scripts/generate_search_data.py --check
+python3 scripts/generate_index.py --check
+python3 scripts/docs_regression_lint.py
+python3 scripts/notation_lint.py
+bundle exec jekyll build --source docs --config docs/_config.yml --destination _site
+python3 scripts/html_notation_check.py --site-root _site
+npm run spellcheck
+```
+
+実装課題や Python 参照実装に影響する場合は、追加で以下も実行してください。
+
+```bash
+make test
+```
+
+## Pull Request の書き方
+
+- 変更の目的と Issue 番号を明記する
+- どのファイル群を更新したかを簡潔に示す
+- 実行した検証コマンドを列挙する
+- 読者向け変更と contributor 向け変更を同一 PR に混在させすぎない
+
+## Stable ID（定義・定理・例）
+
+本書では、定義・定理・系・例などを安定 ID で参照できるようにしています。
+
+- 形式: kramdown の IAL で段落に ID を付与する
+- 例: `**定理 9.3** ...` の直後に `{: #thm-9-3 }`
+- 規約
+  - 定義: `def-<章>-<番号>`
+  - 定理: `thm-<章>-<番号>`
+  - 系: `cor-<章>-<番号>`
+  - 例: `ex-<章>-<番号>`
+
+Stable ID 付きの項目は `docs/index.json` に機械可読インデックスとして集約しています。
+
+- 生成: `python3 scripts/generate_index.py`
+- 検証: `python3 scripts/generate_index.py --check`
+
+## 記法上の注意
+
+- 数式は原則 TeX（`\\(...\\)` / `\\[...\\]`）で記述してください。
+- Unicode 数学記号や疑似 LaTeX は避けてください。ただし `docs/appendices/d.md` の記号索引は例外です。
+- prime は ASCII `'` に依存せず、TeX の `^{\\prime}` / `\\prime` を使用してください。
+- 回帰検出は `scripts/notation_lint.py` と `scripts/html_notation_check.py` で行います。
+
+## ライセンス同意
+
+コントリビューションを送ることで、以下に同意したものとみなします。
 
 - コントリビューション内容が CC BY-NC-SA 4.0 で提供されること
 - 株式会社アイティードゥが商用ライセンス契約において当該コントリビューション内容を利用できること
 
-## 🏷️ Stable ID（定義/定理/例）
+## お問い合わせ
 
-本書では、定義・定理・系・例などを**安定ID**で参照できるようにしています（RAG/検索や相互参照のため）。
-
-- 形式: kramdown の IAL で段落にIDを付与します（直後の行に書く）
-  - 例: `**定理 9.3** ...` の直後に `{: #thm-9-3 }`
-- 規約（番号の `.` は `-` に変換）
-  - 定義: `def-<章>-<番号>`（例: `def-4-1`）
-  - 定理: `thm-<章>-<番号>`（例: `thm-10-3`）
-  - 系: `cor-...` / 例: `ex-...`
-
-### index.json の更新
-
-安定ID付きの項目は `docs/index.json` に機械可読インデックスとして集約しています。
-
-- 生成: `python3 scripts/generate_index.py`
-- CI: `python3 scripts/generate_index.py --check` で差分を検知します（生成し忘れ防止）
-
-## 📞 お問い合わせ
-
-**株式会社アイティードゥ（ITDO Inc.）**  
-Email: knowledge@itdo.jp
-
-## ✍️ 記法の注意（抜粋）
-
-- 数式は原則 TeX（`\\(...\\)` / `\\[...\\]`）で記述し、Unicode 記号（例: `∑`, `⋃`, `ℕ`）や疑似LaTeX（例: `∑_{...}`）は避けてください。例外として `docs/appendices/d.md`（記号索引）は Unicode を許容します。
-- prime（ダッシュ）は ASCII `'` に依存せず、TeX の `^{\\prime}` / `\\prime` を使用してください（ソースは `scripts/notation_lint.py`、ビルド後HTMLは `scripts/html_notation_check.py` で回帰検出します）。
+- ITDO Inc.（株式会社アイティードゥ）
+- Email: knowledge@itdo.jp
