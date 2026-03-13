@@ -43,6 +43,26 @@
             {% if navigation.chapters %}
             <div class="toc-section">
                 <h4 class="toc-section-title">本編</h4>
+                {% assign chapters_grouped = false %}
+                {% if navigation.chapters[0] and navigation.chapters[0].items %}
+                    {% assign chapters_grouped = true %}
+                {% endif %}
+                {% if chapters_grouped %}
+                    {% for group in navigation.chapters %}
+                    <div class="toc-subsection">
+                        <h5 class="toc-section-title">{{ group.title }}</h5>
+                        <ul class="toc-list">
+                            {% for item in group.items %}
+                            <li class="toc-item toc-chapter">
+                                <a href="{{ item.path | relative_url }}" class="toc-link {% if page.url == item.path or page.url contains item.path %}active{% endif %}" {% if page.url == item.path or page.url contains item.path %}aria-current="page"{% endif %}>
+                                    {{ item.title }}
+                                </a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endfor %}
+                {% else %}
                 <ul class="toc-list">
                     {% for chapter in navigation.chapters %}
                     <li class="toc-item toc-chapter">
@@ -52,6 +72,7 @@
                     </li>
                     {% endfor %}
                 </ul>
+                {% endif %}
             </div>
             {% endif %}
 
