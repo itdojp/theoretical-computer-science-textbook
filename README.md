@@ -120,6 +120,7 @@ npm run dev
 ### 代表的な検証コマンド
 
 生成物を持つ変更では、まず生成コマンドを実行し、その後に `--check` で差分が残っていないことを確認してください。
+`notation_lint.py` は source Markdown 側の記法崩れを、`html_notation_check.py` は Jekyll build 後の HTML における renderer 起因の崩れを検出します。
 
 ```bash
 # 生成が必要なもの

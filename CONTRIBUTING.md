@@ -40,6 +40,7 @@
 
 本文や付録を更新した場合は、原則として次を実行してください。
 `generate_search_data.py` / `generate_index.py` は生成系コマンド、`--check` 付きは生成漏れ検知用です。生成物が変わる変更では、まず生成し、その後に `--check` で差分が残っていないことを確認してください。
+`notation_lint.py` は source Markdown の記法崩れを、`html_notation_check.py` は build 後 HTML の renderer 起因の崩れを検出する役割です。
 
 ```bash
 # 生成が必要なもの
