@@ -705,6 +705,7 @@ k 回の独立実行と多数決により、誤り確率を 2^{-Ω(k)} に削減
 
 ### 参考文献と次の一歩
 
+- **図版の再参照**: 本章の図をまとめて見返したいときは [付録H: 図版ガイドと図一覧](../appendices/h/) を参照してください。
 - **標準**: Sanjeev Arora, Boaz Barak, 『Computational Complexity: A Modern Approach』. 現代的な複雑性理論の全体像をつかむための標準書です。
 - **古典**: Michael R. Garey, David S. Johnson, 『Computers and Intractability』. NP 完全問題の代表例と還元カタログを確認したいときの原点です。
 - **補助**: Christos H. Papadimitriou, 『Computational Complexity』. 複雑性クラスの見取り図と証明の手筋を、より理論寄りに追いたい読者向けです。

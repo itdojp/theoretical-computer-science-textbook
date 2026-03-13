@@ -460,6 +460,7 @@ Riceの定理により、以下の問題はすべて決定不能：
 
 ### 参考文献と次の一歩
 
+- **図版の再参照**: 本章の図をまとめて見返したいときは [付録H: 図版ガイドと図一覧](../appendices/h/) を参照してください。
 - **標準**: Michael Sipser, 『Introduction to the Theory of Computation』. 決定可能性・認識可能性・還元の基本線を整理するのに最適です。
 - **補助**: George S. Boolos, John P. Burgess, Richard C. Jeffrey, 『Computability and Logic』. 計算可能性と論理のつながりを、やや数理論理寄りの視点から確認できます。
 - **出典メモ**: 停止問題の原型は Turing の 1936 年論文、性質判定の一般的限界は Rice の定理にさかのぼります。本章はそれらを現代的な還元の言葉で再整理したものです。

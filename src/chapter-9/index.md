@@ -507,6 +507,7 @@ lean Simple.lean
 
 ### 参考文献と次の一歩
 
+- **図版の再参照**: 本章の図をまとめて見返したいときは [付録H: 図版ガイドと図一覧](../appendices/h/) を参照してください。
 - **標準**: Michael Huth, Mark Ryan, 『Logic in Computer Science: Modelling and Reasoning about Systems』. 命題論理からモデル検査までを一貫した視点で学べる定番教科書です。
 - **検証**: Aaron R. Bradley, Zohar Manna, 『The Calculus of Computation』. 論理、決定手続き、形式検証の橋渡しを確認したい読者に向いています。
 - **モデル検査**: Edmund M. Clarke, Orna Grumberg, Doron Peled, 『Model Checking』. CTL/LTL とモデル検査の標準的な参照先です。

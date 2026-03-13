@@ -503,6 +503,7 @@ ParallelPrefix(A[1..n]):
 
 ### 参考文献と次の一歩
 
+- **図版の再参照**: 本章の図をまとめて見返したいときは [付録H: 図版ガイドと図一覧](../appendices/h/) を参照してください。
 - **標準**: Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein, 『Introduction to Algorithms』. 代表アルゴリズムと解析手法を横断的に確認できます。
 - **設計**: Jon Kleinberg, Éva Tardos, 『Algorithm Design』. 分割統治・動的計画法・貪欲法の設計判断を、具体例ベースで追うのに向いています。
 - **解析**: Robert Sedgewick, Philippe Flajolet, 『An Introduction to the Analysis of Algorithms』. 母関数や平均計算量まで含めて解析を深めたい読者向けです。

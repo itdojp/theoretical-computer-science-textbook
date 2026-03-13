@@ -487,6 +487,7 @@ KL divergence による種間距離の定量化。
 
 ### 参考文献と次の一歩
 
+- **図版の再参照**: 本章の図をまとめて見返したいときは [付録H: 図版ガイドと図一覧](../appendices/h/) を参照してください。
 - **標準**: Thomas M. Cover, Joy A. Thomas, 『Elements of Information Theory』. エントロピー、相互情報量、通信路容量の標準的な参照先です。
 - **補助**: David J. C. MacKay, 『Information Theory, Inference, and Learning Algorithms』. 符号化・推論・学習との接点まで含めて直観を補いたい読者に向いています。
 - **出典メモ**: 本章の中心概念は Shannon の 1948 年論文に由来します。ソース符号化と通信路符号化の定理は、その後の情報理論全体の土台です。

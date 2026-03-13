@@ -792,6 +792,7 @@ D = "入力 ⟨M⟩ に対して：
 
 ### 参考文献と次の一歩
 
+- **図版の再参照**: 本章の図をまとめて見返したいときは [付録H: 図版ガイドと図一覧](../appendices/h/) を参照してください。
 - **標準**: Michael Sipser, 『Introduction to the Theory of Computation』. チューリング機械、決定可能性、万能計算機の導入を一冊で追える定番教科書です。
 - **原典**: Alan M. Turing, “On Computable Numbers, with an Application to the Entscheidungsproblem”. 計算可能性の標準モデルがどのような問題意識から導入されたかを確認できます。
 - **出典メモ**: 本章で扱うチューリング機械中心の記述は、Church–Turing の見方を前提にした現代的な標準整理です。歴史的背景まで確認したい場合は Turing の原論文と第4章を往復すると理解が安定します。
