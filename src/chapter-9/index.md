@@ -500,6 +500,8 @@ lean Simple.lean
 
 第9章では「正しさ」や「意味」を形式化する方法を扱いました。次章からの Part IV では応用領域へ進み、まず第10章で対象を情報そのものに切り替え、不確実性と通信の限界をエントロピーで定量化します。
 
+補助資料を併用するなら、理論の使われ方は [付録E](../appendices/e/) の第9章節、理解確認は [付録F](../appendices/f/) の第9章節を参照してください。
+
 ### 参考文献と次の一歩
 
 - **標準**: Michael Huth, Mark Ryan, 『Logic in Computer Science: Modelling and Reasoning about Systems』. 命題論理からモデル検査までを一貫した視点で学べる定番教科書です。
@@ -507,7 +509,6 @@ lean Simple.lean
 - **モデル検査**: Edmund M. Clarke, Orna Grumberg, Doron Peled, 『Model Checking』. CTL/LTL とモデル検査の標準的な参照先です。
 - **出典メモ**: Hoare 論理は Hoare の 1969 年論文、時相論理によるプログラム推論は Pnueli の 1977 年論文にさかのぼります。本章はそれらを SAT/SMT と検証実務へ接続する構成を取っています。
 - **次の一歩**: 形式仕様を並行システムへ適用するなら第12章が自然です。用語の取り違えを避けたい場合は [付録D](../appendices/d/) を辞書として使ってください。
-
 ## 章末問題
 
 - 代表演習と詳細解答は [付録C（第9章）](../appendices/c/#ex-sol-ch9) を参照。
