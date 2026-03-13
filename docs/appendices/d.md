@@ -8,8 +8,27 @@ layout: book
 理論計算機科学で使用される専門用語の日英対訳と詳細な説明です。
 （主要トピックへの関連章リンクを併記しています）
 
+## この付録の使い方
+
+- **用語が分かっているとき**: 下の A-Z の並びから該当文字の節へ進み、用語の定義と関連章を確認してください。
+- **概念から探したいとき**: 次の「概念別クイックナビ」から近い話題群を選び、主要語へ移動してください。
+- **記号から探したいとき**: 本文末の「記号索引」を使って、論理・集合・複雑性・形式言語・関数・グラフの記号を引いてください。
+
+## 概念別クイックナビ
+
+- **数学的基礎と証明**: [空集合](#empty-set), [関数](#function), [背理法](#proof-by-contradiction)
+- **計算モデル・形式言語**: [有限オートマトン](#finite-automaton), [文脈自由文法](#context-free-grammar), [チューリング機械](#turing-machine), [Church-Turing仮説](#church-turing-thesis)
+- **計算可能性・複雑性**: [計算可能性](#computability), [決定可能性](#decidability), [複雑性クラス](#complexity-class), [停止問題](#halting-problem)
+- **アルゴリズム・データ構造**: [アルゴリズム](#algorithm), [償却解析](#amortized-analysis), [B木](#b-tree), [ブルームフィルタ](#bloom-filter)
+- **グラフ・ネットワーク**: [グラフ](#graph), [二部グラフ](#bipartite-graph), [増加路](#増加路-augmenting-path), [カット](#カット-st–t-cut)
+- **論理・形式手法**: [計算木論理](#ctl), [線形時相論理](#ltl), [Hoare論理](#hoare-logic), [双模倣等価](#bisimulation-equivalence)
+- **情報理論・符号**: [等確率分割性](#AEP-asymptotic-equipartition-property), [通信路容量](#通信路容量-channel-capacity), [誤り訂正符号](#error-correcting-code), [相互情報量](#相互情報量-mutual-information)
+- **暗号**: [認証付き暗号](#authenticated-encryption), [準同型暗号](#homomorphic-encryption), [ハッシュ関数](#hash-function)
+- **並行・分散**: [Compare-and-Swap](#cas), [ABA問題](#aba-problem), [合意問題](#consensus-problem), [ビザンチン故障](#byzantine-fault), [分散スナップショット](#distributed-snapshot), [公平性](#fairness), [線形化可能性](#linearizability), [ロックフリー](#lock-free)
+
 ## A
 
+<a id="algorithm"></a>
 **アルゴリズム (Algorithm)**
 - 問題を解くための明確で有限な手順の集合
 - 入力から出力への変換プロセス
@@ -27,6 +46,7 @@ layout: book
 - 論理積、∧記号で表記
 - P ∧ Q は P と Q が共に真のときのみ真
 
+<a id="aba-problem"></a>
 **ABA問題（ABA Problem）**
 - lock-free データ構造で、共有値が A→B→A と変化すると、見かけ上は未変更に見えて誤判定を招く問題
 - CAS を使う実装で典型的に現れ、タグ付けや hazard pointer などの対策と併せて議論される（→ [第12章: 並行計算の理論](../chapter-12/index.md)）
@@ -35,10 +55,12 @@ layout: book
 - 他のスレッドから途中状態が観測されない、不可分な 1 操作として実行される操作
 - compare-and-swap や fetch-and-add などが代表例で、並行アルゴリズムの基本部品となる（→ [第12章: 並行計算の理論](../chapter-12/index.md)）
 
+<a id="authenticated-encryption"></a>
 **認証付き暗号（Authenticated Encryption）**
 - 秘匿性だけでなく、改ざん検知の完全性も同時に提供する暗号方式
 - GCM や ChaCha20-Poly1305 のように、現代の通信路保護で標準的に使われる（→ [第11章: 暗号理論の数学的基礎](../chapter-11/index.md)）
 
+<a id="amortized-analysis"></a>
 **償却解析（Amortized Analysis）**
 - 操作列全体で平均化した 1 回あたりのコストを評価する解析手法
 - push/pop や Union-Find のように、個々の最悪時間より列全体の保証が重要な場面で使う（→ [第6章: アルゴリズムの数学的解析](../chapter-6/index.md), [第7章: データ構造の理論](../chapter-7/index.md)）
@@ -60,18 +82,22 @@ layout: book
 - f(n) = O(g(n)): f(n)はg(n)の定数倍を漸近的に超えない
 - 時間・空間複雑性の解析に使用
 
+<a id="bisimulation-equivalence"></a>
 **双模倣等価（Bisimulation Equivalence）**
 - ラベル付き遷移系や過程代数で、互いの遷移を逐次模倣できるときに成り立つ等価性
 - トレース等価より分岐構造に敏感で、CCS や並行計算モデルの振る舞い比較に使う（→ [第12章: 並行計算の理論](../chapter-12/index.md)）
 
+<a id="bipartite-graph"></a>
 **二部グラフ（Bipartite Graph）**
 - 頂点集合を 2 つの部分に分割し、各辺が異なる部分集合どうしを結ぶグラフ
 - マッチング、頂点被覆、ネットワークフローとの接続で重要（→ [第8章: グラフ理論とネットワーク](../chapter-8/index.md)）
 
+<a id="byzantine-fault"></a>
 **ビザンチン故障（Byzantine Fault）**
 - ノードが停止するだけでなく、任意または悪意ある振る舞いを取りうる故障モデル
 - 合意問題では `n > 3f` のような条件とともに現れる（→ [第12章: 並行計算の理論](../chapter-12/index.md)）
 
+<a id="b-tree"></a>
 **B木（B-Tree）**
 - 多分木を用いて外部記憶アクセス回数を抑える平衡探索木
 - データベースやファイルシステムで広く使われ、I/O 計算量解析の代表例となる（→ [第7章: データ構造の理論](../chapter-7/index.md)）
@@ -81,46 +107,56 @@ layout: book
 - 時間複雑性: O(log n)
 - 分割統治法の典型例
 
+<a id="bloom-filter"></a>
 **ブルームフィルタ（Bloom Filter）**
 - 集合への所属を近似判定する確率的データ構造
 - 偽陽性はありうるが偽陰性はなく、キャッシュや重複検出で用いられる（→ [第7章: データ構造の理論](../chapter-7/index.md)）
 
+<a id="proof-by-contradiction"></a>
 **背理法 (Proof by Contradiction)**
 - 証明したい命題の否定を仮定し、矛盾を導く証明技法
 - 決定不可能性の証明によく使用される
 
 ## C
 
+<a id="turing-machine"></a>
 **チューリング機械 (Turing Machine)**
 - 理論計算機科学の基本的計算モデル
 - 無限テープ、ヘッド、状態集合から構成
 - 計算可能性の定義に使用（→ [第2章: 計算理論の基礎](../chapter-2/index.md)）
 
+<a id="church-turing-thesis"></a>
 **Church-Turing仮説 (Church-Turing Thesis)**
 - 直感的に計算可能な関数はチューリング機械で計算可能
 - 計算可能性の基本仮説
 
+<a id="complexity-class"></a>
 **複雑性クラス (Complexity Class)**
 - 同程度の計算資源で解ける問題の集合
 - 代表例として P, NP, PSPACE, EXPTIME などがある（→ [第5章: 計算複雑性理論](../chapter-5/index.md)）
 - `hard` / `complete` はクラスそのものではなく、クラスに対する困難さの位置づけを表す語
 
+<a id="cas"></a>
 **Compare-and-Swap（CAS）**
 - メモリ位置の値が期待値に一致するときだけ新しい値へ更新する原子的操作
 - lock-free アルゴリズムの基本プリミティブで、ABA 問題とも密接に関係する（→ [第12章: 並行計算の理論](../chapter-12/index.md)）
 
+<a id="consensus-problem"></a>
 **合意問題（Consensus Problem）**
 - 複数プロセスが初期値から 1 つの共通決定値へ到達できるかを扱う問題
 - 分散故障モデル、FLP 不可能性、ビザンチン合意などの中心概念（→ [第12章: 並行計算の理論](../chapter-12/index.md)）
 
+<a id="context-free-grammar"></a>
 **文脈自由文法 (Context-Free Grammar)**
 - 型2文法、プッシュダウンオートマトンと対応
 - A → α の形の生成規則（Aは非終端記号）（→ [第3章: 形式言語とオートマトン理論](../chapter-3/index.md)）
 
+<a id="computability"></a>
 **計算可能性 (Computability)**
 - アルゴリズムによって解ける問題の性質
 - チューリング機械による定式化（→ [第4章: 計算可能性理論](../chapter-4/index.md)）
 
+<a id="ctl"></a>
 **計算木論理（CTL, Computation Tree Logic）**
 - 分岐する未来をもつ計算木上で性質を記述する時相論理
 - `AX`, `EF`, `AG` などの演算子を用い、モデル検査で広く使われる（→ [第9章: 論理学と形式的手法](../chapter-9/index.md), [第12章: 並行計算の理論](../chapter-12/index.md)）
@@ -144,6 +180,7 @@ layout: book
 
 ## D
 
+<a id="decidability"></a>
 **決定可能性（Decidability）**
 - ある問題に対してyes/noの答えを常に出力するアルゴリズムが存在する性質
 - 決定可能言語 = 再帰言語
@@ -167,6 +204,7 @@ layout: book
 - 最適部分構造を持つ問題に対する最適化手法
 - メモ化により重複計算を避ける
 
+<a id="distributed-snapshot"></a>
 **分散スナップショット（Distributed Snapshot）**
 - 分散システム全体の大域状態を、通常実行を停止せずに整合的に記録する手法
 - Chandy–Lamport アルゴリズムが代表例で、検査点取得やデバッグに用いられる（→ [第12章: 並行計算の理論](../chapter-12/index.md)）
@@ -189,10 +227,12 @@ layout: book
 - 長さ0の文字列、εまたはλで表記
 - すべての言語の部分集合
 
+<a id="empty-set"></a>
 **空集合（Empty Set）**
 - 要素を含まない集合、∅で表記
 - すべての集合の部分集合
 
+<a id="error-correcting-code"></a>
 **誤り訂正符号（Error-Correcting Code）**
 - 通信や記録で生じる誤りを検出・訂正できるよう冗長性を加えた符号
 - ハミング符号、Reed–Solomon 符号、LDPC 符号などが代表例（→ [第10章: 情報理論](../chapter-10/index.md)）
@@ -207,6 +247,7 @@ layout: book
 
 ## F
 
+<a id="finite-automaton"></a>
 **有限オートマトン（Finite Automaton）**
 - 有限個の状態を持つ計算装置
 - DFA（決定性）とNFA（非決定性）がある
@@ -215,6 +256,7 @@ layout: book
 - ある言語が表現するパターンを数学的に定義したもの
 - チョムスキー階層による分類
 
+<a id="fairness"></a>
 **公平性（Fairness）**
 - 並行実行やモデル検査で、ある操作やプロセスが不当に永遠に後回しにされないという仮定
 - ライブネス性の検証で必要となり、時相論理や検証アルゴリズムの前提条件として現れる（→ [第9章: 論理学と形式的手法](../chapter-9/index.md), [第12章: 並行計算の理論](../chapter-12/index.md)）
@@ -223,6 +265,7 @@ layout: book
 - 償却計算量の観点で merge や decrease-key を高速化したヒープ構造
 - ダイクストラ法や Prim 法の理論計算量改善で登場する（→ [第7章: データ構造の理論](../chapter-7/index.md)）
 
+<a id="function"></a>
 **関数（Function）**
 - 定義域の各要素を値域の要素に対応させる規則
 - \\(f: A \\to B\\) で表記
@@ -233,6 +276,7 @@ layout: book
 - 言語を生成するための規則の集合
 - G = (V, T, P, S)で定義（V: 非終端記号, T: 終端記号, P: 生成規則, S: 開始記号）
 
+<a id="graph"></a>
 **グラフ（Graph）**
 - 頂点（V）と辺（E）の集合 G = (V, E)
 - 有向グラフと無向グラフがある
@@ -248,10 +292,12 @@ layout: book
 
 ## H
 
+<a id="halting-problem"></a>
 **停止問題（Halting Problem）**
 - チューリング機械が与えられた入力で停止するかを判定する問題
 - 決定不可能問題の代表例
 
+<a id="hash-function"></a>
 **ハッシュ関数（Hash Function）**
 - 任意サイズのデータを固定サイズの値に写像する関数
 - データ構造では分散配置のために、暗号では改ざん検知や指紋のために使われる
@@ -266,10 +312,12 @@ layout: book
 - NP完全問題
 - NP完全性の文脈は第5章を参照（→ [第5章: 計算複雑性理論](../chapter-5/index.md)）
 
+<a id="hoare-logic"></a>
 **Hoare論理（Hoare Logic）**
 - `{P} C {Q}` の Hoare triple で、プログラム実行前後の性質を記述する体系
 - 部分正当性・全正当性・ループ不変量の議論の基盤になる（→ [第9章: 論理学と形式的手法](../chapter-9/index.md)）
 
+<a id="homomorphic-encryption"></a>
 **準同型暗号（Homomorphic Encryption）**
 - 暗号文のまま加算や乗算などの演算を行い、復号後に平文演算結果を得られる暗号方式
 - 秘匿計算やクラウド委託計算で重要であり、完全準同型暗号が代表例（→ [第11章: 暗号理論の数学的基礎](../chapter-11/index.md)）
@@ -321,14 +369,17 @@ layout: book
 - 符号語集合が有限体上の線形部分空間をなす誤り訂正符号
 - 生成行列・検査行列・最小距離で扱いやすく、符号理論の基本となる（→ [第10章: 情報理論](../chapter-10/index.md)）
 
+<a id="linearizability"></a>
 **線形化可能性（Linearizability）**
 - 並行オブジェクトの各操作が、呼出しと応答の間のどこか 1 点で瞬間的に効いたように見える正当性条件
 - 並行実装を逐次仕様へ還元して考えるための中心概念（→ [第12章: 並行計算の理論](../chapter-12/index.md)）
 
+<a id="ltl"></a>
 **線形時相論理（LTL, Linear Temporal Logic）**
 - 1 本の実行系列に沿って「常に」「いつか」などの時間的性質を記述する時相論理
 - モデル検査や反応システム仕様で使われ、CTL と並ぶ代表的形式体系である（→ [第9章: 論理学と形式的手法](../chapter-9/index.md), [第12章: 並行計算の理論](../chapter-12/index.md)）
 
+<a id="lock-free"></a>
 **ロックフリー（Lock-Free）**
 - 常に少なくとも 1 つのスレッドが有限ステップで前進できる進行保証
 - 並行データ構造で wait-free より弱く、blocking lock より強い保証として使われる（→ [第12章: 並行計算の理論](../chapter-12/index.md)）
