@@ -196,3 +196,37 @@ def test_build_purpose_shortlists_groups_entries_by_reader_goal() -> None:
     assert [entry.alt_text for entry in shortlists["例示図"]] == ["Dijkstra 法の逐次確定の例"]
     assert [entry.alt_text for entry in shortlists["比較図"]] == ["DPLL と CDCL の対比"]
     assert [entry.alt_text for entry in shortlists["手順/構成図"]] == ["AEAD の処理フロー"]
+
+
+def test_build_purpose_shortlists_does_not_fall_through_when_primary_bucket_is_full() -> None:
+    m = _load_generate_figure_guide()
+    entries = [
+        m.FigureEntry(
+            chapter_num=index + 1,
+            chapter_title=f"第{index + 1}章",
+            part_title="Part I: 数学的基礎",
+            section_title=f"{index + 1}.1 直観図の節",
+            role="直観図",
+            lead_text=f"直観図 {index + 1}",
+            alt_text=f"直観図 {index + 1}",
+            asset_path=f"assets/images/diagrams/sample_{index + 1}.svg",
+        )
+        for index in range(m.PURPOSE_SHORTLIST_LIMIT)
+    ]
+    overflow_entry = m.FigureEntry(
+        chapter_num=99,
+        chapter_title="第99章",
+        part_title="Part I: 数学的基礎",
+        section_title="99.1 直観図の節",
+        role="直観図",
+        lead_text="直観図だけで分類される項目",
+        alt_text="直観図の overflow 項目",
+        asset_path="assets/images/diagrams/sample_overflow.svg",
+    )
+
+    shortlists = m.build_purpose_shortlists(entries + [overflow_entry])
+
+    assert [entry.alt_text for entry in shortlists["直観図"]] == [f"直観図 {index + 1}" for index in range(m.PURPOSE_SHORTLIST_LIMIT)]
+    assert "直観図の overflow 項目" not in [entry.alt_text for entry in shortlists["例示図"]]
+    assert "直観図の overflow 項目" not in [entry.alt_text for entry in shortlists["比較図"]]
+    assert "直観図の overflow 項目" not in [entry.alt_text for entry in shortlists["手順/構成図"]]

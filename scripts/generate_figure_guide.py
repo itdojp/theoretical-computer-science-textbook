@@ -81,12 +81,12 @@ def build_purpose_shortlists(entries: list[FigureEntry]) -> dict[str, list[Figur
     shortlists = {purpose: [] for purpose in PURPOSE_ORDER}
 
     for entry in entries:
-        for purpose in PURPOSE_ORDER:
-            if len(shortlists[purpose]) >= PURPOSE_SHORTLIST_LIMIT:
-                continue
-            if matches_purpose(entry, purpose):
-                shortlists[purpose].append(entry)
-                break
+        matched_purpose = next((purpose for purpose in PURPOSE_ORDER if matches_purpose(entry, purpose)), None)
+        if matched_purpose is None:
+            continue
+        if len(shortlists[matched_purpose]) >= PURPOSE_SHORTLIST_LIMIT:
+            continue
+        shortlists[matched_purpose].append(entry)
 
     return shortlists
 

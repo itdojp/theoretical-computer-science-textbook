@@ -36,9 +36,9 @@ layout: book
 ### 例示図を見たいとき
 
 - [グラフ理論の基本例]({{ '/chapter-1/#151-グラフの定義' | relative_url }}) — 第1章 数学的基礎 / 節: 「1.5.1 グラフの定義」 / [SVG]({{ '/assets/images/diagrams/ch1_graph_examples_comprehensive.svg' | relative_url }})
-- [3-SAT → 頂点被覆 ガジェット例]({{ '/chapter-5/#実装課題' | relative_url }}) — 第5章 計算複雑性理論 / 節: 「実装課題」 / [SVG]({{ '/assets/images/diagrams/ch5_reduction_sat_to_vertex_cover_gadget.svg' | relative_url }})
 - [Dijkstraアルゴリズムの実行例]({{ '/chapter-8/#821-単一始点最短路' | relative_url }}) — 第8章 グラフ理論とネットワーク / 節: 「8.2.1 単一始点最短路」 / [SVG]({{ '/assets/images/diagrams/ch8_dijkstra_algorithm_execution.svg' | relative_url }})
 - [Dijkstra 法の逐次確定の例]({{ '/chapter-8/#dijkstraのアルゴリズム' | relative_url }}) — 第8章 グラフ理論とネットワーク / 節: 「Dijkstraのアルゴリズム」 / [SVG]({{ '/assets/images/diagrams/ch8_dijkstra_step_trace.svg' | relative_url }})
+- [最大フロー最小カットの例]({{ '/chapter-8/#841-最大フロー問題' | relative_url }}) — 第8章 グラフ理論とネットワーク / 節: 「8.4.1 最大フロー問題」 / [SVG]({{ '/assets/images/diagrams/ch8_maximum_flow_minimum_cut.svg' | relative_url }})
 
 ### 比較図を見たいとき
 
