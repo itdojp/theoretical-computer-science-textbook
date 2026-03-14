@@ -33,6 +33,8 @@ def test_render_markdown_lists_figures_with_role_and_links() -> None:
 
     assert "総図版数: 1" in rendered
     assert "Part I: 数学的基礎: 1 図" in rendered
+    assert "## 目的別ショートリスト" in rendered
+    assert "### 直観図を見たいとき" in rendered
     assert "[Thompson 構成法：段階図]({{ '/chapter-3/#32-正規言語と正規表現' | relative_url }})" in rendered
     assert "[SVG]({{ '/assets/images/diagrams/ch3_regex_to_nfa_thompson_steps.svg' | relative_url }})" in rendered
     assert "節: 「3.2 正規言語と正規表現」" in rendered
@@ -141,3 +143,90 @@ def test_main_check_passes_for_repository_files(monkeypatch) -> None:
     )
 
     assert m.main() == 0
+
+
+def test_build_purpose_shortlists_groups_entries_by_reader_goal() -> None:
+    m = _load_generate_figure_guide()
+    entries = [
+        m.FigureEntry(
+            chapter_num=3,
+            chapter_title="第3章 形式言語とオートマトン理論",
+            part_title="Part I: 数学的基礎",
+            section_title="3.2 有限オートマトン",
+            role="直観図",
+            lead_text="有限オートマトンの全体像",
+            alt_text="有限オートマトンの全体像",
+            asset_path="assets/images/diagrams/ch3_finite_automata_overview.svg",
+        ),
+        m.FigureEntry(
+            chapter_num=8,
+            chapter_title="第8章 グラフ理論とネットワーク",
+            part_title="Part III: 高度なトピック",
+            section_title="8.2 単一始点最短路",
+            role="例示図",
+            lead_text="Dijkstra の逐次確定",
+            alt_text="Dijkstra 法の逐次確定の例",
+            asset_path="assets/images/diagrams/ch8_dijkstra_step_trace.svg",
+        ),
+        m.FigureEntry(
+            chapter_num=9,
+            chapter_title="第9章 論理学と形式的手法",
+            part_title="Part III: 高度なトピック",
+            section_title="9.1 命題論理",
+            role="比較図",
+            lead_text="DPLL と CDCL の対比",
+            alt_text="DPLL と CDCL の対比",
+            asset_path="assets/images/diagrams/ch9_dpll_cdcl_side_by_side.svg",
+        ),
+        m.FigureEntry(
+            chapter_num=11,
+            chapter_title="第11章 暗号理論の数学的基礎",
+            part_title="Part IV: 応用理論",
+            section_title="11.2 共通鍵暗号",
+            role="構成図",
+            lead_text="AEAD の処理フロー",
+            alt_text="AEAD の処理フロー",
+            asset_path="assets/images/diagrams/ch11_aead_flow_overview.svg",
+        ),
+    ]
+
+    shortlists = m.build_purpose_shortlists(entries)
+
+    assert [entry.alt_text for entry in shortlists["直観図"]] == ["有限オートマトンの全体像"]
+    assert [entry.alt_text for entry in shortlists["例示図"]] == ["Dijkstra 法の逐次確定の例"]
+    assert [entry.alt_text for entry in shortlists["比較図"]] == ["DPLL と CDCL の対比"]
+    assert [entry.alt_text for entry in shortlists["手順/構成図"]] == ["AEAD の処理フロー"]
+
+
+def test_build_purpose_shortlists_does_not_fall_through_when_primary_bucket_is_full() -> None:
+    m = _load_generate_figure_guide()
+    entries = [
+        m.FigureEntry(
+            chapter_num=index + 1,
+            chapter_title=f"第{index + 1}章",
+            part_title="Part I: 数学的基礎",
+            section_title=f"{index + 1}.1 直観図の節",
+            role="直観図",
+            lead_text=f"直観図 {index + 1}",
+            alt_text=f"直観図 {index + 1}",
+            asset_path=f"assets/images/diagrams/sample_{index + 1}.svg",
+        )
+        for index in range(m.PURPOSE_SHORTLIST_LIMIT)
+    ]
+    overflow_entry = m.FigureEntry(
+        chapter_num=99,
+        chapter_title="第99章",
+        part_title="Part I: 数学的基礎",
+        section_title="99.1 直観図の節",
+        role="直観図",
+        lead_text="直観図だけで分類される項目",
+        alt_text="直観図の overflow 項目",
+        asset_path="assets/images/diagrams/sample_overflow.svg",
+    )
+
+    shortlists = m.build_purpose_shortlists(entries + [overflow_entry])
+
+    assert [entry.alt_text for entry in shortlists["直観図"]] == [f"直観図 {index + 1}" for index in range(m.PURPOSE_SHORTLIST_LIMIT)]
+    assert "直観図の overflow 項目" not in [entry.alt_text for entry in shortlists["例示図"]]
+    assert "直観図の overflow 項目" not in [entry.alt_text for entry in shortlists["比較図"]]
+    assert "直観図の overflow 項目" not in [entry.alt_text for entry in shortlists["手順/構成図"]]

@@ -40,6 +40,57 @@ class FigureEntry:
     asset_path: str
 
 
+PURPOSE_SHORTLIST_LIMIT = 4
+PURPOSE_ORDER = [
+    "直観図",
+    "例示図",
+    "比較図",
+    "手順/構成図",
+]
+
+
+def entry_text(entry: FigureEntry) -> str:
+    return " ".join(
+        part for part in [entry.role, entry.lead_text or "", entry.alt_text, entry.section_title] if part
+    )
+
+
+def matches_purpose(entry: FigureEntry, purpose: str) -> bool:
+    text = entry_text(entry)
+
+    if purpose == "直観図":
+        return entry.role == "直観図" or "直観" in text
+
+    if purpose == "例示図":
+        return entry.role == "例示図" or any(keyword in text for keyword in ["実行例", "逐次", "例", "トレース"])
+
+    if purpose == "比較図":
+        return entry.role == "比較図" or any(
+            keyword in text for keyword in ["比較", "対比", "包含関係", "階層", "種類", "違い"]
+        )
+
+    if purpose == "手順/構成図":
+        return entry.role in {"構成図", "模式図"} or any(
+            keyword in text for keyword in ["構成", "フロー", "流れ", "仕組み", "操作", "アルゴリズム", "受理方式"]
+        )
+
+    return False
+
+
+def build_purpose_shortlists(entries: list[FigureEntry]) -> dict[str, list[FigureEntry]]:
+    shortlists = {purpose: [] for purpose in PURPOSE_ORDER}
+
+    for entry in entries:
+        matched_purpose = next((purpose for purpose in PURPOSE_ORDER if matches_purpose(entry, purpose)), None)
+        if matched_purpose is None:
+            continue
+        if len(shortlists[matched_purpose]) >= PURPOSE_SHORTLIST_LIMIT:
+            continue
+        shortlists[matched_purpose].append(entry)
+
+    return shortlists
+
+
 def load_book_config(path: Path) -> dict:
     return json.loads(path.read_text(encoding="utf-8"))
 
@@ -186,6 +237,7 @@ def collect_figures(docs_root: Path, book_cfg: dict) -> list[FigureEntry]:
 
 def render_markdown(entries: list[FigureEntry]) -> str:
     total_figures = len(entries)
+    purpose_shortlists = build_purpose_shortlists(entries)
     part_order: list[str] = []
     part_counts: dict[str, int] = {}
     chapter_order: list[int] = []
@@ -228,12 +280,38 @@ def render_markdown(entries: list[FigureEntry]) -> str:
         "",
         "- **直観図**: 定義や証明を置き換えるものではなく、何が本質かを先に掴むための図です。",
         "- **例示図**: アルゴリズムの逐次実行、状態変化、構成の具体例を追うための図です。",
+        "- **比較図**: 複数の手法・クラス・見方の差分を見比べるための図です。",
+        "- **構成図 / 模式図**: 装置の構成や処理フローを順に追うための図です。",
         "- **図版**: 本文に明示ラベルがない図です。節名と alt テキストで文脈を補っています。",
         "",
+        "## 目的別ショートリスト",
+        "",
+        "図で詰まったときは、まず次の目的別ショートリストから近いものを開いてください。",
+        "",
+    ]
+
+    for purpose in PURPOSE_ORDER:
+        shortlist = purpose_shortlists[purpose]
+        if not shortlist:
+            continue
+
+        out.extend([f"### {purpose}を見たいとき", ""])
+        for entry in shortlist:
+            section_anchor = slugify_heading(entry.section_title)
+            chapter_link = "{{ '" + f"/chapter-{entry.chapter_num}/#{section_anchor}" + "' | relative_url }}"
+            svg_link = "{{ '" + f"/{entry.asset_path}" + "' | relative_url }}"
+            out.append(
+                f"- [{entry.alt_text}]({chapter_link}) — {entry.chapter_title} / 節: {format_quoted_text(entry.section_title)} / [SVG]({svg_link})"
+            )
+        out.append("")
+
+    out.extend(
+        [
         "## 図版サマリー",
         "",
         f"- 総図版数: {total_figures}",
-    ]
+        ]
+    )
 
     for part_title in part_order:
         out.append(f"- {part_title}: {part_counts[part_title]} 図")
