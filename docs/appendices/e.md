@@ -14,7 +14,23 @@ layout: book
 - **対応章**: 第1章〜第12章
 - **読み方**: 本文で扱ったモデルや制約を前提に読み、実務上の近似や追加仮定がどこで入るかを確認してください。
 
+## 章別クイックナビ
+
+- [第1章: 数学的基礎](#appendix-e-chapter-1)
+- [第2章: 計算理論の基礎](#appendix-e-chapter-2)
+- [第3章: 形式言語とオートマトン理論](#appendix-e-chapter-3)
+- [第4章: 計算可能性](#appendix-e-chapter-4)
+- [第5章: 計算複雑性理論](#appendix-e-chapter-5)
+- [第6章: アルゴリズムの数学的解析](#appendix-e-chapter-6)
+- [第7章: データ構造の理論](#appendix-e-chapter-7)
+- [第8章: グラフ理論とネットワーク](#appendix-e-chapter-8)
+- [第9章: 論理学・形式的手法](#appendix-e-chapter-9)
+- [第10章: 情報理論](#appendix-e-chapter-10)
+- [第11章: 暗号理論の数学的基礎](#appendix-e-chapter-11)
+- [第12章: 並行計算の理論](#appendix-e-chapter-12)
+
 ## 第1章: 数学的基礎
+{: #appendix-e-chapter-1 }
 
 ### 1.1 暗号システムでの数論
 
@@ -86,6 +102,7 @@ y_screen = f * y_world / z_world
 - VR/ARアプリケーション
 
 ## 第2章: 計算理論の基礎
+{: #appendix-e-chapter-2 }
 
 ### 2.1 コンパイラでのチューリング機械理論
 
@@ -132,6 +149,7 @@ istore_3     // 結果を変数3に格納
 - Docker等のコンテナ技術
 
 ## 第3章: 形式言語とオートマトン理論
+{: #appendix-e-chapter-3 }
 
 ### 3.1 文字列処理での正規表現
 
@@ -188,6 +206,7 @@ CLOSED → SYN_SENT → ESTABLISHED → FIN_WAIT → CLOSED
 - プロトコル適合性テスト
 
 ## 第4章: 計算可能性
+{: #appendix-e-chapter-4 }
 
 ### 4.1 プログラム検証での決定不可能性
 
@@ -226,6 +245,7 @@ if (halts(program, input)) {  // 停止問題
 - 安全クリティカルシステム
 
 ## 第5章: 計算複雑性理論
+{: #appendix-e-chapter-5 }
 
 ### 5.1 最適化問題での近似アルゴリズム
 
@@ -292,6 +312,7 @@ RSA暗号の安全性:
 - 量子耐性暗号の研究
 
 ## 第6章: アルゴリズムの数学的解析
+{: #appendix-e-chapter-6 }
 
 ### 6.1 検索エンジンでのアルゴリズム
 
@@ -360,6 +381,7 @@ struct Node {
 - パズルゲームソルバー
 
 ## 第7章: データ構造の理論
+{: #appendix-e-chapter-7 }
 
 ### 7.1 データベースでの索引構造
 
@@ -402,6 +424,7 @@ radix tree / compressed trie
 - 負荷分散システム
 
 ## 第8章: グラフ理論とネットワーク
+{: #appendix-e-chapter-8 }
 
 ### 8.1 ソーシャルネットワーク分析
 
@@ -468,6 +491,7 @@ Dijkstraアルゴリズムの実用実装:
 - インターネットバックボーン
 
 ## 第9章: 論理学・形式的手法
+{: #appendix-e-chapter-9 }
 
 ### 9.1 ソフトウェア検証
 
@@ -518,6 +542,7 @@ contract Token {
 - デジタルアイデンティティ
 
 ## 第10章: 情報理論
+{: #appendix-e-chapter-10 }
 
 ### 10.1 データ圧縮技術
 
@@ -606,6 +631,7 @@ def information_gain(parent, children):
 - 自然言語処理
 
 ## 第11章: 暗号理論の数学的基礎
+{: #appendix-e-chapter-11 }
 
 ### 11.1 ブロックチェーンでの暗号技術
 
@@ -660,6 +686,7 @@ Double Ratchet Algorithm:
 - 企業メッセージングシステム
 
 ## 第12章: 並行計算の理論
+{: #appendix-e-chapter-12 }
 
 ### 12.1 分散システムでの合意アルゴリズム
 
