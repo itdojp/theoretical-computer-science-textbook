@@ -48,6 +48,8 @@ permalink: /
   - [本書の目的と構成](introduction/purpose/)
   - [学習の進め方](introduction/learning-guide/)
   - [前提知識](introduction/prerequisites/)
+  - [オフライン版（PDF/EPUB）](downloads/)
+  - [フィードバック（誤植・改善提案）](introduction/feedback/)
 
 ## 前提知識
 
