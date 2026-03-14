@@ -14,7 +14,16 @@ layout: book
 - **対応章**: 第1章・第3章・第5章・第6章・第8章
 - **読み方**: 先に本文で「何が保証され、何が未保証か」を押さえてから読むと、実装上の省略と理論上の前提を切り分けやすくなります。
 
-## 第1章: 数学的基礎
+## 章別クイックナビ
+
+- [第1章: 数学的基礎](#appendix-b-chapter-1)
+- [第3章: 形式言語とオートマトン理論](#appendix-b-chapter-3)
+- [第5章: 計算複雑性理論](#appendix-b-chapter-5)
+- [第6章: アルゴリズムの数学的解析](#appendix-b-chapter-6)
+- [第8章: グラフ理論とネットワーク](#appendix-b-chapter-8)
+- [実行時間測定とベンチマーク](#appendix-b-benchmark)
+
+## 第1章: 数学的基礎 {#appendix-b-chapter-1}
 
 ### 1.1 最大公約数（ユークリッドアルゴリズム）
 
@@ -98,7 +107,7 @@ print(f"2^10 = {fast_power(2, 10)}")  # 1024
 print(f"2^10 mod 1000 = {fast_power(2, 10, 1000)}")  # 24
 ```
 
-## 第3章: 形式言語とオートマトン理論
+## 第3章: 形式言語とオートマトン理論 {#appendix-b-chapter-3}
 
 ### 3.1 有限オートマトンシミュレーター
 
@@ -210,7 +219,7 @@ class NonDeterministicFiniteAutomaton:
         return bool(current_states & self.accept_states)
 ```
 
-## 第5章: 計算複雑性理論
+## 第5章: 計算複雑性理論 {#appendix-b-chapter-5}
 
 ### 5.1 サブセット和問題（NP完全問題の例）
 
@@ -334,7 +343,7 @@ if satisfiable:
     print(f"Assignment: {assignment}")
 ```
 
-## 第6章: アルゴリズムの数学的解析
+## 第6章: アルゴリズムの数学的解析 {#appendix-b-chapter-6}
 
 ### 6.1 マージソート
 
@@ -501,7 +510,7 @@ print(f"LCS length: {lcs_length(X, Y)}")
 print(f"LCS: {lcs_sequence(X, Y)}")
 ```
 
-## 第8章: グラフ理論とネットワーク
+## 第8章: グラフ理論とネットワーク {#appendix-b-chapter-8}
 
 ### 8.1 深さ優先探索（DFS）
 
@@ -790,7 +799,7 @@ for vertex in sorted(distances.keys()):
         print(f"  A to {vertex}: {' -> '.join(path)} (distance: {distances[vertex]})")
 ```
 
-## 実行時間測定とベンチマーク
+## 実行時間測定とベンチマーク {#appendix-b-benchmark}
 
 ```python
 import time
