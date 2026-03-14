@@ -29,8 +29,7 @@ layout: book
 - [第11章: 暗号理論の数学的基礎](#appendix-e-chapter-11)
 - [第12章: 並行計算の理論](#appendix-e-chapter-12)
 
-## 第1章: 数学的基礎
-{: #appendix-e-chapter-1 }
+## 第1章: 数学的基礎 {#appendix-e-chapter-1}
 
 ### 1.1 暗号システムでの数論
 
@@ -101,8 +100,7 @@ y_screen = f * y_world / z_world
 - 映画のCG制作
 - VR/ARアプリケーション
 
-## 第2章: 計算理論の基礎
-{: #appendix-e-chapter-2 }
+## 第2章: 計算理論の基礎 {#appendix-e-chapter-2}
 
 ### 2.1 コンパイラでのチューリング機械理論
 
@@ -148,8 +146,7 @@ istore_3     // 結果を変数3に格納
 - WebAssembly
 - Docker等のコンテナ技術
 
-## 第3章: 形式言語とオートマトン理論
-{: #appendix-e-chapter-3 }
+## 第3章: 形式言語とオートマトン理論 {#appendix-e-chapter-3}
 
 ### 3.1 文字列処理での正規表現
 
@@ -205,8 +202,7 @@ CLOSED → SYN_SENT → ESTABLISHED → FIN_WAIT → CLOSED
 - 侵入検知システム
 - プロトコル適合性テスト
 
-## 第4章: 計算可能性
-{: #appendix-e-chapter-4 }
+## 第4章: 計算可能性 {#appendix-e-chapter-4}
 
 ### 4.1 プログラム検証での決定不可能性
 
@@ -244,8 +240,7 @@ if (halts(program, input)) {  // 停止問題
 - 形式検証
 - 安全クリティカルシステム
 
-## 第5章: 計算複雑性理論
-{: #appendix-e-chapter-5 }
+## 第5章: 計算複雑性理論 {#appendix-e-chapter-5}
 
 ### 5.1 最適化問題での近似アルゴリズム
 
@@ -311,8 +306,7 @@ RSA暗号の安全性:
 - ブロックチェーン（Bitcoin, Ethereum）
 - 量子耐性暗号の研究
 
-## 第6章: アルゴリズムの数学的解析
-{: #appendix-e-chapter-6 }
+## 第6章: アルゴリズムの数学的解析 {#appendix-e-chapter-6}
 
 ### 6.1 検索エンジンでのアルゴリズム
 
@@ -380,8 +374,7 @@ struct Node {
 - 自動運転ナビゲーション
 - パズルゲームソルバー
 
-## 第7章: データ構造の理論
-{: #appendix-e-chapter-7 }
+## 第7章: データ構造の理論 {#appendix-e-chapter-7}
 
 ### 7.1 データベースでの索引構造
 
@@ -423,8 +416,7 @@ radix tree / compressed trie
 - ファイアウォール
 - 負荷分散システム
 
-## 第8章: グラフ理論とネットワーク
-{: #appendix-e-chapter-8 }
+## 第8章: グラフ理論とネットワーク {#appendix-e-chapter-8}
 
 ### 8.1 ソーシャルネットワーク分析
 
@@ -490,8 +482,7 @@ Dijkstraアルゴリズムの実用実装:
 - 水道管網の設計
 - インターネットバックボーン
 
-## 第9章: 論理学・形式的手法
-{: #appendix-e-chapter-9 }
+## 第9章: 論理学・形式的手法 {#appendix-e-chapter-9}
 
 ### 9.1 ソフトウェア検証
 
@@ -541,8 +532,7 @@ contract Token {
 - 供給チェーン管理
 - デジタルアイデンティティ
 
-## 第10章: 情報理論
-{: #appendix-e-chapter-10 }
+## 第10章: 情報理論 {#appendix-e-chapter-10}
 
 ### 10.1 データ圧縮技術
 
@@ -630,8 +620,7 @@ def information_gain(parent, children):
 - データマイニング
 - 自然言語処理
 
-## 第11章: 暗号理論の数学的基礎
-{: #appendix-e-chapter-11 }
+## 第11章: 暗号理論の数学的基礎 {#appendix-e-chapter-11}
 
 ### 11.1 ブロックチェーンでの暗号技術
 
@@ -685,8 +674,7 @@ Double Ratchet Algorithm:
 - Facebook Messenger（Secret Conversations）
 - 企業メッセージングシステム
 
-## 第12章: 並行計算の理論
-{: #appendix-e-chapter-12 }
+## 第12章: 並行計算の理論 {#appendix-e-chapter-12}
 
 ### 12.1 分散システムでの合意アルゴリズム
 
