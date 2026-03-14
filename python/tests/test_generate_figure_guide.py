@@ -39,6 +39,8 @@ def test_render_markdown_lists_figures_with_role_and_links() -> None:
     assert "[SVG]({{ '/assets/images/diagrams/ch3_regex_to_nfa_thompson_steps.svg' | relative_url }})" in rendered
     assert "節: 「3.2 正規言語と正規表現」" in rendered
     assert "本文ラベル: 「Thompson 構成の各規則」" in rendered
+    assert "図だけを拡大して見たいときは SVG リンク" in rendered
+    assert "scripts/generate_figure_guide.py" not in rendered
     assert "`Thompson 構成の各規則`" not in rendered
 
 

@@ -21,6 +21,7 @@
 - `src/` は同期ミラーです。本文を編集したら、対応する `src/` 側も同内容に保ってください。
 - 図表は主に `docs/assets/images/diagrams/` にあります。
 - 生成スクリプトは `scripts/` にあります。
+- 付録H（図版ガイド）は `python3 scripts/generate_figure_guide.py` の生成物です。
 
 ### 読者向け導線との切り分け
 
