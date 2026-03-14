@@ -195,6 +195,17 @@
                                 </ul>
                             </div>
                             {% endif %}
+                            {% if page.chapter %}
+                            <div class="chapter-profile-links">
+                                <p class="chapter-profile-topics-label">戻り先</p>
+                                <div class="chapter-profile-link-list">
+                                    <a class="chapter-profile-link" href="{{ '/appendices/a/' | relative_url }}">付録A: 記法</a>
+                                    <a class="chapter-profile-link" href="{{ '/appendices/c/' | relative_url }}#ex-sol-ch{{ page.chapter }}">付録C: 解答</a>
+                                    <a class="chapter-profile-link" href="{{ '/appendices/d/' | relative_url }}">付録D: 用語</a>
+                                    <a class="chapter-profile-link" href="{{ '/appendices/f/' | relative_url }}#learning-check-ch{{ page.chapter }}">付録F: 進捗</a>
+                                </div>
+                            </div>
+                            {% endif %}
                         </section>
                         {% endcapture %}
                         {% assign h1_close = '</h1>' %}

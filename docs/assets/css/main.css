@@ -471,6 +471,34 @@ a:hover {
     line-height: 1.4;
 }
 
+.chapter-profile-links {
+    margin-top: 1rem;
+}
+
+.chapter-profile-link-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.chapter-profile-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.45rem 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 0.875rem;
+    text-decoration: none;
+}
+
+.chapter-profile-link:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
 /* Content Elements */
 .page-content img,
 .page-content svg,
@@ -657,6 +685,11 @@ a:hover {
 
     .chapter-profile-grid {
         grid-template-columns: 1fr;
+    }
+
+    .chapter-profile-link {
+        width: 100%;
+        justify-content: center;
     }
     
     .header-center {
