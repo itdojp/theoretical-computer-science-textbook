@@ -145,7 +145,65 @@
 
                 <!-- Page Content -->
                 <article class="page-content">
-                    {{ content }}
+                    {% assign has_sections = false %}
+                    {% if page.sections != nil and page.sections != empty %}
+                        {% assign has_sections = true %}
+                    {% endif %}
+                    {% assign has_chapter_profile = false %}
+                    {% if page.chapter %}
+                        {% if page.estimated_time or page.difficulty or has_sections %}
+                            {% assign has_chapter_profile = true %}
+                        {% endif %}
+                    {% endif %}
+
+                    {% if has_chapter_profile %}
+                        {% capture chapter_profile_html %}
+                        <section class="chapter-profile" aria-labelledby="chapter-profile-heading">
+                            <div class="chapter-profile-head">
+                                <p class="chapter-profile-eyebrow" id="chapter-profile-heading">章プロフィール</p>
+                                {% if page.subtitle %}
+                                <p class="chapter-profile-subtitle">{{ page.subtitle | escape }}</p>
+                                {% endif %}
+                            </div>
+                            <div class="chapter-profile-grid">
+                                {% if page.estimated_time %}
+                                <div class="chapter-profile-item">
+                                    <span class="chapter-profile-label">読了目安</span>
+                                    <span class="chapter-profile-value">{{ page.estimated_time | escape }}</span>
+                                </div>
+                                {% endif %}
+                                {% if page.difficulty %}
+                                <div class="chapter-profile-item">
+                                    <span class="chapter-profile-label">難易度</span>
+                                    <span class="chapter-profile-value">{{ page.difficulty | escape }}</span>
+                                </div>
+                                {% endif %}
+                                {% if has_sections %}
+                                <div class="chapter-profile-item">
+                                    <span class="chapter-profile-label">章構成</span>
+                                    <span class="chapter-profile-value">{{ page.sections | size }}節</span>
+                                </div>
+                                {% endif %}
+                            </div>
+                            {% if has_sections %}
+                            <div class="chapter-profile-topics">
+                                <p class="chapter-profile-topics-label">主要トピック</p>
+                                <ul class="chapter-profile-sections">
+                                    {% for section in page.sections %}
+                                    <li>{{ section | escape }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            {% endif %}
+                        </section>
+                        {% endcapture %}
+                        {% assign h1_close = '</h1>' %}
+                        {% assign chapter_profile_replacement = h1_close | append: chapter_profile_html %}
+                        {% assign content_with_profile = content | replace_first: h1_close, chapter_profile_replacement %}
+                        {{ content_with_profile }}
+                    {% else %}
+                        {{ content }}
+                    {% endif %}
                 </article>
 
                 <!-- Navigation -->

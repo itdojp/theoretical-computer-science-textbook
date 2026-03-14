@@ -4,6 +4,17 @@ title: "第5章 計算複雑性理論"
 subtitle: "P対NPとNP完全性"
 description: "計算資源の観点から問題の困難さを分析"
 chapter: 5
+estimated_time: "5〜6週間"
+difficulty: "★★★★"
+sections:
+  - "時間複雑性"
+  - "非決定性と NP"
+  - "P vs NP 問題"
+  - "空間複雑性"
+  - "多項式階層"
+  - "確率的計算クラス"
+  - "回路複雑性"
+  - "対話型証明系"
 ---
 
 # 第5章 計算複雑性理論

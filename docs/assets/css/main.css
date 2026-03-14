@@ -394,6 +394,83 @@ a:hover {
     -webkit-overflow-scrolling: touch;
 }
 
+.chapter-profile {
+    margin: 1.5rem 0 2rem;
+    padding: 1.25rem 1.5rem;
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--primary-color);
+    border-radius: 12px;
+    background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+    box-shadow: var(--shadow-sm);
+}
+
+.chapter-profile-head {
+    margin-bottom: 1rem;
+}
+
+.chapter-profile-eyebrow,
+.chapter-profile-topics-label {
+    margin: 0 0 0.35rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+}
+
+.chapter-profile-subtitle {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+.chapter-profile-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.chapter-profile-item {
+    padding: 0.875rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    background: var(--bg-primary);
+}
+
+.chapter-profile-label {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.chapter-profile-value {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.chapter-profile-sections {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.chapter-profile-sections li {
+    padding: 0.35rem 0.7rem;
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    font-size: 0.875rem;
+    line-height: 1.4;
+}
+
 /* Content Elements */
 .page-content img,
 .page-content svg,
@@ -571,6 +648,15 @@ a:hover {
     
     .page-content {
         padding: 1.5rem;
+    }
+
+    .chapter-profile {
+        margin: 1rem 0 1.5rem;
+        padding: 1rem;
+    }
+
+    .chapter-profile-grid {
+        grid-template-columns: 1fr;
     }
     
     .header-center {
