@@ -18,7 +18,41 @@ layout: book
 
 - **直観図**: 定義や証明を置き換えるものではなく、何が本質かを先に掴むための図です。
 - **例示図**: アルゴリズムの逐次実行、状態変化、構成の具体例を追うための図です。
+- **比較図**: 複数の手法・クラス・見方の差分を見比べるための図です。
+- **構成図 / 模式図**: 装置の構成や処理フローを順に追うための図です。
 - **図版**: 本文に明示ラベルがない図です。節名と alt テキストで文脈を補っています。
+
+## 目的別ショートリスト
+
+図で詰まったときは、まず次の目的別ショートリストから近いものを開いてください。
+
+### 直観図を見たいとき
+
+- [Thompson 構成法：段階図]({{ '/chapter-3/#332-正規表現からnfaへの変換プロセス' | relative_url }}) — 第3章 形式言語とオートマトン理論 / 節: 「3.3.2 正規表現からNFAへの変換プロセス」 / [SVG]({{ '/assets/images/diagrams/ch3_regex_to_nfa_thompson_steps.svg' | relative_url }})
+- [PDA のスタック操作（括弧整合）]({{ '/chapter-3/#36-プッシュダウンオートマトン' | relative_url }}) — 第3章 形式言語とオートマトン理論 / 節: 「3.6 プッシュダウンオートマトン」 / [SVG]({{ '/assets/images/diagrams/ch3_pda_stack_operation.svg' | relative_url }})
+- [PDAの受理方式]({{ '/chapter-3/#362-pdaの受理方式' | relative_url }}) — 第3章 形式言語とオートマトン理論 / 節: 「3.6.2 PDAの受理方式」 / [SVG]({{ '/assets/images/diagrams/ch3_pda_acceptance_modes.svg' | relative_url }})
+- [Big-O 成長率の比較]({{ '/chapter-5/#512-漸近記法' | relative_url }}) — 第5章 計算複雑性理論 / 節: 「5.1.2 漸近記法」 / [SVG]({{ '/assets/images/diagrams/ch5_big_o_growth_curves.svg' | relative_url }})
+
+### 例示図を見たいとき
+
+- [グラフ理論の基本例]({{ '/chapter-1/#151-グラフの定義' | relative_url }}) — 第1章 数学的基礎 / 節: 「1.5.1 グラフの定義」 / [SVG]({{ '/assets/images/diagrams/ch1_graph_examples_comprehensive.svg' | relative_url }})
+- [3-SAT → 頂点被覆 ガジェット例]({{ '/chapter-5/#実装課題' | relative_url }}) — 第5章 計算複雑性理論 / 節: 「実装課題」 / [SVG]({{ '/assets/images/diagrams/ch5_reduction_sat_to_vertex_cover_gadget.svg' | relative_url }})
+- [Dijkstraアルゴリズムの実行例]({{ '/chapter-8/#821-単一始点最短路' | relative_url }}) — 第8章 グラフ理論とネットワーク / 節: 「8.2.1 単一始点最短路」 / [SVG]({{ '/assets/images/diagrams/ch8_dijkstra_algorithm_execution.svg' | relative_url }})
+- [Dijkstra 法の逐次確定の例]({{ '/chapter-8/#dijkstraのアルゴリズム' | relative_url }}) — 第8章 グラフ理論とネットワーク / 節: 「Dijkstraのアルゴリズム」 / [SVG]({{ '/assets/images/diagrams/ch8_dijkstra_step_trace.svg' | relative_url }})
+
+### 比較図を見たいとき
+
+- [計算可能性の概念と階層]({{ '/chapter-2/#22-計算可能性' | relative_url }}) — 第2章 計算理論の基礎 / 節: 「2.2 計算可能性」 / [SVG]({{ '/assets/images/diagrams/ch2_computability_hierarchy.svg' | relative_url }})
+- [決定可能性の階層構造]({{ '/chapter-2/#23-決定可能性' | relative_url }}) — 第2章 計算理論の基礎 / 節: 「2.3 決定可能性」 / [SVG]({{ '/assets/images/diagrams/ch2_decidability_hierarchy.svg' | relative_url }})
+- [有限オートマトンの種類と特徴]({{ '/chapter-3/#32-有限オートマトン' | relative_url }}) — 第3章 形式言語とオートマトン理論 / 節: 「3.2 有限オートマトン」 / [SVG]({{ '/assets/images/diagrams/ch3_finite_automata_overview.svg' | relative_url }})
+- [言語クラスの階層構造]({{ '/chapter-4/#431-言語クラスの包含関係' | relative_url }}) — 第4章 計算可能性理論 / 節: 「4.3.1 言語クラスの包含関係」 / [SVG]({{ '/assets/images/diagrams/ch4_language_class_hierarchy.svg' | relative_url }})
+
+### 手順/構成図を見たいとき
+
+- [チューリング機械の構成要素]({{ '/chapter-2/#212-チューリング機械の形式的定義' | relative_url }}) — 第2章 計算理論の基礎 / 節: 「2.1.2 チューリング機械の形式的定義」 / [SVG]({{ '/assets/images/diagrams/ch2_turing_machine_components.svg' | relative_url }})
+- [チューリング機械の構成]({{ '/chapter-2/#213-チューリング機械の構成と計算' | relative_url }}) — 第2章 計算理論の基礎 / 節: 「2.1.3 チューリング機械の構成と計算」 / [SVG]({{ '/assets/images/diagrams/ch2_turing_machine_configuration.svg' | relative_url }})
+- [万能チューリング機械の構成と意義]({{ '/chapter-2/#25-万能チューリング機械' | relative_url }}) — 第2章 計算理論の基礎 / 節: 「2.5 万能チューリング機械」 / [SVG]({{ '/assets/images/diagrams/ch2_universal_turing_machine.svg' | relative_url }})
+- [多対一還元の仕組み]({{ '/chapter-4/#421-多対一還元' | relative_url }}) — 第4章 計算可能性理論 / 節: 「4.2.1 多対一還元」 / [SVG]({{ '/assets/images/diagrams/ch4_many_one_reduction.svg' | relative_url }})
 
 ## 図版サマリー
 
