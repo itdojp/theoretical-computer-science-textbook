@@ -14,6 +14,11 @@ layout: book
 - **概念から探したいとき**: 次の「概念別クイックナビ」から近い話題群を選び、主要語へ移動してください。
 - **記号から探したいとき**: 本文末の「記号索引」を使って、論理・集合・複雑性・形式言語・関数・グラフの記号を引いてください。
 
+## A-Z クイックナビ
+
+- [A](#appendix-d-a) [B](#appendix-d-b) [C](#appendix-d-c) [D](#appendix-d-d) [E](#appendix-d-e) [F](#appendix-d-f) [G](#appendix-d-g) [H](#appendix-d-h) [I](#appendix-d-i) [J](#appendix-d-j) [K](#appendix-d-k) [L](#appendix-d-l) [M](#appendix-d-m)
+- [N](#appendix-d-n) [O](#appendix-d-o) [P](#appendix-d-p) [Q](#appendix-d-q) [R](#appendix-d-r) [S](#appendix-d-s) [T](#appendix-d-t) [U](#appendix-d-u) [V](#appendix-d-v) [W](#appendix-d-w) [X](#appendix-d-x) [Y](#appendix-d-y) [Z](#appendix-d-z) [記号索引](#appendix-d-symbols)
+
 ## 概念別クイックナビ
 
 - **数学的基礎と証明**: [空集合](#empty-set), [関数](#function), [背理法](#proof-by-contradiction)
@@ -26,7 +31,7 @@ layout: book
 - **暗号**: [認証付き暗号](#authenticated-encryption), [準同型暗号](#homomorphic-encryption), [ハッシュ関数](#hash-function)
 - **並行・分散**: [Compare-and-Swap](#cas), [ABA問題](#aba-problem), [合意問題](#consensus-problem), [ビザンチン故障](#byzantine-fault), [分散スナップショット](#distributed-snapshot), [公平性](#fairness), [線形化可能性](#linearizability), [ロックフリー](#lock-free)
 
-## A
+## A {#appendix-d-a}
 
 <a id="algorithm"></a>
 **アルゴリズム (Algorithm)**
@@ -75,7 +80,7 @@ layout: book
 - 残余グラフ G_f における s から t へのパスで、各辺に正の残余容量があるもの
 - 見つかった場合、そのボトルネック残余容量だけフローを増やせる（→ [第8章: ネットワークフロー](../chapter-8/index.md)）
 
-## B
+## B {#appendix-d-b}
 
 **ビッグオー記法（Big-O Notation）**
 - 関数の上界を表す漸近記法
@@ -117,7 +122,7 @@ layout: book
 - 証明したい命題の否定を仮定し、矛盾を導く証明技法
 - 決定不可能性の証明によく使用される
 
-## C
+## C {#appendix-d-c}
 
 <a id="turing-machine"></a>
 **チューリング機械 (Turing Machine)**
@@ -178,7 +183,7 @@ layout: book
 - カット容量 c(S,T) = ∑_{u∈S, v∈T} c(u,v)
 - 最大フロー最小カット定理（→ [第8章: ネットワークフロー](../chapter-8/index.md)）
 
-## D
+## D {#appendix-d-d}
 
 <a id="decidability"></a>
 **決定可能性（Decidability）**
@@ -221,7 +226,7 @@ layout: book
 **非年代戻り（Non-chronological Backtracking）**
 - CDCLで、直前の分岐に限らず原因レベルまで戻るバックトラック戦略
 
-## E
+## E {#appendix-d-e}
 
 **空文字列（Empty String）**
 - 長さ0の文字列、εまたはλで表記
@@ -245,7 +250,7 @@ layout: book
 - 実行時間がO(2^n)等の指数関数となるアルゴリズム
 - 多くのNP完全問題の既知最良解法
 
-## F
+## F {#appendix-d-f}
 
 <a id="finite-automaton"></a>
 **有限オートマトン（Finite Automaton）**
@@ -270,7 +275,7 @@ layout: book
 - 定義域の各要素を値域の要素に対応させる規則
 - \\(f: A \\to B\\) で表記
 
-## G
+## G {#appendix-d-g}
 
 **文法（Grammar）**
 - 言語を生成するための規則の集合
@@ -290,7 +295,7 @@ layout: book
 - 2つの整数の共通約数の最大値
 - ユークリッドアルゴリズムで効率的に計算
 
-## H
+## H {#appendix-d-h}
 
 <a id="halting-problem"></a>
 **停止問題（Halting Problem）**
@@ -322,7 +327,7 @@ layout: book
 - 暗号文のまま加算や乗算などの演算を行い、復号後に平文演算結果を得られる暗号方式
 - 秘匿計算やクラウド委託計算で重要であり、完全準同型暗号が代表例（→ [第11章: 暗号理論の数学的基礎](../chapter-11/index.md)）
 
-## I
+## I {#appendix-d-i}
 
 **帰納法（Induction）**
 - 数学的帰納法: P(1) ∧ ∀k(P(k) → P(k+1)) → ∀n P(n)
@@ -341,13 +346,13 @@ layout: book
 - 確率変数 X と Y の情報共有量：\\(I(X;Y) = H(X) + H(Y) - H(X,Y) = H(X) - H(X \mid Y)\\)
 - 情報源・通信路の依存関係や特徴量選択の評価に用いる（→ [第10章: 情報理論](../chapter-10/index.md)）
 
-## J
+## J {#appendix-d-j}
 
 **結合 (Join)**
 - グラフ理論: 2つの頂点を結ぶ操作
 - データベース: テーブル間の結合操作
 
-## K
+## K {#appendix-d-k}
 
 **Kleene閉包 (Kleene Closure)**
 - 言語 L に対して \\(L^{\ast} = L^0 \\cup L^1 \\cup L^2 \\cup \\cdots\\)
@@ -358,7 +363,7 @@ layout: book
 - 一意復号可能符号の符号長 \\(l_1, \\ldots, l_n\\) に対し \\(\\sum D^{-l_i} \\le 1\\)（\\(D\\) は符号アルファベットの基数）
 - 逆に、この不等式を満たす長さの組から瞬時符号の構成が可能（→ [第10章: 情報理論](../chapter-10/index.md)）
 
-## L
+## L {#appendix-d-l}
 
 **言語 (Language)**
 - アルファベット上の文字列の集合
@@ -405,7 +410,7 @@ layout: book
 - 残余グラフ上で s からの BFS 距離で層を分け、距離が1増える辺のみを残したグラフ
 - Dinic のアルゴリズムでブロッキングフローを見つけるために用いる（→ [第8章: ネットワークフロー](../chapter-8/index.md)）
 
-## M
+## M {#appendix-d-m}
 
 **Master定理 (Master Theorem)**
 - 分割統治アルゴリズムの漸化式を解く定理
@@ -439,7 +444,7 @@ layout: book
 - 言語が正規であることと、右合同関係の同値類が有限であることが同値だと述べる定理
 - DFA 最小化や非正規性の証明で中心的に使われる（→ [第3章: 形式言語とオートマトン理論](../chapter-3/index.md)）
 
-## N
+## N {#appendix-d-n}
 
 **非決定性 (Nondeterminism)**
 - 複数の計算経路が可能な計算モデル
@@ -454,7 +459,7 @@ layout: book
 - 各状態・入力記号の組に対して複数の遷移先を持てるFA
 - DFAと同等の認識能力
 
-## O
+## O {#appendix-d-o}
 
 **オラクル (Oracle)**
 - ある問題を1ステップで解ける仮想的装置
@@ -468,7 +473,7 @@ layout: book
 - 制約の下で目的関数を最小化/最大化する問題
 - 決定問題の対比概念
 
-## P
+## P {#appendix-d-p}
 
 **多項式時間 (Polynomial Time)**
 - 実行時間がO(n^k)（kは定数）のアルゴリズム
@@ -511,7 +516,7 @@ layout: book
 - どの符号語も他の符号語の接頭辞でない符号（瞬時復号可能）
 - クラフト–マクミランの不等式を満たす長さから構成可能（→ [第10章: 情報理論](../chapter-10/index.md)）
 
-## Q
+## Q {#appendix-d-q}
 
 **クイックソート (Quicksort)**
 - 分割統治による効率的ソートアルゴリズム
@@ -521,7 +526,7 @@ layout: book
 - FIFO（先入れ先出し）データ構造
 - 幅優先探索で使用
 
-## R
+## R {#appendix-d-r}
 
 **還元 (Reduction)**
 - ある問題を別の問題に変換すること
@@ -568,7 +573,7 @@ layout: book
 - 残余グラフ G_f の辺 (u,v) における利用可能容量 c_f(u,v)
 - 順方向は未使用の余地、逆方向は既存フローの巻き戻し余地を表す
 
-## S
+## S {#appendix-d-s}
 
 **SAT問題 (Satisfiability Problem)**
 - 論理式が充足可能かを判定する問題
@@ -614,7 +619,7 @@ layout: book
 - 値域のすべての要素が像に含まれる関数
 - ∀b ∈ B, ∃a ∈ A, f(a) = b
 
-## T
+## T {#appendix-d-t}
 
 **時間複雑性 (Time Complexity)**
 - アルゴリズムの実行時間の解析
@@ -636,7 +641,7 @@ layout: book
 - サイクルのない連結グラフ
 - データ構造、探索アルゴリズムで重要
 
-## U
+## U {#appendix-d-u}
 
 **和集合 (Union)**
 - 2つの集合のいずれかに属する要素の集合
@@ -650,7 +655,7 @@ layout: book
 - 単射かつ全射の関数
 - 一対一対応
 
-## V
+## V {#appendix-d-v}
 
 **検証器 (Verifier)**
 - 解候補の正当性を確認するアルゴリズム
@@ -660,7 +665,7 @@ layout: book
 - グラフのすべての辺を被覆する頂点集合
 - NP完全問題
 
-## W
+## W {#appendix-d-w}
 
 **最悪時間複雑性 (Worst-Case Time Complexity)**
 - すべての入力に対する実行時間の上界
@@ -674,17 +679,17 @@ layout: book
 - すべてのスレッドが有限ステップで自分の操作を完了できる進行保証
 - lock-free より強い保証であり、高競合下でも starvation を避けたい設計で重要（→ [第12章: 並行計算の理論](../chapter-12/index.md)）
 
-## X
+## X {#appendix-d-x}
 
 **XOR演算 (XOR Operation)**
 - 排他的論理和、⊕記号で表記
 - P ⊕ Q は P と Q の真偽値が異なるときのみ真
 
-## Y
+## Y {#appendix-d-y}
 
 **なし**
 
-## Z
+## Z {#appendix-d-z}
 
 **ゼロ知識証明 (Zero-Knowledge Proof)**
 - 知識を明かすことなく知識の保有を証明する手法
@@ -693,7 +698,7 @@ layout: book
 
 ---
 
-## 記号索引
+## 記号索引 {#appendix-d-symbols}
 
 ### 論理記号
 - ∧ (AND): 論理積
