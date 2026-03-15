@@ -7,7 +7,7 @@ title: "オフライン版（PDF/EPUB）"
 
 このページは、本書を Web 以外で読みたい読者向けに、**現在提供しているもの** と **まだ提供していないもの** を整理するための案内です。
 
-## クイックナビ
+## クイックナビ {#downloads-quick-nav}
 
 - [現在の提供状況](#downloads-current)
 - [読者向けの案内](#downloads-reader)
