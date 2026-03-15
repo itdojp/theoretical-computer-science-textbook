@@ -7,7 +7,28 @@ layout: book
 
 本書で使用する数学記法の統一ガイドです。理論計算機科学で一般的に使用される記法に準拠しています。
 
-## 表記規約（Notation）
+## この付録の使い方
+
+- **向いている読者**: 本文や練習問題で記号の意味・書き方・Markdown 上の注意を引き直したい読者
+- **使うタイミング**: 定義や証明を読んでいて、記号の意味や表記ルールに迷ったとき
+- **読み方**: まず `クイックナビ` から該当分野へ移動し、必要なら `表記規約` と `使用上の注意` で Markdown / 数式の書き分けを確認してください。
+
+## クイックナビ
+
+- [表記規約（Notation）](#appendix-a-notation)
+- [集合論記号](#appendix-a-set)
+- [論理記号](#appendix-a-logic)
+- [関数記法](#appendix-a-functions)
+- [数と数列](#appendix-a-numbers)
+- [漸近記法（Big-O記法）](#appendix-a-asymptotic)
+- [グラフ理論記法](#appendix-a-graph)
+- [形式言語記法](#appendix-a-formal-language)
+- [複雑性理論記法](#appendix-a-complexity)
+- [証明記法](#appendix-a-proof)
+- [特殊記号](#appendix-a-special)
+- [使用上の注意](#appendix-a-usage-notes)
+
+## 表記規約（Notation） {#appendix-a-notation}
 
 本書では、Markdown の解釈（`|` や `*`）による記号の欠落・意味変化を避けるため、数式・集合表記を次の規約で統一します。
 
@@ -23,7 +44,7 @@ layout: book
 - 文字列への拡張も `^{\ast}` を用いる（例：`\\(C^{\ast}: X^{\ast} \\to D^{\ast}\\)`。`C*`/`X*`/`D*` の直書きはしない）
 - 正規表現：本文中は原則インラインコードで表記する（例：`` `^[0-9]+$` ``）
 
-## 集合論記号
+## 集合論記号 {#appendix-a-set}
 
 ### 基本記号
 
@@ -54,7 +75,7 @@ layout: book
 - Kleene 星（`*`）は Markdown の強調と衝突しうるため、`\(\Sigma^{\ast}\)` のように数式中で表記し、正規表現はインラインコードに統一します。
 - 本文（数式でない部分）の減算は原則として `−`（U+2212）を用い、両側に半角スペースを入れます（例: `n − 1`）。コードや疑似コード内では `-` を用います。
 
-## 論理記号
+## 論理記号 {#appendix-a-logic}
 
 ### 命題論理
 
@@ -76,7 +97,7 @@ layout: book
 | ∃ | 存在する | 存在量詞 | \\(\\exists x \\in A,\\ P(x)\\) |
 | ∃! | 唯一存在する | 一意存在量詞 | \\(\\exists! x \\in A,\\ P(x)\\) |
 
-## 関数記法
+## 関数記法 {#appendix-a-functions}
 
 ### 基本記法
 
@@ -97,7 +118,7 @@ layout: book
 | 全射（surjection） | ∀b ∈ B, ∃a ∈ A, f(a) = b | すべての出力が使われる |
 | 全単射（bijection） | 単射かつ全射 | 一対一対応 |
 
-## 数と数列
+## 数と数列 {#appendix-a-numbers}
 
 ### 数集合
 
@@ -122,7 +143,7 @@ layout: book
 | n! | nの階乗 | 5! = 120 |
 | \\(\\binom{n}{k}\\) | 二項係数 | \\(\\binom{5}{2} = 10\\) |
 
-## 漸近記法（Big-O記法）
+## 漸近記法（Big-O記法） {#appendix-a-asymptotic}
 
 ### 基本記法
 
@@ -142,7 +163,7 @@ layout: book
 
 **Θ(g(n))**: f(n) ∈ O(g(n)) ∧ f(n) ∈ Ω(g(n))
 
-## グラフ理論記法
+## グラフ理論記法 {#appendix-a-graph}
 
 ### 基本記法
 
@@ -164,7 +185,7 @@ layout: book
 | \\(C_n\\) | n頂点のサイクル |
 | d(u, v) | 頂点u, v間の距離 |
 
-## 形式言語記法
+## 形式言語記法 {#appendix-a-formal-language}
 
 ### 基本記法
 
@@ -191,7 +212,7 @@ layout: book
 | \\(q_0\\) | 初期状態 |
 | F | 受理状態集合 |
 
-## 複雑性理論記法
+## 複雑性理論記法 {#appendix-a-complexity}
 
 ### 複雑性クラス
 
@@ -209,7 +230,7 @@ layout: book
 | \\(A \\le_p B\\) | AからBへの多項式時間還元 |
 | \\(A \\le_m B\\) | AからBへのmany-one還元 |
 
-## 証明記法
+## 証明記法 {#appendix-a-proof}
 
 ### 証明の構造
 
@@ -229,7 +250,7 @@ layout: book
 | 背理法 | P を ¬P を仮定して矛盾を導く |
 | 数学的帰納法 | P(1) ∧ ∀k(P(k) → P(k+1)) → ∀n P(n) |
 
-## 特殊記号
+## 特殊記号 {#appendix-a-special}
 
 ### 等価・関係
 
@@ -249,7 +270,7 @@ layout: book
 | ≫ | much greater than | \\(2^n \\gg n\\) |
 | ∞ | 無限大 | \\(\\lim_{n\\to\\infty}\\) |
 
-## 使用上の注意
+## 使用上の注意 {#appendix-a-usage-notes}
 
 1. **一貫性**: 同一文書内では記法を統一する
 2. **明確性**: 初出時は意味を明示する
