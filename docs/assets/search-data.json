@@ -44,7 +44,7 @@
       "url": "/theoretical-computer-science-textbook/appendices/f/"
     },
     {
-      "excerpt": "付録G: AI/ML と理論計算機科学の接続 本付録は、機械学習（ML）を「理論計算機科学（TCS）の言葉」で位置づけ直すための概説です。目的は、学習の現象を断定することではなく、仮定（分布・仮説クラス・計算資源）を明示した上で議論できるようにすることです。 この付録の使い方 {#appendix-g-guide} - 向いている読者 : AI/ML の話題を、計算量・情報量・学習理論の観点から整理し直したい読者 - 使うタイミング :",
+      "excerpt": "付録G: AI/ML と理論計算機科学の接続 本付録は、機械学習（ML）を「理論計算機科学（TCS）の言葉」で位置づけ直すための概説です。目的は、学習の現象を断定することではなく、仮定（分布・仮説クラス・計算資源）を明示した上で議論できるようにすることです。 この付録の使い方 - 向いている読者 : AI/ML の話題を、計算量・情報量・学習理論の観点から整理し直したい読者 - 使うタイミング : 第5章・第10章を読んだ後に、学習理論",
       "source_path": "docs/appendices/g.md",
       "title": "付録G: AI/ML と理論計算機科学の接続",
       "url": "/theoretical-computer-science-textbook/appendices/g/"
@@ -140,7 +140,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-9/"
     },
     {
-      "excerpt": "オフライン版（PDF/EPUB） このページは、本書を Web 以外で読みたい読者向けに、 現在提供しているもの と まだ提供していないもの を整理するための案内です。 現在の提供状況 - Web版 : 利用できます。最新版は公開サイトを正本としてください。 - 公式 PDF / EPUB : 現時点では未提供です。 - GitHub Releases / Tags 経由の配布 : 現時点では未運用です。 読者向けの案内 - まずは W",
+      "excerpt": "オフライン版（PDF/EPUB） このページは、本書を Web 以外で読みたい読者向けに、 現在提供しているもの と まだ提供していないもの を整理するための案内です。 クイックナビ - 現在の提供状況 - 読者向けの案内 - いま分かること / まだ未提供のこと - ローカルでの生成（開発者・コントリビューター向け） - 将来的な配布先 現在の提供状況 - Web版 : 利用できます。最新版は公開サイトを正本としてください。 - 公式",
       "source_path": "docs/downloads/index.md",
       "title": "オフライン版（PDF/EPUB）",
       "url": "/theoretical-computer-science-textbook/downloads/"

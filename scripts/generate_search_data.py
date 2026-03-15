@@ -27,6 +27,8 @@ HTML_TAG_RE = re.compile(r"(?s)<[^>]+>")
 MD_IMAGE_RE = re.compile(r"!\[([^\]]*)\]\([^)]+\)")
 MD_LINK_RE = re.compile(r"\[([^\]]+)\]\([^)]+\)")
 HEADING_MARK_RE = re.compile(r"(?m)^#{1,6}\s+")
+KRAMDOWN_INLINE_IAL_RE = re.compile(r"(?m)\s+\{#[A-Za-z0-9_-]+\}\s*$")
+KRAMDOWN_BLOCK_IAL_RE = re.compile(r"(?m)^\{:\s*#[A-Za-z0-9_-]+\s*\}\s*$")
 
 
 def read_baseurl(cfg_path: Path) -> str:
@@ -81,6 +83,8 @@ def md_to_text(text: str) -> str:
     text = LIQUID_RE.sub(" ", text)
     text = FENCE_RE.sub(" ", text)
     text = INLINE_CODE_RE.sub(" ", text)
+    text = KRAMDOWN_BLOCK_IAL_RE.sub(" ", text)
+    text = KRAMDOWN_INLINE_IAL_RE.sub("", text)
     text = MD_IMAGE_RE.sub(r"\1", text)
     text = MD_LINK_RE.sub(r"\1", text)
     text = HEADING_MARK_RE.sub("", text)
