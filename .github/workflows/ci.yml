@@ -7,6 +7,8 @@ on:
     branches: [ main ]
 
 env:
+  # Temporary opt-in during GitHub Actions' Node 20 -> Node 24 transition.
+  # Ref: https://github.blog/changelog/2026-03-06-github-actions-transitions-from-node-20-to-node-24/
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
 
 jobs:
@@ -14,123 +16,123 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v6
+      - name: Checkout repository
+        uses: actions/checkout@v6
       
-    - name: Setup Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: '3.2'
-        bundler-cache: true
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true
         
-    - name: Setup Node.js
-      uses: actions/setup-node@v6
-      with:
-        node-version: '20'
-        cache: 'npm'
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '20'
+          cache: 'npm'
 
-    - name: Setup Python
-      uses: actions/setup-python@v6
-      with:
-        python-version: '3.12'
-        cache: 'pip'
-        cache-dependency-path: python/requirements-dev.txt
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+          cache-dependency-path: python/requirements-dev.txt
         
-    - name: Install dependencies
-      run: |
-        bundle install
-        npm install
+      - name: Install dependencies
+        run: |
+          bundle install
+          npm install
         
-    - name: Lint Markdown
-      run: npm run lint
-      continue-on-error: true
+      - name: Lint Markdown
+        run: npm run lint
+        continue-on-error: true
       
-    - name: Spell check
-      run: npm run spellcheck
+      - name: Spell check
+        run: npm run spellcheck
       
-    - name: Check links
-      run: npm run check-links
-      continue-on-error: true
+      - name: Check links
+        run: npm run check-links
+        continue-on-error: true
 
-    - name: Check index.json is up-to-date
-      run: python3 scripts/generate_index.py --check
+      - name: Check index.json is up-to-date
+        run: python3 scripts/generate_index.py --check
 
-    - name: Check search-data.json is up-to-date
-      run: python3 scripts/generate_search_data.py --check
+      - name: Check search-data.json is up-to-date
+        run: python3 scripts/generate_search_data.py --check
 
-    - name: Docs regression lint (Markdown patterns)
-      run: python3 scripts/docs_regression_lint.py
+      - name: Docs regression lint (Markdown patterns)
+        run: python3 scripts/docs_regression_lint.py
 
-    - name: Notation lint (math symbols / consistency)
-      run: python3 scripts/notation_lint.py
+      - name: Notation lint (math symbols / consistency)
+        run: python3 scripts/notation_lint.py
 
-    - name: Smoke test offline book generation (Markdown only)
-      run: python3 scripts/build_offline_book.py --target epub --out /tmp/offline-book.md
+      - name: Smoke test offline book generation (Markdown only)
+        run: python3 scripts/build_offline_book.py --target epub --out /tmp/offline-book.md
 
-    - name: Python tests (pytest + Hypothesis)
-      run: make test
+      - name: Python tests (pytest + Hypothesis)
+        run: make test
       
-    - name: Build site (Jekyll, docs/)
-      run: bundle exec jekyll build --source docs --config docs/_config.yml --destination _site
-      env:
-        JEKYLL_ENV: production
-        PAGES_REPO_NWO: itdojp/theoretical-computer-science-textbook
+      - name: Build site (Jekyll, docs/)
+        run: bundle exec jekyll build --source docs --config docs/_config.yml --destination _site
+        env:
+          JEKYLL_ENV: production
+          PAGES_REPO_NWO: itdojp/theoretical-computer-science-textbook
 
-    - name: HTML notation check (post-build)
-      run: python3 scripts/html_notation_check.py --site-root _site
+      - name: HTML notation check (post-build)
+        run: python3 scripts/html_notation_check.py --site-root _site
 
-    - name: Install htmltest
-      run: |
-        # Intentionally installing htmltest via remote script.
-        # For stronger hardening, consider pinning a specific release + checksum verification.
-        curl -sSfL https://htmltest.wjdp.uk | bash -s -- -b ./bin
-        echo "${PWD}/bin" >> "$GITHUB_PATH"
+      - name: Install htmltest
+        run: |
+          # Intentionally installing htmltest via remote script.
+          # For stronger hardening, consider pinning a specific release + checksum verification.
+          curl -sSfL https://htmltest.wjdp.uk | bash -s -- -b ./bin
+          echo "${PWD}/bin" >> "$GITHUB_PATH"
 
-    - name: Prepare baseurl mirror (for local link check)
-      shell: bash
-      run: |
-        set -euo pipefail
-        # Resolve baseurl (GitHub Pages project site uses /<repo> by default)
-        baseurl="$(python3 - <<'PY'
-        import os, re, pathlib
-        cfg = pathlib.Path('docs/_config.yml')
-        repo_env = os.environ.get('GITHUB_REPOSITORY','')
-        repo = (repo_env.split('/')[-1] if '/' in repo_env else repo_env) or 'theoretical-computer-science-textbook'
-        val = ''
-        if cfg.exists():
-            m = re.search(r'(?m)^baseurl:\s*(.+?)\s*$', cfg.read_text(encoding='utf-8'))
-            if m:
-                val = m.group(1).strip().strip('"').strip("'")
-        if not val:
-            val = '/' + repo
-        if not val.startswith('/'):
-            val = '/' + val
-        print(val)
-        PY
-        )"
-        echo "baseurl=${baseurl}"
-        # Mirror built output into _site/<baseurl>/ so absolute URLs like /<baseurl>/... resolve locally.
-        if [[ -n "${baseurl}" && "${baseurl}" != "/" ]]; then
-          dest="_site${baseurl}"
-          mkdir -p "${dest}"
-          base_dir="${baseurl#/}"
-          # Exclude the mirrored directory itself to avoid copying _site/<baseurl> into its own subtree.
-          tar -C _site --exclude "./${base_dir}" -cf - . | tar -C "${dest}" -xf -
-        fi
+      - name: Prepare baseurl mirror (for local link check)
+        shell: bash
+        run: |
+          set -euo pipefail
+          # Resolve baseurl (GitHub Pages project site uses /<repo> by default)
+          baseurl="$(python3 - <<'PY'
+          import os, re, pathlib
+          cfg = pathlib.Path('docs/_config.yml')
+          repo_env = os.environ.get('GITHUB_REPOSITORY','')
+          repo = (repo_env.split('/')[-1] if '/' in repo_env else repo_env) or 'theoretical-computer-science-textbook'
+          val = ''
+          if cfg.exists():
+              m = re.search(r'(?m)^baseurl:\s*(.+?)\s*$', cfg.read_text(encoding='utf-8'))
+              if m:
+                  val = m.group(1).strip().strip('"').strip("'")
+          if not val:
+              val = '/' + repo
+          if not val.startswith('/'):
+              val = '/' + val
+          print(val)
+          PY
+          )"
+          echo "baseurl=${baseurl}"
+          # Mirror built output into _site/<baseurl>/ so absolute URLs like /<baseurl>/... resolve locally.
+          if [[ -n "${baseurl}" && "${baseurl}" != "/" ]]; then
+            dest="_site${baseurl}"
+            mkdir -p "${dest}"
+            base_dir="${baseurl#/}"
+            # Exclude the mirrored directory itself to avoid copying _site/<baseurl> into its own subtree.
+            tar -C _site --exclude "./${base_dir}" -cf - . | tar -C "${dest}" -xf -
+          fi
 
-    - name: HTML link/image check (htmltest)
-      run: |
-        htmltest
+      - name: HTML link/image check (htmltest)
+        run: |
+          htmltest
 
-    - name: Upload htmltest report artifact
-      if: ${{ always() }}
-      uses: actions/upload-artifact@v7
-      with:
-        name: htmltest-report
-        path: tmp/.htmltest/
-        if-no-files-found: ignore
+      - name: Upload htmltest report artifact
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: htmltest-report
+          path: tmp/.htmltest/
+          if-no-files-found: ignore
 
-    - name: Test built site
-      run: |
-        ls -la _site/
-        test -f _site/index.html
+      - name: Test built site
+        run: |
+          ls -la _site/
+          test -f _site/index.html
