@@ -5,6 +5,9 @@ on:
     - cron: '30 3 * * *' # daily at 03:30 UTC
   workflow_dispatch:
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
+
 permissions:
   issues: write
   pull-requests: write
