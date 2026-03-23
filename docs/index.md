@@ -48,6 +48,8 @@ permalink: /
   - [本書の目的と構成](introduction/purpose/)
   - [学習の進め方](introduction/learning-guide/)
   - [前提知識](introduction/prerequisites/)
+  - [図版ガイドと図一覧](appendices/h/)
+  - [概念マップ](appendices/i/)
   - [オフライン版（PDF/EPUB）](downloads/)
   - [フィードバック（誤植・改善提案）](introduction/feedback/)
 
@@ -106,6 +108,7 @@ permalink: /
   - [付録F: 学習進捗チェックリスト](appendices/f/)
   - [付録G: AI/ML と理論計算機科学の接続](appendices/g/)
   - [付録H: 図版ガイドと図一覧](appendices/h/)
+  - [付録I: 概念マップ](appendices/i/)
 
 ## その他
 

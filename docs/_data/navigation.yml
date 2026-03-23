@@ -73,6 +73,8 @@ appendices:
   path: /appendices/g/
 - title: "付録H: 図版ガイドと図一覧"
   path: /appendices/h/
+- title: "付録I: 概念マップ"
+  path: /appendices/i/
 
 afterword:
 - title: あとがき
