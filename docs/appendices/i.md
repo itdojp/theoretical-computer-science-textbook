@@ -10,10 +10,10 @@ layout: book
 
 ## 読み方の目安
 
-- **基礎の入口**: [第1章](../chapter-1/) → [第2章](../chapter-2/) → [第3章](../chapter-3/)
-- **理論の中核**: [第4章](../chapter-4/) → [第5章](../chapter-5/) → [第6章](../chapter-6/)
-- **応用への展開**: [第7章](../chapter-7/) → [第8章](../chapter-8/) → [第9章](../chapter-9/)
-- **発展トピック**: [第10章](../chapter-10/) → [第11章](../chapter-11/) → [第12章](../chapter-12/)
+- **基礎の入口**: [第1章]({{ '/chapter-1/' | relative_url }}) → [第2章]({{ '/chapter-2/' | relative_url }}) → [第3章]({{ '/chapter-3/' | relative_url }})
+- **理論の中核**: [第4章]({{ '/chapter-4/' | relative_url }}) → [第5章]({{ '/chapter-5/' | relative_url }}) → [第6章]({{ '/chapter-6/' | relative_url }})
+- **応用への展開**: [第7章]({{ '/chapter-7/' | relative_url }}) → [第8章]({{ '/chapter-8/' | relative_url }}) → [第9章]({{ '/chapter-9/' | relative_url }})
+- **発展トピック**: [第10章]({{ '/chapter-10/' | relative_url }}) → [第11章]({{ '/chapter-11/' | relative_url }}) → [第12章]({{ '/chapter-12/' | relative_url }})
 
 ## 章間の関係
 
@@ -24,7 +24,6 @@ layout: book
 
 ## 関連導線
 
-- [付録一覧](./)
-- [図版ガイドと図一覧](./h/)
-- [用語集・索引](./d/)
-
+- [付録一覧]({{ '/appendices/' | relative_url }})
+- [図版ガイドと図一覧]({{ '/appendices/h/' | relative_url }})
+- [用語集・索引]({{ '/appendices/d/' | relative_url }})
