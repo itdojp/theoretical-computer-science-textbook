@@ -67,6 +67,13 @@ permalink: /
 ## ライセンス
 本書は CC BY-NC-SA 4.0 で公開されています。商用利用は別途契約が必要です。
 
+## 利用と更新情報
+
+- リポジトリ: [itdojp/theoretical-computer-science-textbook](https://github.com/itdojp/theoretical-computer-science-textbook)
+- 更新差分を追う場合は、GitHub の [コミット履歴](https://github.com/itdojp/theoretical-computer-science-textbook/commits/main/) と [PR 一覧](https://github.com/itdojp/theoretical-computer-science-textbook/pulls)、[更新履歴（CHANGELOG）](changelog/) を参照してください。
+- 記法や章構成の更新が入る場合は、トップページと各章のタイトル、概念マップ、付録の相互参照を合わせて確認してください。
+- 誤植や改善提案は、[フィードバック（誤植・改善提案）](introduction/feedback/) から連絡できます。
+
 ## 目次
 
 ### Part I: 数学的基礎（第1〜3章）
@@ -119,6 +126,6 @@ permalink: /
 
 ---
 
-**著者:** ITDO Inc.  
-**バージョン:** 1.1.2  
+**著者:** ITDO Inc.
+**バージョン:** 1.1.2
 **最終更新:** 2026-03-13
