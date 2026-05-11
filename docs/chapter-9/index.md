@@ -206,7 +206,7 @@ DPLL(φ, v):
 
 **決定可能な断片**：
 - 単項述語論理
-- 関数記号を制限した Bernays-Schönfinkel（EPR, \(\exists^{\ast}\forall^{\ast}\)）断片
+- 関数記号を含まない（定数記号のみ可）Bernays-Schönfinkel（EPR, \(\exists^{\ast}\forall^{\ast}\)）断片
 - Presburger 算術
 
 ## 9.3 時相論理
