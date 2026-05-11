@@ -1035,18 +1035,6 @@
     },
     {
       "excerpt": "",
-      "id": "thm-11-4",
-      "kind": "thm",
-      "label": "定理",
-      "name": null,
-      "number": "11.4",
-      "page_title": "第11章 暗号理論の数学的基礎",
-      "page_url": "/theoretical-computer-science-textbook/chapter-11/",
-      "source_path": "docs/chapter-11/index.md",
-      "url": "/theoretical-computer-science-textbook/chapter-11/#thm-11-4"
-    },
-    {
-      "excerpt": "",
       "id": "thm-11-5",
       "kind": "thm",
       "label": "定理",
@@ -1274,7 +1262,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-12/#def-12-9"
     },
     {
-      "excerpt": "合意が可能 \\\\(\\\\Leftrightarrow\\\\) \\\\(n > 3f\\\\)",
+      "excerpt": "合意が可能 \\\\(\\\\Leftrightarrow\\\\) \\\\(n > 3f\\\\)。認証付きメッセージや異なるネットワーク仮定では条件が変わる。",
       "id": "thm-12-3",
       "kind": "thm",
       "label": "定理",
@@ -2726,7 +2714,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-5/#thm-5-2"
     },
     {
-      "excerpt": "\\\\(tN(n) = \\\\max\\\\{\\\\text{N が長さ } n \\\\text{ の入力 } w \\\\text{ を受理する最短計算パスの長さ}\\\\}\\\\)",
+      "excerpt": "長さ n の入力に対するすべての計算枝の長さの最大値として定義する。NP の文脈では、N は多項式時間内で全枝が停止し、少なくとも1つの受理枝が存在するとき入力を受理する。",
       "id": "def-5-6",
       "kind": "def",
       "label": "定義",
@@ -3002,7 +2990,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-5/#thm-5-10"
     },
     {
-      "excerpt": "1. \\\\(PH = PSPACE\\\\) 2. \\\\(\\\\exists k\\\\, (\\\\mathrm{PH} = \\\\Sigmak^{\\\\mathrm{P}})\\\\) 3. \\\\(\\\\exists k\\\\, (\\\\Sigmak^{\\\\mathrm{P}} = \\\\Sigma{k+1}^{\\\\mathrm{P}})\\\\)",
+      "excerpt": "ある \\\\(k\\\\) について \\\\(\\\\Sigmak^{\\\\mathrm{P}} = \\\\Sigma{k+1}^{\\\\mathrm{P}}\\\\) が成り立つなら、すべての \\\\(i \\\\ge k\\\\) で \\\\(\\\\Sigmai^{\\\\mathrm{P}} = \\\\Sigmak^{\\\\mathrm{P}}\\\\) となり、\\\\(\\\\mathrm{PH} = \\\\Sigmak^{\\\\mathrm{P}}\\\\) に崩壊する。",
       "id": "thm-5-11",
       "kind": "thm",
       "label": "定理",
@@ -3782,7 +3770,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-7/#thm-7-6"
     },
     {
-      "excerpt": "- 期待探査数（不成功）：\\\\(\\\\le 1/(1-\\\\alpha)^2\\\\) - 期待探査数（成功）：≤ (1/(1-α)) ln(1/(1-α))",
+      "excerpt": "- 期待探査数（不成功）：\\\\(\\\\le 1/(1-\\\\alpha)\\\\) - 期待探査数（成功）：\\\\(\\\\le (1/\\\\alpha)\\\\ln(1/(1-\\\\alpha))\\\\)",
       "id": "thm-7-7",
       "kind": "thm",
       "label": "定理",
@@ -3806,7 +3794,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-7/#def-7-6"
     },
     {
-      "excerpt": "\\\\(1.44 log(n+2) - 1.328 ≤ h ≤ 1.44 log(n+1)\\\\)",
+      "excerpt": "\\\\(h \\\\le 1.44\\\\log2(n+2) - 1.328\\\\)",
       "id": "thm-7-8",
       "kind": "thm",
       "label": "定理",
@@ -4118,7 +4106,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-7/#thm-7-19"
     },
     {
-      "excerpt": "- 無向グラフ：\\\\(E \\\\subseteq \\\\{(u, v) \\\\mid u, v \\\\in V, u \\\\ne v\\\\}\\\\) - 有向グラフ：E ⊆ V × V",
+      "excerpt": "- 無向グラフ：E は V の2要素部分集合（順序を持たない対）の集合である（自己ループを含まない単純グラフの場合）。 - 有向グラフ：E ⊆ V × V",
       "id": "def-8-1",
       "kind": "def",
       "label": "定義",
@@ -4406,7 +4394,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-8/#thm-8-16"
     },
     {
-      "excerpt": "",
+      "excerpt": "ただし、その順序を効率よく見つける問題は一般には容易でない。任意順序の貪欲彩色は高々 Δ(G)+1 色を使う保証にとどまる。",
       "id": "thm-8-17",
       "kind": "thm",
       "label": "定理",

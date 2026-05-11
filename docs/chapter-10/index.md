@@ -78,7 +78,8 @@ sections:
 
 等号は左が X が定数のとき、右が \\(X\\) が \\(\mathcal{X}\\) 上の一様分布のとき。
 
-*証明*：\\(\mathcal{X}\\) 上の一様分布 \\(U(x)=1/\lvert\mathcal{X}\rvert\\) を考える。相対エントロピー（10.1.5）の非負性（情報不等式）より、
+*証明*：下限は、\\(0<p(x)\\le 1\\) のとき \\(-\\log_2 p(x)\\ge 0\\) であり、\\(p(x)=0\\) の項を 0 と約束することから従う。
+上限については、\\(\\mathcal{X}\\) 上の一様分布 \\(U(x)=1/\\lvert\\mathcal{X}\\rvert\\) を考える。相対エントロピー（10.1.5）の非負性（情報不等式）より、
 \\[
 \begin{aligned}
 D(P_X \Vert U)
@@ -86,7 +87,7 @@ D(P_X \Vert U)
 &= -H(X) + \log_2 \lvert\mathcal{X}\rvert \ge 0.
 \end{aligned}
 \\]
-よって \\(H(X) \le \log_2 \lvert\mathcal{X}\rvert\\)。□
+よって \\(0 \\le H(X) \\le \\log_2 \\lvert\\mathcal{X}\\rvert\\)。□
 
 ### 10.1.3 結合エントロピーと条件付きエントロピー
 

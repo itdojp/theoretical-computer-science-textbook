@@ -635,7 +635,7 @@ s = \\(0^p1^p\\) を考える。\\(\lvert s\rvert = 2p \ge p\\) なので、s = 
 
 ### 3.4.4 Myhill–Nerodeの定理
 
-**定義 3.15** 言語 L に対して、文字列 x, y の**識別可能性**：
+**定義 3.15** 言語 L に対して、文字列 x, y の**右同値（識別不能性）**：
 {: #def-3-15 }
 \\(x \equiv_L y \iff \forall z \in \Sigma^{\ast},\ (xz \in L \iff yz \in L)\\)
 
