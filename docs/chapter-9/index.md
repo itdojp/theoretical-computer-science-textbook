@@ -206,7 +206,7 @@ DPLL(φ, v):
 
 **決定可能な断片**：
 - 単項述語論理
-- ∀*∃* 形の文
+- 関数記号を制限した Bernays-Schönfinkel（EPR, \(\exists^{\ast}\forall^{\ast}\)）断片
 - Presburger 算術
 
 ## 9.3 時相論理
@@ -260,7 +260,7 @@ CTLCheck(M, φ):
                      (CTLCheck(M, ψ1) ∩ CTLCheck(M, EX Z))
 ```
 
-時間複雑度：\\(O(\lvert φ\rvert \\cdot \lvert S\rvert \\cdot \lvert R\rvert)\\)（S：状態集合、R：遷移関係）
+時間複雑度：\\(O(\\lvert φ\\rvert (\\lvert S\\rvert + \\lvert R\\rvert))\\)（S：状態集合、R：遷移関係）。各部分式について、状態と遷移を高々定数回走査すると見積もれる。
 
 ### 9.3.4 公平性
 
@@ -410,10 +410,12 @@ axioms:
 ### 9.5.3 時相論理による仕様
 
 **安全性**（Safety）：「悪いことは起こらない」
-- □(request → ◇grant)（要求にはいつか応答）
+- □¬bad（悪い状態 bad には到達しない）
+- □(deliver → authenticated)（配送されるメッセージは常に認証済み）
 
 **活性**（Liveness）：「良いことがいつか起こる」
-- □◇enabled（永遠に有効化される）
+- □(request → ◇grant)（要求にはいつか応答）
+- □◇enabled（有効化が無限に繰り返し現れる）
 
 **公平性**（Fairness）：
 - □◇request → □◇grant（無限回要求→無限回許可）
