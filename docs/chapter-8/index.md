@@ -142,7 +142,7 @@ BFS(G, s):
 
 ### 8.1.4 連結性
 
-**定義 8.2** 
+**定義 8.2**
 {: #def-8-2 }
 - 無向グラフが**連結**：任意の2頂点間に路が存在
 - 有向グラフが**強連結**：任意の2頂点間に有向路が存在
@@ -655,15 +655,15 @@ Gale-Shapley(男性の選好, 女性の選好):
         def dijkstra(self, graph, source):
             """Dijkstraの最短路アルゴリズム"""
             pass
-        
+
         def max_flow(self, graph, source, sink):
             """最大フローアルゴリズム（Ford-Fulkerson）"""
             pass
-        
+
         def minimum_spanning_tree(self, graph, algorithm='kruskal'):
             """最小全域木（Kruskal or Prim）"""
             pass
-        
+
         def strongly_connected_components(self, graph):
             """強連結成分分解（Tarjanのアルゴリズム）"""
             pass
@@ -675,15 +675,15 @@ Gale-Shapley(男性の選好, 女性の選好):
         def centrality_measures(self, graph):
             """中心性指標の計算（次数、媒介、固有ベクトル中心性）"""
             pass
-        
+
         def community_detection(self, graph):
             """コミュニティ検出アルゴリズム"""
             pass
-        
+
         def graph_visualization(self, graph, layout='spring'):
             """グラフの可視化"""
             pass
-        
+
         def generate_random_graphs(self, model, parameters):
             """ランダムグラフの生成（Erdős-Rényi, Barabási-Albert等）"""
             pass

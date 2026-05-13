@@ -123,8 +123,6 @@ D 自身に ⟨D⟩ を入力した場合を考える：
 
 これは矛盾である。したがって、\\(A_{TM}\\) は決定不能である。□
 
-
-
 ## 4.2 還元可能性
 
 ### 4.2.1 多対一還元
@@ -419,7 +417,7 @@ Riceの定理により、以下の問題はすべて決定不能：
 
 ### 4.6.2 相対化
 
-**定義 4.10** 
+**定義 4.10**
 {: #def-4-10 }
 - \\(P^{A} = \\{L \\mid \\text{ある多項式時間オラクル機械 } M^{A} \\text{ が } L \\text{ を決定}\\}\\)
 - \\(NP^{A} = \\{L \\mid \\text{ある非決定性多項式時間オラクル機械 } M^{A} \\text{ が } L \\text{ を認識}\\}\\)
@@ -541,7 +539,7 @@ Riceの定理により、以下の問題はすべて決定不能：
             self.source = source_problem
             self.target = target_problem  
             self.reduce = reduction_function
-        
+
         def verify_reduction(self, test_cases):
             """還元の正当性を検証"""
             for instance in test_cases:

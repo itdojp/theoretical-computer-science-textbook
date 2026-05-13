@@ -54,19 +54,19 @@ v の論理式への拡張 v̂ を帰納的に定義：
 
 ### 9.1.2 論理的帰結と同値
 
-**定義 9.3** 
+**定義 9.3**
 {: #def-9-3 }
 - φ が**恒真式**（トートロジー）⟺ すべての v で v̂(φ) = 1、記号：⊨ φ
 - φ が**充足可能** ⟺ ある v で v̂(φ) = 1
 - φ が**矛盾** ⟺ すべての v で v̂(φ) = 0
 
-**定義 9.4** \\(\Sigma \models \varphi\\)（\\(\Sigma\\) が \\(\varphi\\) を意味論的に含意）\\(\Leftrightarrow\\) 
+**定義 9.4** \\(\Sigma \models \varphi\\)（\\(\Sigma\\) が \\(\varphi\\) を意味論的に含意）\\(\Leftrightarrow\\)
 {: #def-9-4 }
 Σ のすべての式を真にする割当は φ も真にする
 
 ### 9.1.3 標準形
 
-**定義 9.5** 
+**定義 9.5**
 {: #def-9-5 }
 - **リテラル**：命題変数またはその否定
 - **節**（clause）：リテラルの選言
@@ -256,7 +256,7 @@ CTLCheck(M, φ):
         EX ψ: return {s | ∃s', s → s' ∧ s' ∈ CTLCheck(M, ψ)}
         EF ψ: return 最小不動点 Z. CTLCheck(M, ψ) ∪ CTLCheck(M, EX Z)
         EG ψ: return 最大不動点 Z. CTLCheck(M, ψ) ∩ CTLCheck(M, EX Z)
-        E[ψ1 U ψ2]: return 最小不動点 Z. CTLCheck(M, ψ2) ∪ 
+        E[ψ1 U ψ2]: return 最小不動点 Z. CTLCheck(M, ψ2) ∪
                      (CTLCheck(M, ψ1) ∩ CTLCheck(M, EX Z))
 ```
 
@@ -298,14 +298,14 @@ CTLCheck(M, φ):
 
 2. **順次実行**：
    ```text
-	   前提: {P} S1 {Q}, {Q} S2 {R}
-	   結論: {P} S1; S2 {R}
+       前提: {P} S1 {Q}, {Q} S2 {R}
+       結論: {P} S1; S2 {R}
    ```
 
 3. **条件分岐**：
    ```text
-	   前提: {P ∧ B} S1 {Q}, {P ∧ ¬B} S2 {Q}
-	   結論: {P} if B then S1 else S2 {Q}
+       前提: {P ∧ B} S1 {Q}, {P ∧ ¬B} S2 {Q}
+       結論: {P} if B then S1 else S2 {Q}
    ```
 
 4. **ループ**：
@@ -335,7 +335,7 @@ S の実行後に Q を保証する最も弱い事前条件
 
 ### 9.4.4 プログラムの全正当性
 
-**定義 9.18** 
+**定義 9.18**
 {: #def-9-18 }
 - **部分正当性**：{P} S {Q} - 終了すれば Q が成立
 - **全正当性**：[P] S [Q] - 必ず終了し、Q が成立

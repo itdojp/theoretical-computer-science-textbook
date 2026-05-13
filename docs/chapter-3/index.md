@@ -134,10 +134,10 @@ def validate_email(email):
 
 # 対応する形式言語
 # L_email = {文字列 w | w は有効なメールアドレス形式}
-# 
+#
 # この言語は以下の形式で表現できる：
 # L_email = L_local @ L_domain . L_tld
-# 
+#
 # ここで：
 # - L_local: ローカル部分の文字列集合
 # - L_domain: ドメイン部分の文字列集合  
@@ -368,14 +368,14 @@ N(R_1)      ε      N(R_2)
 
 **2.3 クリーネ閉包 (R_1\*)**
 ```text
-	    ε (0回繰り返し用)
+        ε (0回繰り返し用)
 ○ -----------------> ◎
 │   ε      N(R_1)     ↑
 └-----> ○...○ -------┘
 新開始      │    ε   新受理
-	           │ ε
-	           └---------┘
-	           (繰り返し用)
+               │ ε
+               └---------┘
+               (繰り返し用)
 ```
 
 **構成の詳細**：
@@ -700,7 +700,7 @@ s = \\(0^p1^p\\) を考える。\\(\lvert s\rvert = 2p \ge p\\) なので、s = 
 3. 根は開始記号でラベル付け
 4. 内部節点 A の子が \\(B_1, \\ldots, B_k\\) なら \\(A \\to B_1\\cdots B_k \\in R\\)
 
-**定義 3.20** CFG \\(G\\) が**曖昧**（ambiguous）\\(\Leftrightarrow\\) 
+**定義 3.20** CFG \\(G\\) が**曖昧**（ambiguous）\\(\Leftrightarrow\\)
 {: #def-3-20 }
 ある w ∈ L(G) に対して複数の導出木が存在
 
@@ -900,7 +900,7 @@ s = uvxyz と分解したとき、\\(\lvert vxy\rvert \le p\\) より、vxy は�
    (a) \\(\\{w \\in \\{0,1\\}^{\ast} \\mid w \\text{ は部分文字列 } 00 \\text{ を含まない}\\}\\)
    (b) \\(\\{w \\in \\{a,b\\}^{\ast} \\mid w \\text{ 中の } a \\text{ の個数は } 3 \\text{ の倍数}\\}\\)
    (c) \\(\\{w \\in \\{0,1\\}^{\ast} \\mid w \\text{ を2進数と見たとき } 3 \\text{ で割り切れる}\\}\\)
-   
+
    ヒント:
    - (a) 直前の文字を1ビット記憶する2状態＋罠状態の設計。
    - (b) a の個数を mod 3 で管理する3状態DFA。
@@ -909,13 +909,13 @@ s = uvxyz と分解したとき、\\(\lvert vxy\rvert \le p\\) より、vxy は�
 2. 以下の言語を表す正規表現を示せ：
    (a) \\(\\{w \\in \\{a,b\\}^{\ast} \\mid w \\text{ は } aa \\text{ も } bb \\text{ も含まない}\\}\\)
    (b) \\(\\{w \\in \\{0,1\\}^{\ast} \\mid w \\text{ のすべての } 0 \\text{ のブロックの長さは偶数}\\}\\)
-   
+
    ヒント: (b) 0 の塊は (00)+ として表れ、1 によって区切られることを利用。
 
 3. 以下の言語が正規言語でないことを証明せよ：
    (a) \\(\\{0^{n}1^{m} \\mid n \\ne m\\}\\)
    (b) \\(\\{w \\in \\{0,1\\}^{\ast} \\mid w \\text{ は同数の } 0 \\text{ と } 1 \\text{ を含む}\\}\\)
-   
+
    ヒント: ポンピング補題で反証。あるいは Myhill–Nerode の無限同値類（カウント差で区別）。
 
 4. 以下の言語を生成する CFG を構成せよ：
@@ -927,7 +927,7 @@ s = uvxyz と分解したとき、\\(\lvert vxy\rvert \le p\\) より、vxy は�
 ### 発展問題
 
 6. DFA の最小化アルゴリズムを説明し、その正当性を証明せよ。
-   
+
    ヒント: 初期分割 {F, Q\F} から開始する分割精緻化（Hopcroft など）。
 
 7. 正規表現から ε-NFA への変換アルゴリズムを詳述せよ。
@@ -946,7 +946,7 @@ s = uvxyz と分解したとき、\\(\lvert vxy\rvert \le p\\) より、vxy は�
 9. \\(L_1\\) が正規言語、\\(L_2\\) が文脈自由言語のとき、\\(L_1 \\cap L_2\\) が文脈自由言語であることを証明せよ。
 
 10. CYK アルゴリズムを説明し、その時間計算量を解析せよ。
-   
+
    ヒント: 三重ループで O(n^3 \\(\lvert G\rvert\\))。CNF への変換も前処理に含めて議論。
 
 11. Myhill–Nerode の定理を用いて、以下の言語が正規言語でないことを示せ：
@@ -973,14 +973,14 @@ s = uvxyz と分解したとき、\\(\lvert vxy\rvert \le p\\) より、vxy は�
 class DFA:
     def __init__(self, states, alphabet, transitions, start, accept_states):
         # DFAの初期化
-    
+
     def accepts(self, string):
         # 文字列を受理するか判定
-        
+
 class NFA:
     def __init__(self, states, alphabet, transitions, start, accept_states):
         # NFAの初期化（ε遷移も含む）
-    
+
     def to_dfa(self):
         # 部分集合構成法によりDFAに変換
 ```
