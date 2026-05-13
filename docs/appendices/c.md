@@ -651,10 +651,10 @@ T(n) &= 8T(n/2) + n^2 \\\\
 
 **問題設定**: n個のキー \\(k_1 < k_2 < \\cdots < k_n\\) に対し、各キー \\(k_i\\) の検索確率が \\(p_i\\) で与えられたとき、期待検索コストを最小化する二分探索木を構築する。
 
-**部分問題**: \\(\\mathrm{opt}[i][j]\\) = キー \\(k_i, \\ldots, k_j\\) から構成される最適二分探索木のコスト
+**部分問題**: \\(\\mathrm{opt}_{i,j}\\) = キー \\(k_i, \\ldots, k_j\\) から構成される最適二分探索木のコスト
 
 **漸化式**:
-\\(\\mathrm{opt}[i][j] = \\min_{i \\le r \\le j}(\\mathrm{opt}[i][r-1] + \\mathrm{opt}[r+1][j] + \\sum_{k=i}^{j} p_k)\\)
+\\(\\mathrm{opt}_{i,j} = \\min_{i \\le r \\le j}(\\mathrm{opt}_{i,r-1} + \\mathrm{opt}_{r+1,j} + \\sum_{k=i}^{j} p_k)\\)
 
 **アルゴリズム**:
 ```python
@@ -662,27 +662,27 @@ def optimal_bst(p):
     n = len(p)
     opt = [[0] * n for _ in range(n)]
     sum_p = [[0] * n for _ in range(n)]
-    
+
     # 前処理：確率の累積和を計算
     for i in range(n):
         for j in range(i, n):
             sum_p[i][j] = sum(p[i:j+1])
-    
+
     # 動的計画法
     for length in range(1, n+1):  # 部分問題のサイズ
         for i in range(n - length + 1):
             j = i + length - 1
             opt[i][j] = float('inf')
-            
+
             for r in range(i, j+1):  # 根の選択
                 cost = sum_p[i][j]
                 if r > i:
                     cost += opt[i][r-1]
                 if r < j:
                     cost += opt[r+1][j]
-                
+
                 opt[i][j] = min(opt[i][j], cost)
-    
+
     return opt[0][n-1]
 ```
 
@@ -1095,9 +1095,9 @@ rank(x):
 
 **解答**（概要）:
 
-(a) 双対グラフ G*：
-- 平面埋め込みされた連結平面グラフ G の各面（face）を G* の頂点とする
-- G の各辺 e は、隣接する2面 f,g を分けるので、G* に辺 e*（f と g を結ぶ）を置く
+(a) 双対グラフ \\(G^{\\ast}\\)：
+- 平面埋め込みされた連結平面グラフ G の各面（face）を \\(G^{\\ast}\\) の頂点とする
+- G の各辺 e は、隣接する2面 f,g を分けるので、\\(G^{\\ast}\\) に辺 \\(e^{\\ast}\\)（f と g を結ぶ）を置く
   - 境界に接する場合も含め、埋め込みに依存する点に注意
 
 (b) 双対性（代表例）：
@@ -1310,10 +1310,10 @@ rank(x):
 **解答**（不変条件の例）:
 
 (a) ループ不変条件 I を
-- I: y * x! = n! かつ x は 0 以上
+- I: \\(y \\cdot x! = n!\\) かつ x は 0 以上
 と置く。初期（y=1,x=n）で I 成立。  
 反復で \\(y^{\\prime} = y \\cdot x\\)、\\(x^{\\prime} = x - 1\\) なので \\(y^{\\prime} \\cdot (x^{\\prime})! = y \\cdot x \\cdot (x-1)! = y \\cdot x! = n!\\) が保たれる。  
-終了時 x=0 より y*0! = n!、従って y=n!。
+終了時 x=0 より \\(y\\cdot 0! = n!\\)、従って y=n!。
 
 (b) 逐次代入の評価で追う：  
 z:=x により z=a、x:=y により x=b、y:=z により y=a。よって事後条件成立。
@@ -1361,8 +1361,8 @@ Horn-SAT は線形時間で解け、含意の伝播で矛盾（⊥）を検出�
 - 事後：{ list(x,rev(S)) }
 
 反転（prev,curr）ループの不変条件例：
-- I: list(prev, rev(prefix)) * list(curr, suffix) かつ S = prefix ⧺ suffix  
-（* はヒープ領域の分離、⧺ は連結）
+- I: list(prev, rev(prefix)) \* list(curr, suffix) かつ S = prefix ⧺ suffix  
+（`*` はヒープ領域の分離、⧺ は連結）
 各反復で curr 先頭を suffix から取り出して prev 側に付け替えれば、不変条件が維持される。
 
 ### 練習問題9.8（発展8）

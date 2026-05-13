@@ -468,7 +468,7 @@ def solve_vertex_cover_via_SAT(graph, k):
     # 逆方向の還元を利用
     sat_instance = reduce_vertex_cover_to_SAT(graph, k)
     solution = sat_solver(sat_instance)
-    
+
     if solution:
         return extract_vertex_cover(solution)
     else:
@@ -514,7 +514,7 @@ def solve_vertex_cover_via_SAT(graph, k):
 
 ### 5.4.3 空間と時間の関係
 
-**定理 5.8** 
+**定理 5.8**
 {: #thm-5-8 }
 1. \\(TIME(f(n)) ⊆ SPACE(f(n))\\)
 2. \\(SPACE(f(n)) ⊆ TIME(2^{O(f(n))})\\)
@@ -600,7 +600,7 @@ k 回の独立実行と多数決により、誤り確率を 2^{-Ω(k)} に削減
 
 ### 5.6.2 その他の確率的クラス
 
-**定義 5.19** 
+**定義 5.19**
 {: #def-5-19 }
 - **RP**（片側誤り）：w ∈ L ⟹ Pr[accept] ≥ 1/2、w ∉ L ⟹ Pr[accept] = 0
 - **coRP**：RP の補クラス
@@ -629,7 +629,7 @@ k 回の独立実行と多数決により、誤り確率を 2^{-Ω(k)} に削減
 
 ### 5.7.2 回路複雑性クラス
 
-**定義 5.21** 
+**定義 5.21**
 {: #def-5-21 }
 - **P/poly** = \\(\\{L \\mid \\text{ある多項式 } p, \\text{ 各 } n \\text{ に対してサイズ } \\le p(n) \\text{ の回路族が } L_n \\text{ を計算}\\}\\)
 
@@ -767,11 +767,11 @@ k 回の独立実行と多数決により、誤り確率を 2^{-Ω(k)} に削減
         def __init__(self, formula):
             """CNF式を入力として受け取る"""
             self.formula = formula
-        
+
         def solve(self):
             """DPLLアルゴリズムまたはCDCLアルゴリズムで解く"""
             pass
-        
+
         def verify_solution(self, assignment):
             """解の検証"""
             pass
@@ -783,11 +783,11 @@ k 回の独立実行と多数決により、誤り確率を 2^{-Ω(k)} に削減
         def measure_runtime(self, algorithm, input_generator, sizes):
             """異なる入力サイズでの実行時間測定"""
             pass
-        
+
         def plot_complexity(self, data):
             """複雑性の可視化"""
             pass
-        
+
         def estimate_asymptotic_behavior(self, data):
             """漸近的振る舞いの推定"""
             pass
