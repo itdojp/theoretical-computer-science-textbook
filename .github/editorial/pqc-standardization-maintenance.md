@@ -61,9 +61,9 @@
 
 Issue #366 の第11章深掘りレビューで、次の一次情報を再確認した。
 
-- FIPS 203 / 204 / 205 の CSRC publication page は引き続き final FIPS として公開されている。
-- NIST の selected algorithms page は HQC と FALCON / FN-DSA / FIPS 206 を FIPS coming soon として扱っており、最終 FIPS として断定しない現行分類と整合する。
-- NIST の HQC news は HQC を ML-KEM のバックアップ KEM として選定した根拠として引き続き有効である。
-- SP 800-227 final は KEM 運用ガイダンスとして引き続き参照対象である。
+- FIPS 203 / 204 / 205 の CSRC publication page は引き続き final FIPS として公開されている（確認先: https://csrc.nist.gov/pubs/fips/203/final, https://csrc.nist.gov/pubs/fips/204/final, https://csrc.nist.gov/pubs/fips/205/final）。
+- NIST の selected algorithms page は HQC と FALCON / FN-DSA / FIPS 206 を FIPS coming soon として扱っており、最終 FIPS として断定しない現行分類と整合する（確認先: https://csrc.nist.gov/Projects/post-quantum-cryptography/post-quantum-cryptography-standardization/selected-algorithms）。
+- NIST の HQC news は HQC を ML-KEM のバックアップ KEM として選定した根拠として引き続き有効である（確認先: https://www.nist.gov/news-events/news/2025/03/nist-selects-hqc-fifth-algorithm-post-quantum-encryption）。
+- SP 800-227 final は KEM 運用ガイダンスとして引き続き参照対象である（確認先: https://csrc.nist.gov/pubs/sp/800/227/final）。
 
 この再確認では、FIPS 203 / 204 / 205 の final 分類、HQC の selected / in-progress 分類、FALCON / FN-DSA / FIPS 206 の planned / coming-soon 分類を変更する根拠は見つからなかった。本文では、HQC と FIPS 206 系を最終 FIPS と誤読しないよう注意書きを補強する。

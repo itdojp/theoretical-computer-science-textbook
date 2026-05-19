@@ -280,7 +280,7 @@ g^a, g^b から g^{ab} を計算するのは困難。
 - **[FIPS 204](https://csrc.nist.gov/pubs/fips/204/final)**：**ML-DSA**（署名）。格子（module-lattice）に基づくデジタル署名。
 - **[FIPS 205](https://csrc.nist.gov/pubs/fips/205/final)**：**SLH-DSA**（ステートレスなハッシュベース署名）。ハッシュベースのデジタル署名。
 
-2026年5月19日（Asia/Tokyo）確認時点で、NIST はさらに、ML-KEM のバックアップ KEM として **HQC** を標準化対象に選定しており、FALCON 由来の署名方式（FN-DSA/FIPS 206）も追加標準として扱われる予定である。これらは上の FIPS 203/204/205 とは異なり最終 FIPS として扱わず、最終文書化状況は変わり得るため、実運用では NIST の最新文書を確認する。
+2026年5月19日（Asia/Tokyo）確認時点で、NIST はさらに、ML-KEM のバックアップ KEM として **HQC** を標準化対象に選定しており、FALCON 由来の署名方式（FN-DSA/FIPS 206）も追加標準として扱われる予定である。一方で、HQC と FN-DSA/FIPS 206 は現時点では final FIPS として公開されておらず、NIST の selected algorithms page でも FIPS coming soon / in progress の位置づけである。したがって本文では、これらを FIPS 203/204/205 と同じ最終 FIPS として扱わない。最終文書化状況は変わり得るため、実運用では NIST の最新文書を確認する。
 
 実運用では、対象プロトコルに応じて KEM/署名の使い分けと、移行計画の策定が重要となる。
 
