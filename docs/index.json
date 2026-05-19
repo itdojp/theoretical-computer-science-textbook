@@ -2858,6 +2858,18 @@
       "url": "/theoretical-computer-science-textbook/chapter-5/#thm-5-5"
     },
     {
+      "excerpt": "",
+      "id": "thm-5-6",
+      "kind": "thm",
+      "label": "定理",
+      "name": null,
+      "number": "5.6",
+      "page_title": "第5章 計算複雑性理論",
+      "page_url": "/theoretical-computer-science-textbook/chapter-5/",
+      "source_path": "docs/chapter-5/index.md",
+      "url": "/theoretical-computer-science-textbook/chapter-5/#thm-5-6"
+    },
+    {
       "excerpt": "長さ n の任意の入力に対して M が使用するテープマス数の最大値とする。",
       "id": "def-5-13",
       "kind": "def",
