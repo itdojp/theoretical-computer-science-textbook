@@ -3866,7 +3866,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-7/#def-7-9"
     },
     {
-      "excerpt": "n 個の要素を持つスプレー木での m 回の操作の総時間は O((m + n) log n)。",
+      "excerpt": "n 個の要素を持つスプレー木での m 回の操作の総時間は \\\\(O((m + n)\\\\log n)\\\\)。",
       "id": "thm-7-11",
       "kind": "thm",
       "label": "定理",
@@ -3914,7 +3914,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-7/#def-7-11"
     },
     {
-      "excerpt": "m 回の操作（n 回の makeSet を含む）の総時間は O(m α(m, n))。 ここで α は逆アッカーマン関数。",
+      "excerpt": "m 回の操作（n 回の makeSet を含む）の総時間は \\\\(O(m\\\\alpha(m, n))\\\\)。 ここで \\\\(\\\\alpha\\\\) は逆アッカーマン関数。",
       "id": "thm-7-13",
       "kind": "thm",
       "label": "定理",
