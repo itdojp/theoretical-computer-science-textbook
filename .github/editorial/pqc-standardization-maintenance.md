@@ -56,3 +56,14 @@
 - HQC は ML-KEM のバックアップ KEM として選定済みだが、本文は最終標準として断定していない。
 - FALCON 由来 FN-DSA / FIPS 206 は開発中または予定として扱うのが妥当であり、本文は「予定」「最終文書化状況は変わり得る」と限定している。
 - FIPS 203 と FIPS 204 には planning note / errata 予定があるが、現時点では本文の標準名・方式名・final FIPS という分類を変更する根拠にはならない。
+
+## 再確認メモ — 2026-05-19（Asia/Tokyo）
+
+Issue #366 の第11章深掘りレビューで、次の一次情報を再確認した。
+
+- FIPS 203 / 204 / 205 の CSRC publication page は引き続き final FIPS として公開されている。
+- NIST の selected algorithms page は HQC と FALCON / FN-DSA / FIPS 206 を FIPS coming soon として扱っており、最終 FIPS として断定しない現行分類と整合する。
+- NIST の HQC news は HQC を ML-KEM のバックアップ KEM として選定した根拠として引き続き有効である。
+- SP 800-227 final は KEM 運用ガイダンスとして引き続き参照対象である。
+
+この再確認では、FIPS 203 / 204 / 205 の final 分類、HQC の selected / in-progress 分類、FALCON / FN-DSA / FIPS 206 の planned / coming-soon 分類を変更する根拠は見つからなかった。本文では、HQC と FIPS 206 系を最終 FIPS と誤読しないよう注意書きを補強する。
