@@ -290,7 +290,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-1/#def-1-12"
     },
     {
-      "excerpt": "\\\\(\\sum{v \\in V} \\deg(v) = 2\\lvert E\\rvert\\\\) （すべての頂点の次数の和は、辺の数の2倍に等しい） 系：次数が奇数である頂点の数は偶数個です。",
+      "excerpt": "\\\\(\\sum_{v \\in V} \\deg(v) = 2\\lvert E\\rvert\\\\) （すべての頂点の次数の和は、辺の数の2倍に等しい） 系：次数が奇数である頂点の数は偶数個です。",
       "id": "thm-1-9",
       "kind": "thm",
       "label": "定理",
@@ -350,7 +350,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-1/#thm-1-10"
     },
     {
-      "excerpt": "頂点集合 V を \\\\(V1\\\\) と \\\\(V2\\\\) の2つの互いに素な部分集合に分割でき（\\\\(V = V1 \\\\cup V2\\\\) かつ \\\\(V1 \\\\cap V2 = \\\\emptyset\\\\)）、 すべての辺が \\\\(V1\\\\) と \\\\(V2\\\\) の間を結ぶことです。 \\\\((V1, V2)\\\\) を二部グラフの部集合（partite sets）といいます。",
+      "excerpt": "頂点集合 V を \\\\(V_1\\\\) と \\\\(V_2\\\\) の2つの互いに素な部分集合に分割でき（\\\\(V = V_1 \\\\cup V_2\\\\) かつ \\\\(V_1 \\\\cap V_2 = \\\\emptyset\\\\)）、 すべての辺が \\\\(V_1\\\\) と \\\\(V_2\\\\) の間を結ぶことです。 \\\\((V_1, V_2)\\\\) を二部グラフの部集合（partite sets）といいます。",
       "id": "def-1-16",
       "kind": "def",
       "label": "定義",
@@ -386,7 +386,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-1/#def-1-17"
     },
     {
-      "excerpt": "部集合 \\\\(V1\\\\)（\\\\(\\\\lvert V1\\\\rvert = m\\\\)）と \\\\(V2\\\\)（\\\\(\\\\lvert V2\\\\rvert = n\\\\)）を持ち、\\\\(V1\\\\) の各頂点と \\\\(V2\\\\) の各頂点の間に辺が存在する二部グラフです。",
+      "excerpt": "部集合 \\\\(V_1\\\\)（\\\\(\\\\lvert V_1\\\\rvert = m\\\\)）と \\\\(V_2\\\\)（\\\\(\\\\lvert V_2\\\\rvert = n\\\\)）を持ち、\\\\(V_1\\\\) の各頂点と \\\\(V_2\\\\) の各頂点の間に辺が存在する二部グラフです。",
       "id": "def-1-18",
       "kind": "def",
       "label": "定義",
@@ -398,7 +398,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-1/#def-1-18"
     },
     {
-      "excerpt": "\\\\(I(p) = -\\log2 p = \\log2(1/p)\\\\) [bits]",
+      "excerpt": "\\\\(I(p) = -\\log_2 p = \\log_2(1/p)\\\\) [bits]",
       "id": "def-10-1",
       "kind": "def",
       "label": "定義",
@@ -410,7 +410,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-10/#def-10-1"
     },
     {
-      "excerpt": "\\\\(H(X) = -\\sum{x} p(x) \\log2 p(x) = \\mathbb{E}[I(X)]\\\\)",
+      "excerpt": "\\\\(H(X) = -\\sum_{x} p(x) \\log_2 p(x) = \\mathbb{E}[I(X)]\\\\)",
       "id": "def-10-2",
       "kind": "def",
       "label": "定義",
@@ -422,7 +422,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-10/#def-10-2"
     },
     {
-      "excerpt": "\\\\(H(X) = -p \\log2 p - (1-p) \\log2(1-p) = h(p)\\\\)",
+      "excerpt": "\\\\(H(X) = -p \\log_2 p - (1-p) \\log_2(1-p) = h(p)\\\\)",
       "id": "ex-10-1",
       "kind": "ex",
       "label": "例",
@@ -434,7 +434,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-10/#ex-10-1"
     },
     {
-      "excerpt": "\\\\(0 \\le H(X) \\le \\log2 \\lvert \\mathcal{X}\\rvert\\\\)",
+      "excerpt": "\\\\(0 \\le H(X) \\le \\log_2 \\lvert \\mathcal{X}\\rvert\\\\)",
       "id": "thm-10-1",
       "kind": "thm",
       "label": "定理",
@@ -446,7 +446,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-10/#thm-10-1"
     },
     {
-      "excerpt": "- 結合エントロピー：\\\\(H(X,Y) = -\\sum{x,y} p(x,y) \\log2 p(x,y)\\\\) - 条件付きエントロピー：\\\\(H(Y \\mid X) = \\sumx p(x) H(Y \\mid X=x)\\\\)",
+      "excerpt": "- 結合エントロピー：\\\\(H(X,Y) = -\\sum_{x,y} p(x,y) \\log_2 p(x,y)\\\\) - 条件付きエントロピー：\\\\(H(Y \\mid X) = \\sum_x p(x) H(Y \\mid X=x)\\\\)",
       "id": "def-10-3",
       "kind": "def",
       "label": "定義",
@@ -470,7 +470,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-10/#thm-10-2"
     },
     {
-      "excerpt": "\\\\(I(X;Y) = \\sum{x,y} p(x,y) \\log2 \\frac{p(x,y)}{p(x)p(y)}\\\\)",
+      "excerpt": "\\\\(I(X;Y) = \\sum_{x,y} p(x,y) \\log_2 \\frac{p(x,y)}{p(x)p(y)}\\\\)",
       "id": "def-10-4",
       "kind": "def",
       "label": "定義",
@@ -494,7 +494,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-10/#thm-10-3"
     },
     {
-      "excerpt": "\\\\(D(P \\,\\Vert\\, Q) = \\sumx p(x) \\log2 \\frac{p(x)}{q(x)}\\\\)",
+      "excerpt": "\\\\(D(P \\,\\Vert\\, Q) = \\sum_x p(x) \\log_2 \\frac{p(x)}{q(x)}\\\\)",
       "id": "def-10-5",
       "kind": "def",
       "label": "定義",
@@ -578,7 +578,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-10/#thm-10-7"
     },
     {
-      "excerpt": "符号長を \\\\(l1, \\\\ldots, ln\\\\) とする。",
+      "excerpt": "符号長を \\\\(l_1, \\\\ldots, l_n\\\\) とする。",
       "id": "thm-10-8",
       "kind": "thm",
       "label": "定理",
@@ -590,7 +590,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-10/#thm-10-8"
     },
     {
-      "excerpt": "確率変数 X に対する一意復号可能な D 元符号の平均符号長 L について： \\\\(L \\\\ge \\\\frac{H(X)}{\\\\log2 D}\\\\)",
+      "excerpt": "確率変数 X に対する一意復号可能な D 元符号の平均符号長 L について： \\\\(L \\\\ge \\\\frac{H(X)}{\\\\log_2 D}\\\\)",
       "id": "thm-10-9",
       "kind": "thm",
       "label": "定理",
@@ -650,7 +650,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-10/#ex-10-2"
     },
     {
-      "excerpt": "\\\\(C = \\\\max{p(x)} I(X;Y)\\\\)",
+      "excerpt": "\\\\(C = \\\\max_{p(x)} I(X;Y)\\\\)",
       "id": "def-10-9",
       "kind": "def",
       "label": "定義",
@@ -674,7 +674,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-10/#thm-10-12"
     },
     {
-      "excerpt": "- M 個のメッセージ - ブロック長 n - レート \\\\(R = \\\\frac{\\\\log2 M}{n}\\\\)",
+      "excerpt": "- M 個のメッセージ - ブロック長 n - レート \\\\(R = \\\\frac{\\\\log_2 M}{n}\\\\)",
       "id": "def-10-10",
       "kind": "def",
       "label": "定義",
@@ -698,7 +698,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-10/#thm-10-13"
     },
     {
-      "excerpt": "\\\\(E(R) = \\\\lim{n\\\\to\\\\infty} \\\\left[-\\\\frac{1}{n} \\\\cdot \\\\log2 Pe^{(n)}\\\\right]\\\\)",
+      "excerpt": "\\\\(E(R) = \\\\lim_{n\\\\to\\\\infty} \\\\left[-\\\\frac{1}{n} \\\\cdot \\\\log_2 P_e^{(n)}\\\\right]\\\\)",
       "id": "def-10-11",
       "kind": "def",
       "label": "定義",
@@ -722,7 +722,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-10/#thm-10-14"
     },
     {
-      "excerpt": "- n：符号長 - \\\\(k = \\logq \\lvert C\\rvert\\\\)：情報記号数（次元） - d：最小距離",
+      "excerpt": "- n：符号長 - \\\\(k = \\log_q \\lvert C\\rvert\\\\)：情報記号数（次元） - d：最小距離",
       "id": "def-10-12",
       "kind": "def",
       "label": "定義",
@@ -734,7 +734,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-10/#def-10-12"
     },
     {
-      "excerpt": "最小距離 d の q 元 [n, k] 符号に対して： \\\\(q^k \\\\le \\\\frac{q^n}{\\\\sum{i=0}^{\\\\lfloor (d-1)/2 \\\\rfloor} \\\\binom{n}{i}(q-1)^i}\\\\)",
+      "excerpt": "最小距離 d の q 元 [n, k] 符号に対して： \\\\(q^k \\\\le \\\\frac{q^n}{\\\\sum_{i=0}^{\\\\lfloor (d-1)/2 \\\\rfloor} \\\\binom{n}{i}(q-1)^i}\\\\)",
       "id": "thm-10-15",
       "kind": "thm",
       "label": "定理",
@@ -770,7 +770,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-10/#def-10-13"
     },
     {
-      "excerpt": "\\\\(h(X) = -\\\\int f(x) \\\\log2 f(x)\\\\,dx\\\\)",
+      "excerpt": "\\\\(h(X) = -\\\\int f(x) \\\\log_2 f(x)\\\\,dx\\\\)",
       "id": "def-10-14",
       "kind": "def",
       "label": "定義",
@@ -782,7 +782,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-10/#def-10-14"
     },
     {
-      "excerpt": "ガウス分布 \\\\(\\\\mathcal{N}(\\\\mu, \\\\sigma^2)\\\\) が微分エントロピーを最大化する： \\\\(h(X) \\\\le \\\\frac{1}{2} \\\\log2(2\\\\pi e\\\\sigma^2)\\\\)",
+      "excerpt": "ガウス分布 \\\\(\\\\mathcal{N}(\\\\mu, \\\\sigma^2)\\\\) が微分エントロピーを最大化する： \\\\(h(X) \\\\le \\\\frac{1}{2} \\\\log_2(2\\\\pi e\\\\sigma^2)\\\\)",
       "id": "thm-10-17",
       "kind": "thm",
       "label": "定理",
@@ -806,7 +806,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-10/#def-10-15"
     },
     {
-      "excerpt": "\\\\(C = \\\\frac{1}{2} \\\\log2(1 + P/N)\\\\) [bits/channel use]",
+      "excerpt": "\\\\(C = \\\\frac{1}{2} \\\\log_2(1 + P/N)\\\\) [bits/channel use]",
       "id": "thm-10-18",
       "kind": "thm",
       "label": "定理",
@@ -830,7 +830,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-10/#thm-10-19"
     },
     {
-      "excerpt": "- P：平文空間（plaintext space） - C：暗号文空間（ciphertext space） - K：鍵空間（key space） - E = \\\\(\\\\{Ek : P \\to C \\mid k \\in K\\\\}\\\\)：暗号化関数の族 - D = \\\\(\\\\{Dk : C \\to P \\mid k \\in K\\\\}\\\\)：復号関数の族",
+      "excerpt": "- P：平文空間（plaintext space） - C：暗号文空間（ciphertext space） - K：鍵空間（key space） - E = \\\\(\\\\{E_k : P \\to C \\mid k \\in K\\\\}\\\\)：暗号化関数の族 - D = \\\\(\\\\{D_k : C \\to P \\mid k \\in K\\\\}\\\\)：復号関数の族",
       "id": "def-11-1",
       "kind": "def",
       "label": "定義",
@@ -914,7 +914,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-11/#thm-11-2"
     },
     {
-      "excerpt": "平文と XOR することで暗号化を行う： - 暗号化：\\\\(ci = mi \\\\oplus ki\\\\) - 復号：\\\\(mi = ci \\\\oplus ki\\\\)",
+      "excerpt": "平文と XOR することで暗号化を行う： - 暗号化：\\\\(c_i = m_i \\\\oplus k_i\\\\) - 復号：\\\\(m_i = c_i \\\\oplus k_i\\\\)",
       "id": "def-11-6",
       "kind": "def",
       "label": "定義",
@@ -1058,7 +1058,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-11/#def-11-14"
     },
     {
-      "excerpt": "すべての多項式時間検証者 \\\\(V^{\\\\ast}\\\\) に対して、効率的なシミュレータ S が存在して、 以下の分布が計算論的に識別不能： - \\\\(\\\\mathrm{View}{V^{\\\\ast}}(P, V^{\\\\ast})(x)\\\\)：実際の対話の記録 - S(x)：シミュレータの出力",
+      "excerpt": "すべての多項式時間検証者 \\\\(V^{\\\\ast}\\\\) に対して、効率的なシミュレータ S が存在して、 以下の分布が計算論的に識別不能： - \\\\(\\\\mathrm{View}_{V^{\\\\ast}}(P, V^{\\\\ast})(x)\\\\)：実際の対話の記録 - S(x)：シミュレータの出力",
       "id": "def-11-15",
       "kind": "def",
       "label": "定義",
@@ -1214,7 +1214,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-12/#thm-12-1"
     },
     {
-      "excerpt": "- P：プレース（場所）の有限集合 - T：トランジション（遷移）の有限集合（\\\\(P \\\\cap T = \\\\emptyset\\\\)） - \\\\(F \\\\subseteq (P \\\\times T) \\\\cup (T \\\\times P)\\\\)：フロー関係 - \\\\(W: F \\\\to \\\\mathbb{N}{>0}\\\\)：重み関数 - \\\\(M0: P \\\\to \\\\mathbb{N}\\\\)：初期マーキング",
+      "excerpt": "- P：プレース（場所）の有限集合 - T：トランジション（遷移）の有限集合（\\\\(P \\\\cap T = \\\\emptyset\\\\)） - \\\\(F \\\\subseteq (P \\\\times T) \\\\cup (T \\\\times P)\\\\)：フロー関係 - \\\\(W: F \\\\to \\\\mathbb{N}_{>0}\\\\)：重み関数 - \\\\(M_0: P \\\\to \\\\mathbb{N}\\\\)：初期マーキング",
       "id": "def-12-7",
       "kind": "def",
       "label": "定義",
@@ -1346,7 +1346,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-2/#def-2-2"
     },
     {
-      "excerpt": "- 現在の状態：\\\\(q5\\\\) - テープの内容：10110111... - ヘッドの位置：5番目の記号（0）を指している",
+      "excerpt": "- 現在の状態：\\\\(q_5\\\\) - テープの内容：10110111... - ヘッドの位置：5番目の記号（0）を指している",
       "id": "ex-2-1",
       "kind": "ex",
       "label": "例",
@@ -1370,7 +1370,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-2/#def-2-3"
     },
     {
-      "excerpt": "- 初期構成 \\\\(q0w\\\\) から始めて - 受理状態 \\\\(q{\\mathrm{accept}}\\\\) を含む構成に到達すること",
+      "excerpt": "- 初期構成 \\\\(q_0w\\\\) から始めて - 受理状態 \\\\(q_{\\mathrm{accept}}\\\\) を含む構成に到達すること",
       "id": "def-2-4",
       "kind": "def",
       "label": "定義",
@@ -1466,7 +1466,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-2/#def-2-8"
     },
     {
-      "excerpt": "1. 和集合：\\\\(L1, L2\\\\) が決定可能 → \\\\(L1 \\\\cup L2\\\\) も決定可能 2. 共通部分（intersection）：\\\\(L1, L2\\\\) が決定可能 → \\\\(L1 \\\\cap L2\\\\) も決定可能 3. 補集合：L が決定可能 → \\\\(\\overline{L}\\\\) も決定可能 4. 連結：\\\\(L1, L2\\\\) が決定可能 → \\\\(L1L2\\\\) も決定可能 5. クリーネ閉包：L が決定可能 → \\\\(L^{\\ast}\\\\)",
+      "excerpt": "1. 和集合：\\\\(L_1, L_2\\\\) が決定可能 → \\\\(L_1 \\\\cup L_2\\\\) も決定可能 2. 共通部分（intersection）：\\\\(L_1, L_2\\\\) が決定可能 → \\\\(L_1 \\\\cap L_2\\\\) も決定可能 3. 補集合：L が決定可能 → \\\\(\\overline{L}\\\\) も決定可能 4. 連結：\\\\(L_1, L_2\\\\) が決定可能 → \\\\(L_1L_2\\\\) も決定可能 5. クリーネ閉包：L が決定可能 → \\\\(",
       "id": "thm-2-1",
       "kind": "thm",
       "label": "定理",
@@ -1790,7 +1790,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-3/#ex-3-1"
     },
     {
-      "excerpt": "- \\\\(Q\\\\)：状態の有限集合 - \\\\(\\\\Sigma\\\\)：入力アルファベット - \\\\(\\\\delta: Q \\\\times \\\\Sigma \\\\to Q\\\\)：遷移関数 - \\\\(q0 \\\\in Q\\\\)：初期状態 - \\\\(F \\\\subseteq Q\\\\)：受理状態の集合",
+      "excerpt": "- \\\\(Q\\\\)：状態の有限集合 - \\\\(\\\\Sigma\\\\)：入力アルファベット - \\\\(\\\\delta: Q \\\\times \\\\Sigma \\\\to Q\\\\)：遷移関数 - \\\\(q_0 \\\\in Q\\\\)：初期状態 - \\\\(F \\\\subseteq Q\\\\)：受理状態の集合",
       "id": "def-3-6",
       "kind": "def",
       "label": "定義",
@@ -1814,7 +1814,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-3/#def-3-7"
     },
     {
-      "excerpt": "M が認識する言語：\\\\(L(M) = \\\\{w \\in \\Sigma^{\\ast} \\mid \\hat{\\delta}(q0, w) \\in F\\\\}\\\\)",
+      "excerpt": "M が認識する言語：\\\\(L(M) = \\\\{w \\in \\Sigma^{\\ast} \\mid \\hat{\\delta}(q_0, w) \\in F\\\\}\\\\)",
       "id": "def-3-8",
       "kind": "def",
       "label": "定義",
@@ -1838,7 +1838,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-3/#ex-3-2"
     },
     {
-      "excerpt": "- \\\\(Q\\\\), \\\\(\\\\Sigma\\\\), \\\\(q0\\\\), \\\\(F\\\\) は DFA と同じ - \\\\(\\\\delta: Q \\\\times \\\\Sigma \\\\to \\\\mathcal{P}(Q)\\\\)：遷移関数（\\\\(\\\\mathcal{P}(Q)\\\\) は Q の冪集合）",
+      "excerpt": "- \\\\(Q\\\\), \\\\(\\\\Sigma\\\\), \\\\(q_0\\\\), \\\\(F\\\\) は DFA と同じ - \\\\(\\\\delta: Q \\\\times \\\\Sigma \\\\to \\\\mathcal{P}(Q)\\\\)：遷移関数（\\\\(\\\\mathcal{P}(Q)\\\\) は Q の冪集合）",
       "id": "def-3-9",
       "kind": "def",
       "label": "定義",
@@ -1850,7 +1850,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-3/#def-3-9"
     },
     {
-      "excerpt": "- \\\\(\\\\hat{\\\\delta}(q, \\\\epsilon) = \\\\{q\\\\}\\\\) - \\\\(\\\\hat{\\\\delta}(q, wa) = \\\\bigcup{r \\\\in \\\\hat{\\\\delta}(q, w)} \\\\delta(r, a)\\\\)",
+      "excerpt": "- \\\\(\\\\hat{\\\\delta}(q, \\\\epsilon) = \\\\{q\\\\}\\\\) - \\\\(\\\\hat{\\\\delta}(q, wa) = \\\\bigcup_{r \\\\in \\\\hat{\\\\delta}(q, w)} \\\\delta(r, a)\\\\)",
       "id": "def-3-10",
       "kind": "def",
       "label": "定義",
@@ -1934,7 +1934,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-3/#thm-3-1"
     },
     {
-      "excerpt": "1. ∅ は正規表現（言語 ∅ を表す） 2. ε は正規表現（言語 {ε} を表す） 3. a ∈ Σ に対して、a は正規表現（言語 {a} を表す） 4. \\\\(R1\\\\), \\\\(R2\\\\) が正規表現なら、以下も正規表現： - (R1 + R2)：和集合 L(R1) ∪ L(R2) を表す - (R1R2)：連結 L(R1)L(R2) を表す - (R1)：クリーネ閉包 \\\\(L(R1)^{\\\\ast}\\\\) を表す",
+      "excerpt": "1. ∅ は正規表現（言語 ∅ を表す） 2. ε は正規表現（言語 {ε} を表す） 3. a ∈ Σ に対して、a は正規表現（言語 {a} を表す） 4. \\\\(R_1\\\\), \\\\(R_2\\\\) が正規表現なら、以下も正規表現： - (R1 + R2)：和集合 L(R1) ∪ L(R2) を表す - (R1R2)：連結 L(R1)L(R2) を表す - (R1)：クリーネ閉包 \\\\(L(R_1)^{\\\\ast}\\\\) を表す",
       "id": "def-3-14",
       "kind": "def",
       "label": "定義",
@@ -1982,7 +1982,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-3/#thm-3-3"
     },
     {
-      "excerpt": "1. 所属問題：w ∈ L? 2. 空問題：L = ∅? 3. 有限性問題：L は有限？ 4. 等価性問題：\\\\(L1 = L2\\\\)?",
+      "excerpt": "1. 所属問題：w ∈ L? 2. 空問題：L = ∅? 3. 有限性問題：L は有限？ 4. 等価性問題：\\\\(L_1 = L_2\\\\)?",
       "id": "thm-3-4",
       "kind": "thm",
       "label": "定理",
@@ -2030,7 +2030,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-3/#ex-3-7"
     },
     {
-      "excerpt": "\\\\(x \\equivL y \\iff \\forall z \\in \\Sigma^{\\ast},\\ (xz \\in L \\iff yz \\in L)\\\\)",
+      "excerpt": "\\\\(x \\equiv_L y \\iff \\forall z \\in \\Sigma^{\\ast},\\ (xz \\in L \\iff yz \\in L)\\\\)",
       "id": "def-3-15",
       "kind": "def",
       "label": "定義",
@@ -2042,7 +2042,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-3/#def-3-15"
     },
     {
-      "excerpt": "言語 L が正規言語 ⟺ \\\\(\\\\equivL\\\\) の同値類の個数が有限",
+      "excerpt": "言語 L が正規言語 ⟺ \\\\(\\\\equiv_L\\\\) の同値類の個数が有限",
       "id": "thm-3-6",
       "kind": "thm",
       "label": "定理",
@@ -2102,7 +2102,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-3/#ex-3-8"
     },
     {
-      "excerpt": "1. 各内部節点は変数でラベル付け 2. 各葉は終端記号または ε でラベル付け 3. 根は開始記号でラベル付け 4. 内部節点 A の子が \\\\(B1, \\\\ldots, Bk\\\\) なら \\\\(A \\\\to B1\\\\cdots Bk \\\\in R\\\\)",
+      "excerpt": "1. 各内部節点は変数でラベル付け 2. 各葉は終端記号または ε でラベル付け 3. 根は開始記号でラベル付け 4. 内部節点 A の子が \\\\(B_1, \\\\ldots, B_k\\\\) なら \\\\(A \\\\to B_1\\\\cdots B_k \\\\in R\\\\)",
       "id": "def-3-19",
       "kind": "def",
       "label": "定義",
@@ -2198,7 +2198,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-3/#ex-3-10"
     },
     {
-      "excerpt": "- Q：状態の有限集合 - Σ：入力アルファベット - Γ：スタックアルファベット - \\\\(\\\\delta: Q \\\\times (\\\\Sigma \\\\cup \\\\{\\\\epsilon\\\\}) \\\\times \\\\Gamma \\\\to \\\\mathcal{P}(Q \\\\times \\\\Gamma^{\\\\ast})\\\\)：遷移関数（\\\\(\\\\mathcal{P}\\\\) は冪集合、有限部分集合のみを返す） - \\\\(q0 \\\\in Q\\\\)：初期状態 - \\\\(Z0 \\\\in",
+      "excerpt": "- Q：状態の有限集合 - Σ：入力アルファベット - Γ：スタックアルファベット - \\\\(\\\\delta: Q \\\\times (\\\\Sigma \\\\cup \\\\{\\\\epsilon\\\\}) \\\\times \\\\Gamma \\\\to \\\\mathcal{P}(Q \\\\times \\\\Gamma^{\\\\ast})\\\\)：遷移関数（\\\\(\\\\mathcal{P}\\\\) は冪集合、有限部分集合のみを返す） - \\\\(q_0 \\\\in Q\\\\)：初期状態 - \\\\(Z_0 \\\\i",
       "id": "def-3-23",
       "kind": "def",
       "label": "定義",
@@ -2234,7 +2234,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-3/#def-3-25"
     },
     {
-      "excerpt": "1. 最終状態による受理：\\\\(L(P) = \\\\{w \\mid (q0, w, Z0) \\vdash^{\\ast} (q, \\epsilon, \\alpha),\\ q \\in F\\\\}\\\\) 2. 空スタックによる受理：\\\\(N(P) = \\\\{w \\mid (q0, w, Z0) \\vdash^{\\ast} (q, \\epsilon, \\epsilon)\\\\}\\\\)",
+      "excerpt": "1. 最終状態による受理：\\\\(L(P) = \\\\{w \\mid (q_0, w, Z_0) \\vdash^{\\ast} (q, \\epsilon, \\alpha),\\ q \\in F\\\\}\\\\) 2. 空スタックによる受理：\\\\(N(P) = \\\\{w \\mid (q_0, w, Z_0) \\vdash^{\\ast} (q, \\epsilon, \\epsilon)\\\\}\\\\)",
       "id": "def-3-26",
       "kind": "def",
       "label": "定義",
@@ -2330,7 +2330,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-3/#def-3-28"
     },
     {
-      "excerpt": "\\\\(HALT{TM} = \\\\{\\\\langle M,w\\\\rangle \\\\mid M \\\\text{ はチューリング機械で、入力 } w \\\\text{ で停止する}\\\\}\\\\)",
+      "excerpt": "\\\\(HALT_{TM} = \\\\{\\\\langle M,w\\\\rangle \\\\mid M \\\\text{ はチューリング機械で、入力 } w \\\\text{ で停止する}\\\\}\\\\)",
       "id": "def-4-1",
       "kind": "def",
       "label": "定義",
@@ -2378,7 +2378,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-4/#thm-4-2"
     },
     {
-      "excerpt": "\\\\(A{TM} = \\\\{\\\\langle M,w\\\\rangle \\\\mid M \\\\text{ はチューリング機械で、} w \\\\text{ を受理する}\\\\}\\\\)",
+      "excerpt": "\\\\(A_{TM} = \\\\{\\\\langle M,w\\\\rangle \\\\mid M \\\\text{ はチューリング機械で、} w \\\\text{ を受理する}\\\\}\\\\)",
       "id": "def-4-3",
       "kind": "def",
       "label": "定義",
@@ -2402,7 +2402,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-4/#thm-4-3"
     },
     {
-      "excerpt": "計算可能関数 \\\\(f: \\\\Sigma^{\\\\ast} \\\\to \\\\Sigma^{\\\\ast}\\\\) が存在して、すべての \\\\(w\\\\) に対して \\\\(w \\\\in A \\\\iff f(w) \\\\in B\\\\) が成り立つことである。これを \\\\(A \\\\lem B\\\\) と表記する。",
+      "excerpt": "計算可能関数 \\\\(f: \\\\Sigma^{\\\\ast} \\\\to \\\\Sigma^{\\\\ast}\\\\) が存在して、すべての \\\\(w\\\\) に対して \\\\(w \\\\in A \\\\iff f(w) \\\\in B\\\\) が成り立つことである。これを \\\\(A \\\\le_m B\\\\) と表記する。",
       "id": "def-4-4",
       "kind": "def",
       "label": "定義",
@@ -2462,7 +2462,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-4/#thm-4-6"
     },
     {
-      "excerpt": "B を決定するオラクルを使って A を決定する機械が存在することである。 これを \\\\(A \\\\leT B\\\\) と表記する。",
+      "excerpt": "B を決定するオラクルを使って A を決定する機械が存在することである。 これを \\\\(A \\\\le_T B\\\\) と表記する。",
       "id": "def-4-5",
       "kind": "def",
       "label": "定義",
@@ -2486,7 +2486,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-4/#thm-4-7"
     },
     {
-      "excerpt": "- \\\\(\\\\Sigma0 = \\\\Pi0\\\\)：決定可能言語 - \\\\(\\\\Sigma{n+1} = \\\\{L \\\\mid L \\\\text{ は } \\\\Pin \\\\text{ 言語へのオラクルで認識可能}\\\\}\\\\) - \\\\(\\\\Pi{n+1} = \\\\{L \\\\mid \\\\overline{L} \\\\in \\\\Sigma{n+1}\\\\}\\\\)",
+      "excerpt": "- \\\\(\\\\Sigma_0 = \\\\Pi_0\\\\)：決定可能言語 - \\\\(\\\\Sigma_{n+1} = \\\\{L \\\\mid L \\\\text{ は } \\\\Pi_n \\\\text{ 言語へのオラクルで認識可能}\\\\}\\\\) - \\\\(\\\\Pi_{n+1} = \\\\{L \\\\mid \\\\overline{L} \\\\in \\\\Sigma_{n+1}\\\\}\\\\)",
       "id": "def-4-6",
       "kind": "def",
       "label": "定義",
@@ -2498,7 +2498,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-4/#def-4-6"
     },
     {
-      "excerpt": "1. \\\\(L \\\\in \\\\Sigman\\\\) 2. ある決定可能な関係 R が存在して、 \\\\(x \\\\in L ⟺ \\\\exists y1\\\\forall y2\\\\exists y3\\\\cdots Qnyn\\\\, R(x, y1, \\\\ldots, yn)\\\\) （\\\\(Qn\\\\) は n が奇数なら \\\\(\\\\exists\\\\)、偶数なら \\\\(\\\\forall\\\\)）",
+      "excerpt": "1. \\\\(L \\\\in \\\\Sigma_n\\\\) 2. ある決定可能な関係 R が存在して、 \\\\(x \\\\in L ⟺ \\\\exists y_1\\\\forall y_2\\\\exists y_3\\\\cdots Q_ny_n\\\\, R(x, y_1, \\\\ldots, y_n)\\\\) （\\\\(Q_n\\\\) は n が奇数なら \\\\(\\\\exists\\\\)、偶数なら \\\\(\\\\forall\\\\)）",
       "id": "thm-4-8",
       "kind": "thm",
       "label": "定理",
@@ -2510,7 +2510,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-4/#thm-4-8"
     },
     {
-      "excerpt": "- ある機械 \\\\(M1\\\\) に対して \\\\(L(M1)\\\\) は性質 \\\\(P\\\\) を持つ - ある機械 \\\\(M2\\\\) に対して \\\\(L(M2)\\\\) は性質 \\\\(P\\\\) を持たない ことである。",
+      "excerpt": "- ある機械 \\\\(M_1\\\\) に対して \\\\(L(M_1)\\\\) は性質 \\\\(P\\\\) を持つ - ある機械 \\\\(M_2\\\\) に対して \\\\(L(M_2)\\\\) は性質 \\\\(P\\\\) を持たない ことである。",
       "id": "def-4-7",
       "kind": "def",
       "label": "定義",
@@ -2558,7 +2558,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-4/#thm-4-10"
     },
     {
-      "excerpt": "ある n が存在して \\\\(\\\\varphin = \\\\varphi{f(n)}\\\\) となる。",
+      "excerpt": "ある n が存在して \\\\(\\\\varphi_n = \\\\varphi_{f(n)}\\\\) となる。",
       "id": "thm-4-11",
       "kind": "thm",
       "label": "定理",
@@ -2606,7 +2606,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-4/#thm-4-12"
     },
     {
-      "excerpt": "- \\\\(A \\\\equivT B\\\\) は \\\\(A \\\\leT B\\\\) かつ \\\\(B \\\\leT A\\\\) が成り立つこと",
+      "excerpt": "- \\\\(A \\\\equiv_T B\\\\) は \\\\(A \\\\le_T B\\\\) かつ \\\\(B \\\\le_T A\\\\) が成り立つこと",
       "id": "def-4-11",
       "kind": "def",
       "label": "定義",
@@ -2630,7 +2630,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-5/#def-5-1"
     },
     {
-      "excerpt": "\\\\(tM(n) = \\\\max\\\\{\\\\text{M が長さ } n \\\\text{ の入力 } w \\\\text{ で実行するステップ数}\\\\}\\\\) と定義する。",
+      "excerpt": "\\\\(t_M(n) = \\\\max\\\\{\\\\text{M が長さ } n \\\\text{ の入力 } w \\\\text{ で実行するステップ数}\\\\}\\\\) と定義する。",
       "id": "def-5-2",
       "kind": "def",
       "label": "定義",
@@ -2666,7 +2666,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-5/#def-5-4"
     },
     {
-      "excerpt": "- P = \\\\(\\\\bigcup{k \\\\ge 0} \\\\mathrm{TIME}(n^k)\\\\)（多項式時間） - EXPTIME = \\\\(\\\\bigcup{k \\\\ge 0} \\\\mathrm{TIME}(2^{n^k})\\\\)（指数時間） - 2-EXPTIME = \\\\(\\\\bigcup{k \\\\ge 0} \\\\mathrm{TIME}(2^{2^{n^k}})\\\\)（二重指数時間）",
+      "excerpt": "- P = \\\\(\\\\bigcup_{k \\\\ge 0} \\\\mathrm{TIME}(n^k)\\\\)（多項式時間） - EXPTIME = \\\\(\\\\bigcup_{k \\\\ge 0} \\\\mathrm{TIME}(2^{n^k})\\\\)（指数時間） - 2-EXPTIME = \\\\(\\\\bigcup_{k \\\\ge 0} \\\\mathrm{TIME}(2^{2^{n^k}})\\\\)（二重指数時間）",
       "id": "def-5-5",
       "kind": "def",
       "label": "定義",
@@ -2894,7 +2894,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-5/#def-5-14"
     },
     {
-      "excerpt": "- L = SPACE(log n)（対数空間） - NL = NSPACE(log n)（非決定性対数空間） - PSPACE = \\\\(\\\\bigcup{k \\\\ge 0} \\\\mathrm{SPACE}(n^k)\\\\)（多項式空間）",
+      "excerpt": "- L = SPACE(log n)（対数空間） - NL = NSPACE(log n)（非決定性対数空間） - PSPACE = \\\\(\\\\bigcup_{k \\\\ge 0} \\\\mathrm{SPACE}(n^k)\\\\)（多項式空間）",
       "id": "def-5-15",
       "kind": "def",
       "label": "定義",
@@ -2978,7 +2978,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-5/#thm-5-9"
     },
     {
-      "excerpt": "- \\\\(\\\\Sigma0^{\\\\mathrm{P}} = \\\\Pi0^{\\\\mathrm{P}} = \\\\mathrm{P}\\\\) - \\\\(\\\\Sigma{k+1}^{\\\\mathrm{P}} = \\\\mathrm{NP}^{\\\\Sigmak^{\\\\mathrm{P}}}\\\\)（\\\\(\\\\Sigmak^{\\\\mathrm{P}}\\\\) オラクル付き \\\\(\\\\mathrm{NP}\\\\)） - \\\\(\\\\Pi{k+1}^{\\\\mathrm{P}} = \\\\mathrm{co",
+      "excerpt": "- \\\\(\\\\Sigma_0^{\\\\mathrm{P}} = \\\\Pi_0^{\\\\mathrm{P}} = \\\\mathrm{P}\\\\) - \\\\(\\\\Sigma_{k+1}^{\\\\mathrm{P}} = \\\\mathrm{NP}^{\\\\Sigma_k^{\\\\mathrm{P}}}\\\\)（\\\\(\\\\Sigma_k^{\\\\mathrm{P}}\\\\) オラクル付き \\\\(\\\\mathrm{NP}\\\\)） - \\\\(\\\\Pi_{k+1}^{\\\\mathrm{P}} = \\\\mat",
       "id": "def-5-17",
       "kind": "def",
       "label": "定義",
@@ -2990,7 +2990,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-5/#def-5-17"
     },
     {
-      "excerpt": "1. \\\\(\\\\Sigmak^{\\\\mathrm{P}} \\\\cup \\\\Pik^{\\\\mathrm{P}} \\\\subseteq \\\\Sigma{k+1}^{\\\\mathrm{P}} \\\\cap \\\\Pi{k+1}^{\\\\mathrm{P}}\\\\) 2. \\\\(\\\\Sigmak^{\\\\mathrm{P}} = \\\\mathrm{co}\\\\,\\\\Pik^{\\\\mathrm{P}}\\\\)",
+      "excerpt": "1. \\\\(\\\\Sigma_k^{\\\\mathrm{P}} \\\\cup \\\\Pi_k^{\\\\mathrm{P}} \\\\subseteq \\\\Sigma_{k+1}^{\\\\mathrm{P}} \\\\cap \\\\Pi_{k+1}^{\\\\mathrm{P}}\\\\) 2. \\\\(\\\\Sigma_k^{\\\\mathrm{P}} = \\\\mathrm{co}\\\\,\\\\Pi_k^{\\\\mathrm{P}}\\\\)",
       "id": "thm-5-10",
       "kind": "thm",
       "label": "定理",
@@ -3002,7 +3002,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-5/#thm-5-10"
     },
     {
-      "excerpt": "ある \\\\(k\\\\) について \\\\(\\\\Sigmak^{\\\\mathrm{P}} = \\\\Sigma{k+1}^{\\\\mathrm{P}}\\\\) が成り立つなら、すべての \\\\(i \\\\ge k\\\\) で \\\\(\\\\Sigmai^{\\\\mathrm{P}} = \\\\Sigmak^{\\\\mathrm{P}}\\\\) となり、\\\\(\\\\mathrm{PH} = \\\\Sigmak^{\\\\mathrm{P}}\\\\) に崩壊する。",
+      "excerpt": "ある \\\\(k\\\\) について \\\\(\\\\Sigma_k^{\\\\mathrm{P}} = \\\\Sigma_{k+1}^{\\\\mathrm{P}}\\\\) が成り立つなら、すべての \\\\(i \\\\ge k\\\\) で \\\\(\\\\Sigma_i^{\\\\mathrm{P}} = \\\\Sigma_k^{\\\\mathrm{P}}\\\\) となり、\\\\(\\\\mathrm{PH} = \\\\Sigma_k^{\\\\mathrm{P}}\\\\) に崩壊する。",
       "id": "thm-5-11",
       "kind": "thm",
       "label": "定理",
@@ -3014,7 +3014,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-5/#thm-5-11"
     },
     {
-      "excerpt": "- \\\\(\\\\Sigma1^{\\\\mathrm{P}}\\\\) 完全：SAT - \\\\(\\\\Pi1^{\\\\mathrm{P}}\\\\) 完全：UNSAT - \\\\(\\\\Sigma2^{\\\\mathrm{P}}\\\\) 完全：∃∀SAT = \\\\(\\\\{\\\\varphi \\\\mid \\\\exists x\\\\forall y\\\\, \\\\varphi(x,y) = 1\\\\}\\\\) - \\\\(\\\\Pi2^{\\\\mathrm{P}}\\\\) 完全：∀∃SAT = \\\\(\\\\{\\\\varphi",
+      "excerpt": "- \\\\(\\\\Sigma_1^{\\\\mathrm{P}}\\\\) 完全：SAT - \\\\(\\\\Pi_1^{\\\\mathrm{P}}\\\\) 完全：UNSAT - \\\\(\\\\Sigma_2^{\\\\mathrm{P}}\\\\) 完全：∃∀SAT = \\\\(\\\\{\\\\varphi \\\\mid \\\\exists x\\\\forall y\\\\, \\\\varphi(x,y) = 1\\\\}\\\\) - \\\\(\\\\Pi_2^{\\\\mathrm{P}}\\\\) 完全：∀∃SAT = \\\\(\\\\{\\\\var",
       "id": "ex-5-3",
       "kind": "ex",
       "label": "例",
@@ -3086,7 +3086,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-5/#def-5-20"
     },
     {
-      "excerpt": "- P/poly = \\\\(\\\\{L \\\\mid \\\\text{ある多項式 } p, \\\\text{ 各 } n \\\\text{ に対してサイズ } \\\\le p(n) \\\\text{ の回路族が } Ln \\\\text{ を計算}\\\\}\\\\)",
+      "excerpt": "- P/poly = \\\\(\\\\{L \\\\mid \\\\text{ある多項式 } p, \\\\text{ 各 } n \\\\text{ に対してサイズ } \\\\le p(n) \\\\text{ の回路族が } L_n \\\\text{ を計算}\\\\}\\\\)",
       "id": "def-5-21",
       "kind": "def",
       "label": "定義",
@@ -3218,7 +3218,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-6/#ex-6-1"
     },
     {
-      "excerpt": "\\\\(T{avg}(n) = \\\\sum{\\\\lvert I\\\\rvert = n} \\\\Pr[I] \\\\cdot T(I)\\\\)",
+      "excerpt": "\\\\(T_{avg}(n) = \\\\sum_{\\\\lvert I\\\\rvert = n} \\\\Pr[I] \\\\cdot T(I)\\\\)",
       "id": "def-6-2",
       "kind": "def",
       "label": "定義",
@@ -3266,7 +3266,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-6/#ex-6-3"
     },
     {
-      "excerpt": "操作 i の償却コスト：\\\\(\\\\hat{a}i = ai + \\\\Phi(Di) - \\\\Phi(D{i-1})\\\\)",
+      "excerpt": "操作 i の償却コスト：\\\\(\\\\hat{a}_i = a_i + \\\\Phi(D_i) - \\\\Phi(D_{i-1})\\\\)",
       "id": "def-6-4",
       "kind": "def",
       "label": "定義",
@@ -3446,7 +3446,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-6/#def-6-7"
     },
     {
-      "excerpt": "n 個の活動 \\\\(\\\\{a1, \\\\ldots, an\\\\}\\\\)、各活動 \\\\(ai\\\\) は開始時刻 \\\\(si\\\\) と終了時刻 \\\\(fi\\\\) を持つ。 目標：重ならない活動の最大集合を選択。",
+      "excerpt": "n 個の活動 \\\\(\\\\{a_1, \\\\ldots, a_n\\\\}\\\\)、各活動 \\\\(a_i\\\\) は開始時刻 \\\\(s_i\\\\) と終了時刻 \\\\(f_i\\\\) を持つ。 目標：重ならない活動の最大集合を選択。",
       "id": "ex-6-11",
       "kind": "ex",
       "label": "例",
@@ -3554,7 +3554,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-6/#ex-6-15"
     },
     {
-      "excerpt": "\\\\(G(z) = \\\\sum{n \\\\ge 0} an z^n\\\\)",
+      "excerpt": "\\\\(G(z) = \\\\sum_{n \\\\ge 0} a_n z^n\\\\)",
       "id": "def-6-9",
       "kind": "def",
       "label": "定義",
@@ -3566,7 +3566,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-6/#def-6-9"
     },
     {
-      "excerpt": "Catalan数 \\\\(Cn\\\\)：n組の括弧の正しい並べ方の数",
+      "excerpt": "Catalan数 \\\\(C_n\\\\)：n組の括弧の正しい並べ方の数",
       "id": "ex-6-16",
       "kind": "ex",
       "label": "例",
@@ -3626,7 +3626,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-6/#thm-6-10"
     },
     {
-      "excerpt": "入力：\\\\(a1, a2, \\\\ldots, an\\\\) 出力：\\\\(s1 = a1,\\\\ s2 = a1 + a2,\\\\ \\\\ldots,\\\\ sn = a1 + \\\\cdots + an\\\\)",
+      "excerpt": "入力：\\\\(a_1, a_2, \\\\ldots, a_n\\\\) 出力：\\\\(s_1 = a_1,\\\\ s_2 = a_1 + a_2,\\\\ \\\\ldots,\\\\ s_n = a_1 + \\\\cdots + a_n\\\\)",
       "id": "ex-6-18",
       "kind": "ex",
       "label": "例",
@@ -3806,7 +3806,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-7/#def-7-6"
     },
     {
-      "excerpt": "\\\\(h \\\\le 1.44\\\\log2(n+2) - 1.328\\\\)",
+      "excerpt": "\\\\(h \\\\le 1.44\\\\log_2(n+2) - 1.328\\\\)",
       "id": "thm-7-8",
       "kind": "thm",
       "label": "定理",
@@ -3854,7 +3854,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-7/#def-7-8"
     },
     {
-      "excerpt": "\\\\(h ≤ logt((n+1)/2)\\\\)",
+      "excerpt": "\\\\(h ≤ log_t((n+1)/2)\\\\)",
       "id": "thm-7-10",
       "kind": "thm",
       "label": "定理",
@@ -4010,7 +4010,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-7/#def-7-15"
     },
     {
-      "excerpt": "- 検索：\\\\(O(\\\\logB n)\\\\) I/O - 挿入・削除：\\\\(O(\\\\logB n)\\\\) I/O",
+      "excerpt": "- 検索：\\\\(O(\\\\log_B n)\\\\) I/O - 挿入・削除：\\\\(O(\\\\log_B n)\\\\) I/O",
       "id": "thm-7-16",
       "kind": "thm",
       "label": "定理",
@@ -4130,7 +4130,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-8/#def-8-1"
     },
     {
-      "excerpt": "\\\\(\\\\sum{v \\\\in V} \\\\deg(v) = 2\\\\lvert E\\\\rvert\\\\)",
+      "excerpt": "\\\\(\\\\sum_{v \\\\in V} \\\\deg(v) = 2\\\\lvert E\\\\rvert\\\\)",
       "id": "thm-8-1",
       "kind": "thm",
       "label": "定理",
@@ -4262,7 +4262,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-8/#thm-8-7"
     },
     {
-      "excerpt": "- 容量関数 \\\\(c: V \\\\times V \\\\to \\\\mathbb{R}{\\\\ge 0}\\\\)（辺がない組の容量は 0 とみなす） - 始点 s、終点 t",
+      "excerpt": "- 容量関数 \\\\(c: V \\\\times V \\\\to \\\\mathbb{R}_{\\\\ge 0}\\\\)（辺がない組の容量は 0 とみなす） - 始点 s、終点 t",
       "id": "def-8-4",
       "kind": "def",
       "label": "定義",
@@ -4418,7 +4418,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-8/#thm-8-17"
     },
     {
-      "excerpt": "グラフが平面的 ⟺ \\\\(K5\\\\) または \\\\(K{3,3}\\\\) の細分を部分グラフとして含まない。",
+      "excerpt": "グラフが平面的 ⟺ \\\\(K_5\\\\) または \\\\(K_{3,3}\\\\) の細分を部分グラフとして含まない。",
       "id": "thm-8-18",
       "kind": "thm",
       "label": "定理",
@@ -4574,7 +4574,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-9/#thm-9-2"
     },
     {
-      "excerpt": "\\\\(\\\\Sigma \\\\models \\\\varphi\\\\) ⟺ ある有限部分集合 \\\\(\\\\Sigma0 \\\\subseteq \\\\Sigma\\\\) に対して \\\\(\\\\Sigma0 \\\\models \\\\varphi\\\\)",
+      "excerpt": "\\\\(\\\\Sigma \\\\models \\\\varphi\\\\) ⟺ ある有限部分集合 \\\\(\\\\Sigma_0 \\\\subseteq \\\\Sigma\\\\) に対して \\\\(\\\\Sigma_0 \\\\models \\\\varphi\\\\)",
       "id": "thm-9-3",
       "kind": "thm",
       "label": "定理",
@@ -4622,7 +4622,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-9/#def-9-10"
     },
     {
-      "excerpt": "\\\\(Q1 x1 \\\\cdots Qn xn\\\\, \\\\psi\\\\)（\\\\(Qi \\\\in \\\\{\\\\forall, \\\\exists\\\\}\\\\)、\\\\(\\\\psi\\\\) は量化子を含まない）",
+      "excerpt": "\\\\(Q_1 x_1 \\\\cdots Q_n x_n\\\\, \\\\psi\\\\)（\\\\(Q_i \\\\in \\\\{\\\\forall, \\\\exists\\\\}\\\\)、\\\\(\\\\psi\\\\) は量化子を含まない）",
       "id": "thm-9-4",
       "kind": "thm",
       "label": "定理",

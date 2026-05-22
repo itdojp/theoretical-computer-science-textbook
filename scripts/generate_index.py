@@ -96,8 +96,24 @@ def strip_markdown(s: str) -> str:
     s = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", s)
     s = re.sub(r"<[^>]+>", "", s)
     s = s.replace("`", "")
+
+    # Preserve LaTeX subscripts such as ``\mathbb{R}_{\ge 0}`` in excerpts.
+    # A blanket underscore removal is useful for Markdown emphasis, but it
+    # corrupts math spans that are already delimited for MathJax.
+    math_spans: list[str] = []
+
+    def _protect_math(match: re.Match[str]) -> str:
+        math_spans.append(match.group(0))
+        return f"\u0000MATH{len(math_spans) - 1}\u0000"
+
+    s = re.sub(r"\\\\\(.+?\\\\\)", _protect_math, s)
+    s = re.sub(r"\\\\\[.+?\\\\\]", _protect_math, s)
     s = s.replace("*", "")
     s = s.replace("_", "")
+
+    for i, span in enumerate(math_spans):
+        s = s.replace(f"\u0000MATH{i}\u0000", span)
+
     s = re.sub(r"\s+", " ", s).strip()
     return s
 

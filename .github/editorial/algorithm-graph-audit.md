@@ -15,6 +15,7 @@ Issue #379 に対応し、第6章と第8章の解析前提・グラフ前提・�
 4. マトロイド貪欲法、Kruskal 法、Huffman 符号、Brent の定理について、最適化対象・入力前提・支配項を補足した。
 5. 第8章では、有限グラフを既定前提とし、自己ループ・多重辺・負重み・容量0の扱いはアルゴリズムごとに明示する方針を補った。
 6. DFS/BFS、Dijkstra、Floyd-Warshall、最小全域木、フローネットワーク、Ford-Fulkerson、Gale-Shapley、Brooks の定理、木の同値条件、Erdős-Rényi モデルについて、適用条件と境界条件を明確化した。
+7. `docs/index.json` の excerpt 生成で、MathJax のインライン数式内にある LaTeX 添字 `_` を Markdown 強調記号として削除しないようにした。
 
 ## 変更不要と判断した点
 
