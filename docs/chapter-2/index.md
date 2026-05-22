@@ -144,13 +144,14 @@ M が w で**停止する**とは次のとおりである。
 
 **形式的な記述**
 \\(M = (Q, \Sigma, \Gamma, \delta, q_1, q_{\mathrm{accept}}, q_{\mathrm{reject}})\\)。ここで：
-- \\(Q = \\{q_1, q_2, q_3, q_4, q_5, q_{\mathrm{accept}}, q_{\mathrm{reject}}\\}\\)
+- \\(Q = \\{q_1, q_2, q_3, q_{\mathrm{accept}}, q_{\mathrm{reject}}\\}\\)
 - \\(\Sigma = \\{0, 1\\}\\)
 - \\(\Gamma = \\{0, 1, x, y, ␣\\}\\)
 
 遷移関数 \\(\\delta\\) は次のとおりである。
 
 （以下のコード風表記では、\\(q_{\mathrm{accept}}\\) と \\(q_{\mathrm{reject}}\\) をそれぞれ `q_accept`, `q_reject` と略記する。）
+未記載の遷移は拒否状態へ移るものとみなす。
 ```text
 δ(q_1, 0) = (q_2, x, R)  // 0をxに変えて右へ
 δ(q_1, y) = (q_1, y, R)  // yをスキップ
@@ -172,8 +173,8 @@ M が w で**停止する**とは次のとおりである。
 **計算例**：入力 \\(0011\\) に対する計算過程
 \\[
 \begin{aligned}
-q_10011 &\vdash xq_2011 \vdash x0q_211 \vdash x0yq_31 \vdash xq_30y1 \vdash q_3x0y1 \vdash xq_10y1 \\\\{}
-&\vdash xxq_2y1 \vdash xxyq_21 \vdash xxyyq_3 \vdash xxyq_3y \vdash xxq_3yy \vdash xq_3xyy \\\\{}
+q_10011 &\vdash xq_2011 \vdash x0q_211 \vdash x0yq_31 \vdash xq_30y1 \vdash q_3x0y1 \vdash xq_10y1 \\\\
+&\vdash xxq_2y1 \vdash xxyq_21 \vdash xxyyq_3 \vdash xxyq_3y \vdash xxq_3yy \vdash xq_3xyy \\\\
 &\vdash xxq_1yy \vdash xxyq_1y \vdash xxyyq_1 \vdash xxyy␣q_{\mathrm{accept}}
 \end{aligned}
 \\]
@@ -756,9 +757,11 @@ LATM = \\(\\{\\langle M,w\\rangle \\mid M \\text{ は } w \\text{ を受理す�
 
 **LATM は決定可能でない**：背理法で示す。LATM を決定する機械 H が存在すると仮定する。以下の機械 D を構成する。
 
+```text
 D = "入力 ⟨M⟩ に対して：
 1. H を ⟨M, ⟨M⟩⟩ でシミュレートする
 2. H が受理したら拒否、拒否したら受理する"
+```
 
 すると D は Ld = \\(\\{\\langle M\\rangle \\mid M \\text{ は } \\langle M\\rangle \\text{ を受理しない}\\}\\) を認識することになる。
 しかし定理2.7により Ld は認識可能でない。矛盾。□
@@ -767,7 +770,7 @@ D = "入力 ⟨M⟩ に対して：
 
 ### 2.7.1 言語クラスの包含関係
 
-これまでに学んだ言語クラスの関係。
+これまでに学んだ言語クラスの関係。以下では基準となる有限アルファベット \\(\Sigma\\) を固定し、「すべての言語」は \\(\Sigma^{\ast}\\) の部分集合全体を指す。
 
 **定理 2.10** 以下の真の包含関係が成り立つ。
 {: #thm-2-10 }
