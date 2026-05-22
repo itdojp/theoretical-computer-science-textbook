@@ -94,12 +94,11 @@ def compute_page_url(docs_root: Path, md_path: Path, front_matter: dict[str, str
 def strip_markdown(s: str) -> str:
     s = re.sub(r"!\[([^\]]*)\]\([^)]+\)", r"\1", s)
     s = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", s)
-    s = re.sub(r"<[^>]+>", "", s)
-    s = s.replace("`", "")
 
-    # Preserve LaTeX subscripts such as ``\mathbb{R}_{\ge 0}`` in excerpts.
-    # A blanket underscore removal is useful for Markdown emphasis, but it
-    # corrupts math spans that are already delimited for MathJax.
+    # Preserve MathJax spans before stripping HTML-like tags and Markdown
+    # emphasis. A blanket ``<...>`` removal would otherwise corrupt comparisons
+    # such as ``\(R < C\)`` and ``\(\epsilon > 0\)``, while blanket underscore
+    # removal corrupts LaTeX subscripts such as ``\mathbb{R}_{\ge 0}``.
     math_spans: list[str] = []
 
     def _protect_math(match: re.Match[str]) -> str:
@@ -108,6 +107,8 @@ def strip_markdown(s: str) -> str:
 
     s = re.sub(r"\\\\\(.+?\\\\\)", _protect_math, s)
     s = re.sub(r"\\\\\[.+?\\\\\]", _protect_math, s)
+    s = re.sub(r"<[^>]+>", "", s)
+    s = s.replace("`", "")
     s = s.replace("*", "")
     s = s.replace("_", "")
 
