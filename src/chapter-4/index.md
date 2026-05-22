@@ -549,7 +549,7 @@ Riceの定理により、以下の問題はすべて決定不能：
                 assert (instance in self.source) == (reduced in self.target)
     ```
 
-15. 再帰関数のシミュレータを実装せよ：
+16. 再帰関数のシミュレータを実装せよ：
     - 原始再帰関数の定義と計算
     - μ演算子（最小化）の実装
     - Ackermann関数などの非原始再帰関数の例
