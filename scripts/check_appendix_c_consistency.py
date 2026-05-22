@@ -24,19 +24,28 @@ def line_no(text: str, offset: int) -> int:
     return text.count("\n", 0, offset) + 1
 
 
-def collect_chapter_ranges(text: str) -> dict[int, tuple[int, int]]:
+def collect_chapter_ranges(text: str) -> tuple[dict[int, tuple[int, int]], list[str]]:
     matches = list(CHAPTER_SECTION_RE.finditer(text))
     ranges: dict[int, tuple[int, int]] = {}
+    errors: list[str] = []
     for idx, match in enumerate(matches):
         chapter = int(match.group("chapter"))
+        expected_anchor = f"ex-sol-ch{chapter}"
+        actual_anchor = match.group("anchor")
+        if actual_anchor != expected_anchor:
+            errors.append(
+                f"line {line_no(text, match.start())}: 第{chapter}章 section must declare "
+                f"'{{#{expected_anchor}}}' anchor"
+            )
         end = matches[idx + 1].start() if idx + 1 < len(matches) else len(text)
         ranges[chapter] = (match.start(), end)
-    return ranges
+    return ranges, errors
 
 
 def check_appendix(text: str) -> list[str]:
     errors: list[str] = []
-    ranges = collect_chapter_ranges(text)
+    ranges, range_errors = collect_chapter_ranges(text)
+    errors.extend(range_errors)
 
     for chapter in range(1, 13):
         if chapter not in ranges:
@@ -73,8 +82,6 @@ def check_appendix(text: str) -> list[str]:
             errors.append(f"第{chapter}章 exercise numbers contain duplicates: {numbers}")
 
     anchors = set(EXPLICIT_ANCHOR_RE.findall(text))
-    for chapter in range(1, 13):
-        anchors.add(f"ex-sol-ch{chapter}")
 
     for link in APPENDIX_LINK_RE.finditer(text):
         target = link.group(1)
