@@ -150,7 +150,7 @@ H(X,Y) &= -\sum_{x,y} p(x,y) \log_2 p(x,y) \\\\
 
 \\[
 \begin{aligned}
--D(P \,\Vert\, Q) &= \sum_x p(x) \log_2 \frac{q(x)}{p(x)} \\\\
+-D(P \,\Vert\, Q) &= \sum_{x:p(x)>0} p(x) \log_2 \frac{q(x)}{p(x)} \\\\
 &\le \log_2 \sum_{x:p(x)>0} p(x) \cdot \frac{q(x)}{p(x)} \\\\
 &= \log_2 \sum_{x:p(x)>0} q(x) \le \log_2 1 = 0
 \end{aligned}
@@ -310,7 +310,7 @@ S^k
 離散無記憶通信路で、任意の \\(R < C\\) と \\(\epsilon > 0\\) に対して、十分大きな n で
 平均誤り率 < \\(\epsilon\\) となるレート R の符号が存在する。
 
-逆に、\\(R > C\\) なら誤り率は 0 から離れた下界を持つ。
+逆に、\\(R > C\\) なら平均誤り率は 0 から離れた下界を持つ。
 
 *証明の概要*（達成可能性）：
 ランダム符号化により、平均誤り率が小さいことを示す。
