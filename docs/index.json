@@ -3326,7 +3326,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-6/#thm-6-1"
     },
     {
-      "excerpt": "T(n) = aT(n/b) + f(n) に対して：",
+      "excerpt": "\\\\(T(n) = aT(n/b) + f(n)\\\\) に対して：",
       "id": "thm-6-2",
       "kind": "thm",
       "label": "定理",
@@ -3614,7 +3614,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-6/#thm-6-9"
     },
     {
-      "excerpt": "p プロセッサで時間 W/p + S で実行可能。",
+      "excerpt": "p プロセッサで時間 \\\\(O(W/p + S)\\\\) で実行可能。",
       "id": "thm-6-10",
       "kind": "thm",
       "label": "定理",
@@ -4262,7 +4262,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-8/#thm-8-7"
     },
     {
-      "excerpt": "- 容量関数 \\\\(c: V \\\\times V \\\\to \\\\mathbb{R}{>0}\\\\) - 始点 s、終点 t",
+      "excerpt": "- 容量関数 \\\\(c: V \\\\times V \\\\to \\\\mathbb{R}{\\\\ge 0}\\\\)（辺がない組の容量は 0 とみなす） - 始点 s、終点 t",
       "id": "def-8-4",
       "kind": "def",
       "label": "定義",
@@ -4274,7 +4274,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-8/#def-8-4"
     },
     {
-      "excerpt": "以下の条件は同値： 1. f は最大フロー 2. 残余グラフに増加路が存在しない 3. \\\\(\\lvert f\\rvert\\\\) = c(S,T) となるカット (S,T) が存在",
+      "excerpt": "以下の条件は同値： 1. f は最大フロー 2. 残余グラフに増加路が存在しない 3. \\\\(\\\\lvert f\\\\rvert\\\\) = c(S,T) となるカット (S,T) が存在",
       "id": "thm-8-8",
       "kind": "thm",
       "label": "定理",
@@ -4358,7 +4358,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-8/#def-8-6"
     },
     {
-      "excerpt": "連結グラフ G が完全グラフでも奇サイクルでもなければ、 χ(G) ≤ Δ(G)（Δ(G) は最大次数）",
+      "excerpt": "有限単純連結グラフ G が完全グラフでも奇サイクルでもなければ、 χ(G) ≤ Δ(G)（Δ(G) は最大次数）",
       "id": "thm-8-13",
       "kind": "thm",
       "label": "定理",
