@@ -626,7 +626,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-10/#thm-10-11"
     },
     {
-      "excerpt": "入力アルファベット X、出力アルファベット Y、 遷移確率 \\\\(p(y \\mid x)\\\\) で特徴付けられる。",
+      "excerpt": "有限入力アルファベット \\\\(\\mathcal{X}\\\\)、有限出力アルファベット \\\\(\\mathcal{Y}\\\\)、 遷移確率 \\\\(p(y \\mid x)\\\\) で特徴付けられる。無記憶性は、長さ n の入力列に対して遷移確率が \\\\(\\prod_{i=1}^{n} p(y_i \\mid x_i)\\\\) と積に分解することを意味する。",
       "id": "def-10-8",
       "kind": "def",
       "label": "定義",
@@ -686,7 +686,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-10/#def-10-10"
     },
     {
-      "excerpt": "任意の R 0 に対して、十分大きな n で 誤り率 < ε となるレート R の符号が存在する。",
+      "excerpt": "離散無記憶通信路で、任意の \\\\(R < C\\\\) と \\\\(\\epsilon > 0\\\\) に対して、十分大きな n で 平均誤り率 < \\\\(\\epsilon\\\\) となるレート R の符号が存在する。",
       "id": "thm-10-13",
       "kind": "thm",
       "label": "定理",
@@ -794,7 +794,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-10/#thm-10-17"
     },
     {
-      "excerpt": "\\\\(Y = X + Z\\\\)、\\\\(Z \\\\sim \\\\mathcal{N}(0, N)\\\\)",
+      "excerpt": "\\\\(Y = X + Z\\\\)、\\\\(Z \\\\sim \\\\mathcal{N}(0, N)\\\\)。ここで N は1チャネル使用あたりの雑音分散を表す。",
       "id": "def-10-15",
       "kind": "def",
       "label": "定義",
