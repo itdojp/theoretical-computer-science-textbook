@@ -132,6 +132,7 @@ python3 scripts/generate_search_data.py --check
 python3 scripts/generate_index.py --check
 
 # 本文・ビルド検証
+npm run check:navigation
 python3 scripts/docs_regression_lint.py
 python3 scripts/notation_lint.py
 bundle exec jekyll build --source docs --config docs/_config.yml --destination _site
@@ -139,6 +140,8 @@ python3 scripts/html_notation_check.py --site-root _site
 make test
 npm run spellcheck
 ```
+
+`npm run check:navigation` は `docs/_data/navigation.yml` の入れ子項目を含む全パスと、公開対象の `docs/**/*.md` ページが相互に対応していることを検証します。
 
 ## 技術構成
 
