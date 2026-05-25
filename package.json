@@ -15,7 +15,7 @@
     "preview": "npm run build && npx http-server _site -p 8080 --silent",
     "deploy": "gh-pages -d _site",
     "clean": "rm -rf _site .jekyll-cache",
-    "test": "npm run lint && npm run check-links",
+    "test": "npm run check:navigation && npm run lint && npm run check-links",
     "lint": "markdownlint 'src/**/*.md' --ignore node_modules",
     "lint:light": "markdownlint 'src/**/*.md' --ignore node_modules",
     "spellcheck": "cspell --config cspell.json --no-progress 'src/**/*.md' 'docs/**/*.md' 'README.md' 'CONTRIBUTING.md' 'CHANGELOG.md'",
@@ -23,10 +23,10 @@
     "svg:lint:a11y": "bash scripts/svg-lint-a11y.sh",
     "svg:inventory": "bash scripts/diagrams-inventory.sh",
     "check-links": "markdown-link-check src/**/*.md",
-    "help": "echo 'Available commands:\n  npm start - Start development server\n  npm run build - Build the book\n  npm run preview - Local preview\n  npm run deploy - Deploy to GitHub Pages'"
+    "help": "echo 'Available commands:\n  npm start - Start development server\n  npm run build - Build the book\n  npm run preview - Local preview\n  npm run deploy - Deploy to GitHub Pages'",
+    "check:navigation": "python3 scripts/check_navigation_coverage.py"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "@cspell/dict-filetypes": "^3.0.15",
     "@cspell/dict-node": "^5.0.9",
@@ -42,7 +42,9 @@
     "book",
     "documentation",
     "japanese",
-    "computer-science","theory","algorithm"
+    "computer-science",
+    "theory",
+    "algorithm"
   ],
   "repository": {
     "type": "git",
@@ -51,5 +53,5 @@
   "bugs": {
     "url": "https://github.com/itdojp/theoretical-computer-science-textbook/issues"
   },
-  "homepage": "https://github.com/itdojp/theoretical-computer-science-textbook#readme"
+  "homepage": "https://itdojp.github.io/theoretical-computer-science-textbook/"
 }

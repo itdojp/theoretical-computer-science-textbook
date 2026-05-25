@@ -60,6 +60,9 @@ jobs:
       - name: Check search-data.json is up-to-date
         run: python3 scripts/generate_search_data.py --check
 
+      - name: Check navigation covers published pages
+        run: python3 scripts/check_navigation_coverage.py
+
       - name: Docs regression lint (Markdown patterns)
         run: python3 scripts/docs_regression_lint.py
 

@@ -52,8 +52,17 @@ jobs:
               paths = []
               for key in ['introduction','chapters','additional','resources','appendices','afterword']:
                   for item in (data.get(key) or []):
-                      p = item.get('path') or ''
-                      if p: paths.append(p)
+                      if isinstance(item, dict):
+                          nested = item.get('items')
+                          if not isinstance(nested, list):
+                              nested = item.get('children')
+                          if isinstance(nested, list):
+                              for sub in nested:
+                                  if isinstance(sub, dict) and sub.get('path'):
+                                      paths.append(sub.get('path'))
+                              continue
+                          p = item.get('path') or ''
+                          if p: paths.append(p)
               return paths
           def discover():
               paths=[]
