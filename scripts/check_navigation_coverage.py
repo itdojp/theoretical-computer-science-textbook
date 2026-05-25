@@ -145,7 +145,11 @@ def main() -> int:
             print(f"- {error}", file=sys.stderr)
         return 1
 
-    print(f"OK: navigation covers {len(nav_paths)} paths and {len(page_paths)} docs pages")
+    root_pages = sum(1 for p in page_paths if p == "/")
+    print(
+        f"OK: {len(nav_paths)} navigation paths cover {len(page_paths) - root_pages} docs pages"
+        f" (root '/' is implicit; {len(page_paths)} total)"
+    )
     return 0
 
 
