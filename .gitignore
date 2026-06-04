@@ -1,4 +1,5 @@
 # Jekyll
+_site/
 docs/_site/
 .sass-cache/
 .jekyll-cache/

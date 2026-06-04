@@ -106,7 +106,7 @@
 git clone https://github.com/itdojp/theoretical-computer-science-textbook.git
 cd theoretical-computer-science-textbook
 bundle install
-npm install
+npm ci
 npm run dev
 ```
 
@@ -132,7 +132,10 @@ python3 scripts/generate_search_data.py --check
 python3 scripts/generate_index.py --check
 
 # 本文・ビルド検証
+npm test
+npm run check:security
 npm run check:navigation
+npm run check-links
 python3 scripts/docs_regression_lint.py
 python3 scripts/notation_lint.py
 bundle exec jekyll build --source docs --config docs/_config.yml --destination _site
@@ -142,6 +145,7 @@ npm run spellcheck
 ```
 
 `npm run check:navigation` は `docs/_data/navigation.yml` の入れ子項目を含む全パスと、公開対象の `docs/**/*.md` ページが相互に対応していることを検証します。
+`npm run check-links` は `.markdown-link-check.json` を使い、相対リンクは Book QA と htmltest の内部リンク検証に委ね、外部リンクと公開 URL 形式の確認に限定します。
 
 ## 技術構成
 

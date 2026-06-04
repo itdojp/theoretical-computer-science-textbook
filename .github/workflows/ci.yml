@@ -41,7 +41,13 @@ jobs:
       - name: Install dependencies
         run: |
           bundle install
-          npm install
+          npm ci
+
+      - name: Check local quality-gate wiring
+        run: npm run check:quality
+
+      - name: Security audit
+        run: npm run check:security
         
       - name: Lint Markdown
         run: npm run lint
