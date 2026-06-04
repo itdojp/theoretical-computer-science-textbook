@@ -16,7 +16,7 @@ import sys
 from pathlib import Path
 from urllib.parse import unquote
 
-NAV_PATH_RE = re.compile(r"^\s*path:\s*(?P<value>.+?)\s*$")
+NAV_PATH_RE = re.compile(r"^\s*path:\s*(?P<value>.*?)\s*$")
 FRONT_MATTER_RE = re.compile(r"^---\r?\n(.*?)\r?\n---\r?\n", re.DOTALL)
 SCALAR_RE = re.compile(r"^(?P<key>[A-Za-z0-9_-]+):\s*(?P<value>.*?)\s*$")
 

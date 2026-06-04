@@ -31,7 +31,12 @@ jobs:
         with:
           node-version: '20'
           cache: npm
-          cache-dependency-path: book-formatter/package-lock.json
+          cache-dependency-path: |
+            package-lock.json
+            book-formatter/package-lock.json
+
+      - name: Install dependencies (book)
+        run: npm ci --omit=optional
 
       - name: Install dependencies (book-formatter)
         working-directory: book-formatter
@@ -49,6 +54,12 @@ jobs:
 
       - name: Check navigation covers published pages
         run: python3 scripts/check_navigation_coverage.py
+
+      - name: Check local quality-gate wiring
+        run: python3 scripts/check_quality_gates.py
+
+      - name: Security audit (book dependencies)
+        run: npm run check:security
 
       - name: Unicode check (fail on warnings)
         run: node book-formatter/scripts/check-unicode.js "${{ steps.scan.outputs.dir }}" --allowlist .book-formatter/unicode-allowlist.json --fail-on warn
