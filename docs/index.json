@@ -830,7 +830,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-10/#thm-10-19"
     },
     {
-      "excerpt": "- \\\\(\\\\mathcal{P}\\\\)：平文空間（plaintext space） - \\\\(\\\\mathcal{C}\\\\)：暗号文空間（ciphertext space） - \\\\(\\\\mathcal{K}\\\\)：鍵空間（key space） - \\\\(E = \\\\{E_k : \\\\mathcal{P} \\\\to \\\\mathcal{C} \\\\mid k \\\\in \\\\mathcal{K}\\\\}\\\\)：暗号化関数の族 - \\\\(D = \\\\{D_k : \\\\mathcal",
+      "excerpt": "平文空間・暗号文空間・鍵空間と、暗号化・復号アルゴリズムの族からなる。",
       "id": "def-11-1",
       "kind": "def",
       "label": "定義",
