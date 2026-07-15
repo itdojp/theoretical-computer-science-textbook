@@ -2630,7 +2630,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-5/#def-5-1"
     },
     {
-      "excerpt": "\\\\(t_M(n) = \\\\max\\\\{\\\\text{M が長さ } n \\\\text{ の入力 } w \\\\text{ で実行するステップ数}\\\\}\\\\) と定義する。",
+      "excerpt": "\\\\(t_M(n) = \\max\\{\\text{M が長さ } n \\text{ の入力 } w \\text{ で停止するまでのステップ数}\\}\\\\) と定義する。全入力停止を仮定しない認識器については、最大値を \\\\(\\mathbb{N} \\cup \\{\\infty\\}\\\\) に拡張して扱う。",
       "id": "def-5-2",
       "kind": "def",
       "label": "定義",
