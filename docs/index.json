@@ -830,7 +830,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-10/#thm-10-19"
     },
     {
-      "excerpt": "- P：平文空間（plaintext space） - C：暗号文空間（ciphertext space） - K：鍵空間（key space） - E = \\\\(\\\\{E_k : P \\to C \\mid k \\in K\\\\}\\\\)：暗号化関数の族 - D = \\\\(\\\\{D_k : C \\to P \\mid k \\in K\\\\}\\\\)：復号関数の族",
+      "excerpt": "- \\\\(\\\\mathcal{P}\\\\)：平文空間（plaintext space） - \\\\(\\\\mathcal{C}\\\\)：暗号文空間（ciphertext space） - \\\\(\\\\mathcal{K}\\\\)：鍵空間（key space） - \\\\(E = \\\\{E_k : \\\\mathcal{P} \\\\to \\\\mathcal{C} \\\\mid k \\\\in \\\\mathcal{K}\\\\}\\\\)：暗号化関数の族 - \\\\(D = \\\\{D_k : \\\\mathcal",
       "id": "def-11-1",
       "kind": "def",
       "label": "定義",
@@ -842,7 +842,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-11/#def-11-1"
     },
     {
-      "excerpt": "\\\\(\\forall m \\in P, \\forall c \\in C,\\ \\Pr[M = m \\mid C = c] = \\Pr[M = m]\\\\)",
+      "excerpt": "この条件は、暗号文を観測しても平文の確率分布が変化しないことを表す。",
       "id": "def-11-2",
       "kind": "def",
       "label": "定義",
@@ -854,7 +854,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-11/#def-11-2"
     },
     {
-      "excerpt": "",
+      "excerpt": "鍵のsupportは、少なくともメッセージのsupportと同じ大きさでなければならない。",
       "id": "thm-11-1",
       "kind": "thm",
       "label": "定理",
@@ -866,7 +866,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-11/#thm-11-1"
     },
     {
-      "excerpt": "すべての多項式時間アルゴリズム A に対して、A の優位性が無視できる： \\\\(\\lvert \\Pr[A \\text{ が正しく推測}] - 1/\\lvert P\\rvert \\rvert < \\mathrm{negl}(n)\\\\)",
+      "excerpt": "優位性は安全性ゲームごとに定め、すべてのPPT攻撃者について無視できることを要求する。",
       "id": "def-11-3",
       "kind": "def",
       "label": "定義",
@@ -878,7 +878,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-11/#def-11-3"
     },
     {
-      "excerpt": "1. f は多項式時間で計算可能 2. すべての確率的多項式時間アルゴリズム A に対して： \\\\(\\\\Pr[f(A(f(x))) = f(x)] < \\\\mathrm{negl}(n)\\\\) （x は一様ランダムに選択）",
+      "excerpt": "順方向の計算は効率的だが、無作為な入力の像から原像を求めることはPPT攻撃者には困難である。",
       "id": "def-11-4",
       "kind": "def",
       "label": "定義",
@@ -890,7 +890,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-11/#def-11-4"
     },
     {
-      "excerpt": "すべての多項式時間識別器 D に対して： \\\\(\\lvert \\Pr[D(G(s)) = 1] - \\Pr[D(r) = 1]\\rvert < \\mathrm{negl}(n)\\\\)",
+      "excerpt": "短い一様乱数種から伸長した出力は、PPT識別器には同じ長さの一様乱数と見分けられない。",
       "id": "def-11-5",
       "kind": "def",
       "label": "定義",
