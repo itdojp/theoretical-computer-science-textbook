@@ -252,7 +252,7 @@ M が認識する言語：\\(L(M) = \\{w \in \Sigma^{\ast} \mid \hat{\delta}(q_0
 
 ε-NFA の遷移関数 \\(\\delta\\) から、等価な NFA の遷移関数 \\(\\delta^{\\prime}\\) を構成：
 \\(\\delta^{\\prime}(q, a) = ECLOSE(\\bigcup_{r \\in ECLOSE(q)} \\delta(r, a))\\)
-ε-閉包はゼロ回の ε 遷移も許すため、常に \\(q \\in ECLOSE(q)\\) である。ε-NFA \\(M=(Q,Σ,δ,q_0,F)\\) に対して、次の5つ組を持つ通常のNFA \\(M'=(Q,Σ,δ^{\prime},q_0,F^{\\prime})\\) を構成する。
+ε-閉包はゼロ回の ε 遷移も許すため、常に \\(q \\in ECLOSE(q)\\) である。ε-NFA \\(M=(Q,Σ,δ,q_0,F)\\) に対して、次の5つ組を持つ通常のNFA \\(M^{\\prime}=(Q,Σ,δ^{\prime},q_0,F^{\\prime})\\) を構成する。
 
 - \\(δ^{\prime}(q,a)=ECLOSE(\\bigcup_{r \\in ECLOSE(q)}δ(r,a))\\)（\\(q \\in Q, a \\in Σ\\)）
 - \\(F^{\\prime}=\\{q \\in Q \\mid ECLOSE(q) \\cap F \\ne \\emptyset\\}\\)
