@@ -3626,7 +3626,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-6/#thm-6-10"
     },
     {
-      "excerpt": "入力：\\\\(a_1, a_2, \\\\ldots, a_n\\\\) 出力：\\\\(s_1 = a_1,\\\\ s_2 = a_1 + a_2,\\\\ \\\\ldots,\\\\ s_n = a_1 + \\\\cdots + a_n\\\\)",
+      "excerpt": "入力は長さ \\\\(n \\\\ge 1\\\\) の配列 \\\\(A[0..n-1]\\\\) とし、添字は0から始める。ここでは次の inclusive prefix sum を出力する。",
       "id": "ex-6-18",
       "kind": "ex",
       "label": "例",
