@@ -698,7 +698,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-10/#thm-10-13"
     },
     {
-      "excerpt": "",
+      "excerpt": "ここで固定した符号列のレートと平均誤り指数を次式で分離して定める。",
       "id": "def-10-11",
       "kind": "def",
       "label": "定義",
@@ -710,7 +710,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-10/#def-10-11"
     },
     {
-      "excerpt": "",
+      "excerpt": "すなわち、容量未満の各正レートでは、次の指数的誤り上界を満たす符号列を選べる。",
       "id": "thm-10-14",
       "kind": "thm",
       "label": "定理",
