@@ -698,7 +698,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-10/#thm-10-13"
     },
     {
-      "excerpt": "\\\\(E(R) = \\\\lim_{n\\\\to\\\\infty} \\\\left[-\\\\frac{1}{n} \\\\cdot \\\\log_2 P_e^{(n)}\\\\right]\\\\)",
+      "excerpt": "",
       "id": "def-10-11",
       "kind": "def",
       "label": "定義",
