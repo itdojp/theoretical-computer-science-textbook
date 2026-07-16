@@ -14,7 +14,12 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+from exercise_references import collect_chapter_questions
 
 
 KIND_TO_PREFIX = {
@@ -33,6 +38,7 @@ IAL_RE = re.compile(r"^\s*\{:\s*#(?P<id>[A-Za-z0-9_-]+)\s*\}\s*$")
 HEADING_RE = re.compile(r"^#{1,6}\s+")
 HR_RE = re.compile(r"^---\s*$")
 FENCE_RE = re.compile(r"^\s*```")
+CHAPTER_FILE_RE = re.compile(r"chapter-(?P<chapter>\d+)/index\.md$")
 
 
 def compute_id(kind: str, num: str) -> str:
@@ -223,6 +229,33 @@ def build_index(docs_root: Path) -> dict:
             )
 
             i += 1
+
+        chapter_match = CHAPTER_FILE_RE.search(md.relative_to(docs_root).as_posix())
+        if chapter_match:
+            chapter = int(chapter_match.group("chapter"))
+            exercises, exercise_errors = collect_chapter_questions(text, chapter)
+            if exercise_errors:
+                joined = "\n".join(exercise_errors)
+                raise ValueError(f"cannot index exercises in {md}:\n{joined}")
+            for exercise in exercises:
+                items.append(
+                    {
+                        "id": exercise.stable_id,
+                        "kind": "exercise",
+                        "label": "章末問題",
+                        "number": f"{chapter}.{exercise.display_number}",
+                        "name": exercise.category,
+                        "url": (
+                            f"{baseurl}{page_url}#{exercise.stable_id}"
+                            if baseurl
+                            else f"{page_url}#{exercise.stable_id}"
+                        ),
+                        "page_title": page_title,
+                        "page_url": f"{baseurl}{page_url}" if baseurl else page_url,
+                        "source_path": md.as_posix(),
+                        "excerpt": strip_markdown(exercise.prompt)[:240],
+                    }
+                )
 
     data = {
         "schema_version": 1,

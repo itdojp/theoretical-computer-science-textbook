@@ -136,17 +136,20 @@ python3 scripts/generate_index.py --check
 npm test
 npm run check:metadata
 npm run check:security
+npm run check:exercises
 npm run check:navigation
 npm run check-links
 python3 scripts/docs_regression_lint.py
 python3 scripts/notation_lint.py
 bundle exec jekyll build --source docs --config docs/_config.yml --destination _site
+npm run check:exercises:html
 python3 scripts/html_notation_check.py --site-root _site
 make test
 npm run spellcheck
 ```
 
 `npm run check:navigation` は `docs/_data/navigation.yml` の入れ子項目を含む全パスと、公開対象の `docs/**/*.md` ページが相互に対応していることを検証します。
+`npm run check:exercises` は全章末問題の安定 ID、付録Cとの双方向参照、解答種別、`docs/index.json` の収録を検証します。Jekyll build 後は `npm run check:exercises:html` で生成 HTML のアンカーも検証します。
 `npm run check-links` は `.markdown-link-check.json` を使い、相対リンクは Book QA と htmltest の内部リンク検証に委ね、外部リンクと公開 URL 形式の確認に限定します。
 
 ## 技術構成

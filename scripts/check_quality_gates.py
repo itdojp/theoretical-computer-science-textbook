@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Validate local and CI quality-gate wiring for this book.
 
-The repository has multiple independent checks (navigation coverage, security
-audit, markdown lint/link checks, spellcheck, and Jekyll/pytest based checks).
+The repository has multiple independent checks (navigation coverage, exercise
+references, security audit, markdown lint/link checks, spellcheck, and
+Jekyll/pytest based checks).
 This script keeps the lightweight npm/CI entry points aligned so dependency
 security and documented contributor commands do not drift silently.
 """
@@ -43,6 +44,10 @@ def validate_package(package: dict[str, Any]) -> list[str]:
         "check:security": "npm audit --omit=optional",
         "check:navigation": "python3 scripts/check_navigation_coverage.py",
         "check:effort": "python3 scripts/check_effort_metadata.py",
+        "check:exercises": "python3 scripts/check_appendix_c_consistency.py",
+        "check:exercises:html": (
+            "python3 scripts/check_appendix_c_consistency.py --site-root _site"
+        ),
     }
     for name, expected in expected_scripts.items():
         actual = scripts.get(name)
@@ -57,6 +62,7 @@ def validate_package(package: dict[str, Any]) -> list[str]:
             "npm run check:quality",
             "npm run check:metadata",
             "npm run check:effort",
+            "npm run check:exercises",
             "npm run check:navigation",
             "npm run check:security",
             "npm run lint",
@@ -82,6 +88,7 @@ def validate_readme() -> list[str]:
         "npm test",
         "npm run check:security",
         "npm run check:navigation",
+        "npm run check:exercises",
         "npm run check-links",
     ):
         require_contains(readme, command, source="README.md", errors=errors)
@@ -95,6 +102,8 @@ def validate_workflows() -> list[str]:
             "npm ci --omit=optional",
             "python3 scripts/check_quality_gates.py",
             "npm run check:security",
+            "npm run check:exercises",
+            "npm run check:exercises:html",
         ),
         ".github/workflows/ci.yml": (
             "npm ci",
@@ -102,6 +111,8 @@ def validate_workflows() -> list[str]:
             "npm run check:metadata",
             "npm run check:effort",
             "npm run check:security",
+            "npm run check:exercises",
+            "npm run check:exercises:html",
         ),
     }
     for path_str, needles in expectations.items():
