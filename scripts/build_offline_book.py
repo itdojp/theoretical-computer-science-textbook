@@ -69,6 +69,26 @@ def load_book_config(path: Path) -> dict:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def build_publication_front_matter(cfg: dict) -> str:
+    """Build Pandoc metadata from the canonical publication fields."""
+    title = cfg.get("title") or "理論計算機科学教科書"
+    author = cfg.get("author") or "株式会社アイティードゥ"
+    version = cfg.get("version") or ""
+    publication = cfg.get("publication", {})
+    release_date = publication.get("release_date", "")
+    last_updated = publication.get("last_updated", "")
+
+    parts = ["---\n", f"title: {title}\n", f"author: {author}\n"]
+    if version:
+        parts.append(f"version: {version}\n")
+    if release_date:
+        parts.append(f"date: {release_date}\n")
+    if last_updated:
+        parts.append(f"last_updated: {last_updated}\n")
+    parts.extend(("lang: ja\n", "---\n\n"))
+    return "".join(parts)
+
+
 def build_source_file_list(docs_root: Path, cfg: dict) -> list[Path]:
     structure = cfg.get("structure", {})
     out: list[Path] = []
@@ -236,19 +256,6 @@ def main() -> int:
     cfg = load_book_config(Path(args.config))
     files = build_source_file_list(docs_root, cfg)
 
-    title = cfg.get("title") or "理論計算機科学教科書"
-    author = cfg.get("author") or "株式会社アイティードゥ"
-    version = cfg.get("version") or ""
-
-    parts: list[str] = []
-    parts.append("---\n")
-    parts.append(f"title: {title}\n")
-    parts.append(f"author: {author}\n")
-    if version:
-        parts.append(f"version: {version}\n")
-    parts.append("lang: ja\n")
-    parts.append("---\n\n")
-
     combined_text = ""
     for p in files:
         raw = p.read_text(encoding="utf-8")
@@ -263,7 +270,7 @@ def main() -> int:
 
     out_path = Path(args.out)
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    out_path.write_text("".join(parts) + combined_text, encoding="utf-8")
+    out_path.write_text(build_publication_front_matter(cfg) + combined_text, encoding="utf-8")
     print(f"wrote: {out_path}")
     return 0
 

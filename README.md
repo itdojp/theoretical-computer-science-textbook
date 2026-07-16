@@ -9,6 +9,7 @@
 ## 読者向け導線
 
 - 公開サイト（正本）: https://itdojp.github.io/theoretical-computer-science-textbook/
+- 現行公開版: 1.2.0（2026-07-16公開、tag `v1.2.0`）
 - 本書の目的と構成: https://itdojp.github.io/theoretical-computer-science-textbook/introduction/purpose/
 - 学習の進め方: https://itdojp.github.io/theoretical-computer-science-textbook/introduction/learning-guide/
 - オフライン版の提供状況: https://itdojp.github.io/theoretical-computer-science-textbook/downloads/
@@ -78,9 +79,9 @@
 ## 配布ポリシー
 
 - **Web版** を正本とします。
-- **公式 PDF / EPUB** は現時点では未提供です。
-- **GitHub Releases / Tags 経由の配布** は現時点では未運用です。
-- 将来の配布形態は公開サイトのダウンロード案内で更新します。
+- **公式 PDF / EPUB** は `v1.2.0` tagの公開後、[GitHub Releases](https://github.com/itdojp/theoretical-computer-science-textbook/releases)で版ごとに提供します。Release完了まではWeb版を利用してください。
+- Release artifact は固定版のオフライン閲覧用です。訂正を含む最新版は引き続きWeb版を参照してください。
+- 版番号、Release tag、成果物の対応は公開サイトの[更新履歴](https://itdojp.github.io/theoretical-computer-science-textbook/changelog/)と[ダウンロード案内](https://itdojp.github.io/theoretical-computer-science-textbook/downloads/)で確認できます。
 
 ## このリポジトリについて
 
@@ -133,6 +134,7 @@ python3 scripts/generate_index.py --check
 
 # 本文・ビルド検証
 npm test
+npm run check:metadata
 npm run check:security
 npm run check:navigation
 npm run check-links

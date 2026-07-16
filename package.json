@@ -1,7 +1,7 @@
 {
   "name": "theoretical-computer-science-textbook",
-  "version": "1.1.2",
-  "description": "理論計算機科学教本 - コンピュータサイエンス基礎理論",
+  "version": "1.2.0",
+  "description": "理論計算機科学教科書",
   "author": "ITDO Inc.（株式会社アイティードゥ）",
   "license": "CC-BY-NC-SA-4.0",
   "engines": {
@@ -15,7 +15,7 @@
     "preview": "npm run build && npx http-server _site -p 8080 --silent",
     "deploy": "gh-pages -d _site",
     "clean": "rm -rf _site .jekyll-cache",
-    "test": "npm run check:quality && npm run check:effort && npm run check:navigation && npm run check:security && npm run lint && npm run check-links",
+    "test": "npm run check:quality && npm run check:metadata && npm run check:effort && npm run check:navigation && npm run check:security && npm run lint && npm run check-links",
     "lint": "markdownlint 'src/**/*.md' --ignore node_modules",
     "lint:light": "markdownlint 'src/**/*.md' --ignore node_modules",
     "spellcheck": "cspell --config cspell.json --no-progress 'src/**/*.md' 'docs/**/*.md' 'README.md' 'CONTRIBUTING.md' 'CHANGELOG.md'",
@@ -27,6 +27,7 @@
     "check:navigation": "python3 scripts/check_navigation_coverage.py",
     "check:security": "npm audit --omit=optional",
     "check:quality": "python3 scripts/check_quality_gates.py",
+    "check:metadata": "python3 scripts/check_publication_metadata.py",
     "check:effort": "python3 scripts/check_effort_metadata.py"
   },
   "devDependencies": {
