@@ -14,7 +14,9 @@ def _module():
 
 def _fixture(tmp_path: Path) -> tuple[Path, dict]:
     root = tmp_path
-    data = json.loads((Path(__file__).resolve().parents[2] / "docs/_data/chapter_effort.json").read_text())
+    data = json.loads(
+        (Path(__file__).resolve().parents[2] / "docs/_data/chapter_effort.json").read_text(encoding="utf-8")
+    )
     (root / "docs/_data").mkdir(parents=True)
     (root / "docs/_layouts").mkdir(parents=True)
     (root / "docs/introduction").mkdir(parents=True)
