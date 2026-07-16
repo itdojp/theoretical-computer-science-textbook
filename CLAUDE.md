@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a Japanese-language technical book project: "理論計算機科学教本 - コンピュータサイエンス基礎理論"
+This is a Japanese-language technical book project: "理論計算機科学教科書"
 
 ## Book Framework Migration
 

@@ -46,6 +46,9 @@ jobs:
       - name: Check local quality-gate wiring
         run: npm run check:quality
 
+      - name: Check publication metadata drift
+        run: npm run check:metadata
+
       - name: Check effort metadata drift
         run: npm run check:effort
 

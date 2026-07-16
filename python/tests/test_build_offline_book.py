@@ -1,4 +1,5 @@
 import importlib.util
+import json
 from pathlib import Path
 
 
@@ -33,3 +34,16 @@ def test_normalize_for_pdf_does_not_touch_latex_commands():
     out = m.normalize_for_pdf(text)
     assert out == text
 
+
+def test_publication_front_matter_uses_canonical_metadata():
+    m = _load_build_offline_book()
+    root = Path(__file__).resolve().parents[2]
+    config = json.loads((root / "docs/book-config.json").read_text(encoding="utf-8"))
+
+    front_matter = m.build_publication_front_matter(config)
+
+    assert f"title: {config['title']}\n" in front_matter
+    assert f"author: {config['author']}\n" in front_matter
+    assert f"version: {config['version']}\n" in front_matter
+    assert f"date: {config['publication']['release_date']}\n" in front_matter
+    assert f"last_updated: {config['publication']['last_updated']}\n" in front_matter

@@ -1,28 +1,5 @@
 # CHANGELOG
 
-本書の更新履歴です。GitHub Pages に公開されている main ブランチの内容に合わせて更新します（GitHub Releases/Tags は現時点では未運用）。
+読者向けの更新履歴は、Web版を正本として[公開CHANGELOG](https://itdojp.github.io/theoretical-computer-science-textbook/changelog/)に集約しています。
 
-## Unreleased
-
-- 次回リリースに向けた変更は、マージされたPR単位で追記します。
-
-## 1.1.2
-
-- 表記・構造の最終統一（集合内包表記の数式モード統一、Unicode上付き排除、章末セクション配置の整理）（Issue #261）
-- 第10章：注釈重複の除去、エントロピー上界の対象（\\(\\lvert\\mathcal{X}\\rvert\\) 等）の明確化（Issue #261）
-- lint/CI を強化し、混在表記・Unicode上付き・章末見出しの逸脱を検出してブロック（Issue #261）
-
-## 1.1.1
-
-- 表記崩れ（`|`/`*` 等）と定義不整合の横断修正（Issue #259）
-- 表記規約（Notation）の追加、およびCIでの再発防止（notation lint / HTMLチェック）を導入
-
-## 1.1.0
-
-- 付録C（練習問題解答）を第7〜12章まで拡張し、章末問題の解答/調査ガイドを追加（PR #221）
-- サイドバー導線を改善（オフライン版/更新履歴/付録G へのリンク追加）および `nav-link-check` の監視対象を拡充（PR #220）
-- あとがきページを追加（PR #222）
-
-## 1.0.0
-
-- 初期版（サイト公開時点）
+リポジトリ内のcanonical sourceは[`docs/changelog/index.md`](docs/changelog/index.md)です。版番号を固定したPDF/EPUBは[GitHub Releases](https://github.com/itdojp/theoretical-computer-science-textbook/releases)で提供します。
