@@ -7,6 +7,7 @@
     "release_date": "2026-07-16",
     "last_updated": "2026-07-16",
     "release_tag": "v1.2.0",
+    "release_status": "published",
     "web_is_canonical": true,
     "official_artifacts": ["pdf", "epub"]
   },

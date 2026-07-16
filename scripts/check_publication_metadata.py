@@ -16,6 +16,11 @@ SEMVER_RE = re.compile(r"^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)$")
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 CHAPTER_IDS = {str(number) for number in range(1, 13)}
 LEGACY_TITLE = "理論計算機科学教本 - コンピュータサイエンス基礎理論"
+RELEASE_BASE_URL = (
+    "https://github.com/itdojp/theoretical-computer-science-textbook/releases"
+)
+RELEASE_STATUSES = {"preparing", "published"}
+STALE_PUBLISHED_COPY = ("Release準備中", "Release完了後", "配布予定tag")
 
 
 def _read(path: Path, errors: list[str]) -> str:
@@ -83,6 +88,19 @@ def validate_config(root: Path, errors: list[str]) -> dict[str, Any] | None:
     release_tag = _required_string(
         publication.get("release_tag"), "publication.release_tag", errors
     )
+    release_status_value = publication.get("release_status")
+    release_status = (
+        None
+        if release_status_value is None
+        else _required_string(
+            release_status_value, "publication.release_status", errors
+        )
+    )
+    if release_status is not None and release_status not in RELEASE_STATUSES:
+        errors.append(
+            "publication.release_status: must be one of "
+            f"{sorted(RELEASE_STATUSES)!r}"
+        )
     parsed_release = _parse_date(release_date, "publication.release_date", errors)
     parsed_updated = _parse_date(last_updated, "publication.last_updated", errors)
     if parsed_release is not None and parsed_updated is not None and parsed_updated < parsed_release:
@@ -139,6 +157,21 @@ def _must_contain(path: Path, text: str, values: tuple[str, ...], errors: list[s
         errors.append(f"{path}: legacy title remains")
 
 
+def _must_not_contain(
+    path: Path, text: str, values: tuple[str, ...], errors: list[str]
+) -> None:
+    for value in values:
+        if value in text:
+            errors.append(f"{path}: stale value remains {value!r}")
+
+
+def _must_contain_any(
+    path: Path, text: str, values: tuple[str, ...], errors: list[str]
+) -> None:
+    if not any(value in text for value in values):
+        errors.append(f"{path}: missing one of canonical values {values!r}")
+
+
 def _check_mirror(root: Path, docs_relative: str, src_relative: str, errors: list[str]) -> None:
     docs_path, src_path = root / docs_relative, root / src_relative
     docs_text, src_text = _read(docs_path, errors), _read(src_path, errors)
@@ -155,23 +188,27 @@ def validate_consumers(root: Path, cfg: dict[str, Any], errors: list[str]) -> No
     release_date = publication.get("release_date")
     last_updated = publication.get("last_updated")
     release_tag = publication.get("release_tag")
+    release_status = publication.get("release_status")
     if not all(isinstance(value, str) for value in (release_date, last_updated, release_tag)):
         return
 
     config_path = root / "docs/_config.yml"
     config_text = _read(config_path, errors)
+    expected_config = {
+        "title": title,
+        "description": description,
+        "author": author,
+        "version": version,
+        "release_date": release_date,
+        "last_updated": last_updated,
+        "release_tag": release_tag,
+    }
+    if isinstance(release_status, str):
+        expected_config["release_status"] = release_status
     _check_yaml_values(
         config_path,
         config_text,
-        {
-            "title": title,
-            "description": description,
-            "author": author,
-            "version": version,
-            "release_date": release_date,
-            "last_updated": last_updated,
-            "release_tag": release_tag,
-        },
+        expected_config,
         errors,
     )
 
@@ -249,6 +286,24 @@ def validate_consumers(root: Path, cfg: dict[str, Any], errors: list[str]) -> No
         (version, release_date, release_tag, "PDF", "EPUB", "Web版", "GitHub Releases"),
         errors,
     )
+    release_url = f"{RELEASE_BASE_URL}/tag/{release_tag}"
+    asset_prefix = "theoretical-computer-science-textbook-"
+    pdf_url = f"{RELEASE_BASE_URL}/download/{release_tag}/{asset_prefix}{release_tag}.pdf"
+    epub_url = f"{RELEASE_BASE_URL}/download/{release_tag}/{asset_prefix}{release_tag}.epub"
+    reader_pages = (
+        (readme_path, readme),
+        (changelog_path, changelog),
+        (downloads_path, downloads),
+    )
+    if release_status == "published":
+        for path, text in reader_pages:
+            _must_contain(path, text, (release_url,), errors)
+            _must_not_contain(path, text, STALE_PUBLISHED_COPY, errors)
+        _must_contain(downloads_path, downloads, (pdf_url, epub_url), errors)
+    elif release_status == "preparing":
+        for path, text in reader_pages:
+            _must_contain_any(path, text, STALE_PUBLISHED_COPY, errors)
+            _must_not_contain(path, text, (release_url, pdf_url, epub_url), errors)
     _check_mirror(root, "docs/introduction/index.md", "src/introduction/index.md", errors)
     _check_mirror(root, "docs/afterword/index.md", "src/afterword/index.md", errors)
     _check_mirror(root, "docs/changelog/index.md", "src/changelog/index.md", errors)
@@ -288,6 +343,14 @@ def validate_workflow(root: Path, errors: list[str]) -> None:
             errors.append(f"{path}: workflow_dispatch is missing {name}")
 
     steps = re.findall(r"(?ms)^      - (.*?)(?=^      - |\Z)", active)
+    step_names = [
+        match.group(1)
+        for step in steps
+        if (match := re.match(r"name:\s*(.*?)\s*(?:\n|$)", step)) is not None
+    ]
+    for name in sorted(set(step_names)):
+        if step_names.count(name) > 1:
+            errors.append(f"{path}: duplicate step name {name!r}")
 
     def step_named(name: str) -> str:
         prefix = f"name: {name}"
@@ -546,6 +609,15 @@ def main(argv: list[str] | None = None) -> int:
     if cfg is not None:
         publication = cfg.get("publication")
         canonical_tag = publication.get("release_tag") if isinstance(publication, dict) else None
+        release_status = (
+            publication.get("release_status") if isinstance(publication, dict) else None
+        )
+        # Immutable release sources created before this field was introduced remain
+        # retryable. Current branch validation must always declare the reader state.
+        if release_status is None and args.release_tag is None:
+            errors.append(
+                "publication.release_status: required for current publication state"
+            )
         if args.release_tag is not None and args.release_tag != canonical_tag:
             errors.append(
                 f"--release-tag {args.release_tag!r} does not match canonical {canonical_tag!r}"

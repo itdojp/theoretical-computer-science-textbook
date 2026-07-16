@@ -30,6 +30,7 @@ def _fixture(tmp_path: Path) -> Path:
             "release_date": "2026-07-16",
             "last_updated": "2026-07-17",
             "release_tag": "v1.2.3",
+            "release_status": "published",
             "web_is_canonical": True,
             "official_artifacts": ["pdf", "epub"],
         },
@@ -48,6 +49,7 @@ def _fixture(tmp_path: Path) -> Path:
                 'release_date: "2026-07-16"',
                 'last_updated: "2026-07-17"',
                 'release_tag: "v1.2.3"',
+                'release_status: "published"',
             )
         ),
     )
@@ -77,14 +79,29 @@ Test Book Test Author 1.2.3 2026-07-16 2026-07-17
     _write(root, "package.json", json.dumps(package))
     _write(root, "package-lock.json", json.dumps(package_lock))
     _write(root, "CLAUDE.md", "Test Book")
+    release_url = (
+        "https://github.com/itdojp/theoretical-computer-science-textbook/"
+        "releases/tag/v1.2.3"
+    )
     _write(
         root,
         "README.md",
-        "Test Book 1.2.3 2026-07-16 v1.2.3 Web版 公式 PDF / EPUB GitHub Releases",
+        "Test Book 1.2.3 2026-07-16 v1.2.3 Web版 公式 PDF / EPUB "
+        f"GitHub Releases {release_url}",
     )
 
-    changelog = "## 1.2.3 — 2026-07-16\nv1.2.3 技術内容の監査と訂正 品質保証"
-    downloads = "1.2.3 2026-07-16 v1.2.3 PDF EPUB Web版 GitHub Releases"
+    changelog = (
+        "## 1.2.3 — 2026-07-16\n"
+        f"v1.2.3 技術内容の監査と訂正 品質保証 {release_url}"
+    )
+    asset_base = (
+        "https://github.com/itdojp/theoretical-computer-science-textbook/"
+        "releases/download/v1.2.3/theoretical-computer-science-textbook-v1.2.3"
+    )
+    downloads = (
+        "1.2.3 2026-07-16 v1.2.3 PDF EPUB Web版 GitHub Releases "
+        f"{release_url} {asset_base}.pdf {asset_base}.epub"
+    )
     for relative in ("docs/changelog/index.md", "src/changelog/index.md"):
         _write(root, relative, changelog)
     for relative in ("docs/downloads/index.md", "src/downloads/index.md"):
@@ -231,6 +248,40 @@ def main():
     return root
 
 
+def _set_release_status(root: Path, status: str) -> None:
+    config_path = root / "docs/book-config.json"
+    config = json.loads(config_path.read_text(encoding="utf-8"))
+    config["publication"]["release_status"] = status
+    config_path.write_text(json.dumps(config), encoding="utf-8")
+    config_yml = root / "docs/_config.yml"
+    config_yml.write_text(
+        config_yml.read_text(encoding="utf-8").replace(
+            'release_status: "published"', f'release_status: "{status}"'
+        ),
+        encoding="utf-8",
+    )
+
+
+def _write_preparing_reader_copy(root: Path) -> None:
+    _write(
+        root,
+        "README.md",
+        "Test Book 1.2.3 2026-07-16 v1.2.3 Web版 公式 PDF / EPUB "
+        "GitHub Releases Release準備中",
+    )
+    changelog = (
+        "## 1.2.3 — 2026-07-16\n"
+        "v1.2.3 技術内容の監査と訂正 品質保証 Release完了後"
+    )
+    downloads = (
+        "1.2.3 2026-07-16 v1.2.3 PDF EPUB Web版 GitHub Releases 配布予定tag"
+    )
+    for relative in ("docs/changelog/index.md", "src/changelog/index.md"):
+        _write(root, relative, changelog)
+    for relative in ("docs/downloads/index.md", "src/downloads/index.md"):
+        _write(root, relative, downloads)
+
+
 def test_happy_path_and_release_tag(tmp_path):
     root = _fixture(tmp_path)
     assert _module().main(["--root", str(root), "--release-tag", "v1.2.3"]) == 0
@@ -239,6 +290,101 @@ def test_happy_path_and_release_tag(tmp_path):
 def test_happy_path_without_release_tag(tmp_path):
     root = _fixture(tmp_path)
     assert _module().main(["--root", str(root)]) == 0
+
+
+def test_current_publication_requires_release_status(tmp_path):
+    root = _fixture(tmp_path)
+    config_path = root / "docs/book-config.json"
+    config = json.loads(config_path.read_text(encoding="utf-8"))
+    del config["publication"]["release_status"]
+    config_path.write_text(json.dumps(config), encoding="utf-8")
+    config_yml = root / "docs/_config.yml"
+    config_yml.write_text(
+        config_yml.read_text(encoding="utf-8").replace(
+            'release_status: "published"\n', ""
+        ),
+        encoding="utf-8",
+    )
+
+    assert _module().main(["--root", str(root)]) == 1
+
+
+def test_immutable_legacy_release_source_without_status_remains_retryable(tmp_path):
+    root = _fixture(tmp_path)
+    config_path = root / "docs/book-config.json"
+    config = json.loads(config_path.read_text(encoding="utf-8"))
+    del config["publication"]["release_status"]
+    config_path.write_text(json.dumps(config), encoding="utf-8")
+    config_yml = root / "docs/_config.yml"
+    config_yml.write_text(
+        config_yml.read_text(encoding="utf-8").replace(
+            'release_status: "published"\n', ""
+        ),
+        encoding="utf-8",
+    )
+
+    assert _module().main(
+        ["--root", str(root), "--release-tag", "v1.2.3"]
+    ) == 0
+
+
+def test_published_status_rejects_stale_reader_copy(tmp_path):
+    root = _fixture(tmp_path)
+    readme = root / "README.md"
+    readme.write_text(
+        readme.read_text(encoding="utf-8") + " Release準備中",
+        encoding="utf-8",
+    )
+
+    assert _module().main(["--root", str(root)]) == 1
+
+
+def test_preparing_status_requires_preparation_copy_and_rejects_current_release_links(
+    tmp_path,
+):
+    root = _fixture(tmp_path)
+    _set_release_status(root, "preparing")
+
+    assert _module().main(["--root", str(root)]) == 1
+
+
+def test_preparing_status_with_synchronized_reader_copy_passes(tmp_path):
+    root = _fixture(tmp_path)
+    _set_release_status(root, "preparing")
+    _write_preparing_reader_copy(root)
+
+    assert _module().main(["--root", str(root)]) == 0
+
+
+def test_preparing_status_rejects_asset_links_outside_downloads(tmp_path):
+    root = _fixture(tmp_path)
+    _set_release_status(root, "preparing")
+    _write_preparing_reader_copy(root)
+    asset_base = (
+        "https://github.com/itdojp/theoretical-computer-science-textbook/"
+        "releases/download/v1.2.3/theoretical-computer-science-textbook-v1.2.3"
+    )
+    readme = root / "README.md"
+    readme.write_text(
+        readme.read_text(encoding="utf-8") + f" {asset_base}.pdf",
+        encoding="utf-8",
+    )
+    changelog = root / "docs/changelog/index.md"
+    changed = changelog.read_text(encoding="utf-8") + f" {asset_base}.epub"
+    changelog.write_text(changed, encoding="utf-8")
+    _write(root, "src/changelog/index.md", changed)
+
+    assert _module().main(["--root", str(root)]) == 1
+
+
+def test_unknown_release_status_fails(tmp_path):
+    root = _fixture(tmp_path)
+    config_path = root / "docs/book-config.json"
+    config = json.loads(config_path.read_text(encoding="utf-8"))
+    config["publication"]["release_status"] = "available"
+    config_path.write_text(json.dumps(config), encoding="utf-8")
+
+    assert _module().main(["--root", str(root)]) == 1
 
 
 def test_trusted_contract_root_does_not_execute_release_source_code(tmp_path):
@@ -345,6 +491,16 @@ def test_workflow_requires_slash_safe_artifact_label(tmp_path):
         "ARTIFACT_SOURCE//\\//-", "ARTIFACT_SOURCE"
     )
     workflow.write_text(text, encoding="utf-8")
+    assert _module().main(["--root", str(root)]) == 1
+
+
+def test_workflow_rejects_duplicate_step_name_shadowing(tmp_path):
+    root = _fixture(tmp_path)
+    workflow = root / ".github/workflows/release-artifacts.yml"
+    text = workflow.read_text(encoding="utf-8")
+    duplicate = "      - name: Resolve filesystem-safe artifact label\n        run: true\n"
+    workflow.write_text(text.replace("    steps:\n", f"    steps:\n{duplicate}", 1), encoding="utf-8")
+
     assert _module().main(["--root", str(root)]) == 1
 
 

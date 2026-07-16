@@ -68,7 +68,7 @@
       "url": "/theoretical-computer-science-textbook/appendices/"
     },
     {
-      "excerpt": "更新履歴（CHANGELOG） Web版はmainブランチから継続公開し、版番号を固定したPDF/EPUBは tagのRelease完了後に提供します。ここではコミット列挙ではなく、読者へ影響する変更を版ごとに整理します。 Unreleased - 現在、次版向けとして確定した読者向け変更はありません。 1.2.0 — 2026-07-16 読み始め方と再参照性 - 第一読者・前提知識・非対象読者をfront matterに明示し、通読",
+      "excerpt": "更新履歴（CHANGELOG） Web版はmainブランチから継続公開し、版番号を固定したPDF/EPUBは Releaseで提供しています。ここではコミット列挙ではなく、読者へ影響する変更を版ごとに整理します。 Unreleased - 現在、次版向けとして確定した読者向け変更はありません。 1.2.0 — 2026-07-16 読み始め方と再参照性 - 第一読者・前提知識・非対象読者をfront matterに明示し、通読、講義補助",
       "source_path": "docs/changelog/index.md",
       "title": "更新履歴（CHANGELOG）",
       "url": "/theoretical-computer-science-textbook/changelog/"
@@ -146,7 +146,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-9/"
     },
     {
-      "excerpt": "オフライン版（PDF/EPUB） 本書はWeb版を内容の正本とし、固定版をオフラインで読むためのPDF/EPUBをGitHub Releasesで提供します。 はRelease準備中であり、完了まではWeb版を利用してください。 クイックナビ - 現在の提供状況 - 読者向けの案内 - 版と成果物の関係 - ローカルでの生成（開発者・コントリビューター向け） - Release運用 現在の提供状況 - Web版 : 利用できます。訂正を",
+      "excerpt": "オフライン版（PDF/EPUB） 本書はWeb版を内容の正本とし、固定版をオフラインで読むためのPDF/EPUBをGitHub Releasesで提供します。 の公式成果物は公開済みです。 クイックナビ - 現在の提供状況 - 読者向けの案内 - 版と成果物の関係 - ローカルでの生成（開発者・コントリビューター向け） - Release運用 現在の提供状況 - Web版 : 利用できます。訂正を含む最新版は公開サイトを正本としてくださ",
       "source_path": "docs/downloads/index.md",
       "title": "オフライン版（PDF/EPUB）",
       "url": "/theoretical-computer-science-textbook/downloads/"
