@@ -190,6 +190,18 @@ def test_build_purpose_shortlists_groups_entries_by_reader_goal() -> None:
             alt_text="AEAD の処理フロー",
             asset_path="assets/images/diagrams/ch11_aead_flow_overview.svg",
         ),
+        m.FigureEntry(
+            chapter_num=None,
+            chapter_title="付録I: 概念マップ",
+            part_title="付録",
+            section_title="12章の概念マップ",
+            role="概念図",
+            lead_text="必須・強く推奨・横断の3種で見る章依存",
+            alt_text="本書12章の概念マップ",
+            asset_path="assets/images/diagrams/appendix_i_reading_dependency_map.svg",
+            appendix_id="i",
+            source_anchor="appendix-i-map",
+        ),
     ]
 
     shortlists = m.build_purpose_shortlists(entries)
@@ -197,6 +209,7 @@ def test_build_purpose_shortlists_groups_entries_by_reader_goal() -> None:
     assert [entry.alt_text for entry in shortlists["直観図"]] == ["有限オートマトンの全体像"]
     assert [entry.alt_text for entry in shortlists["例示図"]] == ["Dijkstra 法の逐次確定の例"]
     assert [entry.alt_text for entry in shortlists["比較図"]] == ["DPLL と CDCL の対比"]
+    assert [entry.alt_text for entry in shortlists["概念図"]] == ["本書12章の概念マップ"]
     assert [entry.alt_text for entry in shortlists["手順/構成図"]] == ["AEAD の処理フロー"]
 
 
@@ -231,4 +244,74 @@ def test_build_purpose_shortlists_does_not_fall_through_when_primary_bucket_is_f
     assert [entry.alt_text for entry in shortlists["直観図"]] == [f"直観図 {index + 1}" for index in range(m.PURPOSE_SHORTLIST_LIMIT)]
     assert "直観図の overflow 項目" not in [entry.alt_text for entry in shortlists["例示図"]]
     assert "直観図の overflow 項目" not in [entry.alt_text for entry in shortlists["比較図"]]
+    assert "直観図の overflow 項目" not in [entry.alt_text for entry in shortlists["概念図"]]
     assert "直観図の overflow 項目" not in [entry.alt_text for entry in shortlists["手順/構成図"]]
+
+
+def test_collect_figures_includes_appendix_i_images_and_skips_invalid_duplicates(tmp_path) -> None:
+    m = _load_generate_figure_guide()
+    docs_root = tmp_path / "docs"
+    appendix_dir = docs_root / "appendices"
+    appendix_dir.mkdir(parents=True)
+    (appendix_dir / "i.md").write_text(
+        """---
+title: \"付録I: 概念マップ\"
+---
+
+# 付録I: 概念マップ
+
+## 学習経路 {#reading-paths}
+
+![最初の図]({{ '/assets/images/diagrams/concept-first.svg' | relative_url }})
+![同じ図]({{ '/assets/images/diagrams/concept-first.svg' | relative_url }})
+![外部画像](https://example.invalid/image.svg)
+![不正な相対パス](../assets/images/diagrams/not-listed.svg)
+![path traversal]({{ '/assets/images/diagrams/../../not-listed.svg' | relative_url }})
+![encoded traversal]({{ '/assets/images/diagrams/%2e%2e/%2E%2E/not-listed.svg' | relative_url }})
+
+## 章間の関係
+
+![二番目の図]({{ '/assets/images/diagrams/concept-second.svg' | relative_url }})
+""",
+        encoding="utf-8",
+    )
+
+    entries = m.collect_figures(docs_root, {"structure": {"parts": []}})
+
+    assert [entry.alt_text for entry in entries] == ["最初の図", "二番目の図"]
+    assert all(entry.appendix_id == "i" for entry in entries)
+    assert [entry.source_anchor for entry in entries] == ["reading-paths", "章間の関係"]
+
+    rendered = m.render_markdown(entries)
+    assert "### 付録I" in rendered
+    assert rendered.count("appendix-i-figure-") == 2
+    assert "同じ図" not in rendered
+    assert "not-listed.svg" not in rendered
+    assert "[付録Iへ戻る]({{ '/appendices/i/#reading-paths' | relative_url }})" in rendered
+
+
+def test_collect_figures_without_appendix_i_keeps_chapter_only_behavior(tmp_path) -> None:
+    m = _load_generate_figure_guide()
+    docs_root = tmp_path / "docs"
+    chapter_dir = docs_root / "chapter-1"
+    chapter_dir.mkdir(parents=True)
+    (chapter_dir / "index.md").write_text(
+        """---
+title: \"第1章\"
+---
+
+## 図の節 {#stable-figure-section}
+
+![章の図]({{ '/assets/images/diagrams/ch1.svg' | relative_url }})
+""",
+        encoding="utf-8",
+    )
+
+    entries = m.collect_figures(docs_root, {"structure": {"parts": []}})
+
+    assert len(entries) == 1
+    assert entries[0].chapter_num == 1
+    assert entries[0].appendix_id is None
+    assert entries[0].source_anchor == "stable-figure-section"
+    assert m.context_link(entries[0]) == "{{ '/chapter-1/#stable-figure-section' | relative_url }}"
+    assert "### 付録I" not in m.render_markdown(entries)
