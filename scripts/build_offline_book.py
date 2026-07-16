@@ -65,6 +65,114 @@ def remove_stable_id_ial_lines(text: str) -> str:
     return "".join(out)
 
 
+def normalize_math_delimiters_for_pandoc(text: str) -> str:
+    """Convert Web math syntax to Pandoc `$`/`$$` syntax.
+
+    The Web source contains both single and doubled delimiters (``\\(``,
+    ``\\\\(``, ``\\[``, ``\\\\[``) and both single- and double-escaped LaTeX
+    commands. Pandoc needs one backslash for a command and two for an ``aligned``
+    line break, so even-length runs are halved only while inside math. Fenced
+    blocks and inline code are preserved.
+    """
+    fence_character: str | None = None
+    fence_length = 0
+    math_closer: str | None = None
+    code_delimiter: str | None = None
+    out: list[str] = []
+    for line in text.splitlines(keepends=True):
+        fence = re.match(r"^\s*(`{3,}|~{3,})", line)
+        if fence_character is not None and math_closer is None and code_delimiter is None:
+            out.append(line)
+            if (
+                fence
+                and fence.group(1)[0] == fence_character
+                and len(fence.group(1)) >= fence_length
+            ):
+                fence_character = None
+                fence_length = 0
+            continue
+        if fence and math_closer is None and code_delimiter is None:
+            fence_character = fence.group(1)[0]
+            fence_length = len(fence.group(1))
+            out.append(line)
+            continue
+
+        position = 0
+        while position < len(line):
+            if math_closer is not None:
+                if line.startswith(math_closer + math_closer, position):
+                    # A few Web formulas encode a literal closing parenthesis
+                    # with the same doubled token immediately before the real
+                    # math closer (``...\\\\)\\\\)``). Keep the first character
+                    # inside math and let the second token close the span.
+                    out.append(math_closer[-1])
+                    position += len(math_closer)
+                    continue
+                if line.startswith(math_closer, position):
+                    out.append("$$" if math_closer.endswith("]") else "$")
+                    position += len(math_closer)
+                    math_closer = None
+                    continue
+                if line[position] == "\\":
+                    run_end = position + 1
+                    while run_end < len(line) and line[run_end] == "\\":
+                        run_end += 1
+                    run_length = run_end - position
+                    normalized_length = run_length // 2 if run_length % 2 == 0 else run_length
+                    out.append("\\" * normalized_length)
+                    position = run_end
+                    continue
+                out.append(line[position])
+                position += 1
+                continue
+
+            if code_delimiter is not None:
+                if line.startswith(code_delimiter, position):
+                    out.append(code_delimiter)
+                    position += len(code_delimiter)
+                    code_delimiter = None
+                else:
+                    out.append(line[position])
+                    position += 1
+                continue
+
+            if line[position] == "`":
+                run_end = position + 1
+                while run_end < len(line) and line[run_end] == "`":
+                    run_end += 1
+                code_delimiter = line[position:run_end]
+                out.append(code_delimiter)
+                position = run_end
+                continue
+
+            if line.startswith("\\\\(", position):
+                out.append("$")
+                math_closer = "\\\\)"
+                position += 3
+                continue
+            if line.startswith("\\\\[", position):
+                out.append("$$")
+                math_closer = "\\\\]"
+                position += 3
+                continue
+            if line.startswith("\\(", position):
+                out.append("$")
+                math_closer = "\\)"
+                position += 2
+                continue
+            if line.startswith("\\[", position):
+                out.append("$$")
+                math_closer = "\\]"
+                position += 2
+                continue
+
+            out.append(line[position])
+            position += 1
+    if math_closer is not None:
+        raise ValueError(f"unclosed Web math delimiter; expected {math_closer!r}")
+    return "".join(out)
+
+
 def load_book_config(path: Path) -> dict:
     return json.loads(path.read_text(encoding="utf-8"))
 
@@ -137,6 +245,7 @@ def preprocess_markdown(text: str) -> str:
     text = strip_front_matter(text)
     text = rewrite_liquid_relative_url(text)
     text = remove_stable_id_ial_lines(text)
+    text = normalize_math_delimiters_for_pandoc(text)
     return text
 
 

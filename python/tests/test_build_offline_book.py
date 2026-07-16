@@ -2,6 +2,8 @@ import importlib.util
 import json
 from pathlib import Path
 
+import pytest
+
 
 def _load_build_offline_book():
     repo_root = Path(__file__).resolve().parents[2]
@@ -33,6 +35,121 @@ def test_normalize_for_pdf_does_not_touch_latex_commands():
     text = "q\\in Q\nQ\\in F\nA\\cap B\n"
     out = m.normalize_for_pdf(text)
     assert out == text
+
+
+def test_normalize_math_delimiters_for_pandoc():
+    m = _load_build_offline_book()
+    text = (
+        r"inline \\(x \\in \\mathbb{R}\\) end" "\n"
+        r"\\[" "\n" r"\\sum_i x_i" "\n" r"\\]" "\n"
+    )
+
+    out = m.normalize_math_delimiters_for_pandoc(text)
+
+    assert "inline $x \\in \\mathbb{R}$ end" in out
+    assert "$$\n\\sum_i x_i\n$$" in out
+
+
+def test_normalize_single_backslash_math_delimiters_for_pandoc():
+    m = _load_build_offline_book()
+    text = (
+        r"inline \(p \in \mathbb{R}\) end" "\n"
+        r"\[\sum_i x_i\]" "\n"
+    )
+
+    out = m.normalize_math_delimiters_for_pandoc(text)
+
+    assert "inline $p \\in \\mathbb{R}$ end" in out
+    assert "$$\\sum_i x_i$$" in out
+
+
+def test_normalize_math_delimiters_preserves_single_commands_and_line_breaks():
+    m = _load_build_offline_book()
+    text = (
+        r"\\(x \in \mathbb{R}\\)" "\n"
+        r"\\[\begin{aligned}" "\n"
+        r"a & = b \\\\" "\n"
+        r"c & = d" "\n"
+        r"\end{aligned}\\]" "\n"
+    )
+
+    out = m.normalize_math_delimiters_for_pandoc(text)
+
+    assert "$x \\in \\mathbb{R}$" in out
+    assert "$$\\begin{aligned}\n" in out
+    assert "a & = b \\\\\n" in out
+    assert "\\end{aligned}$$" in out
+
+
+def test_normalize_math_delimiters_preserves_literal_parenthesis_before_closer():
+    m = _load_build_offline_book()
+
+    out = m.normalize_math_delimiters_for_pandoc(
+        r"\\(T(\\langle R\rangle\\)\\)" "\n"
+    )
+
+    assert out == "$T(\\langle R\\rangle)$\n"
+
+
+def test_normalize_math_delimiters_rejects_unclosed_math():
+    m = _load_build_offline_book()
+
+    with pytest.raises(ValueError, match="unclosed Web math delimiter"):
+        m.normalize_math_delimiters_for_pandoc(r"\\(x \\in X")
+
+
+def test_normalize_math_delimiters_preserves_code():
+    m = _load_build_offline_book()
+    text = (
+        "`\\\\(inline-code\\\\)` and \\\\(math\\\\)\n"
+        "```text\n\\\\(fenced\\\\)\n```\n"
+        "~~~text\n\\\\[fenced\\\\]\n~~~\n"
+    )
+
+    out = m.normalize_math_delimiters_for_pandoc(text)
+
+    assert "`\\\\(inline-code\\\\)` and $math$" in out
+    assert "```text\n\\\\(fenced\\\\)\n```" in out
+    assert "~~~text\n\\\\[fenced\\\\]\n~~~" in out
+
+
+def test_normalize_math_delimiters_preserves_multiline_code_span():
+    m = _load_build_offline_book()
+    text = (
+        "`code span starts\n"
+        "\\\\(still code\\\\)\n"
+        "` and \\\\(math\\\\)\n"
+    )
+
+    out = m.normalize_math_delimiters_for_pandoc(text)
+
+    assert out == (
+        "`code span starts\n"
+        "\\\\(still code\\\\)\n"
+        "` and $math$\n"
+    )
+
+
+def test_preprocess_real_chapter_six_normalizes_doubled_latex_commands():
+    m = _load_build_offline_book()
+    root = Path(__file__).resolve().parents[2]
+    chapter = (root / "docs/chapter-6/index.md").read_text(encoding="utf-8")
+
+    out = m.preprocess_markdown(chapter)
+
+    assert r"$z_v\in\mathbb{R}$" in out
+    assert r"$z_v\\in\\mathbb{R}$" not in out
+
+
+def test_preprocess_real_appendix_normalizes_single_backslash_delimiters():
+    m = _load_build_offline_book()
+    root = Path(__file__).resolve().parents[2]
+    appendix = (root / "docs/appendices/d.md").read_text(encoding="utf-8")
+
+    out = m.preprocess_markdown(appendix)
+
+    assert r"$p$ に対し" in out
+    assert r"\(p\)" not in out
 
 
 def test_publication_front_matter_uses_canonical_metadata():

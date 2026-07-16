@@ -272,12 +272,69 @@ def validate_workflow(root: Path, errors: list[str]) -> None:
     )
     if not re.search(r"(?m)^\s{4}tags:\s*\n\s{6}-\s*[\"']?v\*[\"']?\s*$", active):
         errors.append(f"{path}: missing active v* tag trigger")
+    if not re.search(r"(?m)^permissions:\s*\n  contents:\s*read\s*$", active):
+        errors.append(f"{path}: workflow default permissions must be contents: read")
+    dispatch_match = re.search(
+        r"(?ms)^  workflow_dispatch:\s*\n(?P<body>.*?)(?=^  [A-Za-z][A-Za-z_-]*:|^env:|^permissions:|^jobs:)",
+        active,
+    )
+    dispatch = dispatch_match.group("body") if dispatch_match else ""
+    for name, pattern in (
+        ("release_tag input", r"(?m)^      release_tag:\s*$"),
+        ("optional release_tag", r"(?m)^        required:\s*false\s*$"),
+        ("string release_tag", r"(?m)^        type:\s*string\s*$"),
+    ):
+        if not re.search(pattern, dispatch):
+            errors.append(f"{path}: workflow_dispatch is missing {name}")
 
     steps = re.findall(r"(?ms)^      - (.*?)(?=^      - |\Z)", active)
 
     def step_named(name: str) -> str:
         prefix = f"name: {name}"
         return next((step for step in steps if step.startswith(prefix)), "")
+
+    build_match = re.search(r"(?ms)^  build:\s*\n(?P<body>.*?)(?=^  publish:)", active)
+    build_job = build_match.group("body") if build_match else ""
+    for name, pattern in (
+        ("release_tag job output", r"(?m)^      release_tag:\s*\$\{\{\s*steps\.release_target\.outputs\.release_tag\s*\}\}\s*$"),
+        ("artifact_label job output", r"(?m)^      artifact_label:\s*\$\{\{\s*steps\.artifact_label\.outputs\.value\s*\}\}\s*$"),
+    ):
+        if not re.search(pattern, build_job):
+            errors.append(f"{path}: build job missing {name}")
+
+    tooling_checkout = step_named("Checkout release tooling")
+    for name, pattern in (
+        ("checkout action", r"(?m)^        uses: actions/checkout@v\d+\s*$"),
+        ("trusted main ref", r"(?m)^\s+ref:\s*main\s*$"),
+        ("tooling path", r"(?m)^\s+path:\s*release-tooling\s*$"),
+        ("credential isolation", r"(?m)^\s+persist-credentials:\s*false\s*$"),
+    ):
+        if not re.search(pattern, tooling_checkout):
+            errors.append(f"{path}: tooling checkout missing {name}")
+
+    target_step = step_named("Resolve release target")
+    for name, pattern in (
+        ("release_target id", r"(?m)^        id:\s*release_target\s*$"),
+        ("safe input environment", r"inputs\.release_tag\s*\|\|\s*''"),
+        ("main-only manual dispatch", r'GITHUB_EVENT_NAME\}" == "workflow_dispatch".*GITHUB_REF\}" != "refs/heads/main"'),
+        ("semantic-version validation", r"\^v\[0-9\]\+\\\.\[0-9\]\+\\\.\[0-9\]\+\$"),
+        ("target_ref output", r'echo "target_ref=\$\{target_ref\}" >> "\$\{GITHUB_OUTPUT\}"'),
+        ("release_tag output", r'echo "release_tag=\$\{release_tag\}" >> "\$\{GITHUB_OUTPUT\}"'),
+        ("artifact_source output", r'echo "artifact_source=\$\{artifact_source\}" >> "\$\{GITHUB_OUTPUT\}"'),
+    ):
+        if not re.search(pattern, target_step):
+            errors.append(f"{path}: release-target step missing {name}")
+
+    source_checkout = step_named("Checkout release source")
+    for name, pattern in (
+        ("checkout action", r"(?m)^        uses: actions/checkout@v\d+\s*$"),
+        ("validated target ref", r"steps\.release_target\.outputs\.target_ref"),
+        ("source path", r"(?m)^\s+path:\s*release-source\s*$"),
+        ("full tag history", r"(?m)^\s+fetch-depth:\s*0\s*$"),
+        ("credential isolation", r"(?m)^\s+persist-credentials:\s*false\s*$"),
+    ):
+        if not re.search(pattern, source_checkout):
+            errors.append(f"{path}: source checkout missing {name}")
 
     setup_step = step_named("Setup Python")
     if not (
@@ -287,12 +344,38 @@ def validate_workflow(root: Path, errors: list[str]) -> None:
         errors.append(f"{path}: deterministic Python 3.12 setup is missing")
 
     metadata_step = step_named("Verify canonical publication metadata and release tag")
-    if not re.search(
-        r"(?m)^\s+python3 scripts/check_publication_metadata\.py --release-tag "
-        r'"\$\{GITHUB_REF_NAME\}"\s*$',
-        metadata_step,
+    for name, pattern in (
+        (
+            "trusted checker",
+            r"python3 release-tooling/scripts/check_publication_metadata\.py\s+\\\s*\n"
+            r"\s+--root release-source --contract-root release-tooling",
+        ),
+        (
+            "checked-out source commit",
+            r'git -C release-source rev-parse HEAD',
+        ),
+        (
+            "immutable tag target validation",
+            r'git -C release-source rev-list -n 1 "\$\{RELEASE_TAG\}"',
+        ),
+        (
+            "immutable source/tag equality",
+            r'test "\$\{source_head\}" = "\$\{tag_head\}"',
+        ),
+        (
+            "release tag validation",
+            r'--release-tag "\$\{RELEASE_TAG\}"',
+        ),
+        (
+            "artifact-only source validation",
+            r"else\s*\n\s+python3 release-tooling/scripts/check_publication_metadata\.py\s+\\\s*\n"
+            r"\s+--root release-source --contract-root release-tooling\s*\n\s+fi\s*$",
+        ),
     ):
-        errors.append(f"{path}: metadata step must validate the pushed tag")
+        if not re.search(pattern, metadata_step):
+            errors.append(f"{path}: metadata step missing {name}")
+    if "release-source/scripts/" in metadata_step:
+        errors.append(f"{path}: metadata step must not execute release-source code")
     setup_index = next(
         (index for index, step in enumerate(steps) if step.startswith("name: Setup Python")),
         None,
@@ -310,11 +393,23 @@ def validate_workflow(root: Path, errors: list[str]) -> None:
 
     label_step = step_named("Resolve filesystem-safe artifact label")
     for name, pattern in (
-        ("slash sanitization", r"GITHUB_REF_NAME//\\//-"),
+        ("validated artifact source", r"steps\.release_target\.outputs\.artifact_source"),
+        ("slash sanitization", r"ARTIFACT_SOURCE//\\//-"),
         ("artifact label output", r'echo "value=\$\{artifact_label\}" >> "\$\{GITHUB_OUTPUT\}"'),
     ):
         if not re.search(pattern, label_step):
             errors.append(f"{path}: artifact-label step missing {name}")
+
+    source_build_step = step_named("Build offline sources (Markdown)")
+    for name, pattern in (
+        ("current builder", r"release-tooling/scripts/build_offline_book\.py"),
+        ("tag docs root", r"--docs-root release-source/docs"),
+        ("tag config", r"--config release-source/docs/book-config\.json"),
+        ("EPUB preprocessing", r"--target epub --out dist/book\.epub\.md"),
+        ("PDF preprocessing", r"--target pdf --out dist/book\.pdf\.md --asset-out dist"),
+    ):
+        if not re.search(pattern, source_build_step):
+            errors.append(f"{path}: offline source build missing {name}")
 
     output_reference = r"steps\.artifact_label\.outputs\.value"
     for format_name in ("EPUB", "PDF"):
@@ -337,15 +432,37 @@ def validate_workflow(root: Path, errors: list[str]) -> None:
         if not re.search(rf"(?m)^\s+dist/theoretical-computer-science-textbook-\*\.{suffix}\s*$", upload_step):
             errors.append(f"{path}: workflow artifact upload omits {suffix.upper()}")
 
+    publish_match = re.search(r"(?ms)^  publish:\s*\n(?P<body>.*)\Z", active)
+    publish_job = publish_match.group("body") if publish_match else ""
+    for name, pattern in (
+        ("build dependency", r"(?m)^    needs:\s*build\s*$"),
+        ("validated release gate", r"needs\.build\.outputs\.release_tag\s*!=\s*''"),
+        ("actions read permission", r"(?m)^      actions:\s*read\s*$"),
+        ("contents write permission", r"(?m)^      contents:\s*write\s*$"),
+    ):
+        if not re.search(pattern, publish_job):
+            errors.append(f"{path}: isolated publish job missing {name}")
+
+    download_step = step_named("Download verified workflow artifacts")
+    if not (
+        re.search(r"(?m)^        uses: actions/download-artifact@v\d+\s*$", download_step)
+        and re.search(r"(?m)^\s+name:\s*offline-artifacts\s*$", download_step)
+        and re.search(r"(?m)^\s+path:\s*dist\s*$", download_step)
+    ):
+        errors.append(f"{path}: isolated publish job must download offline-artifacts")
+
     release_step = step_named("Create GitHub Release and upload assets")
     if not re.search(r"(?m)^        uses: softprops/action-gh-release@v\d+\s*$", release_step):
         errors.append(f"{path}: active GitHub Release action is missing")
-    if not re.search(r"startsWith\(github\.ref, 'refs/tags/'\)", release_step):
-        errors.append(f"{path}: GitHub Release action must be tag-only")
+    if not re.search(
+        r"tag_name:\s*\$\{\{\s*needs\.build\.outputs\.release_tag\s*\}\}",
+        release_step,
+    ):
+        errors.append(f"{path}: GitHub Release action must publish the validated tag")
     for suffix in ("pdf", "epub"):
         expected = (
             "dist/theoretical-computer-science-textbook-"
-            "${{ steps.artifact_label.outputs.value }}."
+            "${{ needs.build.outputs.artifact_label }}."
             f"{suffix}"
         )
         if expected not in release_step:
@@ -379,6 +496,20 @@ def validate_builder(root: Path, errors: list[str]) -> None:
             if marker not in helper_source:
                 errors.append(f"{path}: publication helper omits {marker!r}")
 
+    normalizer = functions.get("normalize_math_delimiters_for_pandoc")
+    if normalizer is None:
+        errors.append(f"{path}: Pandoc math normalizer is missing")
+    preprocess = functions.get("preprocess_markdown")
+    if preprocess is None:
+        errors.append(f"{path}: Markdown preprocessing entry point is missing")
+    elif not any(
+        isinstance(node, ast.Call)
+        and isinstance(node.func, ast.Name)
+        and node.func.id == "normalize_math_delimiters_for_pandoc"
+        for node in ast.walk(preprocess)
+    ):
+        errors.append(f"{path}: Markdown preprocessing does not call the Pandoc math normalizer")
+
     loads_canonical_config = False
     writes_publication_front_matter = False
     for node in ast.walk(tree):
@@ -402,9 +533,15 @@ def validate_builder(root: Path, errors: list[str]) -> None:
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path.cwd(), help="repository root")
+    parser.add_argument(
+        "--contract-root",
+        type=Path,
+        help="trusted root containing the release workflow and offline builder",
+    )
     parser.add_argument("--release-tag", help="tag supplied by the release workflow")
     args = parser.parse_args(argv)
     root, errors = args.root.resolve(), []
+    contract_root = args.contract_root.resolve() if args.contract_root else root
     cfg = validate_config(root, errors)
     if cfg is not None:
         publication = cfg.get("publication")
@@ -414,8 +551,8 @@ def main(argv: list[str] | None = None) -> int:
                 f"--release-tag {args.release_tag!r} does not match canonical {canonical_tag!r}"
             )
         validate_consumers(root, cfg, errors)
-    validate_workflow(root, errors)
-    validate_builder(root, errors)
+    validate_workflow(contract_root, errors)
+    validate_builder(contract_root, errors)
     if errors:
         print("publication metadata check failed:", file=sys.stderr)
         print("\n".join(f"- {error}" for error in errors), file=sys.stderr)
