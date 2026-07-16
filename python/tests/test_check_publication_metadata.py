@@ -190,7 +190,7 @@ jobs:
       contents: write
     steps:
       - name: Download verified workflow artifacts
-        uses: actions/download-artifact@v8
+        uses: actions/download-artifact@v7
         with:
           name: offline-artifacts
           path: dist
