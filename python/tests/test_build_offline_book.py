@@ -63,6 +63,16 @@ def test_normalize_single_backslash_math_delimiters_for_pandoc():
     assert "$$\\sum_i x_i$$" in out
 
 
+def test_normalize_inline_math_trims_invalid_boundary_spaces():
+    m = _load_build_offline_book()
+
+    out = m.normalize_math_delimiters_for_pandoc(
+        r"double \\( \lvert X \rvert \\) and single \( p \)" "\n"
+    )
+
+    assert out == "double $\\lvert X \\rvert$ and single $p$\n"
+
+
 def test_normalize_math_delimiters_preserves_single_commands_and_line_breaks():
     m = _load_build_offline_book()
     text = (
@@ -139,6 +149,16 @@ def test_preprocess_real_chapter_six_normalizes_doubled_latex_commands():
 
     assert r"$z_v\in\mathbb{R}$" in out
     assert r"$z_v\\in\\mathbb{R}$" not in out
+
+
+def test_preprocess_real_chapter_two_produces_valid_pandoc_inline_math():
+    m = _load_build_offline_book()
+    root = Path(__file__).resolve().parents[2]
+    chapter = (root / "docs/chapter-2/index.md").read_text(encoding="utf-8")
+
+    out = m.preprocess_markdown(chapter)
+
+    assert r"**定理 2.10** $\lvert \Sigma \rvert \ge 2$ を仮定" in out
 
 
 def test_preprocess_real_appendix_normalizes_single_backslash_delimiters():
