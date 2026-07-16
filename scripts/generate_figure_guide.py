@@ -3,8 +3,8 @@
 
 The project already contains many SVG diagrams, but the public book currently
 has no dedicated "figure guide / list of figures" page. This script extracts
-diagram references from chapter Markdown files and generates Appendix H in both
-`docs/` and the synced `src/` mirror.
+diagram references from chapter Markdown files and the concept-map appendix,
+then generates Appendix H in both `docs/` and the synced `src/` mirror.
 """
 
 from __future__ import annotations
@@ -14,7 +14,7 @@ import json
 import re
 import unicodedata
 from dataclasses import dataclass
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 
 
 HEADING_RE = re.compile(r"^(?P<marks>#{1,6})\s+(?P<text>.+?)\s*$")
@@ -23,6 +23,9 @@ LIQUID_RELATIVE_URL_RE = re.compile(
 )
 MD_IMAGE_RE = re.compile(r"!\[(?P<alt>[^\]]*)\]\((?P<url>.+?)\)")
 CHAPTER_PATH_RE = re.compile(r"chapter-(?P<num>\d+)/index\.md$")
+EXPLICIT_HEADING_ID_RE = re.compile(
+    r"^(?P<text>.*?)\s*\{#(?P<id>[A-Za-z0-9][A-Za-z0-9_.:-]*)\}\s*$"
+)
 ROLE_LINE_RE = re.compile(
     r"^(?P<role>直観図|例示図|比較図|概念図|構成図|模式図|補助図)\s*[：:]\s*(?P<label>.+?)\s*$"
 )
@@ -30,7 +33,7 @@ ROLE_LINE_RE = re.compile(
 
 @dataclass(frozen=True)
 class FigureEntry:
-    chapter_num: int
+    chapter_num: int | None
     chapter_title: str
     part_title: str
     section_title: str
@@ -38,6 +41,8 @@ class FigureEntry:
     lead_text: str | None
     alt_text: str
     asset_path: str
+    appendix_id: str | None = None
+    source_anchor: str | None = None
 
 
 PURPOSE_SHORTLIST_LIMIT = 4
@@ -45,6 +50,7 @@ PURPOSE_ORDER = [
     "直観図",
     "例示図",
     "比較図",
+    "概念図",
     "手順/構成図",
 ]
 
@@ -68,6 +74,9 @@ def matches_purpose(entry: FigureEntry, purpose: str) -> bool:
         return entry.role == "比較図" or any(
             keyword in text for keyword in ["比較", "対比", "包含関係", "階層", "種類", "違い"]
         )
+
+    if purpose == "概念図":
+        return entry.role == "概念図" or "概念マップ" in text
 
     if purpose == "手順/構成図":
         return entry.role in {"構成図", "模式図"} or any(
@@ -172,6 +181,96 @@ def infer_role(lines: list[str], image_line_index: int) -> tuple[str, str | None
     return "図版", None
 
 
+def is_diagram_asset_path(asset_path: str) -> bool:
+    if "%" in asset_path:
+        return False
+    path = PurePosixPath(asset_path)
+    return (
+        not path.is_absolute()
+        and len(path.parts) > 3
+        and path.parts[:3] == ("assets", "images", "diagrams")
+        and ".." not in path.parts
+    )
+
+
+def _collect_document_figures(
+    md_path: Path,
+    *,
+    chapter_num: int | None,
+    chapter_title: str,
+    part_title: str,
+    appendix_id: str | None = None,
+) -> list[FigureEntry]:
+    """Collect supported images from one Markdown document in source order."""
+    lines = md_path.read_text(encoding="utf-8").splitlines()
+    current_headings: dict[int, tuple[str, str]] = {}
+    entries: list[FigureEntry] = []
+    seen_assets: set[str] = set()
+
+    for line_index, line in enumerate(lines):
+        heading_match = HEADING_RE.match(line.strip())
+        if heading_match:
+            level = len(heading_match.group("marks"))
+            heading = heading_match.group("text").strip()
+            explicit_id = EXPLICIT_HEADING_ID_RE.fullmatch(heading)
+            if explicit_id:
+                heading = explicit_id.group("text").strip()
+                heading_anchor = explicit_id.group("id")
+            else:
+                heading_anchor = slugify_heading(heading)
+            current_headings[level] = (heading, heading_anchor)
+            for deeper in range(level + 1, 7):
+                current_headings.pop(deeper, None)
+            continue
+
+        image_match = MD_IMAGE_RE.search(line)
+        if not image_match:
+            continue
+
+        asset_path = resolve_url(image_match.group("url"))
+        if not is_diagram_asset_path(asset_path):
+            continue
+        # Appendix I is an index, so listing the same asset twice is noise. Keep
+        # the first source occurrence; this also makes the result deterministic.
+        if appendix_id and asset_path in seen_assets:
+            continue
+        seen_assets.add(asset_path)
+
+        section_title = chapter_title
+        source_anchor = slugify_heading(chapter_title)
+        for level in range(6, 1, -1):
+            if level in current_headings:
+                section_title, source_anchor = current_headings[level]
+                break
+
+        role, lead_text = infer_role(lines, line_index)
+        alt_text = image_match.group("alt").strip() or Path(asset_path).stem
+        entries.append(
+            FigureEntry(
+                chapter_num=chapter_num,
+                chapter_title=chapter_title,
+                part_title=part_title,
+                section_title=section_title,
+                role=role,
+                lead_text=lead_text,
+                alt_text=alt_text,
+                asset_path=asset_path,
+                appendix_id=appendix_id,
+                source_anchor=source_anchor,
+            )
+        )
+    return entries
+
+
+def context_link(entry: FigureEntry) -> str:
+    if entry.appendix_id:
+        anchor = entry.source_anchor or slugify_heading(entry.chapter_title)
+        return "{{ '/appendices/" + entry.appendix_id + "/#" + anchor + "' | relative_url }}"
+    assert entry.chapter_num is not None
+    anchor = entry.source_anchor or slugify_heading(entry.section_title)
+    return "{{ '" + f"/chapter-{entry.chapter_num}/#{anchor}" + "' | relative_url }}"
+
+
 def collect_figures(docs_root: Path, book_cfg: dict) -> list[FigureEntry]:
     part_map = build_part_map(book_cfg)
     entries: list[FigureEntry] = []
@@ -185,52 +284,33 @@ def collect_figures(docs_root: Path, book_cfg: dict) -> list[FigureEntry]:
 
     for chapter_num, md_path in sorted(chapter_files, key=lambda item: item[0]):
 
-        raw = md_path.read_text(encoding="utf-8")
-        front_matter = parse_front_matter(raw)
+        front_matter = parse_front_matter(md_path.read_text(encoding="utf-8"))
         chapter_title = front_matter.get("title", f"第{chapter_num}章").strip()
         part_title = part_map.get(chapter_num, "その他")
 
-        lines = raw.splitlines()
-        current_headings: dict[int, str] = {}
-
-        for line_index, line in enumerate(lines):
-            heading_match = HEADING_RE.match(line.strip())
-            if heading_match:
-                level = len(heading_match.group("marks"))
-                current_headings[level] = heading_match.group("text").strip()
-                for deeper in range(level + 1, 7):
-                    current_headings.pop(deeper, None)
-                continue
-
-            image_match = MD_IMAGE_RE.search(line)
-            if not image_match:
-                continue
-
-            asset_path = resolve_url(image_match.group("url"))
-            if not asset_path.startswith("assets/images/diagrams/"):
-                continue
-
-            section_title = chapter_title
-            for level in range(6, 1, -1):
-                if level in current_headings:
-                    section_title = current_headings[level]
-                    break
-
-            role, lead_text = infer_role(lines, line_index)
-            alt_text = image_match.group("alt").strip() or Path(asset_path).stem
-
-            entries.append(
-                FigureEntry(
-                    chapter_num=chapter_num,
-                    chapter_title=chapter_title,
-                    part_title=part_title,
-                    section_title=section_title,
-                    role=role,
-                    lead_text=lead_text,
-                    alt_text=alt_text,
-                    asset_path=asset_path,
-                )
+        entries.extend(
+            _collect_document_figures(
+                md_path,
+                chapter_num=chapter_num,
+                chapter_title=chapter_title,
+                part_title=part_title,
             )
+        )
+
+    appendix_path = docs_root / "appendices" / "i.md"
+    if appendix_path.exists():
+        raw = appendix_path.read_text(encoding="utf-8")
+        front_matter = parse_front_matter(raw)
+        appendix_title = front_matter.get("title", "付録I: 概念マップ").strip()
+        entries.extend(
+            _collect_document_figures(
+                appendix_path,
+                chapter_num=None,
+                chapter_title=appendix_title,
+                part_title="付録",
+                appendix_id="i",
+            )
+        )
 
     return entries
 
@@ -244,6 +324,7 @@ def render_markdown(entries: list[FigureEntry]) -> str:
     chapter_counts: dict[int, int] = {}
     chapter_titles: dict[int, str] = {}
     figures_by_chapter: dict[int, list[FigureEntry]] = {}
+    appendix_entries: list[FigureEntry] = []
 
     for entry in entries:
         if entry.part_title not in part_counts:
@@ -251,6 +332,11 @@ def render_markdown(entries: list[FigureEntry]) -> str:
             part_counts[entry.part_title] = 0
         part_counts[entry.part_title] += 1
 
+        if entry.appendix_id:
+            appendix_entries.append(entry)
+            continue
+
+        assert entry.chapter_num is not None
         if entry.chapter_num not in chapter_counts:
             chapter_order.append(entry.chapter_num)
             chapter_counts[entry.chapter_num] = 0
@@ -281,6 +367,7 @@ def render_markdown(entries: list[FigureEntry]) -> str:
         "- **直観図**: 定義や証明を置き換えるものではなく、何が本質かを先に掴むための図です。",
         "- **例示図**: アルゴリズムの逐次実行、状態変化、構成の具体例を追うための図です。",
         "- **比較図**: 複数の手法・クラス・見方の差分を見比べるための図です。",
+        "- **概念図**: 章・概念・読書経路の関係を一枚の地図として見直すための図です。",
         "- **構成図 / 模式図**: 装置の構成や処理フローを順に追うための図です。",
         "- **図版**: 本文に明示ラベルがない図です。節名と alt テキストで文脈を補っています。",
         "",
@@ -297,8 +384,7 @@ def render_markdown(entries: list[FigureEntry]) -> str:
 
         out.extend([f"### {purpose}を見たいとき", ""])
         for entry in shortlist:
-            section_anchor = slugify_heading(entry.section_title)
-            chapter_link = "{{ '" + f"/chapter-{entry.chapter_num}/#{section_anchor}" + "' | relative_url }}"
+            chapter_link = context_link(entry)
             svg_link = "{{ '" + f"/{entry.asset_path}" + "' | relative_url }}"
             out.append(
                 f"- [{entry.alt_text}]({chapter_link}) — {entry.chapter_title} / 節: {format_quoted_text(entry.section_title)} / [SVG]({svg_link})"
@@ -329,8 +415,7 @@ def render_markdown(entries: list[FigureEntry]) -> str:
         chapter_title = chapter_titles[chapter_num]
         out.append(f"#### {chapter_title}（{chapter_counts[chapter_num]} 図）")
         for entry in chapter_entries:
-            section_anchor = slugify_heading(entry.section_title)
-            chapter_link = "{{ '" + f"/chapter-{entry.chapter_num}/#{section_anchor}" + "' | relative_url }}"
+            chapter_link = context_link(entry)
             svg_link = "{{ '" + f"/{entry.asset_path}" + "' | relative_url }}"
             bullet = (
                 f"- **{entry.role}**: [{entry.alt_text}]({chapter_link})"
@@ -339,6 +424,29 @@ def render_markdown(entries: list[FigureEntry]) -> str:
             if entry.lead_text:
                 bullet += f" / 本文ラベル: {format_quoted_text(entry.lead_text)}"
             out.append(bullet)
+        out.append("")
+
+    if appendix_entries:
+        out.extend(["### 付録I", ""])
+        for index, entry in enumerate(appendix_entries, start=1):
+            figure_anchor = f"appendix-{entry.appendix_id}-figure-{index:02d}-{slugify_heading(entry.alt_text)}"
+            source_anchor = entry.source_anchor or slugify_heading(entry.chapter_title)
+            source_link = (
+                "{{ '/appendices/"
+                + str(entry.appendix_id)
+                + "/#"
+                + source_anchor
+                + "' | relative_url }}"
+            )
+            asset_link = "{{ '/" + entry.asset_path + "' | relative_url }}"
+            out.extend(
+                [
+                    f"#### {entry.alt_text} {{#{figure_anchor}}}",
+                    f"- **{entry.role}**: [{entry.alt_text}]({source_link})"
+                    f" — 節: {format_quoted_text(entry.section_title)} / [画像]({asset_link})"
+                    f" / [付録Iへ戻る]({source_link})",
+                ]
+            )
         out.append("")
 
     out.extend(

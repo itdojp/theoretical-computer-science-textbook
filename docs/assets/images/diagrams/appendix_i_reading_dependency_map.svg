@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 900" role="img" aria-labelledby="appendix-i-map-title appendix-i-map-desc">
+  <title id="appendix-i-map-title">本書12章の概念マップ</title>
+  <desc id="appendix-i-map-desc">第1章から第12章を4つのPartに配置し、必須前提を実線、強く推奨する前提を破線、応用や横断的関連を点線のレーンで示す。完全な章別対応は図の直後のテキスト版に記載する。</desc>
+  <defs>
+    <style>
+      .canvas { fill: #f8fafc; }
+      .heading { font: 700 28px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #172554; }
+      .subheading { font: 600 17px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #334155; }
+      .part-title { font: 700 19px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #ffffff; }
+      .chapter { font: 600 16px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #0f172a; }
+      .chapter-note { font: 400 13px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #334155; }
+      .lane-title { font: 700 18px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #0f172a; }
+      .lane-text { font: 500 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #1e293b; }
+      .footnote { font: 400 14px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #475569; }
+      .part-box { fill: #ffffff; stroke: #cbd5e1; stroke-width: 2; rx: 14; }
+      .chapter-box { fill: #f8fafc; stroke: #cbd5e1; stroke-width: 1.5; rx: 8; }
+      .lane-box { fill: #ffffff; stroke: #cbd5e1; stroke-width: 2; rx: 12; }
+      .required { stroke: #1d4ed8; stroke-width: 5; fill: none; }
+      .recommended { stroke: #b45309; stroke-width: 5; stroke-dasharray: 14 9; fill: none; }
+      .related { stroke: #047857; stroke-width: 5; stroke-dasharray: 3 9; stroke-linecap: round; fill: none; }
+    </style>
+  </defs>
+
+  <rect class="canvas" x="0" y="0" width="1280" height="900"/>
+  <text class="heading" x="640" y="46" text-anchor="middle">12章の概念マップ</text>
+  <text class="subheading" x="640" y="76" text-anchor="middle">上段で章を探し、下段の3レーンで主要な関係を確認する</text>
+
+  <g transform="translate(35 105)">
+    <rect class="part-box" x="0" y="0" width="285" height="300"/>
+    <rect x="0" y="0" width="285" height="48" rx="14" fill="#1d4ed8"/>
+    <rect x="0" y="34" width="285" height="14" fill="#1d4ed8"/>
+    <text class="part-title" x="142" y="31" text-anchor="middle">Part I 数学的基礎</text>
+    <rect class="chapter-box" x="18" y="66" width="249" height="62"/>
+    <text class="chapter" x="32" y="91">第1章 数学・論理・証明</text>
+    <text class="chapter-note" x="32" y="113">全章の共通入口</text>
+    <rect class="chapter-box" x="18" y="145" width="249" height="62"/>
+    <text class="chapter" x="32" y="170">第2章 計算モデル</text>
+    <text class="chapter-note" x="32" y="192">計算可能性・複雑性の入口</text>
+    <rect class="chapter-box" x="18" y="224" width="249" height="62"/>
+    <text class="chapter" x="32" y="249">第3章 言語・オートマトン</text>
+    <text class="chapter-note" x="32" y="271">形式的表現の入口</text>
+  </g>
+
+  <g transform="translate(345 105)">
+    <rect class="part-box" x="0" y="0" width="285" height="300"/>
+    <rect x="0" y="0" width="285" height="48" rx="14" fill="#7c3aed"/>
+    <rect x="0" y="34" width="285" height="14" fill="#7c3aed"/>
+    <text class="part-title" x="142" y="31" text-anchor="middle">Part II 計算理論</text>
+    <rect class="chapter-box" x="18" y="66" width="249" height="62"/>
+    <text class="chapter" x="32" y="91">第4章 計算可能性</text>
+    <text class="chapter-note" x="32" y="113">判定不能性・還元</text>
+    <rect class="chapter-box" x="18" y="145" width="249" height="62"/>
+    <text class="chapter" x="32" y="170">第5章 計算複雑性</text>
+    <text class="chapter-note" x="32" y="192">資源・困難性・NP完全性</text>
+    <rect class="chapter-box" x="18" y="224" width="249" height="62"/>
+    <text class="chapter" x="32" y="249">第6章 アルゴリズム解析</text>
+    <text class="chapter-note" x="32" y="271">設計法・漸近解析・確率</text>
+  </g>
+
+  <g transform="translate(655 105)">
+    <rect class="part-box" x="0" y="0" width="285" height="300"/>
+    <rect x="0" y="0" width="285" height="48" rx="14" fill="#047857"/>
+    <rect x="0" y="34" width="285" height="14" fill="#047857"/>
+    <text class="part-title" x="142" y="31" text-anchor="middle">Part III 高度なトピック</text>
+    <rect class="chapter-box" x="18" y="66" width="249" height="62"/>
+    <text class="chapter" x="32" y="91">第7章 データ構造</text>
+    <text class="chapter-note" x="32" y="113">操作保証・不変量・償却</text>
+    <rect class="chapter-box" x="18" y="145" width="249" height="62"/>
+    <text class="chapter" x="32" y="170">第8章 グラフ・ネットワーク</text>
+    <text class="chapter-note" x="32" y="192">経路・流量・割当て</text>
+    <rect class="chapter-box" x="18" y="224" width="249" height="62"/>
+    <text class="chapter" x="32" y="249">第9章 論理・形式的手法</text>
+    <text class="chapter-note" x="32" y="271">仕様・証明・モデル検査</text>
+  </g>
+
+  <g transform="translate(965 105)">
+    <rect class="part-box" x="0" y="0" width="280" height="300"/>
+    <rect x="0" y="0" width="280" height="48" rx="14" fill="#b45309"/>
+    <rect x="0" y="34" width="280" height="14" fill="#b45309"/>
+    <text class="part-title" x="140" y="31" text-anchor="middle">Part IV 応用理論</text>
+    <rect class="chapter-box" x="18" y="66" width="244" height="62"/>
+    <text class="chapter" x="32" y="91">第10章 情報理論</text>
+    <text class="chapter-note" x="32" y="113">圧縮・通信路・誤り耐性</text>
+    <rect class="chapter-box" x="18" y="145" width="244" height="62"/>
+    <text class="chapter" x="32" y="170">第11章 暗号理論</text>
+    <text class="chapter-note" x="32" y="192">攻撃者モデル・安全性</text>
+    <rect class="chapter-box" x="18" y="224" width="244" height="62"/>
+    <text class="chapter" x="32" y="249">第12章 並行計算</text>
+    <text class="chapter-note" x="32" y="271">競合・正当性・合意</text>
+  </g>
+
+  <g transform="translate(55 445)">
+    <rect class="lane-box" x="0" y="0" width="1170" height="112"/>
+    <path class="required" d="M28 35 H180"/>
+    <text class="lane-title" x="205" y="41">必須前提（実線）</text>
+    <text class="lane-text" x="28" y="78">1→2・3・6・7・8・9・10・11・12　　2→4・5</text>
+  </g>
+
+  <g transform="translate(55 580)">
+    <rect class="lane-box" x="0" y="0" width="1170" height="112"/>
+    <path class="recommended" d="M28 35 H180"/>
+    <text class="lane-title" x="205" y="41">強く推奨する前提（破線）</text>
+    <text class="lane-text" x="28" y="78">3⇢4　4⇢5　5⇢6・11　6⇢7・8・10・12　7⇢8　3⇢9　10⇢11　9⇢12</text>
+  </g>
+
+  <g transform="translate(55 715)">
+    <rect class="lane-box" x="0" y="0" width="1170" height="112"/>
+    <path class="related" d="M28 35 H180"/>
+    <text class="lane-title" x="205" y="41">応用・横断的関連（点線）</text>
+    <text class="lane-text" x="28" y="78">4⋯9　　7⋯12　　8⋯10・12　　9⋯11　　10⋯12　　11⋯12</text>
+  </g>
+
+  <text class="footnote" x="640" y="864" text-anchor="middle">図は主要辺の俯瞰。全章の必須前提・強く推奨する前提・横断的関連は、本文のテキスト版を正本とする。</text>
+</svg>

@@ -19,6 +19,7 @@ layout: book
 - **直観図**: 定義や証明を置き換えるものではなく、何が本質かを先に掴むための図です。
 - **例示図**: アルゴリズムの逐次実行、状態変化、構成の具体例を追うための図です。
 - **比較図**: 複数の手法・クラス・見方の差分を見比べるための図です。
+- **概念図**: 章・概念・読書経路の関係を一枚の地図として見直すための図です。
 - **構成図 / 模式図**: 装置の構成や処理フローを順に追うための図です。
 - **図版**: 本文に明示ラベルがない図です。節名と alt テキストで文脈を補っています。
 
@@ -47,6 +48,10 @@ layout: book
 - [有限オートマトンの種類と特徴]({{ '/chapter-3/#32-有限オートマトン' | relative_url }}) — 第3章 形式言語とオートマトン理論 / 節: 「3.2 有限オートマトン」 / [SVG]({{ '/assets/images/diagrams/ch3_finite_automata_overview.svg' | relative_url }})
 - [言語クラスの階層構造]({{ '/chapter-4/#431-言語クラスの包含関係' | relative_url }}) — 第4章 計算可能性理論 / 節: 「4.3.1 言語クラスの包含関係」 / [SVG]({{ '/assets/images/diagrams/ch4_language_class_hierarchy.svg' | relative_url }})
 
+### 概念図を見たいとき
+
+- [本書12章の概念マップ]({{ '/appendices/i/#appendix-i-map' | relative_url }}) — 付録I: 概念マップ / 節: 「12章の概念マップ」 / [SVG]({{ '/assets/images/diagrams/appendix_i_reading_dependency_map.svg' | relative_url }})
+
 ### 手順/構成図を見たいとき
 
 - [チューリング機械の構成要素]({{ '/chapter-2/#212-チューリング機械の形式的定義' | relative_url }}) — 第2章 計算理論の基礎 / 節: 「2.1.2 チューリング機械の形式的定義」 / [SVG]({{ '/assets/images/diagrams/ch2_turing_machine_components.svg' | relative_url }})
@@ -56,11 +61,12 @@ layout: book
 
 ## 図版サマリー
 
-- 総図版数: 72
+- 総図版数: 73
 - Part I: 数学的基礎: 24 図
 - Part II: 計算理論: 16 図
 - Part III: 高度なトピック: 15 図
 - Part IV: 応用理論: 17 図
+- 付録: 1 図
 
 ## 図一覧
 
@@ -167,6 +173,11 @@ layout: book
 - **直観図**: [デッドロックのCoffmanの4条件]({{ '/chapter-12/#1243-モデル検査アルゴリズム' | relative_url }}) — 節: 「12.4.3 モデル検査アルゴリズム」 / [SVG]({{ '/assets/images/diagrams/ch12_deadlock_coffman_conditions.svg' | relative_url }}) / 本文ラベル: 「Coffman の4条件と資源割当グラフ（デッドロック例）」
 - **図版**: [並行データ構造の設計手法]({{ '/chapter-12/#1262-ロックフリーアルゴリズム' | relative_url }}) — 節: 「12.6.2 ロックフリーアルゴリズム」 / [SVG]({{ '/assets/images/diagrams/ch12_lock_free_algorithms.svg' | relative_url }})
 - **直観図**: [ABA問題の概念図]({{ '/chapter-12/#1262-ロックフリーアルゴリズム' | relative_url }}) — 節: 「12.6.2 ロックフリーアルゴリズム」 / [SVG]({{ '/assets/images/diagrams/ch12_aba_problem_diagram.svg' | relative_url }}) / 本文ラベル: 「ABA問題の概念図と緩和策の示唆」
+
+### 付録I
+
+#### 本書12章の概念マップ {#appendix-i-figure-01-本書12章の概念マップ}
+- **概念図**: [本書12章の概念マップ]({{ '/appendices/i/#appendix-i-map' | relative_url }}) — 節: 「12章の概念マップ」 / [画像]({{ '/assets/images/diagrams/appendix_i_reading_dependency_map.svg' | relative_url }}) / [付録Iへ戻る]({{ '/appendices/i/#appendix-i-map' | relative_url }})
 
 ## 補足
 
