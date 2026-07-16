@@ -21,6 +21,9 @@ RELEASE_BASE_URL = (
 )
 RELEASE_STATUSES = {"preparing", "published"}
 STALE_PUBLISHED_COPY = ("Release準備中", "Release完了後", "配布予定tag")
+# v1.2.0 was frozen before release_status was introduced. Keep only this
+# immutable source retryable; every later release source must declare its state.
+LEGACY_RELEASE_TAGS_WITHOUT_STATUS = {"v1.2.0"}
 
 
 def _read(path: Path, errors: list[str]) -> str:
@@ -612,9 +615,10 @@ def main(argv: list[str] | None = None) -> int:
         release_status = (
             publication.get("release_status") if isinstance(publication, dict) else None
         )
-        # Immutable release sources created before this field was introduced remain
-        # retryable. Current branch validation must always declare the reader state.
-        if release_status is None and args.release_tag is None:
+        # Only immutable sources known to predate this field remain retryable.
+        if release_status is None and (
+            args.release_tag not in LEGACY_RELEASE_TAGS_WITHOUT_STATUS
+        ):
             errors.append(
                 "publication.release_status: required for current publication state"
             )

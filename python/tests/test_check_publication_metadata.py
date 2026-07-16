@@ -262,6 +262,29 @@ def _set_release_status(root: Path, status: str) -> None:
     )
 
 
+def _remove_release_status(root: Path) -> None:
+    config_path = root / "docs/book-config.json"
+    config = json.loads(config_path.read_text(encoding="utf-8"))
+    del config["publication"]["release_status"]
+    config_path.write_text(json.dumps(config), encoding="utf-8")
+    config_yml = root / "docs/_config.yml"
+    config_yml.write_text(
+        config_yml.read_text(encoding="utf-8").replace(
+            'release_status: "published"\n', ""
+        ),
+        encoding="utf-8",
+    )
+
+
+def _replace_fixture_version(root: Path, old: str, new: str) -> None:
+    for path in root.rglob("*"):
+        if path.is_file():
+            path.write_text(
+                path.read_text(encoding="utf-8").replace(old, new),
+                encoding="utf-8",
+            )
+
+
 def _write_preparing_reader_copy(root: Path) -> None:
     _write(
         root,
@@ -294,38 +317,28 @@ def test_happy_path_without_release_tag(tmp_path):
 
 def test_current_publication_requires_release_status(tmp_path):
     root = _fixture(tmp_path)
-    config_path = root / "docs/book-config.json"
-    config = json.loads(config_path.read_text(encoding="utf-8"))
-    del config["publication"]["release_status"]
-    config_path.write_text(json.dumps(config), encoding="utf-8")
-    config_yml = root / "docs/_config.yml"
-    config_yml.write_text(
-        config_yml.read_text(encoding="utf-8").replace(
-            'release_status: "published"\n', ""
-        ),
-        encoding="utf-8",
-    )
+    _remove_release_status(root)
 
     assert _module().main(["--root", str(root)]) == 1
 
 
 def test_immutable_legacy_release_source_without_status_remains_retryable(tmp_path):
     root = _fixture(tmp_path)
-    config_path = root / "docs/book-config.json"
-    config = json.loads(config_path.read_text(encoding="utf-8"))
-    del config["publication"]["release_status"]
-    config_path.write_text(json.dumps(config), encoding="utf-8")
-    config_yml = root / "docs/_config.yml"
-    config_yml.write_text(
-        config_yml.read_text(encoding="utf-8").replace(
-            'release_status: "published"\n', ""
-        ),
-        encoding="utf-8",
-    )
+    _replace_fixture_version(root, "1.2.3", "1.2.0")
+    _remove_release_status(root)
+
+    assert _module().main(
+        ["--root", str(root), "--release-tag", "v1.2.0"]
+    ) == 0
+
+
+def test_nonlegacy_release_source_without_status_fails(tmp_path):
+    root = _fixture(tmp_path)
+    _remove_release_status(root)
 
     assert _module().main(
         ["--root", str(root), "--release-tag", "v1.2.3"]
-    ) == 0
+    ) == 1
 
 
 def test_published_status_rejects_stale_reader_copy(tmp_path):
