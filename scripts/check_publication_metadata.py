@@ -279,6 +279,13 @@ def validate_workflow(root: Path, errors: list[str]) -> None:
         prefix = f"name: {name}"
         return next((step for step in steps if step.startswith(prefix)), "")
 
+    setup_step = step_named("Setup Python")
+    if not (
+        re.search(r"(?m)^        uses: actions/setup-python@v\d+\s*$", setup_step)
+        and re.search(r'(?m)^\s+python-version:\s*["\']?3\.12["\']?\s*$', setup_step)
+    ):
+        errors.append(f"{path}: deterministic Python 3.12 setup is missing")
+
     metadata_step = step_named("Verify canonical publication metadata and release tag")
     if not re.search(
         r"(?m)^\s+python3 scripts/check_publication_metadata\.py --release-tag "
@@ -286,6 +293,20 @@ def validate_workflow(root: Path, errors: list[str]) -> None:
         metadata_step,
     ):
         errors.append(f"{path}: metadata step must validate the pushed tag")
+    setup_index = next(
+        (index for index, step in enumerate(steps) if step.startswith("name: Setup Python")),
+        None,
+    )
+    metadata_index = next(
+        (
+            index
+            for index, step in enumerate(steps)
+            if step.startswith("name: Verify canonical publication metadata and release tag")
+        ),
+        None,
+    )
+    if setup_index is None or metadata_index is None or setup_index >= metadata_index:
+        errors.append(f"{path}: Python setup must precede metadata validation")
 
     label_step = step_named("Resolve filesystem-safe artifact label")
     for name, pattern in (

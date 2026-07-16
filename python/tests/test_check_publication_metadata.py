@@ -100,6 +100,10 @@ Test Book Test Author 1.2.3 2026-07-16 2026-07-17
 jobs:
   build:
     steps:
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
       - name: Verify canonical publication metadata and release tag
         run: |
           python3 scripts/check_publication_metadata.py --release-tag "${GITHUB_REF_NAME}"

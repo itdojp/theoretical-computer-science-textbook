@@ -9,7 +9,7 @@
 ## 読者向け導線
 
 - 公開サイト（正本）: https://itdojp.github.io/theoretical-computer-science-textbook/
-- 現行公開版: 1.2.0（2026-07-16公開、tag `v1.2.0`）
+- Web公開版: 1.2.0（2026-07-16更新）。固定版tag `v1.2.0`はRelease準備中です。
 - 本書の目的と構成: https://itdojp.github.io/theoretical-computer-science-textbook/introduction/purpose/
 - 学習の進め方: https://itdojp.github.io/theoretical-computer-science-textbook/introduction/learning-guide/
 - オフライン版の提供状況: https://itdojp.github.io/theoretical-computer-science-textbook/downloads/
