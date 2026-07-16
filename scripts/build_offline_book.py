@@ -68,10 +68,11 @@ def remove_stable_id_ial_lines(text: str) -> str:
 def normalize_math_delimiters_for_pandoc(text: str) -> str:
     """Convert Web math syntax to Pandoc `$`/`$$` syntax.
 
-    The Web source uses doubled delimiters (``\\\\(``, ``\\\\[``) and contains
-    both single- and double-escaped LaTeX commands. Pandoc needs one backslash
-    for a command and two for an ``aligned`` line break, so even-length runs are
-    halved only while inside math. Fenced blocks and inline code are preserved.
+    The Web source contains both single and doubled delimiters (``\\(``,
+    ``\\\\(``, ``\\[``, ``\\\\[``) and both single- and double-escaped LaTeX
+    commands. Pandoc needs one backslash for a command and two for an ``aligned``
+    line break, so even-length runs are halved only while inside math. Fenced
+    blocks and inline code are preserved.
     """
     fence_character: str | None = None
     fence_length = 0
@@ -108,7 +109,7 @@ def normalize_math_delimiters_for_pandoc(text: str) -> str:
                     position += len(math_closer)
                     continue
                 if line.startswith(math_closer, position):
-                    out.append("$$" if math_closer == "\\\\]" else "$")
+                    out.append("$$" if math_closer.endswith("]") else "$")
                     position += len(math_closer)
                     math_closer = None
                     continue
@@ -153,6 +154,16 @@ def normalize_math_delimiters_for_pandoc(text: str) -> str:
                 out.append("$$")
                 math_closer = "\\\\]"
                 position += 3
+                continue
+            if line.startswith("\\(", position):
+                out.append("$")
+                math_closer = "\\)"
+                position += 2
+                continue
+            if line.startswith("\\[", position):
+                out.append("$$")
+                math_closer = "\\]"
+                position += 2
                 continue
 
             out.append(line[position])

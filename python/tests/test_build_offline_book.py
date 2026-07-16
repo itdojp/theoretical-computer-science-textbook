@@ -50,6 +50,19 @@ def test_normalize_math_delimiters_for_pandoc():
     assert "$$\n\\sum_i x_i\n$$" in out
 
 
+def test_normalize_single_backslash_math_delimiters_for_pandoc():
+    m = _load_build_offline_book()
+    text = (
+        r"inline \(p \in \mathbb{R}\) end" "\n"
+        r"\[\sum_i x_i\]" "\n"
+    )
+
+    out = m.normalize_math_delimiters_for_pandoc(text)
+
+    assert "inline $p \\in \\mathbb{R}$ end" in out
+    assert "$$\\sum_i x_i$$" in out
+
+
 def test_normalize_math_delimiters_preserves_single_commands_and_line_breaks():
     m = _load_build_offline_book()
     text = (
@@ -126,6 +139,17 @@ def test_preprocess_real_chapter_six_normalizes_doubled_latex_commands():
 
     assert r"$z_v\in\mathbb{R}$" in out
     assert r"$z_v\\in\\mathbb{R}$" not in out
+
+
+def test_preprocess_real_appendix_normalizes_single_backslash_delimiters():
+    m = _load_build_offline_book()
+    root = Path(__file__).resolve().parents[2]
+    appendix = (root / "docs/appendices/d.md").read_text(encoding="utf-8")
+
+    out = m.preprocess_markdown(appendix)
+
+    assert r"$p$ に対し" in out
+    assert r"\(p\)" not in out
 
 
 def test_publication_front_matter_uses_canonical_metadata():
