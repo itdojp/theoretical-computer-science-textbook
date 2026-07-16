@@ -149,9 +149,14 @@
                     {% if page.sections != nil and page.sections != empty %}
                         {% assign has_sections = true %}
                     {% endif %}
+                    {% assign chapter_effort = nil %}
+                    {% if page.chapter %}
+                        {% assign chapter_key = page.chapter | append: "" %}
+                        {% assign chapter_effort = site.data.chapter_effort.chapters[chapter_key] %}
+                    {% endif %}
                     {% assign has_chapter_profile = false %}
                     {% if page.chapter %}
-                        {% if page.estimated_time or page.difficulty or has_sections %}
+                        {% if chapter_effort or page.difficulty or has_sections %}
                             {% assign has_chapter_profile = true %}
                         {% endif %}
                     {% endif %}
@@ -166,10 +171,10 @@
                                 {% endif %}
                             </div>
                             <div class="chapter-profile-grid">
-                                {% if page.estimated_time %}
+                                {% if chapter_effort %}
                                 <div class="chapter-profile-item">
-                                    <span class="chapter-profile-label">読了目安</span>
-                                    <span class="chapter-profile-value">{{ page.estimated_time | escape }}</span>
+                                    <span class="chapter-profile-label">標準学習時間</span>
+                                    <span class="chapter-profile-value">{{ chapter_effort.standard_learning_time | escape }}</span>
                                 </div>
                                 {% endif %}
                                 {% if page.difficulty %}

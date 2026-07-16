@@ -41,6 +41,7 @@ def validate_package(package: dict[str, Any]) -> list[str]:
         "check:quality": "python3 scripts/check_quality_gates.py",
         "check:security": "npm audit --omit=optional",
         "check:navigation": "python3 scripts/check_navigation_coverage.py",
+        "check:effort": "python3 scripts/check_effort_metadata.py",
     }
     for name, expected in expected_scripts.items():
         actual = scripts.get(name)
@@ -53,6 +54,7 @@ def validate_package(package: dict[str, Any]) -> list[str]:
     else:
         for command in (
             "npm run check:quality",
+            "npm run check:effort",
             "npm run check:navigation",
             "npm run check:security",
             "npm run lint",
@@ -95,6 +97,7 @@ def validate_workflows() -> list[str]:
         ".github/workflows/ci.yml": (
             "npm ci",
             "npm run check:quality",
+            "npm run check:effort",
             "npm run check:security",
         ),
     }

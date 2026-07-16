@@ -4,7 +4,6 @@ title: "第6章 アルゴリズムの数学的解析"
 subtitle: "分割統治法、動的計画法、貪欲法"
 description: "効率的なアルゴリズムの設計と数学的解析技法"
 chapter: 6
-estimated_time: "4〜5週間"
 difficulty: "★★★☆"
 sections:
   - "漸近的解析"

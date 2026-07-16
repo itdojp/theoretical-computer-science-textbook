@@ -4,7 +4,6 @@ title: "第4章 計算可能性理論"
 subtitle: "決定可能性と還元可能性"
 description: "計算の本質的な限界を数学的に証明"
 chapter: 4
-estimated_time: "4〜5週間"
 difficulty: "★★★★"
 sections:
   - "決定不能問題"

@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "definitions": {
+    "text_browsing_time": {
+      "label": "本文閲覧時間（機械換算）",
+      "value": "約5.5〜8.5時間",
+      "basis": "コードブロックを除く本文量を400〜600文字/分で一度読み進める機械換算です。",
+      "scope": "定義の確認、証明の追跡、演習、復習は含みません。"
+    },
+    "standard_learning": {
+      "label": "標準学習時間",
+      "total": "約128〜192時間",
+      "basis": "離散数学と基本的なプログラミング経験を持つ学部上級生が、定義を確認し、主要な証明を追い、各章の代表問題に取り組む自習目安です。",
+      "exercise_scope": "各章の代表問題を含みます。章末問題と付録Cの全問実施、外部文献の精読、実装課題の全件実施には追加時間が必要です。"
+    }
+  },
+  "courses": {
+    "through": {
+      "display": "約128〜192時間（16〜24週、週8時間程度）"
+    },
+    "lecture_support": {
+      "display": "対象章1章あたり約10〜22時間＋前提確認"
+    },
+    "selective": {
+      "display": "関心章1章あたり約10〜22時間＋必要な前提確認"
+    },
+    "relearning": {
+      "display": "既習章1章あたり約6〜12時間"
+    }
+  },
+  "chapters": {
+    "1": { "standard_learning_time": "10〜14時間" },
+    "2": { "standard_learning_time": "10〜14時間" },
+    "3": { "standard_learning_time": "12〜18時間" },
+    "4": { "standard_learning_time": "10〜16時間" },
+    "5": { "standard_learning_time": "14〜22時間" },
+    "6": { "standard_learning_time": "10〜16時間" },
+    "7": { "standard_learning_time": "10〜14時間" },
+    "8": { "standard_learning_time": "10〜14時間" },
+    "9": { "standard_learning_time": "10〜16時間" },
+    "10": { "standard_learning_time": "10〜14時間" },
+    "11": { "standard_learning_time": "12〜18時間" },
+    "12": { "standard_learning_time": "10〜16時間" }
+  }
+}
