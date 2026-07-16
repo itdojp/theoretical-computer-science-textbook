@@ -189,6 +189,23 @@ def test_preprocess_exercise_cross_links_uses_internal_anchors():
     assert "[通常リンク](../appendices/d/)" in out
 
 
+def test_preprocess_exercise_anchors_uses_pandoc_native_spans():
+    m = _load_build_offline_book()
+    text = (
+        '1. <span id="exq-ch7-003"></span>問題\n'
+        '<span id="ex-sol-ch7-003"></span>\n'
+        '<span id="unrelated"></span>\n'
+    )
+
+    out = m.preprocess_markdown(text)
+
+    assert "1. []{#exq-ch7-003}問題" in out
+    assert "[]{#ex-sol-ch7-003}" in out
+    assert '<span id="exq-ch7-003"></span>' not in out
+    assert '<span id="ex-sol-ch7-003"></span>' not in out
+    assert '<span id="unrelated"></span>' in out
+
+
 def test_preprocess_real_exercise_links_are_clickable_in_offline_book():
     m = _load_build_offline_book()
     root = Path(__file__).resolve().parents[2]
@@ -200,6 +217,8 @@ def test_preprocess_real_exercise_links_are_clickable_in_offline_book():
 
     assert "[付録Cの対応解答](#ex-sol-ch7-003)" in chapter_out
     assert "[第7章 問題3（基礎）](#exq-ch7-003)" in appendix_out
+    assert "[]{#exq-ch7-003}" in chapter_out
+    assert "[]{#ex-sol-ch7-003}" in appendix_out
     assert "../appendices/c/#ex-sol-ch7-003" not in chapter_out
     assert "chapter-7/#exq-ch7-003" not in appendix_out
 

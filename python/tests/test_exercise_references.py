@@ -42,6 +42,7 @@ def test_collects_list_and_heading_questions_without_stealing_next_span() -> Non
         "exq-ch1-002",
         "exq-ch1-003",
     ]
+    assert [question.line for question in questions] == [7, 14, 19]
     assert "ex-sol-ch1-001" in questions[0].block
     assert "exq-ch1-003" not in questions[1].block
 

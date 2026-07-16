@@ -26,10 +26,6 @@ class ExerciseQuestion:
     kind: str
 
 
-def _line_no(lines: list[str], index: int) -> int:
-    return index + 1
-
-
 def collect_chapter_questions(text: str, chapter: int) -> tuple[list[ExerciseQuestion], list[str]]:
     """Collect chapter-end questions and validate one primary ID per block."""
     marker = "## 章末問題"
@@ -91,7 +87,9 @@ def collect_chapter_questions(text: str, chapter: int) -> tuple[list[ExerciseQue
         block = "\n".join(lines[block_starts[position]:end]).rstrip() + "\n"
         ids = EXERCISE_ID_RE.findall(block)
         stable_ids = [row[0] for row in ids]
-        display_line = base_line + _line_no(lines, start)
+        # ``base_line`` is the one-based line number of the section marker,
+        # while ``start`` is the zero-based offset after that marker.
+        display_line = base_line + start
 
         if not question_category or question_category == "取り組み方ガイド":
             errors.append(f"line {display_line}: chapter {chapter} question is outside an exercise category")
@@ -103,7 +101,9 @@ def collect_chapter_questions(text: str, chapter: int) -> tuple[list[ExerciseQue
             stable_id = stable_ids[0] if stable_ids else ""
         else:
             stable_id = stable_ids[0]
-            id_chapter = int(EXERCISE_ID_RE.fullmatch(stable_id).group("chapter"))
+            id_match = EXERCISE_ID_RE.fullmatch(stable_id)
+            assert id_match is not None, f"parser returned an invalid exercise ID: {stable_id}"
+            id_chapter = int(id_match.group("chapter"))
             if id_chapter != chapter:
                 errors.append(
                     f"line {display_line}: exercise ID {stable_id} does not match chapter {chapter}"
