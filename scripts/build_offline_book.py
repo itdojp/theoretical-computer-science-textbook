@@ -29,7 +29,7 @@ RELATIVE_URL_RE = re.compile(
 STABLE_ID_IAL_RE = re.compile(r"^\s*\{:\s*#[-A-Za-z0-9_]+\s*\}\s*$")
 
 EXERCISE_CROSS_LINK_RE = re.compile(
-    r"(?:\.\./appendices/c/|\.\./\.\./chapter-\d+/)#"
+    r"(?:\.\./appendices/c/|chapter-\d+/)#"
     r"(?P<id>exq-ch\d+-\d{3}|ex-sol-ch\d+(?:-\d{3})?)"
 )
 

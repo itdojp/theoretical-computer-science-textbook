@@ -17,7 +17,8 @@ SOLUTION_HEADING_RE = re.compile(r"^### 練習問題(?P<chapter>\d+)\.(?P<number
 SOLUTION_ID_RE = re.compile(r'<span\s+id="(?P<id>ex-sol-ch(?P<chapter>\d+)-\d{3})"\s*></span>')
 SOURCE_LINK_RE = re.compile(
     r"^\*\*元問題\*\*:\s*\[(?P<label>[^\]]+)\]"
-    r"\(\.\./\.\./chapter-(?P<path_chapter>\d+)/#(?P<id>exq-ch(?P<id_chapter>\d+)-\d{3})\)\s*$",
+    r"\(\{\{\s*['\"]/chapter-(?P<path_chapter>\d+)/['\"]\s*\|\s*relative_url\s*\}\}"
+    r"#(?P<id>exq-ch(?P<id_chapter>\d+)-\d{3})\)\s*$",
     re.M,
 )
 SOURCE_PART_RE = re.compile(r"^\*\*元問題の項目\*\*:\s*(?P<part>.+?)\s*$", re.M)

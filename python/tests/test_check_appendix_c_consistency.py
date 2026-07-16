@@ -91,7 +91,7 @@ def _write_repository_fixture(root: Path) -> tuple[Path, Path, Path, Path, Path,
 
 **問題**: 第{chapter}章の問題
 
-**元問題**: [第{chapter}章 問題1](../../chapter-{chapter}/#{question_id})
+**元問題**: [第{chapter}章 問題1]({{{{ '/chapter-{chapter}/' | relative_url }}}}#{question_id})
 
 **解答種別**: 詳細解答
 
