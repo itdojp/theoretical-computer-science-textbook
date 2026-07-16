@@ -28,6 +28,11 @@ RELATIVE_URL_RE = re.compile(
 # kramdown IAL used for stable anchors in the website build.
 STABLE_ID_IAL_RE = re.compile(r"^\s*\{:\s*#[-A-Za-z0-9_]+\s*\}\s*$")
 
+EXERCISE_CROSS_LINK_RE = re.compile(
+    r"(?:\.\./appendices/c/|\.\./\.\./chapter-\d+/)#"
+    r"(?P<id>exq-ch\d+-\d{3}|ex-sol-ch\d+(?:-\d{3})?)"
+)
+
 # Markdown images: keep parsing simple and conservative.
 MD_IMAGE_RE = re.compile(
     r"""!\[(?P<alt>[^\]]*)\]\((?P<url>\S+?)(?P<rest>\s+\"[^\"]*\")?\)"""
@@ -63,6 +68,11 @@ def remove_stable_id_ial_lines(text: str) -> str:
             continue
         out.append(line)
     return "".join(out)
+
+
+def rewrite_exercise_cross_links_for_offline(text: str) -> str:
+    """Point exercise links at anchors in the concatenated offline document."""
+    return EXERCISE_CROSS_LINK_RE.sub(lambda match: f"#{match.group('id')}", text)
 
 
 def normalize_math_delimiters_for_pandoc(text: str) -> str:
@@ -251,6 +261,7 @@ def build_source_file_list(docs_root: Path, cfg: dict) -> list[Path]:
 def preprocess_markdown(text: str) -> str:
     text = strip_front_matter(text)
     text = rewrite_liquid_relative_url(text)
+    text = rewrite_exercise_cross_links_for_offline(text)
     text = remove_stable_id_ial_lines(text)
     text = normalize_math_delimiters_for_pandoc(text)
     return text

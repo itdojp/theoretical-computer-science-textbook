@@ -72,6 +72,9 @@ jobs:
       - name: Check search-data.json is up-to-date
         run: python3 scripts/generate_search_data.py --check
 
+      - name: Check stable exercise and Appendix C references
+        run: npm run check:exercises
+
       - name: Check navigation covers published pages
         run: python3 scripts/check_navigation_coverage.py
 
@@ -95,6 +98,9 @@ jobs:
 
       - name: HTML notation check (post-build)
         run: python3 scripts/html_notation_check.py --site-root _site
+
+      - name: Check generated exercise anchors
+        run: npm run check:exercises:html
 
       - name: Install htmltest
         run: |

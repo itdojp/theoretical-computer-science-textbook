@@ -58,6 +58,9 @@ jobs:
       - name: Check local quality-gate wiring
         run: python3 scripts/check_quality_gates.py
 
+      - name: Check stable exercise and Appendix C references
+        run: npm run check:exercises
+
       - name: Security audit (book dependencies)
         run: npm run check:security
 
@@ -99,6 +102,9 @@ jobs:
         with:
           source: ./${{ steps.scan.outputs.dir }}
           destination: ./_site
+
+      - name: Check generated exercise anchors
+        run: npm run check:exercises:html
 
       - name: Smoke check built site (top + navigation + assets)
         shell: bash

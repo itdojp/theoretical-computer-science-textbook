@@ -20,7 +20,7 @@
       "url": "/theoretical-computer-science-textbook/appendices/b/"
     },
     {
-      "excerpt": "付録C: 練習問題解答 本書の各章末問題から代表的な練習問題を選び、詳細な解答と解説を示します。 注: 本付録は代表解答集です。第1〜12章の章末問題を網羅するものではなく、採録した問題について解答を収録しています。 - 付録内の「練習問題X.Y」は、第X章から採録した代表解答番号です。章末問題の全項目番号と一対一に対応しない場合があります。 - 章末問題の特定項目に対応する場合は、問題文中で「章末問題」や該当する基礎・発展・探究・実装",
+      "excerpt": "付録C: 練習問題解答 本書の各章末問題から代表的な練習問題を選び、詳細な解答と解説を示します。 注: 本付録は代表解答集です。第1〜12章の章末問題を網羅するものではなく、採録した問題について解答を収録しています。 - 付録内の各「練習問題X.Y」には、対応する章末問題番号・該当項目・解答種別を冒頭に明記しています。 - 章末問題の特定小問のみを採録した場合は、「元問題の項目」で対応範囲を明示しています。 - 「探究課題」は唯一の正解",
       "source_path": "docs/appendices/c.md",
       "title": "付録C: 練習問題解答",
       "url": "/theoretical-computer-science-textbook/appendices/c/"
@@ -80,10 +80,202 @@
       "url": "/theoretical-computer-science-textbook/chapter-1/"
     },
     {
+      "excerpt": "集合 A = {1, 2, 3, 4} に対して、以下を求めよ。",
+      "source_path": "docs/chapter-1/index.md",
+      "title": "第1章 問題1（基礎問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-1/#exq-ch1-001"
+    },
+    {
+      "excerpt": "ド・モルガンの法則 A ∩ B ^c = A^c ∪ B^c を証明せよ。",
+      "source_path": "docs/chapter-1/index.md",
+      "title": "第1章 問題2（基礎問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-1/#exq-ch1-002"
+    },
+    {
+      "excerpt": "関数 f: ℝ → ℝ, f x = 2x + 1 について、次に答えよ。",
+      "source_path": "docs/chapter-1/index.md",
+      "title": "第1章 問題3（基礎問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-1/#exq-ch1-003"
+    },
+    {
+      "excerpt": "グラフ \\\\ K 4\\\\ について、次に答えよ。",
+      "source_path": "docs/chapter-1/index.md",
+      "title": "第1章 問題4（基礎問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-1/#exq-ch1-004"
+    },
+    {
+      "excerpt": "数学的帰納法を用いて、すべての \\\\ n \\\\ge 1\\\\ に対して \\\\ 1^2 + 2^2 + \\\\cdots + n^2 = n n+1 2n+1 /6\\\\ が成り立つことを証明せよ。",
+      "source_path": "docs/chapter-1/index.md",
+      "title": "第1章 問題5（基礎問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-1/#exq-ch1-005"
+    },
+    {
+      "excerpt": "アルゴリズム解析 ：バブルソートの比較回数について",
+      "source_path": "docs/chapter-1/index.md",
+      "title": "第1章 問題6（計算機科学応用問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-1/#exq-ch1-006"
+    },
+    {
+      "excerpt": "データ構造 ：n要素のハッシュテーブルについて",
+      "source_path": "docs/chapter-1/index.md",
+      "title": "第1章 問題7（計算機科学応用問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-1/#exq-ch1-007"
+    },
+    {
+      "excerpt": "再帰アルゴリズム ：フィボナッチ数列 F n = F n-1 + F n-2 , F 0 =0, F 1 =1 について",
+      "source_path": "docs/chapter-1/index.md",
+      "title": "第1章 問題8（計算機科学応用問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-1/#exq-ch1-008"
+    },
+    {
+      "excerpt": "グラフ理論 ：n 個のプロセスからなる分散システムについて",
+      "source_path": "docs/chapter-1/index.md",
+      "title": "第1章 問題9（計算機科学応用問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-1/#exq-ch1-009"
+    },
+    {
+      "excerpt": "\\\\ n^3 - n\\\\ は常に6の倍数であることを数学的帰納法で証明せよ。",
+      "source_path": "docs/chapter-1/index.md",
+      "title": "第1章 問題10（発展問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-1/#exq-ch1-010"
+    },
+    {
+      "excerpt": "関数 f: ℝ → ℝ, \\\\ f x = x^3 - x\\\\ について、次に答えよ。",
+      "source_path": "docs/chapter-1/index.md",
+      "title": "第1章 問題11（発展問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-1/#exq-ch1-011"
+    },
+    {
+      "excerpt": "可算無限個の可算集合の和集合は可算であることを証明せよ。",
+      "source_path": "docs/chapter-1/index.md",
+      "title": "第1章 問題12（発展問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-1/#exq-ch1-012"
+    },
+    {
+      "excerpt": "集合 A 上の関係 R が推移的であることと、R ∘ R ⊆ R が成り立つことが同値であることを示せ。",
+      "source_path": "docs/chapter-1/index.md",
+      "title": "第1章 問題13（発展問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-1/#exq-ch1-013"
+    },
+    {
+      "excerpt": "n 頂点の木において、次数が k の頂点が \\\\ n k\\\\ 個あるとき、\\\\ n 1 = 2 + \\\\sum {k \\\\ge 3} k-2 n k\\\\ が成り立つことを証明せよ。（\\\\ n 1\\\\ は葉の数）",
+      "source_path": "docs/chapter-1/index.md",
+      "title": "第1章 問題14（発展問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-1/#exq-ch1-014"
+    },
+    {
+      "excerpt": "グラフの彩色問題について調査し、4色定理の歴史とコンピューターによる証明の意義について論ぜよ。",
+      "source_path": "docs/chapter-1/index.md",
+      "title": "第1章 問題15（探究課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-1/#exq-ch1-015"
+    },
+    {
+      "excerpt": "Cantor の対角線論法を用いて、区間 0,1 の実数の集合が非可算であることを証明せよ。さらに、この手法が集合論においてどのような意義を持つかを調べよ。",
+      "source_path": "docs/chapter-1/index.md",
+      "title": "第1章 問題16（探究課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-1/#exq-ch1-016"
+    },
+    {
+      "excerpt": "同値関係と分割の関係について詳しく調べ、商集合の概念とその応用例を調査せよ。",
+      "source_path": "docs/chapter-1/index.md",
+      "title": "第1章 問題17（探究課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-1/#exq-ch1-017"
+    },
+    {
+      "excerpt": "集合演算を実装せよ",
+      "source_path": "docs/chapter-1/index.md",
+      "title": "第1章 問題18（実装課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-1/#exq-ch1-018"
+    },
+    {
+      "excerpt": "グラフの基本アルゴリズムを実装せよ",
+      "source_path": "docs/chapter-1/index.md",
+      "title": "第1章 問題19（実装課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-1/#exq-ch1-019"
+    },
+    {
+      "excerpt": "関係の性質を判定するプログラムを作成せよ",
+      "source_path": "docs/chapter-1/index.md",
+      "title": "第1章 問題20（実装課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-1/#exq-ch1-020"
+    },
+    {
       "excerpt": "第10章 情報理論 はじめに 情報理論は、情報の定量化、保存、伝達に関する数学的理論です。1948年のクロード・シャノンの画期的な論文により創始されたこの分野は、通信工学から始まり、今日ではデータ圧縮、暗号理論、機械学習、生物情報学など、幅広い分野で応用されています。 本章では、情報量の数学的定義から始まり、データ圧縮の理論的限界、雑音のある通信路での信頼性のある通信の可能性、そして誤り訂正符号の構成まで、情報理論の核心的な概念を体系的",
       "source_path": "docs/chapter-10/index.md",
       "title": "第10章 情報理論",
       "url": "/theoretical-computer-science-textbook/chapter-10/"
+    },
+    {
+      "excerpt": "以下の確率分布のエントロピーを計算せよ：",
+      "source_path": "docs/chapter-10/index.md",
+      "title": "第10章 問題1（基礎問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-10/#exq-ch10-001"
+    },
+    {
+      "excerpt": "X, Y, Z が Markov 連鎖 \\\\ X \\\\to Y \\\\to Z\\\\ をなすとき、",
+      "source_path": "docs/chapter-10/index.md",
+      "title": "第10章 問題2（基礎問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-10/#exq-ch10-002"
+    },
+    {
+      "excerpt": "二元対称通信路（クロスオーバー確率 0.1）において、",
+      "source_path": "docs/chapter-10/index.md",
+      "title": "第10章 問題3（基礎問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-10/#exq-ch10-003"
+    },
+    {
+      "excerpt": "{a:0.5, b:0.25, c:0.125, d:0.125} に対する Huffman 符号を構成し、",
+      "source_path": "docs/chapter-10/index.md",
+      "title": "第10章 問題4（基礎問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-10/#exq-ch10-004"
+    },
+    {
+      "excerpt": "Fano の不等式を証明し、通信路符号化定理の逆定理への応用を説明せよ。",
+      "source_path": "docs/chapter-10/index.md",
+      "title": "第10章 問題5（発展問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-10/#exq-ch10-005"
+    },
+    {
+      "excerpt": "型（typical sequences）の理論について：",
+      "source_path": "docs/chapter-10/index.md",
+      "title": "第10章 問題6（発展問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-10/#exq-ch10-006"
+    },
+    {
+      "excerpt": "Slepian-Wolf の定理（分散情報源符号化）を説明し、",
+      "source_path": "docs/chapter-10/index.md",
+      "title": "第10章 問題7（発展問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-10/#exq-ch10-007"
+    },
+    {
+      "excerpt": "ネットワーク符号化について：",
+      "source_path": "docs/chapter-10/index.md",
+      "title": "第10章 問題8（発展問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-10/#exq-ch10-008"
+    },
+    {
+      "excerpt": "量子情報理論について調査し、",
+      "source_path": "docs/chapter-10/index.md",
+      "title": "第10章 問題9（探究課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-10/#exq-ch10-009"
+    },
+    {
+      "excerpt": "Kolmogorov 複雑性について調査し、",
+      "source_path": "docs/chapter-10/index.md",
+      "title": "第10章 問題10（探究課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-10/#exq-ch10-010"
+    },
+    {
+      "excerpt": "極符号（Polar codes）について調査し、",
+      "source_path": "docs/chapter-10/index.md",
+      "title": "第10章 問題11（探究課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-10/#exq-ch10-011"
+    },
+    {
+      "excerpt": "深層学習における情報理論的解析について調査し、",
+      "source_path": "docs/chapter-10/index.md",
+      "title": "第10章 問題12（探究課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-10/#exq-ch10-012"
     },
     {
       "excerpt": "第11章 暗号理論の数学的基礎 はじめに 暗号理論は、情報の機密性、完全性、真正性を保証するための数学的手法を研究する分野です。古代の単純な置換暗号から始まり、現代では高度な数学的構造に基づく暗号システムが、電子商取引、デジタル通信、クラウドコンピューティングなど、デジタル社会のあらゆる場面で使用されています。 本章では、現代暗号理論の数学的基礎を体系的に学びます。計算論的安全性の概念から始まり、公開鍵暗号の数学的原理、デジタル署名、そ",
@@ -92,10 +284,154 @@
       "url": "/theoretical-computer-science-textbook/chapter-11/"
     },
     {
+      "excerpt": "以下の暗号システムの安全性を評価せよ：",
+      "source_path": "docs/chapter-11/index.md",
+      "title": "第11章 問題1（基礎問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-11/#exq-ch11-001"
+    },
+    {
+      "excerpt": "RSA において、e = 3 を使用する場合の脆弱性と対策を説明せよ。",
+      "source_path": "docs/chapter-11/index.md",
+      "title": "第11章 問題2（基礎問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-11/#exq-ch11-002"
+    },
+    {
+      "excerpt": "ElGamal 暗号において、同じ乱数 r を再利用した場合の脆弱性を示せ。",
+      "source_path": "docs/chapter-11/index.md",
+      "title": "第11章 問題3（基礎問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-11/#exq-ch11-003"
+    },
+    {
+      "excerpt": "誕生日パラドックスを用いて、n ビットハッシュ関数の衝突を",
+      "source_path": "docs/chapter-11/index.md",
+      "title": "第11章 問題4（基礎問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-11/#exq-ch11-004"
+    },
+    {
+      "excerpt": "DDH 仮定から CDH 仮定が導かれることを示せ。",
+      "source_path": "docs/chapter-11/index.md",
+      "title": "第11章 問題5（発展問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-11/#exq-ch11-005"
+    },
+    {
+      "excerpt": "Σプロトコルが特殊健全性を持つとき、",
+      "source_path": "docs/chapter-11/index.md",
+      "title": "第11章 問題6（発展問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-11/#exq-ch11-006"
+    },
+    {
+      "excerpt": "中国人の剰余定理を用いた RSA の高速化について：",
+      "source_path": "docs/chapter-11/index.md",
+      "title": "第11章 問題7（発展問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-11/#exq-ch11-007"
+    },
+    {
+      "excerpt": "ペアリングベース暗号について：",
+      "source_path": "docs/chapter-11/index.md",
+      "title": "第11章 問題8（発展問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-11/#exq-ch11-008"
+    },
+    {
+      "excerpt": "量子計算機に対する耐性を持つ暗号（耐量子暗号）について調査し、",
+      "source_path": "docs/chapter-11/index.md",
+      "title": "第11章 問題9（探究課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-11/#exq-ch11-009"
+    },
+    {
+      "excerpt": "ブロックチェーンで使用される暗号技術について調査し、",
+      "source_path": "docs/chapter-11/index.md",
+      "title": "第11章 問題10（探究課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-11/#exq-ch11-010"
+    },
+    {
+      "excerpt": "差分プライバシーについて調査し、",
+      "source_path": "docs/chapter-11/index.md",
+      "title": "第11章 問題11（探究課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-11/#exq-ch11-011"
+    },
+    {
+      "excerpt": "完全準同型暗号の最新の構成法について調査し、",
+      "source_path": "docs/chapter-11/index.md",
+      "title": "第11章 問題12（探究課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-11/#exq-ch11-012"
+    },
+    {
       "excerpt": "第12章 並行計算の理論 はじめに 並行計算の理論は、複数の計算プロセスが同時に実行される状況を数学的に扱う分野です。マルチコアプロセッサ、分散システム、クラウドコンピューティングの普及により、並行性の理解と制御は現代のコンピュータサイエンスにおいて不可欠となっています。本章では、並行システムのモデル化、解析、検証のための理論的基礎を体系的に学びます。 並行性がもたらす非決定性、デッドロック、競合状態などの問題は、逐次プログラムでは現れ",
       "source_path": "docs/chapter-12/index.md",
       "title": "第12章 並行計算の理論",
       "url": "/theoretical-computer-science-textbook/chapter-12/"
+    },
+    {
+      "excerpt": "2つのプロセスが交互に実行される以下のプログラムで、",
+      "source_path": "docs/chapter-12/index.md",
+      "title": "第12章 問題1（基礎問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-12/#exq-ch12-001"
+    },
+    {
+      "excerpt": "CCS で以下のプロセスの双模倣等価性を判定せよ：",
+      "source_path": "docs/chapter-12/index.md",
+      "title": "第12章 問題2（基礎問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-12/#exq-ch12-002"
+    },
+    {
+      "excerpt": "哲学者の食事問題を Petri ネットでモデル化し、",
+      "source_path": "docs/chapter-12/index.md",
+      "title": "第12章 問題3（基礎問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-12/#exq-ch12-003"
+    },
+    {
+      "excerpt": "n プロセスのベーカリーアルゴリズムが相互排除を満たすことを証明せよ。",
+      "source_path": "docs/chapter-12/index.md",
+      "title": "第12章 問題4（基礎問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-12/#exq-ch12-004"
+    },
+    {
+      "excerpt": "分散システムにおける論理時計について：",
+      "source_path": "docs/chapter-12/index.md",
+      "title": "第12章 問題5（発展問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-12/#exq-ch12-005"
+    },
+    {
+      "excerpt": "コンセンサス数について：",
+      "source_path": "docs/chapter-12/index.md",
+      "title": "第12章 問題6（発展問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-12/#exq-ch12-006"
+    },
+    {
+      "excerpt": "ロックフリーキューの実装：",
+      "source_path": "docs/chapter-12/index.md",
+      "title": "第12章 問題7（発展問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-12/#exq-ch12-007"
+    },
+    {
+      "excerpt": "弱メモリモデルについて：",
+      "source_path": "docs/chapter-12/index.md",
+      "title": "第12章 問題8（発展問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-12/#exq-ch12-008"
+    },
+    {
+      "excerpt": "ブロックチェーンのコンセンサスアルゴリズムについて調査し、",
+      "source_path": "docs/chapter-12/index.md",
+      "title": "第12章 問題9（探究課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-12/#exq-ch12-009"
+    },
+    {
+      "excerpt": "トランザクショナルメモリについて調査し、",
+      "source_path": "docs/chapter-12/index.md",
+      "title": "第12章 問題10（探究課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-12/#exq-ch12-010"
+    },
+    {
+      "excerpt": "アクターモデルについて調査し、",
+      "source_path": "docs/chapter-12/index.md",
+      "title": "第12章 問題11（探究課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-12/#exq-ch12-011"
+    },
+    {
+      "excerpt": "形式的検証ツール（TLA+、SPIN、NuSMV など）について調査し、",
+      "source_path": "docs/chapter-12/index.md",
+      "title": "第12章 問題12（探究課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-12/#exq-ch12-012"
     },
     {
       "excerpt": "第2章 計算理論の基礎 はじめに 「計算とは何か」という根本的な問いは、コンピュータサイエンスの中核をなす問題です。本章では、計算の数学的モデルとしてのチューリング機械を導入し、計算可能性と決定可能性の概念を学びます。これらの概念は、アルゴリズムの限界を理解し、解ける問題と解けない問題を区別する理論的基盤を提供します。 学習目標 - チューリング機械（TM）の形式定義（状態・アルファベット・遷移・受理）を説明できる - 構成（confi",
@@ -104,10 +440,178 @@
       "url": "/theoretical-computer-science-textbook/chapter-2/"
     },
     {
+      "excerpt": "以下の言語を認識するチューリング機械を構成せよ。",
+      "source_path": "docs/chapter-2/index.md",
+      "title": "第2章 問題1（基礎問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-2/#exq-ch2-001"
+    },
+    {
+      "excerpt": "2つの2進数の和を計算するチューリング機械を設計せよ。入力形式は ⟨x⟩#⟨y⟩ とする。",
+      "source_path": "docs/chapter-2/index.md",
+      "title": "第2章 問題2（基礎問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-2/#exq-ch2-002"
+    },
+    {
+      "excerpt": "以下の言語が決定可能であることを証明せよ。",
+      "source_path": "docs/chapter-2/index.md",
+      "title": "第2章 問題3（基礎問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-2/#exq-ch2-003"
+    },
+    {
+      "excerpt": "\\\\ L 1 = \\\\{w \\\\mid w \\\\text{ は偶数個の0を含む}\\\\}\\\\ と \\\\ L 2 = \\\\{w \\\\mid w \\\\text{ は3の倍数個の1を含む}\\\\}\\\\ が決定可能であることを示し、\\\\ L 1 \\\\cap L 2\\\\ を決定するアルゴリズムを示せ。",
+      "source_path": "docs/chapter-2/index.md",
+      "title": "第2章 問題4（基礎問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-2/#exq-ch2-004"
+    },
+    {
+      "excerpt": "非決定性チューリング機械が言語 \\\\ \\\\{0^{n}1^{n} \\\\mid n \\\\ge 0\\\\} \\\\cup \\\\{0^{n}1^{2n} \\\\mid n \\\\ge 0\\\\}\\\\ を線形時間で認識できることを示せ。",
+      "source_path": "docs/chapter-2/index.md",
+      "title": "第2章 問題5（基礎問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-2/#exq-ch2-005"
+    },
+    {
+      "excerpt": "多テープチューリング機械から単一テープチューリング機械への変換において、時間計算量がどのように変化するか解析せよ。",
+      "source_path": "docs/chapter-2/index.md",
+      "title": "第2章 問題6（発展問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-2/#exq-ch2-006"
+    },
+    {
+      "excerpt": "非決定性チューリング機械 N が時間 t n で動作するとき、それをシミュレートする決定性チューリング機械の時間計算量の上界を求めよ。",
+      "source_path": "docs/chapter-2/index.md",
+      "title": "第2章 問題7（発展問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-2/#exq-ch2-007"
+    },
+    {
+      "excerpt": "チューリング機械の停止性を判定する「近似アルゴリズム」を考える。分布、誤判定の許容、未回答（unknown）の許容を明確にしないと「一定割合以上で正しい」という主張が数学的命題にならないことを説明せよ。そのうえで、すべての入力に対して必ず停止し必ず正しく答える完全判定器は存在しないことを、停止問題の証明に戻って整理せよ。",
+      "source_path": "docs/chapter-2/index.md",
+      "title": "第2章 問題8（発展問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-2/#exq-ch2-008"
+    },
+    {
+      "excerpt": "Church-Turingの提唱に対する批判や限界について調査し、量子計算やDNA計算などの新しい計算モデルとの関係を論ぜよ。",
+      "source_path": "docs/chapter-2/index.md",
+      "title": "第2章 問題9（探究課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-2/#exq-ch2-009"
+    },
+    {
+      "excerpt": "計算可能性理論の歴史的発展について調査し、ヒルベルトの第10問題やゲーデルの不完全性定理との関連を説明せよ。",
+      "source_path": "docs/chapter-2/index.md",
+      "title": "第2章 問題10（探究課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-2/#exq-ch2-010"
+    },
+    {
+      "excerpt": "簡単なチューリング機械シミュレータを実装せよ",
+      "source_path": "docs/chapter-2/index.md",
+      "title": "第2章 問題11（実装課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-2/#exq-ch2-011"
+    },
+    {
+      "excerpt": "Post対応問題のインスタンスを解く総当たりアルゴリズムを実装せよ",
+      "source_path": "docs/chapter-2/index.md",
+      "title": "第2章 問題12（実装課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-2/#exq-ch2-012"
+    },
+    {
       "excerpt": "第3章 形式言語とオートマトン理論 はじめに 形式言語理論は、プログラミング言語の構文解析、コンパイラ設計、文字列処理アルゴリズムなど、コンピュータサイエンスの多くの分野で基礎となる理論です。本章では、言語を認識する計算モデルであるオートマトンを、その計算能力に応じて階層的に学びます。 有限オートマトンから始まり、より強力なプッシュダウンオートマトンへと進むことで、計算モデルの能力と限界を体系的に理解します。各モデルが認識できる言語クラ",
       "source_path": "docs/chapter-3/index.md",
       "title": "第3章 形式言語とオートマトン理論",
       "url": "/theoretical-computer-science-textbook/chapter-3/"
+    },
+    {
+      "excerpt": "以下の言語を認識する DFA を構成せよ：",
+      "source_path": "docs/chapter-3/index.md",
+      "title": "第3章 問題1（基礎問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-3/#exq-ch3-001"
+    },
+    {
+      "excerpt": "以下の言語を表す正規表現を示せ：",
+      "source_path": "docs/chapter-3/index.md",
+      "title": "第3章 問題2（基礎問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-3/#exq-ch3-002"
+    },
+    {
+      "excerpt": "以下の言語が正規言語でないことを証明せよ：",
+      "source_path": "docs/chapter-3/index.md",
+      "title": "第3章 問題3（基礎問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-3/#exq-ch3-003"
+    },
+    {
+      "excerpt": "以下の言語を生成する CFG を構成せよ：",
+      "source_path": "docs/chapter-3/index.md",
+      "title": "第3章 問題4（基礎問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-3/#exq-ch3-004"
+    },
+    {
+      "excerpt": "PDA を用いて、バランスの取れた括弧列を認識する方法を示せ。",
+      "source_path": "docs/chapter-3/index.md",
+      "title": "第3章 問題5（基礎問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-3/#exq-ch3-005"
+    },
+    {
+      "excerpt": "DFA の最小化アルゴリズムを説明し、その正当性を証明せよ。",
+      "source_path": "docs/chapter-3/index.md",
+      "title": "第3章 問題6（発展問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-3/#exq-ch3-006"
+    },
+    {
+      "excerpt": "正規表現から ε-NFA への変換アルゴリズムを詳述せよ。",
+      "source_path": "docs/chapter-3/index.md",
+      "title": "第3章 問題7（発展問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-3/#exq-ch3-007"
+    },
+    {
+      "excerpt": "Myhill–Nerode の定理を用いて、以下の言語の最小DFAの状態数の下界（ひいては最小状態数）を示せ：",
+      "source_path": "docs/chapter-3/index.md",
+      "title": "第3章 問題8（発展問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-3/#exq-ch3-008"
+    },
+    {
+      "excerpt": "\\\\ L 1\\\\ が正規言語、\\\\ L 2\\\\ が文脈自由言語のとき、\\\\ L 1 \\\\cap L 2\\\\ が文脈自由言語であることを証明せよ。",
+      "source_path": "docs/chapter-3/index.md",
+      "title": "第3章 問題9（発展問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-3/#exq-ch3-009"
+    },
+    {
+      "excerpt": "CYK アルゴリズムを説明し、その時間計算量を解析せよ。",
+      "source_path": "docs/chapter-3/index.md",
+      "title": "第3章 問題10（発展問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-3/#exq-ch3-010"
+    },
+    {
+      "excerpt": "Myhill–Nerode の定理を用いて、以下の言語が正規言語でないことを示せ：",
+      "source_path": "docs/chapter-3/index.md",
+      "title": "第3章 問題11（発展問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-3/#exq-ch3-011"
+    },
+    {
+      "excerpt": "以下の言語が文脈自由言語か決定せよ：",
+      "source_path": "docs/chapter-3/index.md",
+      "title": "第3章 問題12（発展問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-3/#exq-ch3-012"
+    },
+    {
+      "excerpt": "オートマトン理論の実用的応用（コンパイラ、正規表現エンジン、XMLパーサなど）について調査し、理論と実装のギャップについて論ぜよ。",
+      "source_path": "docs/chapter-3/index.md",
+      "title": "第3章 問題13（探究課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-3/#exq-ch3-013"
+    },
+    {
+      "excerpt": "文脈自由言語を超える言語クラス（文脈依存言語、帰納的可算言語など）について調査し、Chomskyの階層との関係を説明せよ。",
+      "source_path": "docs/chapter-3/index.md",
+      "title": "第3章 問題14（探究課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-3/#exq-ch3-014"
+    },
+    {
+      "excerpt": "DFAとNFAのシミュレータを実装せよ",
+      "source_path": "docs/chapter-3/index.md",
+      "title": "第3章 問題15（実装課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-3/#exq-ch3-015"
+    },
+    {
+      "excerpt": "文脈自由文法のCYK構文解析アルゴリズムを実装せよ",
+      "source_path": "docs/chapter-3/index.md",
+      "title": "第3章 問題16（実装課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-3/#exq-ch3-016"
     },
     {
       "excerpt": "第4章 計算可能性理論 はじめに 計算可能性理論は、計算の本質的な限界を探究する分野です。第2章で学んだチューリング機械を用いて、どのような問題が計算可能で、どのような問題が計算不可能なのかを厳密に分析します。本章では、決定不能問題の存在を証明し、問題間の還元可能性を通じて計算不可能性の階層構造を明らかにします。 決定不能問題の研究は、単なる理論的興味にとどまりません。プログラムの正当性検証、コンパイラ最適化、人工知能など、実践的な計算",
@@ -116,10 +620,196 @@
       "url": "/theoretical-computer-science-textbook/chapter-4/"
     },
     {
+      "excerpt": "以下の言語が決定可能か、認識可能か、またはどちらでもないか判定し、証明せよ：",
+      "source_path": "docs/chapter-4/index.md",
+      "title": "第4章 問題1（基礎問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-4/#exq-ch4-001"
+    },
+    {
+      "excerpt": "\\\\ A {TM}\\\\ から以下の言語への多対一還元を構成せよ：",
+      "source_path": "docs/chapter-4/index.md",
+      "title": "第4章 問題2（基礎問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-4/#exq-ch4-002"
+    },
+    {
+      "excerpt": "\\\\ L 1\\\\ , \\\\ L 2\\\\ が認識可能ならば \\\\ L 1 \\\\cup L 2\\\\ も認識可能であることを証明せよ。",
+      "source_path": "docs/chapter-4/index.md",
+      "title": "第4章 問題3（基礎問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-4/#exq-ch4-003"
+    },
+    {
+      "excerpt": "決定可能言語が補集合、和集合、共通部分（intersection）に関して閉じていることを証明せよ。",
+      "source_path": "docs/chapter-4/index.md",
+      "title": "第4章 問題4（基礎問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-4/#exq-ch4-004"
+    },
+    {
+      "excerpt": "以下を証明せよ：",
+      "source_path": "docs/chapter-4/index.md",
+      "title": "第4章 問題5（発展問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-4/#exq-ch4-005"
+    },
+    {
+      "excerpt": "\\\\ K = \\\\{x \\\\mid \\\\varphi x x \\\\text{ は定義される}\\\\}\\\\ とする。K が創造的集合（creative set）であることを示せ。",
+      "source_path": "docs/chapter-4/index.md",
+      "title": "第4章 問題6（発展問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-4/#exq-ch4-006"
+    },
+    {
+      "excerpt": "Postの対応問題（PCP）が決定不能であることを証明せよ。",
+      "source_path": "docs/chapter-4/index.md",
+      "title": "第4章 問題7（発展問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-4/#exq-ch4-007"
+    },
+    {
+      "excerpt": "算術階層において \\\\ \\\\Sigma n \\\\cup \\\\Pi n \\\\subset \\\\Sigma {n+1} \\\\cap \\\\Pi {n+1}\\\\ であることを示せ。",
+      "source_path": "docs/chapter-4/index.md",
+      "title": "第4章 問題8（発展問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-4/#exq-ch4-008"
+    },
+    {
+      "excerpt": "テンプレ練習: 4.2.3 の「還元の作法テンプレ」に従い、以下のいずれかについて多対一還元の構成を概説せよ：",
+      "source_path": "docs/chapter-4/index.md",
+      "title": "第4章 問題9（発展問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-4/#exq-ch4-009"
+    },
+    {
+      "excerpt": "計算可能性理論の歴史的発展を調査し、ヒルベルトのEntscheidungsproblemとの関連を論ぜよ。",
+      "source_path": "docs/chapter-4/index.md",
+      "title": "第4章 問題10（探究課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-4/#exq-ch4-010"
+    },
+    {
+      "excerpt": "ハイパー計算（hypercomputation）の概念について調査し、チューリング機械を超える計算モデルの可能性と限界について論ぜよ。",
+      "source_path": "docs/chapter-4/index.md",
+      "title": "第4章 問題11（探究課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-4/#exq-ch4-011"
+    },
+    {
+      "excerpt": "構成的数学における計算可能性の役割について調査し、古典数学との違いを具体例を挙げて説明せよ。",
+      "source_path": "docs/chapter-4/index.md",
+      "title": "第4章 問題12（探究課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-4/#exq-ch4-012"
+    },
+    {
+      "excerpt": "DNA計算や量子計算が計算可能性の観点からチューリング機械とどのような関係にあるか論ぜよ。",
+      "source_path": "docs/chapter-4/index.md",
+      "title": "第4章 問題13（探究課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-4/#exq-ch4-013"
+    },
+    {
+      "excerpt": "停止問題の「部分的」解決を実装せよ：",
+      "source_path": "docs/chapter-4/index.md",
+      "title": "第4章 問題14（実装課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-4/#exq-ch4-014"
+    },
+    {
+      "excerpt": "多対一還元のシミュレータを実装せよ：",
+      "source_path": "docs/chapter-4/index.md",
+      "title": "第4章 問題15（実装課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-4/#exq-ch4-015"
+    },
+    {
+      "excerpt": "再帰関数のシミュレータを実装せよ：",
+      "source_path": "docs/chapter-4/index.md",
+      "title": "第4章 問題16（実装課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-4/#exq-ch4-016"
+    },
+    {
       "excerpt": "第5章 計算複雑性理論 はじめに 計算複雑性理論は、計算可能な問題を解くのに必要な資源（時間や空間）を定量的に分析する分野です。すべての計算可能な問題が実用的に解けるわけではありません。本章では、問題の困難さを厳密に定義し、P、NP、PSPACE などの重要な複雑性クラスを学びます。 特に、コンピュータサイエンスにおける最も重要な未解決問題の一つである P vs NP 問題を中心に、計算複雑性の理論的枠組みを構築します。この理論は、暗号",
       "source_path": "docs/chapter-5/index.md",
       "title": "第5章 計算複雑性理論",
       "url": "/theoretical-computer-science-textbook/chapter-5/"
+    },
+    {
+      "excerpt": "以下の包含関係を証明せよ：",
+      "source_path": "docs/chapter-5/index.md",
+      "title": "第5章 問題1（基礎問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-5/#exq-ch5-001"
+    },
+    {
+      "excerpt": "以下の問題が NP に属することを示せ：",
+      "source_path": "docs/chapter-5/index.md",
+      "title": "第5章 問題2（基礎問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-5/#exq-ch5-002"
+    },
+    {
+      "excerpt": "3-SAT から以下への多項式時間還元を構成せよ：",
+      "source_path": "docs/chapter-5/index.md",
+      "title": "第5章 問題3（基礎問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-5/#exq-ch5-003"
+    },
+    {
+      "excerpt": "PSPACE = NPSPACE を Savitch の定理を用いて証明せよ。",
+      "source_path": "docs/chapter-5/index.md",
+      "title": "第5章 問題4（基礎問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-5/#exq-ch5-004"
+    },
+    {
+      "excerpt": "時間階層定理の証明において、対角化言語が求める性質を持つことを詳細に証明せよ。",
+      "source_path": "docs/chapter-5/index.md",
+      "title": "第5章 問題5（発展問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-5/#exq-ch5-005"
+    },
+    {
+      "excerpt": "Cook-Levin の定理の証明で、チューリング機械の計算を論理式で符号化する際の具体的な構成を説明せよ。",
+      "source_path": "docs/chapter-5/index.md",
+      "title": "第5章 問題6（発展問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-5/#exq-ch5-006"
+    },
+    {
+      "excerpt": "多項式階層が \\\\ \\\\Sigma k^{\\\\mathrm{P}}\\\\ で崩壊したとき、実際にすべての上位レベルが \\\\ \\\\Sigma k^{\\\\mathrm{P}}\\\\ と等しくなることを証明せよ。",
+      "source_path": "docs/chapter-5/index.md",
+      "title": "第5章 問題7（発展問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-5/#exq-ch5-007"
+    },
+    {
+      "excerpt": "BPP における誤り確率の増幅技法（amplification）を詳細に解析せよ。",
+      "source_path": "docs/chapter-5/index.md",
+      "title": "第5章 問題8（発展問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-5/#exq-ch5-008"
+    },
+    {
+      "excerpt": "P vs NP 問題に関する既知の障壁（相対化、自然な証明、代数化）について調査し、なぜこれらが問題解決を困難にするかを論ぜよ。",
+      "source_path": "docs/chapter-5/index.md",
+      "title": "第5章 問題9（探究課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-5/#exq-ch5-009"
+    },
+    {
+      "excerpt": "近似アルゴリズムと複雑性理論の関係を調査し、近似困難性結果（例：PCP定理）について説明せよ。",
+      "source_path": "docs/chapter-5/index.md",
+      "title": "第5章 問題10（探究課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-5/#exq-ch5-010"
+    },
+    {
+      "excerpt": "量子計算複雑性クラス（BQP、QMA等）について調査し、古典的な複雑性クラスとの関係を論ぜよ。",
+      "source_path": "docs/chapter-5/index.md",
+      "title": "第5章 問題11（探究課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-5/#exq-ch5-011"
+    },
+    {
+      "excerpt": "実用的な暗号システムが依拠する困難性仮定を調査し、複雑性理論との関連を説明せよ。",
+      "source_path": "docs/chapter-5/index.md",
+      "title": "第5章 問題12（探究課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-5/#exq-ch5-012"
+    },
+    {
+      "excerpt": "NP完全問題のソルバーを実装せよ：",
+      "source_path": "docs/chapter-5/index.md",
+      "title": "第5章 問題13（実装課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-5/#exq-ch5-013"
+    },
+    {
+      "excerpt": "計算複雑性の実験的解析を実装せよ：",
+      "source_path": "docs/chapter-5/index.md",
+      "title": "第5章 問題14（実装課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-5/#exq-ch5-014"
+    },
+    {
+      "excerpt": "確率的アルゴリズムのシミュレータを実装せよ：",
+      "source_path": "docs/chapter-5/index.md",
+      "title": "第5章 問題15（実装課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-5/#exq-ch5-015"
     },
     {
       "excerpt": "第6章 アルゴリズムの数学的解析 はじめに アルゴリズムの設計と解析は、効率的な計算を実現するための中心的な課題です。本章では、アルゴリズムの性能を数学的に厳密に分析する手法を学びます。漸近的解析、再帰的アルゴリズムの解析、主要なアルゴリズム設計パラダイム（分割統治法、動的計画法、貪欲法）について、その数学的基礎を詳しく探求します。 アルゴリズムの解析は、単に実行時間を測定することではありません。問題の構造を深く理解し、最適な解法を導出",
@@ -128,10 +818,190 @@
       "url": "/theoretical-computer-science-textbook/chapter-6/"
     },
     {
+      "excerpt": "以下のアルゴリズムの時間複雑度を解析せよ：",
+      "source_path": "docs/chapter-6/index.md",
+      "title": "第6章 問題1（基礎問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-6/#exq-ch6-001"
+    },
+    {
+      "excerpt": "以下の各再帰式について、まず定理6.2の基本形を適用できるか判定し、その理由を述べた上で、指定した方法で漸近解を求めよ：",
+      "source_path": "docs/chapter-6/index.md",
+      "title": "第6章 問題2（基礎問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-6/#exq-ch6-002"
+    },
+    {
+      "excerpt": "フィボナッチ数列を計算する以下の方法の時間複雑度を比較せよ：",
+      "source_path": "docs/chapter-6/index.md",
+      "title": "第6章 問題3（基礎問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-6/#exq-ch6-003"
+    },
+    {
+      "excerpt": "最長共通部分列（LCS）問題を動的計画法で解き、時間・空間複雑度を解析せよ。",
+      "source_path": "docs/chapter-6/index.md",
+      "title": "第6章 問題4（基礎問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-6/#exq-ch6-004"
+    },
+    {
+      "excerpt": "ランダム化アルゴリズムの脱乱択化について：",
+      "source_path": "docs/chapter-6/index.md",
+      "title": "第6章 問題5（発展問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-6/#exq-ch6-005"
+    },
+    {
+      "excerpt": "FFT（高速フーリエ変換）について：",
+      "source_path": "docs/chapter-6/index.md",
+      "title": "第6章 問題6（発展問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-6/#exq-ch6-006"
+    },
+    {
+      "excerpt": "ネットワークフローアルゴリズムの解析：",
+      "source_path": "docs/chapter-6/index.md",
+      "title": "第6章 問題7（発展問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-6/#exq-ch6-007"
+    },
+    {
+      "excerpt": "文字列照合アルゴリズムの比較：",
+      "source_path": "docs/chapter-6/index.md",
+      "title": "第6章 問題8（発展問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-6/#exq-ch6-008"
+    },
+    {
+      "excerpt": "キャッシュ効率的アルゴリズムについて調査し、キャッシュ無視アルゴリズムの理論を説明せよ。",
+      "source_path": "docs/chapter-6/index.md",
+      "title": "第6章 問題9（探究課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-6/#exq-ch6-009"
+    },
+    {
+      "excerpt": "近似アルゴリズムの解析手法について調査し、近似比の証明技法を例を挙げて説明せよ。",
+      "source_path": "docs/chapter-6/index.md",
+      "title": "第6章 問題10（探究課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-6/#exq-ch6-010"
+    },
+    {
+      "excerpt": "オンラインアルゴリズムの競合比解析について調査し、ページング問題での応用を論ぜよ。",
+      "source_path": "docs/chapter-6/index.md",
+      "title": "第6章 問題11（探究課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-6/#exq-ch6-011"
+    },
+    {
+      "excerpt": "量子アルゴリズム（Shorのアルゴリズム、Groverのアルゴリズム）の計算量について調査し、",
+      "source_path": "docs/chapter-6/index.md",
+      "title": "第6章 問題12（探究課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-6/#exq-ch6-012"
+    },
+    {
+      "excerpt": "アルゴリズム解析ツールを実装せよ：",
+      "source_path": "docs/chapter-6/index.md",
+      "title": "第6章 問題13（実装課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-6/#exq-ch6-013"
+    },
+    {
+      "excerpt": "動的計画法の問題ソルバーを実装せよ：",
+      "source_path": "docs/chapter-6/index.md",
+      "title": "第6章 問題14（実装課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-6/#exq-ch6-014"
+    },
+    {
+      "excerpt": "高度なデータ構造とアルゴリズムを実装せよ：",
+      "source_path": "docs/chapter-6/index.md",
+      "title": "第6章 問題15（実装課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-6/#exq-ch6-015"
+    },
+    {
       "excerpt": "第7章 データ構造の理論 はじめに データ構造は、データを効率的に格納し、アクセスするための体系的な方法です。本章では、データ構造を数学的に厳密に分析し、その性能限界と最適性を探求します。抽象データ型から始まり、基本的なデータ構造の実装と解析、そして高度なデータ構造の理論へと進みます。 データ構造の選択は、アルゴリズムの効率に決定的な影響を与えます。本章では、各データ構造の時間・空間複雑度を詳細に分析し、問題に応じた最適なデータ構造を選",
       "source_path": "docs/chapter-7/index.md",
       "title": "第7章 データ構造の理論",
       "url": "/theoretical-computer-science-textbook/chapter-7/"
+    },
+    {
+      "excerpt": "以下のデータ構造の操作の時間複雑度を比較せよ：",
+      "source_path": "docs/chapter-7/index.md",
+      "title": "第7章 問題1（基礎問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-7/#exq-ch7-001"
+    },
+    {
+      "excerpt": "AVL木において、挿入によって平衡が崩れたときの回転操作を場合分けして説明せよ。",
+      "source_path": "docs/chapter-7/index.md",
+      "title": "第7章 問題2（基礎問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-7/#exq-ch7-002"
+    },
+    {
+      "excerpt": "開番地法のハッシュ表で、二次探査と二重ハッシュ法を比較せよ。",
+      "source_path": "docs/chapter-7/index.md",
+      "title": "第7章 問題3（基礎問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-7/#exq-ch7-003"
+    },
+    {
+      "excerpt": "ヒープソートが安定でないことを示す例を構成せよ。",
+      "source_path": "docs/chapter-7/index.md",
+      "title": "第7章 問題4（基礎問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-7/#exq-ch7-004"
+    },
+    {
+      "excerpt": "赤黒木の削除操作の詳細なアルゴリズムを示し、高々3回の回転で済むことを証明せよ。",
+      "source_path": "docs/chapter-7/index.md",
+      "title": "第7章 問題5（発展問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-7/#exq-ch7-005"
+    },
+    {
+      "excerpt": "フィボナッチヒープの decreaseKey 操作の償却解析を詳細に行え。",
+      "source_path": "docs/chapter-7/index.md",
+      "title": "第7章 問題6（発展問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-7/#exq-ch7-006"
+    },
+    {
+      "excerpt": "接尾辞配列を O n 時間で構築するアルゴリズムを説明せよ。",
+      "source_path": "docs/chapter-7/index.md",
+      "title": "第7章 問題7（発展問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-7/#exq-ch7-007"
+    },
+    {
+      "excerpt": "動的な順序統計量を効率的にサポートするデータ構造を設計せよ：",
+      "source_path": "docs/chapter-7/index.md",
+      "title": "第7章 問題8（発展問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-7/#exq-ch7-008"
+    },
+    {
+      "excerpt": "計算幾何学で使用される高度なデータ構造（kd木、R木など）について調査し、",
+      "source_path": "docs/chapter-7/index.md",
+      "title": "第7章 問題9（探究課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-7/#exq-ch7-009"
+    },
+    {
+      "excerpt": "関数型プログラミングにおける永続的データ構造の実装技法について調査し、",
+      "source_path": "docs/chapter-7/index.md",
+      "title": "第7章 問題10（探究課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-7/#exq-ch7-010"
+    },
+    {
+      "excerpt": "近年のCPUキャッシュ階層を考慮したデータ構造の最適化技法について調査せよ。",
+      "source_path": "docs/chapter-7/index.md",
+      "title": "第7章 問題11（探究課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-7/#exq-ch7-011"
+    },
+    {
+      "excerpt": "機械学習で使用される近似最近傍探索のデータ構造（LSH、Annoyなど）について調査し、",
+      "source_path": "docs/chapter-7/index.md",
+      "title": "第7章 問題12（探究課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-7/#exq-ch7-012"
+    },
+    {
+      "excerpt": "高度なデータ構造の実装と性能測定：",
+      "source_path": "docs/chapter-7/index.md",
+      "title": "第7章 問題13（実装課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-7/#exq-ch7-013"
+    },
+    {
+      "excerpt": "Union-Find構造の最適化実装：",
+      "source_path": "docs/chapter-7/index.md",
+      "title": "第7章 問題14（実装課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-7/#exq-ch7-014"
+    },
+    {
+      "excerpt": "確率的データ構造の実装：",
+      "source_path": "docs/chapter-7/index.md",
+      "title": "第7章 問題15（実装課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-7/#exq-ch7-015"
     },
     {
       "excerpt": "第8章 グラフ理論とネットワーク はじめに グラフ理論は、オブジェクト間の関係を数学的に表現し分析する強力な枠組みを提供します。ネットワーク、回路設計、ソーシャルメディア、交通システムなど、現実世界の多くの問題がグラフとして自然にモデル化されます。本章では、グラフの基本的な性質から始まり、最短路、ネットワークフロー、マッチングなどの古典的問題とその効率的なアルゴリズムを詳しく学びます。 グラフアルゴリズムの理論は、単なる抽象的な数学では",
@@ -140,10 +1010,172 @@
       "url": "/theoretical-computer-science-textbook/chapter-8/"
     },
     {
+      "excerpt": "以下のグラフアルゴリズムを実装し、時間複雑度を解析せよ：",
+      "source_path": "docs/chapter-8/index.md",
+      "title": "第8章 問題1（基礎問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-8/#exq-ch8-001"
+    },
+    {
+      "excerpt": "Dijkstraのアルゴリズムが負の重みで失敗する例を構成せよ。",
+      "source_path": "docs/chapter-8/index.md",
+      "title": "第8章 問題2（基礎問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-8/#exq-ch8-002"
+    },
+    {
+      "excerpt": "最小全域木がユニークとなる必要十分条件を示せ。",
+      "source_path": "docs/chapter-8/index.md",
+      "title": "第8章 問題3（基礎問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-8/#exq-ch8-003"
+    },
+    {
+      "excerpt": "二部グラフの最大マッチングを最大フロー問題に帰着せよ。",
+      "source_path": "docs/chapter-8/index.md",
+      "title": "第8章 問題4（基礎問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-8/#exq-ch8-004"
+    },
+    {
+      "excerpt": "プラナーグラフの双対グラフについて：",
+      "source_path": "docs/chapter-8/index.md",
+      "title": "第8章 問題5（発展問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-8/#exq-ch8-005"
+    },
+    {
+      "excerpt": "グラフの木幅（treewidth）について：",
+      "source_path": "docs/chapter-8/index.md",
+      "title": "第8章 問題6（発展問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-8/#exq-ch8-006"
+    },
+    {
+      "excerpt": "頂点彩色問題の近似アルゴリズムについて：",
+      "source_path": "docs/chapter-8/index.md",
+      "title": "第8章 問題7（発展問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-8/#exq-ch8-007"
+    },
+    {
+      "excerpt": "ネットワーク信頼性について：",
+      "source_path": "docs/chapter-8/index.md",
+      "title": "第8章 問題8（発展問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-8/#exq-ch8-008"
+    },
+    {
+      "excerpt": "ソーシャルネットワーク分析で使用されるグラフ指標（中心性、クラスタリング係数など）について調査し、",
+      "source_path": "docs/chapter-8/index.md",
+      "title": "第8章 問題9（探究課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-8/#exq-ch8-009"
+    },
+    {
+      "excerpt": "グラフニューラルネットワーク（GNN）の理論的基礎について調査し、",
+      "source_path": "docs/chapter-8/index.md",
+      "title": "第8章 問題10（探究課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-8/#exq-ch8-010"
+    },
+    {
+      "excerpt": "量子アルゴリズムによるグラフ問題の高速化について調査し、",
+      "source_path": "docs/chapter-8/index.md",
+      "title": "第8章 問題11（探究課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-8/#exq-ch8-011"
+    },
+    {
+      "excerpt": "動的グラフアルゴリズム（頂点・辺の追加削除に対応）について調査し、",
+      "source_path": "docs/chapter-8/index.md",
+      "title": "第8章 問題12（探究課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-8/#exq-ch8-012"
+    },
+    {
+      "excerpt": "グラフアルゴリズムライブラリを実装せよ：",
+      "source_path": "docs/chapter-8/index.md",
+      "title": "第8章 問題13（実装課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-8/#exq-ch8-013"
+    },
+    {
+      "excerpt": "ネットワーク分析ツールを実装せよ：",
+      "source_path": "docs/chapter-8/index.md",
+      "title": "第8章 問題14（実装課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-8/#exq-ch8-014"
+    },
+    {
+      "excerpt": "グラフ問題の性能比較：",
+      "source_path": "docs/chapter-8/index.md",
+      "title": "第8章 問題15（実装課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-8/#exq-ch8-015"
+    },
+    {
       "excerpt": "第9章 論理学と形式的手法 はじめに 論理学は、正しい推論の原理を研究する学問であり、コンピュータサイエンスの理論的基盤を形成します。形式的手法は、この論理学を用いてシステムの仕様記述、設計、検証を厳密に行う技術です。本章では、命題論理から始まり、一階述語論理、時相論理、そしてプログラム検証の理論まで、段階的に学習します。 ソフトウェアの複雑性が増大する現代において、形式的手法の重要性はますます高まっています。航空機制御システム、医療機",
       "source_path": "docs/chapter-9/index.md",
       "title": "第9章 論理学と形式的手法",
       "url": "/theoretical-computer-science-textbook/chapter-9/"
+    },
+    {
+      "excerpt": "以下の論理式の充足可能性を判定し、充足可能な場合はモデルを示せ：",
+      "source_path": "docs/chapter-9/index.md",
+      "title": "第9章 問題1（基礎問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-9/#exq-ch9-001"
+    },
+    {
+      "excerpt": "以下の一階論理式を前束標準形に変換せよ：",
+      "source_path": "docs/chapter-9/index.md",
+      "title": "第9章 問題2（基礎問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-9/#exq-ch9-002"
+    },
+    {
+      "excerpt": "以下の Hoare 三つ組を証明せよ：",
+      "source_path": "docs/chapter-9/index.md",
+      "title": "第9章 問題3（基礎問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-9/#exq-ch9-003"
+    },
+    {
+      "excerpt": "CTL 式 AG request → AF grant の意味を説明し、",
+      "source_path": "docs/chapter-9/index.md",
+      "title": "第9章 問題4（基礎問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-9/#exq-ch9-004"
+    },
+    {
+      "excerpt": "Resolution による自動定理証明について：",
+      "source_path": "docs/chapter-9/index.md",
+      "title": "第9章 問題5（発展問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-9/#exq-ch9-005"
+    },
+    {
+      "excerpt": "Büchi オートマトンと LTL の関係について：",
+      "source_path": "docs/chapter-9/index.md",
+      "title": "第9章 問題6（発展問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-9/#exq-ch9-006"
+    },
+    {
+      "excerpt": "分離論理を用いて、連結リストの反転アルゴリズムを検証せよ。",
+      "source_path": "docs/chapter-9/index.md",
+      "title": "第9章 問題7（発展問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-9/#exq-ch9-007"
+    },
+    {
+      "excerpt": "型理論と論理の対応（Curry-Howard 対応）について説明し、",
+      "source_path": "docs/chapter-9/index.md",
+      "title": "第9章 問題8（発展問題）",
+      "url": "/theoretical-computer-science-textbook/chapter-9/#exq-ch9-008"
+    },
+    {
+      "excerpt": "並行プログラムの検証手法について調査し、",
+      "source_path": "docs/chapter-9/index.md",
+      "title": "第9章 問題9（探究課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-9/#exq-ch9-009"
+    },
+    {
+      "excerpt": "確率的モデル検査について調査し、",
+      "source_path": "docs/chapter-9/index.md",
+      "title": "第9章 問題10（探究課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-9/#exq-ch9-010"
+    },
+    {
+      "excerpt": "依存型を用いたプログラム検証について調査し、",
+      "source_path": "docs/chapter-9/index.md",
+      "title": "第9章 問題11（探究課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-9/#exq-ch9-011"
+    },
+    {
+      "excerpt": "ハイブリッドシステム（連続・離散混在系）の形式的検証について調査し、",
+      "source_path": "docs/chapter-9/index.md",
+      "title": "第9章 問題12（探究課題）",
+      "url": "/theoretical-computer-science-textbook/chapter-9/#exq-ch9-012"
     },
     {
       "excerpt": "オフライン版（PDF/EPUB） 本書はWeb版を内容の正本とし、固定版をオフラインで読むためのPDF/EPUBをGitHub Releasesで提供します。 の公式成果物は公開済みです。 クイックナビ - 現在の提供状況 - 読者向けの案内 - 版と成果物の関係 - ローカルでの生成（開発者・コントリビューター向け） - Release運用 現在の提供状況 - Web版 : 利用できます。訂正を含む最新版は公開サイトを正本としてくださ",

@@ -15,7 +15,12 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+from exercise_references import collect_chapter_questions
 
 
 BASEURL_RE = re.compile(r"(?m)^baseurl:\s*(?P<val>.+?)\s*$")
@@ -29,6 +34,7 @@ MD_LINK_RE = re.compile(r"\[([^\]]+)\]\([^)]+\)")
 HEADING_MARK_RE = re.compile(r"(?m)^#{1,6}\s+")
 KRAMDOWN_INLINE_IAL_RE = re.compile(r"(?m)\s+\{#[A-Za-z0-9_-]+\}\s*$")
 KRAMDOWN_BLOCK_IAL_RE = re.compile(r"(?m)^\{:\s*#[A-Za-z0-9_-]+\s*\}\s*$")
+CHAPTER_FILE_RE = re.compile(r"chapter-(?P<chapter>\d+)/index\.md$")
 
 
 def read_baseurl(cfg_path: Path) -> str:
@@ -146,6 +152,23 @@ def build_search_data(docs_root: Path, cfg_path: Path) -> dict:
                 "excerpt": excerpt,
             }
         )
+
+        chapter_match = CHAPTER_FILE_RE.search(rel.as_posix())
+        if chapter_match:
+            chapter = int(chapter_match.group("chapter"))
+            exercises, exercise_errors = collect_chapter_questions(raw, chapter)
+            if exercise_errors:
+                joined = "\n".join(exercise_errors)
+                raise ValueError(f"cannot index exercises in {md}:\n{joined}")
+            for exercise in exercises:
+                items.append(
+                    {
+                        "title": f"第{chapter}章 問題{exercise.display_number}（{exercise.category}）",
+                        "url": f"{full_url}#{exercise.stable_id}",
+                        "source_path": md.as_posix(),
+                        "excerpt": md_to_text(exercise.prompt)[:220],
+                    }
+                )
 
     data = {
         "schema_version": 1,

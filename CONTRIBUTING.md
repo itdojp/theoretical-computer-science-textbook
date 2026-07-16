@@ -51,11 +51,13 @@ python3 scripts/generate_index.py
 # 生成漏れチェック
 python3 scripts/generate_search_data.py --check
 python3 scripts/generate_index.py --check
+npm run check:exercises
 
 # 本文・ビルド検証
 python3 scripts/docs_regression_lint.py
 python3 scripts/notation_lint.py
 bundle exec jekyll build --source docs --config docs/_config.yml --destination _site
+npm run check:exercises:html
 python3 scripts/html_notation_check.py --site-root _site
 npm run spellcheck
 ```
@@ -89,6 +91,29 @@ Stable ID 付きの項目は `docs/index.json` に機械可読インデックス
 
 - 生成: `python3 scripts/generate_index.py`
 - 検証: `python3 scripts/generate_index.py --check`
+
+## Stable ID（章末問題・付録C解答）
+
+章末問題は、表示番号や区分を変更しても外部参照が壊れない安定 ID を持ちます。
+
+- 問題 ID: `exq-ch<章番号>-<3桁通番>`（例: `exq-ch7-003`）
+- 解答 ID: `ex-sol-ch<章番号>-<3桁通番>`（例: `ex-sol-ch7-003`）
+- 問題の通番は一度割り当てた後は再利用・振り直しをしない
+- 表示番号は章全体で `1..N` とし、区分間で重複させない
+- 通常の番号付きリストでは、問題文の先頭に inline span を置く（例: `3. <span id="exq-ch7-003"></span>問題文`）。リスト末尾の IAL は、問題文の段落構造によって kramdown が ID を生成しない場合があるため使用しない
+- `####` 見出しを使う実装問題では、見出し直前に `<span id="exq-ch7-013"></span>` を置く。既存の見出し URL が変わる場合は旧アンカーも alias span として残す
+
+付録Cの各解答には安定 ID の span、`**元問題**:` の直接リンク、必要に応じた `**元問題の項目**:`、および `**解答種別**:` を記載します。解答種別は `詳細解答`、`調査ガイド`、`参照実装` のいずれかです。元問題側にも同じ解答種別をラベルにした付録Cへのリンクを置いてください。同一問題の複数項目へ解答する場合は、`元問題の項目` を重複しない値にします。
+
+索引と検索データを再生成した後、source と build 後 HTML を検査します。
+
+```bash
+python3 scripts/generate_index.py
+python3 scripts/generate_search_data.py
+npm run check:exercises
+bundle exec jekyll build --source docs --config docs/_config.yml --destination _site
+npm run check:exercises:html
+```
 
 ## 記法上の注意
 

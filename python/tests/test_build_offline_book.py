@@ -172,6 +172,38 @@ def test_preprocess_real_appendix_normalizes_single_backslash_delimiters():
     assert r"\(p\)" not in out
 
 
+def test_rewrite_exercise_cross_links_for_offline_uses_internal_anchors():
+    m = _load_build_offline_book()
+    text = (
+        "[解答](../appendices/c/#ex-sol-ch7-003)\n"
+        "[章別解答](../appendices/c/#ex-sol-ch7)\n"
+        "[元問題](../../chapter-7/#exq-ch7-003)\n"
+        "[通常リンク](../appendices/d/)\n"
+    )
+
+    out = m.rewrite_exercise_cross_links_for_offline(text)
+
+    assert "[解答](#ex-sol-ch7-003)" in out
+    assert "[章別解答](#ex-sol-ch7)" in out
+    assert "[元問題](#exq-ch7-003)" in out
+    assert "[通常リンク](../appendices/d/)" in out
+
+
+def test_preprocess_real_exercise_links_are_clickable_in_offline_book():
+    m = _load_build_offline_book()
+    root = Path(__file__).resolve().parents[2]
+    chapter = (root / "docs/chapter-7/index.md").read_text(encoding="utf-8")
+    appendix = (root / "docs/appendices/c.md").read_text(encoding="utf-8")
+
+    chapter_out = m.preprocess_markdown(chapter)
+    appendix_out = m.preprocess_markdown(appendix)
+
+    assert "[付録Cの対応解答](#ex-sol-ch7-003)" in chapter_out
+    assert "[第7章 問題3（基礎）](#exq-ch7-003)" in appendix_out
+    assert "../appendices/c/#ex-sol-ch7-003" not in chapter_out
+    assert "../../chapter-7/#exq-ch7-003" not in appendix_out
+
+
 def test_publication_front_matter_uses_canonical_metadata():
     m = _load_build_offline_book()
     root = Path(__file__).resolve().parents[2]

@@ -479,49 +479,60 @@ Riceの定理により、以下の問題はすべて決定不能：
 
 ### 基礎問題
 
-1. 以下の言語が決定可能か、認識可能か、またはどちらでもないか判定し、証明せよ：
+1. <span id="exq-ch4-001"></span>以下の言語が決定可能か、認識可能か、またはどちらでもないか判定し、証明せよ：
    (a) \\(\\{\\langle M\\rangle \\mid M \\text{ は偶数長の文字列のみを受理する}\\}\\)
    (b) \\(\\{\\langle M\\rangle \\mid M \\text{ は少なくとも10個の文字列を受理する}\\}\\)
    (c) \\(\\{\\langle M,w,k\\rangle \\mid M \\text{ は } w \\text{ を } k \\text{ ステップ以内に受理する}\\}\\)
 
-2. \\(A_{TM}\\) から以下の言語への多対一還元を構成せよ：
+- **詳細解答**（項目: (a)）: [付録Cの対応解答](../appendices/c/#ex-sol-ch4-001)
+- **詳細解答**（項目: (b)）: [付録Cの対応解答](../appendices/c/#ex-sol-ch4-002)
+- **詳細解答**（項目: (c)）: [付録Cの対応解答](../appendices/c/#ex-sol-ch4-003)
+
+2. <span id="exq-ch4-002"></span>\\(A_{TM}\\) から以下の言語への多対一還元を構成せよ：
    (a) \\(REGULAR_{TM} = \\{\\langle M\\rangle \\mid L(M) \\text{ は正規言語}\\}\\)
    (b) \\(ALL_{TM} = \\{\\langle M\\rangle \\mid L(M) = \\Sigma^{\\ast}\\}\\)
 
-3. \\(L_1\\), \\(L_2\\) が認識可能ならば \\(L_1 \\cup L_2\\) も認識可能であることを証明せよ。
+- **詳細解答**（項目: (a)）: [付録Cの対応解答](../appendices/c/#ex-sol-ch4-004)
+- **詳細解答**（項目: (b)）: [付録Cの対応解答](../appendices/c/#ex-sol-ch4-005)
 
-4. 決定可能言語が補集合、和集合、共通部分（intersection）に関して閉じていることを証明せよ。
+3. <span id="exq-ch4-003"></span>\\(L_1\\), \\(L_2\\) が認識可能ならば \\(L_1 \\cup L_2\\) も認識可能であることを証明せよ。
+
+4. <span id="exq-ch4-004"></span>決定可能言語が補集合、和集合、共通部分（intersection）に関して閉じていることを証明せよ。
 
 ### 発展問題
 
-5. 以下を証明せよ：
+5. <span id="exq-ch4-005"></span>以下を証明せよ：
    (a) \\(A_{TM} \\le_m HALT_{TM}\\) と \\(HALT_{TM} \\le_m A_{TM}\\) の両方を構成せよ。
    (b) 多対一還元が一般には対称的でないことを示す片方向の例を別に挙げ、その理由を説明せよ。
 
-6. \\(K = \\{x \\mid \\varphi_x(x) \\text{ は定義される}\\}\\) とする。K が創造的集合（creative set）であることを示せ。
+- **詳細解答**（項目: (a)）: [付録Cの対応解答](../appendices/c/#ex-sol-ch4-006)
 
-7. Postの対応問題（PCP）が決定不能であることを証明せよ。
+6. <span id="exq-ch4-006"></span>\\(K = \\{x \\mid \\varphi_x(x) \\text{ は定義される}\\}\\) とする。K が創造的集合（creative set）であることを示せ。
 
-8. 算術階層において \\(\\Sigma_n \\cup \\Pi_n \\subset \\Sigma_{n+1} \\cap \\Pi_{n+1}\\) であることを示せ。
+7. <span id="exq-ch4-007"></span>Postの対応問題（PCP）が決定不能であることを証明せよ。
 
-9. テンプレ練習: 4.2.3 の「還元の作法テンプレ」に従い、以下のいずれかについて多対一還元の構成を概説せよ：
+8. <span id="exq-ch4-008"></span>算術階層において \\(\\Sigma_n \\cup \\Pi_n \\subset \\Sigma_{n+1} \\cap \\Pi_{n+1}\\) であることを示せ。
+
+9. <span id="exq-ch4-009"></span>テンプレ練習: 4.2.3 の「還元の作法テンプレ」に従い、以下のいずれかについて多対一還元の構成を概説せよ：
    (a) \\(A_{TM} \\le_m \\overline{E_{TM}}\\)（EMPTY の補集合）
    \\((b) A_{TM} \\le_m ALL_{TM}\\)
    それぞれ、f の定義・(⇒)(⇐) の要点・計算可能性の確認を簡潔に述べること。
 
+- **詳細解答**: [付録Cの対応解答](../appendices/c/#ex-sol-ch4-007)
+
 ### 探究課題
 
-10. 計算可能性理論の歴史的発展を調査し、ヒルベルトのEntscheidungsproblemとの関連を論ぜよ。
+10. <span id="exq-ch4-010"></span>計算可能性理論の歴史的発展を調査し、ヒルベルトのEntscheidungsproblemとの関連を論ぜよ。
 
-11. ハイパー計算（hypercomputation）の概念について調査し、チューリング機械を超える計算モデルの可能性と限界について論ぜよ。
+11. <span id="exq-ch4-011"></span>ハイパー計算（hypercomputation）の概念について調査し、チューリング機械を超える計算モデルの可能性と限界について論ぜよ。
 
-12. 構成的数学における計算可能性の役割について調査し、古典数学との違いを具体例を挙げて説明せよ。
+12. <span id="exq-ch4-012"></span>構成的数学における計算可能性の役割について調査し、古典数学との違いを具体例を挙げて説明せよ。
 
-13. DNA計算や量子計算が計算可能性の観点からチューリング機械とどのような関係にあるか論ぜよ。
+13. <span id="exq-ch4-013"></span>DNA計算や量子計算が計算可能性の観点からチューリング機械とどのような関係にあるか論ぜよ。
 
 ### 実装課題
 
-14. 停止問題の「部分的」解決を実装せよ：
+14. <span id="exq-ch4-014"></span>停止問題の「部分的」解決を実装せよ：
     ```python
     def partial_halt_checker(program_code, input_string, max_steps=10000):
         """
@@ -533,7 +544,7 @@ Riceの定理により、以下の問題はすべて決定不能：
         pass
     ```
 
-15. 多対一還元のシミュレータを実装せよ：
+15. <span id="exq-ch4-015"></span>多対一還元のシミュレータを実装せよ：
     ```python
     class Reduction:
         def __init__(self, source_problem, target_problem, reduction_function):
@@ -548,7 +559,7 @@ Riceの定理により、以下の問題はすべて決定不能：
                 assert (instance in self.source) == (reduced in self.target)
     ```
 
-16. 再帰関数のシミュレータを実装せよ：
+16. <span id="exq-ch4-016"></span>再帰関数のシミュレータを実装せよ：
     - 原始再帰関数の定義と計算
     - μ演算子（最小化）の実装
     - Ackermann関数などの非原始再帰関数の例
