@@ -456,9 +456,16 @@ def check_repository(
     for chapter in range(1, 13):
         docs_chapter = docs_root / f"chapter-{chapter}" / "index.md"
         src_chapter = src_root / f"chapter-{chapter}" / "index.md"
-        if docs_chapter.exists() and src_chapter.exists():
-            if docs_chapter.read_text(encoding="utf-8") != src_chapter.read_text(encoding="utf-8"):
-                errors.append(f"{docs_chapter} and {src_chapter} differ")
+        docs_exists = docs_chapter.exists()
+        src_exists = src_chapter.exists()
+        if not docs_exists:
+            errors.append(f"missing docs chapter copy: {docs_chapter}")
+        if not src_exists:
+            errors.append(f"missing src chapter copy: {src_chapter}")
+        if not docs_exists or not src_exists:
+            continue
+        if docs_chapter.read_text(encoding="utf-8") != src_chapter.read_text(encoding="utf-8"):
+            errors.append(f"{docs_chapter} and {src_chapter} differ")
 
     questions, question_errors = collect_questions(docs_root)
     solutions, solution_errors = collect_appendix_solutions(docs)

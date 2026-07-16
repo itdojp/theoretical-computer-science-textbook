@@ -162,6 +162,16 @@ def test_repository_contract_rejects_removed_legacy_alias(tmp_path: Path) -> Non
     assert any(f"missing legacy exercise alias #{alias}" in error for error in errors)
 
 
+def test_repository_contract_reports_missing_source_chapter_copy(tmp_path: Path) -> None:
+    paths = _write_repository_fixture(tmp_path)
+    missing = paths[3] / "chapter-7" / "index.md"
+    missing.unlink()
+
+    errors = check_repository(*paths)
+
+    assert f"missing src chapter copy: {missing}" in errors
+
+
 def test_cross_reference_validation_detects_duplicates_and_missing_reciprocal_links() -> None:
     question = _question(block="1. 問題\n    {: #exq-ch1-001 }\n")
     duplicate_question = _question(line=11)
