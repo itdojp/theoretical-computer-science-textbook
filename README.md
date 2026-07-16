@@ -9,7 +9,7 @@
 ## 読者向け導線
 
 - 公開サイト（正本）: https://itdojp.github.io/theoretical-computer-science-textbook/
-- Web公開版: 1.2.0（2026-07-16更新）。固定版tag `v1.2.0`はRelease準備中です。
+- Web公開版: 1.2.0（2026-07-16更新）。固定版は[GitHub Releasesの`v1.2.0`](https://github.com/itdojp/theoretical-computer-science-textbook/releases/tag/v1.2.0)で提供中です。
 - 本書の目的と構成: https://itdojp.github.io/theoretical-computer-science-textbook/introduction/purpose/
 - 学習の進め方: https://itdojp.github.io/theoretical-computer-science-textbook/introduction/learning-guide/
 - オフライン版の提供状況: https://itdojp.github.io/theoretical-computer-science-textbook/downloads/
@@ -79,7 +79,7 @@
 ## 配布ポリシー
 
 - **Web版** を正本とします。
-- **公式 PDF / EPUB** は `v1.2.0` tagの公開後、[GitHub Releases](https://github.com/itdojp/theoretical-computer-science-textbook/releases)で版ごとに提供します。Release完了まではWeb版を利用してください。
+- **公式 PDF / EPUB** は[GitHub Releasesの`v1.2.0`](https://github.com/itdojp/theoretical-computer-science-textbook/releases/tag/v1.2.0)で提供しています。
 - Release artifact は固定版のオフライン閲覧用です。訂正を含む最新版は引き続きWeb版を参照してください。
 - 版番号、Release tag、成果物の対応は公開サイトの[更新履歴](https://itdojp.github.io/theoretical-computer-science-textbook/changelog/)と[ダウンロード案内](https://itdojp.github.io/theoretical-computer-science-textbook/downloads/)で確認できます。
 

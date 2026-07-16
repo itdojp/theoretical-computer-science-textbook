@@ -5,7 +5,7 @@ title: "更新履歴（CHANGELOG）"
 
 # 更新履歴（CHANGELOG）
 
-Web版はmainブランチから継続公開し、版番号を固定したPDF/EPUBは`v1.2.0` tagのRelease完了後に提供します。ここではコミット列挙ではなく、読者へ影響する変更を版ごとに整理します。
+Web版はmainブランチから継続公開し、版番号を固定したPDF/EPUBは[`v1.2.0` Release](https://github.com/itdojp/theoretical-computer-science-textbook/releases/tag/v1.2.0)で提供しています。ここではコミット列挙ではなく、読者へ影響する変更を版ごとに整理します。
 
 ## Unreleased
 
@@ -36,6 +36,7 @@ Web版はmainブランチから継続公開し、版番号を固定したPDF/EPU
 - モバイルsidebarの重なりと表示条件を修正し、全公開ページのnavigation coverageを検査するようにしました。
 - notation、生成索引、HTML、リンク、docs禁止物、依存監査、Jekyll buildをCIで継続検査し、品質ゲート自体の配線も検証するようにしました。
 - 書名、版、著者、更新日、Release tagをcanonical metadataへ統合し、公式PDF/EPUBを安全に公開するRelease契約を整備しました。
+- `v1.2.0`のPDF/EPUBを2026-07-16にGitHub Releaseで公開しました。
 
 ## 1.1.2
 

@@ -5,7 +5,7 @@ title: "オフライン版（PDF/EPUB）"
 
 # オフライン版（PDF/EPUB）
 
-本書はWeb版を内容の正本とし、固定版をオフラインで読むためのPDF/EPUBをGitHub Releasesで提供します。`v1.2.0`はRelease準備中であり、完了まではWeb版を利用してください。
+本書はWeb版を内容の正本とし、固定版をオフラインで読むためのPDF/EPUBをGitHub Releasesで提供します。`v1.2.0`の公式成果物は公開済みです。
 
 ## クイックナビ {#downloads-quick-nav}
 
@@ -18,9 +18,11 @@ title: "オフライン版（PDF/EPUB）"
 ## 現在の提供状況 {#downloads-current}
 
 - **Web版**: 利用できます。訂正を含む最新版は公開サイトを正本としてください。
-- **公式 PDF / EPUB**: `v1.2.0` tagのRelease完了後に提供します。
-- **配布先**: [GitHub Releases](https://github.com/itdojp/theoretical-computer-science-textbook/releases)
-- **配布予定tag**: `v1.2.0`
+- **公式 PDF / EPUB**: `v1.2.0`を提供中です。
+- **配布先**: [`v1.2.0` Release](https://github.com/itdojp/theoretical-computer-science-textbook/releases/tag/v1.2.0)
+- **PDF**: [theoretical-computer-science-textbook-v1.2.0.pdf](https://github.com/itdojp/theoretical-computer-science-textbook/releases/download/v1.2.0/theoretical-computer-science-textbook-v1.2.0.pdf)
+- **EPUB**: [theoretical-computer-science-textbook-v1.2.0.epub](https://github.com/itdojp/theoretical-computer-science-textbook/releases/download/v1.2.0/theoretical-computer-science-textbook-v1.2.0.epub)
+- **Release tag**: `v1.2.0`
 
 ## 読者向けの案内 {#downloads-reader}
 
@@ -35,7 +37,7 @@ title: "オフライン版（PDF/EPUB）"
 | --- | --- |
 | Release tag | `v1.2.0` |
 | 公開日 | 2026-07-16 |
-| 公式成果物 | PDF / EPUB（Release準備中） |
+| 公式成果物 | PDF / EPUB（提供中） |
 | 内容の正本 | Web版 |
 | 署名 | 未提供 |
 
@@ -63,7 +65,7 @@ python3 scripts/build_offline_book.py --target pdf --out dist/book.pdf.md --asse
 pandoc dist/book.pdf.md -o dist/theoretical-computer-science-textbook.pdf --toc --resource-path=dist --pdf-engine=xelatex
 ```
 
-公式成果物は `.github/workflows/release-artifacts.yml` がtag push時に生成します。ローカル生成物は公式Release assetではありません。
+公式成果物は `.github/workflows/release-artifacts.yml` がtag push時、または既存tagを指定した承認済みmanual retry時に生成します。ローカル生成物は公式Release assetではありません。
 
 ## Release運用 {#downloads-future}
 
