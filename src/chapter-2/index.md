@@ -4,7 +4,6 @@ title: "第2章 計算理論の基礎"
 subtitle: "チューリング機械と計算可能性"
 description: "計算の本質的な概念とモデルを理解"
 chapter: 2
-estimated_time: "4〜5週間"
 difficulty: "★★★☆"
 sections:
   - "計算モデル"

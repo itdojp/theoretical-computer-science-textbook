@@ -4,7 +4,6 @@ title: "第3章 形式言語とオートマトン理論"
 subtitle: "正規言語から文脈自由言語まで"
 description: "形式言語の階層と対応するオートマトンを学習"
 chapter: 3
-estimated_time: "4〜5週間"
 difficulty: "★★★☆"
 sections:
   - "形式言語"

@@ -4,7 +4,6 @@ title: "第8章 グラフ理論とネットワーク"
 subtitle: "グラフアルゴリズムと応用"
 chapter: 8
 description: "グラフ理論の基礎からネットワーク解析まで"
-estimated_time: "5〜6週間"
 difficulty: "★★★☆"
 sections:
   - "グラフの基本概念"

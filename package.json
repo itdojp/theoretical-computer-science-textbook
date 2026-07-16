@@ -15,7 +15,7 @@
     "preview": "npm run build && npx http-server _site -p 8080 --silent",
     "deploy": "gh-pages -d _site",
     "clean": "rm -rf _site .jekyll-cache",
-    "test": "npm run check:quality && npm run check:navigation && npm run check:security && npm run lint && npm run check-links",
+    "test": "npm run check:quality && npm run check:effort && npm run check:navigation && npm run check:security && npm run lint && npm run check-links",
     "lint": "markdownlint 'src/**/*.md' --ignore node_modules",
     "lint:light": "markdownlint 'src/**/*.md' --ignore node_modules",
     "spellcheck": "cspell --config cspell.json --no-progress 'src/**/*.md' 'docs/**/*.md' 'README.md' 'CONTRIBUTING.md' 'CHANGELOG.md'",
@@ -26,7 +26,8 @@
     "help": "echo 'Available commands:\n  npm start - Start development server\n  npm run build - Build the book\n  npm run preview - Local preview\n  npm run deploy - Deploy to GitHub Pages'",
     "check:navigation": "python3 scripts/check_navigation_coverage.py",
     "check:security": "npm audit --omit=optional",
-    "check:quality": "python3 scripts/check_quality_gates.py"
+    "check:quality": "python3 scripts/check_quality_gates.py",
+    "check:effort": "python3 scripts/check_effort_metadata.py"
   },
   "devDependencies": {
     "@cspell/dict-filetypes": "^3.0.18",
