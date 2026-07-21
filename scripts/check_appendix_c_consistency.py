@@ -81,6 +81,8 @@ BAKERY_SOLUTION_REQUIREMENTS: dict[str, tuple[str, ...]] = {
         "中間状態",
         "number[j] = 0",
         "要求なし",
+        "2つの待機の間",
+        "number[j] > number[i]",
     ),
     "same-number tie-break": (
         "同じ番号",
@@ -489,7 +491,7 @@ def _advance_bakery_process(state: BakeryModelState, pid: int) -> BakeryModelSta
             or (numbers[pid], pid) < (numbers[other], other)
         ):
             return None
-    elif pc == 6:  # line 5: leave the critical section
+    elif pc == 6:  # line 5: pc 6 is in-CS; this step completes and leaves the CS
         pass
     elif pc == 7:  # line 6
         numbers[pid] = 0
