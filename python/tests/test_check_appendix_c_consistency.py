@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import sys
+from dataclasses import replace
 from pathlib import Path
 
 import pytest
@@ -385,9 +386,9 @@ def _production_planar_dual_rows() -> tuple[ExerciseQuestion, AppendixSolution]:
     assert question_errors == []
     assert solution_errors == []
     question = next(
-        row for row in questions if (row.chapter, row.display_number) == (8, 5)
+        row for row in questions if row.stable_id == "exq-ch8-005"
     )
-    solution = next(row for row in solutions if (row.chapter, row.number) == (8, 5))
+    solution = next(row for row in solutions if row.stable_id == "ex-sol-ch8-005")
     return question, solution
 
 
@@ -402,6 +403,15 @@ def test_planar_dual_contract_requires_question_and_solution_presence() -> None:
 
     assert any("lacks its chapter question" in error for error in errors)
     assert any("lacks its Appendix C solution" in error for error in errors)
+
+
+def test_planar_dual_contract_follows_stable_ids_after_visible_renumbering() -> None:
+    question, solution = _production_planar_dual_rows()
+
+    assert validate_planar_dual_exercise_contract(
+        [replace(question, display_number=99)],
+        [replace(solution, number=99)],
+    ) == []
 
 
 @pytest.mark.parametrize(

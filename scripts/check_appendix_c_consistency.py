@@ -582,10 +582,10 @@ def validate_planar_dual_exercise_contract(
     matching_questions = [
         question
         for question in questions
-        if (question.chapter, question.display_number) == (8, 5)
+        if question.stable_id == "exq-ch8-005"
     ]
     matching_solutions = [
-        solution for solution in solutions if (solution.chapter, solution.number) == (8, 5)
+        solution for solution in solutions if solution.stable_id == "ex-sol-ch8-005"
     ]
     errors: list[str] = []
     if not matching_questions:
