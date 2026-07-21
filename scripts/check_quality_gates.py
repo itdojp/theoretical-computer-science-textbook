@@ -48,6 +48,7 @@ def validate_package(package: dict[str, Any]) -> list[str]:
         "check:exercises:html": (
             "python3 scripts/check_appendix_c_consistency.py --site-root _site"
         ),
+        "check:theorems": "python3 scripts/check_theorem_contracts.py",
     }
     for name, expected in expected_scripts.items():
         actual = scripts.get(name)
@@ -63,6 +64,7 @@ def validate_package(package: dict[str, Any]) -> list[str]:
             "npm run check:metadata",
             "npm run check:effort",
             "npm run check:exercises",
+            "npm run check:theorems",
             "npm run check:navigation",
             "npm run check:security",
             "npm run lint",
@@ -89,6 +91,7 @@ def validate_readme() -> list[str]:
         "npm run check:security",
         "npm run check:navigation",
         "npm run check:exercises",
+        "npm run check:theorems",
         "npm run check-links",
     ):
         require_contains(readme, command, source="README.md", errors=errors)
@@ -103,6 +106,7 @@ def validate_workflows() -> list[str]:
             "python3 scripts/check_quality_gates.py",
             "npm run check:security",
             "npm run check:exercises",
+            "npm run check:theorems",
             "npm run check:exercises:html",
         ),
         ".github/workflows/ci.yml": (
@@ -112,6 +116,7 @@ def validate_workflows() -> list[str]:
             "npm run check:effort",
             "npm run check:security",
             "npm run check:exercises",
+            "npm run check:theorems",
             "npm run check:exercises:html",
         ),
     }

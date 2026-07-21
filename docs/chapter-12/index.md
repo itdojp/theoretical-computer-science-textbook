@@ -430,12 +430,32 @@ java -cp tla2tools.jar tlc2.TLC -config Peterson.cfg Peterson.tla
 
 #### Byzantine 将軍問題
 
-**定理 12.3** 同期・完全結合の通信モデルで、認証されない口頭メッセージ（oral messages）を仮定し、n 個のプロセスのうち f 個が Byzantine 故障する場合、
-{: #thm-12-3 }
-合意が可能 \\(\\Leftrightarrow\\) \\(n > 3f\\)。認証付きメッセージや異なるネットワーク仮定では条件が変わる。
+ここでは指令を送る commander と、それを受け取る \\(n-1\\) 個の lieutenant を考える。正常な lieutenant が満たすべき条件は、すべてが同じ指令を選ぶ **IC1** と、commander が正常ならその指令を選ぶ **IC2** である。
 
-**証明の概要**（不可能性、n ≤ 3f）：
-3プロセスで1つが故障の場合を考える。対称性により矛盾を導く。□
+**モデル（oral messages）**：非自明な \\(n\\ge 3\\) の場合を扱う。プロセス間は完全結合の point-to-point 通信であり、最大 \\(f\\) 個のプロセスが Byzantine 故障する。故障プロセスは受信者ごとに異なる内容を送ることも、送信しないこともできるが、偽造不能な署名は使わない。通信系には次を仮定する。
+
+- **A1（配送）**：送信されたメッセージは内容を変えられずに配送される。
+- **A2（送信者識別）**：受信者は直接の送信者を識別できる。
+- **A3（欠落検出）**：所定の期限までに届かないメッセージを欠落として検出し、既定値へ置き換えられる。
+
+A3 を有限の timeout で実現するため、メッセージ生成・配送時間には既知の上界があり、送受信側の時計のずれにも既知の上界があると仮定する。これは timeout で欠落を判定する oral messages model の実装前提であり、遅延上界のない非同期通信へ次の閾値をそのまま適用してはならない。
+
+**定理 12.3**（oral messages）
+{: #thm-12-3 }
+このモデルで IC1 と IC2 を満たす決定的な Byzantine 合意が可能であるための必要十分条件は、\\(n > 3f\\) である。
+
+**十分性（\\(n > 3f\\)）**：oral messages algorithm \\(OM(f)\\) を使う。
+
+1. **\\(OM(0)\\)**：commander は各 lieutenant へ値を送る。lieutenant は受信値を使い、欠落時は全員共通の既定値を使う。
+2. **\\(OM(m)\\), \\(m>0\\)**：各 lieutenant は commander から受け取った値（欠落時は既定値）を、今度は自分が commander となる \\(OM(m-1)\\) で他の lieutenant へ転送する。最後に、各送信者について得た値の列へ、同一の決定的な majority 関数を適用する。
+
+正しさは \\(m\\) に関する帰納法で示せる。commander が正常なら、正常な転送元が多数を占めるため、すべての正常な lieutenant は commander の値を選び IC2 を満たす。commander が故障しているなら、lieutenant 側の故障数は高々 \\(f-1\\) である。帰納法の仮定により、各転送元について正常な lieutenant が得る値は一致するので、全員が同じ値の列へ同じ majority 関数を適用し IC1 を満たす。原論文はラウンド数ではなく、\\(OM(f)\\) のメッセージ経路長が最大 \\(f+1\\) であると述べる。各再帰段の1辺を1同期ラウンドで並列に配送する実装なら、最大 \\(f+1\\) ラウンドとなる。
+
+**必要性（\\(n \\le 3f\\)）の証明sketch**：まず3プロセス・1故障を考える。正常な commander が `attack` を送り、故障した lieutenant が「commander は `retreat` と送った」と他方へ報告する実行では、IC2 により正常な lieutenant は `attack` を選ぶ。次に、故障した commander が一方へ `attack`、他方へ `retreat` を送り、各 lieutenant が相手から逆の報告を受ける実行を考える。前者の実行と局所的に識別できないため一方は `attack` を、対称な議論でもう一方は `retreat` を選ばねばならず、IC1 に反する。
+
+一般の \\(n \\le 3f\\) では、プロセスを大きさ高々 \\(f\\) の3群へ分け、各群を1つの仮想プロセスにシミュレートさせる。1つの仮想プロセスが故障しても、元の系で故障するのは高々 \\(f\\) 個である。もし元の系のprotocolが存在すれば、その IC1 と IC2 から不可能な3プロセス・1故障protocolを構成できるので矛盾する。
+
+**境界**：\\(f\\ge 1\\) では \\(n=3f\\) は必要性側に入り不可能であり、\\(n=3f+1\\) は十分性側に入り \\(OM(f)\\) で可能である。最小例 \\(f=1\\) では、3プロセスは不可能だが、4プロセスなら \\(OM(1)\\) が2ラウンドで合意を実現する。なお、commander と lieutenant が1人ずつの2プロセス指令問題は IC1 が自明になるため、原論文も下界の例外としている。偽造不能な署名を仮定する written messages model は A4 と \\(SM(m)\\) を使う別モデルであり、\\(n>3f\\) の閾値は適用しない。□
 
 #### FLP 不可能性定理
 
@@ -625,6 +645,7 @@ P +_p Q：確率 p で P、確率 1-p で Q を選択
 - **標準**: Nancy A. Lynch, 『Distributed Algorithms』. 分散アルゴリズム、不可能性、正当性証明の標準的な参照先です。
 - **並列実装**: Maurice Herlihy, Nir Shavit, 『The Art of Multiprocessor Programming』. 共有メモリ並行性と lock-free / wait-free の設計感覚を補えます。
 - **相互排除**: Leslie Lamport, [A New Solution of Dijkstra's Concurrent Programming Problem](https://lamport.azurewebsites.net/pubs/bakery.pdf). ベーカリーアルゴリズムの原論文で、番号選択区間と相互排除の不変条件を確認できます。
+- **Byzantine 合意**: Leslie Lamport, Robert Shostak, Marshall Pease, [The Byzantine Generals Problem](https://lamport.azurewebsites.net/pubs/byz.pdf). oral messages の A1〜A3、\\(OM(m)\\)、\\(n>3f\\) の必要十分性を確認できます。
 - **検証**: Christel Baier, Joost-Pieter Katoen, 『Principles of Model Checking』. 状態遷移系とモデル検査の側面を深めたい読者向けです。
 - **過程代数**: Robin Milner, 『Communication and Concurrency』. CCS 系の見方を原典に近い形で確認できます。
 - **出典メモ**: Lamport の論理時計、Fischer–Lynch–Paterson の不可能性結果は、本章の分散・並行計算の見取り図を支える古典です。モデルによって何が可能で何が不可能かを切り分ける姿勢が重要です。

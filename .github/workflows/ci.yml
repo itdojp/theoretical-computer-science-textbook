@@ -75,6 +75,9 @@ jobs:
       - name: Check stable exercise and Appendix C references
         run: npm run check:exercises
 
+      - name: Check theorem assumptions and proof directions
+        run: npm run check:theorems
+
       - name: Check navigation covers published pages
         run: python3 scripts/check_navigation_coverage.py
 

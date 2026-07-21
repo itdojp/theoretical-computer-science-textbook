@@ -238,6 +238,7 @@ Rivest
 Rosen
 Sedgewick
 Shavit
+Shostak
 Sipser
 Tardos
 Thomas
