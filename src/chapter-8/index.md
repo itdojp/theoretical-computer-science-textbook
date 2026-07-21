@@ -594,6 +594,7 @@ Gale-Shapley(男性の選好, 女性の選好):
 - **標準**: Adrian Bondy, U. S. R. Murty, 『Graph Theory』. グラフ理論の基本概念から定理までを整理して復習できます。
 - **ネットワーク**: Ravindra K. Ahuja, Thomas L. Magnanti, James B. Orlin, 『Network Flows』. 最短路・最大流・最小費用流を体系的に深掘りしたい読者向けです。
 - **アルゴリズム**: Jon Kleinberg, Éva Tardos, 『Algorithm Design』. グラフ問題の設計判断と実用上の典型例を追いやすい標準書です。
+- **平面双対**: John H. Reif, “Minimum s-t Cut of a Planar Undirected Network in O(n log^2 n) Time,” *SIAM Journal on Computing* 12(1), 1983, Sections 2.4 and 3（[原論文PDF](https://users.cs.duke.edu/~reif/paper/stcut.pdf)、DOI: 10.1137/0212005）. 同一face上の端点に対する補助辺とdual shortest pathの対応を確認できます。
 - **出典メモ**: 最短路では Dijkstra、フローでは Ford–Fulkerson 系の古典的結果が核になります。本章ではそれらを現代的な計算量評価と実装上の前提条件に接続しています。
 - **次の一歩**: グラフ上の性質を論理で記述して検証したい場合は第9章へ進んでください。分散ネットワークや状態遷移系の応用像を見たい場合は第12章と往復すると見通しが良くなります。
 ## 章末問題
@@ -634,9 +635,17 @@ Gale-Shapley(男性の選好, 女性の選好):
 
 ### 発展問題
 
-5. <span id="exq-ch8-005"></span>プラナーグラフの双対グラフについて：
-   (a) 双対グラフの定義と性質を述べよ
-   (b) 最短路と最小カットの双対性を説明せよ
+5. <span id="exq-ch8-005"></span>次の条件を固定する。\(G=(V,E)\) は**連結な無向plane graph**
+   （固定された平面埋め込みを持つグラフ）、各辺 \(e\) のedge capacity \(c(e)\) は非負であり、
+   異なる頂点 \(s,t\) は同一faceの境界上にある。
+   (a) 埋め込みに対するdual graph \(G^{\ast}\) を定義し、橋と平行辺が双対でどう表されるか述べよ。
+   (b) \(s,t\) が接するface内に補助辺 \(e_0=(s,t)\) を交差なく追加する。この辺が元のfaceを
+   \(f_L,f_R\) に分けるとする。拡張後のdual graphから \(e_0^{\ast}\) を削除し、元の各辺に対して
+   \(w(e^{\ast})=c(e)\) と置いたとき、minimum \(s\)-\(t\) cutの容量が \(f_L\)-\(f_R\)
+   shortest pathの重みに等しいことを、両方向の対応を示して証明せよ。この設問ではshortest path版だけを証明し、
+   一般の埋め込みで現れるminimum separating cycleとは区別すること。
+   (c) 4-cycle \(s-a-t-b-s\) を固定埋め込みし、容量を順に \(2,3,1,4\) とした例で、
+   primal cutとdual pathの値を手計算せよ。
 
 - **詳細解答**: [付録Cの対応解答](../appendices/c/#ex-sol-ch8-005)
 

@@ -102,6 +102,116 @@ BAKERY_SOLUTION_REQUIREMENTS: dict[str, tuple[str, ...]] = {
     ),
 }
 
+PLANAR_DUAL_QUESTION_REQUIREMENTS: dict[str, tuple[str, ...]] = {
+    "fixed undirected plane model": (
+        "連結な無向plane graph",
+        "固定された平面埋め込み",
+        "edge capacity \\(c(e)\\) は非負",
+        "同一faceの境界上",
+    ),
+    "auxiliary-edge construction": (
+        "補助辺 \\(e_0=(s,t)\\)",
+        "\\(f_L,f_R\\)",
+        "\\(e_0^{\\ast}\\) を削除",
+    ),
+    "unique path theorem": (
+        "\\(w(e^{\\ast})=c(e)\\)",
+        "minimum \\(s\\)-\\(t\\) cut",
+        "\\(f_L\\)-\\(f_R\\)",
+        "shortest path版だけを証明",
+        "minimum separating cycleとは区別",
+    ),
+    "worked example": (
+        "4-cycle \\(s-a-t-b-s\\)",
+        "容量を順に \\(2,3,1,4\\)",
+        "primal cutとdual pathの値を手計算",
+    ),
+}
+
+PLANAR_DUAL_SOLUTION_REQUIREMENTS: dict[str, tuple[str, ...]] = {
+    "proof structure": (
+        "#### 前提と構成",
+        "#### cutからdual pathへ",
+        "#### dual pathからcutへ",
+        "#### 容量と重みの一致",
+        "#### 4-cycleでの手計算",
+        "#### 成立範囲",
+    ),
+    "fixed undirected plane model": (
+        "連結な無向plane graph",
+        "平面埋め込みを固定",
+        "\\(c(e)\\ge 0\\)",
+        "同一face \\(f_0\\) の",
+        "fixed embedding",
+    ),
+    "dual definition": (
+        "primalの各faceを1頂点",
+        "橋は同じfaceの両側に接する",
+        "self-loop",
+        "平行辺も許す",
+    ),
+    "auxiliary-edge construction": (
+        "補助辺 \\(e_0=(s,t)\\)",
+        "\\(f_L,f_R\\)",
+        "\\(H=\\widehat{G}^{\\ast}-e_0^{\\ast}\\)",
+        "\\(w(e^{\\ast})=c(e)\\)",
+    ),
+    "cut-to-path proof": (
+        "包含関係について極小",
+        "\\(C\\) はbond",
+        "bond--cycle duality",
+        "\\(C^{\\ast}\\cup\\{e_0^{\\ast}\\}\\)",
+        "\\(f_L\\)-\\(f_R\\) path",
+    ),
+    "path-to-cut proof": (
+        "shortest \\(f_L\\)-\\(f_R\\) path",
+        "simpleに選べる",
+        "Jordan curve theorem",
+        "\\(s\\) と \\(t\\) は異なる領域",
+        "\\(s\\)-\\(t\\) cut",
+    ),
+    "capacity preservation": (
+        "w(P)=\\sum_{e^{\\ast}\\in P}w(e^{\\ast})",
+        "=\\sum_{e\\in C_P}c(e)=c(C_P)",
+        "最適値は互いを上から抑え",
+    ),
+    "worked example": (
+        "\\(c(sa),c(at),c(tb),c(bs))=(2,3,1,4)\\)",
+        "\\min(2,3)+\\min(1,4)=2+1=3",
+        "capacity \\(6,7,3,4\\)",
+        "\\(\\delta(\\{s,b\\})=\\{sa,bt\\}\\)",
+        "capacity 3",
+    ),
+    "scope boundary": (
+        "固定された2つのdual face",
+        "minimum separating cycle",
+        "単一の既知face対に対するshortest pathと無条件に同一視してはならない",
+        "cofacialな無向の場合だけ",
+        "higher-genus surface",
+    ),
+    "primary source and extension boundary": (
+        "Reif (1983) Section 3, Theorem 2",
+        "https://users.cs.duke.edu/~reif/paper/stcut.pdf",
+        "正のcost",
+        "非負capacityへの拡張",
+    ),
+}
+
+# Appendix C writes TeX delimiters and commands with two literal backslashes,
+# unlike chapter questions, which use one.  Normalize the contract snippets to
+# the canonical Appendix C source representation without weakening exact-match
+# checks.
+PLANAR_DUAL_SOLUTION_REQUIREMENTS = {
+    requirement: tuple(snippet.replace("\\", "\\\\") for snippet in snippets)
+    for requirement, snippets in PLANAR_DUAL_SOLUTION_REQUIREMENTS.items()
+}
+
+PLANAR_DUAL_FORBIDDEN_SNIPPETS = (
+    "最短路/最小閉路",
+    "shortest path/minimum cycle",
+    "任意のplanar graphで",
+)
+
 LEGACY_CHAPTER_ALIASES: dict[int, tuple[str, ...]] = {
     1: (
         "1-集合演算を実装せよ",
@@ -465,6 +575,87 @@ def validate_bakery_solution_contract(solutions: list[AppendixSolution]) -> list
     return errors
 
 
+def validate_planar_dual_exercise_contract(
+    questions: list[ExerciseQuestion], solutions: list[AppendixSolution]
+) -> list[str]:
+    """Guard Exercise 8.5's fixed-embedding shortest-path theorem contract."""
+    matching_questions = [
+        question
+        for question in questions
+        if (question.chapter, question.display_number) == (8, 5)
+    ]
+    matching_solutions = [
+        solution for solution in solutions if (solution.chapter, solution.number) == (8, 5)
+    ]
+    errors: list[str] = []
+    if not matching_questions:
+        errors.append("練習問題8.5 planar-dual contract lacks its chapter question")
+    if not matching_solutions:
+        errors.append("練習問題8.5 planar-dual contract lacks its Appendix C solution")
+
+    for label, rows, requirements in (
+        ("question", matching_questions, PLANAR_DUAL_QUESTION_REQUIREMENTS),
+        ("solution", matching_solutions, PLANAR_DUAL_SOLUTION_REQUIREMENTS),
+    ):
+        if not rows:
+            continue
+        row = rows[0]
+        for requirement, snippets in requirements.items():
+            missing = [snippet for snippet in snippets if snippet not in row.block]
+            if missing:
+                errors.append(
+                    f"line {row.line}: 練習問題8.5 planar-dual {label} contract is missing "
+                    f"requirement {requirement!r}: {missing}"
+                )
+        for snippet in PLANAR_DUAL_FORBIDDEN_SNIPPETS:
+            if snippet in row.block:
+                errors.append(
+                    f"line {row.line}: 練習問題8.5 planar-dual {label} contract contains "
+                    f"ambiguous or overbroad wording {snippet!r}"
+                )
+    return errors
+
+
+def validate_planar_dual_four_cycle_example() -> list[str]:
+    """Check the concrete primal-cut and dual-path values used in Exercise 8.5."""
+    vertices = ("s", "a", "t", "b")
+    capacities = {
+        frozenset(("s", "a")): 2,
+        frozenset(("a", "t")): 3,
+        frozenset(("t", "b")): 1,
+        frozenset(("b", "s")): 4,
+    }
+    cut_values: list[int] = []
+    for mask in range(1 << len(vertices)):
+        side = {vertices[index] for index in range(len(vertices)) if mask & (1 << index)}
+        if "s" not in side or "t" in side:
+            continue
+        cut_values.append(
+            sum(
+                capacity
+                for endpoints, capacity in capacities.items()
+                if len(endpoints & side) == 1
+            )
+        )
+
+    primal_minimum = min(cut_values)
+    dual_shortest_path = min(2, 3) + min(1, 4)
+    errors: list[str] = []
+    if sorted(cut_values) != [3, 4, 6, 7]:
+        errors.append(f"planar-dual 4-cycle cut values changed: {sorted(cut_values)}")
+    if primal_minimum != 3:
+        errors.append(f"planar-dual 4-cycle primal minimum must be 3, got {primal_minimum}")
+    if dual_shortest_path != 3:
+        errors.append(
+            f"planar-dual 4-cycle dual shortest path must be 3, got {dual_shortest_path}"
+        )
+    if primal_minimum != dual_shortest_path:
+        errors.append(
+            "planar-dual 4-cycle primal minimum and dual shortest path must agree"
+        )
+    return errors
+
+
 def _advance_bakery_process(state: BakeryModelState, pid: int) -> BakeryModelState | None:
     """Advance one atomic SC action; return None while a process is waiting or done."""
     other = 1 - pid
@@ -646,6 +837,8 @@ def check_repository(
     errors.extend(validate_cross_references(questions, solutions))
     errors.extend(validate_bakery_solution_contract(solutions))
     errors.extend(validate_bakery_two_process_interleavings())
+    errors.extend(validate_planar_dual_exercise_contract(questions, solutions))
+    errors.extend(validate_planar_dual_four_cycle_example())
     errors.extend(validate_index(index_path, questions))
     if site_root is not None:
         errors.extend(validate_html(site_root, questions, solutions))

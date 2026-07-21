@@ -15,6 +15,9 @@ from check_appendix_c_consistency import (  # noqa: E402
     BAKERY_SOLUTION_REQUIREMENTS,
     LEGACY_APPENDIX_ALIASES,
     LEGACY_CHAPTER_ALIASES,
+    PLANAR_DUAL_FORBIDDEN_SNIPPETS,
+    PLANAR_DUAL_QUESTION_REQUIREMENTS,
+    PLANAR_DUAL_SOLUTION_REQUIREMENTS,
     check_repository,
     collect_appendix_solutions,
     validate_bakery_solution_contract,
@@ -22,8 +25,10 @@ from check_appendix_c_consistency import (  # noqa: E402
     validate_cross_references,
     validate_html,
     validate_index,
+    validate_planar_dual_exercise_contract,
+    validate_planar_dual_four_cycle_example,
 )
-from exercise_references import ExerciseQuestion  # noqa: E402
+from exercise_references import ExerciseQuestion, collect_chapter_questions  # noqa: E402
 
 
 def _question(
@@ -84,6 +89,26 @@ def _write_repository_fixture(root: Path) -> tuple[Path, Path, Path, Path, Path,
             f'<span id="{alias}"></span>'
             for alias in LEGACY_CHAPTER_ALIASES.get(chapter, ())
         )
+        if chapter == 8:
+            for number in range(2, 5):
+                chapter_text += f"""
+
+{number}. <span id="exq-ch8-{number:03d}"></span>第8章のfixture問題{number}
+
+- **詳細解答**: [付録Cの対応解答](../appendices/c/#ex-sol-ch8-{number:03d})
+"""
+            question_contract = "\n".join(
+                snippet
+                for snippets in PLANAR_DUAL_QUESTION_REQUIREMENTS.values()
+                for snippet in snippets
+            )
+            chapter_text += f"""
+
+5. <span id="exq-ch8-005"></span>平面双対の契約fixture
+{question_contract}
+
+- **詳細解答**: [付録Cの対応解答](../appendices/c/#ex-sol-ch8-005)
+"""
         for source_root in (docs_root, src_root):
             path = source_root / f"chapter-{chapter}" / "index.md"
             path.parent.mkdir(parents=True, exist_ok=True)
@@ -104,6 +129,39 @@ def _write_repository_fixture(root: Path) -> tuple[Path, Path, Path, Path, Path,
 解答本文。
 """
         )
+        if chapter == 8:
+            for number in range(2, 5):
+                appendix_parts[-1] += f"""
+
+<span id="ex-sol-ch8-{number:03d}"></span>
+### 練習問題8.{number}
+
+**問題**: 第8章のfixture問題{number}
+
+**元問題**: [第8章 問題{number}]({{{{ '/chapter-8/' | relative_url }}}}#exq-ch8-{number:03d})
+
+**解答種別**: 詳細解答
+
+解答本文。
+"""
+            solution_contract = "\n".join(
+                snippet
+                for snippets in PLANAR_DUAL_SOLUTION_REQUIREMENTS.values()
+                for snippet in snippets
+            )
+            appendix_parts[-1] += f"""
+
+<span id="ex-sol-ch8-005"></span>
+### 練習問題8.5
+
+**問題**: 平面双対の契約fixture
+
+**元問題**: [第8章 問題5]({{{{ '/chapter-8/' | relative_url }}}}#exq-ch8-005)
+
+**解答種別**: 詳細解答
+
+{solution_contract}
+"""
         index_items.append(
             {
                 "id": question_id,
@@ -111,6 +169,25 @@ def _write_repository_fixture(root: Path) -> tuple[Path, Path, Path, Path, Path,
                 "url": f"/theoretical-computer-science-textbook/chapter-{chapter}/#{question_id}",
             }
         )
+        if chapter == 8:
+            for number in range(2, 5):
+                index_items.append(
+                    {
+                        "id": f"exq-ch8-{number:03d}",
+                        "kind": "exercise",
+                        "url": (
+                            "/theoretical-computer-science-textbook/chapter-8/"
+                            f"#exq-ch8-{number:03d}"
+                        ),
+                    }
+                )
+            index_items.append(
+                {
+                    "id": "exq-ch8-005",
+                    "kind": "exercise",
+                    "url": "/theoretical-computer-science-textbook/chapter-8/#exq-ch8-005",
+                }
+            )
 
         html = site_root / f"chapter-{chapter}" / "index.html"
         html.parent.mkdir(parents=True, exist_ok=True)
@@ -119,6 +196,12 @@ def _write_repository_fixture(root: Path) -> tuple[Path, Path, Path, Path, Path,
             f'<span id="{alias}"></span>'
             for alias in LEGACY_CHAPTER_ALIASES.get(chapter, ())
         )
+        if chapter == 8:
+            chapter_html.extend(
+                f'<p id="exq-ch8-{number:03d}">問題</p>'
+                for number in range(2, 5)
+            )
+            chapter_html.append('<p id="exq-ch8-005">問題</p>')
         html.write_text("\n".join(chapter_html), encoding="utf-8")
 
     appendix_text = "\n".join(appendix_parts) + "\n" + "\n".join(
@@ -139,6 +222,8 @@ def _write_repository_fixture(root: Path) -> tuple[Path, Path, Path, Path, Path,
         "\n".join(
             [
                 *(f'<span id="ex-sol-ch{chapter}-001"></span>' for chapter in range(1, 13)),
+                *(f'<span id="ex-sol-ch8-{number:03d}"></span>' for number in range(2, 5)),
+                '<span id="ex-sol-ch8-005"></span>',
                 *(f'<span id="{alias}"></span>' for alias in sorted(LEGACY_APPENDIX_ALIASES)),
             ]
         ),
@@ -260,6 +345,122 @@ def test_bakery_solution_contract_rejects_each_missing_obligation(
 
 def test_two_process_bakery_model_covers_races_without_mutual_exclusion_violation() -> None:
     assert validate_bakery_two_process_interleavings() == []
+
+
+def _planar_dual_question(block: str) -> ExerciseQuestion:
+    return ExerciseQuestion(
+        8,
+        5,
+        "発展問題",
+        "exq-ch8-005",
+        "平面双対",
+        block,
+        200,
+        "list",
+    )
+
+
+def _planar_dual_solution(block: str) -> AppendixSolution:
+    return AppendixSolution(
+        8,
+        5,
+        "ex-sol-ch8-005",
+        "exq-ch8-005",
+        "第8章 問題5（発展）",
+        "",
+        "詳細解答",
+        block,
+        300,
+    )
+
+
+def _production_planar_dual_rows() -> tuple[ExerciseQuestion, AppendixSolution]:
+    questions, question_errors = collect_chapter_questions(
+        (ROOT / "docs" / "chapter-8" / "index.md").read_text(encoding="utf-8"),
+        8,
+    )
+    solutions, solution_errors = collect_appendix_solutions(
+        (ROOT / "docs" / "appendices" / "c.md").read_text(encoding="utf-8")
+    )
+    assert question_errors == []
+    assert solution_errors == []
+    question = next(
+        row for row in questions if (row.chapter, row.display_number) == (8, 5)
+    )
+    solution = next(row for row in solutions if (row.chapter, row.number) == (8, 5))
+    return question, solution
+
+
+def test_planar_dual_contract_accepts_production_exercise() -> None:
+    question, solution = _production_planar_dual_rows()
+
+    assert validate_planar_dual_exercise_contract([question], [solution]) == []
+
+
+def test_planar_dual_contract_requires_question_and_solution_presence() -> None:
+    errors = validate_planar_dual_exercise_contract([], [])
+
+    assert any("lacks its chapter question" in error for error in errors)
+    assert any("lacks its Appendix C solution" in error for error in errors)
+
+
+@pytest.mark.parametrize(
+    ("requirement", "snippet"),
+    [
+        (requirement, snippet)
+        for requirement, snippets in PLANAR_DUAL_QUESTION_REQUIREMENTS.items()
+        for snippet in snippets
+    ],
+)
+def test_planar_dual_question_contract_rejects_each_missing_obligation(
+    requirement: str, snippet: str
+) -> None:
+    question, solution = _production_planar_dual_rows()
+    assert snippet in question.block
+    weakened = question.block.replace(snippet, "")
+
+    errors = validate_planar_dual_exercise_contract(
+        [_planar_dual_question(weakened)], [solution]
+    )
+
+    assert any(f"requirement {requirement!r}" in error for error in errors)
+
+
+@pytest.mark.parametrize(
+    ("requirement", "snippet"),
+    [
+        (requirement, snippet)
+        for requirement, snippets in PLANAR_DUAL_SOLUTION_REQUIREMENTS.items()
+        for snippet in snippets
+    ],
+)
+def test_planar_dual_solution_contract_rejects_each_missing_obligation(
+    requirement: str, snippet: str
+) -> None:
+    question, solution = _production_planar_dual_rows()
+    assert snippet in solution.block
+    weakened = solution.block.replace(snippet, "")
+
+    errors = validate_planar_dual_exercise_contract(
+        [question], [_planar_dual_solution(weakened)]
+    )
+
+    assert any(f"requirement {requirement!r}" in error for error in errors)
+
+
+@pytest.mark.parametrize("forbidden", PLANAR_DUAL_FORBIDDEN_SNIPPETS)
+def test_planar_dual_contract_rejects_ambiguous_or_overbroad_wording(forbidden: str) -> None:
+    question, solution = _production_planar_dual_rows()
+
+    errors = validate_planar_dual_exercise_contract(
+        [_planar_dual_question(question.block + "\n" + forbidden)], [solution]
+    )
+
+    assert any(repr(forbidden) in error for error in errors)
+
+
+def test_planar_dual_four_cycle_example_matches_primal_and_dual_values() -> None:
+    assert validate_planar_dual_four_cycle_example() == []
 
 
 def test_reciprocal_type_must_be_on_the_link_to_that_solution() -> None:

@@ -6254,7 +6254,7 @@
       "url": "/theoretical-computer-science-textbook/chapter-8/#exq-ch8-004"
     },
     {
-      "excerpt": "プラナーグラフの双対グラフについて：",
+      "excerpt": "次の条件を固定する。\\(G=(V,E)\\) は連結な無向plane graph",
       "id": "exq-ch8-005",
       "kind": "exercise",
       "label": "章末問題",
