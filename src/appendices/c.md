@@ -1604,18 +1604,99 @@ rank(x):
 
 **解答種別**: 詳細解答
 
-**問題**: プラナーグラフの双対グラフの定義と、最短路と最小カットの双対性を説明せよ。
+**問題**: 固定された平面埋め込みを持つ連結な無向plane graphで、同一faceの境界上にある
+\\(s,t\\) のminimum cutをdual shortest pathとして求めるための条件、構成、証明を示せ。
 
-**解答**（概要）:
+**解答**:
 
-(a) 双対グラフ \\(G^{\\ast}\\)：
-- 平面埋め込みされた連結平面グラフ G の各面（face）を \\(G^{\\ast}\\) の頂点とする
-- G の各辺 e は、隣接する2面 f,g を分けるので、\\(G^{\\ast}\\) に辺 \\(e^{\\ast}\\)（f と g を結ぶ）を置く
-  - 境界に接する場合も含め、埋め込みに依存する点に注意
+#### 前提と構成
 
-(b) 双対性（代表例）：
-- 平面グラフにおける s-t カットは、双対では「s と t を分離する閉路」に対応する  
-- 辺重みを保って双対に移すと、**最小 s-t カット**が**双対グラフ上の最短路/最小閉路**に対応する（埋め込み上の対応付けが必要）
+\\(G=(V,E)\\) を連結な無向plane graphとし、その平面埋め込みを固定する。各辺
+\\(e\\) のcapacityは \\(c(e)\\ge 0\\) であり、異なる頂点 \\(s,t\\) は同一face \\(f_0\\) の
+境界上にあると仮定する。「planar graphである」だけではdualは一意に定まらないため、fixed embeddingは
+定理のデータの一部である。
+
+埋め込みに対するdual graph \\(G^{\\ast}\\) は、primalの各faceを1頂点とし、primal edge \\(e\\) が
+接する2つのfaceをdual edge \\(e^{\\ast}\\) で結んで得る。橋は同じfaceの両側に接するためdualでは
+self-loopとなり、primalまたはdualの平行辺も許す。
+
+\\(f_0\\) の内部に補助辺 \\(e_0=(s,t)\\) を交差なく描き、拡張したplane graphを \\(\\widehat{G}\\) とする。
+\\(e_0\\) は \\(f_0\\) を2つのface \\(f_L,f_R\\) に分ける。\\(\\widehat{G}\\) のdualから
+\\(e_0^{\\ast}\\) を削除したグラフを \\(H=\\widehat{G}^{\\ast}-e_0^{\\ast}\\) とし、元の各辺
+\\(e\\in E\\) に対応するdual edgeへ
+
+\\[
+w(e^{\\ast})=c(e)
+\\]
+
+を割り当てる。ここで証明する主張は一意に、
+
+\\[
+\\min_{s\\in S,\\ t\\notin S} c(\\delta_G(S))
+=\\operatorname{dist}_{H}(f_L,f_R)
+\\]
+
+という**minimum \\(s\\)-\\(t\\) cutと \\(f_L\\)-\\(f_R\\) shortest pathの対応**である。
+
+#### cutからdual pathへ
+
+非負capacityのminimum \\(s\\)-\\(t\\) cutのうち、包含関係について極小な辺集合 \\(C\\) を選ぶ。
+\\(C\\) はbondであり、\\(G-C\\) の \\(s\\) 側と \\(t\\) 側はそれぞれ連結である。
+拡張グラフ \\(\\widehat{G}\\) では \\(C\\cup\\{e_0\\}\\) がbondなので、plane graphの
+bond--cycle dualityにより、対応するdual edge集合
+\\(C^{\\ast}\\cup\\{e_0^{\\ast}\\}\\) は \\(\\widehat{G}^{\\ast}\\) のsimple cycleになる。
+このcycleから \\(e_0^{\\ast}\\) を除くと、\\(H\\) の \\(f_L\\)-\\(f_R\\) path \\(P\\) を得る。
+
+#### dual pathからcutへ
+
+逆に、非負weightなので \\(H\\) のshortest \\(f_L\\)-\\(f_R\\) path \\(P\\) はsimpleに選べる。
+\\(P\\cup\\{e_0^{\\ast}\\}\\) はdualのsimple cycleであり、Jordan curve theoremにより平面を
+2領域に分ける。補助辺 \\(e_0\\) がこのcycleと交差するため、\\(s\\) と \\(t\\) は異なる領域にある。
+したがって、\\(P\\) の各dual edgeに対応するprimal edge集合 \\(C_P\\) は \\(s\\)-\\(t\\) cutである。
+この2方向から、minimum cutとshortest pathの最適値は互いを上から抑え、等しくなる。
+
+#### 容量と重みの一致
+
+対応する辺ごとに \\(w(e^{\\ast})=c(e)\\) と定義したので、上の対応では
+
+\\[
+w(P)=\\sum_{e^{\\ast}\\in P}w(e^{\\ast})
+=\\sum_{e\\in C_P}c(e)=c(C_P)
+\\]
+
+が成り立つ。したがって、dual shortest pathの距離はprimal minimum cutのcapacityそのものである。
+
+#### 4-cycleでの手計算
+
+4-cycleを時計回りに \\(s-a-t-b-s\\) と埋め込み、
+\\(c(sa),c(at),c(tb),c(bs))=(2,3,1,4)\\) とする。\\(e_0=(s,t)\\) を外側のfaceへ追加すると、
+dualでは \\(f_L\\) から内側のface \\(f_I\\) まで重み2と3の平行辺、\\(f_I\\) から
+\\(f_R\\) まで重み1と4の平行辺を得る。よってshortest pathの重みは
+
+\\[
+\\min(2,3)+\\min(1,4)=2+1=3
+\\]
+
+である。primal側の4つの候補cutは、\\(S=\\{s\\},\\{s,a\\},\\{s,b\\},\\{s,a,b\\}\\) の順に
+capacity \\(6,7,3,4\\) を持つ。したがって \\(\\delta(\\{s,b\\})=\\{sa,bt\\}\\) がcapacity 3の
+minimum cutであり、dual pathが選ぶ重み2の \\(sa\\) と重み1の \\(bt\\) に辺ごとに対応する。
+
+#### 成立範囲
+
+ここでshortest pathと言えるのは、\\(s,t\\) が同一faceの境界上にあり、補助辺
+\\(e_0\\) によって分かれた**固定された2つのdual face \\(f_L,f_R\\)**を端点にできるからである。
+この前提を外した一般のplane graphでは、cut側の表現は \\(s,t\\) を分離するminimum separating cycleであり、
+単一の既知face対に対するshortest pathと無条件に同一視してはならない。本問はcofacialな無向の場合だけを扱い、
+directed planar flow、一般のminimum separating cycleアルゴリズム、higher-genus surfaceへの一般化は対象外とする。
+
+#### 出典と拡張の境界
+
+この補助辺によるcost-preservingなcut--path対応は、Reif (1983) Section 3, Theorem 2の
+\\((s,t)\\)-planar networkに対する定式化に基づく（[原論文PDF](https://users.cs.duke.edu/~reif/paper/stcut.pdf)、
+DOI: 10.1137/0212005）。
+同論文の定理は正のcostを仮定する。本解答で用いた非負capacityへの拡張は、0-weight edgeがあっても
+minimum cutから包含極小なものを、shortest walkからsimple pathを選べることによる。これは本文で明示した
+bond--cycleの議論から従う拡張であり、一次文献の定理文をそのまま引用した主張ではない。
 
 <span id="ex-sol-ch8-006"></span>
 ### 練習問題8.6（発展6）

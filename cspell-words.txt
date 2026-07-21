@@ -160,6 +160,7 @@ bisimulation
 cdcl
 ciphertext
 codomain
+cofacial
 coffman
 cofinite
 cryptosystem
@@ -234,6 +235,7 @@ Peled
 Pieter
 Pnueli
 Rajeev
+Reif
 Rivest
 Rosen
 Sedgewick
