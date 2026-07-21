@@ -4,15 +4,21 @@ import json
 import sys
 from pathlib import Path
 
+import pytest
 
-SCRIPTS = Path(__file__).resolve().parents[2] / "scripts"
+ROOT = Path(__file__).resolve().parents[2]
+SCRIPTS = ROOT / "scripts"
 sys.path.insert(0, str(SCRIPTS))
 
 from check_appendix_c_consistency import (  # noqa: E402
     AppendixSolution,
+    BAKERY_SOLUTION_REQUIREMENTS,
     LEGACY_APPENDIX_ALIASES,
     LEGACY_CHAPTER_ALIASES,
     check_repository,
+    collect_appendix_solutions,
+    validate_bakery_solution_contract,
+    validate_bakery_two_process_interleavings,
     validate_cross_references,
     validate_html,
     validate_index,
@@ -196,6 +202,64 @@ def test_cross_reference_validation_detects_misleading_source_label() -> None:
     )
 
     assert any("must identify 第1章 問題1" in error for error in errors)
+
+
+def _bakery_solution(block: str) -> AppendixSolution:
+    return AppendixSolution(
+        12,
+        4,
+        "ex-sol-ch12-004",
+        "exq-ch12-004",
+        "第12章 問題4（基礎）",
+        "",
+        "詳細解答",
+        block,
+        100,
+    )
+
+
+def _production_bakery_solution() -> AppendixSolution:
+    text = (ROOT / "docs" / "appendices" / "c.md").read_text(encoding="utf-8")
+    solutions, errors = collect_appendix_solutions(text)
+    assert errors == []
+    return next(solution for solution in solutions if (solution.chapter, solution.number) == (12, 4))
+
+
+def test_bakery_solution_contract_accepts_production_proof() -> None:
+    solution = _production_bakery_solution()
+
+    assert validate_bakery_solution_contract([solution]) == []
+
+
+def test_bakery_solution_contract_rejects_legacy_ticket_sketch() -> None:
+    solution = _production_bakery_solution()
+    errors = validate_bakery_solution_contract([_bakery_solution(solution.block + "\nticket[i]")])
+
+    assert any("not ticket[]" in error for error in errors)
+
+
+@pytest.mark.parametrize(
+    ("requirement", "snippet"),
+    [
+        (requirement, snippet)
+        for requirement, snippets in BAKERY_SOLUTION_REQUIREMENTS.items()
+        for snippet in snippets
+    ],
+)
+def test_bakery_solution_contract_rejects_each_missing_obligation(
+    requirement: str, snippet: str
+) -> None:
+    solution = _production_bakery_solution()
+    assert snippet in solution.block
+    weakened = solution.block.replace(snippet, "")
+
+    errors = validate_bakery_solution_contract([_bakery_solution(weakened)])
+
+    assert any(f"requirement {requirement!r}" in error for error in errors)
+
+
+def test_two_process_bakery_model_covers_races_without_mutual_exclusion_violation() -> None:
+    assert validate_bakery_two_process_interleavings() == []
 
 
 def test_reciprocal_type_must_be_on_the_link_to_that_solution() -> None:
