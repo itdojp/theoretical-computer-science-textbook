@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import json
 import re
+from collections import deque
 from dataclasses import dataclass
 from html.parser import HTMLParser
 from pathlib import Path
@@ -38,6 +39,68 @@ SOURCE_PART_TOKEN_RE = re.compile(r"\(([a-z])\)")
 RECIPROCAL_LINE_RE = re.compile(
     r"^-\s+\*\*(?:詳細解答|調査ガイド|参照実装)\*\*.*$", re.M
 )
+BAKERY_SOLUTION_REQUIREMENTS: dict[str, tuple[str, ...]] = {
+    "section structure": (
+        "#### 証明の前提と区間",
+        "#### 不変条件",
+        "#### 相互排除",
+        "#### `choosing[]` の役割",
+        "#### 2プロセスのinterleaving",
+    ),
+    "SC memory model": (
+        "逐次一貫性（sequential consistency, SC）",
+        "プログラム順序",
+        "単一の全順序",
+        "`number[i]` の書込み（2行目）は `choosing[i] = false`",
+    ),
+    "model boundary": (
+        "弱メモリ",
+        "release/acquire",
+        "原論文",
+        "SC下での安全性",
+    ),
+    "doorway and bakery definitions": (
+        "doorway（番号選択区間）",
+        "bakery（待機・実行区間）",
+        "choosing[i] = true",
+        "number[i] = 0",
+    ),
+    "ordering invariant": (
+        "L_i = (number[i], i)",
+        "厳密全順序",
+        "`L_i < L_j`",
+    ),
+    "mutual-exclusion contradiction": (
+        "同時にCSにいると仮定",
+        "`L_i < L_j`",
+        "`L_j < L_i`",
+        "非対称性",
+    ),
+    "choosing handoff": (
+        "choosing[j] = false",
+        "中間状態",
+        "number[j] = 0",
+        "要求なし",
+        "2つの待機の間",
+        "number[j] > number[i]",
+    ),
+    "same-number tie-break": (
+        "同じ番号",
+        "プロセスID",
+        "(1, 0) < (1, 1)",
+    ),
+    "two-process trace": (
+        "`P0`",
+        "`P1`",
+        "number[0] = 0",
+        "4行目で待つ",
+    ),
+    "scope and primary source": (
+        "starvation freedom",
+        "bounded waiting",
+        "https://lamport.azurewebsites.net/pubs/bakery.pdf",
+    ),
+}
 
 LEGACY_CHAPTER_ALIASES: dict[int, tuple[str, ...]] = {
     1: (
@@ -102,6 +165,16 @@ class AppendixSolution:
     solution_type: str
     block: str
     line: int
+
+
+@dataclass(frozen=True)
+class BakeryModelState:
+    """One-request, two-process state for the Chapter 12 SC interleaving check."""
+
+    pcs: tuple[int, int]
+    choosing: tuple[bool, bool]
+    numbers: tuple[int, int]
+    selected: tuple[int, int]
 
 
 class IdCollector(HTMLParser):
@@ -370,6 +443,105 @@ def validate_cross_references(
     return errors
 
 
+def validate_bakery_solution_contract(solutions: list[AppendixSolution]) -> list[str]:
+    """Guard the explicit proof obligations; mathematical review remains human-owned."""
+    bakery = [solution for solution in solutions if (solution.chapter, solution.number) == (12, 4)]
+    if not bakery:
+        return []
+
+    errors: list[str] = []
+    solution = bakery[0]
+    if "ticket[" in solution.block:
+        errors.append(
+            f"line {solution.line}: 練習問題12.4 must use the Chapter 12 number[] notation, not ticket[]"
+        )
+    for requirement, snippets in BAKERY_SOLUTION_REQUIREMENTS.items():
+        missing = [snippet for snippet in snippets if snippet not in solution.block]
+        if missing:
+            errors.append(
+                f"line {solution.line}: 練習問題12.4 proof contract is missing "
+                f"requirement {requirement!r}: {missing}"
+            )
+    return errors
+
+
+def _advance_bakery_process(state: BakeryModelState, pid: int) -> BakeryModelState | None:
+    """Advance one atomic SC action; return None while a process is waiting or done."""
+    other = 1 - pid
+    pc = state.pcs[pid]
+    pcs = list(state.pcs)
+    choosing = list(state.choosing)
+    numbers = list(state.numbers)
+    selected = list(state.selected)
+
+    if pc == 0:  # line 1
+        choosing[pid] = True
+    elif pc == 1:  # line 2: read max; the later write is a separate action
+        selected[pid] = max(numbers) + 1
+    elif pc == 2:  # line 2: publish the selected number
+        numbers[pid] = selected[pid]
+    elif pc == 3:  # line 3
+        choosing[pid] = False
+    elif pc == 4:  # line 4: wait for the other doorway
+        if choosing[other]:
+            return None
+    elif pc == 5:  # line 4: wait for no request or own lexicographic priority
+        if not (
+            numbers[other] == 0
+            or (numbers[pid], pid) < (numbers[other], other)
+        ):
+            return None
+    elif pc == 6:  # line 5: pc 6 is in-CS; this step completes and leaves the CS
+        pass
+    elif pc == 7:  # line 6
+        numbers[pid] = 0
+    else:
+        return None
+
+    pcs[pid] += 1
+    return BakeryModelState(tuple(pcs), tuple(choosing), tuple(numbers), tuple(selected))
+
+
+def validate_bakery_two_process_interleavings() -> list[str]:
+    """Exhaustively check the Chapter 12 two-process, one-request SC model."""
+    initial = BakeryModelState((0, 0), (False, False), (0, 0), (0, 0))
+    queue = deque([initial])
+    seen = {initial}
+    saw_equal_numbers = False
+    saw_choosing_wait = False
+    saw_priority_wait = False
+
+    while queue:
+        state = queue.popleft()
+        if state.pcs == (6, 6):
+            return ["two-process bakery model permits simultaneous critical-section entry"]
+
+        if state.numbers[0] == state.numbers[1] and state.numbers[0] > 0:
+            saw_equal_numbers = True
+        for pid in (0, 1):
+            other = 1 - pid
+            if state.pcs[pid] == 4 and state.choosing[other]:
+                saw_choosing_wait = True
+            if state.pcs[pid] == 5 and state.numbers[other] != 0 and not (
+                (state.numbers[pid], pid) < (state.numbers[other], other)
+            ):
+                saw_priority_wait = True
+
+            successor = _advance_bakery_process(state, pid)
+            if successor is not None and successor not in seen:
+                seen.add(successor)
+                queue.append(successor)
+
+    errors: list[str] = []
+    if not saw_equal_numbers:
+        errors.append("two-process bakery model did not cover the equal-number tie-break")
+    if not saw_choosing_wait:
+        errors.append("two-process bakery model did not cover waiting for choosing[]")
+    if not saw_priority_wait:
+        errors.append("two-process bakery model did not cover lexicographic-priority waiting")
+    return errors
+
+
 def validate_index(index_path: Path, questions: list[ExerciseQuestion]) -> list[str]:
     if not index_path.exists():
         return [f"missing exercise index: {index_path}"]
@@ -472,6 +644,8 @@ def check_repository(
     errors.extend(question_errors)
     errors.extend(solution_errors)
     errors.extend(validate_cross_references(questions, solutions))
+    errors.extend(validate_bakery_solution_contract(solutions))
+    errors.extend(validate_bakery_two_process_interleavings())
     errors.extend(validate_index(index_path, questions))
     if site_root is not None:
         errors.extend(validate_html(site_root, questions, solutions))

@@ -624,6 +624,7 @@ P +_p Q：確率 p で P、確率 1-p で Q を選択
 - **図版の再参照**: 本章の図をまとめて見返したいときは [付録H: 図版ガイドと図一覧](../appendices/h/) を参照してください。
 - **標準**: Nancy A. Lynch, 『Distributed Algorithms』. 分散アルゴリズム、不可能性、正当性証明の標準的な参照先です。
 - **並列実装**: Maurice Herlihy, Nir Shavit, 『The Art of Multiprocessor Programming』. 共有メモリ並行性と lock-free / wait-free の設計感覚を補えます。
+- **相互排除**: Leslie Lamport, [A New Solution of Dijkstra's Concurrent Programming Problem](https://lamport.azurewebsites.net/pubs/bakery.pdf). ベーカリーアルゴリズムの原論文で、番号選択区間と相互排除の不変条件を確認できます。
 - **検証**: Christel Baier, Joost-Pieter Katoen, 『Principles of Model Checking』. 状態遷移系とモデル検査の側面を深めたい読者向けです。
 - **過程代数**: Robin Milner, 『Communication and Concurrency』. CCS 系の見方を原典に近い形で確認できます。
 - **出典メモ**: Lamport の論理時計、Fischer–Lynch–Paterson の不可能性結果は、本章の分散・並行計算の見取り図を支える古典です。モデルによって何が可能で何が不可能かを切り分ける姿勢が重要です。
