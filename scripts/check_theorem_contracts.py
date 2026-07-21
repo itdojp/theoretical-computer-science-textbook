@@ -85,7 +85,9 @@ BYZANTINE_ALTERNATIVES: dict[str, tuple[str, ...]] = {
 }
 
 BYZANTINE_FORBIDDEN_PATTERNS: dict[str, str] = {
-    "n=3f described as possible": r"n\s*=\s*3f.{0,20}(?:でも|で).{0,20}(?<!不)可能",
+    "n=3f described as possible": (
+        r"n\s*=\s*3f(?!\s*\+).{0,20}(?:でも|で).{0,20}(?<!不)可能"
+    ),
     "OM(f) described as unnecessary": r"OM\(f\).{0,30}不要",
     "oral-message threshold applied to signed model": (
         r"(?:signed|written) messages model.{0,80}n\s*>\s*3f"

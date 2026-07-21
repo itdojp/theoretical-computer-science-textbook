@@ -114,6 +114,17 @@ def test_contract_rejects_explicit_contradictions(
     assert any(description in error for error in errors)
 
 
+def test_contract_allows_n_3f_plus_one_possible_wording() -> None:
+    text = _production_chapter().replace(
+        "#### FLP 不可能性定理",
+        r"\\(n=3f+1\\) でも合意可能である。" + "\n\n#### FLP 不可能性定理",
+    )
+
+    errors = validate_byzantine_theorem(text, source="chapter-12")
+
+    assert not any("n=3f described as possible" in error for error in errors)
+
+
 def test_contract_rejects_misordered_proof_blocks() -> None:
     text = _production_chapter()
     sufficiency_start = text.index("**十分性（")
