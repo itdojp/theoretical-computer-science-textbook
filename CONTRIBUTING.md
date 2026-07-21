@@ -52,6 +52,7 @@ python3 scripts/generate_index.py
 python3 scripts/generate_search_data.py --check
 python3 scripts/generate_index.py --check
 npm run check:exercises
+npm run check:theorems
 
 # 本文・ビルド検証
 python3 scripts/docs_regression_lint.py

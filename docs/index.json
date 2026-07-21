@@ -1790,11 +1790,11 @@
       "url": "/theoretical-computer-science-textbook/chapter-12/#def-12-9"
     },
     {
-      "excerpt": "合意が可能 \\\\(\\\\Leftrightarrow\\\\) \\\\(n > 3f\\\\)。認証付きメッセージや異なるネットワーク仮定では条件が変わる。",
+      "excerpt": "このモデルで IC1 と IC2 を満たす決定的な Byzantine 合意が可能であるための必要十分条件は、\\\\(n > 3f\\\\) である。",
       "id": "thm-12-3",
       "kind": "thm",
       "label": "定理",
-      "name": null,
+      "name": "oral messages",
       "number": "12.3",
       "page_title": "第12章 並行計算の理論",
       "page_url": "/theoretical-computer-science-textbook/chapter-12/",
